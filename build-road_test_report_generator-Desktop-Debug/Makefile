@@ -53,13 +53,17 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../road_test_report_generator/dialog.cpp \
+		../road_test_report_generator/entry.cpp \
 		../road_test_report_generator/main.cpp \
 		../road_test_report_generator/mainwindow.cpp moc_dialog.cpp \
+		moc_entry.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = dialog.o \
+		entry.o \
 		main.o \
 		mainwindow.o \
 		moc_dialog.o \
+		moc_entry.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -134,6 +138,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../road_test_report_generator/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -155,7 +160,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../road_test_report_generator/road_test_report_generator.pro ../road_test_report_generator/dialog.h \
+		../road_test_report_generator/entry.h \
 		../road_test_report_generator/mainwindow.h ../road_test_report_generator/dialog.cpp \
+		../road_test_report_generator/entry.cpp \
 		../road_test_report_generator/main.cpp \
 		../road_test_report_generator/mainwindow.cpp
 QMAKE_TARGET  = road_test_report_generator
@@ -166,7 +173,7 @@ TARGET        = road_test_report_generator
 first: all
 ####### Build rules
 
-road_test_report_generator: ui_dialog.h ui_mainwindow.h $(OBJECTS)  
+road_test_report_generator: ui_dialog.h ui_entry.h ui_mainwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../road_test_report_generator/road_test_report_generator.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -242,6 +249,7 @@ Makefile: ../road_test_report_generator/road_test_report_generator.pro /usr/lib/
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -337,6 +345,7 @@ Makefile: ../road_test_report_generator/road_test_report_generator.pro /usr/lib/
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -373,9 +382,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../road_test_report_generator/dialog.h ../road_test_report_generator/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../road_test_report_generator/dialog.cpp ../road_test_report_generator/main.cpp ../road_test_report_generator/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../road_test_report_generator/dialog.ui ../road_test_report_generator/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../road_test_report_generator/dialog.h ../road_test_report_generator/entry.h ../road_test_report_generator/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../road_test_report_generator/dialog.cpp ../road_test_report_generator/entry.cpp ../road_test_report_generator/main.cpp ../road_test_report_generator/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../road_test_report_generator/dialog.ui ../road_test_report_generator/entry.ui ../road_test_report_generator/mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -407,13 +416,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_dialog.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_dialog.cpp moc_entry.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dialog.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_dialog.cpp moc_entry.cpp moc_mainwindow.cpp
 moc_dialog.cpp: ../road_test_report_generator/dialog.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/nothing007/Documents/project/road-test-report-generator/build-road_test_report_generator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/nothing007/Documents/project/road-test-report-generator/road_test_report_generator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../road_test_report_generator/dialog.h -o moc_dialog.cpp
+
+moc_entry.cpp: ../road_test_report_generator/entry.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/nothing007/Documents/project/road-test-report-generator/build-road_test_report_generator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/nothing007/Documents/project/road-test-report-generator/road_test_report_generator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../road_test_report_generator/entry.h -o moc_entry.cpp
 
 moc_mainwindow.cpp: ../road_test_report_generator/mainwindow.h \
 		moc_predefs.h \
@@ -424,12 +438,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dialog.h ui_mainwindow.h
+compiler_uic_make_all: ui_dialog.h ui_entry.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dialog.h ui_mainwindow.h
+	-$(DEL_FILE) ui_dialog.h ui_entry.h ui_mainwindow.h
 ui_dialog.h: ../road_test_report_generator/dialog.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../road_test_report_generator/dialog.ui -o ui_dialog.h
+
+ui_entry.h: ../road_test_report_generator/entry.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../road_test_report_generator/entry.ui -o ui_entry.h
 
 ui_mainwindow.h: ../road_test_report_generator/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
@@ -449,15 +467,23 @@ dialog.o: ../road_test_report_generator/dialog.cpp ../road_test_report_generator
 		ui_dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../road_test_report_generator/dialog.cpp
 
+entry.o: ../road_test_report_generator/entry.cpp ../road_test_report_generator/entry.h \
+		ui_entry.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o entry.o ../road_test_report_generator/entry.cpp
+
 main.o: ../road_test_report_generator/main.cpp ../road_test_report_generator/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../road_test_report_generator/main.cpp
 
 mainwindow.o: ../road_test_report_generator/mainwindow.cpp ../road_test_report_generator/mainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../road_test_report_generator/dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../road_test_report_generator/mainwindow.cpp
 
 moc_dialog.o: moc_dialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialog.o moc_dialog.cpp
+
+moc_entry.o: moc_entry.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_entry.o moc_entry.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

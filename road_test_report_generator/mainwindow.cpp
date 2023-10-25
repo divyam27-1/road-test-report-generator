@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialog.h"
+#include "entry.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -19,5 +20,17 @@ void MainWindow::on_pushButton_clicked()
     Dialog dialog;
     dialog.setModal(true);
     dialog.exec();
+}
+
+
+void MainWindow::on_tabWidget_tabCloseRequested(int index)
+{
+    ui->tabWidget->removeTab(index);
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->tabWidget->addTab(new entry(),QString("Tab %0").arg(ui->tabWidget->count()+1));
 }
 
