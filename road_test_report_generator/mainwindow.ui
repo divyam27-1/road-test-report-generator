@@ -14,13 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="tab_list">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1681</width>
-      <height>771</height>
+      <width>1680</width>
+      <height>770</height>
      </rect>
     </property>
     <property name="tabPosition">
@@ -30,77 +30,31 @@
      <number>0</number>
     </property>
     <property name="tabsClosable">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
-    <widget class="QWidget" name="tab_1">
+    <widget class="QWidget" name="spc">
      <attribute name="title">
       <string>Specific Gravity</string>
      </attribute>
-     <widget class="QTabWidget" name="spc_gravity_tabs">
-      <property name="geometry">
-       <rect>
-        <x>-4</x>
-        <y>39</y>
-        <width>1411</width>
-        <height>731</height>
-       </rect>
-      </property>
-      <property name="currentIndex">
-       <number>3</number>
-      </property>
-      <widget class="QWidget" name="tab_1_1">
-       <attribute name="title">
-        <string>40MM</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_1_2">
-       <attribute name="title">
-        <string>20MM</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_1_3">
-       <attribute name="title">
-        <string>10MM</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_1_4">
-       <attribute name="title">
-        <string>Stone Dust</string>
-       </attribute>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>670</y>
-          <width>89</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>ADD</string>
-        </property>
-       </widget>
-      </widget>
-     </widget>
-     <widget class="QToolBox" name="info_toolBox">
+     <widget class="QToolBox" name="spc_info">
       <property name="geometry">
        <rect>
         <x>1410</x>
         <y>0</y>
-        <width>231</width>
-        <height>761</height>
+        <width>230</width>
+        <height>760</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="basic_info">
+      <widget class="QWidget" name="spc_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>231</width>
-         <height>699</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -124,7 +78,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit"/>
+          <widget class="QTextEdit" name="spc_bsc_1"/>
          </item>
          <item>
           <spacer name="side_socr_1">
@@ -147,7 +101,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_2"/>
+          <widget class="QTextEdit" name="spc_bsc_2"/>
          </item>
          <item>
           <spacer name="side_spcr_2">
@@ -170,7 +124,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_3">
+          <widget class="QTextEdit" name="spc_bsc_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -200,18 +154,18 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_4"/>
+          <widget class="QTextEdit" name="spc_bsc_4"/>
          </item>
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="exp_info">
+      <widget class="QWidget" name="spc_exp">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>231</width>
-         <height>699</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -241,9 +195,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateEdit">
+          <widget class="QDateEdit" name="spc_exp_1">
            <property name="displayFormat">
-            <string>dd/mm/yyyy</string>
+            <string>d/M/yyyy</string>
            </property>
           </widget>
          </item>
@@ -277,9 +231,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateEdit_2">
+          <widget class="QDateEdit" name="spc_exp_2">
            <property name="displayFormat">
-            <string>dd/mm/yyyy</string>
+            <string>d/M/yyyy</string>
            </property>
           </widget>
          </item>
@@ -318,7 +272,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QSpinBox" name="spinBox"/>
+            <widget class="QSpinBox" name="spc_exp_3"/>
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_8">
@@ -328,7 +282,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit"/>
+            <widget class="QLineEdit" name="spc_exp_4"/>
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_9">
@@ -338,7 +292,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLineEdit" name="lineEdit_2"/>
+            <widget class="QLineEdit" name="spc_exp_5"/>
            </item>
            <item row="6" column="0">
             <widget class="QLabel" name="label_10">
@@ -348,7 +302,7 @@
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QLineEdit" name="lineEdit_3"/>
+            <widget class="QLineEdit" name="spc_exp_6"/>
            </item>
            <item row="1" column="1">
             <spacer name="verticalSpacer_3">
@@ -404,18 +358,1289 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="spc_save">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>71</width>
+        <width>70</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
        <string>Save </string>
       </property>
+     </widget>
+     <widget class="QPushButton" name="spc_saveas">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save As...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="spc_export">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Export to PDF</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1410</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>1390</x>
+        <y>0</y>
+        <width>3</width>
+        <height>760</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="spc_frame_outer">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>1400</width>
+        <height>670</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QScrollBar" name="spc_data_scroll">
+       <property name="geometry">
+        <rect>
+         <x>1380</x>
+         <y>0</y>
+         <width>15</width>
+         <height>670</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QFrame" name="spc_frame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-590</y>
+         <width>1370</width>
+         <height>1260</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>730</width>
+          <height>60</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Specific Gravity and Water Absorption Test&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;40 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>255</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>320</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>190</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Sample in Water</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>255</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of SSD Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_23">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>320</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Oven Dry Sample</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w3_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>610</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w3_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>610</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_24">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>545</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_25">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>545</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of SSD Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_26">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>431</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 2</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w2_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>545</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_27">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>431</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>370</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;20 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w1_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>480</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_29">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>610</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Oven Dry Sample</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w3_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>610</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_30">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>480</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Sample in Water</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>430</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_32">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>610</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w1_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>480</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_33">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>431</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w2_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>545</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_34">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>431</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w1_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>480</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>480</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_20_w2_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>545</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_36">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_37">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>255</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_38">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>320</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_39">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>545</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_40">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>480</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_41">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>610</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_42">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>769</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_43">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>834</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of SSD Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_44">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>769</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Sample in Water</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_45">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>720</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 1</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w1_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>769</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w3_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>899</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_46">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>720</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w2_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>834</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w2_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>834</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w3_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>899</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_47">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>720</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_48">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>899</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Oven Dry Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_49">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>659</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;10 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_50">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>899</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_51">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>834</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w3_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>899</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w1_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>769</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w1_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>769</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_52">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>720</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_53">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>719</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_10_w2_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>834</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w2_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>1125</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_54">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>950</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;Stone Dust&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_55">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>1125</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of SSD Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_56">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>1011</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w3_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>1190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w1_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>1060</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_57">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>1190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w1_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>1060</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w1_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>1060</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w2_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>1125</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w3_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>1190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w3_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>1190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_58">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>1190</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Oven Dry Sample</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_0_w2_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>1125</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_59">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>1011</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_60">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>1060</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_61">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>1010</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_62">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>1125</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_63">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>1011</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_64">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>1011</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_65">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>1060</y>
+          <width>190</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight of Sample in Water</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_66">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>900</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_67">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>770</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_68">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>835</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_69">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>1190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_70">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>1060</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_71">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>1125</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2 (gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>141</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>141</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>140</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>141</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>141</y>
+          <width>42</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trial 2</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w1_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w2_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>255</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w3_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>320</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w2_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>255</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w3_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>320</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w1_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w2_t1">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>255</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w1_t2">
+        <property name="geometry">
+         <rect>
+          <x>575</x>
+          <y>190</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="spc_40_w3_t3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>320</y>
+          <width>142</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -518,6 +1743,58 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>spc_save</tabstop>
+  <tabstop>spc_saveas</tabstop>
+  <tabstop>spc_export</tabstop>
+  <tabstop>spc_40_w1_t1</tabstop>
+  <tabstop>spc_40_w1_t2</tabstop>
+  <tabstop>spc_40_w1_t3</tabstop>
+  <tabstop>spc_40_w2_t1</tabstop>
+  <tabstop>spc_40_w2_t2</tabstop>
+  <tabstop>spc_40_w2_t3</tabstop>
+  <tabstop>spc_40_w3_t1</tabstop>
+  <tabstop>spc_40_w3_t2</tabstop>
+  <tabstop>spc_40_w3_t3</tabstop>
+  <tabstop>spc_20_w1_t1</tabstop>
+  <tabstop>spc_20_w1_t2</tabstop>
+  <tabstop>spc_20_w1_t3</tabstop>
+  <tabstop>spc_20_w2_t1</tabstop>
+  <tabstop>spc_20_w2_t2</tabstop>
+  <tabstop>spc_20_w2_t3</tabstop>
+  <tabstop>spc_20_w3_t1</tabstop>
+  <tabstop>spc_20_w3_t2</tabstop>
+  <tabstop>spc_20_w3_t3</tabstop>
+  <tabstop>spc_10_w1_t1</tabstop>
+  <tabstop>spc_10_w1_t2</tabstop>
+  <tabstop>spc_10_w1_t3</tabstop>
+  <tabstop>spc_10_w2_t1</tabstop>
+  <tabstop>spc_10_w2_t2</tabstop>
+  <tabstop>spc_10_w2_t3</tabstop>
+  <tabstop>spc_10_w3_t1</tabstop>
+  <tabstop>spc_10_w3_t2</tabstop>
+  <tabstop>spc_10_w3_t3</tabstop>
+  <tabstop>spc_0_w1_t1</tabstop>
+  <tabstop>spc_0_w1_t2</tabstop>
+  <tabstop>spc_0_w1_t3</tabstop>
+  <tabstop>spc_0_w2_t1</tabstop>
+  <tabstop>spc_0_w2_t2</tabstop>
+  <tabstop>spc_0_w2_t3</tabstop>
+  <tabstop>spc_0_w3_t1</tabstop>
+  <tabstop>spc_0_w3_t2</tabstop>
+  <tabstop>spc_0_w3_t3</tabstop>
+  <tabstop>spc_exp_1</tabstop>
+  <tabstop>spc_exp_2</tabstop>
+  <tabstop>spc_exp_3</tabstop>
+  <tabstop>spc_exp_4</tabstop>
+  <tabstop>spc_exp_5</tabstop>
+  <tabstop>spc_exp_6</tabstop>
+  <tabstop>spc_bsc_1</tabstop>
+  <tabstop>spc_bsc_2</tabstop>
+  <tabstop>spc_bsc_3</tabstop>
+  <tabstop>spc_bsc_4</tabstop>
+  <tabstop>tab_list</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
