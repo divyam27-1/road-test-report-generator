@@ -43,6 +43,7 @@ void MainWindow::on_spc_save_clicked()
                                      ui->spc_bsc_2->toPlainText(),
                                      ui->spc_bsc_3->toPlainText(),
                                      ui->spc_bsc_4->toPlainText()};
+//    wrong sahi krenge kal ayush* sahu finding prlm in last stage;
     struct exp_info exp_info_ = {ui->spc_exp_1->date().toString(),
                                  ui->spc_exp_2->date().toString(),
                                  ui->spc_exp_3->text(),
@@ -102,3 +103,68 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         }
     }
 }
+
+void MainWindow::on_save_40mm_clicked()
+{
+    type_of_material _40mm;
+
+    //achha lagega:)
+    _40mm.Weight_of_sample_of_water[4][0] = 0;
+    _40mm.Weight_of_SSD_Sample[4][0] = 0;
+    _40mm.Weight_of_Oven_dry_sample[4][0] = 0;
+
+    _40mm.Weight_of_sample_of_water[4][1] = ui->spc_40_w1_t1->placeholderText();
+    _40mm.Weight_of_sample_of_water[4][2] = ui->spc_40_w1_t2->placeholderText();
+    _40mm.Weight_of_sample_of_water[4][3] = ui->spc_40_w1_t3->placeholderText();
+    _40mm.Weight_of_SSD_Sample[4][1] = ui->spc_40_w2_t1->placeholderText();
+    _40mm.Weight_of_SSD_Sample[4][2] = ui->spc_40_w2_t2->placeholderText();
+    _40mm.Weight_of_SSD_Sample[4][3] = ui->spc_40_w2_t3->placeholderText();
+    _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->placeholderText();
+    _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->placeholderText();
+    _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->placeholderText();
+
+    QJsonObject _40_mm;
+   //achha lg rha hai??:) i am noobda
+    _40_mm["Weight_of_sample_of_water_1"] = _40mm.Weight_of_sample_of_water[4][1];
+    _40_mm["Weight_of_sample_of_water_2"] = _40mm.Weight_of_sample_of_water[4][2];
+    _40_mm["Weight_of_sample_of_water_3"] = _40mm.Weight_of_sample_of_water[4][3];
+    _40_mm["Weight_of_SSD_Sample_1"] = _40mm.Weight_of_SSD_Sample[4][1];
+    _40_mm["Weight_of_SSD_Sample_2"] = _40mm.Weight_of_SSD_Sample[4][2];
+    _40_mm["Weight_of_SSD_Sample_3"] = _40mm.Weight_of_SSD_Sample[4][3];
+    _40_mm["Weight_of_Oven_dry_sample_1"] = _40mm.Weight_of_Oven_dry_sample[4][1];
+    _40_mm["Weight_of_Oven_dry_sample_2"] = _40mm.Weight_of_Oven_dry_sample[4][2];
+    _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
+
+    type_of_material _20mm;
+
+
+    _20mm.Weight_of_sample_of_water[2][0] = 0;
+    _20mm.Weight_of_SSD_Sample[2][0] = 0;
+    _20mm.Weight_of_Oven_dry_sample[2][0] = 0;
+
+    _20mm.Weight_of_sample_of_water[2][1] = ui->spc_20_w1_t1->placeholderText();
+    _20mm.Weight_of_sample_of_water[2][2] = ui->spc_20_w1_t2->placeholderText();
+    _20mm.Weight_of_sample_of_water[2][3] = ui->spc_20_w1_t3->placeholderText();
+    _20mm.Weight_of_SSD_Sample[2][1] = ui->spc_20_w2_t1->placeholderText();
+    _20mm.Weight_of_SSD_Sample[2][2] = ui->spc_20_w2_t2->placeholderText();
+    _20mm.Weight_of_SSD_Sample[2][3] = ui->spc_20_w2_t3->placeholderText();
+    _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->placeholderText();
+    _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->placeholderText();
+    _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->placeholderText();
+
+    QJsonObject _20_mm;
+    _20_mm["Weight_of_sample_of_water_1"] = _20mm.Weight_of_sample_of_water[2][1];
+    _20_mm["Weight_of_sample_of_water_2"] = _20mm.Weight_of_sample_of_water[2][2];
+    _20_mm["Weight_of_sample_of_water_3"] = _20mm.Weight_of_sample_of_water[2][3];
+    _20_mm["Weight_of_SSD_Sample_1"] = _20mm.Weight_of_SSD_Sample[2][1];
+    _20_mm["Weight_of_SSD_Sample_2"] = _20mm.Weight_of_SSD_Sample[2][2];
+    _20_mm["Weight_of_SSD_Sample_3"] = _20mm.Weight_of_SSD_Sample[2][3];
+    _20_mm["Weight_of_Oven_dry_sample_1"] = _20mm.Weight_of_Oven_dry_sample[2][1];
+    _20_mm["Weight_of_Oven_dry_sample_2"] = _20mm.Weight_of_Oven_dry_sample[2][2];
+    _20_mm["Weight_of_Oven_dry_sample_3"] = _20mm.Weight_of_Oven_dry_sample[2][3];
+
+
+}
+
+
+
