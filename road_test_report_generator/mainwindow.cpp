@@ -123,6 +123,7 @@ void MainWindow::on_save_40mm_clicked()
     _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->placeholderText();
     _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->placeholderText();
     _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->placeholderText();
+     qDebug() << "experiment info done";
 
     QJsonObject _40_mm;
    //achha lg rha hai??:) i am noobda
@@ -152,6 +153,7 @@ void MainWindow::on_save_40mm_clicked()
     _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->placeholderText();
     _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->placeholderText();
     _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->placeholderText();
+     qDebug() << "experiment info done";
 
     QJsonObject _20_mm;
     _20_mm["Weight_of_sample_of_water_1"] = _20mm.Weight_of_sample_of_water[2][1];
@@ -163,6 +165,64 @@ void MainWindow::on_save_40mm_clicked()
     _20_mm["Weight_of_Oven_dry_sample_1"] = _20mm.Weight_of_Oven_dry_sample[2][1];
     _20_mm["Weight_of_Oven_dry_sample_2"] = _20mm.Weight_of_Oven_dry_sample[2][2];
     _20_mm["Weight_of_Oven_dry_sample_3"] = _20mm.Weight_of_Oven_dry_sample[2][3];
+     qDebug() << "experiment info done";
+
+    type_of_material _10mm;
+
+    _10mm.Weight_of_sample_of_water[1][0] = 0;
+    _10mm.Weight_of_SSD_Sample[1][0] = 0;
+    _10mm.Weight_of_Oven_dry_sample[1][0] = 0;
+
+    _10mm.Weight_of_sample_of_water[1][1] = ui->spc_10_w1_t1->placeholderText();
+    _10mm.Weight_of_sample_of_water[1][2] = ui->spc_10_w1_t2->placeholderText();
+    _10mm.Weight_of_sample_of_water[1][3] = ui->spc_10_w1_t3->placeholderText();
+    _10mm.Weight_of_SSD_Sample[1][1] = ui->spc_10_w2_t1->placeholderText();
+    _10mm.Weight_of_SSD_Sample[1][2] = ui->spc_10_w2_t2->placeholderText();
+    _10mm.Weight_of_SSD_Sample[1][3] = ui->spc_10_w2_t3->placeholderText();
+    _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->placeholderText();
+    _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->placeholderText();
+    _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->placeholderText();
+
+    QJsonObject _10_mm;
+
+    _10_mm["Weight_of_sample_of_water_1"] = _10mm.Weight_of_sample_of_water[1][1];
+    _10_mm["Weight_of_sample_of_water_2"] = _10mm.Weight_of_sample_of_water[1][2];
+    _10_mm["Weight_of_sample_of_water_3"] = _10mm.Weight_of_sample_of_water[1][3];
+    _10_mm["Weight_of_SSD_Sample_1"] = _10mm.Weight_of_SSD_Sample[1][1];
+    _10_mm["Weight_of_SSD_Sample_2"] = _10mm.Weight_of_SSD_Sample[1][2];
+    _10_mm["Weight_of_SSD_Sample_3"] = _10mm.Weight_of_SSD_Sample[1][3];
+    _10_mm["Weight_of_Oven_dry_sample_1"] = _10mm.Weight_of_Oven_dry_sample[1][1];
+    _10_mm["Weight_of_Oven_dry_sample_2"] = _10mm.Weight_of_Oven_dry_sample[1][2];
+    _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
+
+    type_of_material stone_dust;
+
+    stone_dust.Weight_of_sample_of_water[0][0] = 0;
+    stone_dust.Weight_of_SSD_Sample[0][0] = 0;
+    stone_dust.Weight_of_Oven_dry_sample[0][0] = 0;
+
+    stone_dust.Weight_of_sample_of_water[0][1] = ui->spc_0_w1_t1->placeholderText();
+    stone_dust.Weight_of_sample_of_water[0][2] = ui->spc_0_w1_t2->placeholderText();
+    stone_dust.Weight_of_sample_of_water[0][3] = ui->spc_0_w1_t3->placeholderText();
+    stone_dust.Weight_of_SSD_Sample[0][1] = ui->spc_0_w2_t1->placeholderText();
+    stone_dust.Weight_of_SSD_Sample[0][2] = ui->spc_0_w2_t2->placeholderText();
+    stone_dust.Weight_of_SSD_Sample[0][3] = ui->spc_0_w2_t3->placeholderText();
+    stone_dust.Weight_of_Oven_dry_sample[0][1] = ui->spc_0_w3_t1->placeholderText();
+    stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->placeholderText();
+    stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->placeholderText();
+
+    QJsonObject _stone_dust;
+
+    _stone_dust["Weight_of_sample_of_water_1"] = stone_dust.Weight_of_sample_of_water[0][1];
+    _stone_dust["Weight_of_sample_of_water_2"] = stone_dust.Weight_of_sample_of_water[0][2];
+    _stone_dust["Weight_of_sample_of_water_3"] = stone_dust.Weight_of_sample_of_water[0][3];
+    _stone_dust["Weight_of_SSD_Sample_1"] = stone_dust.Weight_of_SSD_Sample[0][1];
+    _stone_dust["Weight_of_SSD_Sample_2"] = stone_dust.Weight_of_SSD_Sample[0][2];
+    _stone_dust["Weight_of_SSD_Sample_3"] = stone_dust.Weight_of_SSD_Sample[0][3];
+    _stone_dust["Weight_of_Oven_dry_sample_1"] = stone_dust.Weight_of_Oven_dry_sample[0][1];
+    _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
+    _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
+
 
 
 }
