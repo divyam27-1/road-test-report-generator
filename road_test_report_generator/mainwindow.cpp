@@ -97,8 +97,10 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         case 0:
             ui->spc_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
             break;
+
         default:
             break;
         }
     }
 }
+
