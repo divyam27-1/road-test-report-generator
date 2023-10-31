@@ -45,6 +45,8 @@ private slots:
     void on_spc_data_scroll_valueChanged(int value);
 
 
+    void on_ind_scroll_bar_3_valueChanged(int value);
+
 private:
     float scroll_sens;
 
