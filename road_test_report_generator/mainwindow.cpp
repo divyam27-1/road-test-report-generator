@@ -225,9 +225,6 @@ void MainWindow::on_save_40mm_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_1"] = stone_dust.Weight_of_Oven_dry_sample[0][1];
     _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
-
-
-
 }
 
 void MainWindow::on_ind_scroll_bar_3_valueChanged(int value)
@@ -241,4 +238,3 @@ void MainWindow::on_aiv_scroll_valueChanged(int value)
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height())*value/100;
     ui->aiv_frame->move(0, target);
 }
-
