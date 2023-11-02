@@ -19,6 +19,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
@@ -68,18 +69,21 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QWidget *tab_2;
 
     void setupUi(QWidget *entry)
     {
         if (entry->objectName().isEmpty())
             entry->setObjectName(QString::fromUtf8("entry"));
-        entry->resize(1680, 860);
+        entry->resize(1650, 770);
         info_toolBox = new QToolBox(entry);
         info_toolBox->setObjectName(QString::fromUtf8("info_toolBox"));
-        info_toolBox->setGeometry(QRect(1360, 10, 231, 761));
+        info_toolBox->setGeometry(QRect(1420, 0, 230, 760));
         basic_info = new QWidget();
         basic_info->setObjectName(QString::fromUtf8("basic_info"));
-        basic_info->setGeometry(QRect(0, 0, 231, 699));
+        basic_info->setGeometry(QRect(0, 0, 230, 698));
         layoutWidget = new QWidget(basic_info);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(0, 10, 258, 691));
@@ -146,7 +150,7 @@ public:
         info_toolBox->addItem(basic_info, QString::fromUtf8("Basic Info"));
         exp_info = new QWidget();
         exp_info->setObjectName(QString::fromUtf8("exp_info"));
-        exp_info->setGeometry(QRect(0, 0, 231, 699));
+        exp_info->setGeometry(QRect(0, 0, 230, 698));
         verticalLayoutWidget = new QWidget(exp_info);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(9, 10, 221, 691));
@@ -251,17 +255,26 @@ public:
         info_toolBox->addItem(exp_info, QString::fromUtf8("Experiment Info"));
         pushButton = new QPushButton(entry);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(40, 30, 89, 25));
+        pushButton->setGeometry(QRect(20, 20, 90, 25));
         pushButton_2 = new QPushButton(entry);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(150, 30, 89, 25));
+        pushButton_2->setGeometry(QRect(130, 20, 90, 25));
         pushButton_3 = new QPushButton(entry);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(260, 30, 141, 25));
+        pushButton_3->setGeometry(QRect(240, 20, 140, 25));
+        tabWidget = new QTabWidget(entry);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setGeometry(QRect(0, 60, 1420, 711));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        tabWidget->addTab(tab_2, QString());
 
         retranslateUi(entry);
 
-        info_toolBox->setCurrentIndex(1);
+        info_toolBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(entry);
@@ -287,6 +300,8 @@ public:
         pushButton->setText(QCoreApplication::translate("entry", "Save", nullptr));
         pushButton_2->setText(QCoreApplication::translate("entry", "Save As", nullptr));
         pushButton_3->setText(QCoreApplication::translate("entry", "Export to PDF", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("entry", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("entry", "Tab 2", nullptr));
     } // retranslateUi
 
 };

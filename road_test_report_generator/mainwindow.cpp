@@ -98,6 +98,9 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         case 0:
             ui->spc_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
             break;
+        case 1:
+            ui->ind_scroll_bar_3->setValue((int) (scroll_pos + delta.y()/scroll_sens));
+            break;
         default:
             break;
         }
@@ -166,5 +169,8 @@ void MainWindow::on_save_40mm_clicked()
 
 }
 
-
-
+void MainWindow::on_ind_scroll_bar_3_valueChanged(int value)
+{
+    float target = (0-590)*value/100;
+    ui->spc_frame->move(0, target);
+}
