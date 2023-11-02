@@ -11,12 +11,14 @@ CONFIG += c++17
 SOURCES += \
     dialog.cpp \
     entry.cpp \
+    htmltopdf.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     dialog.h \
     entry.h \
+    htmltopdf.h \
     mainwindow.h
 
 FORMS += \
