@@ -27,7 +27,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -54,7 +54,7 @@
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -165,7 +165,7 @@
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -1690,8 +1690,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2055,7 +2055,7 @@
          <x>0</x>
          <y>0</y>
          <width>1370</width>
-         <height>1260</height>
+         <height>690</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -3015,7 +3015,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="aiv">
      <attribute name="title">
       <string>AIV Test</string>
      </attribute>
@@ -3058,7 +3058,7 @@
        <string>PushButton</string>
       </property>
      </widget>
-     <widget class="QToolBox" name="spc_info_5">
+     <widget class="QToolBox" name="aiv_info">
       <property name="geometry">
        <rect>
         <x>1410</x>
@@ -3068,9 +3068,9 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="spc_bsc_40">
+      <widget class="QWidget" name="aiv_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -3100,7 +3100,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_41"/>
+          <widget class="QTextEdit" name="aiv_bsc_1"/>
          </item>
          <item>
           <spacer name="side_socr_9">
@@ -3123,7 +3123,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_42"/>
+          <widget class="QTextEdit" name="aiv_bsc_2"/>
          </item>
          <item>
           <spacer name="side_spcr_18">
@@ -3146,7 +3146,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_43">
+          <widget class="QTextEdit" name="aiv_bsc_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -3176,18 +3176,18 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_44"/>
+          <widget class="QTextEdit" name="aiv_bsc_4"/>
          </item>
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="spc_exp_56">
+      <widget class="QWidget" name="aiv_exp">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3217,7 +3217,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="spc_exp_57">
+          <widget class="QDateEdit" name="aiv_exp_1">
            <property name="displayFormat">
             <string>d/M/yyyy</string>
            </property>
@@ -3253,7 +3253,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="spc_exp_58">
+          <widget class="QDateEdit" name="aiv_exp_2">
            <property name="displayFormat">
             <string>d/M/yyyy</string>
            </property>
@@ -3294,7 +3294,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QSpinBox" name="spc_exp_59"/>
+            <widget class="QSpinBox" name="aiv_exp_3"/>
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_343">
@@ -3304,7 +3304,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="spc_exp_60"/>
+            <widget class="QLineEdit" name="aiv_exp_4"/>
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_344">
@@ -3314,7 +3314,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLineEdit" name="spc_exp_61"/>
+            <widget class="QLineEdit" name="aiv_exp_5"/>
            </item>
            <item row="6" column="0">
             <widget class="QLabel" name="label_345">
@@ -3324,7 +3324,7 @@
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QLineEdit" name="spc_exp_62"/>
+            <widget class="QLineEdit" name="aiv_exp_6"/>
            </item>
            <item row="1" column="1">
             <spacer name="verticalSpacer_43">
@@ -3380,13 +3380,13 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QFrame" name="AIV_frame_3">
+     <widget class="QFrame" name="aiv_frame_outer">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>1370</width>
-        <height>1260</height>
+        <x>10</x>
+        <y>70</y>
+        <width>1400</width>
+        <height>690</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -3395,759 +3395,1144 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="label_276">
+      <widget class="QFrame" name="aiv_frame">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>0</y>
-         <width>601</width>
-         <height>60</height>
+         <width>1370</width>
+         <height>800</height>
         </rect>
        </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Aggregate Impact Value Test (AIV)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_276">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>601</width>
+          <height>60</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Aggregate Impact Value Test (AIV)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_322">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;20 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_323">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_324">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>230</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_325">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>190</y>
+          <width>171</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. of Cylinrical measure</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_326">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>230</y>
+          <width>251</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of Cylindrical measure+ Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_409">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>140</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_410">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>141</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_412">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>270</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_413">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>310</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_414">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>270</y>
+          <width>301</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of sample placed in cylindrical measure </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_415">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>310</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of Crushed materiald passing IS sieve 2.36 mm </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_416">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>130</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test I</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_417">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>130</y>
+          <width>61</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test II</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_418">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>130</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test III</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_11">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>180</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_12">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>180</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_13">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>180</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_21">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>230</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_22">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>230</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_23">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>230</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_41">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>310</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_42">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>310</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_20_43">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>310</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_419">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>190</y>
+          <width>41</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_420">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>230</y>
+          <width>41</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_421">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>270</y>
+          <width>51</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2-W1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_422">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>310</y>
+          <width>31</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_423">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>130</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight (in gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_31">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>270</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_32">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>270</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_33">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>270</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_461">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>350</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>100*W3/(W2-W1)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_462">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>350</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_463">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>350</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aggregate Impact Value</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_464">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>390</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aggregate Impact Value</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_465">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>390</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_466">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>390</y>
+          <width>31</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_51">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>350</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_53">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>350</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_52">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>350</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_61">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>390</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_63">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>390</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_20_62">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>390</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_424">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>670</y>
+          <width>31</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_467">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>750</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_31">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>630</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_425">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>630</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_52">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>710</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_33">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>630</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_468">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>710</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aggregate Impact Value</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_53">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>710</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_43">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>670</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_426">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>670</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_13">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>540</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_32">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>630</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_327">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>550</y>
+          <width>171</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. of Cylinrical measure</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_12">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>540</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_11">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>540</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_21">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>590</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_51">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>710</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_427">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>490</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test III</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_428">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>630</y>
+          <width>301</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of sample placed in cylindrical measure </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_429">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>490</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Weight (in gms)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_328">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>590</y>
+          <width>251</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of Cylindrical measure+ Sample</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_430">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>490</y>
+          <width>61</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test II</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_469">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>750</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aggregate Impact Value</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_62">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>750</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_41">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>670</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_431">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>630</y>
+          <width>51</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2-W1</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_23">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>590</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_470">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>750</y>
+          <width>31</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_329">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>590</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_432">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>590</y>
+          <width>41</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_63">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>750</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_330">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>440</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;10 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_433">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>670</y>
+          <width>351</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wt. Of Crushed materiald passing IS sieve 2.36 mm </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_434">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>490</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Test I</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_411">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>500</y>
+          <width>32</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>S.No</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_331">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>550</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_471">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>710</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_472">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>710</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>100*W3/(W2-W1)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_435">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>550</y>
+          <width>41</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>W1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_460">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>501</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_22">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>590</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="aiv_10_61">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>750</y>
+          <width>111</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="aiv_10_42">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>670</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_322">
+      <widget class="QScrollBar" name="aiv_scroll">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>80</y>
-         <width>111</width>
-         <height>41</height>
+         <x>1380</x>
+         <y>0</y>
+         <width>15</width>
+         <height>690</height>
         </rect>
        </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;20 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
-      <widget class="QLabel" name="label_323">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>190</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_324">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>230</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_325">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>190</y>
-         <width>171</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. of Cylinrical measure</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_326">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>230</y>
-         <width>251</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of Cylindrical measure+ Sample</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_327">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>510</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_328">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>340</y>
-         <width>101</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; text-decoration: underline;&quot;&gt;10 mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_329">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>400</y>
-         <width>41</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>S.No</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_330">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>560</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_331">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>400</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Description</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_332">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>450</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_409">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>140</y>
-         <width>32</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>S.No</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_410">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>141</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Description</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_411">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>610</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_412">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>270</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_413">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>310</y>
-         <width>67</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_414">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>270</y>
-         <width>301</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of sample placed in cylindrical measure </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_415">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>310</y>
-         <width>351</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of Crushed materiald passing IS sieve 2.36 mm </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_416">
-       <property name="geometry">
-        <rect>
-         <x>520</x>
-         <y>130</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test I</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_417">
-       <property name="geometry">
-        <rect>
-         <x>670</x>
-         <y>130</y>
-         <width>61</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test II</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_418">
-       <property name="geometry">
-        <rect>
-         <x>810</x>
-         <y>130</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test III</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_49">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>180</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_50">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>180</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_51">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>180</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_52">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>230</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_53">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>230</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_54">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>230</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_55">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>270</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_56">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>270</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_57">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>270</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_58">
-       <property name="geometry">
-        <rect>
-         <x>510</x>
-         <y>310</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_59">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>310</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_60">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>310</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_419">
-       <property name="geometry">
-        <rect>
-         <x>440</x>
-         <y>190</y>
-         <width>41</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_420">
-       <property name="geometry">
-        <rect>
-         <x>450</x>
-         <y>230</y>
-         <width>41</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W2</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_421">
-       <property name="geometry">
-        <rect>
-         <x>440</x>
-         <y>270</y>
-         <width>51</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W2-W1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_422">
-       <property name="geometry">
-        <rect>
-         <x>470</x>
-         <y>310</y>
-         <width>31</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W3</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_423">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>130</y>
-         <width>111</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Weight (in gms)</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_424">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>450</y>
-         <width>171</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. of Cylinrical measure</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_425">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>510</y>
-         <width>251</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of Cylindrical measure+ Sample</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_426">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>570</y>
-         <width>301</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of sample placed in cylindrical measure </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_427">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>610</y>
-         <width>351</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Wt. Of Crushed materiald passing IS sieve 2.36 mm </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_428">
-       <property name="geometry">
-        <rect>
-         <x>390</x>
-         <y>400</y>
-         <width>111</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Weight (in gms)</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_429">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>450</y>
-         <width>41</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_430">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>500</y>
-         <width>41</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W2</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_431">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>570</y>
-         <width>51</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W2-W1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_432">
-       <property name="geometry">
-        <rect>
-         <x>460</x>
-         <y>610</y>
-         <width>31</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>W3</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_433">
-       <property name="geometry">
-        <rect>
-         <x>520</x>
-         <y>400</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test I</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_434">
-       <property name="geometry">
-        <rect>
-         <x>670</x>
-         <y>400</y>
-         <width>61</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test II</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_435">
-       <property name="geometry">
-        <rect>
-         <x>810</x>
-         <y>400</y>
-         <width>79</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Test III</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_61">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>450</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_62">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>450</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_63">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>450</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_64">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>610</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_65">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>610</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_66">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>610</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_67">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>560</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_68">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>560</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_69">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>550</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_70">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>510</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_71">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>510</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_72">
-       <property name="geometry">
-        <rect>
-         <x>790</x>
-         <y>500</y>
-         <width>113</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
+     </widget>
+     <widget class="Line" name="fei_line1_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1410</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>1390</x>
+        <y>0</y>
+        <width>3</width>
+        <height>760</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -7015,7 +7400,7 @@
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">

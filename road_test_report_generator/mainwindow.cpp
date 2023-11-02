@@ -174,3 +174,10 @@ void MainWindow::on_ind_scroll_bar_3_valueChanged(int value)
     float target = (0-590)*value/100;
     ui->spc_frame->move(0, target);
 }
+
+void MainWindow::on_aiv_scroll_valueChanged(int value)
+{
+    float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height())*value/100;
+    ui->aiv_frame->move(0, target);
+}
+
