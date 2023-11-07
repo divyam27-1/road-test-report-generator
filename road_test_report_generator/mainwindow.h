@@ -58,6 +58,10 @@ private slots:
 
     void on_aiv_scroll_valueChanged(int value);
 
+    void on_pushButton_3_clicked();
+
+    void specificgravity(QJsonDocument jsonDoc_1,QFile file);
+
 private:
     float scroll_sens;
 

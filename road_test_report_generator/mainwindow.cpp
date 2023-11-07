@@ -1,15 +1,19 @@
 #include "mainwindow.h"
+#include "qjsondocument.h"
 #include "ui_mainwindow.h"
-#include "dialog.h"
-#include "entry.h"
-#include <QJsonObject>
+#include "QJsonObject"
+#include "QFile"
+#include "QJsonDocument"
+#include "QTextStream"
+#include "qdebug.h"
+
+QJsonObject Specific_Gravity;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
 }
 
 MainWindow::~MainWindow()
@@ -17,26 +21,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_pushButton_clicked()
-{
-    Dialog dialog;
-    dialog.setModal(true);
-    dialog.exec();
-}
-
-
 void MainWindow::on_tabWidget_tabCloseRequested(int index)
 {
     ui->tab_list->removeTab(index);
 }
-
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    ui->tab_list->addTab(new entry(),QString("Tab %0").arg(ui->tab_list->count()+1));
-}
-
 
 void MainWindow::on_spc_save_clicked()
 {
@@ -44,7 +32,6 @@ void MainWindow::on_spc_save_clicked()
                                      ui->spc_bsc_2->toPlainText(),
                                      ui->spc_bsc_3->toPlainText(),
                                      ui->spc_bsc_4->toPlainText()};
-//    wrong sahi krenge kal ayush* sahu finding prlm in last stage;
     struct exp_info exp_info_ = {ui->spc_exp_1->date().toString(),
                                  ui->spc_exp_2->date().toString(),
                                  ui->spc_exp_3->text(),
@@ -108,6 +95,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
     }
 }
 
+QFile file("Jsonfile_1.json");
 void MainWindow::on_save_40mm_clicked()
 {
     type_of_material _40mm;
@@ -117,20 +105,20 @@ void MainWindow::on_save_40mm_clicked()
     _40mm.Weight_of_SSD_Sample[4][0] = 0;
     _40mm.Weight_of_Oven_dry_sample[4][0] = 0;
 
-    _40mm.Weight_of_sample_of_water[4][1] = ui->spc_40_w1_t1->placeholderText();
-    _40mm.Weight_of_sample_of_water[4][2] = ui->spc_40_w1_t2->placeholderText();
-    _40mm.Weight_of_sample_of_water[4][3] = ui->spc_40_w1_t3->placeholderText();
-    _40mm.Weight_of_SSD_Sample[4][1] = ui->spc_40_w2_t1->placeholderText();
-    _40mm.Weight_of_SSD_Sample[4][2] = ui->spc_40_w2_t2->placeholderText();
-    _40mm.Weight_of_SSD_Sample[4][3] = ui->spc_40_w2_t3->placeholderText();
-    _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->placeholderText();
-    _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->placeholderText();
-    _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->placeholderText();
-     qDebug() << "experiment info done";
+    _40mm.Weight_of_sample_of_water[4][1] = ui->spc_40_w1_t1->text();
+    _40mm.Weight_of_sample_of_water[4][2] = ui->spc_40_w1_t2->text();
+    _40mm.Weight_of_sample_of_water[4][3] = ui->spc_40_w1_t3->text();
+    _40mm.Weight_of_SSD_Sample[4][1] = ui->spc_40_w2_t1->text();
+    _40mm.Weight_of_SSD_Sample[4][2] = ui->spc_40_w2_t2->text();
+    _40mm.Weight_of_SSD_Sample[4][3] = ui->spc_40_w2_t3->text();
+    _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->text();
+    _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->text();
+    _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->text();
+
 
     QJsonObject _40_mm;
-   //achha lg rha hai??:) i am noobda
-    _40_mm["Weight_of_sample_of_water_1"] = _40mm.Weight_of_sample_of_water[4][1];
+    //achha lg rha hai??:) i am noobda
+    _40_mm.insert("Weight_of_sample_of_water_1",_40mm.Weight_of_sample_of_water[4][1]);
     _40_mm["Weight_of_sample_of_water_2"] = _40mm.Weight_of_sample_of_water[4][2];
     _40_mm["Weight_of_sample_of_water_3"] = _40mm.Weight_of_sample_of_water[4][3];
     _40_mm["Weight_of_SSD_Sample_1"] = _40mm.Weight_of_SSD_Sample[4][1];
@@ -140,6 +128,25 @@ void MainWindow::on_save_40mm_clicked()
     _40_mm["Weight_of_Oven_dry_sample_2"] = _40mm.Weight_of_Oven_dry_sample[4][2];
     _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
 
+    Specific_Gravity[ "40mm" ] = _40_mm;
+    if (file.open(QFile::WriteOnly | QFile::Text)) {
+        // json data ko file me likhta hua mai
+        QTextStream out(&file);
+        QJsonDocument jsonDoc_1(Specific_Gravity);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        file.close();
+        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+    }
+    else {
+        qDebug() << "Failed to open the file for writing.";
+    }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
     type_of_material _20mm;
 
 
@@ -147,16 +154,15 @@ void MainWindow::on_save_40mm_clicked()
     _20mm.Weight_of_SSD_Sample[2][0] = 0;
     _20mm.Weight_of_Oven_dry_sample[2][0] = 0;
 
-    _20mm.Weight_of_sample_of_water[2][1] = ui->spc_20_w1_t1->placeholderText();
-    _20mm.Weight_of_sample_of_water[2][2] = ui->spc_20_w1_t2->placeholderText();
-    _20mm.Weight_of_sample_of_water[2][3] = ui->spc_20_w1_t3->placeholderText();
-    _20mm.Weight_of_SSD_Sample[2][1] = ui->spc_20_w2_t1->placeholderText();
-    _20mm.Weight_of_SSD_Sample[2][2] = ui->spc_20_w2_t2->placeholderText();
-    _20mm.Weight_of_SSD_Sample[2][3] = ui->spc_20_w2_t3->placeholderText();
-    _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->placeholderText();
-    _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->placeholderText();
-    _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->placeholderText();
-     qDebug() << "experiment info done";
+    _20mm.Weight_of_sample_of_water[2][1] = ui->spc_20_w1_t1->text();
+    _20mm.Weight_of_sample_of_water[2][2] = ui->spc_20_w1_t2->text();
+    _20mm.Weight_of_sample_of_water[2][3] = ui->spc_20_w1_t3->text();
+    _20mm.Weight_of_SSD_Sample[2][1] = ui->spc_20_w2_t1->text();
+    _20mm.Weight_of_SSD_Sample[2][2] = ui->spc_20_w2_t2->text();
+    _20mm.Weight_of_SSD_Sample[2][3] = ui->spc_20_w2_t3->text();
+    _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->text();
+    _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->text();
+    _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->text();
 
     QJsonObject _20_mm;
     _20_mm["Weight_of_sample_of_water_1"] = _20mm.Weight_of_sample_of_water[2][1];
@@ -168,7 +174,26 @@ void MainWindow::on_save_40mm_clicked()
     _20_mm["Weight_of_Oven_dry_sample_1"] = _20mm.Weight_of_Oven_dry_sample[2][1];
     _20_mm["Weight_of_Oven_dry_sample_2"] = _20mm.Weight_of_Oven_dry_sample[2][2];
     _20_mm["Weight_of_Oven_dry_sample_3"] = _20mm.Weight_of_Oven_dry_sample[2][3];
-     qDebug() << "experiment info done";
+    qDebug() << "experiment info done";
+    Specific_Gravity[ "20mm" ] = _20_mm;
+    qDebug() << "experiment info done";
+    if (file.open(QFile::WriteOnly | QFile::Text)) {
+        // json data ko file me likhta hua mai
+        QTextStream out(&file);
+        QJsonDocument jsonDoc_1(Specific_Gravity);
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        file.close();
+        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+    }
+    else {
+        qDebug() << "Failed to open the file for writing.";
+    }
+}
+
+
+void MainWindow::on_pushButton_2_clicked(){
 
     type_of_material _10mm;
 
@@ -176,15 +201,15 @@ void MainWindow::on_save_40mm_clicked()
     _10mm.Weight_of_SSD_Sample[1][0] = 0;
     _10mm.Weight_of_Oven_dry_sample[1][0] = 0;
 
-    _10mm.Weight_of_sample_of_water[1][1] = ui->spc_10_w1_t1->placeholderText();
-    _10mm.Weight_of_sample_of_water[1][2] = ui->spc_10_w1_t2->placeholderText();
-    _10mm.Weight_of_sample_of_water[1][3] = ui->spc_10_w1_t3->placeholderText();
-    _10mm.Weight_of_SSD_Sample[1][1] = ui->spc_10_w2_t1->placeholderText();
-    _10mm.Weight_of_SSD_Sample[1][2] = ui->spc_10_w2_t2->placeholderText();
-    _10mm.Weight_of_SSD_Sample[1][3] = ui->spc_10_w2_t3->placeholderText();
-    _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->placeholderText();
-    _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->placeholderText();
-    _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->placeholderText();
+    _10mm.Weight_of_sample_of_water[1][1] = ui->spc_10_w1_t1->text();
+    _10mm.Weight_of_sample_of_water[1][2] = ui->spc_10_w1_t2->text();
+    _10mm.Weight_of_sample_of_water[1][3] = ui->spc_10_w1_t3->text();
+    _10mm.Weight_of_SSD_Sample[1][1] = ui->spc_10_w2_t1->text();
+    _10mm.Weight_of_SSD_Sample[1][2] = ui->spc_10_w2_t2->text();
+    _10mm.Weight_of_SSD_Sample[1][3] = ui->spc_10_w2_t3->text();
+    _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->text();
+    _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->text();
+    _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->text();
 
     QJsonObject _10_mm;
 
@@ -197,22 +222,39 @@ void MainWindow::on_save_40mm_clicked()
     _10_mm["Weight_of_Oven_dry_sample_1"] = _10mm.Weight_of_Oven_dry_sample[1][1];
     _10_mm["Weight_of_Oven_dry_sample_2"] = _10mm.Weight_of_Oven_dry_sample[1][2];
     _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
+    Specific_Gravity[ "10mm" ] = _10_mm;
+    qDebug() << "experiment info done";
+    if (file.open(QFile::WriteOnly | QFile::Text)) {
+        // json data ko file me likhta hua mai
+        QTextStream out(&file);
+        QJsonDocument jsonDoc_1(Specific_Gravity);
+        out << jsonDoc_1.toJson();
 
+        // Close the file
+        file.close();
+        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+    }
+    else {
+        qDebug() << "Failed to open the file for writing.";
+    }
+}
+void MainWindow::on_pushButton_3_clicked()
+{
     type_of_material stone_dust;
 
     stone_dust.Weight_of_sample_of_water[0][0] = 0;
     stone_dust.Weight_of_SSD_Sample[0][0] = 0;
     stone_dust.Weight_of_Oven_dry_sample[0][0] = 0;
 
-    stone_dust.Weight_of_sample_of_water[0][1] = ui->spc_0_w1_t1->placeholderText();
-    stone_dust.Weight_of_sample_of_water[0][2] = ui->spc_0_w1_t2->placeholderText();
-    stone_dust.Weight_of_sample_of_water[0][3] = ui->spc_0_w1_t3->placeholderText();
-    stone_dust.Weight_of_SSD_Sample[0][1] = ui->spc_0_w2_t1->placeholderText();
-    stone_dust.Weight_of_SSD_Sample[0][2] = ui->spc_0_w2_t2->placeholderText();
-    stone_dust.Weight_of_SSD_Sample[0][3] = ui->spc_0_w2_t3->placeholderText();
-    stone_dust.Weight_of_Oven_dry_sample[0][1] = ui->spc_0_w3_t1->placeholderText();
-    stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->placeholderText();
-    stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->placeholderText();
+    stone_dust.Weight_of_sample_of_water[0][1] = ui->spc_0_w1_t1->text();
+    stone_dust.Weight_of_sample_of_water[0][2] = ui->spc_0_w1_t2->text();
+    stone_dust.Weight_of_sample_of_water[0][3] = ui->spc_0_w1_t3->text();
+    stone_dust.Weight_of_SSD_Sample[0][1] = ui->spc_0_w2_t1->text();
+    stone_dust.Weight_of_SSD_Sample[0][2] = ui->spc_0_w2_t2->text();
+    stone_dust.Weight_of_SSD_Sample[0][3] = ui->spc_0_w2_t3->text();
+    stone_dust.Weight_of_Oven_dry_sample[0][1] = ui->spc_0_w3_t1->text();
+    stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->text();
+    stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->text();
 
     QJsonObject _stone_dust;
 
@@ -225,7 +267,25 @@ void MainWindow::on_save_40mm_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_1"] = stone_dust.Weight_of_Oven_dry_sample[0][1];
     _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
+    Specific_Gravity[ "stone_dust" ] = _stone_dust;
+    qDebug() << "experiment info done";
+    if (file.open(QFile::WriteOnly | QFile::Text)) {
+        // json data ko file me likhta hua mai
+        QTextStream out(&file);
+        QJsonDocument jsonDoc_1(Specific_Gravity);
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        file.close();
+        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+    }
+    else {
+        qDebug() << "Failed to open the file for writing.";
+    }
 }
+
+
+
 
 void MainWindow::on_ind_scroll_bar_3_valueChanged(int value)
 {
@@ -238,3 +298,7 @@ void MainWindow::on_aiv_scroll_valueChanged(int value)
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height())*value/100;
     ui->aiv_frame->move(0, target);
 }
+
+
+
+
