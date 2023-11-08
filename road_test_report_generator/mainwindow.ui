@@ -5200,7 +5200,7 @@ background-color: rgb(170, 255, 127);
      <attribute name="title">
       <string>Individual gradation</string>
      </attribute>
-     <widget class="QToolBox" name="individual_grad_info">
+     <widget class="QToolBox" name="ind_info">
       <property name="geometry">
        <rect>
         <x>1410</x>
@@ -5210,9 +5210,9 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="spc_bsc_45">
+      <widget class="QWidget" name="ind_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -5242,7 +5242,7 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_46"/>
+          <widget class="QTextEdit" name="ind_bsc_1"/>
          </item>
          <item>
           <spacer name="side_socr_10">
@@ -5265,7 +5265,7 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_47"/>
+          <widget class="QTextEdit" name="ind_bsc_2"/>
          </item>
          <item>
           <spacer name="side_spcr_20">
@@ -5288,7 +5288,7 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_48">
+          <widget class="QTextEdit" name="ind_bsc_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -5318,18 +5318,18 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="spc_bsc_49"/>
+          <widget class="QTextEdit" name="ind_bsc_4"/>
          </item>
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="spc_exp_63">
+      <widget class="QWidget" name="ind_exp">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>241</width>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5359,7 +5359,7 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="spc_exp_64">
+          <widget class="QDateEdit" name="ind_exp_1">
            <property name="displayFormat">
             <string>d/M/yyyy</string>
            </property>
@@ -5395,7 +5395,7 @@ background-color: rgb(170, 255, 127);
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="spc_exp_65">
+          <widget class="QDateEdit" name="ind_exp_2">
            <property name="displayFormat">
             <string>d/M/yyyy</string>
            </property>
@@ -5436,7 +5436,7 @@ background-color: rgb(170, 255, 127);
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QSpinBox" name="spc_exp_66"/>
+            <widget class="QSpinBox" name="ind_exp_3"/>
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_353">
@@ -5446,7 +5446,7 @@ background-color: rgb(170, 255, 127);
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="spc_exp_67"/>
+            <widget class="QLineEdit" name="ind_exp_4"/>
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_354">
@@ -5456,7 +5456,7 @@ background-color: rgb(170, 255, 127);
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLineEdit" name="spc_exp_68"/>
+            <widget class="QLineEdit" name="ind_exp_5"/>
            </item>
            <item row="6" column="0">
             <widget class="QLabel" name="label_355">
@@ -5466,7 +5466,7 @@ background-color: rgb(170, 255, 127);
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QLineEdit" name="spc_exp_69"/>
+            <widget class="QLineEdit" name="ind_exp_6"/>
            </item>
            <item row="1" column="1">
             <spacer name="verticalSpacer_48">
