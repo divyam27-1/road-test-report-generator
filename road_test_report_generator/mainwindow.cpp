@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     cwd.mkdir("json");
     cwd.mkdir("templates");
     cwd.mkdir("output");
+    cwd.mkdir("html");
 }
 
 MainWindow::~MainWindow()
@@ -310,26 +311,41 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 //Deals with writing to HTML
 void MainWindow::on_spc_export_clicked()
 {
-    QString fpath = cwd.filePath("templates/spc.html");
+    QString template_path= cwd.filePath("templates/spc.html");
+    std::string output_html_path = cwd.filePath("html/spc.html").toStdString();
+    qDebug() << output_html_path;
 
-    QFile infile(fpath);
-    if (!infile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "file not opened";
+    QFile template_file(template_path);
+    if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "html not opened";
         return;
     } else {
-        qDebug() << "json file opened";
+        qDebug() << "html file opened";
     }
 
-    QTextStream in(&infile);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        qDebug() << line;
+    std::ofstream output_html_file(output_html_path, std::ios::out);
+    if (output_html_file.is_open()) {
+        QTextStream infile(&template_file);
+        while(!infile.atEnd()) {
+            std::string line = infile.readLine().toStdString();
+            for (char c: line) {
+                if (c == '~') {
+                    //TO DO
+                } else {
+                    output_html_file << c;
+                }
+            }
+        }
+
+        output_html_file.close();
+        qDebug() << "file written to";
+    } else {
+        qDebug() << "output html not opened";
     }
 }
-
 
 //Unused functions
 void specificgravity(QJsonDocument a1,QFile a2)
 {
-//
+// DO NOT MODIFY
 }
