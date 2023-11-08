@@ -310,19 +310,15 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 //Deals with writing to HTML
 void MainWindow::on_spc_export_clicked()
 {
-    QDir cwd1 = QDir::current();
-    QDir cwd2 = QDir::current();
-    cwd1.cdUp();
-    cwd2.cdUp();
-    cwd1.cd("html");
-    cwd2.cd("json");
-    QString fpath = cwd1.filePath("spc.html");
-    QString jsonpath = cwd2.filePath("spc.json");
+    QString fpath = cwd.filePath("templates/spc.html");
 
     QFile infile(fpath);
-    if (!infile.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!infile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "file not opened";
-    return;
+        return;
+    } else {
+        qDebug() << "json file opened";
+    }
 
     QTextStream in(&infile);
     while (!in.atEnd()) {
