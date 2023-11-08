@@ -54,9 +54,9 @@ private slots:
 
     void on_save_40mm_clicked();
 
-    void on_ind_scroll_bar_3_valueChanged(int value);
+    void on_ind_data_scroll_valueChanged(int value);
 
-    void on_aiv_scroll_valueChanged(int value);
+    void on_aiv_data_scroll_valueChanged(int value);
 
     void on_pushButton_3_clicked();
 

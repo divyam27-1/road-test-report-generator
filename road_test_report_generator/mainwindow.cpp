@@ -61,40 +61,6 @@ void MainWindow::on_spc_save_clicked()
     qDebug() << "info done";
 }
 
-
-void MainWindow::on_spc_data_scroll_valueChanged(int value)
-{
-    float target = (0-590)*value/100;
-    ui->spc_frame->move(0, target);
-}
-
-void MainWindow::wheelEvent(QWheelEvent *event)
-{
-    //the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
-    //setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
-    this->scroll_sens = 20;
-    QPoint delta = -1 * event->angleDelta();
-    QPointF mouse_pos = event->position();
-    int scroll_pos = ui->spc_data_scroll->value();
-
-
-    if (mouse_pos.x() > 40 && mouse_pos.y() > 95 && mouse_pos.x() < 1410 && mouse_pos.y() < 760) {
-
-        //By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
-        //This area has to be the current tab, which is selected with the switch operator
-        switch (ui->tab_list->currentIndex()) {
-        case 0:
-            ui->spc_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
-            break;
-        case 1:
-            ui->ind_scroll_bar_3->setValue((int) (scroll_pos + delta.y()/scroll_sens));
-            break;
-        default:
-            break;
-        }
-    }
-}
-
 QFile file("Jsonfile_1.json");
 void MainWindow::on_save_40mm_clicked()
 {
@@ -286,19 +252,61 @@ void MainWindow::on_pushButton_3_clicked()
 
 
 
-
-void MainWindow::on_ind_scroll_bar_3_valueChanged(int value)
+void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    float target = (0-590)*value/100;
+    //the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
+    //setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
+    this->scroll_sens = 20;
+    QPoint delta = -1 * event->angleDelta();
+    QPointF mouse_pos = event->position();
+    int scroll_pos;
+
+    if (mouse_pos.x() > 40 && mouse_pos.y() > 95 && mouse_pos.x() < 1410 && mouse_pos.y() < 760) {
+
+        //By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
+        //This area has to be the current tab, which is selected with the switch operator
+        switch (ui->tab_list->currentIndex()) {
+        case 0:
+            scroll_pos = ui->spc_data_scroll->value();
+            ui->spc_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
+            break;
+        case 2:
+            scroll_pos = ui->aiv_data_scroll->value();
+            ui->aiv_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
+            break;
+        case 3:
+            scroll_pos = ui->ind_data_scroll->value();
+            ui->ind_data_scroll->setValue((int) (scroll_pos + delta.y()/scroll_sens));
+            qDebug() << ui->ind_frame->y();
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+
+
+void MainWindow::on_spc_data_scroll_valueChanged(int value)
+{
+    float target = (ui->spc_frame_outer->height() - ui->spc_frame->height())*value/100;
     ui->spc_frame->move(0, target);
 }
 
-void MainWindow::on_aiv_scroll_valueChanged(int value)
+void MainWindow::on_ind_data_scroll_valueChanged(int value)
+{
+    float target = (ui->ind_frame_outer->height() - ui->ind_frame->height())*value/100;
+    ui->ind_frame->move(0, target);
+}
+
+void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 {
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height())*value/100;
     ui->aiv_frame->move(0, target);
 }
 
-
-
-
+//Unused functions
+void specificgravity(QJsonDocument a1,QFile a2)
+{
+//
+}
