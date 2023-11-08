@@ -62,6 +62,8 @@ private slots:
 
     void specificgravity(QJsonDocument jsonDoc_1,QFile file);
 
+    void on_spc_export_clicked();
+
 private:
     float scroll_sens;
 

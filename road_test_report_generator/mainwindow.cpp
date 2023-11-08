@@ -6,14 +6,21 @@
 #include "QJsonDocument"
 #include "QTextStream"
 #include "qdebug.h"
+#include <fstream>
+#include <QDir>
 
 QJsonObject Specific_Gravity;
+QDir cwd = QDir::current();
+bool i = cwd.cdUp();
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    cwd.mkdir("json");
+    cwd.mkdir("templates");
+    cwd.mkdir("output");
 }
 
 MainWindow::~MainWindow()
@@ -61,7 +68,7 @@ void MainWindow::on_spc_save_clicked()
     qDebug() << "info done";
 }
 
-QFile file("Jsonfile_1.json");
+QFile current_save(cwd.filePath("json/spc.json"));
 void MainWindow::on_save_40mm_clicked()
 {
     type_of_material _40mm;
@@ -95,22 +102,21 @@ void MainWindow::on_save_40mm_clicked()
     _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
 
     Specific_Gravity[ "40mm" ] = _40_mm;
-    if (file.open(QFile::WriteOnly | QFile::Text)) {
+    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&file);
+        QTextStream out(&current_save);
         QJsonDocument jsonDoc_1(Specific_Gravity);
 
         out << jsonDoc_1.toJson();
 
         // Close the file
-        file.close();
+        current_save.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
         qDebug() << "Failed to open the file for writing.";
     }
 }
-
 void MainWindow::on_pushButton_clicked()
 {
     type_of_material _20mm;
@@ -143,22 +149,20 @@ void MainWindow::on_pushButton_clicked()
     qDebug() << "experiment info done";
     Specific_Gravity[ "20mm" ] = _20_mm;
     qDebug() << "experiment info done";
-    if (file.open(QFile::WriteOnly | QFile::Text)) {
+    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&file);
+        QTextStream out(&current_save);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        file.close();
+        current_save.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
         qDebug() << "Failed to open the file for writing.";
     }
 }
-
-
 void MainWindow::on_pushButton_2_clicked(){
 
     type_of_material _10mm;
@@ -190,14 +194,14 @@ void MainWindow::on_pushButton_2_clicked(){
     _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
     Specific_Gravity[ "10mm" ] = _10_mm;
     qDebug() << "experiment info done";
-    if (file.open(QFile::WriteOnly | QFile::Text)) {
+    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&file);
+        QTextStream out(&current_save);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        file.close();
+        current_save.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
@@ -235,14 +239,14 @@ void MainWindow::on_pushButton_3_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
     Specific_Gravity[ "stone_dust" ] = _stone_dust;
     qDebug() << "experiment info done";
-    if (file.open(QFile::WriteOnly | QFile::Text)) {
+    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&file);
+        QTextStream out(&current_save);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        file.close();
+        current_save.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
@@ -251,7 +255,7 @@ void MainWindow::on_pushButton_3_clicked()
 }
 
 
-
+//Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
     //the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
@@ -285,8 +289,6 @@ void MainWindow::wheelEvent(QWheelEvent *event)
     }
 }
 
-
-
 void MainWindow::on_spc_data_scroll_valueChanged(int value)
 {
     float target = (ui->spc_frame_outer->height() - ui->spc_frame->height())*value/100;
@@ -304,6 +306,31 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height())*value/100;
     ui->aiv_frame->move(0, target);
 }
+
+//Deals with writing to HTML
+void MainWindow::on_spc_export_clicked()
+{
+    QDir cwd1 = QDir::current();
+    QDir cwd2 = QDir::current();
+    cwd1.cdUp();
+    cwd2.cdUp();
+    cwd1.cd("html");
+    cwd2.cd("json");
+    QString fpath = cwd1.filePath("spc.html");
+    QString jsonpath = cwd2.filePath("spc.json");
+
+    QFile infile(fpath);
+    if (!infile.open(QIODevice::ReadOnly | QIODevice::Text))
+        qDebug() << "file not opened";
+    return;
+
+    QTextStream in(&infile);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        qDebug() << line;
+    }
+}
+
 
 //Unused functions
 void specificgravity(QJsonDocument a1,QFile a2)
