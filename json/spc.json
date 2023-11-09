@@ -1,13 +1,13 @@
 {
     "40mm": {
-        "Weight_of_Oven_dry_sample_1": "0",
-        "Weight_of_Oven_dry_sample_2": "0",
-        "Weight_of_Oven_dry_sample_3": "0",
-        "Weight_of_SSD_Sample_1": "0",
-        "Weight_of_SSD_Sample_2": "0",
-        "Weight_of_SSD_Sample_3": "0",
-        "Weight_of_sample_of_water_1": "0",
-        "Weight_of_sample_of_water_2": "0",
-        "Weight_of_sample_of_water_3": "0"
+        "Weight_of_Oven_dry_sample_1": "",
+        "Weight_of_Oven_dry_sample_2": "",
+        "Weight_of_Oven_dry_sample_3": "",
+        "Weight_of_SSD_Sample_1": "",
+        "Weight_of_SSD_Sample_2": "",
+        "Weight_of_SSD_Sample_3": "",
+        "Weight_of_sample_of_water_1": "645",
+        "Weight_of_sample_of_water_2": "65",
+        "Weight_of_sample_of_water_3": "5367"
     }
 }
