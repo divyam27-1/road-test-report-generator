@@ -322,7 +322,7 @@ void MainWindow::on_spc_export_clicked()
 {
     QString template_path= cwd.filePath("templates/spc.html");
     std::string output_html_path = cwd.filePath("html/spc.html").toStdString();
-    qDebug() << output_html_path;
+    QString json_path= cwd.filePath("json/spc.json");
 
     QFile template_file(template_path);
     if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -332,10 +332,24 @@ void MainWindow::on_spc_export_clicked()
         qDebug() << "html file opened";
     }
 
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "json file not opened";
+        return;
+    } else {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_lookups = json_doc.object();
+    qDebug() << "json document made";
+
     std::ofstream output_html_file(output_html_path, std::ios::out);
     if (output_html_file.is_open()) {
+        qDebug() << "output html file opened";
 
         QTextStream infile(&template_file);
+
         while(!infile.atEnd()) {
 
             std::string line_str = infile.readLine().toStdString();
@@ -346,17 +360,38 @@ void MainWindow::on_spc_export_clicked()
                 if (line[i] == '~' && tilda == 0) {
                     qDebug() << "opening tilda located";
                     tilda = 1;
+
+                    //Gets the token from HTML file
                     for (int j = i+1; j < (int) strlen(line); j++) {
                         if (line[j] == '~' && j-i == 2) {
                             token = (int) line[i+1] - 48;
-                            qDebug() << "token found:" << token;
+                            i = j;
                             break;
                         } else if (line[j] == '~' && j-i == 3) {
                             token = ((int) line[i+2] - 48) + 10*((int) line[i+1] - 48);
-                            qDebug() << "token found:" << token;
+                            i = j;
                             break;
                         }
                     }
+
+                    qDebug() << "token found: " << token;
+                    QJsonObject json_40mm = json_lookups["40mm"].toObject();
+
+                    std::string topush;
+                    switch (token) {
+                    case 11:
+                        topush = json_40mm["Weight_of_sample_of_water_1"].toString().toStdString();
+                        qDebug() << "value pushed" << topush;
+                        break;
+                    case 12:
+                        topush = json_40mm["Weight_of_sample_of_water_2"].toString().toStdString();
+                        break;
+                    case 13:
+                        topush = json_40mm["Weight_of_sample_of_water_3"].toString().toStdString();
+                        break;
+                    }
+
+                    output_html_file << topush;
                 } else {
                     output_html_file << line[i];
                 }
