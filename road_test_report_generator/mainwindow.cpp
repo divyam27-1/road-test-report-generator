@@ -29,6 +29,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::get_token(std::string line, int pos, int *output)
+{
+    //
+}
+
 void MainWindow::on_tabWidget_tabCloseRequested(int index)
 {
     ui->tab_list->removeTab(index);
@@ -255,6 +260,11 @@ void MainWindow::on_pushButton_3_clicked()
     }
 }
 
+void MainWindow::specificgravity(QJsonDocument jsonDoc_1, QFile file)
+{
+
+}
+
 
 //Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -308,7 +318,6 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
     ui->aiv_frame->move(0, target);
 }
 
-//Deals with writing to HTML
 void MainWindow::on_spc_export_clicked()
 {
     QString template_path= cwd.filePath("templates/spc.html");
@@ -325,14 +334,31 @@ void MainWindow::on_spc_export_clicked()
 
     std::ofstream output_html_file(output_html_path, std::ios::out);
     if (output_html_file.is_open()) {
+
         QTextStream infile(&template_file);
         while(!infile.atEnd()) {
-            std::string line = infile.readLine().toStdString();
-            for (char c: line) {
-                if (c == '~') {
-                    //TO DO
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int) strlen(line) ; i++) {
+                if (line[i] == '~' && tilda == 0) {
+                    qDebug() << "opening tilda located";
+                    tilda = 1;
+                    for (int j = i+1; j < (int) strlen(line); j++) {
+                        if (line[j] == '~' && j-i == 2) {
+                            token = (int) line[i+1] - 48;
+                            qDebug() << "token found:" << token;
+                            break;
+                        } else if (line[j] == '~' && j-i == 3) {
+                            token = ((int) line[i+2] - 48) + 10*((int) line[i+1] - 48);
+                            qDebug() << "token found:" << token;
+                            break;
+                        }
+                    }
                 } else {
-                    output_html_file << c;
+                    output_html_file << line[i];
                 }
             }
         }

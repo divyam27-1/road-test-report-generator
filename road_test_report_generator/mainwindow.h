@@ -41,6 +41,8 @@ public:
         QString Weight_of_Oven_dry_sample[5][4];
     };
 
+    bool get_token(std::string line, int pos, int *output);
+
 private slots:
     void on_pushButton_clicked();
 

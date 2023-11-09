@@ -193,7 +193,6 @@ DIST          = ../../../Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf \
-		../road_test_report_generator/.qmake.stash \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -359,7 +358,6 @@ Makefile: ../road_test_report_generator/road_test_report_generator.pro ../../../
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -511,7 +509,6 @@ Makefile: ../road_test_report_generator/road_test_report_generator.pro ../../../
 ../../../Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf:
 ../../../Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf:
 ../../../Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf:
@@ -1267,45 +1264,6 @@ dialog.o: ../road_test_report_generator/dialog.cpp ../road_test_report_generator
 		../../../Qt/6.5.3/gcc_64/include/QtGui/QTransform \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qnativeinterface.h \
 		ui_dialog.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/QVariant \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfuture.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfutureinterface.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qtsan_impl.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qresultstore.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfuture_impl.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qthreadpool.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qthread.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qrunnable.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qexception.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qpicture.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextdocument.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QTextBrowser \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qtextbrowser.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qtextedit.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextoption.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextcursor.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextformat.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qpen.h \
 		../../../Qt/6.5.3/gcc_64/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../road_test_report_generator/dialog.cpp
 
@@ -1825,78 +1783,16 @@ mainwindow.o: ../road_test_report_generator/mainwindow.cpp ../road_test_report_g
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qregularexpression.h \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/quuid.h \
 		ui_mainwindow.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/QVariant \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/QAction \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfuture.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfutureinterface.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qtsan_impl.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qresultstore.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfuture_impl.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qthreadpool.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qthread.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qrunnable.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qexception.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QDateEdit \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qvalidator.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QFormLayout \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qformlayout.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QLayout \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qlayout.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qpicture.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextdocument.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QLineEdit \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qlineedit.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextcursor.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextformat.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qpen.h \
-		../../../Qt/6.5.3/gcc_64/include/QtGui/qtextoption.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QMenu \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QSpacerItem \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QSpinBox \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qspinbox.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QStatusBar \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QTabWidget \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QTextEdit \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qtextedit.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QToolBox \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/qtoolbox.h \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QVBoxLayout \
-		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/QJsonObject \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qjsonobject.h \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/QFile \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qfile.h \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/QJsonDocument \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/QTextStream
+		../../../Qt/6.5.3/gcc_64/include/QtCore/QTextStream \
+		../../../Qt/6.5.3/gcc_64/include/QtCore/QDir \
+		../../../Qt/6.5.3/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../road_test_report_generator/mainwindow.cpp
 
 moc_dialog.o: moc_dialog.cpp 
