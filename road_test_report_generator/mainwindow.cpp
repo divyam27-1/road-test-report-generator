@@ -320,88 +320,171 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 
 void MainWindow::on_spc_export_clicked()
 {
-    QString template_path= cwd.filePath("templates/spc.html");
-    std::string output_html_path = cwd.filePath("html/spc.html").toStdString();
-    QString json_path= cwd.filePath("json/spc.json");
-
-    QFile template_file(template_path);
-    if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "html not opened";
-        return;
-    } else {
-        qDebug() << "html file opened";
-    }
+    QString json_path = cwd.filePath("json/spc.json");
 
     QFile json_file(json_path);
-    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qDebug() << "json file not opened";
         return;
-    } else {
+    }
+    else
+    {
         qDebug() << "json file opened";
     }
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
     QJsonObject json_lookups = json_doc.object();
-    qDebug() << "json document made";
+    QStringList json_keys = json_lookups.keys();
+    int json_keys_len = (int)json_keys.size();
+    bool update_info = false;
 
-    std::ofstream output_html_file(output_html_path, std::ios::out);
-    if (output_html_file.is_open()) {
-        qDebug() << "output html file opened";
+    for (int t = 0; t < json_keys_len; t++)
+    {
+        if (json_keys[t] == "40mm" || json_keys[t] == "20mm" || json_keys[t] == "10mm" || json_keys[t] == "stone_dust")
+        {
+            std::string output_html_path = cwd.filePath("html/spc_").toStdString();
+            output_html_path = output_html_path + json_keys[t].toStdString() + ".html";
+            std::ofstream output_html_file(output_html_path, std::ios::out);
 
-        QTextStream infile(&template_file);
+            if (output_html_file.is_open())
+            {
+                qDebug() << "output html file opened";
 
-        while(!infile.atEnd()) {
+                QString template_path = cwd.filePath("templates/spc.html");
+                QFile template_file(template_path);
+                if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+                {
+                    qDebug() << "html not opened";
+                    return;
+                }
+                else
+                {
+                    qDebug() << "html file opened";
+                }
+                QTextStream infile(&template_file);
 
-            std::string line_str = infile.readLine().toStdString();
-            const char *line = line_str.c_str();
-            int tilda = 0;
-            int token;
-            for (int i = 0; i < (int) strlen(line) ; i++) {
-                if (line[i] == '~' && tilda == 0) {
-                    qDebug() << "opening tilda located";
-                    tilda = 1;
+                while (!infile.atEnd())
+                {
 
-                    //Gets the token from HTML file
-                    for (int j = i+1; j < (int) strlen(line); j++) {
-                        if (line[j] == '~' && j-i == 2) {
-                            token = (int) line[i+1] - 48;
-                            i = j;
-                            break;
-                        } else if (line[j] == '~' && j-i == 3) {
-                            token = ((int) line[i+2] - 48) + 10*((int) line[i+1] - 48);
-                            i = j;
-                            break;
+                    std::string line_str = infile.readLine().toStdString();
+                    const char *line = line_str.c_str();
+                    int tilda = 0;
+                    int token;
+                    for (int i = 0; i < (int)strlen(line); i++)
+                    {
+                        if (line[i] == '~' && tilda == 0)
+                        {
+                            qDebug() << "opening tilda located";
+                            tilda = 1;
+
+                            // Gets the token from HTML file
+                            for (int j = i + 1; j < (int)strlen(line); j++)
+                            {
+                                if (line[j] == '~' && j - i == 2)
+                                {
+                                    token = (int)line[i + 1] - 48;
+                                    i = j;
+                                    break;
+                                }
+                                else if (line[j] == '~' && j - i == 3)
+                                {
+                                    token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                                    i = j;
+                                    break;
+                                }
+                            }
+
+                            qDebug() << "token found: " << token;
+
+                            QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
+
+                            std::string topush;
+                            switch (token)
+                            {
+                            case 1:
+                                topush = ui->spc_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->spc_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->spc_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->spc_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->spc_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->spc_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->spc_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->spc_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = ui->spc_exp_5->text().toStdString();
+                                break;
+                            case 10:
+                                topush = ui->spc_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topush = json_lookups_data["Weight_of_sample_of_water_1"].toString().toStdString();
+                                qDebug() << "value pushed" << topush;
+                                break;
+                            case 12:
+                                topush = json_lookups_data["Weight_of_sample_of_water_2"].toString().toStdString();
+                                break;
+                            case 13:
+                                topush = json_lookups_data["Weight_of_sample_of_water_3"].toString().toStdString();
+                                break;
+                            case 14:
+                                topush = json_lookups_data["Weight_of_SSD_Sample_1"].toString().toStdString();
+                                break;
+                            case 15:
+                                topush = json_lookups_data["Weight_of_SSD_Sample_2"].toString().toStdString();
+                                break;
+                            case 16:
+                                topush = json_lookups_data["Weight_of_SSD_Sample_3"].toString().toStdString();
+                                break;
+                            case 17:
+                                topush = json_lookups_data["Weight_of_Oven_dry_sample_1"].toString().toStdString();
+                                break;
+                            case 18:
+                                topush = json_lookups_data["Weight_of_Oven_dry_sample_2"].toString().toStdString();
+                                break;
+                            case 19:
+                                topush = json_lookups_data["Weight_of_Oven_dry_sample_3"].toString().toStdString();
+                                break;
+                            case 20:
+                                // Bulk Specific Gravity
+                                // Rest will have to be calculated
+                                break;
+                            }
+
+                            output_html_file << topush;
+                        }
+                        else
+                        {
+                            output_html_file << line[i];
                         }
                     }
-
-                    qDebug() << "token found: " << token;
-                    QJsonObject json_40mm = json_lookups["40mm"].toObject();
-
-                    std::string topush;
-                    switch (token) {
-                    case 11:
-                        topush = json_40mm["Weight_of_sample_of_water_1"].toString().toStdString();
-                        qDebug() << "value pushed" << topush;
-                        break;
-                    case 12:
-                        topush = json_40mm["Weight_of_sample_of_water_2"].toString().toStdString();
-                        break;
-                    case 13:
-                        topush = json_40mm["Weight_of_sample_of_water_3"].toString().toStdString();
-                        break;
-                    }
-
-                    output_html_file << topush;
-                } else {
-                    output_html_file << line[i];
                 }
+
+                output_html_file.close();
+                qDebug() << "file written to";
+
+                template_file.close();
+            }
+            else
+            {
+                qDebug() << "output html not opened";
             }
         }
-
-        output_html_file.close();
-        qDebug() << "file written to";
-    } else {
-        qDebug() << "output html not opened";
     }
 }
 
