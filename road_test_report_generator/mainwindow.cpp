@@ -9,7 +9,7 @@
 #include <fstream>
 #include <QDir>
 
-QJsonObject Specific_Gravity;
+
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
 
@@ -73,8 +73,8 @@ void MainWindow::on_spc_save_clicked()
     info.insert("experiment_info", exp_info);
     qDebug() << "info done";
 }
-
-QFile current_save(cwd.filePath("json/spc.json"));
+QJsonObject Specific_Gravity;
+QFile spe_gravity(cwd.filePath("json/spc.json"));
 void MainWindow::on_save_40mm_clicked()
 {
     type_of_material _40mm;
@@ -108,15 +108,15 @@ void MainWindow::on_save_40mm_clicked()
     _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
 
     Specific_Gravity[ "40mm" ] = _40_mm;
-    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
+    if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&current_save);
+        QTextStream out(&spe_gravity);
         QJsonDocument jsonDoc_1(Specific_Gravity);
 
         out << jsonDoc_1.toJson();
 
         // Close the file
-        current_save.close();
+        spe_gravity.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
@@ -155,14 +155,14 @@ void MainWindow::on_pushButton_clicked()
     qDebug() << "experiment info done";
     Specific_Gravity[ "20mm" ] = _20_mm;
     qDebug() << "experiment info done";
-    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
+    if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&current_save);
+        QTextStream out(&spe_gravity);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        current_save.close();
+        spe_gravity.close();
         qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
     else {
@@ -200,19 +200,17 @@ void MainWindow::on_pushButton_2_clicked(){
     _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
     Specific_Gravity[ "10mm" ] = _10_mm;
     qDebug() << "experiment info done";
-    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
+    if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&current_save);
+        QTextStream out(&spe_gravity);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        current_save.close();
-        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+        spe_gravity.close();
+
     }
-    else {
-        qDebug() << "Failed to open the file for writing.";
-    }
+
 }
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -244,27 +242,184 @@ void MainWindow::on_pushButton_3_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
     Specific_Gravity[ "stone_dust" ] = _stone_dust;
-    qDebug() << "experiment info done";
-    if (current_save.open(QFile::WriteOnly | QFile::Text)) {
+    if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
-        QTextStream out(&current_save);
+        QTextStream out(&spe_gravity);
         QJsonDocument jsonDoc_1(Specific_Gravity);
         out << jsonDoc_1.toJson();
 
         // Close the file
-        current_save.close();
-        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
+       spe_gravity.close();
     }
-    else {
-        qDebug() << "Failed to open the file for writing.";
-    }
-}
 
-void MainWindow::specificgravity(QJsonDocument jsonDoc_1, QFile file)
+}
+QJsonObject Flakiness_Elongation_Indices;
+QFile Flakiness_Elongation(cwd.filePath("json/fei.json"));
+void MainWindow::on_save_ss_clicked()
 {
+    passing[1] = ui->fei_ss_p1->text().toFloat();
+    passing[2] = ui->fei_ss_p2->text().toFloat();
+    passing[3] = ui->fei_ss_p3->text().toFloat();
+    passing[4] = ui->fei_ss_p4->text().toFloat();
+    passing[5] = ui->fei_ss_p5->text().toFloat();
+    passing[6] = ui->fei_ss_p6->text().toFloat();
+    passing[7] = ui->fei_ss_p7->text().toFloat();
+    passing[8] = ui->fei_ss_p8->text().toFloat();
+    passing[9] = ui->fei_ss_p9->text().toFloat();
+
+    QJsonObject passing_;
+    passing_["1"] = passing[1];
+    passing_["2"] = passing[2];
+    passing_["3"] = passing[3];
+    passing_["4"] = passing[4];
+    passing_["5"] = passing[5];
+    passing_["6"] = passing[6];
+    passing_["7"] = passing[7];
+    passing_["8"] = passing[8];
+    passing_["9"] = passing[9];
+    Flakiness_Elongation_Indices["passing"] = passing_;
+
+
+    retained[1] = ui->fei_ss_r1->text().toFloat();
+    retained[2] = ui->fei_ss_r1->text().toFloat();
+    retained[4] = ui->fei_ss_r1->text().toFloat();
+    retained[5] = ui->fei_ss_r1->text().toFloat();
+    retained[6] = ui->fei_ss_r1->text().toFloat();
+    retained[7] = ui->fei_ss_r1->text().toFloat();
+    retained[8] = ui->fei_ss_r1->text().toFloat();
+    retained[9] = ui->fei_ss_r1->text().toFloat();
+
+    QJsonObject retained_;
+    retained_["1"] = retained[1];
+    retained_["2"] = retained[2];
+    retained_["3"] = retained[3];
+    retained_["4"] = retained[4];
+    retained_["5"] = retained[5];
+    retained_["6"] = retained[6];
+    retained_["7"] = retained[7];
+    retained_["8"] = retained[8];
+    retained_["9"] = retained[9];
+    Flakiness_Elongation_Indices["retained"] = retained_;
+    if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text)) {
+       // json data ko file me likhta hua mai
+       QTextStream out(&Flakiness_Elongation);
+       QJsonDocument jsonDoc_2(Flakiness_Elongation_Indices);
+       out << jsonDoc_2.toJson();
+
+
+       Flakiness_Elongation.close();
+    }
 
 }
+void MainWindow::on_save_fei_clicked()
+{    A[0] =0;
+    A[1] = ui->fei_1_1->text().toFloat();
+    A[2] = ui->fei_1_2->text().toFloat();
+    A[3] = ui->fei_1_3->text().toFloat();
+    A[4] = ui->fei_1_4->text().toFloat();
+    A[5] = ui->fei_1_5->text().toFloat();
+    A[6] = ui->fei_1_6->text().toFloat();
+    A[7] = ui->fei_1_7->text().toFloat();
+    A[8] = ui->fei_1_8->text().toFloat();
+    A[9] = ui->fei_1_9->text().toFloat();
+    A[10] = ui->fei_1_10->text().toFloat();
+    QJsonObject A_;
+    A_["1"] = A[1];
+    A_["2"] = A[2];
+    A_["3"] = A[3];
+    A_["4"] = A[4];
+    A_["5"] = A[5];
+    A_["6"] = A[6];
+    A_["7"] = A[7];
+    A_["8"] = A[8];
+    A_["9"] = A[9];
+    A_["10"] = A[10];
+    Flakiness_Elongation_Indices["A"] = A_;
 
+
+    B[0] = 0;
+    B[1] = ui->fei_2_1->text().toFloat();
+    B[2] = ui->fei_2_2->text().toFloat();
+    B[3] = ui->fei_2_3->text().toFloat();
+    B[4] = ui->fei_2_4->text().toFloat();
+    B[5] = ui->fei_2_5->text().toFloat();
+    B[6] = ui->fei_2_6->text().toFloat();
+    B[7] = ui->fei_2_7->text().toFloat();
+    B[8] = ui->fei_2_8->text().toFloat();
+    B[9] = ui->fei_2_9->text().toFloat();
+    B[10] = ui->fei_2_10->text().toFloat();
+    QJsonObject B_;
+    B_["1"] = B[1];
+    B_["2"] = B[2];
+    B_["3"] = B[3];
+    B_["4"] = B[4];
+    B_["5"] = B[5];
+    B_["6"] = B[6];
+    B_["7"] = B[7];
+    B_["8"] = B[8];
+    B_["9"] = B[9];
+    B_["10"] = B[10];
+    Flakiness_Elongation_Indices["B"] = B_;
+
+    C[0] = 0;
+    C[1] = ui->fei_3_1->text().toFloat();
+    C[2] = ui->fei_3_2->text().toFloat();
+    C[3] = ui->fei_3_3->text().toFloat();
+    C[4] = ui->fei_3_4->text().toFloat();
+    C[5] = ui->fei_3_5->text().toFloat();
+    C[6] = ui->fei_3_6->text().toFloat();
+    C[7] = ui->fei_3_7->text().toFloat();
+    C[8] = ui->fei_3_8->text().toFloat();
+    C[9] = ui->fei_3_9->text().toFloat();
+    C[10] = ui->fei_3_10->text().toFloat();
+    QJsonObject C_;
+    C_["1"] = C[1];
+    C_["2"] = C[2];
+    C_["3"] = C[3];
+    C_["4"] = C[4];
+    C_["5"] = C[5];
+    C_["6"] = C[6];
+    C_["7"] = C[7];
+    C_["8"] = C[8];
+    C_["9"] = C[9];
+    C_["10"] = C[10];
+    Flakiness_Elongation_Indices["C"] = C_;
+
+
+    D[0] = 0;
+    D[1] = ui->fei_4_1->text().toFloat();
+    D[2] = ui->fei_4_2->text().toFloat();
+    D[3] = ui->fei_4_3->text().toFloat();
+    D[4] = ui->fei_4_4->text().toFloat();
+    D[5] = ui->fei_4_5->text().toFloat();
+    D[6] = ui->fei_4_6->text().toFloat();
+    D[7] = ui->fei_4_7->text().toFloat();
+    D[8] = ui->fei_4_8->text().toFloat();
+    D[9] = ui->fei_4_9->text().toFloat();
+    D[10] = ui->fei_4_10->text().toFloat();
+    QJsonObject D_;
+    D_["1"] = D[1];
+    D_["2"] = D[2];
+    D_["3"] = D[3];
+    D_["4"] = D[4];
+    D_["5"] = D[5];
+    D_["6"] = D[6];
+    D_["7"] = D[7];
+    D_["8"] = D[8];
+    D_["9"] = D[9];
+    D_["10"] = D[10];
+    Flakiness_Elongation_Indices["D"] = D_;
+    if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text)) {
+       // json data ko file me likhta hua mai
+       QTextStream out(&Flakiness_Elongation);
+       QJsonDocument jsonDoc_2(Flakiness_Elongation_Indices);
+       out << jsonDoc_2.toJson();
+
+
+       Flakiness_Elongation.close();
+    }
+
+}
 
 //Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -488,8 +643,4 @@ void MainWindow::on_spc_export_clicked()
     }
 }
 
-//Unused functions
-void specificgravity(QJsonDocument a1,QFile a2)
-{
-// DO NOT MODIFY
-}
+

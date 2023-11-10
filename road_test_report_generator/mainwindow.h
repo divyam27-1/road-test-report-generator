@@ -42,6 +42,12 @@ public:
     };
 
     bool get_token(std::string line, int pos, int *output);
+    float passing[10];
+    float retained[10];
+    float A[11];
+    float B[11];
+    float C[11];
+    float D[11];
 
 private slots:
     void on_pushButton_clicked();
@@ -62,9 +68,11 @@ private slots:
 
     void on_pushButton_3_clicked();
 
-    void specificgravity(QJsonDocument jsonDoc_1,QFile file);
-
     void on_spc_export_clicked();
+
+    void on_save_fei_clicked();
+
+    void on_save_ss_clicked();
 
 private:
     float scroll_sens;
