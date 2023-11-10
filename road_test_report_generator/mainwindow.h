@@ -33,12 +33,12 @@ public:
         QString type_of_material;
     };
     struct type_of_material{
-        QString Weight_of_sample_of_water[5][4];
+        float Weight_of_sample_of_water[5][4];
 //        array[0][0-3] = material_type = 10mm
 //        array[1][0-3] = material_type = 20mm
 //        array[2][0-3] = material_type = 30mm and so on...
-        QString Weight_of_SSD_Sample[5][4];
-        QString Weight_of_Oven_dry_sample[5][4];
+        float Weight_of_SSD_Sample[5][4];
+        float Weight_of_Oven_dry_sample[5][4];
     };
 
     bool get_token(std::string line, int pos, int *output);
@@ -48,6 +48,7 @@ public:
     float B[11];
     float C[11];
     float D[11];
+
 
 private slots:
     void on_pushButton_clicked();

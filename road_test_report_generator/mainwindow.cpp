@@ -84,17 +84,50 @@ void MainWindow::on_save_40mm_clicked()
     _40mm.Weight_of_SSD_Sample[4][0] = 0;
     _40mm.Weight_of_Oven_dry_sample[4][0] = 0;
 
-    _40mm.Weight_of_sample_of_water[4][1] = ui->spc_40_w1_t1->text();
-    _40mm.Weight_of_sample_of_water[4][2] = ui->spc_40_w1_t2->text();
-    _40mm.Weight_of_sample_of_water[4][3] = ui->spc_40_w1_t3->text();
-    _40mm.Weight_of_SSD_Sample[4][1] = ui->spc_40_w2_t1->text();
-    _40mm.Weight_of_SSD_Sample[4][2] = ui->spc_40_w2_t2->text();
-    _40mm.Weight_of_SSD_Sample[4][3] = ui->spc_40_w2_t3->text();
-    _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->text();
-    _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->text();
-    _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->text();
+    _40mm.Weight_of_sample_of_water[4][1] = ui->spc_40_w1_t1->text().toFloat();
+    _40mm.Weight_of_sample_of_water[4][2] = ui->spc_40_w1_t2->text().toFloat();
+    _40mm.Weight_of_sample_of_water[4][3] = ui->spc_40_w1_t3->text().toFloat();
+    _40mm.Weight_of_SSD_Sample[4][1] = ui->spc_40_w2_t1->text().toFloat();
+    _40mm.Weight_of_SSD_Sample[4][2] = ui->spc_40_w2_t2->text().toFloat();
+    _40mm.Weight_of_SSD_Sample[4][3] = ui->spc_40_w2_t3->text().toFloat();
+    _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->text().toFloat();
+    _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->text().toFloat();
+    _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->text().toFloat();
+    float Bulk_specific_gravity_40[3];
+    float apparent_specific_gravity_40[3];
+    float water_absorption_40[3];
+    float average_bulk_specific_gravity_40;
+    float average_apparent_specific_gravity_40;
+    float average_water_absorption_40;
 
+Bulk_specific_gravity_40[1] =  _40mm.Weight_of_Oven_dry_sample[4][1]/(_40mm.Weight_of_SSD_Sample[4][1] - _40mm.Weight_of_sample_of_water[4][1]);
+Bulk_specific_gravity_40[2] =  _40mm.Weight_of_Oven_dry_sample[4][2]/(_40mm.Weight_of_SSD_Sample[4][2] - _40mm.Weight_of_sample_of_water[4][2]);
+Bulk_specific_gravity_40[3] =  _40mm.Weight_of_Oven_dry_sample[4][3]/(_40mm.Weight_of_SSD_Sample[4][3] - _40mm.Weight_of_sample_of_water[4][3]);
+apparent_specific_gravity_40[1] = _40mm.Weight_of_Oven_dry_sample[4][1]/( _40mm.Weight_of_Oven_dry_sample[4][1] -_40mm.Weight_of_sample_of_water[4][1]  );
+apparent_specific_gravity_40[2] = _40mm.Weight_of_Oven_dry_sample[4][2]/( _40mm.Weight_of_Oven_dry_sample[4][2] -_40mm.Weight_of_sample_of_water[4][2]  );
+apparent_specific_gravity_40[3] = _40mm.Weight_of_Oven_dry_sample[4][3]/( _40mm.Weight_of_Oven_dry_sample[4][3] -_40mm.Weight_of_sample_of_water[4][3]  );
+water_absorption_40[1] = 100*( _40mm.Weight_of_SSD_Sample[4][1] - _40mm.Weight_of_Oven_dry_sample[4][1])/_40mm.Weight_of_Oven_dry_sample[4][1];
+water_absorption_40[2] = 100*( _40mm.Weight_of_SSD_Sample[4][2] - _40mm.Weight_of_Oven_dry_sample[4][2])/_40mm.Weight_of_Oven_dry_sample[4][2];
+water_absorption_40[3] = 100*( _40mm.Weight_of_SSD_Sample[4][3] - _40mm.Weight_of_Oven_dry_sample[4][3])/_40mm.Weight_of_Oven_dry_sample[4][3];
+average_bulk_specific_gravity_40 = (Bulk_specific_gravity_40[1] + Bulk_specific_gravity_40[2] + Bulk_specific_gravity_40[3])/3;
+average_apparent_specific_gravity_40 = (apparent_specific_gravity_40[1] + apparent_specific_gravity_40[2] + apparent_specific_gravity_40[3])/3;
+average_water_absorption_40 = (water_absorption_40[1] + water_absorption_40[2] + water_absorption_40[3])/3;
 
+     QJsonObject spc_40;
+spc_40["Bulk_specific_gravity_1"] = Bulk_specific_gravity_40[1];
+     spc_40["Bulk_specific_gravity_2"] = Bulk_specific_gravity_40[2];
+     spc_40["Bulk_specific_gravity_3"] = Bulk_specific_gravity_40[3];
+     spc_40["apparent_specific_gravity_1"] = apparent_specific_gravity_40[1];
+     spc_40["apparent_specific_gravity_2"] = apparent_specific_gravity_40[2];
+     spc_40["apparent_specific_gravity_3"] = apparent_specific_gravity_40[3];
+     spc_40["water_absorption_1"] = water_absorption_40[1];
+     spc_40["water_absorption_2"] = water_absorption_40[2];
+     spc_40["water_absorption_3"] = water_absorption_40[3];
+     spc_40["average_bulk_specific_gravity"] = average_bulk_specific_gravity_40;
+     spc_40["average_apparent_specific_gravity"] = average_apparent_specific_gravity_40;
+     spc_40["average_water_absorption"] = average_water_absorption_40;
+
+    
     QJsonObject _40_mm;
     //achha lg rha hai??:) i am noobda
     _40_mm.insert("Weight_of_sample_of_water_1",_40mm.Weight_of_sample_of_water[4][1]);
@@ -108,6 +141,7 @@ void MainWindow::on_save_40mm_clicked()
     _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
 
     Specific_Gravity[ "40mm" ] = _40_mm;
+    Specific_Gravity[ "cal_40mm" ] = spc_40;
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
         QTextStream out(&spe_gravity);
@@ -117,11 +151,8 @@ void MainWindow::on_save_40mm_clicked()
 
         // Close the file
         spe_gravity.close();
-        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
     }
-    else {
-        qDebug() << "Failed to open the file for writing.";
-    }
+
 }
 void MainWindow::on_pushButton_clicked()
 {
@@ -132,15 +163,51 @@ void MainWindow::on_pushButton_clicked()
     _20mm.Weight_of_SSD_Sample[2][0] = 0;
     _20mm.Weight_of_Oven_dry_sample[2][0] = 0;
 
-    _20mm.Weight_of_sample_of_water[2][1] = ui->spc_20_w1_t1->text();
-    _20mm.Weight_of_sample_of_water[2][2] = ui->spc_20_w1_t2->text();
-    _20mm.Weight_of_sample_of_water[2][3] = ui->spc_20_w1_t3->text();
-    _20mm.Weight_of_SSD_Sample[2][1] = ui->spc_20_w2_t1->text();
-    _20mm.Weight_of_SSD_Sample[2][2] = ui->spc_20_w2_t2->text();
-    _20mm.Weight_of_SSD_Sample[2][3] = ui->spc_20_w2_t3->text();
-    _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->text();
-    _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->text();
-    _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->text();
+    _20mm.Weight_of_sample_of_water[2][1] = ui->spc_20_w1_t1->text().toFloat();
+    _20mm.Weight_of_sample_of_water[2][2] = ui->spc_20_w1_t2->text().toFloat();
+    _20mm.Weight_of_sample_of_water[2][3] = ui->spc_20_w1_t3->text().toFloat();
+    _20mm.Weight_of_SSD_Sample[2][1] = ui->spc_20_w2_t1->text().toFloat();
+    _20mm.Weight_of_SSD_Sample[2][2] = ui->spc_20_w2_t2->text().toFloat();
+    _20mm.Weight_of_SSD_Sample[2][3] = ui->spc_20_w2_t3->text().toFloat();
+    _20mm.Weight_of_Oven_dry_sample[2][1] = ui->spc_20_w3_t1->text().toFloat();
+    _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->text().toFloat();
+    _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->text().toFloat();
+
+    float Bulk_specific_gravity_20[3];
+float apparent_specific_gravity_20[3];
+float water_absorption_20[3];
+float average_bulk_specific_gravity_20;
+float average_apparent_specific_gravity_20;
+float average_water_absorption_20;
+
+Bulk_specific_gravity_20[1] =  _20mm.Weight_of_Oven_dry_sample[2][1]/(_20mm.Weight_of_SSD_Sample[2][1] - _20mm.Weight_of_sample_of_water[2][1]);
+Bulk_specific_gravity_20[2] =  _20mm.Weight_of_Oven_dry_sample[2][2]/(_20mm.Weight_of_SSD_Sample[2][2] - _20mm.Weight_of_sample_of_water[2][2]);
+Bulk_specific_gravity_20[3] =  _20mm.Weight_of_Oven_dry_sample[2][3]/(_20mm.Weight_of_SSD_Sample[2][3] - _20mm.Weight_of_sample_of_water[2][3]);
+apparent_specific_gravity_20[1] = _20mm.Weight_of_Oven_dry_sample[2][1]/( _20mm.Weight_of_Oven_dry_sample[2][1] -_20mm.Weight_of_sample_of_water[2][1]  );
+apparent_specific_gravity_20[2] = _20mm.Weight_of_Oven_dry_sample[2][2]/( _20mm.Weight_of_Oven_dry_sample[2][2] -_20mm.Weight_of_sample_of_water[2][2]  );
+apparent_specific_gravity_20[3] = _20mm.Weight_of_Oven_dry_sample[2][3]/( _20mm.Weight_of_Oven_dry_sample[2][3] -_20mm.Weight_of_sample_of_water[2][3]  );
+water_absorption_20[1] = 100*( _20mm.Weight_of_SSD_Sample[2][1] - _20mm.Weight_of_Oven_dry_sample[2][1])/_20mm.Weight_of_Oven_dry_sample[2][1];
+water_absorption_20[2] = 100*( _20mm.Weight_of_SSD_Sample[2][2] - _20mm.Weight_of_Oven_dry_sample[2][2])/_20mm.Weight_of_Oven_dry_sample[2][2];
+water_absorption_20[3] = 100*( _20mm.Weight_of_SSD_Sample[2][3] - _20mm.Weight_of_Oven_dry_sample[2][3])/_20mm.Weight_of_Oven_dry_sample[2][3];
+average_bulk_specific_gravity_20 = (Bulk_specific_gravity_20[1] + Bulk_specific_gravity_20[2] + Bulk_specific_gravity_20[3])/3;
+average_apparent_specific_gravity_20 = (apparent_specific_gravity_20[1] + apparent_specific_gravity_20[2] + apparent_specific_gravity_20[3])/3;
+average_water_absorption_20 = (water_absorption_20[1] + water_absorption_20[2] + water_absorption_20[3])/3;
+
+ QJsonObject spc_20;
+spc_20["Bulk_specific_gravity_1"] = Bulk_specific_gravity_20[1];
+ spc_20["Bulk_specific_gravity_2"] = Bulk_specific_gravity_20[2];
+spc_20["Bulk_specific_gravity_3"] = Bulk_specific_gravity_20[3];
+ spc_20["apparent_specific_gravity_1"] = apparent_specific_gravity_20[1];
+spc_20["apparent_specific_gravity_2"] = apparent_specific_gravity_20[2];
+ spc_20["apparent_specific_gravity_3"] = apparent_specific_gravity_20[3];
+spc_20["water_absorption_1"] = water_absorption_20[1];
+ spc_20["water_absorption_2"] = water_absorption_20[2];
+spc_20["water_absorption_3"] = water_absorption_20[3];
+ spc_20["average_bulk_specific_gravity"] = average_bulk_specific_gravity_20;
+spc_20["average_apparent_specific_gravity"] = average_apparent_specific_gravity_20;
+ spc_20["average_water_absorption"] = average_water_absorption_20;
+
+    
 
     QJsonObject _20_mm;
     _20_mm["Weight_of_sample_of_water_1"] = _20mm.Weight_of_sample_of_water[2][1];
@@ -152,9 +219,10 @@ void MainWindow::on_pushButton_clicked()
     _20_mm["Weight_of_Oven_dry_sample_1"] = _20mm.Weight_of_Oven_dry_sample[2][1];
     _20_mm["Weight_of_Oven_dry_sample_2"] = _20mm.Weight_of_Oven_dry_sample[2][2];
     _20_mm["Weight_of_Oven_dry_sample_3"] = _20mm.Weight_of_Oven_dry_sample[2][3];
-    qDebug() << "experiment info done";
+  
     Specific_Gravity[ "20mm" ] = _20_mm;
-    qDebug() << "experiment info done";
+    Specific_Gravity[ "cal_20mm" ] = spc_20;
+   
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
         QTextStream out(&spe_gravity);
@@ -163,10 +231,7 @@ void MainWindow::on_pushButton_clicked()
 
         // Close the file
         spe_gravity.close();
-        qDebug() << "Combined JSON data saved to file: " << "Jsonfile_1";
-    }
-    else {
-        qDebug() << "Failed to open the file for writing.";
+
     }
 }
 void MainWindow::on_pushButton_2_clicked(){
@@ -177,15 +242,48 @@ void MainWindow::on_pushButton_2_clicked(){
     _10mm.Weight_of_SSD_Sample[1][0] = 0;
     _10mm.Weight_of_Oven_dry_sample[1][0] = 0;
 
-    _10mm.Weight_of_sample_of_water[1][1] = ui->spc_10_w1_t1->text();
-    _10mm.Weight_of_sample_of_water[1][2] = ui->spc_10_w1_t2->text();
-    _10mm.Weight_of_sample_of_water[1][3] = ui->spc_10_w1_t3->text();
-    _10mm.Weight_of_SSD_Sample[1][1] = ui->spc_10_w2_t1->text();
-    _10mm.Weight_of_SSD_Sample[1][2] = ui->spc_10_w2_t2->text();
-    _10mm.Weight_of_SSD_Sample[1][3] = ui->spc_10_w2_t3->text();
-    _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->text();
-    _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->text();
-    _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->text();
+    _10mm.Weight_of_sample_of_water[1][1] = ui->spc_10_w1_t1->text().toFloat();
+    _10mm.Weight_of_sample_of_water[1][2] = ui->spc_10_w1_t2->text().toFloat();
+    _10mm.Weight_of_sample_of_water[1][3] = ui->spc_10_w1_t3->text().toFloat();
+    _10mm.Weight_of_SSD_Sample[1][1] = ui->spc_10_w2_t1->text().toFloat();
+    _10mm.Weight_of_SSD_Sample[1][2] = ui->spc_10_w2_t2->text().toFloat();
+    _10mm.Weight_of_SSD_Sample[1][3] = ui->spc_10_w2_t3->text().toFloat();
+    _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->text().toFloat();
+    _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->text().toFloat();
+    _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->text().toFloat();
+    float Bulk_specific_gravity_10[3];
+float apparent_specific_gravity_10[3];
+float water_absorption_10[3];
+float average_bulk_specific_gravity_10;
+float average_apparent_specific_gravity_10;
+float average_water_absorption_10;
+
+Bulk_specific_gravity_10[1] =  _10mm.Weight_of_Oven_dry_sample[1][1]/(_10mm.Weight_of_SSD_Sample[1][1] - _10mm.Weight_of_sample_of_water[1][1]);
+Bulk_specific_gravity_10[2] =  _10mm.Weight_of_Oven_dry_sample[1][2]/(_10mm.Weight_of_SSD_Sample[1][2] - _10mm.Weight_of_sample_of_water[1][2]);
+Bulk_specific_gravity_10[3] =  _10mm.Weight_of_Oven_dry_sample[1][3]/(_10mm.Weight_of_SSD_Sample[1][3] - _10mm.Weight_of_sample_of_water[1][3]);
+apparent_specific_gravity_10[1] = _10mm.Weight_of_Oven_dry_sample[1][1]/( _10mm.Weight_of_Oven_dry_sample[1][1] -_10mm.Weight_of_sample_of_water[1][1]  );
+apparent_specific_gravity_10[2] = _10mm.Weight_of_Oven_dry_sample[1][2]/( _10mm.Weight_of_Oven_dry_sample[1][2] -_10mm.Weight_of_sample_of_water[1][2]  );
+apparent_specific_gravity_10[3] = _10mm.Weight_of_Oven_dry_sample[1][3]/( _10mm.Weight_of_Oven_dry_sample[1][3] -_10mm.Weight_of_sample_of_water[1][3]  );
+water_absorption_10[1] = 100*( _10mm.Weight_of_SSD_Sample[1][1] - _10mm.Weight_of_Oven_dry_sample[1][1])/_10mm.Weight_of_Oven_dry_sample[1][1];
+water_absorption_10[2] = 100*( _10mm.Weight_of_SSD_Sample[1][2] - _10mm.Weight_of_Oven_dry_sample[1][2])/_10mm.Weight_of_Oven_dry_sample[1][2];
+water_absorption_10[3] = 100*( _10mm.Weight_of_SSD_Sample[1][3] - _10mm.Weight_of_Oven_dry_sample[1][3])/_10mm.Weight_of_Oven_dry_sample[1][3];
+average_bulk_specific_gravity_10 = (Bulk_specific_gravity_10[1] + Bulk_specific_gravity_10[2] + Bulk_specific_gravity_10[3])/3;
+average_apparent_specific_gravity_10 = (apparent_specific_gravity_10[1] + apparent_specific_gravity_10[2] + apparent_specific_gravity_10[3])/3;
+average_water_absorption_10 = (water_absorption_10[1] + water_absorption_10[2] + water_absorption_10[3])/3;
+
+ QJsonObject spc_10;
+spc_10["Bulk_specific_gravity_1"] = Bulk_specific_gravity_10[1];
+ spc_10["Bulk_specific_gravity_2"] = Bulk_specific_gravity_10[2];
+spc_10["Bulk_specific_gravity_3"] = Bulk_specific_gravity_10[3];
+ spc_10["apparent_specific_gravity_1"] = apparent_specific_gravity_10[1];
+spc_10["apparent_specific_gravity_2"] = apparent_specific_gravity_10[2];
+ spc_10["apparent_specific_gravity_3"] = apparent_specific_gravity_10[3];
+spc_10["water_absorption_1"] = water_absorption_10[1];
+ spc_10["water_absorption_2"] = water_absorption_10[2];
+ spc_10["water_absorption_3"] = water_absorption_10[3];
+ spc_10["average_bulk_specific_gravity"] = average_bulk_specific_gravity_10;
+ spc_10["average_apparent_specific_gravity"] = average_apparent_specific_gravity_10;
+ spc_10["average_water_absorption"] = average_water_absorption_10;
 
     QJsonObject _10_mm;
 
@@ -199,7 +297,8 @@ void MainWindow::on_pushButton_2_clicked(){
     _10_mm["Weight_of_Oven_dry_sample_2"] = _10mm.Weight_of_Oven_dry_sample[1][2];
     _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
     Specific_Gravity[ "10mm" ] = _10_mm;
-    qDebug() << "experiment info done";
+     Specific_Gravity[ "cal_10mm" ] = spc_10;
+    
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
         QTextStream out(&spe_gravity);
@@ -220,15 +319,49 @@ void MainWindow::on_pushButton_3_clicked()
     stone_dust.Weight_of_SSD_Sample[0][0] = 0;
     stone_dust.Weight_of_Oven_dry_sample[0][0] = 0;
 
-    stone_dust.Weight_of_sample_of_water[0][1] = ui->spc_0_w1_t1->text();
-    stone_dust.Weight_of_sample_of_water[0][2] = ui->spc_0_w1_t2->text();
-    stone_dust.Weight_of_sample_of_water[0][3] = ui->spc_0_w1_t3->text();
-    stone_dust.Weight_of_SSD_Sample[0][1] = ui->spc_0_w2_t1->text();
-    stone_dust.Weight_of_SSD_Sample[0][2] = ui->spc_0_w2_t2->text();
-    stone_dust.Weight_of_SSD_Sample[0][3] = ui->spc_0_w2_t3->text();
-    stone_dust.Weight_of_Oven_dry_sample[0][1] = ui->spc_0_w3_t1->text();
-    stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->text();
-    stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->text();
+    stone_dust.Weight_of_sample_of_water[0][1] = ui->spc_0_w1_t1->text().toFloat();
+    stone_dust.Weight_of_sample_of_water[0][2] = ui->spc_0_w1_t2->text().toFloat();
+    stone_dust.Weight_of_sample_of_water[0][3] = ui->spc_0_w1_t3->text().toFloat();
+    stone_dust.Weight_of_SSD_Sample[0][1] = ui->spc_0_w2_t1->text().toFloat();
+    stone_dust.Weight_of_SSD_Sample[0][2] = ui->spc_0_w2_t2->text().toFloat();
+    stone_dust.Weight_of_SSD_Sample[0][3] = ui->spc_0_w2_t3->text().toFloat();
+    stone_dust.Weight_of_Oven_dry_sample[0][1] = ui->spc_0_w3_t1->text().toFloat();
+    stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->text().toFloat();
+    stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->text().toFloat();
+
+float Bulk_specific_gravity_s_d[3];
+float apparent_specific_gravity_s_d[3];
+float water_absorption_s_d[3];
+float average_bulk_specific_gravity_s_d;
+float average_apparent_specific_gravity_s_d;
+float average_water_absorption_s_d;
+
+Bulk_specific_gravity_s_d[1] =  stone_dust.Weight_of_Oven_dry_sample[0][1]/(stone_dust.Weight_of_SSD_Sample[0][1] - stone_dust.Weight_of_sample_of_water[0][1]);
+Bulk_specific_gravity_s_d[2] =  stone_dust.Weight_of_Oven_dry_sample[0][2]/(stone_dust.Weight_of_SSD_Sample[0][2] - stone_dust.Weight_of_sample_of_water[0][2]);
+Bulk_specific_gravity_s_d[3] =  stone_dust.Weight_of_Oven_dry_sample[0][3]/(stone_dust.Weight_of_SSD_Sample[0][3] - stone_dust.Weight_of_sample_of_water[0][3]);
+apparent_specific_gravity_s_d[1] = stone_dust.Weight_of_Oven_dry_sample[0][1]/( stone_dust.Weight_of_Oven_dry_sample[0][1] -stone_dust.Weight_of_sample_of_water[0][1]  );
+apparent_specific_gravity_s_d[2] = stone_dust.Weight_of_Oven_dry_sample[0][2]/( stone_dust.Weight_of_Oven_dry_sample[0][2] -stone_dust.Weight_of_sample_of_water[0][2]  );
+apparent_specific_gravity_s_d[3] = stone_dust.Weight_of_Oven_dry_sample[0][3]/( stone_dust.Weight_of_Oven_dry_sample[0][3] -stone_dust.Weight_of_sample_of_water[0][3]  );
+water_absorption_s_d[1] = 100*( stone_dust.Weight_of_SSD_Sample[0][1] - stone_dust.Weight_of_Oven_dry_sample[0][1])/stone_dust.Weight_of_Oven_dry_sample[0][1];
+water_absorption_s_d[2] = 100*( stone_dust.Weight_of_SSD_Sample[0][2] - stone_dust.Weight_of_Oven_dry_sample[0][2])/stone_dust.Weight_of_Oven_dry_sample[0][2];
+water_absorption_s_d[3] = 100*( stone_dust.Weight_of_SSD_Sample[0][3] - stone_dust.Weight_of_Oven_dry_sample[0][3])/stone_dust.Weight_of_Oven_dry_sample[0][3];
+average_bulk_specific_gravity_s_d = (Bulk_specific_gravity_s_d[1] + Bulk_specific_gravity_s_d[2] + Bulk_specific_gravity_s_d[3])/3;
+average_apparent_specific_gravity_s_d = (apparent_specific_gravity_s_d[1] + apparent_specific_gravity_s_d[2] + apparent_specific_gravity_s_d[3])/3;
+average_water_absorption_s_d = (water_absorption_s_d[1] + water_absorption_s_d[2] + water_absorption_s_d[3])/3;
+
+ QJsonObject spc_s_d;
+ spc_s_d["Bulk_specific_gravity_1"] = Bulk_specific_gravity_s_d[1];
+ spc_s_d["Bulk_specific_gravity_2"] = Bulk_specific_gravity_s_d[2];
+ spc_s_d["Bulk_specific_gravity_3"] = Bulk_specific_gravity_s_d[3];
+ spc_s_d["apparent_specific_gravity_1"] = apparent_specific_gravity_s_d[1];
+ spc_s_d["apparent_specific_gravity_2"] = apparent_specific_gravity_s_d[2];
+ spc_s_d["apparent_specific_gravity_3"] = apparent_specific_gravity_s_d[3];
+ spc_s_d["water_absorption_1"] = water_absorption_s_d[1];
+ spc_s_d["water_absorption_2"] = water_absorption_s_d[2];
+ spc_s_d["water_absorption_3"] = water_absorption_s_d[3];
+ spc_s_d["average_bulk_specific_gravity"] = average_bulk_specific_gravity_s_d;
+ spc_s_d["average_apparent_specific_gravity"] = average_apparent_specific_gravity_s_d;
+ spc_s_d["average_water_absorption"] = average_water_absorption_s_d;
 
     QJsonObject _stone_dust;
 
@@ -242,6 +375,7 @@ void MainWindow::on_pushButton_3_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
     Specific_Gravity[ "stone_dust" ] = _stone_dust;
+    Specific_Gravity[ "cal_stone_dust" ] = spc_s_d;
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text)) {
         // json data ko file me likhta hua mai
         QTextStream out(&spe_gravity);
