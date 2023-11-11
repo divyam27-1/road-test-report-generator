@@ -1,13 +1,27 @@
 {
     "40mm": {
-        "Weight_of_Oven_dry_sample_1": "",
-        "Weight_of_Oven_dry_sample_2": "",
-        "Weight_of_Oven_dry_sample_3": "",
-        "Weight_of_SSD_Sample_1": "",
-        "Weight_of_SSD_Sample_2": "",
-        "Weight_of_SSD_Sample_3": "",
-        "Weight_of_sample_of_water_1": "577",
-        "Weight_of_sample_of_water_2": "5757",
-        "Weight_of_sample_of_water_3": "57"
+        "Weight_of_Oven_dry_sample_1": 5,
+        "Weight_of_Oven_dry_sample_2": 4,
+        "Weight_of_Oven_dry_sample_3": 7,
+        "Weight_of_SSD_Sample_1": 1,
+        "Weight_of_SSD_Sample_2": 2,
+        "Weight_of_SSD_Sample_3": 3,
+        "Weight_of_sample_of_water_1": 7,
+        "Weight_of_sample_of_water_2": 8,
+        "Weight_of_sample_of_water_3": 9
+    },
+    "cal_40mm": {
+        "Bulk_specific_gravity_1": -0.8333333134651184,
+        "Bulk_specific_gravity_2": -0.6666666865348816,
+        "Bulk_specific_gravity_3": -1.1666666269302368,
+        "apparent_specific_gravity_1": -2.5,
+        "apparent_specific_gravity_2": -1,
+        "apparent_specific_gravity_3": -3.5,
+        "average_apparent_specific_gravity": -2.3333332538604736,
+        "average_bulk_specific_gravity": -0.8888888359069824,
+        "average_water_absorption": -62.380950927734375,
+        "water_absorption_1": -80,
+        "water_absorption_2": -50,
+        "water_absorption_3": -57.14285659790039
     }
 }

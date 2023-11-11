@@ -31,7 +31,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -57,8 +57,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -169,7 +169,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -506,7 +506,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>1370</width>
-         <height>1260</height>
+         <height>1275</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2240,7 +2240,7 @@ background-color: rgb(255, 255, 255);
 </string>
         </property>
        </widget>
-       <widget class="QPushButton" name="save_40mm">
+       <widget class="QPushButton" name="spc_save_40mm">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -2265,7 +2265,7 @@ background-color: rgb(170, 255, 127);
          <string>save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="spc_save_20mm">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -2290,7 +2290,7 @@ background-color: rgb(170, 255, 127);
          <string>save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="spc_save_10mm">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -2315,7 +2315,7 @@ background-color: rgb(170, 255, 127);
          <string>save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="spc_save_0mm">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -2476,7 +2476,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3927,7 +3927,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5395,7 +5395,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -8143,7 +8143,7 @@ background-color: rgb(170, 255, 127);
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">

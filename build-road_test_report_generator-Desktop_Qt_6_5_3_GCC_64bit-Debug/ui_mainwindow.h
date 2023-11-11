@@ -193,11 +193,10 @@ public:
     QLineEdit *spc_40_w3_t2;
     QLineEdit *spc_40_w1_t3;
     QLineEdit *spc_40_w2_t1;
-    QLineEdit *spc_40_w1_t2;
-    QLineEdit *spc_40_w3_t3;
-    QPushButton *save_40mm;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QLineEdit *spspc_save_40mm2;
+    QLineEdit *spspc_save_20mm;
+    QPushButton *spc_save_10mm   QPushButton *pushButton;
+    QPushButton *spc_save_0mm;
     QPushButton *pushButton_3;
     QWidget *fei;
     QToolBox *fei_info;
@@ -1695,10 +1694,10 @@ public:
 " border-width: 3px;\n"
 "    border-style: solid;\n"
 "\n"
-"background-color: rgb(255, 255, 255);\n"
+"backgrospc_save_40mm: rgb(255, 255, 255);\n"
 ""));
-        save_40mm = new QPushButton(spc_frame);
-        save_40mm->setObjectName("save_40mm");
+  spc_save_4spc_save_40mm = new QPushButton(spc_frame);
+        spc_save_40mm->setObjectName("save_40mm");
         save_40mm->setGeometry(QRect(390, 360, 80, 24));
         save_40mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
@@ -1709,9 +1708,8 @@ public:
 "\n"
 "\n"
 "\n"
-""));
-        pushButton = new QPushButton(spc_frame);
-        pushButton->setObjectName("pushButton");
+"")spc_savespc_save_spc_save_20mm = new QPushButton(spc_frame);
+        spc_save_20mm->setObjectName("pushButton");
         pushButton->setGeometry(QRect(390, 640, 80, 24));
         pushButton->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
@@ -1723,9 +1721,9 @@ public:
 "\n"
 "\n"
 ""));
-        pushButton_2 = new QPushButton(spc_frame);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(390, 930, 80, 24));
+  spc_savspc_save_10mm = new QPushButton(spc_frame);
+        spc_save_10mm->setObjectName("pushButton_2");
+        spc_save_10mm->setGeometry(QRect(390, 930, 80, 24));
         pushButton_2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(0, 0, 0);\n"
@@ -1736,10 +1734,10 @@ public:
 "\n"
 "\n"
 ""));
-        pushButton_3 = new QPushButton(spc_frame);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(390, 1230, 80, 24));
-        pushButton_3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
+        spc_save_0mm = new QPushButton(spc_frame);
+        spc_save_0mm->setObjectName("pushButton_3");
+        spc_save_0mm->setGeometry(QRect(390, 1230, 80, 24));
+        spc_save_0mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(0, 0, 0);\n"
 " border-width: 1px;\n"
@@ -3777,12 +3775,12 @@ public:
         label_15->setText(QCoreApplication::translate("MainWindow", "Trial 1", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Trial 3", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "S.No", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "Trial 2", nullptr));
+        spc_save_40mm>setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
+        spc_save_20mmsetText(QCoreApplication::translate("MainWindow", "Trial 2", nullptr));
         save_40mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        spc_save_10mmsetText(QCoreApplication::translate("MainWindow", "save", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        spc_save_0mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         tab_list->setTabText(tab_list->indexOf(spc), QCoreApplication::translate("MainWindow", "Specific Gravity", nullptr));
         label_163->setText(QCoreApplication::translate("MainWindow", "Name of the Work", nullptr));
         label_164->setText(QCoreApplication::translate("MainWindow", "Name of the Client", nullptr));

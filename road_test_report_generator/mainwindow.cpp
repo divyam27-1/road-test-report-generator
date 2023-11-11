@@ -75,7 +75,7 @@ void MainWindow::on_spc_save_clicked()
 }
 QJsonObject Specific_Gravity;
 QFile spe_gravity(cwd.filePath("json/spc.json"));
-void MainWindow::on_save_40mm_clicked()
+void MainWindow::on_spc_save_40mm_clicked()
 {
     type_of_material _40mm;
 
@@ -154,7 +154,7 @@ spc_40["Bulk_specific_gravity_1"] = Bulk_specific_gravity_40[1];
     }
 
 }
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_spc_save_20mm_clicked()
 {
     type_of_material _20mm;
 
@@ -234,7 +234,7 @@ spc_20["average_apparent_specific_gravity"] = average_apparent_specific_gravity_
 
     }
 }
-void MainWindow::on_pushButton_2_clicked(){
+void MainWindow::on_spc_save_10mm_clicked(){
 
     type_of_material _10mm;
 
@@ -311,7 +311,7 @@ spc_10["water_absorption_1"] = water_absorption_10[1];
     }
 
 }
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_spc_save_0mm_clicked()
 {
     type_of_material stone_dust;
 
@@ -626,7 +626,6 @@ void MainWindow::on_spc_export_clicked()
     QJsonObject json_lookups = json_doc.object();
     QStringList json_keys = json_lookups.keys();
     int json_keys_len = (int)json_keys.size();
-    bool update_info = false;
 
     for (int t = 0; t < json_keys_len; t++)
     {

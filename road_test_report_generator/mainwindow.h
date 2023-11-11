@@ -51,23 +51,23 @@ public:
 
 
 private slots:
-    void on_pushButton_clicked();
+    void on_spc_save_10mm_clicked();
 
     void on_tabWidget_tabCloseRequested(int index);
 
-    void on_pushButton_2_clicked();
+    void on_spc_save_10mm_clicked();
 
     void on_spc_save_clicked();
 
     void on_spc_data_scroll_valueChanged(int value);
 
-    void on_save_40mm_clicked();
+    void on_spc_save_40mm_clicked();
 
     void on_ind_data_scroll_valueChanged(int value);
 
     void on_aiv_data_scroll_valueChanged(int value);
 
-    void on_pushButton_3_clicked();
+    void on_spc_save_0mm_clicked();
 
     void on_spc_export_clicked();
 
