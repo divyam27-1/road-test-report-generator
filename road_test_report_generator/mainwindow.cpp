@@ -8,6 +8,7 @@
 #include "qdebug.h"
 #include <fstream>
 #include <QDir>
+#include <cmath>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -643,6 +644,7 @@ void MainWindow::on_spc_export_clicked()
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
                             std::string topush;
+                            double topushf;
                             switch (token)
                             {
                             case 1:
@@ -676,39 +678,102 @@ void MainWindow::on_spc_export_clicked()
                                 topush = ui->spc_exp_6->text().toStdString();
                                 break;
                             case 11:
-                                topush = json_lookups_data["Weight_of_sample_of_water_1"].toString().toStdString();
-                                qDebug() << "value pushed" << topush;
+                                qDebug() << json_lookups_data["Weight_of_sample_of_water_1"].toString();
+                                topushf = json_lookups_data["Weight_of_sample_of_water_1"].toDouble();
+                                output_html_file << topushf;
                                 break;
                             case 12:
-                                topush = json_lookups_data["Weight_of_sample_of_water_2"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_sample_of_water_2"].toDouble();
+                                output_html_file << topushf;
                                 break;
                             case 13:
-                                topush = json_lookups_data["Weight_of_sample_of_water_3"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_sample_of_water_3"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 14:
-                                topush = json_lookups_data["Weight_of_SSD_Sample_1"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_SSD_Sample_1"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 15:
-                                topush = json_lookups_data["Weight_of_SSD_Sample_2"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_SSD_Sample_2"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 16:
-                                topush = json_lookups_data["Weight_of_SSD_Sample_3"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_SSD_Sample_3"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 17:
-                                topush = json_lookups_data["Weight_of_Oven_dry_sample_1"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_1"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 18:
-                                topush = json_lookups_data["Weight_of_Oven_dry_sample_2"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_2"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 19:
-                                topush = json_lookups_data["Weight_of_Oven_dry_sample_3"].toString().toStdString();
+                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_3"].toDouble();
+                                output_html_file << topushf;
+
                                 break;
                             case 20:
-
+                                topushf = json_lookups_data["Bulk_specific_gravity_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["Bulk_specific_gravity_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["Bulk_specific_gravity_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["apparent_specific_gravity_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["apparent_specific_gravity_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["apparent_specific_gravity_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 26:
+                                topushf = json_lookups_data["water_absorption_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 27:
+                                topushf = json_lookups_data["water_absorption_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 28:
+                                topushf = json_lookups_data["water_absorption_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 29:
+                                topushf = json_lookups_data["average_bulk_specific_gravity"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 30:
+                                topushf = json_lookups_data["average_apparent_specific_gravity"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 31:
+                                topushf = json_lookups_data["average_water_absorption"].toDouble();
+                                output_html_file << topushf;
                                 break;
                             }
 
                             output_html_file << topush;
+                            qDebug() << topushf;
+                            topush = "";
                         }
                         else
                         {
