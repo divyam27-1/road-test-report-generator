@@ -39,37 +39,10 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
 
 void MainWindow::on_spc_save_clicked()
 {
-    struct basic_info basic_info_ = {ui->spc_bsc_1->toPlainText(),
-                                     ui->spc_bsc_2->toPlainText(),
-                                     ui->spc_bsc_3->toPlainText(),
-                                     ui->spc_bsc_4->toPlainText()};
-    struct exp_info exp_info_ = {ui->spc_exp_1->date().toString(),
-                                 ui->spc_exp_2->date().toString(),
-                                 ui->spc_exp_3->text(),
-                                 ui->spc_exp_4->text(),
-                                 ui->spc_exp_5->text(),
-                                 ui->spc_exp_6->text()};
-
-    QJsonObject basic_info;
-    basic_info.insert("name_of_work", basic_info_.name_of_work);
-    basic_info.insert("name_of_client", basic_info_.name_of_client);
-    basic_info.insert("name_of_consultant", basic_info_.name_of_consultant);
-    basic_info.insert("name_of_contractor", basic_info_.name_of_contractor);
-    qDebug() << "basic info done";
-
-    QJsonObject exp_info;
-    exp_info.insert("date_of_sampling", exp_info_.date_of_sampling);
-    exp_info.insert("date_of_testing", exp_info_.date_of_testing);
-    exp_info.insert("sample_no", exp_info_.sample_no);
-    exp_info.insert("sample_at", exp_info_.sample_at);
-    exp_info.insert("source_of_material", exp_info_.source_of_material);
-    exp_info.insert("type_of_material", exp_info_.type_of_material);
-    qDebug() << "experiment info done";
-
-    QJsonObject info;
-    info.insert("basic_info", basic_info);
-    info.insert("experiment_info", exp_info);
-    qDebug() << "info done";
+    ui->spc_save_0mm->click();
+    ui->spc_save_10mm->click();
+    ui->spc_save_20mm->click();
+    ui->spc_save_40mm->click();
 }
 QJsonObject Specific_Gravity;
 QFile spe_gravity(cwd.filePath("json/spc.json"));
