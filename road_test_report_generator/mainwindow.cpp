@@ -111,21 +111,20 @@ void MainWindow::on_spc_save_40mm_clicked()
     average_apparent_specific_gravity_40 = (apparent_specific_gravity_40[1] + apparent_specific_gravity_40[2] + apparent_specific_gravity_40[3]) / 3;
     average_water_absorption_40 = (water_absorption_40[1] + water_absorption_40[2] + water_absorption_40[3]) / 3;
 
-    QJsonObject spc_40;
-    spc_40["Bulk_specific_gravity_1"] = Bulk_specific_gravity_40[1];
-    spc_40["Bulk_specific_gravity_2"] = Bulk_specific_gravity_40[2];
-    spc_40["Bulk_specific_gravity_3"] = Bulk_specific_gravity_40[3];
-    spc_40["apparent_specific_gravity_1"] = apparent_specific_gravity_40[1];
-    spc_40["apparent_specific_gravity_2"] = apparent_specific_gravity_40[2];
-    spc_40["apparent_specific_gravity_3"] = apparent_specific_gravity_40[3];
-    spc_40["water_absorption_1"] = water_absorption_40[1];
-    spc_40["water_absorption_2"] = water_absorption_40[2];
-    spc_40["water_absorption_3"] = water_absorption_40[3];
-    spc_40["average_bulk_specific_gravity"] = average_bulk_specific_gravity_40;
-    spc_40["average_apparent_specific_gravity"] = average_apparent_specific_gravity_40;
-    spc_40["average_water_absorption"] = average_water_absorption_40;
-
     QJsonObject _40_mm;
+    _40_mm["Bulk_specific_gravity_1"] = Bulk_specific_gravity_40[1];
+    _40_mm["Bulk_specific_gravity_2"] = Bulk_specific_gravity_40[2];
+    _40_mm["Bulk_specific_gravity_3"] = Bulk_specific_gravity_40[3];
+    _40_mm["apparent_specific_gravity_1"] = apparent_specific_gravity_40[1];
+    _40_mm["apparent_specific_gravity_2"] = apparent_specific_gravity_40[2];
+    _40_mm["apparent_specific_gravity_3"] = apparent_specific_gravity_40[3];
+    _40_mm["water_absorption_1"] = water_absorption_40[1];
+    _40_mm["water_absorption_2"] = water_absorption_40[2];
+    _40_mm["water_absorption_3"] = water_absorption_40[3];
+    _40_mm["average_bulk_specific_gravity"] = average_bulk_specific_gravity_40;
+    _40_mm["average_apparent_specific_gravity"] = average_apparent_specific_gravity_40;
+    _40_mm["average_water_absorption"] = average_water_absorption_40;
+
     // achha lg rha hai??:) i am noobda
     _40_mm.insert("Weight_of_sample_of_water_1", _40mm.Weight_of_sample_of_water[4][1]);
     _40_mm["Weight_of_sample_of_water_2"] = _40mm.Weight_of_sample_of_water[4][2];
@@ -138,7 +137,6 @@ void MainWindow::on_spc_save_40mm_clicked()
     _40_mm["Weight_of_Oven_dry_sample_3"] = _40mm.Weight_of_Oven_dry_sample[4][3];
 
     Specific_Gravity["40mm"] = _40_mm;
-    Specific_Gravity["cal_40mm"] = spc_40;
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text))
     {
         // json data ko file me likhta hua mai
@@ -189,21 +187,20 @@ void MainWindow::on_spc_save_20mm_clicked()
     average_apparent_specific_gravity_20 = (apparent_specific_gravity_20[1] + apparent_specific_gravity_20[2] + apparent_specific_gravity_20[3]) / 3;
     average_water_absorption_20 = (water_absorption_20[1] + water_absorption_20[2] + water_absorption_20[3]) / 3;
 
-    QJsonObject spc_20;
-    spc_20["Bulk_specific_gravity_1"] = Bulk_specific_gravity_20[1];
-    spc_20["Bulk_specific_gravity_2"] = Bulk_specific_gravity_20[2];
-    spc_20["Bulk_specific_gravity_3"] = Bulk_specific_gravity_20[3];
-    spc_20["apparent_specific_gravity_1"] = apparent_specific_gravity_20[1];
-    spc_20["apparent_specific_gravity_2"] = apparent_specific_gravity_20[2];
-    spc_20["apparent_specific_gravity_3"] = apparent_specific_gravity_20[3];
-    spc_20["water_absorption_1"] = water_absorption_20[1];
-    spc_20["water_absorption_2"] = water_absorption_20[2];
-    spc_20["water_absorption_3"] = water_absorption_20[3];
-    spc_20["average_bulk_specific_gravity"] = average_bulk_specific_gravity_20;
-    spc_20["average_apparent_specific_gravity"] = average_apparent_specific_gravity_20;
-    spc_20["average_water_absorption"] = average_water_absorption_20;
-
     QJsonObject _20_mm;
+    _20_mm["Bulk_specific_gravity_1"] = Bulk_specific_gravity_20[1];
+    _20_mm["Bulk_specific_gravity_2"] = Bulk_specific_gravity_20[2];
+    _20_mm["Bulk_specific_gravity_3"] = Bulk_specific_gravity_20[3];
+    _20_mm["apparent_specific_gravity_1"] = apparent_specific_gravity_20[1];
+    _20_mm["apparent_specific_gravity_2"] = apparent_specific_gravity_20[2];
+    _20_mm["apparent_specific_gravity_3"] = apparent_specific_gravity_20[3];
+    _20_mm["water_absorption_1"] = water_absorption_20[1];
+    _20_mm["water_absorption_2"] = water_absorption_20[2];
+    _20_mm["water_absorption_3"] = water_absorption_20[3];
+    _20_mm["average_bulk_specific_gravity"] = average_bulk_specific_gravity_20;
+    _20_mm["average_apparent_specific_gravity"] = average_apparent_specific_gravity_20;
+    _20_mm["average_water_absorption"] = average_water_absorption_20;
+
     _20_mm["Weight_of_sample_of_water_1"] = _20mm.Weight_of_sample_of_water[2][1];
     _20_mm["Weight_of_sample_of_water_2"] = _20mm.Weight_of_sample_of_water[2][2];
     _20_mm["Weight_of_sample_of_water_3"] = _20mm.Weight_of_sample_of_water[2][3];
@@ -215,7 +212,6 @@ void MainWindow::on_spc_save_20mm_clicked()
     _20_mm["Weight_of_Oven_dry_sample_3"] = _20mm.Weight_of_Oven_dry_sample[2][3];
 
     Specific_Gravity["20mm"] = _20_mm;
-    Specific_Gravity["cal_20mm"] = spc_20;
 
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text))
     {
@@ -266,21 +262,19 @@ void MainWindow::on_spc_save_10mm_clicked()
     average_apparent_specific_gravity_10 = (apparent_specific_gravity_10[1] + apparent_specific_gravity_10[2] + apparent_specific_gravity_10[3]) / 3;
     average_water_absorption_10 = (water_absorption_10[1] + water_absorption_10[2] + water_absorption_10[3]) / 3;
 
-    QJsonObject spc_10;
-    spc_10["Bulk_specific_gravity_1"] = Bulk_specific_gravity_10[1];
-    spc_10["Bulk_specific_gravity_2"] = Bulk_specific_gravity_10[2];
-    spc_10["Bulk_specific_gravity_3"] = Bulk_specific_gravity_10[3];
-    spc_10["apparent_specific_gravity_1"] = apparent_specific_gravity_10[1];
-    spc_10["apparent_specific_gravity_2"] = apparent_specific_gravity_10[2];
-    spc_10["apparent_specific_gravity_3"] = apparent_specific_gravity_10[3];
-    spc_10["water_absorption_1"] = water_absorption_10[1];
-    spc_10["water_absorption_2"] = water_absorption_10[2];
-    spc_10["water_absorption_3"] = water_absorption_10[3];
-    spc_10["average_bulk_specific_gravity"] = average_bulk_specific_gravity_10;
-    spc_10["average_apparent_specific_gravity"] = average_apparent_specific_gravity_10;
-    spc_10["average_water_absorption"] = average_water_absorption_10;
-
     QJsonObject _10_mm;
+    _10_mm["Bulk_specific_gravity_1"] = Bulk_specific_gravity_10[1];
+    _10_mm["Bulk_specific_gravity_2"] = Bulk_specific_gravity_10[2];
+    _10_mm["Bulk_specific_gravity_3"] = Bulk_specific_gravity_10[3];
+    _10_mm["apparent_specific_gravity_1"] = apparent_specific_gravity_10[1];
+    _10_mm["apparent_specific_gravity_2"] = apparent_specific_gravity_10[2];
+    _10_mm["apparent_specific_gravity_3"] = apparent_specific_gravity_10[3];
+    _10_mm["water_absorption_1"] = water_absorption_10[1];
+    _10_mm["water_absorption_2"] = water_absorption_10[2];
+    _10_mm["water_absorption_3"] = water_absorption_10[3];
+    _10_mm["average_bulk_specific_gravity"] = average_bulk_specific_gravity_10;
+    _10_mm["average_apparent_specific_gravity"] = average_apparent_specific_gravity_10;
+    _10_mm["average_water_absorption"] = average_water_absorption_10;
 
     _10_mm["Weight_of_sample_of_water_1"] = _10mm.Weight_of_sample_of_water[1][1];
     _10_mm["Weight_of_sample_of_water_2"] = _10mm.Weight_of_sample_of_water[1][2];
@@ -292,7 +286,6 @@ void MainWindow::on_spc_save_10mm_clicked()
     _10_mm["Weight_of_Oven_dry_sample_2"] = _10mm.Weight_of_Oven_dry_sample[1][2];
     _10_mm["Weight_of_Oven_dry_sample_3"] = _10mm.Weight_of_Oven_dry_sample[1][3];
     Specific_Gravity["10mm"] = _10_mm;
-    Specific_Gravity["cal_10mm"] = spc_10;
 
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text))
     {
@@ -343,21 +336,19 @@ void MainWindow::on_spc_save_0mm_clicked()
     average_apparent_specific_gravity_s_d = (apparent_specific_gravity_s_d[1] + apparent_specific_gravity_s_d[2] + apparent_specific_gravity_s_d[3]) / 3;
     average_water_absorption_s_d = (water_absorption_s_d[1] + water_absorption_s_d[2] + water_absorption_s_d[3]) / 3;
 
-    QJsonObject spc_s_d;
-    spc_s_d["Bulk_specific_gravity_1"] = Bulk_specific_gravity_s_d[1];
-    spc_s_d["Bulk_specific_gravity_2"] = Bulk_specific_gravity_s_d[2];
-    spc_s_d["Bulk_specific_gravity_3"] = Bulk_specific_gravity_s_d[3];
-    spc_s_d["apparent_specific_gravity_1"] = apparent_specific_gravity_s_d[1];
-    spc_s_d["apparent_specific_gravity_2"] = apparent_specific_gravity_s_d[2];
-    spc_s_d["apparent_specific_gravity_3"] = apparent_specific_gravity_s_d[3];
-    spc_s_d["water_absorption_1"] = water_absorption_s_d[1];
-    spc_s_d["water_absorption_2"] = water_absorption_s_d[2];
-    spc_s_d["water_absorption_3"] = water_absorption_s_d[3];
-    spc_s_d["average_bulk_specific_gravity"] = average_bulk_specific_gravity_s_d;
-    spc_s_d["average_apparent_specific_gravity"] = average_apparent_specific_gravity_s_d;
-    spc_s_d["average_water_absorption"] = average_water_absorption_s_d;
-
     QJsonObject _stone_dust;
+    _stone_dust["Bulk_specific_gravity_1"] = Bulk_specific_gravity_s_d[1];
+    _stone_dust["Bulk_specific_gravity_2"] = Bulk_specific_gravity_s_d[2];
+    _stone_dust["Bulk_specific_gravity_3"] = Bulk_specific_gravity_s_d[3];
+    _stone_dust["apparent_specific_gravity_1"] = apparent_specific_gravity_s_d[1];
+    _stone_dust["apparent_specific_gravity_2"] = apparent_specific_gravity_s_d[2];
+    _stone_dust["apparent_specific_gravity_3"] = apparent_specific_gravity_s_d[3];
+    _stone_dust["water_absorption_1"] = water_absorption_s_d[1];
+    _stone_dust["water_absorption_2"] = water_absorption_s_d[2];
+    _stone_dust["water_absorption_3"] = water_absorption_s_d[3];
+    _stone_dust["average_bulk_specific_gravity"] = average_bulk_specific_gravity_s_d;
+    _stone_dust["average_apparent_specific_gravity"] = average_apparent_specific_gravity_s_d;
+    _stone_dust["average_water_absorption"] = average_water_absorption_s_d;
 
     _stone_dust["Weight_of_sample_of_water_1"] = stone_dust.Weight_of_sample_of_water[0][1];
     _stone_dust["Weight_of_sample_of_water_2"] = stone_dust.Weight_of_sample_of_water[0][2];
@@ -369,7 +360,6 @@ void MainWindow::on_spc_save_0mm_clicked()
     _stone_dust["Weight_of_Oven_dry_sample_2"] = stone_dust.Weight_of_Oven_dry_sample[0][2];
     _stone_dust["Weight_of_Oven_dry_sample_3"] = stone_dust.Weight_of_Oven_dry_sample[0][3];
     Specific_Gravity["stone_dust"] = _stone_dust;
-    Specific_Gravity["cal_stone_dust"] = spc_s_d;
     if (spe_gravity.open(QFile::WriteOnly | QFile::Text))
     {
         // json data ko file me likhta hua mai
@@ -741,8 +731,7 @@ void MainWindow::on_spc_export_clicked()
                                 topush = json_lookups_data["Weight_of_Oven_dry_sample_3"].toString().toStdString();
                                 break;
                             case 20:
-                                // Bulk Specific Gravity
-                                // Rest will have to be calculated
+
                                 break;
                             }
 
