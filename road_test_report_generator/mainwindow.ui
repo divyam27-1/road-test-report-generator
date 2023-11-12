@@ -31,7 +31,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -168,8 +168,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2357,15 +2357,15 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="fei_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3733,7 +3733,7 @@ background-color: rgb(170, 255, 127);
        <rect>
         <x>0</x>
         <y>50</y>
-        <width>1410</width>
+        <width>1401</width>
         <height>16</height>
        </rect>
       </property>
@@ -4573,7 +4573,7 @@ background-color: rgb(170, 255, 127);
          <rect>
           <x>100</x>
           <y>350</y>
-          <width>351</width>
+          <width>291</width>
           <height>25</height>
          </rect>
         </property>

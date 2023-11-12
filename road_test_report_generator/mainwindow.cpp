@@ -359,38 +359,35 @@ void MainWindow::on_save_ss_clicked()
     passing[8] = ui->fei_ss_p8->text().toFloat();
     passing[9] = ui->fei_ss_p9->text().toFloat();
 
-    QJsonObject passing_;
-    passing_["1"] = passing[1];
-    passing_["2"] = passing[2];
-    passing_["3"] = passing[3];
-    passing_["4"] = passing[4];
-    passing_["5"] = passing[5];
-    passing_["6"] = passing[6];
-    passing_["7"] = passing[7];
-    passing_["8"] = passing[8];
-    passing_["9"] = passing[9];
-    Flakiness_Elongation_Indices["passing"] = passing_;
+    Flakiness_Elongation_Indices["p_1"] = passing[1];
+    Flakiness_Elongation_Indices["p_2"] = passing[2];
+    Flakiness_Elongation_Indices["p_3"] = passing[3];
+    Flakiness_Elongation_Indices["p_4"] = passing[4];
+    Flakiness_Elongation_Indices["p_5"] = passing[5];
+    Flakiness_Elongation_Indices["p_6"] = passing[6];
+    Flakiness_Elongation_Indices["p_7"] = passing[7];
+    Flakiness_Elongation_Indices["p_8"] = passing[8];
+    Flakiness_Elongation_Indices["p_9"] = passing[9];
 
     retained[1] = ui->fei_ss_r1->text().toFloat();
-    retained[2] = ui->fei_ss_r1->text().toFloat();
-    retained[4] = ui->fei_ss_r1->text().toFloat();
-    retained[5] = ui->fei_ss_r1->text().toFloat();
-    retained[6] = ui->fei_ss_r1->text().toFloat();
-    retained[7] = ui->fei_ss_r1->text().toFloat();
-    retained[8] = ui->fei_ss_r1->text().toFloat();
-    retained[9] = ui->fei_ss_r1->text().toFloat();
+    retained[2] = ui->fei_ss_r2->text().toFloat();
+    retained[3] = ui->fei_ss_r3->text().toFloat();
+    retained[4] = ui->fei_ss_r4->text().toFloat();
+    retained[5] = ui->fei_ss_r5->text().toFloat();
+    retained[6] = ui->fei_ss_r6->text().toFloat();
+    retained[7] = ui->fei_ss_r7->text().toFloat();
+    retained[8] = ui->fei_ss_r8->text().toFloat();
+    retained[9] = ui->fei_ss_r9->text().toFloat();
 
-    QJsonObject retained_;
-    retained_["1"] = retained[1];
-    retained_["2"] = retained[2];
-    retained_["3"] = retained[3];
-    retained_["4"] = retained[4];
-    retained_["5"] = retained[5];
-    retained_["6"] = retained[6];
-    retained_["7"] = retained[7];
-    retained_["8"] = retained[8];
-    retained_["9"] = retained[9];
-    Flakiness_Elongation_Indices["retained"] = retained_;
+    Flakiness_Elongation_Indices["r_1"] = retained[1];
+    Flakiness_Elongation_Indices["r_2"] = retained[2];
+    Flakiness_Elongation_Indices["r_3"] = retained[3];
+    Flakiness_Elongation_Indices["r_4"] = retained[4];
+    Flakiness_Elongation_Indices["r_5"] = retained[5];
+    Flakiness_Elongation_Indices["r_6"] = retained[6];
+    Flakiness_Elongation_Indices["r_7"] = retained[7];
+    Flakiness_Elongation_Indices["r_8"] = retained[8];
+    Flakiness_Elongation_Indices["r_9"] = retained[9];
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
     {
         // json data ko file me likhta hua mai
@@ -414,18 +411,17 @@ void MainWindow::on_save_fei_clicked()
     A[8] = ui->fei_1_8->text().toFloat();
     A[9] = ui->fei_1_9->text().toFloat();
     A[10] = ui->fei_1_10->text().toFloat();
-    QJsonObject A_;
-    A_["1"] = A[1];
-    A_["2"] = A[2];
-    A_["3"] = A[3];
-    A_["4"] = A[4];
-    A_["5"] = A[5];
-    A_["6"] = A[6];
-    A_["7"] = A[7];
-    A_["8"] = A[8];
-    A_["9"] = A[9];
-    A_["10"] = A[10];
-    Flakiness_Elongation_Indices["A"] = A_;
+
+    Flakiness_Elongation_Indices["A_1"] = A[1];
+    Flakiness_Elongation_Indices["A_2"] = A[2];
+    Flakiness_Elongation_Indices["A_3"] = A[3];
+    Flakiness_Elongation_Indices["A_4"] = A[4];
+    Flakiness_Elongation_Indices["A_5"] = A[5];
+    Flakiness_Elongation_Indices["A_6"] = A[6];
+    Flakiness_Elongation_Indices["A_7"] = A[7];
+    Flakiness_Elongation_Indices["A_8"] = A[8];
+    Flakiness_Elongation_Indices["A_9"] = A[9];
+    Flakiness_Elongation_Indices["A_10"] = A[10];
 
     B[0] = 0;
     B[1] = ui->fei_2_1->text().toFloat();
@@ -438,18 +434,17 @@ void MainWindow::on_save_fei_clicked()
     B[8] = ui->fei_2_8->text().toFloat();
     B[9] = ui->fei_2_9->text().toFloat();
     B[10] = ui->fei_2_10->text().toFloat();
-    QJsonObject B_;
-    B_["1"] = B[1];
-    B_["2"] = B[2];
-    B_["3"] = B[3];
-    B_["4"] = B[4];
-    B_["5"] = B[5];
-    B_["6"] = B[6];
-    B_["7"] = B[7];
-    B_["8"] = B[8];
-    B_["9"] = B[9];
-    B_["10"] = B[10];
-    Flakiness_Elongation_Indices["B"] = B_;
+
+    Flakiness_Elongation_Indices["B_1"] = B[1];
+    Flakiness_Elongation_Indices["B_2"] = B[2];
+    Flakiness_Elongation_Indices["B_3"] = B[3];
+    Flakiness_Elongation_Indices["B_4"] = B[4];
+    Flakiness_Elongation_Indices["B_5"] = B[5];
+    Flakiness_Elongation_Indices["B_6"] = B[6];
+    Flakiness_Elongation_Indices["B_7"] = B[7];
+    Flakiness_Elongation_Indices["B_8"] = B[8];
+    Flakiness_Elongation_Indices["B_9"] = B[9];
+    Flakiness_Elongation_Indices["B_10"] = B[10];
 
     C[0] = 0;
     C[1] = ui->fei_3_1->text().toFloat();
@@ -462,18 +457,17 @@ void MainWindow::on_save_fei_clicked()
     C[8] = ui->fei_3_8->text().toFloat();
     C[9] = ui->fei_3_9->text().toFloat();
     C[10] = ui->fei_3_10->text().toFloat();
-    QJsonObject C_;
-    C_["1"] = C[1];
-    C_["2"] = C[2];
-    C_["3"] = C[3];
-    C_["4"] = C[4];
-    C_["5"] = C[5];
-    C_["6"] = C[6];
-    C_["7"] = C[7];
-    C_["8"] = C[8];
-    C_["9"] = C[9];
-    C_["10"] = C[10];
-    Flakiness_Elongation_Indices["C"] = C_;
+
+    Flakiness_Elongation_Indices["C_1"] = C[1];
+    Flakiness_Elongation_Indices["C_2"] = C[2];
+    Flakiness_Elongation_Indices["C_3"] = C[3];
+    Flakiness_Elongation_Indices["C_4"] = C[4];
+    Flakiness_Elongation_Indices["C_5"] = C[5];
+    Flakiness_Elongation_Indices["C_6"] = C[6];
+    Flakiness_Elongation_Indices["C_7"] = C[7];
+    Flakiness_Elongation_Indices["C_8"] = C[8];
+    Flakiness_Elongation_Indices["C_9"] = C[9];
+    Flakiness_Elongation_Indices["C_10"] = C[10];
 
     D[0] = 0;
     D[1] = ui->fei_4_1->text().toFloat();
@@ -486,18 +480,18 @@ void MainWindow::on_save_fei_clicked()
     D[8] = ui->fei_4_8->text().toFloat();
     D[9] = ui->fei_4_9->text().toFloat();
     D[10] = ui->fei_4_10->text().toFloat();
-    QJsonObject D_;
-    D_["1"] = D[1];
-    D_["2"] = D[2];
-    D_["3"] = D[3];
-    D_["4"] = D[4];
-    D_["5"] = D[5];
-    D_["6"] = D[6];
-    D_["7"] = D[7];
-    D_["8"] = D[8];
-    D_["9"] = D[9];
-    D_["10"] = D[10];
-    Flakiness_Elongation_Indices["D"] = D_;
+
+    Flakiness_Elongation_Indices["D_1"] = D[1];
+    Flakiness_Elongation_Indices["D_2"] = D[2];
+    Flakiness_Elongation_Indices["D_3"] = D[3];
+    Flakiness_Elongation_Indices["D_4"] = D[4];
+    Flakiness_Elongation_Indices["D_5"] = D[5];
+    Flakiness_Elongation_Indices["D_6"] = D[6];
+    Flakiness_Elongation_Indices["D_7"] = D[7];
+    Flakiness_Elongation_Indices["D_8"] = D[8];
+    Flakiness_Elongation_Indices["D_9"] = D[9];
+    Flakiness_Elongation_Indices["D_10"] = D[10];
+
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
     {
         // json data ko file me likhta hua mai
