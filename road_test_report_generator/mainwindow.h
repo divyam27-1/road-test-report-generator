@@ -91,6 +91,45 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_aic_save_20mm_clicked();
+    void on_aiv_20_21_textChanged(const QString &arg1);
+
+    void on_aiv_20_11_textChanged(const QString &arg1);
+
+    void on_aiv_20_12_textChanged(const QString &arg1);
+
+    void on_aiv_20_22_textChanged(const QString &arg1);
+
+    void on_aiv_20_13_textChanged(const QString &arg1);
+
+    void on_aiv_20_23_textChanged(const QString &arg1);
+
+    void on_aiv_10_11_textChanged(const QString &arg1);
+
+    void on_aiv_10_12_textChanged(const QString &arg1);
+
+    void on_aiv_10_13_textChanged(const QString &arg1);
+
+    void on_aiv_10_21_textChanged(const QString &arg1);
+
+    void on_aiv_10_22_textChanged(const QString &arg1);
+
+    void on_aiv_10_23_textChanged(const QString &arg1);
+
+    void on_aiv_20_41_textChanged(const QString &arg1);
+
+    void on_aiv_10_41_textChanged(const QString &arg1);
+
+    void on_aiv_10_42_textChanged(const QString &arg1);
+
+    void on_aiv_10_43_textChanged(const QString &arg1);
+
+    void on_aiv_20_6_clicked();
+
+    void on_aiv_10_6_clicked();
+
+    void on_aiv_20_42_textChanged(const QString &arg1);
+
+    void on_aiv_20_43_textChanged(const QString &arg1);
 
 private:
     float scroll_sens;

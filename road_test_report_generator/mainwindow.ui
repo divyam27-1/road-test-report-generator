@@ -4138,8 +4138,8 @@ background-color: rgb(170, 255, 127);
       <widget class="QFrame" name="aiv_frame">
        <property name="geometry">
         <rect>
-         <x>-10</x>
-         <y>-200</y>
+         <x>0</x>
+         <y>0</y>
          <width>1370</width>
          <height>800</height>
         </rect>
