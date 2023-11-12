@@ -788,3 +788,368 @@ void MainWindow::on_spc_export_clicked()
         }
     }
 }
+
+void MainWindow::on_fei_export_clicked()
+{
+    QString json_path = cwd.filePath("json/fei.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_lookups = json_doc.object();
+
+    std::string output_html_path = cwd.filePath("html/fei").toStdString();
+    output_html_path = output_html_path + ".html";
+    std::ofstream output_html_file(output_html_path, std::ios::out);
+
+    if (output_html_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QString template_path = cwd.filePath("templates/fei.html");
+        QFile template_file(template_path);
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    qDebug() << "opening tilda located";
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    qDebug() << "token found: " << token;
+
+                    std::string topush;
+                    double topushf;
+                    switch (token)
+                    {
+                    case 1:
+                        topush = ui->fei_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->fei_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->fei_bsc_3->toPlainText().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->fei_bsc_4->toPlainText().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->fei_exp_1->text().toStdString();
+                        break;
+                    case 6:
+                        topush = ui->fei_exp_2->text().toStdString();
+                        break;
+                    case 7:
+                        topush = ui->fei_exp_3->text().toStdString();
+                        break;
+                    case 8:
+                        topush = ui->fei_exp_4->text().toStdString();
+                        break;
+                    case 9:
+                        topush = ui->fei_exp_5->text().toStdString();
+                        break;
+                    case 10:
+                        topush = ui->fei_exp_6->text().toStdString();
+                        break;
+                    case 11:
+                        topushf = json_lookups["p_1"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 12:
+                        topushf = json_lookups["r_1"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 13:
+                        topushf = json_lookups["A_1"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 14:
+                        topushf = json_lookups["B_1"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 15:
+                        topushf = json_lookups["C_1"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 16:
+                        topushf = json_lookups["D_1"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 17:
+                        topushf = json_lookups["p_2"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 18:
+                        topushf = json_lookups["r_2"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 19:
+                        topushf = json_lookups["A_2"].toDouble();
+                        output_html_file << topushf;
+
+                        break;
+                    case 20:
+                        topushf = json_lookups["B_2"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 21:
+                        topushf = json_lookups["C_2"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 22:
+                        topushf = json_lookups["D_2"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 23:
+                        topushf = json_lookups["p_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 24:
+                        topushf = json_lookups["r_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 25:
+                        topushf = json_lookups["A_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 26:
+                        topushf = json_lookups["B_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 27:
+                        topushf = json_lookups["C_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 28:
+                        topushf = json_lookups["D_3"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 29:
+                        topushf = json_lookups["p_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 30:
+                        topushf = json_lookups["r_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 31:
+                        topushf = json_lookups["A_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 32:
+                        topushf = json_lookups["B_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 33:
+                        topushf = json_lookups["C_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 34:
+                        topushf = json_lookups["D_4"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 35:
+                        topushf = json_lookups["p_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 36:
+                        topushf = json_lookups["r_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 37:
+                        topushf = json_lookups["A_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 38:
+                        topushf = json_lookups["B_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 39:
+                        topushf = json_lookups["C_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 40:
+                        topushf = json_lookups["D_5"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 41:
+                        topushf = json_lookups["p_6"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 42:
+                        topushf = json_lookups["r_6"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 43:
+                        topushf = json_lookups["A_6"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 44:
+                        topushf = json_lookups["B_6"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 45:
+                        topushf = json_lookups["C_6"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 46:
+                        topushf = json_lookups["D_6"].toDouble();
+                        output_html_file << topushf;
+                        break;                    
+                    case 47:
+                        topushf = json_lookups["p_7"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 48:
+                        topushf = json_lookups["r_7"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 49:
+                        topushf = json_lookups["A_7"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 50:
+                        topushf = json_lookups["B_7"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 51:
+                        topushf = json_lookups["C_7"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 52:
+                        topushf = json_lookups["D_7"].toDouble();
+                        output_html_file << topushf;
+                        break;                    
+                    case 53:
+                        topushf = json_lookups["p_8"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 54:
+                        topushf = json_lookups["r_8"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 55:
+                        topushf = json_lookups["A_8"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 56:
+                        topushf = json_lookups["B_8"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 57:
+                        topushf = json_lookups["C_8"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 58:
+                        topushf = json_lookups["D_8"].toDouble();
+                        output_html_file << topushf;
+                        break;                    
+                    case 59:
+                        topushf = json_lookups["p_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 60:
+                        topushf = json_lookups["r_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 61:
+                        topushf = json_lookups["A_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 62:
+                        topushf = json_lookups["B_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 63:
+                        topushf = json_lookups["C_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 64:
+                        topushf = json_lookups["D_9"].toDouble();
+                        output_html_file << topushf;
+                        break;
+                    case 65:
+                        break;
+                    case 66:
+                        break;
+                    case 67:
+                        break;
+                    case 68:
+                        break;
+                    case 69:
+                        break;
+                    case 70:
+                        break;
+                    case 71:
+                        break;
+                    default:
+                        qDebug() << "something failed....";
+                    }
+
+                    output_html_file << topush;
+                    qDebug() << topushf;
+                    topush = "";
+                }
+                else
+                {
+                    output_html_file << line[i];
+                }
+            }
+        }
+
+        output_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+}

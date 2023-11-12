@@ -75,6 +75,8 @@ private slots:
 
     void on_save_ss_clicked();
 
+    void on_fei_export_clicked();
+
 private:
     float scroll_sens;
 

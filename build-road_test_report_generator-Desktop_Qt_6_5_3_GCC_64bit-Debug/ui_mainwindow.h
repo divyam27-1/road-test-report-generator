@@ -193,11 +193,12 @@ public:
     QLineEdit *spc_40_w3_t2;
     QLineEdit *spc_40_w1_t3;
     QLineEdit *spc_40_w2_t1;
-    QLineEdit *spspc_save_40mm2;
-    QLineEdit *spspc_save_20mm;
-    QPushButton *spc_save_10mm   QPushButton *pushButton;
+    QLineEdit *spc_40_w1_t2;
+    QLineEdit *spc_40_w3_t3;
+    QPushButton *spc_save_40mm;
+    QPushButton *spc_save_20mm;
+    QPushButton *spc_save_10mm;
     QPushButton *spc_save_0mm;
-    QPushButton *pushButton_3;
     QWidget *fei;
     QToolBox *fei_info;
     QWidget *fei_bsc;
@@ -793,7 +794,7 @@ public:
         spc_info->setGeometry(QRect(1410, 0, 230, 760));
         spc_bsc = new QWidget();
         spc_bsc->setObjectName("spc_bsc");
-        spc_bsc->setGeometry(QRect(0, 0, 100, 30));
+        spc_bsc->setGeometry(QRect(0, 0, 230, 698));
         layoutWidget = new QWidget(spc_bsc);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(0, 10, 258, 691));
@@ -860,7 +861,7 @@ public:
         spc_info->addItem(spc_bsc, QString::fromUtf8("Basic Info"));
         spc_exp = new QWidget();
         spc_exp->setObjectName("spc_exp");
-        spc_exp->setGeometry(QRect(0, 0, 230, 700));
+        spc_exp->setGeometry(QRect(0, 0, 100, 30));
         verticalLayoutWidget = new QWidget(spc_exp);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(9, 10, 221, 691));
@@ -1014,7 +1015,7 @@ public:
         line_2->setFrameShadow(QFrame::Sunken);
         spc_frame_outer = new QFrame(spc);
         spc_frame_outer->setObjectName("spc_frame_outer");
-        spc_frame_outer->setGeometry(QRect(10, 60, 1400, 681));
+        spc_frame_outer->setGeometry(QRect(10, 70, 1400, 690));
         spc_frame_outer->setFrameShape(QFrame::StyledPanel);
         spc_frame_outer->setFrameShadow(QFrame::Raised);
         spc_data_scroll = new QScrollBar(spc_frame_outer);
@@ -1029,7 +1030,7 @@ public:
         spc_data_scroll->setOrientation(Qt::Vertical);
         spc_frame = new QFrame(spc_frame_outer);
         spc_frame->setObjectName("spc_frame");
-        spc_frame->setGeometry(QRect(0, 0, 1370, 1260));
+        spc_frame->setGeometry(QRect(0, 0, 1370, 1275));
         spc_frame->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
         spc_frame->setFrameShape(QFrame::StyledPanel);
         spc_frame->setFrameShadow(QFrame::Raised);
@@ -1694,24 +1695,12 @@ public:
 " border-width: 3px;\n"
 "    border-style: solid;\n"
 "\n"
-"backgrospc_save_40mm: rgb(255, 255, 255);\n"
+"background-color: rgb(255, 255, 255);\n"
 ""));
-  spc_save_4spc_save_40mm = new QPushButton(spc_frame);
-        spc_save_40mm->setObjectName("save_40mm");
-        save_40mm->setGeometry(QRect(390, 360, 80, 24));
-        save_40mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-"")spc_savespc_save_spc_save_20mm = new QPushButton(spc_frame);
-        spc_save_20mm->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(390, 640, 80, 24));
-        pushButton->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
+        spc_save_40mm = new QPushButton(spc_frame);
+        spc_save_40mm->setObjectName("spc_save_40mm");
+        spc_save_40mm->setGeometry(QRect(390, 360, 80, 24));
+        spc_save_40mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(0, 0, 0);\n"
 " border-width: 1px;\n"
@@ -1721,10 +1710,23 @@ public:
 "\n"
 "\n"
 ""));
-  spc_savspc_save_10mm = new QPushButton(spc_frame);
-        spc_save_10mm->setObjectName("pushButton_2");
+        spc_save_20mm = new QPushButton(spc_frame);
+        spc_save_20mm->setObjectName("spc_save_20mm");
+        spc_save_20mm->setGeometry(QRect(390, 640, 80, 24));
+        spc_save_20mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
+"color: rgb(0, 0, 0);\n"
+"background-color: rgb(0, 0, 0);\n"
+" border-width: 1px;\n"
+" border-style: solid;\n"
+"background-color: rgb(170, 255, 127);\n"
+"\n"
+"\n"
+"\n"
+""));
+        spc_save_10mm = new QPushButton(spc_frame);
+        spc_save_10mm->setObjectName("spc_save_10mm");
         spc_save_10mm->setGeometry(QRect(390, 930, 80, 24));
-        pushButton_2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
+        spc_save_10mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(0, 0, 0);\n"
 " border-width: 1px;\n"
@@ -1735,7 +1737,7 @@ public:
 "\n"
 ""));
         spc_save_0mm = new QPushButton(spc_frame);
-        spc_save_0mm->setObjectName("pushButton_3");
+        spc_save_0mm->setObjectName("spc_save_0mm");
         spc_save_0mm->setGeometry(QRect(390, 1230, 80, 24));
         spc_save_0mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
 "color: rgb(0, 0, 0);\n"
@@ -1755,7 +1757,7 @@ public:
         fei_info->setGeometry(QRect(1400, 0, 230, 760));
         fei_bsc = new QWidget();
         fei_bsc->setObjectName("fei_bsc");
-        fei_bsc->setGeometry(QRect(0, 0, 100, 30));
+        fei_bsc->setGeometry(QRect(0, 0, 230, 698));
         layoutWidget_5 = new QWidget(fei_bsc);
         layoutWidget_5->setObjectName("layoutWidget_5");
         layoutWidget_5->setGeometry(QRect(0, 10, 258, 691));
@@ -1819,7 +1821,7 @@ public:
         fei_info->addItem(fei_bsc, QString::fromUtf8("Basic Info"));
         fei_exp = new QWidget();
         fei_exp->setObjectName("fei_exp");
-        fei_exp->setGeometry(QRect(0, 0, 230, 700));
+        fei_exp->setGeometry(QRect(0, 0, 230, 698));
         verticalLayoutWidget_5 = new QWidget(fei_exp);
         verticalLayoutWidget_5->setObjectName("verticalLayoutWidget_5");
         verticalLayoutWidget_5->setGeometry(QRect(9, 10, 221, 691));
@@ -2210,7 +2212,7 @@ public:
         fei_4_10->setGeometry(QRect(1230, 610, 81, 24));
         fei_line1 = new QFrame(fei);
         fei_line1->setObjectName("fei_line1");
-        fei_line1->setGeometry(QRect(0, 50, 1410, 16));
+        fei_line1->setGeometry(QRect(0, 50, 1401, 16));
         fei_line1->setFrameShape(QFrame::HLine);
         fei_line1->setFrameShadow(QFrame::Sunken);
         line_3 = new QFrame(fei);
@@ -2299,7 +2301,7 @@ public:
         aiv_info->addItem(aiv_bsc, QString::fromUtf8("Basic Info"));
         aiv_exp = new QWidget();
         aiv_exp->setObjectName("aiv_exp");
-        aiv_exp->setGeometry(QRect(0, 0, 230, 701));
+        aiv_exp->setGeometry(QRect(0, 0, 230, 699));
         verticalLayoutWidget_9 = new QWidget(aiv_exp);
         verticalLayoutWidget_9->setObjectName("verticalLayoutWidget_9");
         verticalLayoutWidget_9->setGeometry(QRect(9, 10, 221, 691));
@@ -2514,7 +2516,7 @@ public:
         label_462->setGeometry(QRect(30, 350, 67, 25));
         label_463 = new QLabel(aiv_frame);
         label_463->setObjectName("label_463");
-        label_463->setGeometry(QRect(100, 350, 351, 25));
+        label_463->setGeometry(QRect(100, 350, 291, 25));
         label_464 = new QLabel(aiv_frame);
         label_464->setObjectName("label_464");
         label_464->setGeometry(QRect(100, 390, 351, 25));
@@ -2753,7 +2755,7 @@ public:
         ind_info->addItem(ind_bsc, QString::fromUtf8("Basic Info"));
         ind_exp = new QWidget();
         ind_exp->setObjectName("ind_exp");
-        ind_exp->setGeometry(QRect(0, 0, 241, 701));
+        ind_exp->setGeometry(QRect(0, 0, 241, 699));
         verticalLayoutWidget_10 = new QWidget(ind_exp);
         verticalLayoutWidget_10->setObjectName("verticalLayoutWidget_10");
         verticalLayoutWidget_10->setGeometry(QRect(9, 10, 221, 691));
@@ -3582,7 +3584,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1680, 21));
+        menubar->setGeometry(QRect(0, 0, 1680, 22));
         menuHome = new QMenu(menubar);
         menuHome->setObjectName("menuHome");
         menuFile = new QMenu(menubar);
@@ -3670,8 +3672,8 @@ public:
         retranslateUi(MainWindow);
 
         tab_list->setCurrentIndex(1);
-        spc_info->setCurrentIndex(1);
-        fei_info->setCurrentIndex(1);
+        spc_info->setCurrentIndex(0);
+        fei_info->setCurrentIndex(0);
         aiv_info->setCurrentIndex(1);
         ind_info->setCurrentIndex(1);
 
@@ -3775,11 +3777,11 @@ public:
         label_15->setText(QCoreApplication::translate("MainWindow", "Trial 1", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Trial 3", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "S.No", nullptr));
-        spc_save_40mm>setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
-        spc_save_20mmsetText(QCoreApplication::translate("MainWindow", "Trial 2", nullptr));
-        save_40mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
-        spc_save_10mmsetText(QCoreApplication::translate("MainWindow", "save", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
+        label_16->setText(QCoreApplication::translate("MainWindow", "Trial 2", nullptr));
+        spc_save_40mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        spc_save_20mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        spc_save_10mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         spc_save_0mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         tab_list->setTabText(tab_list->indexOf(spc), QCoreApplication::translate("MainWindow", "Specific Gravity", nullptr));
         label_163->setText(QCoreApplication::translate("MainWindow", "Name of the Work", nullptr));
