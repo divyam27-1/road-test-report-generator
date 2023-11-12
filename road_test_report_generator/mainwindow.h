@@ -42,12 +42,23 @@ public:
     };
 
     bool get_token(std::string line, int pos, int *output);
+    //fei
     float passing[10];
     float retained[10];
-    float A[11];
-    float B[11];
-    float C[11];
-    float D[11];
+    float A[15];
+    float B[15];
+    float C[15];
+    float D[15];
+    float flakiness_index;
+    float elongation_index;
+    float combined_f_e_index;//fei
+    //AIV
+    float weight_of_cylinder[3][4];
+    float weight_of_cylider[3][4];
+    float weight_crushed_material[3][4];
+    float weight_of_sample[3][4];
+    float aggregate_impact_value[3][4];
+    float avg_aggregate_impact_value;
 
 
 private slots:
@@ -76,6 +87,10 @@ private slots:
     void on_save_ss_clicked();
 
     void on_fei_export_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_aic_save_20mm_clicked();
 
 private:
     float scroll_sens;

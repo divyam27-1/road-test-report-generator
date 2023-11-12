@@ -31,7 +31,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -58,7 +58,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>698</height>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -168,8 +168,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2365,7 +2365,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>698</height>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2475,8 +2475,8 @@ background-color: rgb(170, 255, 127);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3927,7 +3927,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>699</height>
+         <height>701</height>
         </rect>
        </property>
        <attribute name="label">
@@ -4138,8 +4138,8 @@ background-color: rgb(170, 255, 127);
       <widget class="QFrame" name="aiv_frame">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
+         <x>-10</x>
+         <y>-200</y>
          <width>1370</width>
          <height>800</height>
         </rect>
@@ -5233,6 +5233,32 @@ background-color: rgb(170, 255, 127);
          </rect>
         </property>
        </widget>
+       <widget class="QPushButton" name="aiv_save_10mm">
+        <property name="geometry">
+         <rect>
+          <x>539</x>
+          <y>770</y>
+          <width>71</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SAVE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="aic_save_20mm">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>420</y>
+          <width>80</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SAVE</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QScrollBar" name="aiv_data_scroll">
        <property name="geometry">
@@ -5395,7 +5421,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>699</height>
+         <height>701</height>
         </rect>
        </property>
        <attribute name="label">
@@ -8143,7 +8169,7 @@ background-color: rgb(170, 255, 127);
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">

@@ -359,6 +359,7 @@ void MainWindow::on_save_ss_clicked()
     passing[8] = ui->fei_ss_p8->text().toFloat();
     passing[9] = ui->fei_ss_p9->text().toFloat();
 
+
     Flakiness_Elongation_Indices["p_1"] = passing[1];
     Flakiness_Elongation_Indices["p_2"] = passing[2];
     Flakiness_Elongation_Indices["p_3"] = passing[3];
@@ -390,7 +391,6 @@ void MainWindow::on_save_ss_clicked()
     Flakiness_Elongation_Indices["r_9"] = retained[9];
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
     {
-        // json data ko file me likhta hua mai
         QTextStream out(&Flakiness_Elongation);
         QJsonDocument jsonDoc_2(Flakiness_Elongation_Indices);
         out << jsonDoc_2.toJson();
@@ -410,7 +410,8 @@ void MainWindow::on_save_fei_clicked()
     A[7] = ui->fei_1_7->text().toFloat();
     A[8] = ui->fei_1_8->text().toFloat();
     A[9] = ui->fei_1_9->text().toFloat();
-    A[10] = ui->fei_1_10->text().toFloat();
+    A[10] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8] + A[9];
+
 
     Flakiness_Elongation_Indices["A_1"] = A[1];
     Flakiness_Elongation_Indices["A_2"] = A[2];
@@ -421,7 +422,7 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["A_7"] = A[7];
     Flakiness_Elongation_Indices["A_8"] = A[8];
     Flakiness_Elongation_Indices["A_9"] = A[9];
-    Flakiness_Elongation_Indices["A_10"] = A[10];
+    Flakiness_Elongation_Indices["TOTAL_WEIGHT_A"] = A[10];
 
     B[0] = 0;
     B[1] = ui->fei_2_1->text().toFloat();
@@ -433,7 +434,7 @@ void MainWindow::on_save_fei_clicked()
     B[7] = ui->fei_2_7->text().toFloat();
     B[8] = ui->fei_2_8->text().toFloat();
     B[9] = ui->fei_2_9->text().toFloat();
-    B[10] = ui->fei_2_10->text().toFloat();
+    B[10] = B[1] + B[2] + B[3] + B[4] + B[5] + B[6] + B[7] + B[8] + B[9];
 
     Flakiness_Elongation_Indices["B_1"] = B[1];
     Flakiness_Elongation_Indices["B_2"] = B[2];
@@ -444,7 +445,7 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["B_7"] = B[7];
     Flakiness_Elongation_Indices["B_8"] = B[8];
     Flakiness_Elongation_Indices["B_9"] = B[9];
-    Flakiness_Elongation_Indices["B_10"] = B[10];
+    Flakiness_Elongation_Indices["TOTAL_WEIGHT_B"] = B[10];
 
     C[0] = 0;
     C[1] = ui->fei_3_1->text().toFloat();
@@ -456,7 +457,8 @@ void MainWindow::on_save_fei_clicked()
     C[7] = ui->fei_3_7->text().toFloat();
     C[8] = ui->fei_3_8->text().toFloat();
     C[9] = ui->fei_3_9->text().toFloat();
-    C[10] = ui->fei_3_10->text().toFloat();
+    C[10] = C[1] + C[2] + C[3] + C[4] + C[5] + C[6] + C[7] + C[8] + C[9];
+
 
     Flakiness_Elongation_Indices["C_1"] = C[1];
     Flakiness_Elongation_Indices["C_2"] = C[2];
@@ -467,7 +469,7 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["C_7"] = C[7];
     Flakiness_Elongation_Indices["C_8"] = C[8];
     Flakiness_Elongation_Indices["C_9"] = C[9];
-    Flakiness_Elongation_Indices["C_10"] = C[10];
+    Flakiness_Elongation_Indices["TOTAL_WEIGHT_C"] = C[10];
 
     D[0] = 0;
     D[1] = ui->fei_4_1->text().toFloat();
@@ -479,7 +481,7 @@ void MainWindow::on_save_fei_clicked()
     D[7] = ui->fei_4_7->text().toFloat();
     D[8] = ui->fei_4_8->text().toFloat();
     D[9] = ui->fei_4_9->text().toFloat();
-    D[10] = ui->fei_4_10->text().toFloat();
+    D[10] = D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9];
 
     Flakiness_Elongation_Indices["D_1"] = D[1];
     Flakiness_Elongation_Indices["D_2"] = D[2];
@@ -490,11 +492,12 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["D_7"] = D[7];
     Flakiness_Elongation_Indices["D_8"] = D[8];
     Flakiness_Elongation_Indices["D_9"] = D[9];
-    Flakiness_Elongation_Indices["D_10"] = D[10];
+    Flakiness_Elongation_Indices["TOTAL_WEIGHT_D"] = D[10];
+
 
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
     {
-        // json data ko file me likhta hua mai
+
         QTextStream out(&Flakiness_Elongation);
         QJsonDocument jsonDoc_2(Flakiness_Elongation_Indices);
         out << jsonDoc_2.toJson();
@@ -502,6 +505,22 @@ void MainWindow::on_save_fei_clicked()
         Flakiness_Elongation.close();
     }
 }
+void MainWindow::on_aic_save_20mm_clicked()
+{
+    weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
+    weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
+    weight_of_cylinder[2][3] = ui->aiv_20_13->text().toFloat();
+    weight_of_cylider_sample[2][1] = ui->aiv_20_21->text().toFloat();
+    weight_of_cylider_sample[2][2] = ui->aiv_20_22->text().toFloat();
+    weight_of_cylider_sample[2][3] = ui->aiv_20_23->text().toFloat();
+    weight_of_sample[2][1] =  weight_of_cylider_sample[2][1] - weight_of_cylinder[2][1];
+    weight_of_sample[2][2] =  weight_of_cylider_sample[2][2] - weight_of_cylinder[2][2];
+    weight_of_sample[2][3] =  weight_of_cylider_sample[2][3] - weight_of_cylinder[2][3];
+}
+
+
+
+
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -1153,3 +1172,7 @@ void MainWindow::on_fei_export_clicked()
         template_file.close();
     }
 }
+
+
+
+
