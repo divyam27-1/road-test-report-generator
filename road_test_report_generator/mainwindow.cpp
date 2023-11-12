@@ -9,6 +9,7 @@
 #include <fstream>
 #include <QDir>
 #include <cmath>
+#include <string>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -1153,3 +1154,212 @@ void MainWindow::on_fei_export_clicked()
         template_file.close();
     }
 }
+
+void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_11->text().toFloat();
+    float t2 = ui->aiv_20_21->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_31->setText(QString::fromStdString(target_string));
+}
+void MainWindow::on_aiv_20_11_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_11->text().toFloat();
+    float t2 = ui->aiv_20_21->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_31->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_20_22_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_12->text().toFloat();
+    float t2 = ui->aiv_20_22->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_32->setText(QString::fromStdString(target_string));
+}
+void MainWindow::on_aiv_20_12_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_12->text().toFloat();
+    float t2 = ui->aiv_20_22->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_32->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_20_23_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_13->text().toFloat();
+    float t2 = ui->aiv_20_23->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_33->setText(QString::fromStdString(target_string));
+}
+void MainWindow::on_aiv_20_13_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_13->text().toFloat();
+    float t2 = ui->aiv_20_23->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_20_33->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_21_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_11->text().toFloat();
+    float t2 = ui->aiv_10_21->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_31->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_11_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_11->text().toFloat();
+    float t2 = ui->aiv_10_21->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to one decimal place
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_31->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_22_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_12->text().toFloat();
+    float t2 = ui->aiv_10_22->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_32->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_12_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_12->text().toFloat();
+    float t2 = ui->aiv_10_22->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to one decimal place
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_32->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_23_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_13->text().toFloat();
+    float t2 = ui->aiv_10_23->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to two decimal places
+    std::setprecision(2);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_33->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_10_13_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_13->text().toFloat();
+    float t2 = ui->aiv_10_23->text().toFloat();
+    float target = t2 - t1;
+
+    // Set precision to one decimal place
+    std::setprecision(1);
+    std::string target_string = std::to_string(target);
+
+    ui->aiv_10_33->setText(QString::fromStdString(target_string));
+}
+
+void MainWindow::on_aiv_20_41_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_41->text().toFloat();
+    float t2 = ui->aiv_20_31->text().toFloat();
+    std::string target = std::to_string(100*t1/t2);
+    ui->aiv_20_51->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_20_42_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_42->text().toFloat();
+    float t2 = ui->aiv_20_32->text().toFloat();
+    std::string target = std::to_string(100*t1/t2);
+    ui->aiv_20_52->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_20_43_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_20_43->text().toFloat();
+    float t2 = ui->aiv_20_33->text().toFloat();
+    std::string target = std::to_string(100*t1/t2);
+    ui->aiv_20_53->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_10_41_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_41->text().toFloat();
+    float t2 = ui->aiv_10_31->text().toFloat();
+    std::string target = std::to_string(100 * t1 / t2);
+    ui->aiv_10_51->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_10_42_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_42->text().toFloat();
+    float t2 = ui->aiv_10_32->text().toFloat();
+    std::string target = std::to_string(100 * t1 / t2);
+    ui->aiv_10_52->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_10_43_textChanged(const QString &arg1)
+{
+    float t1 = ui->aiv_10_43->text().toFloat();
+    float t2 = ui->aiv_10_33->text().toFloat();
+    std::string target = std::to_string(100 * t1 / t2);
+    ui->aiv_10_53->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_20_6_clicked()
+{
+    float t1 = ui->aiv_20_51->text().toFloat(), t2 = ui->aiv_20_52->text().toFloat(), t3 = ui->aiv_20_53->text().toFloat();
+    std::string target = std::to_string((t1+t2+t3)/3);
+    ui->aiv_20_6->setText(QString::fromStdString(target));
+}
+void MainWindow::on_aiv_10_6_clicked()
+{
+    float t1 = ui->aiv_10_51->text().toFloat(), t2 = ui->aiv_10_52->text().toFloat(), t3 = ui->aiv_10_53->text().toFloat();
+    std::string target = std::to_string((t1+t2+t3)/3);
+    ui->aiv_10_6->setText(QString::fromStdString(target));
+}
+

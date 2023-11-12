@@ -31,7 +31,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -168,8 +168,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2475,8 +2475,8 @@ background-color: rgb(170, 255, 127);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2742,7 +2742,7 @@ background-color: rgb(170, 255, 127);
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>0</y>
+          <y>20</y>
           <width>730</width>
           <height>60</height>
          </rect>
@@ -4591,7 +4591,7 @@ background-color: rgb(170, 255, 127);
          </rect>
         </property>
         <property name="text">
-         <string>Aggregate Impact Value</string>
+         <string>Average Aggregate Impact Value</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_465">
@@ -4651,45 +4651,6 @@ background-color: rgb(170, 255, 127);
          <rect>
           <x>680</x>
           <y>350</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_20_61">
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>390</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_20_63">
-        <property name="geometry">
-         <rect>
-          <x>820</x>
-          <y>390</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_20_62">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>390</y>
           <width>111</width>
           <height>25</height>
          </rect>
@@ -4982,19 +4943,6 @@ background-color: rgb(170, 255, 127);
          <string>Aggregate Impact Value</string>
         </property>
        </widget>
-       <widget class="QLabel" name="aiv_10_62">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="aiv_10_41">
         <property name="geometry">
          <rect>
@@ -5065,19 +5013,6 @@ background-color: rgb(170, 255, 127);
         </property>
         <property name="text">
          <string>W2</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_10_63">
-        <property name="geometry">
-         <rect>
-          <x>820</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_330">
@@ -5210,19 +5145,6 @@ background-color: rgb(170, 255, 127);
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="aiv_10_61">
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="aiv_10_42">
         <property name="geometry">
          <rect>
@@ -5231,6 +5153,32 @@ background-color: rgb(170, 255, 127);
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="aiv_20_6">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>380</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>UPDATE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="aiv_10_6">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>740</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>UPDATE</string>
         </property>
        </widget>
       </widget>
@@ -8261,11 +8209,78 @@ background-color: rgb(170, 255, 127);
   </action>
  </widget>
  <tabstops>
+  <tabstop>fei_ss_p1</tabstop>
+  <tabstop>fei_ss_p2</tabstop>
+  <tabstop>fei_ss_p3</tabstop>
+  <tabstop>fei_ss_p4</tabstop>
+  <tabstop>fei_ss_p5</tabstop>
+  <tabstop>fei_ss_p6</tabstop>
+  <tabstop>fei_ss_p7</tabstop>
+  <tabstop>fei_ss_p8</tabstop>
+  <tabstop>fei_ss_p9</tabstop>
+  <tabstop>fei_ss_r1</tabstop>
+  <tabstop>fei_ss_r2</tabstop>
+  <tabstop>fei_ss_r3</tabstop>
+  <tabstop>fei_ss_r4</tabstop>
+  <tabstop>fei_ss_r5</tabstop>
+  <tabstop>fei_ss_r6</tabstop>
+  <tabstop>fei_ss_r7</tabstop>
+  <tabstop>fei_ss_r8</tabstop>
+  <tabstop>fei_ss_r9</tabstop>
+  <tabstop>save_ss</tabstop>
+  <tabstop>fei_1_1</tabstop>
+  <tabstop>fei_1_2</tabstop>
+  <tabstop>fei_1_3</tabstop>
+  <tabstop>fei_1_4</tabstop>
+  <tabstop>fei_1_5</tabstop>
+  <tabstop>fei_1_6</tabstop>
+  <tabstop>fei_1_7</tabstop>
+  <tabstop>fei_1_8</tabstop>
+  <tabstop>fei_1_9</tabstop>
+  <tabstop>fei_1_10</tabstop>
+  <tabstop>fei_2_1</tabstop>
+  <tabstop>fei_2_2</tabstop>
+  <tabstop>fei_2_3</tabstop>
+  <tabstop>fei_2_4</tabstop>
+  <tabstop>fei_2_5</tabstop>
+  <tabstop>fei_2_6</tabstop>
+  <tabstop>fei_2_7</tabstop>
+  <tabstop>fei_2_8</tabstop>
+  <tabstop>fei_2_9</tabstop>
+  <tabstop>fei_2_10</tabstop>
+  <tabstop>fei_3_1</tabstop>
+  <tabstop>fei_3_2</tabstop>
+  <tabstop>fei_3_3</tabstop>
+  <tabstop>fei_3_4</tabstop>
+  <tabstop>fei_3_5</tabstop>
+  <tabstop>fei_3_6</tabstop>
+  <tabstop>fei_3_7</tabstop>
+  <tabstop>fei_3_8</tabstop>
+  <tabstop>fei_3_9</tabstop>
+  <tabstop>fei_3_10</tabstop>
+  <tabstop>fei_4_1</tabstop>
+  <tabstop>fei_4_2</tabstop>
+  <tabstop>fei_4_3</tabstop>
+  <tabstop>fei_4_4</tabstop>
+  <tabstop>fei_4_5</tabstop>
+  <tabstop>fei_4_6</tabstop>
+  <tabstop>fei_4_7</tabstop>
+  <tabstop>fei_4_8</tabstop>
+  <tabstop>fei_4_9</tabstop>
+  <tabstop>fei_4_10</tabstop>
+  <tabstop>save_fei</tabstop>
+  <tabstop>fei_exp_3</tabstop>
+  <tabstop>fei_exp_4</tabstop>
+  <tabstop>fei_exp_5</tabstop>
+  <tabstop>fei_exp_6</tabstop>
+  <tabstop>fei_save</tabstop>
+  <tabstop>fei_saveas</tabstop>
+  <tabstop>fei_export</tabstop>
   <tabstop>spc_save</tabstop>
-  <tabstop>spc_saveas</tabstop>
   <tabstop>spc_export</tabstop>
-  <tabstop>spc_40_w1_t1</tabstop>
+  <tabstop>spc_saveas</tabstop>
   <tabstop>spc_40_w1_t2</tabstop>
+  <tabstop>spc_40_w1_t1</tabstop>
   <tabstop>spc_40_w1_t3</tabstop>
   <tabstop>spc_40_w2_t1</tabstop>
   <tabstop>spc_40_w2_t2</tabstop>
@@ -8279,7 +8294,6 @@ background-color: rgb(170, 255, 127);
   <tabstop>spc_20_w2_t1</tabstop>
   <tabstop>spc_20_w2_t2</tabstop>
   <tabstop>spc_20_w2_t3</tabstop>
-  <tabstop>spc_20_w3_t1</tabstop>
   <tabstop>spc_20_w3_t2</tabstop>
   <tabstop>spc_20_w3_t3</tabstop>
   <tabstop>spc_10_w1_t1</tabstop>
@@ -8289,7 +8303,6 @@ background-color: rgb(170, 255, 127);
   <tabstop>spc_10_w2_t2</tabstop>
   <tabstop>spc_10_w2_t3</tabstop>
   <tabstop>spc_10_w3_t1</tabstop>
-  <tabstop>spc_10_w3_t2</tabstop>
   <tabstop>spc_10_w3_t3</tabstop>
   <tabstop>spc_0_w1_t1</tabstop>
   <tabstop>spc_0_w1_t2</tabstop>
@@ -8297,9 +8310,8 @@ background-color: rgb(170, 255, 127);
   <tabstop>spc_0_w2_t1</tabstop>
   <tabstop>spc_0_w2_t2</tabstop>
   <tabstop>spc_0_w2_t3</tabstop>
-  <tabstop>spc_0_w3_t1</tabstop>
   <tabstop>spc_0_w3_t2</tabstop>
-  <tabstop>spc_0_w3_t3</tabstop>
+  <tabstop>spc_0_w3_t1</tabstop>
   <tabstop>spc_exp_1</tabstop>
   <tabstop>spc_exp_2</tabstop>
   <tabstop>spc_exp_3</tabstop>
@@ -8309,8 +8321,257 @@ background-color: rgb(170, 255, 127);
   <tabstop>spc_bsc_1</tabstop>
   <tabstop>spc_bsc_2</tabstop>
   <tabstop>spc_bsc_3</tabstop>
-  <tabstop>spc_bsc_4</tabstop>
   <tabstop>tab_list</tabstop>
+  <tabstop>spc_save_40mm</tabstop>
+  <tabstop>spc_save_20mm</tabstop>
+  <tabstop>spc_save_10mm</tabstop>
+  <tabstop>spc_save_0mm</tabstop>
+  <tabstop>fei_bsc_1</tabstop>
+  <tabstop>fei_bsc_2</tabstop>
+  <tabstop>fei_bsc_3</tabstop>
+  <tabstop>fei_bsc_4</tabstop>
+  <tabstop>spc_20_w3_t1</tabstop>
+  <tabstop>fei_exp_2</tabstop>
+  <tabstop>spc_10_w3_t2</tabstop>
+  <tabstop>spc_0_w3_t3</tabstop>
+  <tabstop>spc_bsc_4</tabstop>
+  <tabstop>fei_exp_1</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>pushButton_8</tabstop>
+  <tabstop>pushButton_9</tabstop>
+  <tabstop>aiv_bsc_1</tabstop>
+  <tabstop>aiv_bsc_2</tabstop>
+  <tabstop>aiv_bsc_3</tabstop>
+  <tabstop>aiv_bsc_4</tabstop>
+  <tabstop>aiv_exp_1</tabstop>
+  <tabstop>aiv_exp_2</tabstop>
+  <tabstop>aiv_exp_3</tabstop>
+  <tabstop>aiv_exp_4</tabstop>
+  <tabstop>aiv_exp_5</tabstop>
+  <tabstop>aiv_exp_6</tabstop>
+  <tabstop>aiv_20_11</tabstop>
+  <tabstop>aiv_20_12</tabstop>
+  <tabstop>aiv_20_13</tabstop>
+  <tabstop>aiv_20_21</tabstop>
+  <tabstop>aiv_20_22</tabstop>
+  <tabstop>aiv_20_23</tabstop>
+  <tabstop>aiv_20_41</tabstop>
+  <tabstop>aiv_20_42</tabstop>
+  <tabstop>aiv_20_43</tabstop>
+  <tabstop>aiv_10_43</tabstop>
+  <tabstop>aiv_10_13</tabstop>
+  <tabstop>aiv_10_12</tabstop>
+  <tabstop>aiv_10_11</tabstop>
+  <tabstop>aiv_10_21</tabstop>
+  <tabstop>aiv_10_41</tabstop>
+  <tabstop>aiv_10_23</tabstop>
+  <tabstop>aiv_10_22</tabstop>
+  <tabstop>aiv_10_42</tabstop>
+  <tabstop>ind_bsc_1</tabstop>
+  <tabstop>ind_bsc_2</tabstop>
+  <tabstop>ind_bsc_3</tabstop>
+  <tabstop>ind_bsc_4</tabstop>
+  <tabstop>ind_exp_1</tabstop>
+  <tabstop>ind_exp_2</tabstop>
+  <tabstop>ind_exp_3</tabstop>
+  <tabstop>ind_exp_4</tabstop>
+  <tabstop>ind_exp_5</tabstop>
+  <tabstop>ind_exp_6</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>lineEdit_73</tabstop>
+  <tabstop>lineEdit_74</tabstop>
+  <tabstop>lineEdit_75</tabstop>
+  <tabstop>lineEdit_76</tabstop>
+  <tabstop>lineEdit_77</tabstop>
+  <tabstop>lineEdit_78</tabstop>
+  <tabstop>lineEdit_79</tabstop>
+  <tabstop>lineEdit_80</tabstop>
+  <tabstop>lineEdit_81</tabstop>
+  <tabstop>lineEdit_82</tabstop>
+  <tabstop>lineEdit_83</tabstop>
+  <tabstop>lineEdit_84</tabstop>
+  <tabstop>lineEdit_85</tabstop>
+  <tabstop>lineEdit_86</tabstop>
+  <tabstop>lineEdit_87</tabstop>
+  <tabstop>lineEdit_88</tabstop>
+  <tabstop>lineEdit_89</tabstop>
+  <tabstop>lineEdit_90</tabstop>
+  <tabstop>lineEdit_91</tabstop>
+  <tabstop>lineEdit_92</tabstop>
+  <tabstop>lineEdit_93</tabstop>
+  <tabstop>lineEdit_94</tabstop>
+  <tabstop>lineEdit_95</tabstop>
+  <tabstop>lineEdit_96</tabstop>
+  <tabstop>lineEdit_97</tabstop>
+  <tabstop>lineEdit_98</tabstop>
+  <tabstop>lineEdit_99</tabstop>
+  <tabstop>lineEdit_100</tabstop>
+  <tabstop>lineEdit_101</tabstop>
+  <tabstop>lineEdit_102</tabstop>
+  <tabstop>lineEdit_103</tabstop>
+  <tabstop>lineEdit_104</tabstop>
+  <tabstop>lineEdit_105</tabstop>
+  <tabstop>lineEdit_106</tabstop>
+  <tabstop>lineEdit_107</tabstop>
+  <tabstop>lineEdit_108</tabstop>
+  <tabstop>lineEdit_109</tabstop>
+  <tabstop>lineEdit_110</tabstop>
+  <tabstop>lineEdit_111</tabstop>
+  <tabstop>lineEdit_112</tabstop>
+  <tabstop>lineEdit_114</tabstop>
+  <tabstop>lineEdit_115</tabstop>
+  <tabstop>lineEdit_116</tabstop>
+  <tabstop>lineEdit_117</tabstop>
+  <tabstop>lineEdit_118</tabstop>
+  <tabstop>lineEdit_119</tabstop>
+  <tabstop>lineEdit_120</tabstop>
+  <tabstop>lineEdit_121</tabstop>
+  <tabstop>lineEdit_113</tabstop>
+  <tabstop>lineEdit_122</tabstop>
+  <tabstop>lineEdit_123</tabstop>
+  <tabstop>lineEdit_124</tabstop>
+  <tabstop>lineEdit_125</tabstop>
+  <tabstop>lineEdit_126</tabstop>
+  <tabstop>lineEdit_127</tabstop>
+  <tabstop>lineEdit_128</tabstop>
+  <tabstop>lineEdit_129</tabstop>
+  <tabstop>lineEdit_130</tabstop>
+  <tabstop>lineEdit_131</tabstop>
+  <tabstop>lineEdit_132</tabstop>
+  <tabstop>lineEdit_133</tabstop>
+  <tabstop>lineEdit_134</tabstop>
+  <tabstop>lineEdit_135</tabstop>
+  <tabstop>lineEdit_136</tabstop>
+  <tabstop>lineEdit_137</tabstop>
+  <tabstop>lineEdit_138</tabstop>
+  <tabstop>lineEdit_139</tabstop>
+  <tabstop>lineEdit_140</tabstop>
+  <tabstop>lineEdit_141</tabstop>
+  <tabstop>lineEdit_142</tabstop>
+  <tabstop>lineEdit_143</tabstop>
+  <tabstop>lineEdit_144</tabstop>
+  <tabstop>lineEdit_145</tabstop>
+  <tabstop>lineEdit_146</tabstop>
+  <tabstop>lineEdit_147</tabstop>
+  <tabstop>lineEdit_148</tabstop>
+  <tabstop>lineEdit_149</tabstop>
+  <tabstop>lineEdit_150</tabstop>
+  <tabstop>lineEdit_151</tabstop>
+  <tabstop>lineEdit_152</tabstop>
+  <tabstop>lineEdit_153</tabstop>
+  <tabstop>lineEdit_154</tabstop>
+  <tabstop>lineEdit_155</tabstop>
+  <tabstop>lineEdit_156</tabstop>
+  <tabstop>lineEdit_157</tabstop>
+  <tabstop>lineEdit_158</tabstop>
+  <tabstop>lineEdit_159</tabstop>
+  <tabstop>lineEdit_160</tabstop>
+  <tabstop>lineEdit_161</tabstop>
+  <tabstop>lineEdit_162</tabstop>
+  <tabstop>lineEdit_163</tabstop>
+  <tabstop>lineEdit_164</tabstop>
+  <tabstop>lineEdit_165</tabstop>
+  <tabstop>lineEdit_166</tabstop>
+  <tabstop>lineEdit_167</tabstop>
+  <tabstop>lineEdit_168</tabstop>
+  <tabstop>lineEdit_169</tabstop>
+  <tabstop>lineEdit_170</tabstop>
+  <tabstop>lineEdit_171</tabstop>
+  <tabstop>lineEdit_172</tabstop>
+  <tabstop>lineEdit_173</tabstop>
+  <tabstop>lineEdit_174</tabstop>
+  <tabstop>lineEdit_175</tabstop>
+  <tabstop>lineEdit_176</tabstop>
+  <tabstop>lineEdit_177</tabstop>
+  <tabstop>lineEdit_178</tabstop>
+  <tabstop>lineEdit_179</tabstop>
+  <tabstop>lineEdit_180</tabstop>
+  <tabstop>lineEdit_181</tabstop>
+  <tabstop>lineEdit_182</tabstop>
+  <tabstop>lineEdit_183</tabstop>
+  <tabstop>lineEdit_184</tabstop>
+  <tabstop>lineEdit_185</tabstop>
+  <tabstop>lineEdit_186</tabstop>
+  <tabstop>lineEdit_187</tabstop>
+  <tabstop>lineEdit_188</tabstop>
+  <tabstop>lineEdit_189</tabstop>
+  <tabstop>lineEdit_190</tabstop>
+  <tabstop>lineEdit_191</tabstop>
+  <tabstop>lineEdit_192</tabstop>
+  <tabstop>lineEdit_193</tabstop>
+  <tabstop>lineEdit_194</tabstop>
+  <tabstop>lineEdit_195</tabstop>
+  <tabstop>lineEdit_196</tabstop>
+  <tabstop>lineEdit_197</tabstop>
+  <tabstop>lineEdit_198</tabstop>
+  <tabstop>lineEdit_199</tabstop>
+  <tabstop>lineEdit_200</tabstop>
+  <tabstop>lineEdit_201</tabstop>
+  <tabstop>lineEdit_202</tabstop>
+  <tabstop>lineEdit_203</tabstop>
+  <tabstop>lineEdit_204</tabstop>
+  <tabstop>lineEdit_205</tabstop>
+  <tabstop>lineEdit_206</tabstop>
+  <tabstop>lineEdit_207</tabstop>
+  <tabstop>lineEdit_208</tabstop>
+  <tabstop>lineEdit_209</tabstop>
+  <tabstop>lineEdit_210</tabstop>
+  <tabstop>lineEdit_211</tabstop>
+  <tabstop>lineEdit_212</tabstop>
+  <tabstop>lineEdit_213</tabstop>
+  <tabstop>lineEdit_214</tabstop>
+  <tabstop>lineEdit_215</tabstop>
+  <tabstop>lineEdit_216</tabstop>
+  <tabstop>lineEdit_217</tabstop>
+  <tabstop>lineEdit_218</tabstop>
+  <tabstop>lineEdit_219</tabstop>
+  <tabstop>lineEdit_220</tabstop>
+  <tabstop>lineEdit_221</tabstop>
+  <tabstop>lineEdit_222</tabstop>
+  <tabstop>lineEdit_223</tabstop>
+  <tabstop>lineEdit_224</tabstop>
+  <tabstop>lineEdit_225</tabstop>
+  <tabstop>lineEdit_226</tabstop>
+  <tabstop>lineEdit_227</tabstop>
+  <tabstop>lineEdit_228</tabstop>
+  <tabstop>lineEdit_229</tabstop>
+  <tabstop>lineEdit_230</tabstop>
+  <tabstop>lineEdit_231</tabstop>
+  <tabstop>lineEdit_232</tabstop>
+  <tabstop>lineEdit_233</tabstop>
+  <tabstop>lineEdit_234</tabstop>
+  <tabstop>lineEdit_235</tabstop>
+  <tabstop>lineEdit_236</tabstop>
+  <tabstop>lineEdit_237</tabstop>
+  <tabstop>lineEdit_238</tabstop>
+  <tabstop>lineEdit_239</tabstop>
+  <tabstop>lineEdit_240</tabstop>
+  <tabstop>lineEdit_241</tabstop>
+  <tabstop>lineEdit_242</tabstop>
+  <tabstop>lineEdit_243</tabstop>
+  <tabstop>lineEdit_244</tabstop>
+  <tabstop>lineEdit_245</tabstop>
+  <tabstop>lineEdit_246</tabstop>
+  <tabstop>lineEdit_247</tabstop>
+  <tabstop>lineEdit_248</tabstop>
+  <tabstop>lineEdit_249</tabstop>
+  <tabstop>lineEdit_250</tabstop>
+  <tabstop>lineEdit_251</tabstop>
+  <tabstop>lineEdit_252</tabstop>
+  <tabstop>lineEdit_253</tabstop>
+  <tabstop>lineEdit_254</tabstop>
+  <tabstop>lineEdit_255</tabstop>
+  <tabstop>lineEdit_256</tabstop>
+  <tabstop>lineEdit_257</tabstop>
+  <tabstop>lineEdit_258</tabstop>
+  <tabstop>lineEdit_259</tabstop>
+  <tabstop>lineEdit_260</tabstop>
+  <tabstop>lineEdit_261</tabstop>
+  <tabstop>lineEdit_262</tabstop>
+  <tabstop>lineEdit_263</tabstop>
+  <tabstop>lineEdit_264</tabstop>
  </tabstops>
  <resources/>
  <connections/>
