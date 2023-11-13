@@ -60,6 +60,8 @@ public:
     float aggregate_impact_value[3][4];
     float avg_aggregate_impact_value_10;
     float avg_aggregate_impact_value_20;
+//fei
+    //individual gradation
 
 
 

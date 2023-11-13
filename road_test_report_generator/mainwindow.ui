@@ -37,7 +37,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -5578,7 +5578,7 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>save </string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
@@ -5591,7 +5591,7 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>save as</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_6">
@@ -5604,7 +5604,7 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>export</string>
       </property>
      </widget>
      <widget class="QFrame" name="ind_frame_outer">
@@ -8088,6 +8088,19 @@ background-color: rgb(170, 255, 127);
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>570</y>
+          <width>61</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>save</string>
         </property>
        </widget>
       </widget>

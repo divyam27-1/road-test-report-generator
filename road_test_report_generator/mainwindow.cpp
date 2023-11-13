@@ -436,7 +436,7 @@ void MainWindow::on_save_ss_clicked()
 }
 void MainWindow::on_save_fei_clicked()
 {
-    tracked_files.push_back("spc");
+    tracked_files.push_back("fei");
     removeDuplicates(tracked_files);
     A[0] = 0;
     A[1] = ui->fei_1_1->text().toFloat();
@@ -519,8 +519,10 @@ void MainWindow::on_save_fei_clicked()
     D[7] = ui->fei_4_7->text().toFloat();
     D[8] = ui->fei_4_8->text().toFloat();
     D[9] = ui->fei_4_9->text().toFloat();
-    D[10] = D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9];
-
+    D[10] = D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9];   //total weight
+    D[11] = 100*C[10]/A[10]; //flekiness index
+    D[12] = 100*D[10]/D[10]; //elongation index
+    D[13] = D[11] + D[12];  //combined index
     Flakiness_Elongation_Indices["D_1"] = D[1];
     Flakiness_Elongation_Indices["D_2"] = D[2];
     Flakiness_Elongation_Indices["D_3"] = D[3];
@@ -531,6 +533,9 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["D_8"] = D[8];
     Flakiness_Elongation_Indices["D_9"] = D[9];
     Flakiness_Elongation_Indices["TOTAL_WEIGHT_D"] = D[10];
+    Flakiness_Elongation_Indices["flakiness index"] = D[11];
+    Flakiness_Elongation_Indices["elongation index"] = D[12];
+    Flakiness_Elongation_Indices["combined index"] = D[13];
 
 
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
@@ -544,9 +549,11 @@ void MainWindow::on_save_fei_clicked()
     }
 }
 QJsonObject aiv_json;
-QFile aiv(cwd.filePath("json/aiv.json"));
+
+QFile aiv_(cwd.filePath("json/aiv_.json"));
 void MainWindow::on_aiv_save_20mm_clicked()
 {
+    QJsonObject aiv_json_20mm;
     tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
@@ -565,77 +572,82 @@ void MainWindow::on_aiv_save_20mm_clicked()
     aggregate_impact_value[2][2] = 100*weight_crushed_material[2][2]/( weight_of_sample[2][2] );
     aggregate_impact_value[2][3] = 100*weight_crushed_material[2][3]/(  weight_of_sample[2][3]);
     avg_aggregate_impact_value_10 = (aggregate_impact_value[2][1] + aggregate_impact_value[2][1] + aggregate_impact_value[2][1])/3;
-    aiv_json["weight_of_cylinder_21"] = weight_of_cylinder[2][1];
-    aiv_json["weight_of_cylinder_22"] = weight_of_cylinder[2][2];
-    aiv_json["weight_of_cylinder_23"] = weight_of_cylinder[2][3];
-    aiv_json["weight_of_cylinder_sample_21"] = weight_of_cylinder_sample[2][1];
-    aiv_json["weight_of_cylinder_sample_22"] = weight_of_cylinder_sample[2][2];
-    aiv_json["weight_of_cylinder_sample_23"] = weight_of_cylinder_sample[2][3];
-    aiv_json["weight_sample_21"] = weight_of_cylinder_sample[2][1];
-    aiv_json["weight_sample_22"] = weight_of_cylinder_sample[2][2];
-    aiv_json["weight_sample_23"] = weight_of_cylinder_sample[2][3];
-    aiv_json["weight_crushed_material_21"] =  weight_crushed_material[2][1];
-    aiv_json["weight_crushed_material_22"] =  weight_crushed_material[2][2];
-    aiv_json["weight_crushed_material_23"] =  weight_crushed_material[2][3];
-    aiv_json["aggeregate_impact_value_21"] = aggregate_impact_value[2][1];
-    aiv_json["aggeregate_impact_value_22"] = aggregate_impact_value[2][2];
-    aiv_json["aggeregate_impact_value_23"] = aggregate_impact_value[2][3];
-    aiv_json["avg_aggregate_impact_value_20"] = avg_aggregate_impact_value_10;
+    aiv_json_20mm["weight_of_cylinder_1"] = weight_of_cylinder[2][1];
+    aiv_json_20mm["weight_of_cylinder_2"] = weight_of_cylinder[2][2];
+    aiv_json_20mm["weight_of_cylinder_3"] = weight_of_cylinder[2][3];
+    aiv_json_20mm["weight_of_cylinder_sample_1"] = weight_of_cylinder_sample[2][1];
+    aiv_json_20mm["weight_of_cylinder_sample_2"] = weight_of_cylinder_sample[2][2];
+    aiv_json_20mm["weight_of_cylinder_sample_3"] = weight_of_cylinder_sample[2][3];
+    aiv_json_20mm["weight_sample_1"] = weight_of_cylinder_sample[2][1];
+    aiv_json_20mm["weight_sample_2"] = weight_of_cylinder_sample[2][2];
+    aiv_json_20mm["weight_sample_3"] = weight_of_cylinder_sample[2][3];
+    aiv_json_20mm["weight_crushed_material_1"] =  weight_crushed_material[2][1];
+    aiv_json_20mm["weight_crushed_material_2"] =  weight_crushed_material[2][2];
+    aiv_json_20mm["weight_crushed_material_3"] =  weight_crushed_material[2][3];
+    aiv_json_20mm["aggeregate_impact_value_1"] = aggregate_impact_value[2][1];
+    aiv_json_20mm["aggeregate_impact_value_2"] = aggregate_impact_value[2][2];
+    aiv_json_20mm["aggeregate_impact_value_3"] = aggregate_impact_value[2][3];
+    aiv_json_20mm["avg_aggregate_impact_value_20"] = avg_aggregate_impact_value_10;
 
-    if (aiv.open(QFile::WriteOnly | QFile::Text))
+    aiv_json["20mm"] = aiv_json_20mm;
+    if (aiv_.open(QFile::WriteOnly | QFile::Text))
     {
 
-        QTextStream out(&aiv);
+        QTextStream out(&aiv_);
         QJsonDocument jsonDoc_2(aiv_json);
         out << jsonDoc_2.toJson();
 
-        Flakiness_Elongation.close();
+       aiv_.close();
     }
 
+
+
 }
+
 void MainWindow::on_aiv_save_10mm_clicked()
-{   tracked_files.push_back("aiv");
+{
+    QJsonObject aiv_json_10mm;
+    tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
-    weight_of_cylinder[1][1] = ui->aiv_20_11->text().toFloat();
-    weight_of_cylinder[1][2] = ui->aiv_20_12->text().toFloat();
-    weight_of_cylinder[1][3] = ui->aiv_20_13->text().toFloat();
-    weight_of_cylinder_sample[1][1] = ui->aiv_20_21->text().toFloat();
-    weight_of_cylinder_sample[1][2] = ui->aiv_20_22->text().toFloat();
-    weight_of_cylinder_sample[1][3] = ui->aiv_20_23->text().toFloat();
+    weight_of_cylinder[1][1] = ui->aiv_10_11->text().toFloat();
+    weight_of_cylinder[1][2] = ui->aiv_10_12->text().toFloat();
+    weight_of_cylinder[1][3] = ui->aiv_10_13->text().toFloat();
+    weight_of_cylinder_sample[1][1] = ui->aiv_10_21->text().toFloat();
+    weight_of_cylinder_sample[1][2] = ui->aiv_10_22->text().toFloat();
+    weight_of_cylinder_sample[1][3] = ui->aiv_10_23->text().toFloat();
     weight_of_sample[1][1] =  weight_of_cylinder_sample[1][1] - weight_of_cylinder[1][1];
     weight_of_sample[1][2] =  weight_of_cylinder_sample[1][2] - weight_of_cylinder[1][2];
     weight_of_sample[1][3] =  weight_of_cylinder_sample[1][3] - weight_of_cylinder[1][3];
-    weight_crushed_material[1][1] = ui->aiv_20_41->text().toFloat();
-    weight_crushed_material[1][2] = ui->aiv_20_42->text().toFloat();
-    weight_crushed_material[1][3] = ui->aiv_20_43->text().toFloat();
+    weight_crushed_material[1][1] = ui->aiv_10_41->text().toFloat();
+    weight_crushed_material[1][2] = ui->aiv_10_42->text().toFloat();
+    weight_crushed_material[1][3] = ui->aiv_10_43->text().toFloat();
     aggregate_impact_value[1][1] = 100*weight_crushed_material[1][1]/( weight_of_sample[1][1] );
     aggregate_impact_value[1][2] = 100*weight_crushed_material[1][2]/( weight_of_sample[1][2] );
     aggregate_impact_value[1][3] = 100*weight_crushed_material[1][3]/(  weight_of_sample[1][3]);
     avg_aggregate_impact_value_10 = (aggregate_impact_value[1][1] + aggregate_impact_value[1][1] + aggregate_impact_value[1][1])/3;
-    aiv_json["weight_of_cylinder_11"] = weight_of_cylinder[1][1];
-    aiv_json["weight_of_cylinder_12"] = weight_of_cylinder[1][2];
-    aiv_json["weight_of_cylinder_13"] = weight_of_cylinder[1][3];
-    aiv_json["weight_of_cylinder_sample_11"] = weight_of_cylinder_sample[1][1];
-    aiv_json["weight_of_cylinder_sample_12"] = weight_of_cylinder_sample[1][2];
-    aiv_json["weight_of_cylinder_sample_13"] = weight_of_cylinder_sample[1][3];
-    aiv_json["weight_sample_11"] = weight_of_cylinder_sample[1][1];
-    aiv_json["weight_sample_12"] = weight_of_cylinder_sample[1][2];
-    aiv_json["weight_sample_13"] = weight_of_cylinder_sample[1][3];
-    aiv_json["weight_crushed_material_11"] =  weight_crushed_material[1][1];
-    aiv_json["weight_crushed_material_12"] =  weight_crushed_material[1][2];
-    aiv_json["weight_crushed_material_13"] =  weight_crushed_material[1][3];
-    aiv_json["aggeregate_impact_value_11"] = aggregate_impact_value[1][1];
-    aiv_json["aggeregate_impact_value_12"] = aggregate_impact_value[1][2];
-    aiv_json["aggeregate_impact_value_13"] = aggregate_impact_value[1][3];
-    aiv_json["avg_aggregate_impact_value_10"] = avg_aggregate_impact_value_10;
-    if (aiv.open(QFile::WriteOnly | QFile::Text))
+    aiv_json_10mm["weight_of_cylinder_1"] = weight_of_cylinder[1][1];
+    aiv_json_10mm["weight_of_cylinder_2"] = weight_of_cylinder[1][2];
+    aiv_json_10mm["weight_of_cylinder_3"] = weight_of_cylinder[1][3];
+    aiv_json_10mm["weight_of_cylinder_sample_1"] = weight_of_cylinder_sample[1][1];
+    aiv_json_10mm["weight_of_cylinder_sample_2"] = weight_of_cylinder_sample[1][2];
+    aiv_json_10mm["weight_of_cylinder_sample_3"] = weight_of_cylinder_sample[1][3];
+    aiv_json_10mm["weight_sample_1"] = weight_of_cylinder_sample[1][1];
+    aiv_json_10mm["weight_sample_2"] = weight_of_cylinder_sample[1][2];
+    aiv_json_10mm["weight_sample_3"] = weight_of_cylinder_sample[1][3];
+    aiv_json_10mm["weight_crushed_material_1"] =  weight_crushed_material[1][1];
+    aiv_json_10mm["weight_crushed_material_2"] =  weight_crushed_material[1][2];
+    aiv_json_10mm["weight_crushed_material_3"] =  weight_crushed_material[1][3];
+    aiv_json_10mm["aggeregate_impact_value_1"] = aggregate_impact_value[1][1];
+    aiv_json_10mm["aggeregate_impact_value_2"] = aggregate_impact_value[1][2];
+    aiv_json_10mm["aggeregate_impact_value_3"] = aggregate_impact_value[1][3];
+    aiv_json_10mm["avg_aggregate_impact_value_10"] = avg_aggregate_impact_value_10;
+    aiv_json["10mm"] = aiv_json_10mm;
+    if (aiv_.open(QFile::WriteOnly | QFile::Text))
     {
-
-        QTextStream out(&aiv);
-        QJsonDocument jsonDoc_2(aiv_json);
-        out << jsonDoc_2.toJson();
-
-        Flakiness_Elongation.close();
+       QTextStream out(&aiv_);
+       QJsonDocument jsonDoc_2(aiv_json);
+       out << jsonDoc_2.toJson();
+       aiv_.close();
     }
 }
 
