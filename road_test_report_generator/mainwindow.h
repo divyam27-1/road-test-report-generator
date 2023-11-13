@@ -130,6 +130,8 @@ private slots:
 
     void on_aiv_20_43_textChanged(const QString &arg1);
 
+    void on_fei_save_clicked();
+
 private:
     float scroll_sens;
 

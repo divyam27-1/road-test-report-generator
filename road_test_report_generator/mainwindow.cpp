@@ -10,11 +10,19 @@
 #include <QDir>
 #include <cmath>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
-QStringList tracked_files;
+std::vector<std::string> tracked_files;
 std::string OS;
+
+void removeDuplicates(std::vector<std::string>& vec) {
+    std::sort(vec.begin(), vec.end());
+    auto it = std::unique(vec.begin(), vec.end());
+    vec.erase(it, vec.end());
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -51,16 +59,24 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
 
 void MainWindow::on_spc_save_clicked()
 {
-    tracked_files << "spc";
     ui->spc_save_0mm->click();
     ui->spc_save_10mm->click();
     ui->spc_save_20mm->click();
     ui->spc_save_40mm->click();
 }
+void MainWindow::on_fei_save_clicked()
+{
+    ui->save_ss->click();
+    ui->save_fei->click();
+}
+
+
 QJsonObject Specific_Gravity;
 QFile spe_gravity(cwd.filePath("json/spc.json"));
 void MainWindow::on_spc_save_40mm_clicked()
 {
+    tracked_files.push_back("spc");
+    removeDuplicates(tracked_files);
     type_of_material _40mm;
 
     // achha lagega:)
@@ -137,6 +153,8 @@ void MainWindow::on_spc_save_40mm_clicked()
 }
 void MainWindow::on_spc_save_20mm_clicked()
 {
+    tracked_files.push_back("spc");
+    removeDuplicates(tracked_files);
     type_of_material _20mm;
 
     _20mm.Weight_of_sample_of_water[2][0] = 0;
@@ -212,6 +230,8 @@ void MainWindow::on_spc_save_20mm_clicked()
 }
 void MainWindow::on_spc_save_10mm_clicked()
 {
+    tracked_files.push_back("spc");
+    removeDuplicates(tracked_files);
 
     type_of_material _10mm;
 
@@ -286,6 +306,8 @@ void MainWindow::on_spc_save_10mm_clicked()
 }
 void MainWindow::on_spc_save_0mm_clicked()
 {
+    tracked_files.push_back("spc");
+    removeDuplicates(tracked_files);
     type_of_material stone_dust;
 
     stone_dust.Weight_of_sample_of_water[0][0] = 0;
@@ -361,6 +383,8 @@ QJsonObject Flakiness_Elongation_Indices;
 QFile Flakiness_Elongation(cwd.filePath("json/fei.json"));
 void MainWindow::on_save_ss_clicked()
 {
+    tracked_files.push_back("fei");
+    removeDuplicates(tracked_files);
     passing[1] = ui->fei_ss_p1->text().toFloat();
     passing[2] = ui->fei_ss_p2->text().toFloat();
     passing[3] = ui->fei_ss_p3->text().toFloat();
@@ -412,6 +436,8 @@ void MainWindow::on_save_ss_clicked()
 }
 void MainWindow::on_save_fei_clicked()
 {
+    tracked_files.push_back("spc");
+    removeDuplicates(tracked_files);
     A[0] = 0;
     A[1] = ui->fei_1_1->text().toFloat();
     A[2] = ui->fei_1_2->text().toFloat();
@@ -519,6 +545,8 @@ void MainWindow::on_save_fei_clicked()
 }
 void MainWindow::on_aiv_save_20mm_clicked()
 {
+    tracked_files.push_back("aiv");
+    removeDuplicates(tracked_files);
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
     weight_of_cylinder[2][3] = ui->aiv_20_13->text().toFloat();
@@ -539,6 +567,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 {
     // the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
     // setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
+    qDebug() << tracked_files.size();
     this->scroll_sens = 20;
     QPoint delta = -1 * event->angleDelta();
     QPointF mouse_pos = event->position();
