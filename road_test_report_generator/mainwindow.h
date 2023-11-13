@@ -54,7 +54,7 @@ public:
     float combined_f_e_index;//fei
     //AIV
     float weight_of_cylinder[3][4];
-    float weight_of_cylider[3][4];
+    float weight_of_cylinder_sample[3][4];
     float weight_crushed_material[3][4];
     float weight_of_sample[3][4];
     float aggregate_impact_value[3][4];
