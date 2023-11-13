@@ -2351,7 +2351,7 @@ background-color: rgb(170, 255, 127);
     </widget>
     <widget class="QWidget" name="fei">
      <attribute name="title">
-      <string>FEI Test</string>
+      <string>FI and EI Test</string>
      </attribute>
      <widget class="QToolBox" name="fei_info">
       <property name="geometry">
@@ -2363,15 +2363,15 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="fei_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>700</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2481,8 +2481,8 @@ background-color: rgb(170, 255, 127);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3765,7 +3765,7 @@ background-color: rgb(170, 255, 127);
      <attribute name="title">
       <string>AIV Test</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="aiv_save">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -3778,7 +3778,7 @@ background-color: rgb(170, 255, 127);
        <string>Save</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="aiv_saveas">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -3791,7 +3791,7 @@ background-color: rgb(170, 255, 127);
        <string>Save As...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_9">
+     <widget class="QPushButton" name="aiv_export">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -5640,8 +5640,8 @@ background-color: rgb(170, 255, 127);
        <widget class="QLabel" name="label_275">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
+          <x>10</x>
+          <y>20</y>
           <width>351</width>
           <height>60</height>
          </rect>
@@ -5702,7 +5702,7 @@ background-color: rgb(170, 255, 127);
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_73">
+       <widget class="QLineEdit" name="idg_40_s11">
         <property name="geometry">
          <rect>
           <x>250</x>

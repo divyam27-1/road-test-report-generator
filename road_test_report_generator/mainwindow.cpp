@@ -549,7 +549,6 @@ void MainWindow::on_save_fei_clicked()
     }
 }
 QJsonObject aiv_json;
-
 QFile aiv_(cwd.filePath("json/aiv_.json"));
 void MainWindow::on_aiv_save_20mm_clicked()
 {
@@ -592,16 +591,11 @@ void MainWindow::on_aiv_save_20mm_clicked()
     aiv_json["20mm"] = aiv_json_20mm;
     if (aiv_.open(QFile::WriteOnly | QFile::Text))
     {
-
         QTextStream out(&aiv_);
-        QJsonDocument jsonDoc_2(aiv_json);
-        out << jsonDoc_2.toJson();
-
+        QJsonDocument jsonDoc_3(aiv_json);
+        out << jsonDoc_3.toJson();
        aiv_.close();
     }
-
-
-
 }
 
 void MainWindow::on_aiv_save_10mm_clicked()
@@ -645,9 +639,129 @@ void MainWindow::on_aiv_save_10mm_clicked()
     if (aiv_.open(QFile::WriteOnly | QFile::Text))
     {
        QTextStream out(&aiv_);
-       QJsonDocument jsonDoc_2(aiv_json);
-       out << jsonDoc_2.toJson();
+       QJsonDocument jsonDoc_3(aiv_json);
+       out << jsonDoc_3.toJson();
        aiv_.close();
+    }
+}
+QFile idg_40mm(cwd.filePath("json/idg_40mm.json"));
+
+void MainWindow::on_save_40mm_idg_clicked()
+{  is_sieve_40[1][1] = ui->idg_40_s11->text().toFloat();
+    is_sieve_40[1][2] = ui->idg_40_s12->text().toFloat();
+    is_sieve_40[1][3] = ui->idg_40_s13->text().toFloat();
+    is_sieve_40[1][4] = ui->idg_40_s14->text().toFloat();
+    is_sieve_40[1][5] = ui->idg_40_s15->text().toFloat();
+    is_sieve_40[1][6] = ui->idg_40_s16->text().toFloat();
+    is_sieve_40[1][7] = ui->idg_40_s17->text().toFloat();
+    is_sieve_40[1][8] = ui->idg_40_s18->text().toFloat();
+
+    weight_of_retained_40[1][1] = ui->idg_40_s11->text().toFloat();
+    weight_of_retained_40[1][2] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][3] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][4] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][5] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][6] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][7] = ui->idg_40_w11->text().toFloat();
+    weight_of_retained_40[1][8] = ui->idg_40_w11->text().toFloat();
+
+    is_sieve_40[2][1] = ui->idg_40_s21->text().toFloat();
+    is_sieve_40[2][2] = ui->idg_40_s22->text().toFloat();
+    is_sieve_40[2][3] = ui->idg_40_s23->text().toFloat();
+    is_sieve_40[2][4] = ui->idg_40_s24->text().toFloat();
+    is_sieve_40[2][5] = ui->idg_40_s25->text().toFloat();
+    is_sieve_40[2][6] = ui->idg_40_s26->text().toFloat();
+    is_sieve_40[2][7] = ui->idg_40_s27->text().toFloat();
+    is_sieve_40[2][8] = ui->idg_40_s28->text().toFloat();
+
+    weight_of_retained_40[2][1] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][2] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][3] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][4] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][5] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][6] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][7] = ui->idg_40_w21->text().toFloat();
+    weight_of_retained_40[2][8] = ui->idg_40_w21->text().toFloat();
+
+    is_sieve_40[3][1] = ui->idg_40_s31->text().toFloat();
+    is_sieve_40[3][2] = ui->idg_40_s32->text().toFloat();
+    is_sieve_40[3][3] = ui->idg_40_s33->text().toFloat();
+    is_sieve_40[3][4] = ui->idg_40_s34->text().toFloat();
+    is_sieve_40[3][5] = ui->idg_40_s35->text().toFloat();
+    is_sieve_40[3][6] = ui->idg_40_s36->text().toFloat();
+    is_sieve_40[3][7] = ui->idg_40_s37->text().toFloat();
+    is_sieve_40[3][8] = ui->idg_40_s38->text().toFloat();
+
+    weight_of_retained_40[3][1] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][2] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][3] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][4] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][5] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][6] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][7] = ui->idg_40_w31->text().toFloat();
+    weight_of_retained_40[3][8] = ui->idg_40_w31->text().toFloat();
+
+    QJsonObject individual_gradation;
+
+    individual_gradation["is_sieve_40_s11"] = is_sieve_40[1][1];
+    individual_gradation["is_sieve_40_s12"] = is_sieve_40[1][2];
+    individual_gradation["is_sieve_40_s13"] = is_sieve_40[1][3];
+    individual_gradation["is_sieve_40_s14"] = is_sieve_40[1][4];
+    individual_gradation["is_sieve_40_s15"] = is_sieve_40[1][5];
+    individual_gradation["is_sieve_40_s16"] = is_sieve_40[1][6];
+    individual_gradation["is_sieve_40_s17"] = is_sieve_40[1][7];
+    individual_gradation["is_sieve_40_s18"] = is_sieve_40[1][8];
+
+    individual_gradation["weight_of_retained_40_w11"] = weight_of_retained_40[1][1];
+    individual_gradation["weight_of_retained_40_w12"] = weight_of_retained_40[1][2];
+    individual_gradation["weight_of_retained_40_w13"] = weight_of_retained_40[1][3];
+    individual_gradation["weight_of_retained_40_w14"] = weight_of_retained_40[1][4];
+    individual_gradation["weight_of_retained_40_w15"] = weight_of_retained_40[1][5];
+    individual_gradation["weight_of_retained_40_w16"] = weight_of_retained_40[1][6];
+    individual_gradation["weight_of_retained_40_w17"] = weight_of_retained_40[1][7];
+    individual_gradation["weight_of_retained_40_w18"] = weight_of_retained_40[1][8];
+
+    individual_gradation["is_sieve_40_s21"] = is_sieve_40[2][1];
+    individual_gradation["is_sieve_40_s22"] = is_sieve_40[2][2];
+    individual_gradation["is_sieve_40_s23"] = is_sieve_40[2][3];
+    individual_gradation["is_sieve_40_s24"] = is_sieve_40[2][4];
+    individual_gradation["is_sieve_40_s25"] = is_sieve_40[2][5];
+    individual_gradation["is_sieve_40_s26"] = is_sieve_40[2][6];
+    individual_gradation["is_sieve_40_s27"] = is_sieve_40[2][7];
+    individual_gradation["is_sieve_40_s28"] = is_sieve_40[2][8];
+
+    individual_gradation["weight_of_retained_40_w21"] = weight_of_retained_40[2][1];
+    individual_gradation["weight_of_retained_40_w22"] = weight_of_retained_40[2][2];
+    individual_gradation["weight_of_retained_40_w23"] = weight_of_retained_40[2][3];
+    individual_gradation["weight_of_retained_40_w24"] = weight_of_retained_40[2][4];
+    individual_gradation["weight_of_retained_40_w25"] = weight_of_retained_40[2][5];
+    individual_gradation["weight_of_retained_40_w26"] = weight_of_retained_40[2][6];
+    individual_gradation["weight_of_retained_40_w27"] = weight_of_retained_40[2][7];
+    individual_gradation["weight_of_retained_40_w28"] = weight_of_retained_40[2][8];
+
+    individual_gradation["is_sieve_40_s31"] = is_sieve_40[3][1];
+    individual_gradation["is_sieve_40_s32"] = is_sieve_40[3][2];
+    individual_gradation["is_sieve_40_s33"] = is_sieve_40[3][3];
+    individual_gradation["is_sieve_40_s34"] = is_sieve_40[3][4];
+    individual_gradation["is_sieve_40_s35"] = is_sieve_40[3][5];
+    individual_gradation["is_sieve_40_s36"] = is_sieve_40[3][6];
+    individual_gradation["is_sieve_40_s37"] = is_sieve_40[3][7];
+    individual_gradation["is_sieve_40_s38"] = is_sieve_40[3][8];
+
+    individual_gradation["weight_of_retained_40_w31"] = weight_of_retained_40[3][1];
+    individual_gradation["weight_of_retained_40_w32"] = weight_of_retained_40[3][2];
+    individual_gradation["weight_of_retained_40_w33"] = weight_of_retained_40[3][3];
+    individual_gradation["weight_of_retained_40_w34"] = weight_of_retained_40[3][4];
+    individual_gradation["weight_of_retained_40_w35"] = weight_of_retained_40[3][5];
+    individual_gradation["weight_of_retained_40_w36"] = weight_of_retained_40[3][6];
+    individual_gradation["weight_of_retained_40_w37"] = weight_of_retained_40[3][7];
+    individual_gradation["weight_of_retained_40_w38"] = weight_of_retained_40[3][8];
+    if (idg_40mm.open(QFile::WriteOnly | QFile::Text))
+    {
+       QTextStream out(&idg_40mm);
+       QJsonDocument jsonDoc_4(individual_gradation);
+       out << jsonDoc_4.toJson();
+       idg_40mm.close();
     }
 }
 
@@ -1198,7 +1312,7 @@ void MainWindow::on_fei_export_clicked()
                     case 46:
                         topushf = json_lookups["D_6"].toDouble();
                         output_html_file << topushf;
-                        break;                    
+                        break;
                     case 47:
                         topushf = json_lookups["p_7"].toDouble();
                         output_html_file << topushf;
@@ -1222,7 +1336,7 @@ void MainWindow::on_fei_export_clicked()
                     case 52:
                         topushf = json_lookups["D_7"].toDouble();
                         output_html_file << topushf;
-                        break;                    
+                        break;
                     case 53:
                         topushf = json_lookups["p_8"].toDouble();
                         output_html_file << topushf;
@@ -1246,7 +1360,7 @@ void MainWindow::on_fei_export_clicked()
                     case 58:
                         topushf = json_lookups["D_8"].toDouble();
                         output_html_file << topushf;
-                        break;                    
+                        break;
                     case 59:
                         topushf = json_lookups["p_9"].toDouble();
                         output_html_file << topushf;
@@ -1514,6 +1628,11 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1+t2+t3)/3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+
+
+
+
 
 
 

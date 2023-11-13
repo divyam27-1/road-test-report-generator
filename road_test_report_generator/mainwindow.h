@@ -5,6 +5,9 @@
 #include <QEvent>
 #include <QWheelEvent>
 
+#include <vector>
+#include <string>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -62,7 +65,12 @@ public:
     float avg_aggregate_impact_value_20;
 //fei
     //individual gradation
+    float is_sieve_40[5][5];
+    float weight_of_retained_40[5][5];
 
+
+    std::vector<std::string> tracked_files;
+    std::string OS;
 
 
 private slots:
@@ -126,17 +134,23 @@ private slots:
 
     void on_aiv_10_43_textChanged(const QString &arg1);
 
-    void on_aiv_20_6_clicked();
-
-    void on_aiv_10_6_clicked();
-
     void on_aiv_20_42_textChanged(const QString &arg1);
 
     void on_aiv_20_43_textChanged(const QString &arg1);
 
+    void on_aiv_20_6_clicked();
+
+    void on_aiv_10_6_clicked();
+
     void on_fei_save_clicked();
 
+    void on_actionExport_to_PDF_triggered();
+
     void on_aiv_save_10mm_clicked();
+
+    void on_aiv_export_clicked();
+
+    void on_aiv_save_clicked();
 
 private:
     float scroll_sens;
