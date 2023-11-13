@@ -61,7 +61,9 @@ public:
     float weight_crushed_material[3][4];
     float weight_of_sample[3][4];
     float aggregate_impact_value[3][4];
-    float avg_aggregate_impact_value;
+    float avg_aggregate_impact_value_10;
+    float avg_aggregate_impact_value_20;
+
 
     std::vector<std::string> tracked_files;
     std::string OS;
@@ -139,6 +141,8 @@ private slots:
     void on_fei_save_clicked();
 
     void on_actionExport_to_PDF_triggered();
+
+    void on_aiv_save_10mm_clicked();
 
 private:
     float scroll_sens;

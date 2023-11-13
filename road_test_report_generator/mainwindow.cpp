@@ -544,6 +544,8 @@ void MainWindow::on_save_fei_clicked()
         Flakiness_Elongation.close();
     }
 }
+QJsonObject aiv_json;
+QFile aiv(cwd.filePath("json/aiv.json"));
 void MainWindow::on_aiv_save_20mm_clicked()
 {
     tracked_files.push_back("aiv");
@@ -551,12 +553,91 @@ void MainWindow::on_aiv_save_20mm_clicked()
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
     weight_of_cylinder[2][3] = ui->aiv_20_13->text().toFloat();
-    weight_of_cylider[2][1] = ui->aiv_20_21->text().toFloat();
-    weight_of_cylider[2][2] = ui->aiv_20_22->text().toFloat();
-    weight_of_cylider[2][3] = ui->aiv_20_23->text().toFloat();
-    weight_of_sample[2][1] =  weight_of_cylider[2][1] - weight_of_cylinder[2][1];
-    weight_of_sample[2][2] =  weight_of_cylider[2][2] - weight_of_cylinder[2][2];
-    weight_of_sample[2][3] =  weight_of_cylider[2][3] - weight_of_cylinder[2][3];
+    weight_of_cylinder_sample[2][1] = ui->aiv_20_21->text().toFloat();
+    weight_of_cylinder_sample[2][2] = ui->aiv_20_22->text().toFloat();
+    weight_of_cylinder_sample[2][3] = ui->aiv_20_23->text().toFloat();
+    weight_of_sample[2][1] =  weight_of_cylinder_sample[2][1] - weight_of_cylinder[2][1];
+    weight_of_sample[2][2] =  weight_of_cylinder_sample[2][2] - weight_of_cylinder[2][2];
+    weight_of_sample[2][3] =  weight_of_cylinder_sample[2][3] - weight_of_cylinder[2][3];
+    weight_crushed_material[2][1] = ui->aiv_20_41->text().toFloat();
+    weight_crushed_material[2][2] = ui->aiv_20_42->text().toFloat();
+    weight_crushed_material[2][3] = ui->aiv_20_43->text().toFloat();
+    aggregate_impact_value[2][1] = 100*weight_crushed_material[2][1]/( weight_of_sample[2][1] );
+    aggregate_impact_value[2][2] = 100*weight_crushed_material[2][2]/( weight_of_sample[2][2] );
+    aggregate_impact_value[2][3] = 100*weight_crushed_material[2][3]/(  weight_of_sample[2][3]);
+    avg_aggregate_impact_value_10 = (aggregate_impact_value[2][1] + aggregate_impact_value[2][1] + aggregate_impact_value[2][1])/3;
+    aiv_json["weight_of_cylinder_21"] = weight_of_cylinder[2][1];
+    aiv_json["weight_of_cylinder_22"] = weight_of_cylinder[2][2];
+    aiv_json["weight_of_cylinder_23"] = weight_of_cylinder[2][3];
+    aiv_json["weight_of_cylinder_sample_21"] = weight_of_cylinder_sample[2][1];
+    aiv_json["weight_of_cylinder_sample_22"] = weight_of_cylinder_sample[2][2];
+    aiv_json["weight_of_cylinder_sample_23"] = weight_of_cylinder_sample[2][3];
+    aiv_json["weight_sample_21"] = weight_of_cylinder_sample[2][1];
+    aiv_json["weight_sample_22"] = weight_of_cylinder_sample[2][2];
+    aiv_json["weight_sample_23"] = weight_of_cylinder_sample[2][3];
+    aiv_json["weight_crushed_material_21"] =  weight_crushed_material[2][1];
+    aiv_json["weight_crushed_material_22"] =  weight_crushed_material[2][2];
+    aiv_json["weight_crushed_material_23"] =  weight_crushed_material[2][3];
+    aiv_json["aggeregate_impact_value_21"] = aggregate_impact_value[2][1];
+    aiv_json["aggeregate_impact_value_22"] = aggregate_impact_value[2][2];
+    aiv_json["aggeregate_impact_value_23"] = aggregate_impact_value[2][3];
+    aiv_json["avg_aggregate_impact_value_20"] = avg_aggregate_impact_value_10;
+
+    if (aiv.open(QFile::WriteOnly | QFile::Text))
+    {
+
+        QTextStream out(&aiv);
+        QJsonDocument jsonDoc_2(aiv_json);
+        out << jsonDoc_2.toJson();
+
+        Flakiness_Elongation.close();
+    }
+
+}
+void MainWindow::on_aiv_save_10mm_clicked()
+{   tracked_files.push_back("aiv");
+    removeDuplicates(tracked_files);
+    weight_of_cylinder[1][1] = ui->aiv_20_11->text().toFloat();
+    weight_of_cylinder[1][2] = ui->aiv_20_12->text().toFloat();
+    weight_of_cylinder[1][3] = ui->aiv_20_13->text().toFloat();
+    weight_of_cylinder_sample[1][1] = ui->aiv_20_21->text().toFloat();
+    weight_of_cylinder_sample[1][2] = ui->aiv_20_22->text().toFloat();
+    weight_of_cylinder_sample[1][3] = ui->aiv_20_23->text().toFloat();
+    weight_of_sample[1][1] =  weight_of_cylinder_sample[1][1] - weight_of_cylinder[1][1];
+    weight_of_sample[1][2] =  weight_of_cylinder_sample[1][2] - weight_of_cylinder[1][2];
+    weight_of_sample[1][3] =  weight_of_cylinder_sample[1][3] - weight_of_cylinder[1][3];
+    weight_crushed_material[1][1] = ui->aiv_20_41->text().toFloat();
+    weight_crushed_material[1][2] = ui->aiv_20_42->text().toFloat();
+    weight_crushed_material[1][3] = ui->aiv_20_43->text().toFloat();
+    aggregate_impact_value[1][1] = 100*weight_crushed_material[1][1]/( weight_of_sample[1][1] );
+    aggregate_impact_value[1][2] = 100*weight_crushed_material[1][2]/( weight_of_sample[1][2] );
+    aggregate_impact_value[1][3] = 100*weight_crushed_material[1][3]/(  weight_of_sample[1][3]);
+    avg_aggregate_impact_value_10 = (aggregate_impact_value[1][1] + aggregate_impact_value[1][1] + aggregate_impact_value[1][1])/3;
+    aiv_json["weight_of_cylinder_11"] = weight_of_cylinder[1][1];
+    aiv_json["weight_of_cylinder_12"] = weight_of_cylinder[1][2];
+    aiv_json["weight_of_cylinder_13"] = weight_of_cylinder[1][3];
+    aiv_json["weight_of_cylinder_sample_11"] = weight_of_cylinder_sample[1][1];
+    aiv_json["weight_of_cylinder_sample_12"] = weight_of_cylinder_sample[1][2];
+    aiv_json["weight_of_cylinder_sample_13"] = weight_of_cylinder_sample[1][3];
+    aiv_json["weight_sample_11"] = weight_of_cylinder_sample[1][1];
+    aiv_json["weight_sample_12"] = weight_of_cylinder_sample[1][2];
+    aiv_json["weight_sample_13"] = weight_of_cylinder_sample[1][3];
+    aiv_json["weight_crushed_material_11"] =  weight_crushed_material[1][1];
+    aiv_json["weight_crushed_material_12"] =  weight_crushed_material[1][2];
+    aiv_json["weight_crushed_material_13"] =  weight_crushed_material[1][3];
+    aiv_json["aggeregate_impact_value_11"] = aggregate_impact_value[1][1];
+    aiv_json["aggeregate_impact_value_12"] = aggregate_impact_value[1][2];
+    aiv_json["aggeregate_impact_value_13"] = aggregate_impact_value[1][3];
+    aiv_json["avg_aggregate_impact_value_10"] = avg_aggregate_impact_value_10;
+    if (aiv.open(QFile::WriteOnly | QFile::Text))
+    {
+
+        QTextStream out(&aiv);
+        QJsonDocument jsonDoc_2(aiv_json);
+        out << jsonDoc_2.toJson();
+
+        Flakiness_Elongation.close();
+    }
 }
 
 
@@ -1422,3 +1503,6 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1+t2+t3)/3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+
+
