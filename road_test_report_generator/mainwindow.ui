@@ -2672,7 +2672,7 @@ background-color: rgb(170, 255, 127);
      <widget class="QPushButton" name="fei_save">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>20</y>
         <width>89</width>
         <height>25</height>
@@ -2685,7 +2685,7 @@ background-color: rgb(170, 255, 127);
      <widget class="QPushButton" name="fei_saveas">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>120</x>
         <y>20</y>
         <width>89</width>
         <height>25</height>
@@ -2698,7 +2698,7 @@ background-color: rgb(170, 255, 127);
      <widget class="QPushButton" name="fei_export">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>230</x>
         <y>20</y>
         <width>111</width>
         <height>25</height>
@@ -2742,7 +2742,7 @@ background-color: rgb(170, 255, 127);
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>0</y>
+          <y>20</y>
           <width>730</width>
           <height>60</height>
          </rect>
@@ -3763,39 +3763,39 @@ background-color: rgb(170, 255, 127);
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>10</y>
+        <y>20</y>
         <width>89</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_8">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>10</y>
+        <x>120</x>
+        <y>20</y>
         <width>89</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Save As...</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>10</y>
-        <width>89</width>
+        <x>230</x>
+        <y>20</y>
+        <width>110</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Export to PDF</string>
       </property>
      </widget>
      <widget class="QToolBox" name="aiv_info">
@@ -8185,7 +8185,7 @@ background-color: rgb(170, 255, 127);
   </action>
   <action name="actionExport_to_PDF">
    <property name="text">
-    <string>Export to PDF</string>
+    <string>EXPORT</string>
    </property>
   </action>
   <action name="actionView_JSON">
@@ -8200,12 +8200,12 @@ background-color: rgb(170, 255, 127);
   </action>
   <action name="actionClose_Project">
    <property name="text">
-    <string>Close Project Without Saving</string>
+    <string>Save and Quit</string>
    </property>
   </action>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>Quit</string>
    </property>
   </action>
   <action name="actioncopy">

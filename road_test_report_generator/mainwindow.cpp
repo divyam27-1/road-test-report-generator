@@ -14,6 +14,7 @@
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
 QStringList tracked_files;
+std::string OS;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -23,6 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
     cwd.mkdir("templates");
     cwd.mkdir("output");
     cwd.mkdir("html");
+
+#ifdef _WIN32
+    OS = "win";
+#elif __linux__
+    OS = "linux";
+#endif
+
+    qDebug() << OS;
 }
 
 MainWindow::~MainWindow()
@@ -42,6 +51,7 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
 
 void MainWindow::on_spc_save_clicked()
 {
+    tracked_files << "spc";
     ui->spc_save_0mm->click();
     ui->spc_save_10mm->click();
     ui->spc_save_20mm->click();
