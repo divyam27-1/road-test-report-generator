@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <QProcess>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -567,7 +568,6 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 {
     // the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
     // setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
-    qDebug() << tracked_files.size();
     this->scroll_sens = 20;
     QPoint delta = -1 * event->angleDelta();
     QPointF mouse_pos = event->position();
@@ -598,27 +598,56 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         }
     }
 }
-
 void MainWindow::on_spc_data_scroll_valueChanged(int value)
 {
     float target = (ui->spc_frame_outer->height() - ui->spc_frame->height()) * value / 100;
     ui->spc_frame->move(0, target);
 }
-
 void MainWindow::on_ind_data_scroll_valueChanged(int value)
 {
     float target = (ui->ind_frame_outer->height() - ui->ind_frame->height()) * value / 100;
     ui->ind_frame->move(0, target);
 }
-
 void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 {
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
     ui->aiv_frame->move(0, target);
 }
 
+
+void MainWindow::on_actionExport_to_PDF_triggered()
+{
+    QString program;
+    QStringList args;
+
+    if (OS == "win") {
+        program = cwd.filePath("executable/wkhtmltopdf.exe");
+    } else if (OS == "linux") {
+        program = cwd.filePath("executable/wkhtmltopdf");
+    }
+
+    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i) {
+        if (*i == "spc") {
+            ui->spc_export->click();
+            args << cwd.filePath("html/spc_10mm.html");
+            args << cwd.filePath("html/spc_20mm.html");
+            args << cwd.filePath("html/spc_40mm.html");
+            args << cwd.filePath("html/spc_stone_dust.html");
+        } else if (*i == "fei") {
+            ui->fei_export->click();
+            args << cwd.filePath("html/fei.html");
+        }
+    }
+
+    args << cwd.filePath("output/REPORT.pdf");
+
+    QProcess *converter = new QProcess();
+    converter->start(program, args);
+}
 void MainWindow::on_spc_export_clicked()
 {
+    ui->spc_save->click();
+    qDebug() << "spc export initiated" << tracked_files.size();
     QString json_path = cwd.filePath("json/spc.json");
 
     QFile json_file(json_path);
@@ -627,10 +656,7 @@ void MainWindow::on_spc_export_clicked()
         qDebug() << "json file not opened";
         return;
     }
-    else
-    {
-        qDebug() << "json file opened";
-    }
+
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
     QJsonObject json_lookups = json_doc.object();
@@ -647,18 +673,12 @@ void MainWindow::on_spc_export_clicked()
 
             if (output_html_file.is_open())
             {
-                qDebug() << "output html file opened";
-
                 QString template_path = cwd.filePath("templates/spc.html");
                 QFile template_file(template_path);
                 if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
                 {
                     qDebug() << "html not opened";
                     return;
-                }
-                else
-                {
-                    qDebug() << "html file opened";
                 }
                 QTextStream infile(&template_file);
 
@@ -673,7 +693,6 @@ void MainWindow::on_spc_export_clicked()
                     {
                         if (line[i] == '~' && tilda == 0)
                         {
-                            qDebug() << "opening tilda located";
                             tilda = 1;
 
                             // Gets the token from HTML file
@@ -692,8 +711,6 @@ void MainWindow::on_spc_export_clicked()
                                     break;
                                 }
                             }
-
-                            qDebug() << "token found: " << token;
 
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
@@ -726,7 +743,11 @@ void MainWindow::on_spc_export_clicked()
                                 topush = ui->spc_exp_4->text().toStdString();
                                 break;
                             case 9:
-                                topush = ui->spc_exp_5->text().toStdString();
+                                if (json_keys[t] != "stone_dust") {
+                                    topush = json_keys[t].toStdString();
+                                } else {
+                                    topush = "Stone Dust";
+                                }
                                 break;
                             case 10:
                                 topush = ui->spc_exp_6->text().toStdString();
@@ -826,7 +847,6 @@ void MainWindow::on_spc_export_clicked()
                             }
 
                             output_html_file << topush;
-                            qDebug() << topushf;
                             topush = "";
                         }
                         else
@@ -848,9 +868,11 @@ void MainWindow::on_spc_export_clicked()
         }
     }
 }
-
 void MainWindow::on_fei_export_clicked()
 {
+    ui->fei_save->click();
+    qDebug() << "fei export initiated" << tracked_files.size();
+
     QString json_path = cwd.filePath("json/fei.json");
 
     QFile json_file(json_path);
@@ -859,10 +881,7 @@ void MainWindow::on_fei_export_clicked()
         qDebug() << "json file not opened";
         return;
     }
-    else
-    {
-        qDebug() << "json file opened";
-    }
+
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
     QJsonObject json_lookups = json_doc.object();
@@ -873,8 +892,6 @@ void MainWindow::on_fei_export_clicked()
 
     if (output_html_file.is_open())
     {
-        qDebug() << "output html file opened";
-
         QString template_path = cwd.filePath("templates/fei.html");
         QFile template_file(template_path);
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -882,10 +899,7 @@ void MainWindow::on_fei_export_clicked()
             qDebug() << "html not opened";
             return;
         }
-        else
-        {
-            qDebug() << "html file opened";
-        }
+
         QTextStream infile(&template_file);
 
         while (!infile.atEnd())
@@ -899,7 +913,6 @@ void MainWindow::on_fei_export_clicked()
             {
                 if (line[i] == '~' && tilda == 0)
                 {
-                    qDebug() << "opening tilda located";
                     tilda = 1;
 
                     // Gets the token from HTML file
@@ -918,8 +931,6 @@ void MainWindow::on_fei_export_clicked()
                             break;
                         }
                     }
-
-                    qDebug() << "token found: " << token;
 
                     std::string topush;
                     double topushf;
@@ -1197,7 +1208,6 @@ void MainWindow::on_fei_export_clicked()
                     }
 
                     output_html_file << topush;
-                    qDebug() << topushf;
                     topush = "";
                 }
                 else
@@ -1238,7 +1248,6 @@ void MainWindow::on_aiv_20_11_textChanged(const QString &arg1)
 
     ui->aiv_20_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_22_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_12->text().toFloat();
@@ -1263,7 +1272,6 @@ void MainWindow::on_aiv_20_12_textChanged(const QString &arg1)
 
     ui->aiv_20_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_23_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_13->text().toFloat();
@@ -1288,7 +1296,6 @@ void MainWindow::on_aiv_20_13_textChanged(const QString &arg1)
 
     ui->aiv_20_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_21_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_11->text().toFloat();
@@ -1301,7 +1308,6 @@ void MainWindow::on_aiv_10_21_textChanged(const QString &arg1)
 
     ui->aiv_10_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_11_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_11->text().toFloat();
@@ -1314,7 +1320,6 @@ void MainWindow::on_aiv_10_11_textChanged(const QString &arg1)
 
     ui->aiv_10_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_22_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_12->text().toFloat();
@@ -1327,7 +1332,6 @@ void MainWindow::on_aiv_10_22_textChanged(const QString &arg1)
 
     ui->aiv_10_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_12_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_12->text().toFloat();
@@ -1340,7 +1344,6 @@ void MainWindow::on_aiv_10_12_textChanged(const QString &arg1)
 
     ui->aiv_10_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_23_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_13->text().toFloat();
@@ -1353,7 +1356,6 @@ void MainWindow::on_aiv_10_23_textChanged(const QString &arg1)
 
     ui->aiv_10_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_13_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_13->text().toFloat();
@@ -1366,7 +1368,6 @@ void MainWindow::on_aiv_10_13_textChanged(const QString &arg1)
 
     ui->aiv_10_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_41_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_41->text().toFloat();
