@@ -168,8 +168,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3926,8 +3926,8 @@ background-color: rgb(170, 255, 127);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>699</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5368,8 +5368,8 @@ background-color: rgb(170, 255, 127);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>241</width>
-         <height>699</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">

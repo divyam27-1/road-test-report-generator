@@ -512,12 +512,12 @@ void MainWindow::on_aiv_save_20mm_clicked()
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
     weight_of_cylinder[2][3] = ui->aiv_20_13->text().toFloat();
-    weight_of_cylider_sample[2][1] = ui->aiv_20_21->text().toFloat();
-    weight_of_cylider_sample[2][2] = ui->aiv_20_22->text().toFloat();
-    weight_of_cylider_sample[2][3] = ui->aiv_20_23->text().toFloat();
-    weight_of_sample[2][1] =  weight_of_cylider_sample[2][1] - weight_of_cylinder[2][1];
-    weight_of_sample[2][2] =  weight_of_cylider_sample[2][2] - weight_of_cylinder[2][2];
-    weight_of_sample[2][3] =  weight_of_cylider_sample[2][3] - weight_of_cylinder[2][3];
+    weight_of_cylider[2][1] = ui->aiv_20_21->text().toFloat();
+    weight_of_cylider[2][2] = ui->aiv_20_22->text().toFloat();
+    weight_of_cylider[2][3] = ui->aiv_20_23->text().toFloat();
+    weight_of_sample[2][1] =  weight_of_cylider[2][1] - weight_of_cylinder[2][1];
+    weight_of_sample[2][2] =  weight_of_cylider[2][2] - weight_of_cylinder[2][2];
+    weight_of_sample[2][3] =  weight_of_cylider[2][3] - weight_of_cylinder[2][3];
 }
 
 

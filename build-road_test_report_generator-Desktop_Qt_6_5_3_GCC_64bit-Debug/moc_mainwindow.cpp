@@ -55,7 +55,6 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_save_fei_clicked",
     "on_save_ss_clicked",
     "on_fei_export_clicked",
-    "on_pushButton_2_clicked",
     "on_aiv_save_20mm_clicked",
     "on_aiv_20_21_textChanged",
     "arg1",
@@ -81,7 +80,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[80];
+    uint offsetsAndSizes[78];
     char stringdata0[11];
     char stringdata1[25];
     char stringdata2[1];
@@ -99,10 +98,10 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata14[20];
     char stringdata15[19];
     char stringdata16[22];
-    char stringdata17[24];
+    char stringdata17[25];
     char stringdata18[25];
-    char stringdata19[25];
-    char stringdata20[5];
+    char stringdata19[5];
+    char stringdata20[25];
     char stringdata21[25];
     char stringdata22[25];
     char stringdata23[25];
@@ -117,11 +116,10 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata32[25];
     char stringdata33[25];
     char stringdata34[25];
-    char stringdata35[25];
+    char stringdata35[20];
     char stringdata36[20];
-    char stringdata37[20];
+    char stringdata37[25];
     char stringdata38[25];
-    char stringdata39[25];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -144,29 +142,28 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(292, 19),  // "on_save_fei_clicked"
         QT_MOC_LITERAL(312, 18),  // "on_save_ss_clicked"
         QT_MOC_LITERAL(331, 21),  // "on_fei_export_clicked"
-        QT_MOC_LITERAL(353, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(377, 24),  // "on_aiv_save_20mm_clicked"
-        QT_MOC_LITERAL(402, 24),  // "on_aiv_20_21_textChanged"
-        QT_MOC_LITERAL(427, 4),  // "arg1"
-        QT_MOC_LITERAL(432, 24),  // "on_aiv_20_11_textChanged"
-        QT_MOC_LITERAL(457, 24),  // "on_aiv_20_12_textChanged"
-        QT_MOC_LITERAL(482, 24),  // "on_aiv_20_22_textChanged"
-        QT_MOC_LITERAL(507, 24),  // "on_aiv_20_13_textChanged"
-        QT_MOC_LITERAL(532, 24),  // "on_aiv_20_23_textChanged"
-        QT_MOC_LITERAL(557, 24),  // "on_aiv_10_11_textChanged"
-        QT_MOC_LITERAL(582, 24),  // "on_aiv_10_12_textChanged"
-        QT_MOC_LITERAL(607, 24),  // "on_aiv_10_13_textChanged"
-        QT_MOC_LITERAL(632, 24),  // "on_aiv_10_21_textChanged"
-        QT_MOC_LITERAL(657, 24),  // "on_aiv_10_22_textChanged"
-        QT_MOC_LITERAL(682, 24),  // "on_aiv_10_23_textChanged"
-        QT_MOC_LITERAL(707, 24),  // "on_aiv_20_41_textChanged"
-        QT_MOC_LITERAL(732, 24),  // "on_aiv_10_41_textChanged"
-        QT_MOC_LITERAL(757, 24),  // "on_aiv_10_42_textChanged"
-        QT_MOC_LITERAL(782, 24),  // "on_aiv_10_43_textChanged"
-        QT_MOC_LITERAL(807, 19),  // "on_aiv_20_6_clicked"
-        QT_MOC_LITERAL(827, 19),  // "on_aiv_10_6_clicked"
-        QT_MOC_LITERAL(847, 24),  // "on_aiv_20_42_textChanged"
-        QT_MOC_LITERAL(872, 24)   // "on_aiv_20_43_textChanged"
+        QT_MOC_LITERAL(353, 24),  // "on_aiv_save_20mm_clicked"
+        QT_MOC_LITERAL(378, 24),  // "on_aiv_20_21_textChanged"
+        QT_MOC_LITERAL(403, 4),  // "arg1"
+        QT_MOC_LITERAL(408, 24),  // "on_aiv_20_11_textChanged"
+        QT_MOC_LITERAL(433, 24),  // "on_aiv_20_12_textChanged"
+        QT_MOC_LITERAL(458, 24),  // "on_aiv_20_22_textChanged"
+        QT_MOC_LITERAL(483, 24),  // "on_aiv_20_13_textChanged"
+        QT_MOC_LITERAL(508, 24),  // "on_aiv_20_23_textChanged"
+        QT_MOC_LITERAL(533, 24),  // "on_aiv_10_11_textChanged"
+        QT_MOC_LITERAL(558, 24),  // "on_aiv_10_12_textChanged"
+        QT_MOC_LITERAL(583, 24),  // "on_aiv_10_13_textChanged"
+        QT_MOC_LITERAL(608, 24),  // "on_aiv_10_21_textChanged"
+        QT_MOC_LITERAL(633, 24),  // "on_aiv_10_22_textChanged"
+        QT_MOC_LITERAL(658, 24),  // "on_aiv_10_23_textChanged"
+        QT_MOC_LITERAL(683, 24),  // "on_aiv_20_41_textChanged"
+        QT_MOC_LITERAL(708, 24),  // "on_aiv_10_41_textChanged"
+        QT_MOC_LITERAL(733, 24),  // "on_aiv_10_42_textChanged"
+        QT_MOC_LITERAL(758, 24),  // "on_aiv_10_43_textChanged"
+        QT_MOC_LITERAL(783, 19),  // "on_aiv_20_6_clicked"
+        QT_MOC_LITERAL(803, 19),  // "on_aiv_10_6_clicked"
+        QT_MOC_LITERAL(823, 24),  // "on_aiv_20_42_textChanged"
+        QT_MOC_LITERAL(848, 24)   // "on_aiv_20_43_textChanged"
     },
     "MainWindow",
     "on_spc_save_10mm_clicked",
@@ -185,7 +182,6 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_save_fei_clicked",
     "on_save_ss_clicked",
     "on_fei_export_clicked",
-    "on_pushButton_2_clicked",
     "on_aiv_save_20mm_clicked",
     "on_aiv_20_21_textChanged",
     "arg1",
@@ -219,7 +215,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-      35,   14, // methods
+      34,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -227,41 +223,40 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  224,    2, 0x08,    1 /* Private */,
-       3,    1,  225,    2, 0x08,    2 /* Private */,
-       5,    0,  228,    2, 0x08,    4 /* Private */,
-       6,    0,  229,    2, 0x08,    5 /* Private */,
-       7,    1,  230,    2, 0x08,    6 /* Private */,
-       9,    0,  233,    2, 0x08,    8 /* Private */,
-      10,    1,  234,    2, 0x08,    9 /* Private */,
-      11,    1,  237,    2, 0x08,   11 /* Private */,
-      12,    0,  240,    2, 0x08,   13 /* Private */,
-      13,    0,  241,    2, 0x08,   14 /* Private */,
-      14,    0,  242,    2, 0x08,   15 /* Private */,
-      15,    0,  243,    2, 0x08,   16 /* Private */,
-      16,    0,  244,    2, 0x08,   17 /* Private */,
-      17,    0,  245,    2, 0x08,   18 /* Private */,
-      18,    0,  246,    2, 0x08,   19 /* Private */,
-      19,    1,  247,    2, 0x08,   20 /* Private */,
-      21,    1,  250,    2, 0x08,   22 /* Private */,
-      22,    1,  253,    2, 0x08,   24 /* Private */,
-      23,    1,  256,    2, 0x08,   26 /* Private */,
-      24,    1,  259,    2, 0x08,   28 /* Private */,
-      25,    1,  262,    2, 0x08,   30 /* Private */,
-      26,    1,  265,    2, 0x08,   32 /* Private */,
-      27,    1,  268,    2, 0x08,   34 /* Private */,
-      28,    1,  271,    2, 0x08,   36 /* Private */,
-      29,    1,  274,    2, 0x08,   38 /* Private */,
-      30,    1,  277,    2, 0x08,   40 /* Private */,
-      31,    1,  280,    2, 0x08,   42 /* Private */,
-      32,    1,  283,    2, 0x08,   44 /* Private */,
-      33,    1,  286,    2, 0x08,   46 /* Private */,
-      34,    1,  289,    2, 0x08,   48 /* Private */,
-      35,    1,  292,    2, 0x08,   50 /* Private */,
-      36,    0,  295,    2, 0x08,   52 /* Private */,
-      37,    0,  296,    2, 0x08,   53 /* Private */,
-      38,    1,  297,    2, 0x08,   54 /* Private */,
-      39,    1,  300,    2, 0x08,   56 /* Private */,
+       1,    0,  218,    2, 0x08,    1 /* Private */,
+       3,    1,  219,    2, 0x08,    2 /* Private */,
+       5,    0,  222,    2, 0x08,    4 /* Private */,
+       6,    0,  223,    2, 0x08,    5 /* Private */,
+       7,    1,  224,    2, 0x08,    6 /* Private */,
+       9,    0,  227,    2, 0x08,    8 /* Private */,
+      10,    1,  228,    2, 0x08,    9 /* Private */,
+      11,    1,  231,    2, 0x08,   11 /* Private */,
+      12,    0,  234,    2, 0x08,   13 /* Private */,
+      13,    0,  235,    2, 0x08,   14 /* Private */,
+      14,    0,  236,    2, 0x08,   15 /* Private */,
+      15,    0,  237,    2, 0x08,   16 /* Private */,
+      16,    0,  238,    2, 0x08,   17 /* Private */,
+      17,    0,  239,    2, 0x08,   18 /* Private */,
+      18,    1,  240,    2, 0x08,   19 /* Private */,
+      20,    1,  243,    2, 0x08,   21 /* Private */,
+      21,    1,  246,    2, 0x08,   23 /* Private */,
+      22,    1,  249,    2, 0x08,   25 /* Private */,
+      23,    1,  252,    2, 0x08,   27 /* Private */,
+      24,    1,  255,    2, 0x08,   29 /* Private */,
+      25,    1,  258,    2, 0x08,   31 /* Private */,
+      26,    1,  261,    2, 0x08,   33 /* Private */,
+      27,    1,  264,    2, 0x08,   35 /* Private */,
+      28,    1,  267,    2, 0x08,   37 /* Private */,
+      29,    1,  270,    2, 0x08,   39 /* Private */,
+      30,    1,  273,    2, 0x08,   41 /* Private */,
+      31,    1,  276,    2, 0x08,   43 /* Private */,
+      32,    1,  279,    2, 0x08,   45 /* Private */,
+      33,    1,  282,    2, 0x08,   47 /* Private */,
+      34,    1,  285,    2, 0x08,   49 /* Private */,
+      35,    0,  288,    2, 0x08,   51 /* Private */,
+      36,    0,  289,    2, 0x08,   52 /* Private */,
+      37,    1,  290,    2, 0x08,   53 /* Private */,
+      38,    1,  293,    2, 0x08,   55 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -278,27 +273,26 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   20,
+    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   19,
 
        0        // eod
 };
@@ -341,8 +335,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_save_ss_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_fei_export_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_aiv_save_20mm_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -427,28 +419,27 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->on_save_fei_clicked(); break;
         case 11: _t->on_save_ss_clicked(); break;
         case 12: _t->on_fei_export_clicked(); break;
-        case 13: _t->on_pushButton_2_clicked(); break;
-        case 14: _t->on_aiv_save_20mm_clicked(); break;
-        case 15: _t->on_aiv_20_21_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 16: _t->on_aiv_20_11_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 17: _t->on_aiv_20_12_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 18: _t->on_aiv_20_22_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 19: _t->on_aiv_20_13_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 20: _t->on_aiv_20_23_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 21: _t->on_aiv_10_11_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 22: _t->on_aiv_10_12_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 23: _t->on_aiv_10_13_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 24: _t->on_aiv_10_21_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 25: _t->on_aiv_10_22_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 26: _t->on_aiv_10_23_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 27: _t->on_aiv_20_41_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 28: _t->on_aiv_10_41_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 29: _t->on_aiv_10_42_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 30: _t->on_aiv_10_43_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 31: _t->on_aiv_20_6_clicked(); break;
-        case 32: _t->on_aiv_10_6_clicked(); break;
-        case 33: _t->on_aiv_20_42_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 34: _t->on_aiv_20_43_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 13: _t->on_aiv_save_20mm_clicked(); break;
+        case 14: _t->on_aiv_20_21_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 15: _t->on_aiv_20_11_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 16: _t->on_aiv_20_12_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 17: _t->on_aiv_20_22_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 18: _t->on_aiv_20_13_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 19: _t->on_aiv_20_23_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 20: _t->on_aiv_10_11_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 21: _t->on_aiv_10_12_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 22: _t->on_aiv_10_13_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 23: _t->on_aiv_10_21_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 24: _t->on_aiv_10_22_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 25: _t->on_aiv_10_23_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 26: _t->on_aiv_20_41_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 27: _t->on_aiv_10_41_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 28: _t->on_aiv_10_42_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 29: _t->on_aiv_10_43_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 30: _t->on_aiv_20_6_clicked(); break;
+        case 31: _t->on_aiv_10_6_clicked(); break;
+        case 32: _t->on_aiv_20_42_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 33: _t->on_aiv_20_43_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -473,13 +464,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 35)
+        if (_id < 34)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 35;
+        _id -= 34;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 35)
+        if (_id < 34)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 35;
+        _id -= 34;
     }
     return _id;
 }

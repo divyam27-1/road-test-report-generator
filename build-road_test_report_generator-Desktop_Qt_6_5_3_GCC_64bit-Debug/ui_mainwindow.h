@@ -859,7 +859,7 @@ public:
         spc_info->addItem(spc_bsc, QString::fromUtf8("Basic Info"));
         spc_exp = new QWidget();
         spc_exp->setObjectName("spc_exp");
-        spc_exp->setGeometry(QRect(0, 0, 230, 698));
+        spc_exp->setGeometry(QRect(0, 0, 100, 30));
         verticalLayoutWidget = new QWidget(spc_exp);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(9, 10, 221, 691));
@@ -2299,7 +2299,7 @@ public:
         aiv_info->addItem(aiv_bsc, QString::fromUtf8("Basic Info"));
         aiv_exp = new QWidget();
         aiv_exp->setObjectName("aiv_exp");
-        aiv_exp->setGeometry(QRect(0, 0, 230, 699));
+        aiv_exp->setGeometry(QRect(0, 0, 100, 30));
         verticalLayoutWidget_9 = new QWidget(aiv_exp);
         verticalLayoutWidget_9->setObjectName("verticalLayoutWidget_9");
         verticalLayoutWidget_9->setGeometry(QRect(9, 10, 221, 691));
@@ -2747,7 +2747,7 @@ public:
         ind_info->addItem(ind_bsc, QString::fromUtf8("Basic Info"));
         ind_exp = new QWidget();
         ind_exp->setObjectName("ind_exp");
-        ind_exp->setGeometry(QRect(0, 0, 241, 699));
+        ind_exp->setGeometry(QRect(0, 0, 100, 30));
         verticalLayoutWidget_10 = new QWidget(ind_exp);
         verticalLayoutWidget_10->setObjectName("verticalLayoutWidget_10");
         verticalLayoutWidget_10->setGeometry(QRect(9, 10, 221, 691));
