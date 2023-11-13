@@ -58,7 +58,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -169,7 +169,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2365,7 +2365,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3808,15 +3808,15 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="aiv_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3927,7 +3927,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -4141,7 +4141,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>1370</width>
-         <height>800</height>
+         <height>850</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -4659,45 +4659,6 @@ background-color: rgb(170, 255, 127);
          <string>0</string>
         </property>
        </widget>
-       <widget class="QLabel" name="aiv_20_61">
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>390</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_20_63">
-        <property name="geometry">
-         <rect>
-          <x>820</x>
-          <y>390</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_20_62">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>390</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_424">
         <property name="geometry">
          <rect>
@@ -4982,19 +4943,6 @@ background-color: rgb(170, 255, 127);
          <string>Aggregate Impact Value</string>
         </property>
        </widget>
-       <widget class="QLabel" name="aiv_10_62">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="aiv_10_41">
         <property name="geometry">
          <rect>
@@ -5065,19 +5013,6 @@ background-color: rgb(170, 255, 127);
         </property>
         <property name="text">
          <string>W2</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="aiv_10_63">
-        <property name="geometry">
-         <rect>
-          <x>820</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_330">
@@ -5210,19 +5145,6 @@ background-color: rgb(170, 255, 127);
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="aiv_10_61">
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>750</y>
-          <width>111</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="aiv_10_42">
         <property name="geometry">
          <rect>
@@ -5237,7 +5159,7 @@ background-color: rgb(170, 255, 127);
         <property name="geometry">
          <rect>
           <x>539</x>
-          <y>770</y>
+          <y>780</y>
           <width>71</width>
           <height>24</height>
          </rect>
@@ -5246,7 +5168,7 @@ background-color: rgb(170, 255, 127);
          <string>SAVE</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="aic_save_20mm">
+       <widget class="QPushButton" name="aiv_save_20mm">
         <property name="geometry">
          <rect>
           <x>540</x>
@@ -5257,6 +5179,32 @@ background-color: rgb(170, 255, 127);
         </property>
         <property name="text">
          <string>SAVE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="aiv_20_6">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>390</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>UPDATE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="aiv_10_6">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>750</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>UPDATE</string>
         </property>
        </widget>
       </widget>
@@ -5302,15 +5250,15 @@ background-color: rgb(170, 255, 127);
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ind_bsc">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>241</width>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5421,7 +5369,7 @@ background-color: rgb(170, 255, 127);
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -8169,7 +8117,7 @@ background-color: rgb(170, 255, 127);
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">

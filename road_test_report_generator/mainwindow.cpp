@@ -13,6 +13,7 @@
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
+QStringList tracked_files;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -506,7 +507,7 @@ void MainWindow::on_save_fei_clicked()
         Flakiness_Elongation.close();
     }
 }
-void MainWindow::on_aic_save_20mm_clicked()
+void MainWindow::on_aiv_save_20mm_clicked()
 {
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();

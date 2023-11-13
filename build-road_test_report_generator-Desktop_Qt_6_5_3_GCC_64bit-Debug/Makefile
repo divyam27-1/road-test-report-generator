@@ -52,15 +52,13 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../road_test_report_generator/HTMLtoPDF.cpp \
-		../road_test_report_generator/dialog.cpp \
+SOURCES       = ../road_test_report_generator/dialog.cpp \
 		../road_test_report_generator/entry.cpp \
 		../road_test_report_generator/main.cpp \
 		../road_test_report_generator/mainwindow.cpp moc_dialog.cpp \
 		moc_entry.cpp \
 		moc_mainwindow.cpp
-OBJECTS       = HTMLtoPDF.o \
-		dialog.o \
+OBJECTS       = dialog.o \
 		entry.o \
 		main.o \
 		mainwindow.o \
@@ -214,11 +212,9 @@ DIST          = ../../../Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/6.5.3/gcc_64/mkspecs/features/lex.prf \
-		../road_test_report_generator/road_test_report_generator.pro ../road_test_report_generator/HTMLtoPDF.h \
-		../road_test_report_generator/dialog.h \
+		../road_test_report_generator/road_test_report_generator.pro ../road_test_report_generator/dialog.h \
 		../road_test_report_generator/entry.h \
-		../road_test_report_generator/mainwindow.h ../road_test_report_generator/HTMLtoPDF.cpp \
-		../road_test_report_generator/dialog.cpp \
+		../road_test_report_generator/mainwindow.h ../road_test_report_generator/dialog.cpp \
 		../road_test_report_generator/entry.cpp \
 		../road_test_report_generator/main.cpp \
 		../road_test_report_generator/mainwindow.cpp
@@ -551,8 +547,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/6.5.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../road_test_report_generator/HTMLtoPDF.h ../road_test_report_generator/dialog.h ../road_test_report_generator/entry.h ../road_test_report_generator/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../road_test_report_generator/HTMLtoPDF.cpp ../road_test_report_generator/dialog.cpp ../road_test_report_generator/entry.cpp ../road_test_report_generator/main.cpp ../road_test_report_generator/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../road_test_report_generator/dialog.h ../road_test_report_generator/entry.h ../road_test_report_generator/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../road_test_report_generator/dialog.cpp ../road_test_report_generator/entry.cpp ../road_test_report_generator/main.cpp ../road_test_report_generator/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../road_test_report_generator/dialog.ui ../road_test_report_generator/entry.ui ../road_test_report_generator/mainwindow.ui $(DISTDIR)/
 
 
@@ -1104,9 +1100,6 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
-
-HTMLtoPDF.o: ../road_test_report_generator/HTMLtoPDF.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HTMLtoPDF.o ../road_test_report_generator/HTMLtoPDF.cpp
 
 dialog.o: ../road_test_report_generator/dialog.cpp ../road_test_report_generator/dialog.h \
 		../../../Qt/6.5.3/gcc_64/include/QtWidgets/QDialog \

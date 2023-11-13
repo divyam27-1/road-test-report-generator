@@ -414,9 +414,6 @@ public:
     QLabel *aiv_20_51;
     QLabel *aiv_20_53;
     QLabel *aiv_20_52;
-    QLabel *aiv_20_61;
-    QLabel *aiv_20_63;
-    QLabel *aiv_20_62;
     QLabel *label_424;
     QLabel *label_467;
     QLabel *aiv_10_31;
@@ -440,14 +437,12 @@ public:
     QLabel *label_328;
     QLabel *label_430;
     QLabel *label_469;
-    QLabel *aiv_10_62;
     QLineEdit *aiv_10_41;
     QLabel *label_431;
     QLineEdit *aiv_10_23;
     QLabel *label_470;
     QLabel *label_329;
     QLabel *label_432;
-    QLabel *aiv_10_63;
     QLabel *label_330;
     QLabel *label_433;
     QLabel *label_434;
@@ -458,8 +453,11 @@ public:
     QLabel *label_435;
     QLabel *label_460;
     QLineEdit *aiv_10_22;
-    QLabel *aiv_10_61;
     QLineEdit *aiv_10_42;
+    QPushButton *aiv_save_10mm;
+    QPushButton *aiv_save_20mm;
+    QPushButton *aiv_20_6;
+    QPushButton *aiv_10_6;
     QScrollBar *aiv_data_scroll;
     QFrame *fei_line1_2;
     QWidget *ind;
@@ -861,7 +859,7 @@ public:
         spc_info->addItem(spc_bsc, QString::fromUtf8("Basic Info"));
         spc_exp = new QWidget();
         spc_exp->setObjectName("spc_exp");
-        spc_exp->setGeometry(QRect(0, 0, 100, 30));
+        spc_exp->setGeometry(QRect(0, 0, 230, 698));
         verticalLayoutWidget = new QWidget(spc_exp);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(9, 10, 221, 691));
@@ -1821,7 +1819,7 @@ public:
         fei_info->addItem(fei_bsc, QString::fromUtf8("Basic Info"));
         fei_exp = new QWidget();
         fei_exp->setObjectName("fei_exp");
-        fei_exp->setGeometry(QRect(0, 0, 230, 698));
+        fei_exp->setGeometry(QRect(0, 0, 100, 30));
         verticalLayoutWidget_5 = new QWidget(fei_exp);
         verticalLayoutWidget_5->setObjectName("verticalLayoutWidget_5");
         verticalLayoutWidget_5->setGeometry(QRect(9, 10, 221, 691));
@@ -2237,7 +2235,7 @@ public:
         aiv_info->setGeometry(QRect(1410, 0, 230, 761));
         aiv_bsc = new QWidget();
         aiv_bsc->setObjectName("aiv_bsc");
-        aiv_bsc->setGeometry(QRect(0, 0, 100, 30));
+        aiv_bsc->setGeometry(QRect(0, 0, 230, 699));
         layoutWidget_9 = new QWidget(aiv_bsc);
         layoutWidget_9->setObjectName("layoutWidget_9");
         layoutWidget_9->setGeometry(QRect(0, 10, 258, 691));
@@ -2408,7 +2406,7 @@ public:
         aiv_frame_outer->setFrameShadow(QFrame::Raised);
         aiv_frame = new QFrame(aiv_frame_outer);
         aiv_frame->setObjectName("aiv_frame");
-        aiv_frame->setGeometry(QRect(0, 0, 1370, 800));
+        aiv_frame->setGeometry(QRect(0, 0, 1370, 850));
         aiv_frame->setFrameShape(QFrame::StyledPanel);
         aiv_frame->setFrameShadow(QFrame::Raised);
         label_276 = new QLabel(aiv_frame);
@@ -2535,15 +2533,6 @@ public:
         aiv_20_52 = new QLabel(aiv_frame);
         aiv_20_52->setObjectName("aiv_20_52");
         aiv_20_52->setGeometry(QRect(680, 350, 111, 25));
-        aiv_20_61 = new QLabel(aiv_frame);
-        aiv_20_61->setObjectName("aiv_20_61");
-        aiv_20_61->setGeometry(QRect(540, 390, 111, 25));
-        aiv_20_63 = new QLabel(aiv_frame);
-        aiv_20_63->setObjectName("aiv_20_63");
-        aiv_20_63->setGeometry(QRect(820, 390, 111, 25));
-        aiv_20_62 = new QLabel(aiv_frame);
-        aiv_20_62->setObjectName("aiv_20_62");
-        aiv_20_62->setGeometry(QRect(680, 390, 111, 25));
         label_424 = new QLabel(aiv_frame);
         label_424->setObjectName("label_424");
         label_424->setGeometry(QRect(470, 670, 31, 17));
@@ -2613,9 +2602,6 @@ public:
         label_469 = new QLabel(aiv_frame);
         label_469->setObjectName("label_469");
         label_469->setGeometry(QRect(100, 750, 351, 25));
-        aiv_10_62 = new QLabel(aiv_frame);
-        aiv_10_62->setObjectName("aiv_10_62");
-        aiv_10_62->setGeometry(QRect(680, 750, 111, 25));
         aiv_10_41 = new QLineEdit(aiv_frame);
         aiv_10_41->setObjectName("aiv_10_41");
         aiv_10_41->setGeometry(QRect(530, 670, 113, 25));
@@ -2634,9 +2620,6 @@ public:
         label_432 = new QLabel(aiv_frame);
         label_432->setObjectName("label_432");
         label_432->setGeometry(QRect(470, 590, 41, 17));
-        aiv_10_63 = new QLabel(aiv_frame);
-        aiv_10_63->setObjectName("aiv_10_63");
-        aiv_10_63->setGeometry(QRect(820, 750, 111, 25));
         label_330 = new QLabel(aiv_frame);
         label_330->setObjectName("label_330");
         label_330->setGeometry(QRect(30, 440, 111, 41));
@@ -2668,12 +2651,21 @@ public:
         aiv_10_22 = new QLineEdit(aiv_frame);
         aiv_10_22->setObjectName("aiv_10_22");
         aiv_10_22->setGeometry(QRect(670, 590, 113, 25));
-        aiv_10_61 = new QLabel(aiv_frame);
-        aiv_10_61->setObjectName("aiv_10_61");
-        aiv_10_61->setGeometry(QRect(540, 750, 111, 25));
         aiv_10_42 = new QLineEdit(aiv_frame);
         aiv_10_42->setObjectName("aiv_10_42");
         aiv_10_42->setGeometry(QRect(670, 670, 113, 25));
+        aiv_save_10mm = new QPushButton(aiv_frame);
+        aiv_save_10mm->setObjectName("aiv_save_10mm");
+        aiv_save_10mm->setGeometry(QRect(539, 780, 71, 24));
+        aiv_save_20mm = new QPushButton(aiv_frame);
+        aiv_save_20mm->setObjectName("aiv_save_20mm");
+        aiv_save_20mm->setGeometry(QRect(540, 420, 80, 24));
+        aiv_20_6 = new QPushButton(aiv_frame);
+        aiv_20_6->setObjectName("aiv_20_6");
+        aiv_20_6->setGeometry(QRect(680, 390, 89, 25));
+        aiv_10_6 = new QPushButton(aiv_frame);
+        aiv_10_6->setObjectName("aiv_10_6");
+        aiv_10_6->setGeometry(QRect(680, 750, 89, 25));
         aiv_data_scroll = new QScrollBar(aiv_frame_outer);
         aiv_data_scroll->setObjectName("aiv_data_scroll");
         aiv_data_scroll->setGeometry(QRect(1380, 0, 15, 690));
@@ -2691,7 +2683,7 @@ public:
         ind_info->setGeometry(QRect(1410, 0, 241, 761));
         ind_bsc = new QWidget();
         ind_bsc->setObjectName("ind_bsc");
-        ind_bsc->setGeometry(QRect(0, 0, 100, 30));
+        ind_bsc->setGeometry(QRect(0, 0, 241, 699));
         layoutWidget_10 = new QWidget(ind_bsc);
         layoutWidget_10->setObjectName("layoutWidget_10");
         layoutWidget_10->setGeometry(QRect(0, 10, 258, 691));
@@ -3671,11 +3663,11 @@ public:
 
         retranslateUi(MainWindow);
 
-        tab_list->setCurrentIndex(1);
+        tab_list->setCurrentIndex(2);
         spc_info->setCurrentIndex(0);
         fei_info->setCurrentIndex(0);
-        aiv_info->setCurrentIndex(1);
-        ind_info->setCurrentIndex(1);
+        aiv_info->setCurrentIndex(0);
+        ind_info->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -3881,9 +3873,6 @@ public:
         aiv_20_51->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         aiv_20_53->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         aiv_20_52->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        aiv_20_61->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        aiv_20_63->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        aiv_20_62->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_424->setText(QCoreApplication::translate("MainWindow", "W3", nullptr));
         label_467->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
         aiv_10_31->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
@@ -3902,12 +3891,10 @@ public:
         label_328->setText(QCoreApplication::translate("MainWindow", "Wt. Of Cylindrical measure+ Sample", nullptr));
         label_430->setText(QCoreApplication::translate("MainWindow", "Test II", nullptr));
         label_469->setText(QCoreApplication::translate("MainWindow", "Aggregate Impact Value", nullptr));
-        aiv_10_62->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_431->setText(QCoreApplication::translate("MainWindow", "W2-W1", nullptr));
         label_470->setText(QCoreApplication::translate("MainWindow", "%", nullptr));
         label_329->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         label_432->setText(QCoreApplication::translate("MainWindow", "W2", nullptr));
-        aiv_10_63->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_330->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; text-decoration: underline;\">10 mm</span></p></body></html>", nullptr));
         label_433->setText(QCoreApplication::translate("MainWindow", "Wt. Of Crushed materiald passing IS sieve 2.36 mm ", nullptr));
         label_434->setText(QCoreApplication::translate("MainWindow", "Test I", nullptr));
@@ -3917,7 +3904,10 @@ public:
         label_472->setText(QCoreApplication::translate("MainWindow", "100*W3/(W2-W1)", nullptr));
         label_435->setText(QCoreApplication::translate("MainWindow", "W1", nullptr));
         label_460->setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
-        aiv_10_61->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        aiv_save_10mm->setText(QCoreApplication::translate("MainWindow", "SAVE", nullptr));
+        aiv_save_20mm->setText(QCoreApplication::translate("MainWindow", "SAVE", nullptr));
+        aiv_20_6->setText(QCoreApplication::translate("MainWindow", "UPDATE", nullptr));
+        aiv_10_6->setText(QCoreApplication::translate("MainWindow", "UPDATE", nullptr));
         tab_list->setTabText(tab_list->indexOf(aiv), QCoreApplication::translate("MainWindow", "AIV Test", nullptr));
         label_346->setText(QCoreApplication::translate("MainWindow", "Name of the Work", nullptr));
         label_347->setText(QCoreApplication::translate("MainWindow", "Name of the Client", nullptr));

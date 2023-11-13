@@ -90,7 +90,7 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-    void on_aic_save_20mm_clicked();
+    void on_aiv_save_20mm_clicked();
     void on_aiv_20_21_textChanged(const QString &arg1);
 
     void on_aiv_20_11_textChanged(const QString &arg1);
