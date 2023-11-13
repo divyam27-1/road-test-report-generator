@@ -130,19 +130,23 @@ private slots:
 
     void on_aiv_10_43_textChanged(const QString &arg1);
 
-    void on_aiv_20_6_clicked();
-
-    void on_aiv_10_6_clicked();
-
     void on_aiv_20_42_textChanged(const QString &arg1);
 
     void on_aiv_20_43_textChanged(const QString &arg1);
+
+    void on_aiv_20_6_clicked();
+
+    void on_aiv_10_6_clicked();
 
     void on_fei_save_clicked();
 
     void on_actionExport_to_PDF_triggered();
 
     void on_aiv_save_10mm_clicked();
+
+    void on_aiv_export_clicked();
+
+    void on_aiv_save_clicked();
 
 private:
     float scroll_sens;
