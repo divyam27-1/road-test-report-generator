@@ -372,6 +372,7 @@ public:
     QSpacerItem *verticalSpacer_44;
     QSpacerItem *verticalSpacer_45;
     QFrame *aiv_frame_outer;
+    QScrollBar *aiv_data_scroll;
     QFrame *aiv_frame;
     QLabel *label_276;
     QLabel *label_322;
@@ -458,7 +459,6 @@ public:
     QPushButton *aiv_save_20mm;
     QPushButton *aiv_20_6;
     QPushButton *aiv_10_6;
-    QScrollBar *aiv_data_scroll;
     QFrame *fei_line1_2;
     QWidget *ind;
     QToolBox *ind_info;
@@ -778,6 +778,7 @@ public:
         actionundo->setObjectName("actionundo");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        centralwidget->setMaximumSize(QSize(16777215, 900));
         tab_list = new QTabWidget(centralwidget);
         tab_list->setObjectName("tab_list");
         tab_list->setGeometry(QRect(0, 0, 1680, 791));
@@ -792,7 +793,7 @@ public:
         spc_info->setGeometry(QRect(1410, 0, 230, 760));
         spc_bsc = new QWidget();
         spc_bsc->setObjectName("spc_bsc");
-        spc_bsc->setGeometry(QRect(0, 0, 230, 698));
+        spc_bsc->setGeometry(QRect(0, 0, 230, 700));
         layoutWidget = new QWidget(spc_bsc);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(0, 10, 258, 691));
@@ -1755,7 +1756,7 @@ public:
         fei_info->setGeometry(QRect(1400, 0, 230, 760));
         fei_bsc = new QWidget();
         fei_bsc->setObjectName("fei_bsc");
-        fei_bsc->setGeometry(QRect(0, 0, 230, 698));
+        fei_bsc->setGeometry(QRect(0, 0, 230, 700));
         layoutWidget_5 = new QWidget(fei_bsc);
         layoutWidget_5->setObjectName("layoutWidget_5");
         layoutWidget_5->setGeometry(QRect(0, 10, 258, 691));
@@ -1819,7 +1820,7 @@ public:
         fei_info->addItem(fei_bsc, QString::fromUtf8("Basic Info"));
         fei_exp = new QWidget();
         fei_exp->setObjectName("fei_exp");
-        fei_exp->setGeometry(QRect(0, 0, 100, 30));
+        fei_exp->setGeometry(QRect(0, 0, 230, 698));
         verticalLayoutWidget_5 = new QWidget(fei_exp);
         verticalLayoutWidget_5->setObjectName("verticalLayoutWidget_5");
         verticalLayoutWidget_5->setGeometry(QRect(9, 10, 221, 691));
@@ -1921,13 +1922,13 @@ public:
         fei_info->addItem(fei_exp, QString::fromUtf8("Experiment Info"));
         fei_save = new QPushButton(fei);
         fei_save->setObjectName("fei_save");
-        fei_save->setGeometry(QRect(30, 20, 89, 25));
+        fei_save->setGeometry(QRect(20, 20, 89, 25));
         fei_saveas = new QPushButton(fei);
         fei_saveas->setObjectName("fei_saveas");
-        fei_saveas->setGeometry(QRect(140, 20, 89, 25));
+        fei_saveas->setGeometry(QRect(120, 20, 89, 25));
         fei_export = new QPushButton(fei);
         fei_export->setObjectName("fei_export");
-        fei_export->setGeometry(QRect(250, 20, 111, 25));
+        fei_export->setGeometry(QRect(230, 20, 111, 25));
         fei_frame_outer = new QFrame(fei);
         fei_frame_outer->setObjectName("fei_frame_outer");
         fei_frame_outer->setGeometry(QRect(10, 70, 1390, 690));
@@ -1940,7 +1941,7 @@ public:
         fei_1_12->setFrameShadow(QFrame::Raised);
         label_82 = new QLabel(fei_1_12);
         label_82->setObjectName("label_82");
-        label_82->setGeometry(QRect(10, 0, 730, 60));
+        label_82->setGeometry(QRect(10, 20, 730, 60));
         label_83 = new QLabel(fei_1_12);
         label_83->setObjectName("label_83");
         label_83->setGeometry(QRect(30, 80, 231, 41));
@@ -2223,19 +2224,19 @@ public:
         aiv->setObjectName("aiv");
         pushButton_7 = new QPushButton(aiv);
         pushButton_7->setObjectName("pushButton_7");
-        pushButton_7->setGeometry(QRect(20, 10, 89, 25));
+        pushButton_7->setGeometry(QRect(20, 20, 89, 25));
         pushButton_8 = new QPushButton(aiv);
         pushButton_8->setObjectName("pushButton_8");
-        pushButton_8->setGeometry(QRect(130, 10, 89, 25));
+        pushButton_8->setGeometry(QRect(120, 20, 89, 25));
         pushButton_9 = new QPushButton(aiv);
         pushButton_9->setObjectName("pushButton_9");
-        pushButton_9->setGeometry(QRect(240, 10, 89, 25));
+        pushButton_9->setGeometry(QRect(230, 20, 110, 25));
         aiv_info = new QToolBox(aiv);
         aiv_info->setObjectName("aiv_info");
         aiv_info->setGeometry(QRect(1410, 0, 230, 761));
         aiv_bsc = new QWidget();
         aiv_bsc->setObjectName("aiv_bsc");
-        aiv_bsc->setGeometry(QRect(0, 0, 230, 699));
+        aiv_bsc->setGeometry(QRect(0, 0, 230, 701));
         layoutWidget_9 = new QWidget(aiv_bsc);
         layoutWidget_9->setObjectName("layoutWidget_9");
         layoutWidget_9->setGeometry(QRect(0, 10, 258, 691));
@@ -2404,6 +2405,10 @@ public:
         aiv_frame_outer->setGeometry(QRect(10, 70, 1400, 690));
         aiv_frame_outer->setFrameShape(QFrame::StyledPanel);
         aiv_frame_outer->setFrameShadow(QFrame::Raised);
+        aiv_data_scroll = new QScrollBar(aiv_frame_outer);
+        aiv_data_scroll->setObjectName("aiv_data_scroll");
+        aiv_data_scroll->setGeometry(QRect(1380, 0, 15, 690));
+        aiv_data_scroll->setOrientation(Qt::Vertical);
         aiv_frame = new QFrame(aiv_frame_outer);
         aiv_frame->setObjectName("aiv_frame");
         aiv_frame->setGeometry(QRect(0, 0, 1370, 850));
@@ -2666,10 +2671,6 @@ public:
         aiv_10_6 = new QPushButton(aiv_frame);
         aiv_10_6->setObjectName("aiv_10_6");
         aiv_10_6->setGeometry(QRect(680, 750, 89, 25));
-        aiv_data_scroll = new QScrollBar(aiv_frame_outer);
-        aiv_data_scroll->setObjectName("aiv_data_scroll");
-        aiv_data_scroll->setGeometry(QRect(1380, 0, 15, 690));
-        aiv_data_scroll->setOrientation(Qt::Vertical);
         fei_line1_2 = new QFrame(aiv);
         fei_line1_2->setObjectName("fei_line1_2");
         fei_line1_2->setGeometry(QRect(0, 50, 1410, 16));
@@ -2683,7 +2684,7 @@ public:
         ind_info->setGeometry(QRect(1410, 0, 241, 761));
         ind_bsc = new QWidget();
         ind_bsc->setObjectName("ind_bsc");
-        ind_bsc->setGeometry(QRect(0, 0, 241, 699));
+        ind_bsc->setGeometry(QRect(0, 0, 241, 701));
         layoutWidget_10 = new QWidget(ind_bsc);
         layoutWidget_10->setObjectName("layoutWidget_10");
         layoutWidget_10->setGeometry(QRect(0, 10, 258, 691));
@@ -3576,7 +3577,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1680, 22));
+        menubar->setGeometry(QRect(0, 0, 1680, 21));
         menuHome = new QMenu(menubar);
         menuHome->setObjectName("menuHome");
         menuFile = new QMenu(menubar);
@@ -3665,7 +3666,7 @@ public:
 
         tab_list->setCurrentIndex(2);
         spc_info->setCurrentIndex(0);
-        fei_info->setCurrentIndex(0);
+        fei_info->setCurrentIndex(1);
         aiv_info->setCurrentIndex(0);
         ind_info->setCurrentIndex(0);
 
@@ -3680,11 +3681,11 @@ public:
         actionOpen_Project->setText(QCoreApplication::translate("MainWindow", "Open Project", nullptr));
         actionSave_Project->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         actionSave_Project_As->setText(QCoreApplication::translate("MainWindow", "Save Project As...", nullptr));
-        actionExport_to_PDF->setText(QCoreApplication::translate("MainWindow", "Export to PDF", nullptr));
+        actionExport_to_PDF->setText(QCoreApplication::translate("MainWindow", "EXPORT", nullptr));
         actionView_JSON->setText(QCoreApplication::translate("MainWindow", "View JSON", nullptr));
         actionExport_JSON->setText(QCoreApplication::translate("MainWindow", "Export JSON", nullptr));
-        actionClose_Project->setText(QCoreApplication::translate("MainWindow", "Close Project Without Saving", nullptr));
-        actionExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+        actionClose_Project->setText(QCoreApplication::translate("MainWindow", "Save and Quit", nullptr));
+        actionExit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
         actioncopy->setText(QCoreApplication::translate("MainWindow", "copy", nullptr));
         actionpaste->setText(QCoreApplication::translate("MainWindow", "paste", nullptr));
         actioncut->setText(QCoreApplication::translate("MainWindow", "cut", nullptr));
@@ -3824,9 +3825,9 @@ public:
         save_ss->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         save_fei->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         tab_list->setTabText(tab_list->indexOf(fei), QCoreApplication::translate("MainWindow", "FEI Test", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("MainWindow", "Save As...", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Export to PDF", nullptr));
         label_336->setText(QCoreApplication::translate("MainWindow", "Name of the Work", nullptr));
         label_337->setText(QCoreApplication::translate("MainWindow", "Name of the Client", nullptr));
         label_338->setText(QCoreApplication::translate("MainWindow", "Name of the Consultant", nullptr));

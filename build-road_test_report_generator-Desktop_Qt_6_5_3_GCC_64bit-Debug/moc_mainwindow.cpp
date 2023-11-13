@@ -76,11 +76,14 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_aiv_20_6_clicked",
     "on_aiv_10_6_clicked",
     "on_aiv_20_42_textChanged",
-    "on_aiv_20_43_textChanged"
+    "on_aiv_20_43_textChanged",
+    "on_fei_save_clicked",
+    "on_actionExport_to_PDF_triggered",
+    "on_aiv_save_10mm_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[78];
+    uint offsetsAndSizes[84];
     char stringdata0[11];
     char stringdata1[25];
     char stringdata2[1];
@@ -120,6 +123,9 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata36[20];
     char stringdata37[25];
     char stringdata38[25];
+    char stringdata39[20];
+    char stringdata40[33];
+    char stringdata41[25];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -163,7 +169,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(783, 19),  // "on_aiv_20_6_clicked"
         QT_MOC_LITERAL(803, 19),  // "on_aiv_10_6_clicked"
         QT_MOC_LITERAL(823, 24),  // "on_aiv_20_42_textChanged"
-        QT_MOC_LITERAL(848, 24)   // "on_aiv_20_43_textChanged"
+        QT_MOC_LITERAL(848, 24),  // "on_aiv_20_43_textChanged"
+        QT_MOC_LITERAL(873, 19),  // "on_fei_save_clicked"
+        QT_MOC_LITERAL(893, 32),  // "on_actionExport_to_PDF_triggered"
+        QT_MOC_LITERAL(926, 24)   // "on_aiv_save_10mm_clicked"
     },
     "MainWindow",
     "on_spc_save_10mm_clicked",
@@ -203,7 +212,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_aiv_20_6_clicked",
     "on_aiv_10_6_clicked",
     "on_aiv_20_42_textChanged",
-    "on_aiv_20_43_textChanged"
+    "on_aiv_20_43_textChanged",
+    "on_fei_save_clicked",
+    "on_actionExport_to_PDF_triggered",
+    "on_aiv_save_10mm_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -215,7 +227,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-      34,   14, // methods
+      37,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -223,40 +235,43 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  218,    2, 0x08,    1 /* Private */,
-       3,    1,  219,    2, 0x08,    2 /* Private */,
-       5,    0,  222,    2, 0x08,    4 /* Private */,
-       6,    0,  223,    2, 0x08,    5 /* Private */,
-       7,    1,  224,    2, 0x08,    6 /* Private */,
-       9,    0,  227,    2, 0x08,    8 /* Private */,
-      10,    1,  228,    2, 0x08,    9 /* Private */,
-      11,    1,  231,    2, 0x08,   11 /* Private */,
-      12,    0,  234,    2, 0x08,   13 /* Private */,
-      13,    0,  235,    2, 0x08,   14 /* Private */,
-      14,    0,  236,    2, 0x08,   15 /* Private */,
-      15,    0,  237,    2, 0x08,   16 /* Private */,
-      16,    0,  238,    2, 0x08,   17 /* Private */,
-      17,    0,  239,    2, 0x08,   18 /* Private */,
-      18,    1,  240,    2, 0x08,   19 /* Private */,
-      20,    1,  243,    2, 0x08,   21 /* Private */,
-      21,    1,  246,    2, 0x08,   23 /* Private */,
-      22,    1,  249,    2, 0x08,   25 /* Private */,
-      23,    1,  252,    2, 0x08,   27 /* Private */,
-      24,    1,  255,    2, 0x08,   29 /* Private */,
-      25,    1,  258,    2, 0x08,   31 /* Private */,
-      26,    1,  261,    2, 0x08,   33 /* Private */,
-      27,    1,  264,    2, 0x08,   35 /* Private */,
-      28,    1,  267,    2, 0x08,   37 /* Private */,
-      29,    1,  270,    2, 0x08,   39 /* Private */,
-      30,    1,  273,    2, 0x08,   41 /* Private */,
-      31,    1,  276,    2, 0x08,   43 /* Private */,
-      32,    1,  279,    2, 0x08,   45 /* Private */,
-      33,    1,  282,    2, 0x08,   47 /* Private */,
-      34,    1,  285,    2, 0x08,   49 /* Private */,
-      35,    0,  288,    2, 0x08,   51 /* Private */,
-      36,    0,  289,    2, 0x08,   52 /* Private */,
-      37,    1,  290,    2, 0x08,   53 /* Private */,
-      38,    1,  293,    2, 0x08,   55 /* Private */,
+       1,    0,  236,    2, 0x08,    1 /* Private */,
+       3,    1,  237,    2, 0x08,    2 /* Private */,
+       5,    0,  240,    2, 0x08,    4 /* Private */,
+       6,    0,  241,    2, 0x08,    5 /* Private */,
+       7,    1,  242,    2, 0x08,    6 /* Private */,
+       9,    0,  245,    2, 0x08,    8 /* Private */,
+      10,    1,  246,    2, 0x08,    9 /* Private */,
+      11,    1,  249,    2, 0x08,   11 /* Private */,
+      12,    0,  252,    2, 0x08,   13 /* Private */,
+      13,    0,  253,    2, 0x08,   14 /* Private */,
+      14,    0,  254,    2, 0x08,   15 /* Private */,
+      15,    0,  255,    2, 0x08,   16 /* Private */,
+      16,    0,  256,    2, 0x08,   17 /* Private */,
+      17,    0,  257,    2, 0x08,   18 /* Private */,
+      18,    1,  258,    2, 0x08,   19 /* Private */,
+      20,    1,  261,    2, 0x08,   21 /* Private */,
+      21,    1,  264,    2, 0x08,   23 /* Private */,
+      22,    1,  267,    2, 0x08,   25 /* Private */,
+      23,    1,  270,    2, 0x08,   27 /* Private */,
+      24,    1,  273,    2, 0x08,   29 /* Private */,
+      25,    1,  276,    2, 0x08,   31 /* Private */,
+      26,    1,  279,    2, 0x08,   33 /* Private */,
+      27,    1,  282,    2, 0x08,   35 /* Private */,
+      28,    1,  285,    2, 0x08,   37 /* Private */,
+      29,    1,  288,    2, 0x08,   39 /* Private */,
+      30,    1,  291,    2, 0x08,   41 /* Private */,
+      31,    1,  294,    2, 0x08,   43 /* Private */,
+      32,    1,  297,    2, 0x08,   45 /* Private */,
+      33,    1,  300,    2, 0x08,   47 /* Private */,
+      34,    1,  303,    2, 0x08,   49 /* Private */,
+      35,    0,  306,    2, 0x08,   51 /* Private */,
+      36,    0,  307,    2, 0x08,   52 /* Private */,
+      37,    1,  308,    2, 0x08,   53 /* Private */,
+      38,    1,  311,    2, 0x08,   55 /* Private */,
+      39,    0,  314,    2, 0x08,   57 /* Private */,
+      40,    0,  315,    2, 0x08,   58 /* Private */,
+      41,    0,  316,    2, 0x08,   59 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -293,6 +308,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   19,
     QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -395,7 +413,13 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_aiv_20_43_textChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_fei_save_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionExport_to_PDF_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_aiv_save_10mm_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -440,6 +464,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 31: _t->on_aiv_10_6_clicked(); break;
         case 32: _t->on_aiv_20_42_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 33: _t->on_aiv_20_43_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 34: _t->on_fei_save_clicked(); break;
+        case 35: _t->on_actionExport_to_PDF_triggered(); break;
+        case 36: _t->on_aiv_save_10mm_clicked(); break;
         default: ;
         }
     }
@@ -464,13 +491,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 34)
+        if (_id < 37)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 34;
+        _id -= 37;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 34)
+        if (_id < 37)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 34;
+        _id -= 37;
     }
     return _id;
 }
