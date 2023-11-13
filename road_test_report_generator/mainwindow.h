@@ -58,7 +58,9 @@ public:
     float weight_crushed_material[3][4];
     float weight_of_sample[3][4];
     float aggregate_impact_value[3][4];
-    float avg_aggregate_impact_value;
+    float avg_aggregate_impact_value_10;
+    float avg_aggregate_impact_value_20;
+
 
 
 private slots:
@@ -131,6 +133,8 @@ private slots:
     void on_aiv_20_43_textChanged(const QString &arg1);
 
     void on_fei_save_clicked();
+
+    void on_aiv_save_10mm_clicked();
 
 private:
     float scroll_sens;
