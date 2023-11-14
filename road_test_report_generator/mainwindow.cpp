@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <QProcess>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -68,6 +69,11 @@ void MainWindow::on_fei_save_clicked()
 {
     ui->save_ss->click();
     ui->save_fei->click();
+}
+void MainWindow::on_aiv_save_clicked()
+{
+    ui->aiv_save_10mm->click();
+    ui->aiv_save_20mm->click();
 }
 
 
@@ -644,7 +650,7 @@ void MainWindow::on_aiv_save_10mm_clicked()
     }
 }
 QFile idg_40mm(cwd.filePath("json/idg_40mm.json"));
-void MainWindow::on_save_40mm_idg_clicked()
+void MainWindow::on_idg_save_40mm_clicked()
 {  is_sieve_40[1][1] = ui->idg_40_s11->text().toFloat();
     is_sieve_40[1][2] = ui->idg_40_s12->text().toFloat();
     is_sieve_40[1][3] = ui->idg_40_s13->text().toFloat();
@@ -687,7 +693,7 @@ void MainWindow::on_save_40mm_idg_clicked()
     is_sieve_40[3][4] = ui->idg_40_s34->text().toFloat();
     is_sieve_40[3][5] = ui->idg_40_s35->text().toFloat();
     is_sieve_40[3][6] = ui->idg_40_s36->text().toFloat();
-    is_sieve_40[3][7] = ui->idg_40_s37->text().toFloat();
+    is_sieve_40[3][7] = ui->idg_40_s36->text().toFloat();
     is_sieve_40[3][8] = ui->idg_40_s38->text().toFloat();
 
     weight_of_retained_40[3][1] = ui->idg_40_w31->text().toFloat();
@@ -766,9 +772,36 @@ void MainWindow::on_save_40mm_idg_clicked()
 
 
 
-
-
 //Deals with exports to PDF
+void MainWindow::on_actionExport_to_PDF_triggered()
+{
+    QString program;
+    QStringList args;
+
+    if (OS == "win") {
+       program = cwd.filePath("executable/wkhtmltopdf.exe");
+    } else if (OS == "linux") {
+       program = cwd.filePath("executable/wkhtmltopdf");
+    }
+
+    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i) {
+       if (*i == "spc") {
+           ui->spc_export->click();
+           args << cwd.filePath("html/spc_10mm.html");
+           args << cwd.filePath("html/spc_20mm.html");
+           args << cwd.filePath("html/spc_40mm.html");
+           args << cwd.filePath("html/spc_stone_dust.html");
+       } else if (*i == "fei") {
+           ui->fei_export->click();
+           args << cwd.filePath("html/fei.html");
+       }
+    }
+
+    args << cwd.filePath("output/REPORT.pdf");
+
+    QProcess *converter = new QProcess();
+    converter->start(program, args);
+}
 void MainWindow::on_spc_export_clicked()
 {
     QString json_path = cwd.filePath("json/spc.json");
@@ -1364,9 +1397,10 @@ void MainWindow::on_fei_export_clicked()
         template_file.close();
     }
 }
-
-
-
+void MainWindow::on_aiv_export_clicked()
+{
+    qDebug() << "ok";
+}
 
 
 

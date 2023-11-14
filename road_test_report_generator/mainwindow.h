@@ -152,6 +152,8 @@ private slots:
 
     void on_aiv_save_clicked();
 
+    void on_idg_save_40mm_clicked();
+
 private:
     float scroll_sens;
 
