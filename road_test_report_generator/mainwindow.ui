@@ -37,7 +37,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -5230,7 +5230,7 @@ color: rgb(0, 0, 0);</string>
        </widget>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="ind_save">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -5240,10 +5240,10 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="text">
-       <string>save </string>
+       <string>Save </string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="ind_saveas">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -5253,20 +5253,20 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="text">
-       <string>save as</string>
+       <string>Save As...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="ind_export">
       <property name="geometry">
        <rect>
         <x>230</x>
         <y>20</y>
-        <width>89</width>
+        <width>111</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
-       <string>export</string>
+       <string>Export to PDF...</string>
       </property>
      </widget>
      <widget class="QFrame" name="ind_frame_outer">
@@ -5288,9 +5288,9 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-1530</y>
          <width>1370</width>
-         <height>2325</height>
+         <height>2225</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -7765,6 +7765,282 @@ color: rgb(0, 0, 0);</string>
          <string>Save</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="ind_40_w1">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>200</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_40_w2">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>340</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_40_w3">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>510</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_74">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>150</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_75">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>300</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_76">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>460</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_77">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>860</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_78">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1020</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_20_w2">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>900</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_79">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>710</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_20_w3">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1070</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_20_w1">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>760</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_80">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1400</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_81">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1560</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_10_w2">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1440</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_86">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1250</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_10_w3">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1610</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_10_w1">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1300</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_89">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1930</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_92">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>2090</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_0_w2">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1970</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_93">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1780</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Weight</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_0_w3">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>2140</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_0_w1">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1830</y>
+          <width>113</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
       <widget class="QScrollBar" name="ind_data_scroll">
        <property name="geometry">
@@ -8088,9 +8364,9 @@ color: rgb(0, 0, 0);</string>
   <tabstop>ind_exp_4</tabstop>
   <tabstop>ind_exp_5</tabstop>
   <tabstop>ind_exp_6</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>pushButton_5</tabstop>
-  <tabstop>pushButton_6</tabstop>
+  <tabstop>ind_save</tabstop>
+  <tabstop>ind_saveas</tabstop>
+  <tabstop>ind_export</tabstop>
   <tabstop>idg_40_s11</tabstop>
   <tabstop>idg_40_s12</tabstop>
   <tabstop>idg_40_s13</tabstop>

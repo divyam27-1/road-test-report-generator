@@ -65,8 +65,12 @@ public:
     float avg_aggregate_impact_value_20;
 //fei
     //individual gradation
-    float is_sieve_40[5][5];
-    float weight_of_retained_40[5][5];
+    float is_sieve_40[5][9];
+    float weight_of_retained_40[5][9];
+    float ind_cumulative[5][9];
+    float ind_cumulative_percent[5][9];
+    float ind_cum_pass[5][9];
+    float total_weight[3];
 
 
     std::vector<std::string> tracked_files;
@@ -153,6 +157,8 @@ private slots:
     void on_aiv_save_clicked();
 
     void on_idg_save_40mm_clicked();
+
+    void on_ind_save_clicked();
 
 private:
     float scroll_sens;
