@@ -597,7 +597,6 @@ void MainWindow::on_aiv_save_20mm_clicked()
        aiv_.close();
     }
 }
-
 void MainWindow::on_aiv_save_10mm_clicked()
 {
     QJsonObject aiv_json_10mm;
@@ -645,7 +644,6 @@ void MainWindow::on_aiv_save_10mm_clicked()
     }
 }
 QFile idg_40mm(cwd.filePath("json/idg_40mm.json"));
-
 void MainWindow::on_save_40mm_idg_clicked()
 {  is_sieve_40[1][1] = ui->idg_40_s11->text().toFloat();
     is_sieve_40[1][2] = ui->idg_40_s12->text().toFloat();
@@ -769,61 +767,8 @@ void MainWindow::on_save_40mm_idg_clicked()
 
 
 
-// Deals with Scrolling
-void MainWindow::wheelEvent(QWheelEvent *event)
-{
-    // the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
-    // setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
-    qDebug() << tracked_files.size();
-    this->scroll_sens = 20;
-    QPoint delta = -1 * event->angleDelta();
-    QPointF mouse_pos = event->position();
-    int scroll_pos;
 
-    if (mouse_pos.x() > 40 && mouse_pos.y() > 95 && mouse_pos.x() < 1410 && mouse_pos.y() < 760)
-    {
-
-        // By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
-        // This area has to be the current tab, which is selected with the switch operator
-        switch (ui->tab_list->currentIndex())
-        {
-        case 0:
-            scroll_pos = ui->spc_data_scroll->value();
-            ui->spc_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
-            break;
-        case 2:
-            scroll_pos = ui->aiv_data_scroll->value();
-            ui->aiv_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
-            break;
-        case 3:
-            scroll_pos = ui->ind_data_scroll->value();
-            ui->ind_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
-            qDebug() << ui->ind_frame->y();
-            break;
-        default:
-            break;
-        }
-    }
-}
-
-void MainWindow::on_spc_data_scroll_valueChanged(int value)
-{
-    float target = (ui->spc_frame_outer->height() - ui->spc_frame->height()) * value / 100;
-    ui->spc_frame->move(0, target);
-}
-
-void MainWindow::on_ind_data_scroll_valueChanged(int value)
-{
-    float target = (ui->ind_frame_outer->height() - ui->ind_frame->height()) * value / 100;
-    ui->ind_frame->move(0, target);
-}
-
-void MainWindow::on_aiv_data_scroll_valueChanged(int value)
-{
-    float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
-    ui->aiv_frame->move(0, target);
-}
-
+//Deals with exports to PDF
 void MainWindow::on_spc_export_clicked()
 {
     QString json_path = cwd.filePath("json/spc.json");
@@ -1055,7 +1000,6 @@ void MainWindow::on_spc_export_clicked()
         }
     }
 }
-
 void MainWindow::on_fei_export_clicked()
 {
     QString json_path = cwd.filePath("json/fei.json");
@@ -1421,6 +1365,65 @@ void MainWindow::on_fei_export_clicked()
     }
 }
 
+
+
+
+
+
+// Deals with Scrolling
+void MainWindow::wheelEvent(QWheelEvent *event)
+{
+    // the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
+    // setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
+    qDebug() << tracked_files.size();
+    this->scroll_sens = 20;
+    QPoint delta = -1 * event->angleDelta();
+    QPointF mouse_pos = event->position();
+    int scroll_pos;
+
+    if (mouse_pos.x() > 40 && mouse_pos.y() > 95 && mouse_pos.x() < 1410 && mouse_pos.y() < 760)
+    {
+
+        // By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
+        // This area has to be the current tab, which is selected with the switch operator
+        switch (ui->tab_list->currentIndex())
+        {
+        case 0:
+            scroll_pos = ui->spc_data_scroll->value();
+            ui->spc_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
+            break;
+        case 2:
+            scroll_pos = ui->aiv_data_scroll->value();
+            ui->aiv_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
+            break;
+        case 3:
+            scroll_pos = ui->ind_data_scroll->value();
+            ui->ind_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
+            qDebug() << ui->ind_frame->y();
+            break;
+        default:
+            break;
+        }
+    }
+}
+void MainWindow::on_spc_data_scroll_valueChanged(int value)
+{
+    float target = (ui->spc_frame_outer->height() - ui->spc_frame->height()) * value / 100;
+    ui->spc_frame->move(0, target);
+}
+void MainWindow::on_ind_data_scroll_valueChanged(int value)
+{
+    float target = (ui->ind_frame_outer->height() - ui->ind_frame->height()) * value / 100;
+    ui->ind_frame->move(0, target);
+}
+void MainWindow::on_aiv_data_scroll_valueChanged(int value)
+{
+    float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
+    ui->aiv_frame->move(0, target);
+}
+
+
+//Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_11->text().toFloat();
@@ -1445,7 +1448,6 @@ void MainWindow::on_aiv_20_11_textChanged(const QString &arg1)
 
     ui->aiv_20_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_22_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_12->text().toFloat();
@@ -1470,7 +1472,6 @@ void MainWindow::on_aiv_20_12_textChanged(const QString &arg1)
 
     ui->aiv_20_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_23_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_13->text().toFloat();
@@ -1495,7 +1496,6 @@ void MainWindow::on_aiv_20_13_textChanged(const QString &arg1)
 
     ui->aiv_20_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_21_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_11->text().toFloat();
@@ -1508,7 +1508,6 @@ void MainWindow::on_aiv_10_21_textChanged(const QString &arg1)
 
     ui->aiv_10_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_11_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_11->text().toFloat();
@@ -1521,7 +1520,6 @@ void MainWindow::on_aiv_10_11_textChanged(const QString &arg1)
 
     ui->aiv_10_31->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_22_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_12->text().toFloat();
@@ -1534,7 +1532,6 @@ void MainWindow::on_aiv_10_22_textChanged(const QString &arg1)
 
     ui->aiv_10_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_12_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_12->text().toFloat();
@@ -1547,7 +1544,6 @@ void MainWindow::on_aiv_10_12_textChanged(const QString &arg1)
 
     ui->aiv_10_32->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_23_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_13->text().toFloat();
@@ -1560,7 +1556,6 @@ void MainWindow::on_aiv_10_23_textChanged(const QString &arg1)
 
     ui->aiv_10_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_10_13_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_10_13->text().toFloat();
@@ -1573,7 +1568,6 @@ void MainWindow::on_aiv_10_13_textChanged(const QString &arg1)
 
     ui->aiv_10_33->setText(QString::fromStdString(target_string));
 }
-
 void MainWindow::on_aiv_20_41_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_41->text().toFloat();
