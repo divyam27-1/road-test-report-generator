@@ -48,11 +48,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-bool MainWindow::get_token(std::string line, int pos, int *output)
-{
-    //
-}
-
 void MainWindow::on_tabWidget_tabCloseRequested(int index)
 {
     ui->tab_list->removeTab(index);
@@ -793,8 +788,12 @@ void MainWindow::on_actionExport_to_PDF_triggered()
            args << cwd.filePath("html/spc_40mm.html");
            args << cwd.filePath("html/spc_stone_dust.html");
        } else if (*i == "fei") {
-           ui->fei_export->click();
+            ui->fei_export->click();
            args << cwd.filePath("html/fei.html");
+       } else if (*i == "aiv") {
+            ui->aiv_export->click();
+            args << cwd.filePath("html/aiv_10mm.html");
+            args << cwd.filePath("html/aiv_20mm.html");
        }
     }
 
@@ -1422,9 +1421,9 @@ void MainWindow::on_fei_export_clicked()
 }
 void MainWindow::on_aiv_export_clicked()
 {
-    ui->spc_save->click();
-    qDebug() << "beginning spc save...";
-    QString json_path = cwd.filePath("json/spc.json");
+    ui->aiv_save->click();
+    qDebug() << "beginning aiv save...";
+    QString json_path = cwd.filePath("json/aiv.json");
 
     QFile json_file(json_path);
     if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -1444,9 +1443,9 @@ void MainWindow::on_aiv_export_clicked()
 
     for (int t = 0; t < json_keys_len; t++)
     {
-        if (json_keys[t] == "20mm" || json_keys[t] == "10")
+        if (json_keys[t] == "20mm" || json_keys[t] == "10mm")
         {
-            std::string output_html_path = cwd.filePath("html/spc_").toStdString();
+            std::string output_html_path = cwd.filePath("html/aiv_").toStdString();
             output_html_path = output_html_path + json_keys[t].toStdString() + ".html";
             std::ofstream output_html_file(output_html_path, std::ios::out);
 
@@ -1454,7 +1453,7 @@ void MainWindow::on_aiv_export_clicked()
             {
                 qDebug() << "output html file opened";
 
-                QString template_path = cwd.filePath("templates/spc.html");
+                QString template_path = cwd.filePath("templates/aiv.html");
                 QFile template_file(template_path);
                 if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
                 {
@@ -1478,7 +1477,6 @@ void MainWindow::on_aiv_export_clicked()
                     {
                         if (line[i] == '~' && tilda == 0)
                         {
-                            qDebug() << "opening tilda located";
                             tilda = 1;
 
                             // Gets the token from HTML file
@@ -1498,7 +1496,6 @@ void MainWindow::on_aiv_export_clicked()
                                 }
                             }
 
-                            qDebug() << "token found: " << token;
 
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
@@ -1537,94 +1534,74 @@ void MainWindow::on_aiv_export_clicked()
                                 topush = ui->aiv_exp_6->text().toStdString();
                                 break;
                             case 11:
-                                topushf = json_lookups_data["Weight_of_sample_of_water_1"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 12:
-                                topushf = json_lookups_data["Weight_of_sample_of_water_2"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 13:
-                                topushf = json_lookups_data["Weight_of_sample_of_water_3"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 14:
-                                topushf = json_lookups_data["Weight_of_SSD_Sample_1"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 15:
-                                topushf = json_lookups_data["Weight_of_SSD_Sample_2"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 16:
-                                topushf = json_lookups_data["Weight_of_SSD_Sample_3"].toDouble();
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 17:
-                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_1"].toDouble();
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 18:
-                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_2"].toDouble();
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 19:
-                                topushf = json_lookups_data["Weight_of_Oven_dry_sample_3"].toDouble();
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
                                 output_html_file << topushf;
 
                                 break;
                             case 20:
-                                topushf = json_lookups_data["Bulk_specific_gravity_1"].toDouble();
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 21:
-                                topushf = json_lookups_data["Bulk_specific_gravity_2"].toDouble();
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 22:
-                                topushf = json_lookups_data["Bulk_specific_gravity_3"].toDouble();
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 23:
-                                topushf = json_lookups_data["apparent_specific_gravity_1"].toDouble();
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 24:
-                                topushf = json_lookups_data["apparent_specific_gravity_2"].toDouble();
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 25:
-                                topushf = json_lookups_data["apparent_specific_gravity_3"].toDouble();
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 26:
-                                topushf = json_lookups_data["water_absorption_1"].toDouble();
-                                output_html_file << topushf;
-                                break;
-                            case 27:
-                                topushf = json_lookups_data["water_absorption_2"].toDouble();
-                                output_html_file << topushf;
-                                break;
-                            case 28:
-                                topushf = json_lookups_data["water_absorption_3"].toDouble();
-                                output_html_file << topushf;
-                                break;
-                            case 29:
-                                topushf = json_lookups_data["average_bulk_specific_gravity"].toDouble();
-                                output_html_file << topushf;
-                                break;
-                            case 30:
-                                topushf = json_lookups_data["average_apparent_specific_gravity"].toDouble();
-                                output_html_file << topushf;
-                                break;
-                            case 31:
-                                topushf = json_lookups_data["average_water_absorption"].toDouble();
+                                topushf = json_lookups_data["avg_aggregate_impact_value"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             }
