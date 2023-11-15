@@ -1785,7 +1785,9 @@ mainwindow.o: ../road_test_report_generator/mainwindow.cpp ../road_test_report_g
 		../../../Qt/6.5.3/gcc_64/include/QtCore/QTextStream \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/QDir \
 		../../../Qt/6.5.3/gcc_64/include/QtCore/qdir.h \
-		../../../Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h
+		../../../Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.5.3/gcc_64/include/QtCore/QProcess \
+		../../../Qt/6.5.3/gcc_64/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../road_test_report_generator/mainwindow.cpp
 
 moc_dialog.o: moc_dialog.cpp 

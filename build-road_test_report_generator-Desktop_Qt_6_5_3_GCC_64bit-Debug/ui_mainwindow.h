@@ -497,9 +497,9 @@ public:
     QSpacerItem *verticalSpacer_48;
     QSpacerItem *verticalSpacer_49;
     QSpacerItem *verticalSpacer_50;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
+    QPushButton *ind_save;
+    QPushButton *ind_saveas;
+    QPushButton *ind_export;
     QFrame *ind_frame_outer;
     QFrame *ind_frame;
     QLabel *label_275;
@@ -507,118 +507,118 @@ public:
     QLabel *label_312;
     QLabel *label_436;
     QLabel *label_437;
-    QLineEdit *lineEdit_73;
-    QLineEdit *lineEdit_74;
-    QLineEdit *lineEdit_75;
-    QLineEdit *lineEdit_76;
-    QLineEdit *lineEdit_77;
-    QLineEdit *lineEdit_78;
-    QLineEdit *lineEdit_79;
-    QLineEdit *lineEdit_80;
-    QLineEdit *lineEdit_81;
-    QLineEdit *lineEdit_82;
-    QLineEdit *lineEdit_83;
-    QLineEdit *lineEdit_84;
-    QLineEdit *lineEdit_85;
-    QLineEdit *lineEdit_86;
-    QLineEdit *lineEdit_87;
-    QLineEdit *lineEdit_88;
+    QLineEdit *idg_40_s11;
+    QLineEdit *idg_40_s12;
+    QLineEdit *idg_40_s13;
+    QLineEdit *idg_40_s14;
+    QLineEdit *idg_40_s15;
+    QLineEdit *idg_40_s16;
+    QLineEdit *idg_40_s17;
+    QLineEdit *idg_40_s18;
+    QLineEdit *idg_40_w11;
+    QLineEdit *idg_40_w12;
+    QLineEdit *idg_40_w13;
+    QLineEdit *idg_40_w14;
+    QLineEdit *idg_40_w15;
+    QLineEdit *idg_40_w16;
+    QLineEdit *idg_40_w17;
+    QLineEdit *idg_40_w18;
     QLabel *label_313;
     QLabel *label_438;
     QLabel *label_439;
-    QLineEdit *lineEdit_89;
-    QLineEdit *lineEdit_90;
-    QLineEdit *lineEdit_91;
-    QLineEdit *lineEdit_92;
-    QLineEdit *lineEdit_93;
-    QLineEdit *lineEdit_94;
-    QLineEdit *lineEdit_95;
-    QLineEdit *lineEdit_96;
-    QLineEdit *lineEdit_97;
-    QLineEdit *lineEdit_98;
-    QLineEdit *lineEdit_99;
-    QLineEdit *lineEdit_100;
-    QLineEdit *lineEdit_101;
-    QLineEdit *lineEdit_102;
-    QLineEdit *lineEdit_103;
-    QLineEdit *lineEdit_104;
+    QLineEdit *idg_40_s21;
+    QLineEdit *idg_40_s22;
+    QLineEdit *idg_40_s23;
+    QLineEdit *idg_40_s24;
+    QLineEdit *idg_40_s25;
+    QLineEdit *idg_40_s26;
+    QLineEdit *idg_40_s27;
+    QLineEdit *idg_40_s28;
+    QLineEdit *idg_40_w21;
+    QLineEdit *idg_40_w22;
+    QLineEdit *idg_40_w23;
+    QLineEdit *idg_40_w24;
+    QLineEdit *idg_40_w25;
+    QLineEdit *idg_40_w26;
+    QLineEdit *idg_40_w27;
+    QLineEdit *idg_40_w28;
     QLabel *label_314;
     QLabel *label_440;
     QLabel *label_441;
-    QLineEdit *lineEdit_105;
-    QLineEdit *lineEdit_106;
-    QLineEdit *lineEdit_107;
-    QLineEdit *lineEdit_108;
-    QLineEdit *lineEdit_109;
-    QLineEdit *lineEdit_110;
-    QLineEdit *lineEdit_111;
-    QLineEdit *lineEdit_112;
-    QLineEdit *lineEdit_114;
-    QLineEdit *lineEdit_115;
-    QLineEdit *lineEdit_116;
-    QLineEdit *lineEdit_117;
-    QLineEdit *lineEdit_118;
-    QLineEdit *lineEdit_119;
-    QLineEdit *lineEdit_120;
-    QLineEdit *lineEdit_121;
+    QLineEdit *idg_40_s31;
+    QLineEdit *idg_40_s32;
+    QLineEdit *idg_40_s33;
+    QLineEdit *idg_40_s34;
+    QLineEdit *idg_40_s35;
+    QLineEdit *idg_40_s36;
+    QLineEdit *idg_40_s37;
+    QLineEdit *idg_40_s38;
+    QLineEdit *idg_40_w31;
+    QLineEdit *idg_40_w32;
+    QLineEdit *idg_40_w33;
+    QLineEdit *idg_40_w34;
+    QLineEdit *idg_40_w35;
+    QLineEdit *idg_40_w36;
+    QLineEdit *idg_40_w37;
+    QLineEdit *idg_40_w38;
     QLabel *label_315;
     QLabel *label_316;
     QLabel *label_442;
     QLabel *label_443;
-    QLineEdit *lineEdit_113;
-    QLineEdit *lineEdit_122;
-    QLineEdit *lineEdit_123;
-    QLineEdit *lineEdit_124;
-    QLineEdit *lineEdit_125;
-    QLineEdit *lineEdit_126;
-    QLineEdit *lineEdit_127;
-    QLineEdit *lineEdit_128;
-    QLineEdit *lineEdit_129;
-    QLineEdit *lineEdit_130;
-    QLineEdit *lineEdit_131;
-    QLineEdit *lineEdit_132;
-    QLineEdit *lineEdit_133;
-    QLineEdit *lineEdit_134;
-    QLineEdit *lineEdit_135;
-    QLineEdit *lineEdit_136;
+    QLineEdit *idg_20_s11;
+    QLineEdit *idg_20_s12;
+    QLineEdit *idg_20_s13;
+    QLineEdit *idg_20_s14;
+    QLineEdit *idg_20_s15;
+    QLineEdit *idg_20_s16;
+    QLineEdit *idg_20_s17;
+    QLineEdit *idg_20_s18;
+    QLineEdit *idg_20_w11;
+    QLineEdit *idg_20_w12;
+    QLineEdit *idg_20_w13;
+    QLineEdit *idg_20_w14;
+    QLineEdit *idg_20_w15;
+    QLineEdit *idg_20_w16;
+    QLineEdit *idg_20_w17;
+    QLineEdit *idg_20_w18;
     QLabel *label_317;
     QLabel *label_444;
     QLabel *label_445;
-    QLineEdit *lineEdit_137;
-    QLineEdit *lineEdit_138;
-    QLineEdit *lineEdit_139;
-    QLineEdit *lineEdit_140;
-    QLineEdit *lineEdit_141;
-    QLineEdit *lineEdit_142;
-    QLineEdit *lineEdit_143;
-    QLineEdit *lineEdit_144;
-    QLineEdit *lineEdit_145;
-    QLineEdit *lineEdit_146;
-    QLineEdit *lineEdit_147;
-    QLineEdit *lineEdit_148;
-    QLineEdit *lineEdit_149;
-    QLineEdit *lineEdit_150;
-    QLineEdit *lineEdit_151;
-    QLineEdit *lineEdit_152;
+    QLineEdit *idg_20_s21;
+    QLineEdit *idg_20_s22;
+    QLineEdit *idg_20_s23;
+    QLineEdit *idg_20_s24;
+    QLineEdit *idg_20_s25;
+    QLineEdit *idg_20_s26;
+    QLineEdit *idg_20_s27;
+    QLineEdit *idg_20_s28;
+    QLineEdit *idg_20_w21;
+    QLineEdit *idg_20_w22;
+    QLineEdit *idg_20_w23;
+    QLineEdit *idg_20_w24;
+    QLineEdit *idg_20_w25;
+    QLineEdit *idg_20_w26;
+    QLineEdit *idg_20_w27;
+    QLineEdit *idg_20_w28;
     QLabel *label_318;
     QLabel *label_446;
     QLabel *label_447;
-    QLineEdit *lineEdit_153;
-    QLineEdit *lineEdit_154;
-    QLineEdit *lineEdit_155;
-    QLineEdit *lineEdit_156;
-    QLineEdit *lineEdit_157;
-    QLineEdit *lineEdit_158;
-    QLineEdit *lineEdit_159;
-    QLineEdit *lineEdit_160;
-    QLineEdit *lineEdit_161;
-    QLineEdit *lineEdit_162;
-    QLineEdit *lineEdit_163;
-    QLineEdit *lineEdit_164;
-    QLineEdit *lineEdit_165;
-    QLineEdit *lineEdit_166;
-    QLineEdit *lineEdit_167;
-    QLineEdit *lineEdit_168;
+    QLineEdit *idg_20_s31;
+    QLineEdit *idg_20_s32;
+    QLineEdit *idg_20_s33;
+    QLineEdit *idg_20_s34;
+    QLineEdit *idg_20_s35;
+    QLineEdit *idg_20_s36;
+    QLineEdit *idg_20_s37;
+    QLineEdit *idg_20_s38;
+    QLineEdit *idg_20_w31;
+    QLineEdit *idg_20_w32;
+    QLineEdit *idg_20_w33;
+    QLineEdit *idg_20_w34;
+    QLineEdit *idg_20_w35;
+    QLineEdit *idg_20_w36;
+    QLineEdit *idg_20_w37;
+    QLineEdit *idg_20_w38;
     QLabel *label_319;
     QLabel *label_320;
     QLabel *label_448;
@@ -735,6 +735,34 @@ public:
     QLineEdit *lineEdit_262;
     QLineEdit *lineEdit_263;
     QLineEdit *lineEdit_264;
+    QPushButton *idg_save_40mm;
+    QLineEdit *ind_40_w1;
+    QLineEdit *ind_40_w2;
+    QLineEdit *ind_40_w3;
+    QLabel *label_74;
+    QLabel *label_75;
+    QLabel *label_76;
+    QLabel *label_77;
+    QLabel *label_78;
+    QLineEdit *ind_20_w2;
+    QLabel *label_79;
+    QLineEdit *ind_20_w3;
+    QLineEdit *ind_20_w1;
+    QLabel *label_80;
+    QLabel *label_81;
+    QLineEdit *ind_10_w2;
+    QLabel *label_86;
+    QLineEdit *ind_10_w3;
+    QLineEdit *ind_10_w1;
+    QLabel *label_89;
+    QLabel *label_92;
+    QLineEdit *ind_0_w2;
+    QLabel *label_93;
+    QLineEdit *ind_0_w3;
+    QLineEdit *ind_0_w1;
+    QPushButton *idg_save_20mm;
+    QPushButton *idg_save_10mm;
+    QPushButton *idg_save_0mm;
     QScrollBar *ind_data_scroll;
     QMenuBar *menubar;
     QMenu *menuHome;
@@ -860,7 +888,7 @@ public:
         spc_info->addItem(spc_bsc, QString::fromUtf8("Basic Info"));
         spc_exp = new QWidget();
         spc_exp->setObjectName("spc_exp");
-        spc_exp->setGeometry(QRect(0, 0, 100, 30));
+        spc_exp->setGeometry(QRect(0, 0, 230, 698));
         verticalLayoutWidget = new QWidget(spc_exp);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(9, 10, 221, 691));
@@ -966,42 +994,15 @@ public:
         spc_save = new QPushButton(spc);
         spc_save->setObjectName("spc_save");
         spc_save->setGeometry(QRect(10, 10, 70, 25));
-        spc_save->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_save->setStyleSheet(QString::fromUtf8(""));
         spc_saveas = new QPushButton(spc);
         spc_saveas->setObjectName("spc_saveas");
         spc_saveas->setGeometry(QRect(90, 10, 80, 25));
-        spc_saveas->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_saveas->setStyleSheet(QString::fromUtf8(""));
         spc_export = new QPushButton(spc);
         spc_export->setObjectName("spc_export");
         spc_export->setGeometry(QRect(180, 10, 120, 25));
-        spc_export->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_export->setStyleSheet(QString::fromUtf8(""));
         line = new QFrame(spc);
         line->setObjectName("line");
         line->setGeometry(QRect(0, 50, 1410, 16));
@@ -1036,718 +1037,407 @@ public:
         label_11 = new QLabel(spc_frame);
         label_11->setObjectName("label_11");
         label_11->setGeometry(QRect(10, 20, 771, 60));
-        label_11->setStyleSheet(QString::fromUtf8("font: 900 italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);\n"
-""));
+        label_11->setStyleSheet(QString::fromUtf8(""));
         label_12 = new QLabel(spc_frame);
         label_12->setObjectName("label_12");
         label_12->setGeometry(QRect(30, 80, 101, 41));
         label_18 = new QLabel(spc_frame);
         label_18->setObjectName("label_18");
         label_18->setGeometry(QRect(30, 190, 67, 25));
-        label_18->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_18->setStyleSheet(QString::fromUtf8(""));
         label_19 = new QLabel(spc_frame);
         label_19->setObjectName("label_19");
         label_19->setGeometry(QRect(30, 255, 67, 25));
-        label_19->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_19->setStyleSheet(QString::fromUtf8(""));
         label_20 = new QLabel(spc_frame);
         label_20->setObjectName("label_20");
         label_20->setGeometry(QRect(30, 320, 67, 25));
-        label_20->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_20->setStyleSheet(QString::fromUtf8(""));
         label_21 = new QLabel(spc_frame);
         label_21->setObjectName("label_21");
         label_21->setGeometry(QRect(120, 190, 190, 25));
-        label_21->setStyleSheet(QString::fromUtf8("font: 900 italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_21->setStyleSheet(QString::fromUtf8(""));
         label_22 = new QLabel(spc_frame);
         label_22->setObjectName("label_22");
         label_22->setGeometry(QRect(120, 255, 190, 25));
-        label_22->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_22->setStyleSheet(QString::fromUtf8(""));
         label_23 = new QLabel(spc_frame);
         label_23->setObjectName("label_23");
         label_23->setGeometry(QRect(120, 320, 190, 25));
-        label_23->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_23->setStyleSheet(QString::fromUtf8(""));
         spc_20_w3_t3 = new QLineEdit(spc_frame);
         spc_20_w3_t3->setObjectName("spc_20_w3_t3");
         spc_20_w3_t3->setGeometry(QRect(760, 610, 142, 25));
-        spc_20_w3_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w3_t3->setStyleSheet(QString::fromUtf8(""));
         spc_20_w3_t1 = new QLineEdit(spc_frame);
         spc_20_w3_t1->setObjectName("spc_20_w3_t1");
         spc_20_w3_t1->setGeometry(QRect(390, 610, 142, 25));
-        spc_20_w3_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w3_t1->setStyleSheet(QString::fromUtf8(""));
         label_24 = new QLabel(spc_frame);
         label_24->setObjectName("label_24");
         label_24->setGeometry(QRect(30, 545, 67, 25));
-        label_24->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_24->setStyleSheet(QString::fromUtf8(""));
         label_25 = new QLabel(spc_frame);
         label_25->setObjectName("label_25");
         label_25->setGeometry(QRect(120, 545, 190, 25));
-        label_25->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_25->setStyleSheet(QString::fromUtf8(""));
         label_26 = new QLabel(spc_frame);
         label_26->setObjectName("label_26");
         label_26->setGeometry(QRect(575, 431, 42, 17));
-        label_26->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_26->setStyleSheet(QString::fromUtf8(""));
         spc_20_w2_t2 = new QLineEdit(spc_frame);
         spc_20_w2_t2->setObjectName("spc_20_w2_t2");
         spc_20_w2_t2->setGeometry(QRect(575, 545, 142, 25));
-        spc_20_w2_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w2_t2->setStyleSheet(QString::fromUtf8(""));
         label_27 = new QLabel(spc_frame);
         label_27->setObjectName("label_27");
         label_27->setGeometry(QRect(390, 431, 42, 17));
-        label_27->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_27->setStyleSheet(QString::fromUtf8(""));
         label_28 = new QLabel(spc_frame);
         label_28->setObjectName("label_28");
         label_28->setGeometry(QRect(30, 370, 101, 41));
         spc_20_w1_t2 = new QLineEdit(spc_frame);
         spc_20_w1_t2->setObjectName("spc_20_w1_t2");
         spc_20_w1_t2->setGeometry(QRect(575, 480, 142, 25));
-        spc_20_w1_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w1_t2->setStyleSheet(QString::fromUtf8(""));
         label_29 = new QLabel(spc_frame);
         label_29->setObjectName("label_29");
         label_29->setGeometry(QRect(120, 610, 190, 25));
-        label_29->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_29->setStyleSheet(QString::fromUtf8(""));
         spc_20_w3_t2 = new QLineEdit(spc_frame);
         spc_20_w3_t2->setObjectName("spc_20_w3_t2");
         spc_20_w3_t2->setGeometry(QRect(575, 610, 142, 25));
-        spc_20_w3_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w3_t2->setStyleSheet(QString::fromUtf8(""));
         label_30 = new QLabel(spc_frame);
         label_30->setObjectName("label_30");
         label_30->setGeometry(QRect(120, 480, 190, 25));
-        label_30->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_30->setStyleSheet(QString::fromUtf8(""));
         label_31 = new QLabel(spc_frame);
         label_31->setObjectName("label_31");
         label_31->setEnabled(true);
         label_31->setGeometry(QRect(30, 430, 32, 17));
-        label_31->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_31->setStyleSheet(QString::fromUtf8(""));
         label_32 = new QLabel(spc_frame);
         label_32->setObjectName("label_32");
         label_32->setGeometry(QRect(30, 610, 67, 25));
-        label_32->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_32->setStyleSheet(QString::fromUtf8(""));
         spc_20_w1_t3 = new QLineEdit(spc_frame);
         spc_20_w1_t3->setObjectName("spc_20_w1_t3");
         spc_20_w1_t3->setGeometry(QRect(760, 480, 142, 25));
-        spc_20_w1_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w1_t3->setStyleSheet(QString::fromUtf8(""));
         label_33 = new QLabel(spc_frame);
         label_33->setObjectName("label_33");
         label_33->setGeometry(QRect(760, 431, 42, 17));
-        label_33->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_33->setStyleSheet(QString::fromUtf8(""));
         spc_20_w2_t1 = new QLineEdit(spc_frame);
         spc_20_w2_t1->setObjectName("spc_20_w2_t1");
         spc_20_w2_t1->setGeometry(QRect(390, 545, 142, 25));
-        spc_20_w2_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w2_t1->setStyleSheet(QString::fromUtf8(""));
         label_34 = new QLabel(spc_frame);
         label_34->setObjectName("label_34");
         label_34->setGeometry(QRect(120, 431, 79, 17));
-        label_34->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_34->setStyleSheet(QString::fromUtf8(""));
         spc_20_w1_t1 = new QLineEdit(spc_frame);
         spc_20_w1_t1->setObjectName("spc_20_w1_t1");
         spc_20_w1_t1->setGeometry(QRect(390, 480, 142, 25));
-        spc_20_w1_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w1_t1->setStyleSheet(QString::fromUtf8(""));
         label_35 = new QLabel(spc_frame);
         label_35->setObjectName("label_35");
         label_35->setGeometry(QRect(30, 480, 67, 25));
-        label_35->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_35->setStyleSheet(QString::fromUtf8(""));
         spc_20_w2_t3 = new QLineEdit(spc_frame);
         spc_20_w2_t3->setObjectName("spc_20_w2_t3");
         spc_20_w2_t3->setGeometry(QRect(760, 545, 142, 25));
-        spc_20_w2_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_20_w2_t3->setStyleSheet(QString::fromUtf8(""));
         label_36 = new QLabel(spc_frame);
         label_36->setObjectName("label_36");
         label_36->setGeometry(QRect(320, 190, 67, 25));
-        label_36->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_36->setStyleSheet(QString::fromUtf8(""));
         label_37 = new QLabel(spc_frame);
         label_37->setObjectName("label_37");
         label_37->setGeometry(QRect(320, 255, 67, 25));
-        label_37->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_37->setStyleSheet(QString::fromUtf8(""));
         label_38 = new QLabel(spc_frame);
         label_38->setObjectName("label_38");
         label_38->setGeometry(QRect(320, 320, 67, 25));
-        label_38->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_38->setStyleSheet(QString::fromUtf8(""));
         label_39 = new QLabel(spc_frame);
         label_39->setObjectName("label_39");
         label_39->setGeometry(QRect(320, 545, 67, 25));
-        label_39->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_39->setStyleSheet(QString::fromUtf8(""));
         label_40 = new QLabel(spc_frame);
         label_40->setObjectName("label_40");
         label_40->setGeometry(QRect(320, 480, 67, 25));
-        label_40->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_40->setStyleSheet(QString::fromUtf8(""));
         label_41 = new QLabel(spc_frame);
         label_41->setObjectName("label_41");
         label_41->setGeometry(QRect(320, 610, 67, 25));
-        label_41->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_41->setStyleSheet(QString::fromUtf8(""));
         label_42 = new QLabel(spc_frame);
         label_42->setObjectName("label_42");
         label_42->setGeometry(QRect(30, 769, 67, 25));
-        label_42->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_42->setStyleSheet(QString::fromUtf8(""));
         label_43 = new QLabel(spc_frame);
         label_43->setObjectName("label_43");
         label_43->setGeometry(QRect(120, 834, 190, 25));
-        label_43->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_43->setStyleSheet(QString::fromUtf8(""));
         label_44 = new QLabel(spc_frame);
         label_44->setObjectName("label_44");
         label_44->setGeometry(QRect(120, 769, 190, 25));
-        label_44->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_44->setStyleSheet(QString::fromUtf8(""));
         label_45 = new QLabel(spc_frame);
         label_45->setObjectName("label_45");
         label_45->setGeometry(QRect(390, 720, 42, 17));
-        label_45->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_45->setStyleSheet(QString::fromUtf8(""));
         spc_10_w1_t3 = new QLineEdit(spc_frame);
         spc_10_w1_t3->setObjectName("spc_10_w1_t3");
         spc_10_w1_t3->setGeometry(QRect(760, 769, 142, 25));
-        spc_10_w1_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w1_t3->setStyleSheet(QString::fromUtf8(""));
         spc_10_w3_t3 = new QLineEdit(spc_frame);
         spc_10_w3_t3->setObjectName("spc_10_w3_t3");
         spc_10_w3_t3->setGeometry(QRect(760, 899, 142, 25));
-        spc_10_w3_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w3_t3->setStyleSheet(QString::fromUtf8(""));
         label_46 = new QLabel(spc_frame);
         label_46->setObjectName("label_46");
         label_46->setGeometry(QRect(760, 720, 42, 17));
-        label_46->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_46->setStyleSheet(QString::fromUtf8(""));
         spc_10_w2_t3 = new QLineEdit(spc_frame);
         spc_10_w2_t3->setObjectName("spc_10_w2_t3");
         spc_10_w2_t3->setGeometry(QRect(760, 834, 142, 25));
-        spc_10_w2_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w2_t3->setStyleSheet(QString::fromUtf8(""));
         spc_10_w2_t1 = new QLineEdit(spc_frame);
         spc_10_w2_t1->setObjectName("spc_10_w2_t1");
         spc_10_w2_t1->setGeometry(QRect(390, 834, 142, 25));
-        spc_10_w2_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w2_t1->setStyleSheet(QString::fromUtf8(""));
         spc_10_w3_t2 = new QLineEdit(spc_frame);
         spc_10_w3_t2->setObjectName("spc_10_w3_t2");
         spc_10_w3_t2->setGeometry(QRect(575, 899, 142, 25));
-        spc_10_w3_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w3_t2->setStyleSheet(QString::fromUtf8(""));
         label_47 = new QLabel(spc_frame);
         label_47->setObjectName("label_47");
         label_47->setGeometry(QRect(120, 720, 79, 17));
-        label_47->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_47->setStyleSheet(QString::fromUtf8(""));
         label_48 = new QLabel(spc_frame);
         label_48->setObjectName("label_48");
         label_48->setGeometry(QRect(120, 899, 190, 25));
-        label_48->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_48->setStyleSheet(QString::fromUtf8(""));
         label_49 = new QLabel(spc_frame);
         label_49->setObjectName("label_49");
         label_49->setGeometry(QRect(30, 659, 101, 41));
         label_50 = new QLabel(spc_frame);
         label_50->setObjectName("label_50");
         label_50->setGeometry(QRect(30, 899, 67, 25));
-        label_50->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_50->setStyleSheet(QString::fromUtf8(""));
         label_51 = new QLabel(spc_frame);
         label_51->setObjectName("label_51");
         label_51->setGeometry(QRect(30, 834, 67, 25));
-        label_51->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_51->setStyleSheet(QString::fromUtf8(""));
         spc_10_w3_t1 = new QLineEdit(spc_frame);
         spc_10_w3_t1->setObjectName("spc_10_w3_t1");
         spc_10_w3_t1->setGeometry(QRect(390, 899, 142, 25));
-        spc_10_w3_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w3_t1->setStyleSheet(QString::fromUtf8(""));
         spc_10_w1_t2 = new QLineEdit(spc_frame);
         spc_10_w1_t2->setObjectName("spc_10_w1_t2");
         spc_10_w1_t2->setGeometry(QRect(575, 769, 142, 25));
-        spc_10_w1_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w1_t2->setStyleSheet(QString::fromUtf8(""));
         spc_10_w1_t1 = new QLineEdit(spc_frame);
         spc_10_w1_t1->setObjectName("spc_10_w1_t1");
         spc_10_w1_t1->setGeometry(QRect(390, 769, 142, 25));
-        spc_10_w1_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w1_t1->setStyleSheet(QString::fromUtf8(""));
         label_52 = new QLabel(spc_frame);
         label_52->setObjectName("label_52");
         label_52->setGeometry(QRect(575, 720, 42, 17));
-        label_52->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_52->setStyleSheet(QString::fromUtf8(""));
         label_53 = new QLabel(spc_frame);
         label_53->setObjectName("label_53");
         label_53->setEnabled(true);
         label_53->setGeometry(QRect(30, 719, 32, 17));
-        label_53->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_53->setStyleSheet(QString::fromUtf8(""));
         spc_10_w2_t2 = new QLineEdit(spc_frame);
         spc_10_w2_t2->setObjectName("spc_10_w2_t2");
         spc_10_w2_t2->setGeometry(QRect(575, 834, 142, 25));
-        spc_10_w2_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_10_w2_t2->setStyleSheet(QString::fromUtf8(""));
         spc_0_w2_t1 = new QLineEdit(spc_frame);
         spc_0_w2_t1->setObjectName("spc_0_w2_t1");
         spc_0_w2_t1->setGeometry(QRect(390, 1125, 142, 25));
-        spc_0_w2_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w2_t1->setStyleSheet(QString::fromUtf8(""));
         label_54 = new QLabel(spc_frame);
         label_54->setObjectName("label_54");
         label_54->setGeometry(QRect(30, 950, 141, 41));
         label_55 = new QLabel(spc_frame);
         label_55->setObjectName("label_55");
         label_55->setGeometry(QRect(120, 1125, 190, 25));
-        label_55->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_55->setStyleSheet(QString::fromUtf8(""));
         label_56 = new QLabel(spc_frame);
         label_56->setObjectName("label_56");
         label_56->setGeometry(QRect(760, 1011, 42, 17));
-        label_56->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_56->setStyleSheet(QString::fromUtf8(""));
         spc_0_w3_t3 = new QLineEdit(spc_frame);
         spc_0_w3_t3->setObjectName("spc_0_w3_t3");
         spc_0_w3_t3->setGeometry(QRect(760, 1190, 142, 25));
-        spc_0_w3_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w3_t3->setStyleSheet(QString::fromUtf8(""));
         spc_0_w1_t1 = new QLineEdit(spc_frame);
         spc_0_w1_t1->setObjectName("spc_0_w1_t1");
         spc_0_w1_t1->setGeometry(QRect(390, 1060, 142, 25));
-        spc_0_w1_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w1_t1->setStyleSheet(QString::fromUtf8(""));
         label_57 = new QLabel(spc_frame);
         label_57->setObjectName("label_57");
         label_57->setGeometry(QRect(30, 1190, 67, 25));
-        label_57->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_57->setStyleSheet(QString::fromUtf8(""));
         spc_0_w1_t2 = new QLineEdit(spc_frame);
         spc_0_w1_t2->setObjectName("spc_0_w1_t2");
         spc_0_w1_t2->setGeometry(QRect(575, 1060, 142, 25));
-        spc_0_w1_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w1_t2->setStyleSheet(QString::fromUtf8(""));
         spc_0_w1_t3 = new QLineEdit(spc_frame);
         spc_0_w1_t3->setObjectName("spc_0_w1_t3");
         spc_0_w1_t3->setGeometry(QRect(760, 1060, 142, 25));
-        spc_0_w1_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w1_t3->setStyleSheet(QString::fromUtf8(""));
         spc_0_w2_t2 = new QLineEdit(spc_frame);
         spc_0_w2_t2->setObjectName("spc_0_w2_t2");
         spc_0_w2_t2->setGeometry(QRect(575, 1125, 142, 25));
-        spc_0_w2_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w2_t2->setStyleSheet(QString::fromUtf8(""));
         spc_0_w3_t1 = new QLineEdit(spc_frame);
         spc_0_w3_t1->setObjectName("spc_0_w3_t1");
         spc_0_w3_t1->setGeometry(QRect(390, 1190, 142, 25));
-        spc_0_w3_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w3_t1->setStyleSheet(QString::fromUtf8(""));
         spc_0_w3_t2 = new QLineEdit(spc_frame);
         spc_0_w3_t2->setObjectName("spc_0_w3_t2");
         spc_0_w3_t2->setGeometry(QRect(575, 1190, 142, 25));
-        spc_0_w3_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w3_t2->setStyleSheet(QString::fromUtf8(""));
         label_58 = new QLabel(spc_frame);
         label_58->setObjectName("label_58");
         label_58->setGeometry(QRect(120, 1190, 190, 25));
-        label_58->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_58->setStyleSheet(QString::fromUtf8(""));
         spc_0_w2_t3 = new QLineEdit(spc_frame);
         spc_0_w2_t3->setObjectName("spc_0_w2_t3");
         spc_0_w2_t3->setGeometry(QRect(760, 1125, 142, 25));
-        spc_0_w2_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_0_w2_t3->setStyleSheet(QString::fromUtf8(""));
         label_59 = new QLabel(spc_frame);
         label_59->setObjectName("label_59");
         label_59->setGeometry(QRect(390, 1011, 42, 17));
-        label_59->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_59->setStyleSheet(QString::fromUtf8(""));
         label_60 = new QLabel(spc_frame);
         label_60->setObjectName("label_60");
         label_60->setGeometry(QRect(30, 1060, 67, 25));
-        label_60->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_60->setStyleSheet(QString::fromUtf8(""));
         label_61 = new QLabel(spc_frame);
         label_61->setObjectName("label_61");
         label_61->setEnabled(true);
         label_61->setGeometry(QRect(30, 1010, 32, 17));
-        label_61->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_61->setStyleSheet(QString::fromUtf8(""));
         label_62 = new QLabel(spc_frame);
         label_62->setObjectName("label_62");
         label_62->setGeometry(QRect(30, 1125, 67, 25));
-        label_62->setStyleSheet(QString::fromUtf8("font: 700 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_62->setStyleSheet(QString::fromUtf8(""));
         label_63 = new QLabel(spc_frame);
         label_63->setObjectName("label_63");
         label_63->setGeometry(QRect(120, 1011, 79, 17));
-        label_63->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_63->setStyleSheet(QString::fromUtf8(""));
         label_64 = new QLabel(spc_frame);
         label_64->setObjectName("label_64");
         label_64->setGeometry(QRect(575, 1011, 42, 17));
-        label_64->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_64->setStyleSheet(QString::fromUtf8(""));
         label_65 = new QLabel(spc_frame);
         label_65->setObjectName("label_65");
         label_65->setGeometry(QRect(120, 1060, 190, 25));
-        label_65->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_65->setStyleSheet(QString::fromUtf8(""));
         label_66 = new QLabel(spc_frame);
         label_66->setObjectName("label_66");
         label_66->setGeometry(QRect(320, 900, 67, 25));
-        label_66->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_66->setStyleSheet(QString::fromUtf8(""));
         label_67 = new QLabel(spc_frame);
         label_67->setObjectName("label_67");
         label_67->setGeometry(QRect(320, 770, 67, 25));
-        label_67->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_67->setStyleSheet(QString::fromUtf8(""));
         label_68 = new QLabel(spc_frame);
         label_68->setObjectName("label_68");
         label_68->setGeometry(QRect(320, 835, 67, 25));
-        label_68->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_68->setStyleSheet(QString::fromUtf8(""));
         label_69 = new QLabel(spc_frame);
         label_69->setObjectName("label_69");
         label_69->setGeometry(QRect(320, 1190, 67, 25));
-        label_69->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_69->setStyleSheet(QString::fromUtf8(""));
         label_70 = new QLabel(spc_frame);
         label_70->setObjectName("label_70");
         label_70->setGeometry(QRect(320, 1060, 67, 25));
-        label_70->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_70->setStyleSheet(QString::fromUtf8(""));
         label_71 = new QLabel(spc_frame);
         label_71->setObjectName("label_71");
         label_71->setGeometry(QRect(320, 1125, 67, 25));
-        label_71->setStyleSheet(QString::fromUtf8("font: italic 9pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
+        label_71->setStyleSheet(QString::fromUtf8(""));
         label_15 = new QLabel(spc_frame);
         label_15->setObjectName("label_15");
         label_15->setGeometry(QRect(390, 141, 42, 17));
-        label_15->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_15->setStyleSheet(QString::fromUtf8(""));
         label_17 = new QLabel(spc_frame);
         label_17->setObjectName("label_17");
         label_17->setGeometry(QRect(760, 141, 42, 17));
-        label_17->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_17->setStyleSheet(QString::fromUtf8(""));
         label_13 = new QLabel(spc_frame);
         label_13->setObjectName("label_13");
         label_13->setEnabled(true);
         label_13->setGeometry(QRect(30, 140, 32, 17));
-        label_13->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_13->setStyleSheet(QString::fromUtf8(""));
         label_14 = new QLabel(spc_frame);
         label_14->setObjectName("label_14");
         label_14->setGeometry(QRect(120, 141, 79, 17));
-        label_14->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_14->setStyleSheet(QString::fromUtf8(""));
         label_16 = new QLabel(spc_frame);
         label_16->setObjectName("label_16");
         label_16->setGeometry(QRect(575, 141, 42, 17));
-        label_16->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 900 italic 9pt \"Segoe UI\";"));
+        label_16->setStyleSheet(QString::fromUtf8(""));
         spc_40_w1_t1 = new QLineEdit(spc_frame);
         spc_40_w1_t1->setObjectName("spc_40_w1_t1");
         spc_40_w1_t1->setGeometry(QRect(390, 190, 142, 25));
-        spc_40_w1_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-"\n"
-""));
+        spc_40_w1_t1->setStyleSheet(QString::fromUtf8(""));
         spc_40_w2_t3 = new QLineEdit(spc_frame);
         spc_40_w2_t3->setObjectName("spc_40_w2_t3");
         spc_40_w2_t3->setGeometry(QRect(760, 255, 142, 25));
-        spc_40_w2_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w2_t3->setStyleSheet(QString::fromUtf8(""));
         spc_40_w3_t1 = new QLineEdit(spc_frame);
         spc_40_w3_t1->setObjectName("spc_40_w3_t1");
         spc_40_w3_t1->setGeometry(QRect(390, 320, 142, 25));
-        spc_40_w3_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w3_t1->setStyleSheet(QString::fromUtf8(""));
         spc_40_w2_t2 = new QLineEdit(spc_frame);
         spc_40_w2_t2->setObjectName("spc_40_w2_t2");
         spc_40_w2_t2->setGeometry(QRect(575, 255, 142, 25));
-        spc_40_w2_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w2_t2->setStyleSheet(QString::fromUtf8(""));
         spc_40_w3_t2 = new QLineEdit(spc_frame);
         spc_40_w3_t2->setObjectName("spc_40_w3_t2");
         spc_40_w3_t2->setGeometry(QRect(575, 320, 142, 25));
-        spc_40_w3_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w3_t2->setStyleSheet(QString::fromUtf8(""));
         spc_40_w1_t3 = new QLineEdit(spc_frame);
         spc_40_w1_t3->setObjectName("spc_40_w1_t3");
         spc_40_w1_t3->setGeometry(QRect(760, 190, 142, 25));
-        spc_40_w1_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w1_t3->setStyleSheet(QString::fromUtf8(""));
         spc_40_w2_t1 = new QLineEdit(spc_frame);
         spc_40_w2_t1->setObjectName("spc_40_w2_t1");
         spc_40_w2_t1->setGeometry(QRect(390, 255, 142, 25));
-        spc_40_w2_t1->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w2_t1->setStyleSheet(QString::fromUtf8(""));
         spc_40_w1_t2 = new QLineEdit(spc_frame);
         spc_40_w1_t2->setObjectName("spc_40_w1_t2");
         spc_40_w1_t2->setGeometry(QRect(575, 190, 142, 25));
-        spc_40_w1_t2->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w1_t2->setStyleSheet(QString::fromUtf8(""));
         spc_40_w3_t3 = new QLineEdit(spc_frame);
         spc_40_w3_t3->setObjectName("spc_40_w3_t3");
         spc_40_w3_t3->setGeometry(QRect(760, 320, 142, 25));
-        spc_40_w3_t3->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"border-color: rgb(0, 0, 0);\n"
-" border-width: 3px;\n"
-"    border-style: solid;\n"
-"\n"
-"background-color: rgb(255, 255, 255);\n"
-""));
+        spc_40_w3_t3->setStyleSheet(QString::fromUtf8(""));
         spc_save_40mm = new QPushButton(spc_frame);
         spc_save_40mm->setObjectName("spc_save_40mm");
         spc_save_40mm->setGeometry(QRect(390, 360, 80, 24));
-        spc_save_40mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_save_40mm->setStyleSheet(QString::fromUtf8(""));
         spc_save_20mm = new QPushButton(spc_frame);
         spc_save_20mm->setObjectName("spc_save_20mm");
         spc_save_20mm->setGeometry(QRect(390, 640, 80, 24));
-        spc_save_20mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_save_20mm->setStyleSheet(QString::fromUtf8(""));
         spc_save_10mm = new QPushButton(spc_frame);
         spc_save_10mm->setObjectName("spc_save_10mm");
         spc_save_10mm->setGeometry(QRect(390, 930, 80, 24));
-        spc_save_10mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_save_10mm->setStyleSheet(QString::fromUtf8(""));
         spc_save_0mm = new QPushButton(spc_frame);
         spc_save_0mm->setObjectName("spc_save_0mm");
         spc_save_0mm->setGeometry(QRect(390, 1230, 80, 24));
-        spc_save_0mm->setStyleSheet(QString::fromUtf8("border-radius:10px;\n"
-"color: rgb(0, 0, 0);\n"
-"background-color: rgb(0, 0, 0);\n"
-" border-width: 1px;\n"
-" border-style: solid;\n"
-"background-color: rgb(170, 255, 127);\n"
-"\n"
-"\n"
-"\n"
-""));
+        spc_save_0mm->setStyleSheet(QString::fromUtf8(""));
         tab_list->addTab(spc, QString());
         fei = new QWidget();
         fei->setObjectName("fei");
@@ -2848,15 +2538,15 @@ public:
         verticalLayout_20->addLayout(formLayout_10);
 
         ind_info->addItem(ind_exp, QString::fromUtf8("Experiment Info"));
-        pushButton_4 = new QPushButton(ind);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(20, 20, 89, 25));
-        pushButton_5 = new QPushButton(ind);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(120, 20, 89, 25));
-        pushButton_6 = new QPushButton(ind);
-        pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setGeometry(QRect(230, 20, 89, 25));
+        ind_save = new QPushButton(ind);
+        ind_save->setObjectName("ind_save");
+        ind_save->setGeometry(QRect(20, 20, 89, 25));
+        ind_saveas = new QPushButton(ind);
+        ind_saveas->setObjectName("ind_saveas");
+        ind_saveas->setGeometry(QRect(120, 20, 89, 25));
+        ind_export = new QPushButton(ind);
+        ind_export->setObjectName("ind_export");
+        ind_export->setGeometry(QRect(230, 20, 111, 25));
         ind_frame_outer = new QFrame(ind);
         ind_frame_outer->setObjectName("ind_frame_outer");
         ind_frame_outer->setGeometry(QRect(10, 70, 1400, 690));
@@ -2864,7 +2554,7 @@ public:
         ind_frame_outer->setFrameShadow(QFrame::Raised);
         ind_frame = new QFrame(ind_frame_outer);
         ind_frame->setObjectName("ind_frame");
-        ind_frame->setGeometry(QRect(0, 0, 1370, 2325));
+        ind_frame->setGeometry(QRect(0, -560, 1370, 2241));
         ind_frame->setFrameShape(QFrame::StyledPanel);
         ind_frame->setFrameShadow(QFrame::Raised);
         label_275 = new QLabel(ind_frame);
@@ -2882,54 +2572,54 @@ public:
         label_437 = new QLabel(ind_frame);
         label_437->setObjectName("label_437");
         label_437->setGeometry(QRect(30, 220, 191, 25));
-        lineEdit_73 = new QLineEdit(ind_frame);
-        lineEdit_73->setObjectName("lineEdit_73");
-        lineEdit_73->setGeometry(QRect(250, 170, 61, 25));
-        lineEdit_74 = new QLineEdit(ind_frame);
-        lineEdit_74->setObjectName("lineEdit_74");
-        lineEdit_74->setGeometry(QRect(320, 170, 61, 25));
-        lineEdit_75 = new QLineEdit(ind_frame);
-        lineEdit_75->setObjectName("lineEdit_75");
-        lineEdit_75->setGeometry(QRect(390, 170, 61, 25));
-        lineEdit_76 = new QLineEdit(ind_frame);
-        lineEdit_76->setObjectName("lineEdit_76");
-        lineEdit_76->setGeometry(QRect(460, 170, 61, 25));
-        lineEdit_77 = new QLineEdit(ind_frame);
-        lineEdit_77->setObjectName("lineEdit_77");
-        lineEdit_77->setGeometry(QRect(530, 170, 61, 25));
-        lineEdit_78 = new QLineEdit(ind_frame);
-        lineEdit_78->setObjectName("lineEdit_78");
-        lineEdit_78->setGeometry(QRect(600, 170, 61, 25));
-        lineEdit_79 = new QLineEdit(ind_frame);
-        lineEdit_79->setObjectName("lineEdit_79");
-        lineEdit_79->setGeometry(QRect(680, 170, 61, 25));
-        lineEdit_80 = new QLineEdit(ind_frame);
-        lineEdit_80->setObjectName("lineEdit_80");
-        lineEdit_80->setGeometry(QRect(750, 170, 61, 25));
-        lineEdit_81 = new QLineEdit(ind_frame);
-        lineEdit_81->setObjectName("lineEdit_81");
-        lineEdit_81->setGeometry(QRect(250, 220, 61, 25));
-        lineEdit_82 = new QLineEdit(ind_frame);
-        lineEdit_82->setObjectName("lineEdit_82");
-        lineEdit_82->setGeometry(QRect(320, 220, 61, 25));
-        lineEdit_83 = new QLineEdit(ind_frame);
-        lineEdit_83->setObjectName("lineEdit_83");
-        lineEdit_83->setGeometry(QRect(390, 220, 61, 25));
-        lineEdit_84 = new QLineEdit(ind_frame);
-        lineEdit_84->setObjectName("lineEdit_84");
-        lineEdit_84->setGeometry(QRect(460, 220, 61, 25));
-        lineEdit_85 = new QLineEdit(ind_frame);
-        lineEdit_85->setObjectName("lineEdit_85");
-        lineEdit_85->setGeometry(QRect(530, 220, 61, 25));
-        lineEdit_86 = new QLineEdit(ind_frame);
-        lineEdit_86->setObjectName("lineEdit_86");
-        lineEdit_86->setGeometry(QRect(600, 220, 61, 25));
-        lineEdit_87 = new QLineEdit(ind_frame);
-        lineEdit_87->setObjectName("lineEdit_87");
-        lineEdit_87->setGeometry(QRect(680, 220, 61, 25));
-        lineEdit_88 = new QLineEdit(ind_frame);
-        lineEdit_88->setObjectName("lineEdit_88");
-        lineEdit_88->setGeometry(QRect(750, 220, 61, 25));
+        idg_40_s11 = new QLineEdit(ind_frame);
+        idg_40_s11->setObjectName("idg_40_s11");
+        idg_40_s11->setGeometry(QRect(250, 170, 61, 25));
+        idg_40_s12 = new QLineEdit(ind_frame);
+        idg_40_s12->setObjectName("idg_40_s12");
+        idg_40_s12->setGeometry(QRect(320, 170, 61, 25));
+        idg_40_s13 = new QLineEdit(ind_frame);
+        idg_40_s13->setObjectName("idg_40_s13");
+        idg_40_s13->setGeometry(QRect(390, 170, 61, 25));
+        idg_40_s14 = new QLineEdit(ind_frame);
+        idg_40_s14->setObjectName("idg_40_s14");
+        idg_40_s14->setGeometry(QRect(460, 170, 61, 25));
+        idg_40_s15 = new QLineEdit(ind_frame);
+        idg_40_s15->setObjectName("idg_40_s15");
+        idg_40_s15->setGeometry(QRect(530, 170, 61, 25));
+        idg_40_s16 = new QLineEdit(ind_frame);
+        idg_40_s16->setObjectName("idg_40_s16");
+        idg_40_s16->setGeometry(QRect(600, 170, 61, 25));
+        idg_40_s17 = new QLineEdit(ind_frame);
+        idg_40_s17->setObjectName("idg_40_s17");
+        idg_40_s17->setGeometry(QRect(680, 170, 61, 25));
+        idg_40_s18 = new QLineEdit(ind_frame);
+        idg_40_s18->setObjectName("idg_40_s18");
+        idg_40_s18->setGeometry(QRect(750, 170, 61, 25));
+        idg_40_w11 = new QLineEdit(ind_frame);
+        idg_40_w11->setObjectName("idg_40_w11");
+        idg_40_w11->setGeometry(QRect(250, 220, 61, 25));
+        idg_40_w12 = new QLineEdit(ind_frame);
+        idg_40_w12->setObjectName("idg_40_w12");
+        idg_40_w12->setGeometry(QRect(320, 220, 61, 25));
+        idg_40_w13 = new QLineEdit(ind_frame);
+        idg_40_w13->setObjectName("idg_40_w13");
+        idg_40_w13->setGeometry(QRect(390, 220, 61, 25));
+        idg_40_w14 = new QLineEdit(ind_frame);
+        idg_40_w14->setObjectName("idg_40_w14");
+        idg_40_w14->setGeometry(QRect(460, 220, 61, 25));
+        idg_40_w15 = new QLineEdit(ind_frame);
+        idg_40_w15->setObjectName("idg_40_w15");
+        idg_40_w15->setGeometry(QRect(530, 220, 61, 25));
+        idg_40_w16 = new QLineEdit(ind_frame);
+        idg_40_w16->setObjectName("idg_40_w16");
+        idg_40_w16->setGeometry(QRect(600, 220, 61, 25));
+        idg_40_w17 = new QLineEdit(ind_frame);
+        idg_40_w17->setObjectName("idg_40_w17");
+        idg_40_w17->setGeometry(QRect(680, 220, 61, 25));
+        idg_40_w18 = new QLineEdit(ind_frame);
+        idg_40_w18->setObjectName("idg_40_w18");
+        idg_40_w18->setGeometry(QRect(750, 220, 61, 25));
         label_313 = new QLabel(ind_frame);
         label_313->setObjectName("label_313");
         label_313->setGeometry(QRect(30, 260, 121, 41));
@@ -2939,54 +2629,54 @@ public:
         label_439 = new QLabel(ind_frame);
         label_439->setObjectName("label_439");
         label_439->setGeometry(QRect(30, 360, 191, 25));
-        lineEdit_89 = new QLineEdit(ind_frame);
-        lineEdit_89->setObjectName("lineEdit_89");
-        lineEdit_89->setGeometry(QRect(250, 320, 61, 25));
-        lineEdit_90 = new QLineEdit(ind_frame);
-        lineEdit_90->setObjectName("lineEdit_90");
-        lineEdit_90->setGeometry(QRect(320, 320, 61, 25));
-        lineEdit_91 = new QLineEdit(ind_frame);
-        lineEdit_91->setObjectName("lineEdit_91");
-        lineEdit_91->setGeometry(QRect(390, 320, 61, 25));
-        lineEdit_92 = new QLineEdit(ind_frame);
-        lineEdit_92->setObjectName("lineEdit_92");
-        lineEdit_92->setGeometry(QRect(460, 320, 61, 25));
-        lineEdit_93 = new QLineEdit(ind_frame);
-        lineEdit_93->setObjectName("lineEdit_93");
-        lineEdit_93->setGeometry(QRect(530, 320, 61, 25));
-        lineEdit_94 = new QLineEdit(ind_frame);
-        lineEdit_94->setObjectName("lineEdit_94");
-        lineEdit_94->setGeometry(QRect(600, 320, 61, 25));
-        lineEdit_95 = new QLineEdit(ind_frame);
-        lineEdit_95->setObjectName("lineEdit_95");
-        lineEdit_95->setGeometry(QRect(680, 320, 61, 25));
-        lineEdit_96 = new QLineEdit(ind_frame);
-        lineEdit_96->setObjectName("lineEdit_96");
-        lineEdit_96->setGeometry(QRect(750, 320, 61, 25));
-        lineEdit_97 = new QLineEdit(ind_frame);
-        lineEdit_97->setObjectName("lineEdit_97");
-        lineEdit_97->setGeometry(QRect(250, 360, 61, 25));
-        lineEdit_98 = new QLineEdit(ind_frame);
-        lineEdit_98->setObjectName("lineEdit_98");
-        lineEdit_98->setGeometry(QRect(320, 360, 61, 25));
-        lineEdit_99 = new QLineEdit(ind_frame);
-        lineEdit_99->setObjectName("lineEdit_99");
-        lineEdit_99->setGeometry(QRect(390, 360, 61, 25));
-        lineEdit_100 = new QLineEdit(ind_frame);
-        lineEdit_100->setObjectName("lineEdit_100");
-        lineEdit_100->setGeometry(QRect(460, 360, 61, 25));
-        lineEdit_101 = new QLineEdit(ind_frame);
-        lineEdit_101->setObjectName("lineEdit_101");
-        lineEdit_101->setGeometry(QRect(530, 360, 61, 25));
-        lineEdit_102 = new QLineEdit(ind_frame);
-        lineEdit_102->setObjectName("lineEdit_102");
-        lineEdit_102->setGeometry(QRect(600, 360, 61, 25));
-        lineEdit_103 = new QLineEdit(ind_frame);
-        lineEdit_103->setObjectName("lineEdit_103");
-        lineEdit_103->setGeometry(QRect(680, 360, 61, 25));
-        lineEdit_104 = new QLineEdit(ind_frame);
-        lineEdit_104->setObjectName("lineEdit_104");
-        lineEdit_104->setGeometry(QRect(750, 360, 61, 25));
+        idg_40_s21 = new QLineEdit(ind_frame);
+        idg_40_s21->setObjectName("idg_40_s21");
+        idg_40_s21->setGeometry(QRect(250, 320, 61, 25));
+        idg_40_s22 = new QLineEdit(ind_frame);
+        idg_40_s22->setObjectName("idg_40_s22");
+        idg_40_s22->setGeometry(QRect(320, 320, 61, 25));
+        idg_40_s23 = new QLineEdit(ind_frame);
+        idg_40_s23->setObjectName("idg_40_s23");
+        idg_40_s23->setGeometry(QRect(390, 320, 61, 25));
+        idg_40_s24 = new QLineEdit(ind_frame);
+        idg_40_s24->setObjectName("idg_40_s24");
+        idg_40_s24->setGeometry(QRect(460, 320, 61, 25));
+        idg_40_s25 = new QLineEdit(ind_frame);
+        idg_40_s25->setObjectName("idg_40_s25");
+        idg_40_s25->setGeometry(QRect(530, 320, 61, 25));
+        idg_40_s26 = new QLineEdit(ind_frame);
+        idg_40_s26->setObjectName("idg_40_s26");
+        idg_40_s26->setGeometry(QRect(600, 320, 61, 25));
+        idg_40_s27 = new QLineEdit(ind_frame);
+        idg_40_s27->setObjectName("idg_40_s27");
+        idg_40_s27->setGeometry(QRect(680, 320, 61, 25));
+        idg_40_s28 = new QLineEdit(ind_frame);
+        idg_40_s28->setObjectName("idg_40_s28");
+        idg_40_s28->setGeometry(QRect(750, 320, 61, 25));
+        idg_40_w21 = new QLineEdit(ind_frame);
+        idg_40_w21->setObjectName("idg_40_w21");
+        idg_40_w21->setGeometry(QRect(250, 360, 61, 25));
+        idg_40_w22 = new QLineEdit(ind_frame);
+        idg_40_w22->setObjectName("idg_40_w22");
+        idg_40_w22->setGeometry(QRect(320, 360, 61, 25));
+        idg_40_w23 = new QLineEdit(ind_frame);
+        idg_40_w23->setObjectName("idg_40_w23");
+        idg_40_w23->setGeometry(QRect(390, 360, 61, 25));
+        idg_40_w24 = new QLineEdit(ind_frame);
+        idg_40_w24->setObjectName("idg_40_w24");
+        idg_40_w24->setGeometry(QRect(460, 360, 61, 25));
+        idg_40_w25 = new QLineEdit(ind_frame);
+        idg_40_w25->setObjectName("idg_40_w25");
+        idg_40_w25->setGeometry(QRect(530, 360, 61, 25));
+        idg_40_w26 = new QLineEdit(ind_frame);
+        idg_40_w26->setObjectName("idg_40_w26");
+        idg_40_w26->setGeometry(QRect(600, 360, 61, 25));
+        idg_40_w27 = new QLineEdit(ind_frame);
+        idg_40_w27->setObjectName("idg_40_w27");
+        idg_40_w27->setGeometry(QRect(680, 360, 61, 25));
+        idg_40_w28 = new QLineEdit(ind_frame);
+        idg_40_w28->setObjectName("idg_40_w28");
+        idg_40_w28->setGeometry(QRect(750, 360, 61, 25));
         label_314 = new QLabel(ind_frame);
         label_314->setObjectName("label_314");
         label_314->setGeometry(QRect(30, 420, 131, 41));
@@ -2996,54 +2686,54 @@ public:
         label_441 = new QLabel(ind_frame);
         label_441->setObjectName("label_441");
         label_441->setGeometry(QRect(30, 530, 191, 25));
-        lineEdit_105 = new QLineEdit(ind_frame);
-        lineEdit_105->setObjectName("lineEdit_105");
-        lineEdit_105->setGeometry(QRect(250, 480, 61, 25));
-        lineEdit_106 = new QLineEdit(ind_frame);
-        lineEdit_106->setObjectName("lineEdit_106");
-        lineEdit_106->setGeometry(QRect(320, 480, 61, 25));
-        lineEdit_107 = new QLineEdit(ind_frame);
-        lineEdit_107->setObjectName("lineEdit_107");
-        lineEdit_107->setGeometry(QRect(390, 480, 61, 25));
-        lineEdit_108 = new QLineEdit(ind_frame);
-        lineEdit_108->setObjectName("lineEdit_108");
-        lineEdit_108->setGeometry(QRect(460, 480, 61, 25));
-        lineEdit_109 = new QLineEdit(ind_frame);
-        lineEdit_109->setObjectName("lineEdit_109");
-        lineEdit_109->setGeometry(QRect(530, 480, 61, 25));
-        lineEdit_110 = new QLineEdit(ind_frame);
-        lineEdit_110->setObjectName("lineEdit_110");
-        lineEdit_110->setGeometry(QRect(600, 480, 61, 25));
-        lineEdit_111 = new QLineEdit(ind_frame);
-        lineEdit_111->setObjectName("lineEdit_111");
-        lineEdit_111->setGeometry(QRect(670, 480, 61, 25));
-        lineEdit_112 = new QLineEdit(ind_frame);
-        lineEdit_112->setObjectName("lineEdit_112");
-        lineEdit_112->setGeometry(QRect(740, 480, 61, 25));
-        lineEdit_114 = new QLineEdit(ind_frame);
-        lineEdit_114->setObjectName("lineEdit_114");
-        lineEdit_114->setGeometry(QRect(250, 530, 61, 25));
-        lineEdit_115 = new QLineEdit(ind_frame);
-        lineEdit_115->setObjectName("lineEdit_115");
-        lineEdit_115->setGeometry(QRect(320, 530, 61, 25));
-        lineEdit_116 = new QLineEdit(ind_frame);
-        lineEdit_116->setObjectName("lineEdit_116");
-        lineEdit_116->setGeometry(QRect(390, 530, 61, 25));
-        lineEdit_117 = new QLineEdit(ind_frame);
-        lineEdit_117->setObjectName("lineEdit_117");
-        lineEdit_117->setGeometry(QRect(460, 530, 61, 25));
-        lineEdit_118 = new QLineEdit(ind_frame);
-        lineEdit_118->setObjectName("lineEdit_118");
-        lineEdit_118->setGeometry(QRect(530, 530, 61, 25));
-        lineEdit_119 = new QLineEdit(ind_frame);
-        lineEdit_119->setObjectName("lineEdit_119");
-        lineEdit_119->setGeometry(QRect(600, 530, 61, 25));
-        lineEdit_120 = new QLineEdit(ind_frame);
-        lineEdit_120->setObjectName("lineEdit_120");
-        lineEdit_120->setGeometry(QRect(670, 530, 61, 25));
-        lineEdit_121 = new QLineEdit(ind_frame);
-        lineEdit_121->setObjectName("lineEdit_121");
-        lineEdit_121->setGeometry(QRect(740, 530, 61, 25));
+        idg_40_s31 = new QLineEdit(ind_frame);
+        idg_40_s31->setObjectName("idg_40_s31");
+        idg_40_s31->setGeometry(QRect(250, 480, 61, 25));
+        idg_40_s32 = new QLineEdit(ind_frame);
+        idg_40_s32->setObjectName("idg_40_s32");
+        idg_40_s32->setGeometry(QRect(320, 480, 61, 25));
+        idg_40_s33 = new QLineEdit(ind_frame);
+        idg_40_s33->setObjectName("idg_40_s33");
+        idg_40_s33->setGeometry(QRect(390, 480, 61, 25));
+        idg_40_s34 = new QLineEdit(ind_frame);
+        idg_40_s34->setObjectName("idg_40_s34");
+        idg_40_s34->setGeometry(QRect(460, 480, 61, 25));
+        idg_40_s35 = new QLineEdit(ind_frame);
+        idg_40_s35->setObjectName("idg_40_s35");
+        idg_40_s35->setGeometry(QRect(530, 480, 61, 25));
+        idg_40_s36 = new QLineEdit(ind_frame);
+        idg_40_s36->setObjectName("idg_40_s36");
+        idg_40_s36->setGeometry(QRect(600, 480, 61, 25));
+        idg_40_s37 = new QLineEdit(ind_frame);
+        idg_40_s37->setObjectName("idg_40_s37");
+        idg_40_s37->setGeometry(QRect(670, 480, 61, 25));
+        idg_40_s38 = new QLineEdit(ind_frame);
+        idg_40_s38->setObjectName("idg_40_s38");
+        idg_40_s38->setGeometry(QRect(740, 480, 61, 25));
+        idg_40_w31 = new QLineEdit(ind_frame);
+        idg_40_w31->setObjectName("idg_40_w31");
+        idg_40_w31->setGeometry(QRect(250, 530, 61, 25));
+        idg_40_w32 = new QLineEdit(ind_frame);
+        idg_40_w32->setObjectName("idg_40_w32");
+        idg_40_w32->setGeometry(QRect(320, 530, 61, 25));
+        idg_40_w33 = new QLineEdit(ind_frame);
+        idg_40_w33->setObjectName("idg_40_w33");
+        idg_40_w33->setGeometry(QRect(390, 530, 61, 25));
+        idg_40_w34 = new QLineEdit(ind_frame);
+        idg_40_w34->setObjectName("idg_40_w34");
+        idg_40_w34->setGeometry(QRect(460, 530, 61, 25));
+        idg_40_w35 = new QLineEdit(ind_frame);
+        idg_40_w35->setObjectName("idg_40_w35");
+        idg_40_w35->setGeometry(QRect(530, 530, 61, 25));
+        idg_40_w36 = new QLineEdit(ind_frame);
+        idg_40_w36->setObjectName("idg_40_w36");
+        idg_40_w36->setGeometry(QRect(600, 530, 61, 25));
+        idg_40_w37 = new QLineEdit(ind_frame);
+        idg_40_w37->setObjectName("idg_40_w37");
+        idg_40_w37->setGeometry(QRect(670, 530, 61, 25));
+        idg_40_w38 = new QLineEdit(ind_frame);
+        idg_40_w38->setObjectName("idg_40_w38");
+        idg_40_w38->setGeometry(QRect(740, 530, 61, 25));
         label_315 = new QLabel(ind_frame);
         label_315->setObjectName("label_315");
         label_315->setGeometry(QRect(30, 600, 111, 41));
@@ -3056,54 +2746,54 @@ public:
         label_443 = new QLabel(ind_frame);
         label_443->setObjectName("label_443");
         label_443->setGeometry(QRect(30, 750, 191, 25));
-        lineEdit_113 = new QLineEdit(ind_frame);
-        lineEdit_113->setObjectName("lineEdit_113");
-        lineEdit_113->setGeometry(QRect(240, 700, 61, 25));
-        lineEdit_122 = new QLineEdit(ind_frame);
-        lineEdit_122->setObjectName("lineEdit_122");
-        lineEdit_122->setGeometry(QRect(320, 700, 61, 25));
-        lineEdit_123 = new QLineEdit(ind_frame);
-        lineEdit_123->setObjectName("lineEdit_123");
-        lineEdit_123->setGeometry(QRect(390, 700, 61, 25));
-        lineEdit_124 = new QLineEdit(ind_frame);
-        lineEdit_124->setObjectName("lineEdit_124");
-        lineEdit_124->setGeometry(QRect(460, 700, 61, 25));
-        lineEdit_125 = new QLineEdit(ind_frame);
-        lineEdit_125->setObjectName("lineEdit_125");
-        lineEdit_125->setGeometry(QRect(530, 700, 61, 25));
-        lineEdit_126 = new QLineEdit(ind_frame);
-        lineEdit_126->setObjectName("lineEdit_126");
-        lineEdit_126->setGeometry(QRect(600, 700, 61, 25));
-        lineEdit_127 = new QLineEdit(ind_frame);
-        lineEdit_127->setObjectName("lineEdit_127");
-        lineEdit_127->setGeometry(QRect(670, 700, 61, 25));
-        lineEdit_128 = new QLineEdit(ind_frame);
-        lineEdit_128->setObjectName("lineEdit_128");
-        lineEdit_128->setGeometry(QRect(740, 700, 61, 25));
-        lineEdit_129 = new QLineEdit(ind_frame);
-        lineEdit_129->setObjectName("lineEdit_129");
-        lineEdit_129->setGeometry(QRect(240, 750, 61, 25));
-        lineEdit_130 = new QLineEdit(ind_frame);
-        lineEdit_130->setObjectName("lineEdit_130");
-        lineEdit_130->setGeometry(QRect(320, 750, 61, 25));
-        lineEdit_131 = new QLineEdit(ind_frame);
-        lineEdit_131->setObjectName("lineEdit_131");
-        lineEdit_131->setGeometry(QRect(390, 750, 61, 25));
-        lineEdit_132 = new QLineEdit(ind_frame);
-        lineEdit_132->setObjectName("lineEdit_132");
-        lineEdit_132->setGeometry(QRect(460, 750, 61, 25));
-        lineEdit_133 = new QLineEdit(ind_frame);
-        lineEdit_133->setObjectName("lineEdit_133");
-        lineEdit_133->setGeometry(QRect(530, 750, 61, 25));
-        lineEdit_134 = new QLineEdit(ind_frame);
-        lineEdit_134->setObjectName("lineEdit_134");
-        lineEdit_134->setGeometry(QRect(600, 750, 61, 25));
-        lineEdit_135 = new QLineEdit(ind_frame);
-        lineEdit_135->setObjectName("lineEdit_135");
-        lineEdit_135->setGeometry(QRect(670, 750, 61, 25));
-        lineEdit_136 = new QLineEdit(ind_frame);
-        lineEdit_136->setObjectName("lineEdit_136");
-        lineEdit_136->setGeometry(QRect(740, 750, 61, 25));
+        idg_20_s11 = new QLineEdit(ind_frame);
+        idg_20_s11->setObjectName("idg_20_s11");
+        idg_20_s11->setGeometry(QRect(240, 700, 61, 25));
+        idg_20_s12 = new QLineEdit(ind_frame);
+        idg_20_s12->setObjectName("idg_20_s12");
+        idg_20_s12->setGeometry(QRect(320, 700, 61, 25));
+        idg_20_s13 = new QLineEdit(ind_frame);
+        idg_20_s13->setObjectName("idg_20_s13");
+        idg_20_s13->setGeometry(QRect(390, 700, 61, 25));
+        idg_20_s14 = new QLineEdit(ind_frame);
+        idg_20_s14->setObjectName("idg_20_s14");
+        idg_20_s14->setGeometry(QRect(460, 700, 61, 25));
+        idg_20_s15 = new QLineEdit(ind_frame);
+        idg_20_s15->setObjectName("idg_20_s15");
+        idg_20_s15->setGeometry(QRect(530, 700, 61, 25));
+        idg_20_s16 = new QLineEdit(ind_frame);
+        idg_20_s16->setObjectName("idg_20_s16");
+        idg_20_s16->setGeometry(QRect(600, 700, 61, 25));
+        idg_20_s17 = new QLineEdit(ind_frame);
+        idg_20_s17->setObjectName("idg_20_s17");
+        idg_20_s17->setGeometry(QRect(670, 700, 61, 25));
+        idg_20_s18 = new QLineEdit(ind_frame);
+        idg_20_s18->setObjectName("idg_20_s18");
+        idg_20_s18->setGeometry(QRect(740, 700, 61, 25));
+        idg_20_w11 = new QLineEdit(ind_frame);
+        idg_20_w11->setObjectName("idg_20_w11");
+        idg_20_w11->setGeometry(QRect(240, 750, 61, 25));
+        idg_20_w12 = new QLineEdit(ind_frame);
+        idg_20_w12->setObjectName("idg_20_w12");
+        idg_20_w12->setGeometry(QRect(320, 750, 61, 25));
+        idg_20_w13 = new QLineEdit(ind_frame);
+        idg_20_w13->setObjectName("idg_20_w13");
+        idg_20_w13->setGeometry(QRect(390, 750, 61, 25));
+        idg_20_w14 = new QLineEdit(ind_frame);
+        idg_20_w14->setObjectName("idg_20_w14");
+        idg_20_w14->setGeometry(QRect(460, 750, 61, 25));
+        idg_20_w15 = new QLineEdit(ind_frame);
+        idg_20_w15->setObjectName("idg_20_w15");
+        idg_20_w15->setGeometry(QRect(530, 750, 61, 25));
+        idg_20_w16 = new QLineEdit(ind_frame);
+        idg_20_w16->setObjectName("idg_20_w16");
+        idg_20_w16->setGeometry(QRect(600, 750, 61, 25));
+        idg_20_w17 = new QLineEdit(ind_frame);
+        idg_20_w17->setObjectName("idg_20_w17");
+        idg_20_w17->setGeometry(QRect(670, 750, 61, 25));
+        idg_20_w18 = new QLineEdit(ind_frame);
+        idg_20_w18->setObjectName("idg_20_w18");
+        idg_20_w18->setGeometry(QRect(740, 750, 61, 25));
         label_317 = new QLabel(ind_frame);
         label_317->setObjectName("label_317");
         label_317->setGeometry(QRect(30, 810, 121, 41));
@@ -3113,54 +2803,54 @@ public:
         label_445 = new QLabel(ind_frame);
         label_445->setObjectName("label_445");
         label_445->setGeometry(QRect(30, 910, 191, 25));
-        lineEdit_137 = new QLineEdit(ind_frame);
-        lineEdit_137->setObjectName("lineEdit_137");
-        lineEdit_137->setGeometry(QRect(240, 870, 61, 25));
-        lineEdit_138 = new QLineEdit(ind_frame);
-        lineEdit_138->setObjectName("lineEdit_138");
-        lineEdit_138->setGeometry(QRect(320, 870, 61, 25));
-        lineEdit_139 = new QLineEdit(ind_frame);
-        lineEdit_139->setObjectName("lineEdit_139");
-        lineEdit_139->setGeometry(QRect(390, 870, 61, 25));
-        lineEdit_140 = new QLineEdit(ind_frame);
-        lineEdit_140->setObjectName("lineEdit_140");
-        lineEdit_140->setGeometry(QRect(460, 870, 61, 25));
-        lineEdit_141 = new QLineEdit(ind_frame);
-        lineEdit_141->setObjectName("lineEdit_141");
-        lineEdit_141->setGeometry(QRect(530, 870, 61, 25));
-        lineEdit_142 = new QLineEdit(ind_frame);
-        lineEdit_142->setObjectName("lineEdit_142");
-        lineEdit_142->setGeometry(QRect(600, 870, 61, 25));
-        lineEdit_143 = new QLineEdit(ind_frame);
-        lineEdit_143->setObjectName("lineEdit_143");
-        lineEdit_143->setGeometry(QRect(670, 870, 61, 25));
-        lineEdit_144 = new QLineEdit(ind_frame);
-        lineEdit_144->setObjectName("lineEdit_144");
-        lineEdit_144->setGeometry(QRect(740, 870, 61, 25));
-        lineEdit_145 = new QLineEdit(ind_frame);
-        lineEdit_145->setObjectName("lineEdit_145");
-        lineEdit_145->setGeometry(QRect(240, 910, 61, 25));
-        lineEdit_146 = new QLineEdit(ind_frame);
-        lineEdit_146->setObjectName("lineEdit_146");
-        lineEdit_146->setGeometry(QRect(320, 910, 61, 25));
-        lineEdit_147 = new QLineEdit(ind_frame);
-        lineEdit_147->setObjectName("lineEdit_147");
-        lineEdit_147->setGeometry(QRect(390, 910, 61, 25));
-        lineEdit_148 = new QLineEdit(ind_frame);
-        lineEdit_148->setObjectName("lineEdit_148");
-        lineEdit_148->setGeometry(QRect(460, 910, 61, 25));
-        lineEdit_149 = new QLineEdit(ind_frame);
-        lineEdit_149->setObjectName("lineEdit_149");
-        lineEdit_149->setGeometry(QRect(530, 910, 61, 25));
-        lineEdit_150 = new QLineEdit(ind_frame);
-        lineEdit_150->setObjectName("lineEdit_150");
-        lineEdit_150->setGeometry(QRect(600, 910, 61, 25));
-        lineEdit_151 = new QLineEdit(ind_frame);
-        lineEdit_151->setObjectName("lineEdit_151");
-        lineEdit_151->setGeometry(QRect(670, 910, 61, 25));
-        lineEdit_152 = new QLineEdit(ind_frame);
-        lineEdit_152->setObjectName("lineEdit_152");
-        lineEdit_152->setGeometry(QRect(740, 910, 61, 25));
+        idg_20_s21 = new QLineEdit(ind_frame);
+        idg_20_s21->setObjectName("idg_20_s21");
+        idg_20_s21->setGeometry(QRect(240, 870, 61, 25));
+        idg_20_s22 = new QLineEdit(ind_frame);
+        idg_20_s22->setObjectName("idg_20_s22");
+        idg_20_s22->setGeometry(QRect(320, 870, 61, 25));
+        idg_20_s23 = new QLineEdit(ind_frame);
+        idg_20_s23->setObjectName("idg_20_s23");
+        idg_20_s23->setGeometry(QRect(390, 870, 61, 25));
+        idg_20_s24 = new QLineEdit(ind_frame);
+        idg_20_s24->setObjectName("idg_20_s24");
+        idg_20_s24->setGeometry(QRect(460, 870, 61, 25));
+        idg_20_s25 = new QLineEdit(ind_frame);
+        idg_20_s25->setObjectName("idg_20_s25");
+        idg_20_s25->setGeometry(QRect(530, 870, 61, 25));
+        idg_20_s26 = new QLineEdit(ind_frame);
+        idg_20_s26->setObjectName("idg_20_s26");
+        idg_20_s26->setGeometry(QRect(600, 870, 61, 25));
+        idg_20_s27 = new QLineEdit(ind_frame);
+        idg_20_s27->setObjectName("idg_20_s27");
+        idg_20_s27->setGeometry(QRect(670, 870, 61, 25));
+        idg_20_s28 = new QLineEdit(ind_frame);
+        idg_20_s28->setObjectName("idg_20_s28");
+        idg_20_s28->setGeometry(QRect(740, 870, 61, 25));
+        idg_20_w21 = new QLineEdit(ind_frame);
+        idg_20_w21->setObjectName("idg_20_w21");
+        idg_20_w21->setGeometry(QRect(240, 910, 61, 25));
+        idg_20_w22 = new QLineEdit(ind_frame);
+        idg_20_w22->setObjectName("idg_20_w22");
+        idg_20_w22->setGeometry(QRect(320, 910, 61, 25));
+        idg_20_w23 = new QLineEdit(ind_frame);
+        idg_20_w23->setObjectName("idg_20_w23");
+        idg_20_w23->setGeometry(QRect(390, 910, 61, 25));
+        idg_20_w24 = new QLineEdit(ind_frame);
+        idg_20_w24->setObjectName("idg_20_w24");
+        idg_20_w24->setGeometry(QRect(460, 910, 61, 25));
+        idg_20_w25 = new QLineEdit(ind_frame);
+        idg_20_w25->setObjectName("idg_20_w25");
+        idg_20_w25->setGeometry(QRect(530, 910, 61, 25));
+        idg_20_w26 = new QLineEdit(ind_frame);
+        idg_20_w26->setObjectName("idg_20_w26");
+        idg_20_w26->setGeometry(QRect(600, 910, 61, 25));
+        idg_20_w27 = new QLineEdit(ind_frame);
+        idg_20_w27->setObjectName("idg_20_w27");
+        idg_20_w27->setGeometry(QRect(670, 910, 61, 25));
+        idg_20_w28 = new QLineEdit(ind_frame);
+        idg_20_w28->setObjectName("idg_20_w28");
+        idg_20_w28->setGeometry(QRect(740, 910, 61, 25));
         label_318 = new QLabel(ind_frame);
         label_318->setObjectName("label_318");
         label_318->setGeometry(QRect(30, 970, 131, 41));
@@ -3170,54 +2860,54 @@ public:
         label_447 = new QLabel(ind_frame);
         label_447->setObjectName("label_447");
         label_447->setGeometry(QRect(30, 1090, 191, 25));
-        lineEdit_153 = new QLineEdit(ind_frame);
-        lineEdit_153->setObjectName("lineEdit_153");
-        lineEdit_153->setGeometry(QRect(240, 1030, 61, 25));
-        lineEdit_154 = new QLineEdit(ind_frame);
-        lineEdit_154->setObjectName("lineEdit_154");
-        lineEdit_154->setGeometry(QRect(310, 1030, 61, 25));
-        lineEdit_155 = new QLineEdit(ind_frame);
-        lineEdit_155->setObjectName("lineEdit_155");
-        lineEdit_155->setGeometry(QRect(380, 1030, 61, 25));
-        lineEdit_156 = new QLineEdit(ind_frame);
-        lineEdit_156->setObjectName("lineEdit_156");
-        lineEdit_156->setGeometry(QRect(450, 1030, 61, 25));
-        lineEdit_157 = new QLineEdit(ind_frame);
-        lineEdit_157->setObjectName("lineEdit_157");
-        lineEdit_157->setGeometry(QRect(520, 1030, 61, 25));
-        lineEdit_158 = new QLineEdit(ind_frame);
-        lineEdit_158->setObjectName("lineEdit_158");
-        lineEdit_158->setGeometry(QRect(590, 1030, 61, 25));
-        lineEdit_159 = new QLineEdit(ind_frame);
-        lineEdit_159->setObjectName("lineEdit_159");
-        lineEdit_159->setGeometry(QRect(660, 1030, 61, 25));
-        lineEdit_160 = new QLineEdit(ind_frame);
-        lineEdit_160->setObjectName("lineEdit_160");
-        lineEdit_160->setGeometry(QRect(730, 1030, 61, 25));
-        lineEdit_161 = new QLineEdit(ind_frame);
-        lineEdit_161->setObjectName("lineEdit_161");
-        lineEdit_161->setGeometry(QRect(240, 1090, 61, 25));
-        lineEdit_162 = new QLineEdit(ind_frame);
-        lineEdit_162->setObjectName("lineEdit_162");
-        lineEdit_162->setGeometry(QRect(310, 1090, 61, 25));
-        lineEdit_163 = new QLineEdit(ind_frame);
-        lineEdit_163->setObjectName("lineEdit_163");
-        lineEdit_163->setGeometry(QRect(380, 1090, 61, 25));
-        lineEdit_164 = new QLineEdit(ind_frame);
-        lineEdit_164->setObjectName("lineEdit_164");
-        lineEdit_164->setGeometry(QRect(450, 1090, 61, 25));
-        lineEdit_165 = new QLineEdit(ind_frame);
-        lineEdit_165->setObjectName("lineEdit_165");
-        lineEdit_165->setGeometry(QRect(520, 1090, 61, 25));
-        lineEdit_166 = new QLineEdit(ind_frame);
-        lineEdit_166->setObjectName("lineEdit_166");
-        lineEdit_166->setGeometry(QRect(590, 1090, 61, 25));
-        lineEdit_167 = new QLineEdit(ind_frame);
-        lineEdit_167->setObjectName("lineEdit_167");
-        lineEdit_167->setGeometry(QRect(660, 1090, 61, 25));
-        lineEdit_168 = new QLineEdit(ind_frame);
-        lineEdit_168->setObjectName("lineEdit_168");
-        lineEdit_168->setGeometry(QRect(730, 1090, 61, 25));
+        idg_20_s31 = new QLineEdit(ind_frame);
+        idg_20_s31->setObjectName("idg_20_s31");
+        idg_20_s31->setGeometry(QRect(240, 1030, 61, 25));
+        idg_20_s32 = new QLineEdit(ind_frame);
+        idg_20_s32->setObjectName("idg_20_s32");
+        idg_20_s32->setGeometry(QRect(310, 1030, 61, 25));
+        idg_20_s33 = new QLineEdit(ind_frame);
+        idg_20_s33->setObjectName("idg_20_s33");
+        idg_20_s33->setGeometry(QRect(380, 1030, 61, 25));
+        idg_20_s34 = new QLineEdit(ind_frame);
+        idg_20_s34->setObjectName("idg_20_s34");
+        idg_20_s34->setGeometry(QRect(450, 1030, 61, 25));
+        idg_20_s35 = new QLineEdit(ind_frame);
+        idg_20_s35->setObjectName("idg_20_s35");
+        idg_20_s35->setGeometry(QRect(520, 1030, 61, 25));
+        idg_20_s36 = new QLineEdit(ind_frame);
+        idg_20_s36->setObjectName("idg_20_s36");
+        idg_20_s36->setGeometry(QRect(590, 1030, 61, 25));
+        idg_20_s37 = new QLineEdit(ind_frame);
+        idg_20_s37->setObjectName("idg_20_s37");
+        idg_20_s37->setGeometry(QRect(660, 1030, 61, 25));
+        idg_20_s38 = new QLineEdit(ind_frame);
+        idg_20_s38->setObjectName("idg_20_s38");
+        idg_20_s38->setGeometry(QRect(730, 1030, 61, 25));
+        idg_20_w31 = new QLineEdit(ind_frame);
+        idg_20_w31->setObjectName("idg_20_w31");
+        idg_20_w31->setGeometry(QRect(240, 1090, 61, 25));
+        idg_20_w32 = new QLineEdit(ind_frame);
+        idg_20_w32->setObjectName("idg_20_w32");
+        idg_20_w32->setGeometry(QRect(310, 1090, 61, 25));
+        idg_20_w33 = new QLineEdit(ind_frame);
+        idg_20_w33->setObjectName("idg_20_w33");
+        idg_20_w33->setGeometry(QRect(380, 1090, 61, 25));
+        idg_20_w34 = new QLineEdit(ind_frame);
+        idg_20_w34->setObjectName("idg_20_w34");
+        idg_20_w34->setGeometry(QRect(450, 1090, 61, 25));
+        idg_20_w35 = new QLineEdit(ind_frame);
+        idg_20_w35->setObjectName("idg_20_w35");
+        idg_20_w35->setGeometry(QRect(520, 1090, 61, 25));
+        idg_20_w36 = new QLineEdit(ind_frame);
+        idg_20_w36->setObjectName("idg_20_w36");
+        idg_20_w36->setGeometry(QRect(590, 1090, 61, 25));
+        idg_20_w37 = new QLineEdit(ind_frame);
+        idg_20_w37->setObjectName("idg_20_w37");
+        idg_20_w37->setGeometry(QRect(660, 1090, 61, 25));
+        idg_20_w38 = new QLineEdit(ind_frame);
+        idg_20_w38->setObjectName("idg_20_w38");
+        idg_20_w38->setGeometry(QRect(730, 1090, 61, 25));
         label_319 = new QLabel(ind_frame);
         label_319->setObjectName("label_319");
         label_319->setGeometry(QRect(30, 1150, 111, 41));
@@ -3566,6 +3256,90 @@ public:
         lineEdit_264 = new QLineEdit(ind_frame);
         lineEdit_264->setObjectName("lineEdit_264");
         lineEdit_264->setGeometry(QRect(720, 2160, 61, 25));
+        idg_save_40mm = new QPushButton(ind_frame);
+        idg_save_40mm->setObjectName("idg_save_40mm");
+        idg_save_40mm->setGeometry(QRect(250, 570, 61, 24));
+        ind_40_w1 = new QLineEdit(ind_frame);
+        ind_40_w1->setObjectName("ind_40_w1");
+        ind_40_w1->setGeometry(QRect(910, 200, 113, 25));
+        ind_40_w2 = new QLineEdit(ind_frame);
+        ind_40_w2->setObjectName("ind_40_w2");
+        ind_40_w2->setGeometry(QRect(910, 340, 113, 25));
+        ind_40_w3 = new QLineEdit(ind_frame);
+        ind_40_w3->setObjectName("ind_40_w3");
+        ind_40_w3->setGeometry(QRect(910, 510, 113, 25));
+        label_74 = new QLabel(ind_frame);
+        label_74->setObjectName("label_74");
+        label_74->setGeometry(QRect(920, 150, 111, 20));
+        label_75 = new QLabel(ind_frame);
+        label_75->setObjectName("label_75");
+        label_75->setGeometry(QRect(920, 300, 111, 20));
+        label_76 = new QLabel(ind_frame);
+        label_76->setObjectName("label_76");
+        label_76->setGeometry(QRect(920, 460, 111, 20));
+        label_77 = new QLabel(ind_frame);
+        label_77->setObjectName("label_77");
+        label_77->setGeometry(QRect(920, 860, 111, 20));
+        label_78 = new QLabel(ind_frame);
+        label_78->setObjectName("label_78");
+        label_78->setGeometry(QRect(920, 1020, 111, 20));
+        ind_20_w2 = new QLineEdit(ind_frame);
+        ind_20_w2->setObjectName("ind_20_w2");
+        ind_20_w2->setGeometry(QRect(910, 900, 113, 25));
+        label_79 = new QLabel(ind_frame);
+        label_79->setObjectName("label_79");
+        label_79->setGeometry(QRect(920, 710, 111, 20));
+        ind_20_w3 = new QLineEdit(ind_frame);
+        ind_20_w3->setObjectName("ind_20_w3");
+        ind_20_w3->setGeometry(QRect(910, 1070, 113, 25));
+        ind_20_w1 = new QLineEdit(ind_frame);
+        ind_20_w1->setObjectName("ind_20_w1");
+        ind_20_w1->setGeometry(QRect(910, 760, 113, 25));
+        label_80 = new QLabel(ind_frame);
+        label_80->setObjectName("label_80");
+        label_80->setGeometry(QRect(920, 1400, 111, 20));
+        label_81 = new QLabel(ind_frame);
+        label_81->setObjectName("label_81");
+        label_81->setGeometry(QRect(920, 1560, 111, 20));
+        ind_10_w2 = new QLineEdit(ind_frame);
+        ind_10_w2->setObjectName("ind_10_w2");
+        ind_10_w2->setGeometry(QRect(910, 1440, 113, 25));
+        label_86 = new QLabel(ind_frame);
+        label_86->setObjectName("label_86");
+        label_86->setGeometry(QRect(920, 1250, 111, 20));
+        ind_10_w3 = new QLineEdit(ind_frame);
+        ind_10_w3->setObjectName("ind_10_w3");
+        ind_10_w3->setGeometry(QRect(910, 1610, 113, 25));
+        ind_10_w1 = new QLineEdit(ind_frame);
+        ind_10_w1->setObjectName("ind_10_w1");
+        ind_10_w1->setGeometry(QRect(910, 1300, 113, 25));
+        label_89 = new QLabel(ind_frame);
+        label_89->setObjectName("label_89");
+        label_89->setGeometry(QRect(920, 1930, 111, 20));
+        label_92 = new QLabel(ind_frame);
+        label_92->setObjectName("label_92");
+        label_92->setGeometry(QRect(920, 2090, 111, 20));
+        ind_0_w2 = new QLineEdit(ind_frame);
+        ind_0_w2->setObjectName("ind_0_w2");
+        ind_0_w2->setGeometry(QRect(910, 1970, 113, 25));
+        label_93 = new QLabel(ind_frame);
+        label_93->setObjectName("label_93");
+        label_93->setGeometry(QRect(920, 1780, 111, 20));
+        ind_0_w3 = new QLineEdit(ind_frame);
+        ind_0_w3->setObjectName("ind_0_w3");
+        ind_0_w3->setGeometry(QRect(910, 2140, 113, 25));
+        ind_0_w1 = new QLineEdit(ind_frame);
+        ind_0_w1->setObjectName("ind_0_w1");
+        ind_0_w1->setGeometry(QRect(910, 1830, 113, 25));
+        idg_save_20mm = new QPushButton(ind_frame);
+        idg_save_20mm->setObjectName("idg_save_20mm");
+        idg_save_20mm->setGeometry(QRect(240, 1130, 61, 24));
+        idg_save_10mm = new QPushButton(ind_frame);
+        idg_save_10mm->setObjectName("idg_save_10mm");
+        idg_save_10mm->setGeometry(QRect(230, 1680, 61, 24));
+        idg_save_0mm = new QPushButton(ind_frame);
+        idg_save_0mm->setObjectName("idg_save_0mm");
+        idg_save_0mm->setGeometry(QRect(230, 2200, 61, 24));
         ind_data_scroll = new QScrollBar(ind_frame_outer);
         ind_data_scroll->setObjectName("ind_data_scroll");
         ind_data_scroll->setGeometry(QRect(1380, 0, 15, 690));
@@ -3590,47 +3364,91 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
-        QWidget::setTabOrder(spc_save, spc_saveas);
-        QWidget::setTabOrder(spc_saveas, spc_export);
-        QWidget::setTabOrder(spc_export, spc_40_w1_t1);
-        QWidget::setTabOrder(spc_40_w1_t1, spc_40_w1_t2);
-        QWidget::setTabOrder(spc_40_w1_t2, spc_40_w1_t3);
-        QWidget::setTabOrder(spc_40_w1_t3, spc_40_w2_t1);
-        QWidget::setTabOrder(spc_40_w2_t1, spc_40_w2_t2);
-        QWidget::setTabOrder(spc_40_w2_t2, spc_40_w2_t3);
-        QWidget::setTabOrder(spc_40_w2_t3, spc_40_w3_t1);
-        QWidget::setTabOrder(spc_40_w3_t1, spc_40_w3_t2);
-        QWidget::setTabOrder(spc_40_w3_t2, spc_40_w3_t3);
-        QWidget::setTabOrder(spc_40_w3_t3, spc_20_w1_t1);
-        QWidget::setTabOrder(spc_20_w1_t1, spc_20_w1_t2);
-        QWidget::setTabOrder(spc_20_w1_t2, spc_20_w1_t3);
-        QWidget::setTabOrder(spc_20_w1_t3, spc_20_w2_t1);
-        QWidget::setTabOrder(spc_20_w2_t1, spc_20_w2_t2);
-        QWidget::setTabOrder(spc_20_w2_t2, spc_20_w2_t3);
-        QWidget::setTabOrder(spc_20_w2_t3, spc_20_w3_t1);
-        QWidget::setTabOrder(spc_20_w3_t1, spc_20_w3_t2);
-        QWidget::setTabOrder(spc_20_w3_t2, spc_20_w3_t3);
-        QWidget::setTabOrder(spc_20_w3_t3, spc_10_w1_t1);
-        QWidget::setTabOrder(spc_10_w1_t1, spc_10_w1_t2);
-        QWidget::setTabOrder(spc_10_w1_t2, spc_10_w1_t3);
-        QWidget::setTabOrder(spc_10_w1_t3, spc_10_w2_t1);
-        QWidget::setTabOrder(spc_10_w2_t1, spc_10_w2_t2);
-        QWidget::setTabOrder(spc_10_w2_t2, spc_10_w2_t3);
-        QWidget::setTabOrder(spc_10_w2_t3, spc_10_w3_t1);
-        QWidget::setTabOrder(spc_10_w3_t1, spc_10_w3_t2);
-        QWidget::setTabOrder(spc_10_w3_t2, spc_10_w3_t3);
-        QWidget::setTabOrder(spc_10_w3_t3, spc_0_w1_t1);
-        QWidget::setTabOrder(spc_0_w1_t1, spc_0_w1_t2);
-        QWidget::setTabOrder(spc_0_w1_t2, spc_0_w1_t3);
-        QWidget::setTabOrder(spc_0_w1_t3, spc_0_w2_t1);
-        QWidget::setTabOrder(spc_0_w2_t1, spc_0_w2_t2);
-        QWidget::setTabOrder(spc_0_w2_t2, spc_0_w2_t3);
-        QWidget::setTabOrder(spc_0_w2_t3, spc_0_w3_t1);
-        QWidget::setTabOrder(spc_0_w3_t1, spc_0_w3_t2);
+        QWidget::setTabOrder(aiv_20_11, aiv_20_12);
+        QWidget::setTabOrder(aiv_20_12, aiv_20_13);
+        QWidget::setTabOrder(aiv_20_13, aiv_20_21);
+        QWidget::setTabOrder(aiv_20_21, aiv_20_22);
+        QWidget::setTabOrder(aiv_20_22, aiv_20_23);
+        QWidget::setTabOrder(aiv_20_23, aiv_20_41);
+        QWidget::setTabOrder(aiv_20_41, aiv_20_42);
+        QWidget::setTabOrder(aiv_20_42, aiv_20_43);
+        QWidget::setTabOrder(aiv_20_43, aiv_20_6);
+        QWidget::setTabOrder(aiv_20_6, aiv_save_20mm);
+        QWidget::setTabOrder(aiv_save_20mm, aiv_10_11);
+        QWidget::setTabOrder(aiv_10_11, aiv_10_12);
+        QWidget::setTabOrder(aiv_10_12, aiv_10_13);
+        QWidget::setTabOrder(aiv_10_13, aiv_10_21);
+        QWidget::setTabOrder(aiv_10_21, aiv_10_22);
+        QWidget::setTabOrder(aiv_10_22, aiv_10_23);
+        QWidget::setTabOrder(aiv_10_23, aiv_10_41);
+        QWidget::setTabOrder(aiv_10_41, aiv_10_42);
+        QWidget::setTabOrder(aiv_10_42, aiv_10_43);
+        QWidget::setTabOrder(aiv_10_43, aiv_10_6);
+        QWidget::setTabOrder(aiv_10_6, aiv_save_10mm);
+        QWidget::setTabOrder(aiv_save_10mm, fei_ss_p1);
+        QWidget::setTabOrder(fei_ss_p1, fei_ss_p2);
+        QWidget::setTabOrder(fei_ss_p2, fei_ss_p3);
+        QWidget::setTabOrder(fei_ss_p3, fei_ss_p4);
+        QWidget::setTabOrder(fei_ss_p4, fei_ss_p5);
+        QWidget::setTabOrder(fei_ss_p5, fei_ss_p6);
+        QWidget::setTabOrder(fei_ss_p6, fei_ss_p7);
+        QWidget::setTabOrder(fei_ss_p7, fei_ss_p8);
+        QWidget::setTabOrder(fei_ss_p8, fei_ss_p9);
+        QWidget::setTabOrder(fei_ss_p9, fei_ss_r1);
+        QWidget::setTabOrder(fei_ss_r1, fei_ss_r2);
+        QWidget::setTabOrder(fei_ss_r2, fei_ss_r3);
+        QWidget::setTabOrder(fei_ss_r3, fei_ss_r4);
+        QWidget::setTabOrder(fei_ss_r4, fei_ss_r5);
+        QWidget::setTabOrder(fei_ss_r5, fei_ss_r6);
+        QWidget::setTabOrder(fei_ss_r6, fei_ss_r7);
+        QWidget::setTabOrder(fei_ss_r7, fei_ss_r8);
+        QWidget::setTabOrder(fei_ss_r8, fei_ss_r9);
+        QWidget::setTabOrder(fei_ss_r9, save_ss);
+        QWidget::setTabOrder(save_ss, fei_1_1);
+        QWidget::setTabOrder(fei_1_1, fei_1_2);
+        QWidget::setTabOrder(fei_1_2, fei_1_3);
+        QWidget::setTabOrder(fei_1_3, fei_1_4);
+        QWidget::setTabOrder(fei_1_4, fei_1_5);
+        QWidget::setTabOrder(fei_1_5, fei_1_6);
+        QWidget::setTabOrder(fei_1_6, fei_1_7);
+        QWidget::setTabOrder(fei_1_7, fei_1_8);
+        QWidget::setTabOrder(fei_1_8, fei_1_9);
+        QWidget::setTabOrder(fei_1_9, fei_1_10);
+        QWidget::setTabOrder(fei_1_10, fei_2_1);
+        QWidget::setTabOrder(fei_2_1, fei_2_2);
+        QWidget::setTabOrder(fei_2_2, fei_2_3);
+        QWidget::setTabOrder(fei_2_3, fei_2_4);
+        QWidget::setTabOrder(fei_2_4, fei_2_5);
+        QWidget::setTabOrder(fei_2_5, fei_2_6);
+        QWidget::setTabOrder(fei_2_6, fei_2_7);
+        QWidget::setTabOrder(fei_2_7, fei_2_8);
+        QWidget::setTabOrder(fei_2_8, fei_2_9);
+        QWidget::setTabOrder(fei_2_9, fei_2_10);
+        QWidget::setTabOrder(fei_2_10, fei_3_1);
+        QWidget::setTabOrder(fei_3_1, fei_3_2);
+        QWidget::setTabOrder(fei_3_2, fei_3_3);
+        QWidget::setTabOrder(fei_3_3, fei_3_4);
+        QWidget::setTabOrder(fei_3_4, fei_3_5);
+        QWidget::setTabOrder(fei_3_5, fei_3_6);
+        QWidget::setTabOrder(fei_3_6, fei_3_7);
+        QWidget::setTabOrder(fei_3_7, fei_3_8);
+        QWidget::setTabOrder(fei_3_8, fei_3_9);
+        QWidget::setTabOrder(fei_3_9, fei_3_10);
+        QWidget::setTabOrder(fei_3_10, fei_4_1);
+        QWidget::setTabOrder(fei_4_1, fei_4_2);
+        QWidget::setTabOrder(fei_4_2, fei_4_3);
+        QWidget::setTabOrder(fei_4_3, fei_4_4);
+        QWidget::setTabOrder(fei_4_4, fei_4_5);
+        QWidget::setTabOrder(fei_4_5, fei_4_6);
+        QWidget::setTabOrder(fei_4_6, fei_4_7);
+        QWidget::setTabOrder(fei_4_7, fei_4_8);
+        QWidget::setTabOrder(fei_4_8, fei_4_9);
+        QWidget::setTabOrder(fei_4_9, fei_4_10);
+        QWidget::setTabOrder(fei_4_10, save_fei);
+        QWidget::setTabOrder(save_fei, spc_0_w3_t2);
         QWidget::setTabOrder(spc_0_w3_t2, spc_0_w3_t3);
         QWidget::setTabOrder(spc_0_w3_t3, spc_exp_1);
-        QWidget::setTabOrder(spc_exp_1, spc_exp_2);
-        QWidget::setTabOrder(spc_exp_2, spc_exp_3);
+        QWidget::setTabOrder(spc_exp_1, spc_exp_3);
         QWidget::setTabOrder(spc_exp_3, spc_exp_4);
         QWidget::setTabOrder(spc_exp_4, spc_exp_5);
         QWidget::setTabOrder(spc_exp_5, spc_exp_6);
@@ -3639,6 +3457,280 @@ public:
         QWidget::setTabOrder(spc_bsc_2, spc_bsc_3);
         QWidget::setTabOrder(spc_bsc_3, spc_bsc_4);
         QWidget::setTabOrder(spc_bsc_4, tab_list);
+        QWidget::setTabOrder(tab_list, spc_save_20mm);
+        QWidget::setTabOrder(spc_save_20mm, spc_save_10mm);
+        QWidget::setTabOrder(spc_save_10mm, spc_save_0mm);
+        QWidget::setTabOrder(spc_save_0mm, fei_bsc_1);
+        QWidget::setTabOrder(fei_bsc_1, fei_bsc_2);
+        QWidget::setTabOrder(fei_bsc_2, fei_bsc_3);
+        QWidget::setTabOrder(fei_bsc_3, fei_bsc_4);
+        QWidget::setTabOrder(fei_bsc_4, fei_exp_2);
+        QWidget::setTabOrder(fei_exp_2, fei_exp_1);
+        QWidget::setTabOrder(fei_exp_1, fei_exp_4);
+        QWidget::setTabOrder(fei_exp_4, fei_exp_5);
+        QWidget::setTabOrder(fei_exp_5, fei_exp_6);
+        QWidget::setTabOrder(fei_exp_6, fei_save);
+        QWidget::setTabOrder(fei_save, fei_saveas);
+        QWidget::setTabOrder(fei_saveas, fei_export);
+        QWidget::setTabOrder(fei_export, spc_10_w1_t2);
+        QWidget::setTabOrder(spc_10_w1_t2, spc_10_w2_t1);
+        QWidget::setTabOrder(spc_10_w2_t1, spc_10_w1_t3);
+        QWidget::setTabOrder(spc_10_w1_t3, spc_10_w2_t2);
+        QWidget::setTabOrder(spc_10_w2_t2, spc_10_w3_t1);
+        QWidget::setTabOrder(spc_10_w3_t1, spc_10_w3_t2);
+        QWidget::setTabOrder(spc_10_w3_t2, spc_10_w3_t3);
+        QWidget::setTabOrder(spc_10_w3_t3, spc_0_w1_t1);
+        QWidget::setTabOrder(spc_0_w1_t1, spc_0_w1_t2);
+        QWidget::setTabOrder(spc_0_w1_t2, spc_0_w1_t3);
+        QWidget::setTabOrder(spc_0_w1_t3, spc_0_w2_t1);
+        QWidget::setTabOrder(spc_0_w2_t1, spc_0_w2_t2);
+        QWidget::setTabOrder(spc_0_w2_t2, spc_exp_2);
+        QWidget::setTabOrder(spc_exp_2, spc_0_w3_t1);
+        QWidget::setTabOrder(spc_0_w3_t1, spc_save_40mm);
+        QWidget::setTabOrder(spc_save_40mm, fei_exp_3);
+        QWidget::setTabOrder(fei_exp_3, spc_10_w2_t3);
+        QWidget::setTabOrder(spc_10_w2_t3, spc_0_w2_t3);
+        QWidget::setTabOrder(spc_0_w2_t3, aiv_save);
+        QWidget::setTabOrder(aiv_save, aiv_saveas);
+        QWidget::setTabOrder(aiv_saveas, aiv_export);
+        QWidget::setTabOrder(aiv_export, aiv_bsc_1);
+        QWidget::setTabOrder(aiv_bsc_1, aiv_bsc_2);
+        QWidget::setTabOrder(aiv_bsc_2, aiv_bsc_3);
+        QWidget::setTabOrder(aiv_bsc_3, aiv_bsc_4);
+        QWidget::setTabOrder(aiv_bsc_4, aiv_exp_1);
+        QWidget::setTabOrder(aiv_exp_1, aiv_exp_2);
+        QWidget::setTabOrder(aiv_exp_2, aiv_exp_3);
+        QWidget::setTabOrder(aiv_exp_3, aiv_exp_4);
+        QWidget::setTabOrder(aiv_exp_4, aiv_exp_5);
+        QWidget::setTabOrder(aiv_exp_5, aiv_exp_6);
+        QWidget::setTabOrder(aiv_exp_6, spc_save);
+        QWidget::setTabOrder(spc_save, spc_saveas);
+        QWidget::setTabOrder(spc_saveas, spc_export);
+        QWidget::setTabOrder(spc_export, spc_40_w1_t1);
+        QWidget::setTabOrder(spc_40_w1_t1, spc_40_w1_t2);
+        QWidget::setTabOrder(spc_40_w1_t2, spc_40_w1_t3);
+        QWidget::setTabOrder(spc_40_w1_t3, spc_40_w2_t1);
+        QWidget::setTabOrder(spc_40_w2_t1, spc_40_w2_t2);
+        QWidget::setTabOrder(spc_40_w2_t2, spc_40_w2_t3);
+        QWidget::setTabOrder(spc_40_w2_t3, spc_20_w3_t2);
+        QWidget::setTabOrder(spc_20_w3_t2, spc_20_w1_t2);
+        QWidget::setTabOrder(spc_20_w1_t2, spc_20_w1_t1);
+        QWidget::setTabOrder(spc_20_w1_t1, spc_40_w3_t3);
+        QWidget::setTabOrder(spc_40_w3_t3, spc_20_w1_t3);
+        QWidget::setTabOrder(spc_20_w1_t3, spc_20_w2_t3);
+        QWidget::setTabOrder(spc_20_w2_t3, spc_20_w2_t2);
+        QWidget::setTabOrder(spc_20_w2_t2, spc_20_w2_t1);
+        QWidget::setTabOrder(spc_20_w2_t1, spc_20_w3_t1);
+        QWidget::setTabOrder(spc_20_w3_t1, spc_10_w1_t1);
+        QWidget::setTabOrder(spc_10_w1_t1, spc_40_w3_t2);
+        QWidget::setTabOrder(spc_40_w3_t2, spc_40_w3_t1);
+        QWidget::setTabOrder(spc_40_w3_t1, spc_20_w3_t3);
+        QWidget::setTabOrder(spc_20_w3_t3, ind_bsc_1);
+        QWidget::setTabOrder(ind_bsc_1, ind_bsc_2);
+        QWidget::setTabOrder(ind_bsc_2, ind_bsc_3);
+        QWidget::setTabOrder(ind_bsc_3, ind_bsc_4);
+        QWidget::setTabOrder(ind_bsc_4, ind_exp_1);
+        QWidget::setTabOrder(ind_exp_1, ind_exp_2);
+        QWidget::setTabOrder(ind_exp_2, ind_exp_3);
+        QWidget::setTabOrder(ind_exp_3, ind_exp_4);
+        QWidget::setTabOrder(ind_exp_4, ind_exp_5);
+        QWidget::setTabOrder(ind_exp_5, ind_exp_6);
+        QWidget::setTabOrder(ind_exp_6, ind_save);
+        QWidget::setTabOrder(ind_save, ind_saveas);
+        QWidget::setTabOrder(ind_saveas, ind_export);
+        QWidget::setTabOrder(ind_export, idg_40_s11);
+        QWidget::setTabOrder(idg_40_s11, idg_40_s12);
+        QWidget::setTabOrder(idg_40_s12, idg_40_s13);
+        QWidget::setTabOrder(idg_40_s13, idg_40_s14);
+        QWidget::setTabOrder(idg_40_s14, idg_40_s15);
+        QWidget::setTabOrder(idg_40_s15, idg_40_s16);
+        QWidget::setTabOrder(idg_40_s16, idg_40_s17);
+        QWidget::setTabOrder(idg_40_s17, idg_40_s18);
+        QWidget::setTabOrder(idg_40_s18, idg_40_w11);
+        QWidget::setTabOrder(idg_40_w11, idg_40_w12);
+        QWidget::setTabOrder(idg_40_w12, idg_40_w13);
+        QWidget::setTabOrder(idg_40_w13, idg_40_w14);
+        QWidget::setTabOrder(idg_40_w14, idg_40_w15);
+        QWidget::setTabOrder(idg_40_w15, idg_40_w16);
+        QWidget::setTabOrder(idg_40_w16, idg_40_w17);
+        QWidget::setTabOrder(idg_40_w17, idg_40_w18);
+        QWidget::setTabOrder(idg_40_w18, idg_40_s21);
+        QWidget::setTabOrder(idg_40_s21, idg_40_s22);
+        QWidget::setTabOrder(idg_40_s22, idg_40_s23);
+        QWidget::setTabOrder(idg_40_s23, idg_40_s24);
+        QWidget::setTabOrder(idg_40_s24, idg_40_s25);
+        QWidget::setTabOrder(idg_40_s25, idg_40_s26);
+        QWidget::setTabOrder(idg_40_s26, idg_40_s27);
+        QWidget::setTabOrder(idg_40_s27, idg_40_s28);
+        QWidget::setTabOrder(idg_40_s28, idg_40_w21);
+        QWidget::setTabOrder(idg_40_w21, idg_40_w22);
+        QWidget::setTabOrder(idg_40_w22, idg_40_w23);
+        QWidget::setTabOrder(idg_40_w23, idg_40_w24);
+        QWidget::setTabOrder(idg_40_w24, idg_40_w25);
+        QWidget::setTabOrder(idg_40_w25, idg_40_w26);
+        QWidget::setTabOrder(idg_40_w26, idg_40_w27);
+        QWidget::setTabOrder(idg_40_w27, idg_40_w28);
+        QWidget::setTabOrder(idg_40_w28, idg_40_s31);
+        QWidget::setTabOrder(idg_40_s31, idg_40_s32);
+        QWidget::setTabOrder(idg_40_s32, idg_40_s33);
+        QWidget::setTabOrder(idg_40_s33, idg_40_s34);
+        QWidget::setTabOrder(idg_40_s34, idg_40_s35);
+        QWidget::setTabOrder(idg_40_s35, idg_40_s36);
+        QWidget::setTabOrder(idg_40_s36, idg_40_s37);
+        QWidget::setTabOrder(idg_40_s37, idg_40_s38);
+        QWidget::setTabOrder(idg_40_s38, idg_40_w31);
+        QWidget::setTabOrder(idg_40_w31, idg_40_w32);
+        QWidget::setTabOrder(idg_40_w32, idg_40_w33);
+        QWidget::setTabOrder(idg_40_w33, idg_40_w34);
+        QWidget::setTabOrder(idg_40_w34, idg_40_w35);
+        QWidget::setTabOrder(idg_40_w35, idg_40_w36);
+        QWidget::setTabOrder(idg_40_w36, idg_40_w37);
+        QWidget::setTabOrder(idg_40_w37, idg_40_w38);
+        QWidget::setTabOrder(idg_40_w38, idg_20_s11);
+        QWidget::setTabOrder(idg_20_s11, idg_20_s12);
+        QWidget::setTabOrder(idg_20_s12, idg_20_s13);
+        QWidget::setTabOrder(idg_20_s13, idg_20_s14);
+        QWidget::setTabOrder(idg_20_s14, idg_20_s15);
+        QWidget::setTabOrder(idg_20_s15, idg_20_s16);
+        QWidget::setTabOrder(idg_20_s16, idg_20_s17);
+        QWidget::setTabOrder(idg_20_s17, idg_20_s18);
+        QWidget::setTabOrder(idg_20_s18, idg_20_w11);
+        QWidget::setTabOrder(idg_20_w11, idg_20_w12);
+        QWidget::setTabOrder(idg_20_w12, idg_20_w13);
+        QWidget::setTabOrder(idg_20_w13, idg_20_w14);
+        QWidget::setTabOrder(idg_20_w14, idg_20_w15);
+        QWidget::setTabOrder(idg_20_w15, idg_20_w16);
+        QWidget::setTabOrder(idg_20_w16, idg_20_w17);
+        QWidget::setTabOrder(idg_20_w17, idg_20_w18);
+        QWidget::setTabOrder(idg_20_w18, idg_20_s21);
+        QWidget::setTabOrder(idg_20_s21, idg_20_s22);
+        QWidget::setTabOrder(idg_20_s22, idg_20_s23);
+        QWidget::setTabOrder(idg_20_s23, idg_20_s24);
+        QWidget::setTabOrder(idg_20_s24, idg_20_s25);
+        QWidget::setTabOrder(idg_20_s25, idg_20_s26);
+        QWidget::setTabOrder(idg_20_s26, idg_20_s27);
+        QWidget::setTabOrder(idg_20_s27, idg_20_s28);
+        QWidget::setTabOrder(idg_20_s28, idg_20_w21);
+        QWidget::setTabOrder(idg_20_w21, idg_20_w22);
+        QWidget::setTabOrder(idg_20_w22, idg_20_w23);
+        QWidget::setTabOrder(idg_20_w23, idg_20_w24);
+        QWidget::setTabOrder(idg_20_w24, idg_20_w25);
+        QWidget::setTabOrder(idg_20_w25, idg_20_w26);
+        QWidget::setTabOrder(idg_20_w26, idg_20_w27);
+        QWidget::setTabOrder(idg_20_w27, idg_20_w28);
+        QWidget::setTabOrder(idg_20_w28, idg_20_s31);
+        QWidget::setTabOrder(idg_20_s31, idg_20_s32);
+        QWidget::setTabOrder(idg_20_s32, idg_20_s33);
+        QWidget::setTabOrder(idg_20_s33, idg_20_s34);
+        QWidget::setTabOrder(idg_20_s34, idg_20_s35);
+        QWidget::setTabOrder(idg_20_s35, idg_20_s36);
+        QWidget::setTabOrder(idg_20_s36, idg_20_s37);
+        QWidget::setTabOrder(idg_20_s37, idg_20_s38);
+        QWidget::setTabOrder(idg_20_s38, idg_20_w31);
+        QWidget::setTabOrder(idg_20_w31, idg_20_w32);
+        QWidget::setTabOrder(idg_20_w32, idg_20_w33);
+        QWidget::setTabOrder(idg_20_w33, idg_20_w34);
+        QWidget::setTabOrder(idg_20_w34, idg_20_w35);
+        QWidget::setTabOrder(idg_20_w35, idg_20_w36);
+        QWidget::setTabOrder(idg_20_w36, idg_20_w37);
+        QWidget::setTabOrder(idg_20_w37, idg_20_w38);
+        QWidget::setTabOrder(idg_20_w38, lineEdit_169);
+        QWidget::setTabOrder(lineEdit_169, lineEdit_170);
+        QWidget::setTabOrder(lineEdit_170, lineEdit_171);
+        QWidget::setTabOrder(lineEdit_171, lineEdit_172);
+        QWidget::setTabOrder(lineEdit_172, lineEdit_173);
+        QWidget::setTabOrder(lineEdit_173, lineEdit_174);
+        QWidget::setTabOrder(lineEdit_174, lineEdit_175);
+        QWidget::setTabOrder(lineEdit_175, lineEdit_176);
+        QWidget::setTabOrder(lineEdit_176, lineEdit_177);
+        QWidget::setTabOrder(lineEdit_177, lineEdit_178);
+        QWidget::setTabOrder(lineEdit_178, lineEdit_179);
+        QWidget::setTabOrder(lineEdit_179, lineEdit_180);
+        QWidget::setTabOrder(lineEdit_180, lineEdit_181);
+        QWidget::setTabOrder(lineEdit_181, lineEdit_182);
+        QWidget::setTabOrder(lineEdit_182, lineEdit_183);
+        QWidget::setTabOrder(lineEdit_183, lineEdit_184);
+        QWidget::setTabOrder(lineEdit_184, lineEdit_185);
+        QWidget::setTabOrder(lineEdit_185, lineEdit_186);
+        QWidget::setTabOrder(lineEdit_186, lineEdit_187);
+        QWidget::setTabOrder(lineEdit_187, lineEdit_188);
+        QWidget::setTabOrder(lineEdit_188, lineEdit_189);
+        QWidget::setTabOrder(lineEdit_189, lineEdit_190);
+        QWidget::setTabOrder(lineEdit_190, lineEdit_191);
+        QWidget::setTabOrder(lineEdit_191, lineEdit_192);
+        QWidget::setTabOrder(lineEdit_192, lineEdit_193);
+        QWidget::setTabOrder(lineEdit_193, lineEdit_194);
+        QWidget::setTabOrder(lineEdit_194, lineEdit_195);
+        QWidget::setTabOrder(lineEdit_195, lineEdit_196);
+        QWidget::setTabOrder(lineEdit_196, lineEdit_197);
+        QWidget::setTabOrder(lineEdit_197, lineEdit_198);
+        QWidget::setTabOrder(lineEdit_198, lineEdit_199);
+        QWidget::setTabOrder(lineEdit_199, lineEdit_200);
+        QWidget::setTabOrder(lineEdit_200, lineEdit_201);
+        QWidget::setTabOrder(lineEdit_201, lineEdit_202);
+        QWidget::setTabOrder(lineEdit_202, lineEdit_203);
+        QWidget::setTabOrder(lineEdit_203, lineEdit_204);
+        QWidget::setTabOrder(lineEdit_204, lineEdit_205);
+        QWidget::setTabOrder(lineEdit_205, lineEdit_206);
+        QWidget::setTabOrder(lineEdit_206, lineEdit_207);
+        QWidget::setTabOrder(lineEdit_207, lineEdit_208);
+        QWidget::setTabOrder(lineEdit_208, lineEdit_209);
+        QWidget::setTabOrder(lineEdit_209, lineEdit_210);
+        QWidget::setTabOrder(lineEdit_210, lineEdit_211);
+        QWidget::setTabOrder(lineEdit_211, lineEdit_212);
+        QWidget::setTabOrder(lineEdit_212, lineEdit_213);
+        QWidget::setTabOrder(lineEdit_213, lineEdit_214);
+        QWidget::setTabOrder(lineEdit_214, lineEdit_215);
+        QWidget::setTabOrder(lineEdit_215, lineEdit_216);
+        QWidget::setTabOrder(lineEdit_216, lineEdit_217);
+        QWidget::setTabOrder(lineEdit_217, lineEdit_218);
+        QWidget::setTabOrder(lineEdit_218, lineEdit_219);
+        QWidget::setTabOrder(lineEdit_219, lineEdit_220);
+        QWidget::setTabOrder(lineEdit_220, lineEdit_221);
+        QWidget::setTabOrder(lineEdit_221, lineEdit_222);
+        QWidget::setTabOrder(lineEdit_222, lineEdit_223);
+        QWidget::setTabOrder(lineEdit_223, lineEdit_224);
+        QWidget::setTabOrder(lineEdit_224, lineEdit_225);
+        QWidget::setTabOrder(lineEdit_225, lineEdit_226);
+        QWidget::setTabOrder(lineEdit_226, lineEdit_227);
+        QWidget::setTabOrder(lineEdit_227, lineEdit_228);
+        QWidget::setTabOrder(lineEdit_228, lineEdit_229);
+        QWidget::setTabOrder(lineEdit_229, lineEdit_230);
+        QWidget::setTabOrder(lineEdit_230, lineEdit_231);
+        QWidget::setTabOrder(lineEdit_231, lineEdit_232);
+        QWidget::setTabOrder(lineEdit_232, lineEdit_233);
+        QWidget::setTabOrder(lineEdit_233, lineEdit_234);
+        QWidget::setTabOrder(lineEdit_234, lineEdit_235);
+        QWidget::setTabOrder(lineEdit_235, lineEdit_236);
+        QWidget::setTabOrder(lineEdit_236, lineEdit_237);
+        QWidget::setTabOrder(lineEdit_237, lineEdit_238);
+        QWidget::setTabOrder(lineEdit_238, lineEdit_239);
+        QWidget::setTabOrder(lineEdit_239, lineEdit_240);
+        QWidget::setTabOrder(lineEdit_240, lineEdit_241);
+        QWidget::setTabOrder(lineEdit_241, lineEdit_242);
+        QWidget::setTabOrder(lineEdit_242, lineEdit_243);
+        QWidget::setTabOrder(lineEdit_243, lineEdit_244);
+        QWidget::setTabOrder(lineEdit_244, lineEdit_245);
+        QWidget::setTabOrder(lineEdit_245, lineEdit_246);
+        QWidget::setTabOrder(lineEdit_246, lineEdit_247);
+        QWidget::setTabOrder(lineEdit_247, lineEdit_248);
+        QWidget::setTabOrder(lineEdit_248, lineEdit_249);
+        QWidget::setTabOrder(lineEdit_249, lineEdit_250);
+        QWidget::setTabOrder(lineEdit_250, lineEdit_251);
+        QWidget::setTabOrder(lineEdit_251, lineEdit_252);
+        QWidget::setTabOrder(lineEdit_252, lineEdit_253);
+        QWidget::setTabOrder(lineEdit_253, lineEdit_254);
+        QWidget::setTabOrder(lineEdit_254, lineEdit_255);
+        QWidget::setTabOrder(lineEdit_255, lineEdit_256);
+        QWidget::setTabOrder(lineEdit_256, lineEdit_257);
+        QWidget::setTabOrder(lineEdit_257, lineEdit_258);
+        QWidget::setTabOrder(lineEdit_258, lineEdit_259);
+        QWidget::setTabOrder(lineEdit_259, lineEdit_260);
+        QWidget::setTabOrder(lineEdit_260, lineEdit_261);
+        QWidget::setTabOrder(lineEdit_261, lineEdit_262);
+        QWidget::setTabOrder(lineEdit_262, lineEdit_263);
+        QWidget::setTabOrder(lineEdit_263, lineEdit_264);
+        QWidget::setTabOrder(lineEdit_264, idg_save_40mm);
 
         menubar->addAction(menuHome->menuAction());
         menubar->addAction(menuFile->menuAction());
@@ -3664,7 +3756,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tab_list->setCurrentIndex(2);
+        tab_list->setCurrentIndex(3);
         spc_info->setCurrentIndex(0);
         fei_info->setCurrentIndex(1);
         aiv_info->setCurrentIndex(0);
@@ -3772,7 +3864,7 @@ public:
         label_13->setText(QCoreApplication::translate("MainWindow", "S.No", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "Description", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "Trial 2", nullptr));
-        spc_save_40mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
+        spc_save_40mm->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         spc_save_20mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         spc_save_10mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
         spc_save_0mm->setText(QCoreApplication::translate("MainWindow", "save", nullptr));
@@ -3924,9 +4016,9 @@ public:
         label_354->setText(QCoreApplication::translate("MainWindow", "Type of Material", nullptr));
         label_355->setText(QCoreApplication::translate("MainWindow", "Sample At", nullptr));
         ind_info->setItemText(ind_info->indexOf(ind_exp), QCoreApplication::translate("MainWindow", "Experiment Info", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        ind_save->setText(QCoreApplication::translate("MainWindow", "Save ", nullptr));
+        ind_saveas->setText(QCoreApplication::translate("MainWindow", "Save As...", nullptr));
+        ind_export->setText(QCoreApplication::translate("MainWindow", "Export to PDF...", nullptr));
         label_275->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:26pt; font-weight:700;\">Individual Gradation</span></p></body></html>", nullptr));
         label_311->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; text-decoration: underline;\">40 mm</span></p></body></html>", nullptr));
         label_312->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:15pt; text-decoration: underline;\">Sample No. I</span></p></body></html>", nullptr));
@@ -3968,6 +4060,22 @@ public:
         label_357->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:15pt; text-decoration: underline;\">Sample No. III</span></p></body></html>", nullptr));
         label_458->setText(QCoreApplication::translate("MainWindow", "SIEVE SIZE", nullptr));
         label_459->setText(QCoreApplication::translate("MainWindow", "Weight of Retained(in gms)", nullptr));
+        idg_save_40mm->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        label_74->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_75->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_76->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_77->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_78->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_79->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_80->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_81->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_86->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_89->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_92->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        label_93->setText(QCoreApplication::translate("MainWindow", "Total Weight", nullptr));
+        idg_save_20mm->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        idg_save_10mm->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        idg_save_0mm->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         tab_list->setTabText(tab_list->indexOf(ind), QCoreApplication::translate("MainWindow", "Individual gradation", nullptr));
         menuHome->setTitle(QCoreApplication::translate("MainWindow", "Home", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));

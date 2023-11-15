@@ -162,6 +162,10 @@ private slots:
 
     void on_idg_save_20mm_clicked();
 
+    void on_idg_save_10mm_clicked();
+
+    void on_idg_save_d_clicked();
+
 private:
     float scroll_sens;
 
