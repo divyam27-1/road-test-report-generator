@@ -64,7 +64,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>698</height>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -174,8 +174,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>230</width>
-         <height>698</height>
+         <width>100</width>
+         <height>30</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2144,7 +2144,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>698</height>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3484,7 +3484,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>699</height>
+         <height>701</height>
         </rect>
        </property>
        <attribute name="label">
@@ -4926,7 +4926,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>699</height>
+         <height>701</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5288,7 +5288,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-560</y>
+         <y>-1600</y>
          <width>1370</width>
          <height>2241</height>
         </rect>
@@ -6584,7 +6584,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_169">
+       <widget class="QLineEdit" name="idg_10_s11">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -6594,7 +6594,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_170">
+       <widget class="QLineEdit" name="idg_10_s12">
         <property name="geometry">
          <rect>
           <x>310</x>
@@ -6604,7 +6604,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_171">
+       <widget class="QLineEdit" name="idg_10_s13">
         <property name="geometry">
          <rect>
           <x>380</x>
@@ -6614,7 +6614,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_172">
+       <widget class="QLineEdit" name="idg_10_s14">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -6624,7 +6624,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_173">
+       <widget class="QLineEdit" name="idg_10_s15">
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -6634,7 +6634,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_174">
+       <widget class="QLineEdit" name="idg_10_s16">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -6644,7 +6644,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_175">
+       <widget class="QLineEdit" name="idg_10_s17">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -6654,7 +6654,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_176">
+       <widget class="QLineEdit" name="idg_10_s18">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -6664,7 +6664,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_177">
+       <widget class="QLineEdit" name="idg_10_w11">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -6674,7 +6674,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_178">
+       <widget class="QLineEdit" name="idg_10_w12">
         <property name="geometry">
          <rect>
           <x>310</x>
@@ -6684,7 +6684,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_179">
+       <widget class="QLineEdit" name="idg_10_w13">
         <property name="geometry">
          <rect>
           <x>380</x>
@@ -6694,7 +6694,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_180">
+       <widget class="QLineEdit" name="idg_10_w14">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -6704,7 +6704,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_181">
+       <widget class="QLineEdit" name="idg_10_w15">
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -6714,7 +6714,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_182">
+       <widget class="QLineEdit" name="idg_10_w16">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -6724,7 +6724,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_183">
+       <widget class="QLineEdit" name="idg_10_w17">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -6734,7 +6734,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_184">
+       <widget class="QLineEdit" name="idg_10_w18">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -6783,7 +6783,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_185">
+       <widget class="QLineEdit" name="idg_10_s21">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -6793,7 +6793,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_186">
+       <widget class="QLineEdit" name="idg_10_s22">
         <property name="geometry">
          <rect>
           <x>310</x>
@@ -6803,7 +6803,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_187">
+       <widget class="QLineEdit" name="idg_10_s23">
         <property name="geometry">
          <rect>
           <x>380</x>
@@ -6813,17 +6813,17 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_188">
+       <widget class="QLineEdit" name="idg_10_s24">
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>460</x>
           <y>1420</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_189">
+       <widget class="QLineEdit" name="idg_10_s25">
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -6833,7 +6833,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_190">
+       <widget class="QLineEdit" name="idg_10_s26">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -6843,7 +6843,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_191">
+       <widget class="QLineEdit" name="idg_10_s27">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -6853,7 +6853,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_192">
+       <widget class="QLineEdit" name="idg_10_s28">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -6863,7 +6863,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_193">
+       <widget class="QLineEdit" name="idg_10_w21">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -6873,17 +6873,17 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_194">
+       <widget class="QLineEdit" name="idg_10_w22">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>310</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_195">
+       <widget class="QLineEdit" name="idg_10_w23">
         <property name="geometry">
          <rect>
           <x>380</x>
@@ -6893,50 +6893,50 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_196">
+       <widget class="QLineEdit" name="idg_10_w24">
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>460</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_197">
+       <widget class="QLineEdit" name="idg_10_w25">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>530</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_198">
+       <widget class="QLineEdit" name="idg_10_w26">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>600</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_199">
+       <widget class="QLineEdit" name="idg_10_w27">
         <property name="geometry">
          <rect>
-          <x>660</x>
+          <x>670</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_200">
+       <widget class="QLineEdit" name="idg_10_w28">
         <property name="geometry">
          <rect>
-          <x>730</x>
+          <x>740</x>
           <y>1470</y>
           <width>61</width>
           <height>25</height>
@@ -6982,7 +6982,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_201">
+       <widget class="QLineEdit" name="idg_10_s31">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -6992,7 +6992,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_202">
+       <widget class="QLineEdit" name="idg_10_s32">
         <property name="geometry">
          <rect>
           <x>310</x>
@@ -7002,7 +7002,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_203">
+       <widget class="QLineEdit" name="idg_10_s33">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -7012,7 +7012,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_204">
+       <widget class="QLineEdit" name="idg_10_s34">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -7022,7 +7022,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_205">
+       <widget class="QLineEdit" name="idg_10_s35">
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -7032,7 +7032,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_206">
+       <widget class="QLineEdit" name="idg_10_s36">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -7042,7 +7042,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_207">
+       <widget class="QLineEdit" name="idg_10_s37">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -7052,7 +7052,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_208">
+       <widget class="QLineEdit" name="idg_10_s38">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -7062,7 +7062,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_209">
+       <widget class="QLineEdit" name="idg_10_w31">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7072,7 +7072,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_210">
+       <widget class="QLineEdit" name="idg_10_w32">
         <property name="geometry">
          <rect>
           <x>310</x>
@@ -7082,7 +7082,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_211">
+       <widget class="QLineEdit" name="idg_10_w33">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -7092,7 +7092,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_212">
+       <widget class="QLineEdit" name="idg_10_w34">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -7102,7 +7102,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_213">
+       <widget class="QLineEdit" name="idg_10_w35">
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -7112,7 +7112,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_214">
+       <widget class="QLineEdit" name="idg_10_w36">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -7122,7 +7122,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_215">
+       <widget class="QLineEdit" name="idg_10_w37">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -7132,7 +7132,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_216">
+       <widget class="QLineEdit" name="idg_10_w38">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -7194,7 +7194,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_217">
+       <widget class="QLineEdit" name="idg_d_s11">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7204,7 +7204,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_218">
+       <widget class="QLineEdit" name="idg_d_s12">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7214,7 +7214,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_219">
+       <widget class="QLineEdit" name="idg_d_s13">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7224,7 +7224,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_220">
+       <widget class="QLineEdit" name="idg_d_s14">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7234,7 +7234,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_221">
+       <widget class="QLineEdit" name="idg_d_s15">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7244,7 +7244,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_222">
+       <widget class="QLineEdit" name="idg_d_s16">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7254,7 +7254,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_223">
+       <widget class="QLineEdit" name="idg_d_s17">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7264,7 +7264,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_224">
+       <widget class="QLineEdit" name="idg_d_s18">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -7274,7 +7274,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_225">
+       <widget class="QLineEdit" name="idg_d_w11">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7284,7 +7284,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_226">
+       <widget class="QLineEdit" name="idg_d_w12">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7294,7 +7294,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_227">
+       <widget class="QLineEdit" name="idg_d_w13">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7304,7 +7304,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_228">
+       <widget class="QLineEdit" name="idg_d_w14">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7314,7 +7314,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_229">
+       <widget class="QLineEdit" name="idg_d_w15">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7324,7 +7324,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_230">
+       <widget class="QLineEdit" name="idg_d_w16">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7334,7 +7334,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_231">
+       <widget class="QLineEdit" name="idg_d_w17">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7344,7 +7344,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_232">
+       <widget class="QLineEdit" name="idg_d_w18">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -7393,7 +7393,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_233">
+       <widget class="QLineEdit" name="idg_d_s21">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7403,7 +7403,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_234">
+       <widget class="QLineEdit" name="idg_d_s22">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7413,7 +7413,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_235">
+       <widget class="QLineEdit" name="idg_d_s23">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7423,7 +7423,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_236">
+       <widget class="QLineEdit" name="idg_d_s24">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7433,7 +7433,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_237">
+       <widget class="QLineEdit" name="idg_d_s25">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7443,7 +7443,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_238">
+       <widget class="QLineEdit" name="idg_d_s26">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7453,7 +7453,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_239">
+       <widget class="QLineEdit" name="idg_d_s27">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7463,7 +7463,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_240">
+       <widget class="QLineEdit" name="idg_d_s28">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -7473,7 +7473,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_241">
+       <widget class="QLineEdit" name="idg_d_w21">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7483,7 +7483,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_242">
+       <widget class="QLineEdit" name="idg_d_w22">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7493,7 +7493,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_243">
+       <widget class="QLineEdit" name="idg_d_w23">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7503,7 +7503,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_244">
+       <widget class="QLineEdit" name="idg_d_w24">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7513,7 +7513,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_245">
+       <widget class="QLineEdit" name="idg_d_w25">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7523,7 +7523,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_246">
+       <widget class="QLineEdit" name="idg_d_w26">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7533,7 +7533,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_247">
+       <widget class="QLineEdit" name="idg_d_w27">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7543,7 +7543,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_248">
+       <widget class="QLineEdit" name="idg_d_w28">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -7592,7 +7592,7 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Retained(in gms)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_249">
+       <widget class="QLineEdit" name="idg_d_s31">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7602,7 +7602,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_250">
+       <widget class="QLineEdit" name="idg_d_s32">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7612,7 +7612,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_251">
+       <widget class="QLineEdit" name="idg_d_s33">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7622,7 +7622,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_252">
+       <widget class="QLineEdit" name="idg_d_s34">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7632,7 +7632,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_253">
+       <widget class="QLineEdit" name="idg_d_s35">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7642,7 +7642,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_254">
+       <widget class="QLineEdit" name="idg_d_s36">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7652,7 +7652,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_255">
+       <widget class="QLineEdit" name="idg_d_s37">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7662,7 +7662,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_256">
+       <widget class="QLineEdit" name="idg_d_s38">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -7672,7 +7672,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_257">
+       <widget class="QLineEdit" name="idg_d_w31">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -7682,7 +7682,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_258">
+       <widget class="QLineEdit" name="idg_d_w32">
         <property name="geometry">
          <rect>
           <x>300</x>
@@ -7692,7 +7692,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_259">
+       <widget class="QLineEdit" name="idg_d_w33">
         <property name="geometry">
          <rect>
           <x>370</x>
@@ -7702,7 +7702,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_260">
+       <widget class="QLineEdit" name="idg_d_w34">
         <property name="geometry">
          <rect>
           <x>440</x>
@@ -7712,7 +7712,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_261">
+       <widget class="QLineEdit" name="idg_d_w35">
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -7722,7 +7722,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_262">
+       <widget class="QLineEdit" name="idg_d_w36">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -7732,7 +7732,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_263">
+       <widget class="QLineEdit" name="idg_d_w37">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -7742,7 +7742,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_264">
+       <widget class="QLineEdit" name="idg_d_w38">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -8067,7 +8067,7 @@ color: rgb(0, 0, 0);</string>
          <string>Save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="idg_save_0mm">
+       <widget class="QPushButton" name="idg_save_d">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -8113,7 +8113,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">
@@ -8502,102 +8502,102 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_20_w36</tabstop>
   <tabstop>idg_20_w37</tabstop>
   <tabstop>idg_20_w38</tabstop>
-  <tabstop>lineEdit_169</tabstop>
-  <tabstop>lineEdit_170</tabstop>
-  <tabstop>lineEdit_171</tabstop>
-  <tabstop>lineEdit_172</tabstop>
-  <tabstop>lineEdit_173</tabstop>
-  <tabstop>lineEdit_174</tabstop>
-  <tabstop>lineEdit_175</tabstop>
-  <tabstop>lineEdit_176</tabstop>
-  <tabstop>lineEdit_177</tabstop>
-  <tabstop>lineEdit_178</tabstop>
-  <tabstop>lineEdit_179</tabstop>
-  <tabstop>lineEdit_180</tabstop>
-  <tabstop>lineEdit_181</tabstop>
-  <tabstop>lineEdit_182</tabstop>
-  <tabstop>lineEdit_183</tabstop>
-  <tabstop>lineEdit_184</tabstop>
-  <tabstop>lineEdit_185</tabstop>
-  <tabstop>lineEdit_186</tabstop>
-  <tabstop>lineEdit_187</tabstop>
-  <tabstop>lineEdit_188</tabstop>
-  <tabstop>lineEdit_189</tabstop>
-  <tabstop>lineEdit_190</tabstop>
-  <tabstop>lineEdit_191</tabstop>
-  <tabstop>lineEdit_192</tabstop>
-  <tabstop>lineEdit_193</tabstop>
-  <tabstop>lineEdit_194</tabstop>
-  <tabstop>lineEdit_195</tabstop>
-  <tabstop>lineEdit_196</tabstop>
-  <tabstop>lineEdit_197</tabstop>
-  <tabstop>lineEdit_198</tabstop>
-  <tabstop>lineEdit_199</tabstop>
-  <tabstop>lineEdit_200</tabstop>
-  <tabstop>lineEdit_201</tabstop>
-  <tabstop>lineEdit_202</tabstop>
-  <tabstop>lineEdit_203</tabstop>
-  <tabstop>lineEdit_204</tabstop>
-  <tabstop>lineEdit_205</tabstop>
-  <tabstop>lineEdit_206</tabstop>
-  <tabstop>lineEdit_207</tabstop>
-  <tabstop>lineEdit_208</tabstop>
-  <tabstop>lineEdit_209</tabstop>
-  <tabstop>lineEdit_210</tabstop>
-  <tabstop>lineEdit_211</tabstop>
-  <tabstop>lineEdit_212</tabstop>
-  <tabstop>lineEdit_213</tabstop>
-  <tabstop>lineEdit_214</tabstop>
-  <tabstop>lineEdit_215</tabstop>
-  <tabstop>lineEdit_216</tabstop>
-  <tabstop>lineEdit_217</tabstop>
-  <tabstop>lineEdit_218</tabstop>
-  <tabstop>lineEdit_219</tabstop>
-  <tabstop>lineEdit_220</tabstop>
-  <tabstop>lineEdit_221</tabstop>
-  <tabstop>lineEdit_222</tabstop>
-  <tabstop>lineEdit_223</tabstop>
-  <tabstop>lineEdit_224</tabstop>
-  <tabstop>lineEdit_225</tabstop>
-  <tabstop>lineEdit_226</tabstop>
-  <tabstop>lineEdit_227</tabstop>
-  <tabstop>lineEdit_228</tabstop>
-  <tabstop>lineEdit_229</tabstop>
-  <tabstop>lineEdit_230</tabstop>
-  <tabstop>lineEdit_231</tabstop>
-  <tabstop>lineEdit_232</tabstop>
-  <tabstop>lineEdit_233</tabstop>
-  <tabstop>lineEdit_234</tabstop>
-  <tabstop>lineEdit_235</tabstop>
-  <tabstop>lineEdit_236</tabstop>
-  <tabstop>lineEdit_237</tabstop>
-  <tabstop>lineEdit_238</tabstop>
-  <tabstop>lineEdit_239</tabstop>
-  <tabstop>lineEdit_240</tabstop>
-  <tabstop>lineEdit_241</tabstop>
-  <tabstop>lineEdit_242</tabstop>
-  <tabstop>lineEdit_243</tabstop>
-  <tabstop>lineEdit_244</tabstop>
-  <tabstop>lineEdit_245</tabstop>
-  <tabstop>lineEdit_246</tabstop>
-  <tabstop>lineEdit_247</tabstop>
-  <tabstop>lineEdit_248</tabstop>
-  <tabstop>lineEdit_249</tabstop>
-  <tabstop>lineEdit_250</tabstop>
-  <tabstop>lineEdit_251</tabstop>
-  <tabstop>lineEdit_252</tabstop>
-  <tabstop>lineEdit_253</tabstop>
-  <tabstop>lineEdit_254</tabstop>
-  <tabstop>lineEdit_255</tabstop>
-  <tabstop>lineEdit_256</tabstop>
-  <tabstop>lineEdit_257</tabstop>
-  <tabstop>lineEdit_258</tabstop>
-  <tabstop>lineEdit_259</tabstop>
-  <tabstop>lineEdit_260</tabstop>
-  <tabstop>lineEdit_261</tabstop>
-  <tabstop>lineEdit_262</tabstop>
-  <tabstop>lineEdit_263</tabstop>
-  <tabstop>lineEdit_264</tabstop>
+  <tabstop>idg_10_s11</tabstop>
+  <tabstop>idg_10_s12</tabstop>
+  <tabstop>idg_10_s13</tabstop>
+  <tabstop>idg_10_s14</tabstop>
+  <tabstop>idg_10_s15</tabstop>
+  <tabstop>idg_10_s16</tabstop>
+  <tabstop>idg_10_s17</tabstop>
+  <tabstop>idg_10_s18</tabstop>
+  <tabstop>idg_10_w11</tabstop>
+  <tabstop>idg_10_w12</tabstop>
+  <tabstop>idg_10_w13</tabstop>
+  <tabstop>idg_10_w14</tabstop>
+  <tabstop>idg_10_w15</tabstop>
+  <tabstop>idg_10_w16</tabstop>
+  <tabstop>idg_10_w17</tabstop>
+  <tabstop>idg_10_w18</tabstop>
+  <tabstop>idg_10_s21</tabstop>
+  <tabstop>idg_10_s22</tabstop>
+  <tabstop>idg_10_s23</tabstop>
+  <tabstop>idg_10_s24</tabstop>
+  <tabstop>idg_10_s25</tabstop>
+  <tabstop>idg_10_s26</tabstop>
+  <tabstop>idg_10_s27</tabstop>
+  <tabstop>idg_10_s28</tabstop>
+  <tabstop>idg_10_w21</tabstop>
+  <tabstop>idg_10_w22</tabstop>
+  <tabstop>idg_10_w23</tabstop>
+  <tabstop>idg_10_w24</tabstop>
+  <tabstop>idg_10_w25</tabstop>
+  <tabstop>idg_10_w26</tabstop>
+  <tabstop>idg_10_w27</tabstop>
+  <tabstop>idg_10_w28</tabstop>
+  <tabstop>idg_10_s31</tabstop>
+  <tabstop>idg_10_s32</tabstop>
+  <tabstop>idg_10_s33</tabstop>
+  <tabstop>idg_10_s34</tabstop>
+  <tabstop>idg_10_s35</tabstop>
+  <tabstop>idg_10_s36</tabstop>
+  <tabstop>idg_10_s37</tabstop>
+  <tabstop>idg_10_s38</tabstop>
+  <tabstop>idg_10_w31</tabstop>
+  <tabstop>idg_10_w32</tabstop>
+  <tabstop>idg_10_w33</tabstop>
+  <tabstop>idg_10_w34</tabstop>
+  <tabstop>idg_10_w35</tabstop>
+  <tabstop>idg_10_w36</tabstop>
+  <tabstop>idg_10_w37</tabstop>
+  <tabstop>idg_10_w38</tabstop>
+  <tabstop>idg_d_s11</tabstop>
+  <tabstop>idg_d_s12</tabstop>
+  <tabstop>idg_d_s13</tabstop>
+  <tabstop>idg_d_s14</tabstop>
+  <tabstop>idg_d_s15</tabstop>
+  <tabstop>idg_d_s16</tabstop>
+  <tabstop>idg_d_s17</tabstop>
+  <tabstop>idg_d_s18</tabstop>
+  <tabstop>idg_d_w11</tabstop>
+  <tabstop>idg_d_w12</tabstop>
+  <tabstop>idg_d_w13</tabstop>
+  <tabstop>idg_d_w14</tabstop>
+  <tabstop>idg_d_w15</tabstop>
+  <tabstop>idg_d_w16</tabstop>
+  <tabstop>idg_d_w17</tabstop>
+  <tabstop>idg_d_w18</tabstop>
+  <tabstop>idg_d_s21</tabstop>
+  <tabstop>idg_d_s22</tabstop>
+  <tabstop>idg_d_s23</tabstop>
+  <tabstop>idg_d_s24</tabstop>
+  <tabstop>idg_d_s25</tabstop>
+  <tabstop>idg_d_s26</tabstop>
+  <tabstop>idg_d_s27</tabstop>
+  <tabstop>idg_d_s28</tabstop>
+  <tabstop>idg_d_w21</tabstop>
+  <tabstop>idg_d_w22</tabstop>
+  <tabstop>idg_d_w23</tabstop>
+  <tabstop>idg_d_w24</tabstop>
+  <tabstop>idg_d_w25</tabstop>
+  <tabstop>idg_d_w26</tabstop>
+  <tabstop>idg_d_w27</tabstop>
+  <tabstop>idg_d_w28</tabstop>
+  <tabstop>idg_d_s31</tabstop>
+  <tabstop>idg_d_s32</tabstop>
+  <tabstop>idg_d_s33</tabstop>
+  <tabstop>idg_d_s34</tabstop>
+  <tabstop>idg_d_s35</tabstop>
+  <tabstop>idg_d_s36</tabstop>
+  <tabstop>idg_d_s37</tabstop>
+  <tabstop>idg_d_s38</tabstop>
+  <tabstop>idg_d_w31</tabstop>
+  <tabstop>idg_d_w32</tabstop>
+  <tabstop>idg_d_w33</tabstop>
+  <tabstop>idg_d_w34</tabstop>
+  <tabstop>idg_d_w35</tabstop>
+  <tabstop>idg_d_w36</tabstop>
+  <tabstop>idg_d_w37</tabstop>
+  <tabstop>idg_d_w38</tabstop>
   <tabstop>idg_save_40mm</tabstop>
  </tabstops>
  <resources/>

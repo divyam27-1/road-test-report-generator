@@ -979,6 +979,339 @@ void MainWindow::on_idg_save_20mm_clicked()
        idg.close();
     }
 }
+void MainWindow::on_idg_save_10mm_clicked()
+{
+    tracked_files.push_back("ind");
+    removeDuplicates(tracked_files);
+
+    float cumsum = 0;
+
+    is_sieve_40[1][1] = ui->idg_10_s11->text().toFloat();
+    is_sieve_40[1][2] = ui->idg_10_s12->text().toFloat();
+    is_sieve_40[1][3] = ui->idg_10_s13->text().toFloat();
+    is_sieve_40[1][4] = ui->idg_10_s14->text().toFloat();
+    is_sieve_40[1][5] = ui->idg_10_s15->text().toFloat();
+    is_sieve_40[1][6] = ui->idg_10_s16->text().toFloat();
+    is_sieve_40[1][7] = ui->idg_10_s17->text().toFloat();
+    is_sieve_40[1][8] = ui->idg_10_s18->text().toFloat();
+
+    weight_of_retained_40[1][1] = ui->idg_10_w11->text().toFloat();
+    weight_of_retained_40[1][2] = ui->idg_10_w12->text().toFloat();
+    weight_of_retained_40[1][3] = ui->idg_10_w13->text().toFloat();
+    weight_of_retained_40[1][4] = ui->idg_10_w14->text().toFloat();
+    weight_of_retained_40[1][5] = ui->idg_10_w15->text().toFloat();
+    weight_of_retained_40[1][6] = ui->idg_10_w16->text().toFloat();
+    weight_of_retained_40[1][7] = ui->idg_10_w17->text().toFloat();
+    weight_of_retained_40[1][8] = ui->idg_10_w18->text().toFloat();
+
+    is_sieve_40[2][1] = ui->idg_10_s21->text().toFloat();
+    is_sieve_40[2][2] = ui->idg_10_s22->text().toFloat();
+    is_sieve_40[2][3] = ui->idg_10_s23->text().toFloat();
+    is_sieve_40[2][4] = ui->idg_10_s24->text().toFloat();
+    is_sieve_40[2][5] = ui->idg_10_s25->text().toFloat();
+    is_sieve_40[2][6] = ui->idg_10_s26->text().toFloat();
+    is_sieve_40[2][7] = ui->idg_10_s27->text().toFloat();
+    is_sieve_40[2][8] = ui->idg_10_s28->text().toFloat();
+
+    weight_of_retained_40[2][1] = ui->idg_10_w21->text().toFloat();
+    weight_of_retained_40[2][2] = ui->idg_10_w22->text().toFloat();
+    weight_of_retained_40[2][3] = ui->idg_10_w23->text().toFloat();
+    weight_of_retained_40[2][4] = ui->idg_10_w24->text().toFloat();
+    weight_of_retained_40[2][5] = ui->idg_10_w25->text().toFloat();
+    weight_of_retained_40[2][6] = ui->idg_10_w26->text().toFloat();
+    weight_of_retained_40[2][7] = ui->idg_10_w27->text().toFloat();
+    weight_of_retained_40[2][8] = ui->idg_10_w28->text().toFloat();
+
+    is_sieve_40[3][1] = ui->idg_10_s31->text().toFloat();
+    is_sieve_40[3][2] = ui->idg_10_s32->text().toFloat();
+    is_sieve_40[3][3] = ui->idg_10_s33->text().toFloat();
+    is_sieve_40[3][4] = ui->idg_10_s34->text().toFloat();
+    is_sieve_40[3][5] = ui->idg_10_s35->text().toFloat();
+    is_sieve_40[3][6] = ui->idg_10_s36->text().toFloat();
+    is_sieve_40[3][7] = ui->idg_10_s36->text().toFloat();
+    is_sieve_40[3][8] = ui->idg_10_s38->text().toFloat();
+
+    weight_of_retained_40[3][1] = ui->idg_10_w31->text().toFloat();
+    weight_of_retained_40[3][2] = ui->idg_10_w32->text().toFloat();
+    weight_of_retained_40[3][3] = ui->idg_10_w33->text().toFloat();
+    weight_of_retained_40[3][4] = ui->idg_10_w34->text().toFloat();
+    weight_of_retained_40[3][5] = ui->idg_10_w35->text().toFloat();
+    weight_of_retained_40[3][6] = ui->idg_10_w36->text().toFloat();
+    weight_of_retained_40[3][7] = ui->idg_10_w37->text().toFloat();
+    weight_of_retained_40[3][8] = ui->idg_10_w38->text().toFloat();
+
+    total_weight[0] = ui->ind_10_w1->text().toFloat();
+    total_weight[1] = ui->ind_10_w2->text().toFloat();
+    total_weight[2] = ui->ind_10_w3->text().toFloat();
+
+    for (int i = 1; i <= 3; i++)
+    {
+       cumsum = 0;
+       for (int j = 1; j <= 8; j++)
+       {
+           cumsum += weight_of_retained_40[i][j];
+           ind_cumulative[i][j] = cumsum;
+           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
+           ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+       }
+    }
+
+    QJsonObject individual_gradation_10mm;
+
+    individual_gradation_10mm["is_sieve_s11"] = is_sieve_40[1][1];
+    individual_gradation_10mm["is_sieve_s12"] = is_sieve_40[1][2];
+    individual_gradation_10mm["is_sieve_s13"] = is_sieve_40[1][3];
+    individual_gradation_10mm["is_sieve_s14"] = is_sieve_40[1][4];
+    individual_gradation_10mm["is_sieve_s15"] = is_sieve_40[1][5];
+    individual_gradation_10mm["is_sieve_s16"] = is_sieve_40[1][6];
+    individual_gradation_10mm["is_sieve_s17"] = is_sieve_40[1][7];
+    individual_gradation_10mm["is_sieve_s18"] = is_sieve_40[1][8];
+
+    individual_gradation_10mm["weight_of_retained_w11"] = weight_of_retained_40[1][1];
+    individual_gradation_10mm["weight_of_retained_w12"] = weight_of_retained_40[1][2];
+    individual_gradation_10mm["weight_of_retained_w13"] = weight_of_retained_40[1][3];
+    individual_gradation_10mm["weight_of_retained_w14"] = weight_of_retained_40[1][4];
+    individual_gradation_10mm["weight_of_retained_w15"] = weight_of_retained_40[1][5];
+    individual_gradation_10mm["weight_of_retained_w16"] = weight_of_retained_40[1][6];
+    individual_gradation_10mm["weight_of_retained_w17"] = weight_of_retained_40[1][7];
+    individual_gradation_10mm["weight_of_retained_w18"] = weight_of_retained_40[1][8];
+
+    individual_gradation_10mm["is_sieve_s21"] = is_sieve_40[2][1];
+    individual_gradation_10mm["is_sieve_s22"] = is_sieve_40[2][2];
+    individual_gradation_10mm["is_sieve_s23"] = is_sieve_40[2][3];
+    individual_gradation_10mm["is_sieve_s24"] = is_sieve_40[2][4];
+    individual_gradation_10mm["is_sieve_s25"] = is_sieve_40[2][5];
+    individual_gradation_10mm["is_sieve_s26"] = is_sieve_40[2][6];
+    individual_gradation_10mm["is_sieve_s27"] = is_sieve_40[2][7];
+    individual_gradation_10mm["is_sieve_s28"] = is_sieve_40[2][8];
+
+    individual_gradation_10mm["weight_of_retained_w21"] = weight_of_retained_40[2][1];
+    individual_gradation_10mm["weight_of_retained_w22"] = weight_of_retained_40[2][2];
+    individual_gradation_10mm["weight_of_retained_w23"] = weight_of_retained_40[2][3];
+    individual_gradation_10mm["weight_of_retained_w24"] = weight_of_retained_40[2][4];
+    individual_gradation_10mm["weight_of_retained_w25"] = weight_of_retained_40[2][5];
+    individual_gradation_10mm["weight_of_retained_w26"] = weight_of_retained_40[2][6];
+    individual_gradation_10mm["weight_of_retained_w27"] = weight_of_retained_40[2][7];
+    individual_gradation_10mm["weight_of_retained_w28"] = weight_of_retained_40[2][8];
+
+    individual_gradation_10mm["is_sieve_s31"] = is_sieve_40[3][1];
+    individual_gradation_10mm["is_sieve_s32"] = is_sieve_40[3][2];
+    individual_gradation_10mm["is_sieve_s33"] = is_sieve_40[3][3];
+    individual_gradation_10mm["is_sieve_s34"] = is_sieve_40[3][4];
+    individual_gradation_10mm["is_sieve_s35"] = is_sieve_40[3][5];
+    individual_gradation_10mm["is_sieve_s36"] = is_sieve_40[3][6];
+    individual_gradation_10mm["is_sieve_s37"] = is_sieve_40[3][7];
+    individual_gradation_10mm["is_sieve_s38"] = is_sieve_40[3][8];
+
+    individual_gradation_10mm["weight_of_retained_w31"] = weight_of_retained_40[3][1];
+    individual_gradation_10mm["weight_of_retained_w32"] = weight_of_retained_40[3][2];
+    individual_gradation_10mm["weight_of_retained_w33"] = weight_of_retained_40[3][3];
+    individual_gradation_10mm["weight_of_retained_w34"] = weight_of_retained_40[3][4];
+    individual_gradation_10mm["weight_of_retained_w35"] = weight_of_retained_40[3][5];
+    individual_gradation_10mm["weight_of_retained_w36"] = weight_of_retained_40[3][6];
+    individual_gradation_10mm["weight_of_retained_w37"] = weight_of_retained_40[3][7];
+    individual_gradation_10mm["weight_of_retained_w38"] = weight_of_retained_40[3][8];
+
+    std::string base_cum = "cum_";
+    std::string base_CUM = "CUM_";
+    std::string base_pass = "pass_";
+    std::string base_total = "total_weight_";
+
+    for (int i = 1; i <= 3; i++) {
+       for (int j = 1; j <= 8; j++) {
+           std::string istr = std::to_string(i);
+           std::string jstr = std::to_string(j);
+
+
+           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+           QString target_total = QString::fromStdString(base_total + istr);
+
+           individual_gradation_10mm[target_cum] = ind_cumulative[i][j];
+           individual_gradation_10mm[target_CUM] = ind_cumulative_percent[i][j];
+           individual_gradation_10mm[target_pass] = ind_cum_pass[i][j];
+       }
+    }
+
+    idg_json["10mm"] = individual_gradation_10mm;
+
+    if (idg.open(QFile::WriteOnly | QFile::Text))
+    {
+       QTextStream out(&idg);
+       QJsonDocument jsonDoc_4(idg_json);
+       out << jsonDoc_4.toJson();
+       idg.close();
+    }
+}
+void MainWindow::on_idg_save_d_clicked()
+{
+
+    tracked_files.push_back("ind");
+    removeDuplicates(tracked_files);
+
+    float cumsum = 0;
+
+    is_sieve_40[1][1] = ui->idg_d_s11->text().toFloat();
+    is_sieve_40[1][2] = ui->idg_d_s12->text().toFloat();
+    is_sieve_40[1][3] = ui->idg_d_s13->text().toFloat();
+    is_sieve_40[1][4] = ui->idg_d_s14->text().toFloat();
+    is_sieve_40[1][5] = ui->idg_d_s15->text().toFloat();
+    is_sieve_40[1][6] = ui->idg_d_s16->text().toFloat();
+    is_sieve_40[1][7] = ui->idg_d_s17->text().toFloat();
+    is_sieve_40[1][8] = ui->idg_d_s18->text().toFloat();
+
+    weight_of_retained_40[1][1] = ui->idg_d_w11->text().toFloat();
+    weight_of_retained_40[1][2] = ui->idg_d_w12->text().toFloat();
+    weight_of_retained_40[1][3] = ui->idg_d_w13->text().toFloat();
+    weight_of_retained_40[1][4] = ui->idg_d_w14->text().toFloat();
+    weight_of_retained_40[1][5] = ui->idg_d_w15->text().toFloat();
+    weight_of_retained_40[1][6] = ui->idg_d_w16->text().toFloat();
+    weight_of_retained_40[1][7] = ui->idg_d_w17->text().toFloat();
+    weight_of_retained_40[1][8] = ui->idg_d_w18->text().toFloat();
+
+    is_sieve_40[2][1] = ui->idg_d_s21->text().toFloat();
+    is_sieve_40[2][2] = ui->idg_d_s22->text().toFloat();
+    is_sieve_40[2][3] = ui->idg_d_s23->text().toFloat();
+    is_sieve_40[2][4] = ui->idg_d_s24->text().toFloat();
+    is_sieve_40[2][5] = ui->idg_d_s25->text().toFloat();
+    is_sieve_40[2][6] = ui->idg_d_s26->text().toFloat();
+    is_sieve_40[2][7] = ui->idg_d_s27->text().toFloat();
+    is_sieve_40[2][8] = ui->idg_d_s28->text().toFloat();
+
+    weight_of_retained_40[2][1] = ui->idg_d_w21->text().toFloat();
+    weight_of_retained_40[2][2] = ui->idg_d_w22->text().toFloat();
+    weight_of_retained_40[2][3] = ui->idg_d_w23->text().toFloat();
+    weight_of_retained_40[2][4] = ui->idg_d_w24->text().toFloat();
+    weight_of_retained_40[2][5] = ui->idg_d_w25->text().toFloat();
+    weight_of_retained_40[2][6] = ui->idg_d_w26->text().toFloat();
+    weight_of_retained_40[2][7] = ui->idg_d_w27->text().toFloat();
+    weight_of_retained_40[2][8] = ui->idg_d_w28->text().toFloat();
+
+    is_sieve_40[3][1] = ui->idg_d_s31->text().toFloat();
+    is_sieve_40[3][2] = ui->idg_d_s32->text().toFloat();
+    is_sieve_40[3][3] = ui->idg_d_s33->text().toFloat();
+    is_sieve_40[3][4] = ui->idg_d_s34->text().toFloat();
+    is_sieve_40[3][5] = ui->idg_d_s35->text().toFloat();
+    is_sieve_40[3][6] = ui->idg_d_s36->text().toFloat();
+    is_sieve_40[3][7] = ui->idg_d_s36->text().toFloat();
+    is_sieve_40[3][8] = ui->idg_d_s38->text().toFloat();
+
+    weight_of_retained_40[3][1] = ui->idg_d_w31->text().toFloat();
+    weight_of_retained_40[3][2] = ui->idg_d_w32->text().toFloat();
+    weight_of_retained_40[3][3] = ui->idg_d_w33->text().toFloat();
+    weight_of_retained_40[3][4] = ui->idg_d_w34->text().toFloat();
+    weight_of_retained_40[3][5] = ui->idg_d_w35->text().toFloat();
+    weight_of_retained_40[3][6] = ui->idg_d_w36->text().toFloat();
+    weight_of_retained_40[3][7] = ui->idg_d_w37->text().toFloat();
+    weight_of_retained_40[3][8] = ui->idg_d_w38->text().toFloat();
+
+    total_weight[0] = ui->ind_0_w1->text().toFloat();
+    total_weight[1] = ui->ind_0_w2->text().toFloat();
+    total_weight[2] = ui->ind_0_w3->text().toFloat();
+
+    for (int i = 1; i <= 3; i++)
+    {
+       cumsum = 0;
+       for (int j = 1; j <= 8; j++)
+       {
+           cumsum += weight_of_retained_40[i][j];
+           ind_cumulative[i][j] = cumsum;
+           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
+           ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+       }
+    }
+
+    QJsonObject individual_gradation_d;
+
+    individual_gradation_d["is_sieve_s11"] = is_sieve_40[1][1];
+    individual_gradation_d["is_sieve_s12"] = is_sieve_40[1][2];
+    individual_gradation_d["is_sieve_s13"] = is_sieve_40[1][3];
+    individual_gradation_d["is_sieve_s14"] = is_sieve_40[1][4];
+    individual_gradation_d["is_sieve_s15"] = is_sieve_40[1][5];
+    individual_gradation_d["is_sieve_s16"] = is_sieve_40[1][6];
+    individual_gradation_d["is_sieve_s17"] = is_sieve_40[1][7];
+    individual_gradation_d["is_sieve_s18"] = is_sieve_40[1][8];
+
+    individual_gradation_d["weight_of_retained_w11"] = weight_of_retained_40[1][1];
+    individual_gradation_d["weight_of_retained_w12"] = weight_of_retained_40[1][2];
+    individual_gradation_d["weight_of_retained_w13"] = weight_of_retained_40[1][3];
+    individual_gradation_d["weight_of_retained_w14"] = weight_of_retained_40[1][4];
+    individual_gradation_d["weight_of_retained_w15"] = weight_of_retained_40[1][5];
+    individual_gradation_d["weight_of_retained_w16"] = weight_of_retained_40[1][6];
+    individual_gradation_d["weight_of_retained_w17"] = weight_of_retained_40[1][7];
+    individual_gradation_d["weight_of_retained_w18"] = weight_of_retained_40[1][8];
+
+    individual_gradation_d["is_sieve_s21"] = is_sieve_40[2][1];
+    individual_gradation_d["is_sieve_s22"] = is_sieve_40[2][2];
+    individual_gradation_d["is_sieve_s23"] = is_sieve_40[2][3];
+    individual_gradation_d["is_sieve_s24"] = is_sieve_40[2][4];
+    individual_gradation_d["is_sieve_s25"] = is_sieve_40[2][5];
+    individual_gradation_d["is_sieve_s26"] = is_sieve_40[2][6];
+    individual_gradation_d["is_sieve_s27"] = is_sieve_40[2][7];
+    individual_gradation_d["is_sieve_s28"] = is_sieve_40[2][8];
+
+    individual_gradation_d["weight_of_retained_w21"] = weight_of_retained_40[2][1];
+    individual_gradation_d["weight_of_retained_w22"] = weight_of_retained_40[2][2];
+    individual_gradation_d["weight_of_retained_w23"] = weight_of_retained_40[2][3];
+    individual_gradation_d["weight_of_retained_w24"] = weight_of_retained_40[2][4];
+    individual_gradation_d["weight_of_retained_w25"] = weight_of_retained_40[2][5];
+    individual_gradation_d["weight_of_retained_w26"] = weight_of_retained_40[2][6];
+    individual_gradation_d["weight_of_retained_w27"] = weight_of_retained_40[2][7];
+    individual_gradation_d["weight_of_retained_w28"] = weight_of_retained_40[2][8];
+
+    individual_gradation_d["is_sieve_s31"] = is_sieve_40[3][1];
+    individual_gradation_d["is_sieve_s32"] = is_sieve_40[3][2];
+    individual_gradation_d["is_sieve_s33"] = is_sieve_40[3][3];
+    individual_gradation_d["is_sieve_s34"] = is_sieve_40[3][4];
+    individual_gradation_d["is_sieve_s35"] = is_sieve_40[3][5];
+    individual_gradation_d["is_sieve_s36"] = is_sieve_40[3][6];
+    individual_gradation_d["is_sieve_s37"] = is_sieve_40[3][7];
+    individual_gradation_d["is_sieve_s38"] = is_sieve_40[3][8];
+
+    individual_gradation_d["weight_of_retained_w31"] = weight_of_retained_40[3][1];
+    individual_gradation_d["weight_of_retained_w32"] = weight_of_retained_40[3][2];
+    individual_gradation_d["weight_of_retained_w33"] = weight_of_retained_40[3][3];
+    individual_gradation_d["weight_of_retained_w34"] = weight_of_retained_40[3][4];
+    individual_gradation_d["weight_of_retained_w35"] = weight_of_retained_40[3][5];
+    individual_gradation_d["weight_of_retained_w36"] = weight_of_retained_40[3][6];
+    individual_gradation_d["weight_of_retained_w37"] = weight_of_retained_40[3][7];
+    individual_gradation_d["weight_of_retained_w38"] = weight_of_retained_40[3][8];
+
+    std::string base_cum = "cum_";
+    std::string base_CUM = "CUM_";
+    std::string base_pass = "pass_";
+    std::string base_total = "total_weight_";
+
+    for (int i = 1; i <= 3; i++) {
+       for (int j = 1; j <= 8; j++) {
+           std::string istr = std::to_string(i);
+           std::string jstr = std::to_string(j);
+
+
+           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+           QString target_total = QString::fromStdString(base_total + istr);
+
+           individual_gradation_d[target_cum] = ind_cumulative[i][j];
+           individual_gradation_d[target_CUM] = ind_cumulative_percent[i][j];
+           individual_gradation_d[target_pass] = ind_cum_pass[i][j];
+       }
+    }
+
+    idg_json["d"] = individual_gradation_d;
+
+    if (idg.open(QFile::WriteOnly | QFile::Text))
+    {
+       QTextStream out(&idg);
+       QJsonDocument jsonDoc_4(idg_json);
+       out << jsonDoc_4.toJson();
+       idg.close();
+    }
+
+}
+
 
 
 
@@ -2097,4 +2430,6 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1+t2+t3)/3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+
 
