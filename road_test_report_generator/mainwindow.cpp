@@ -1844,6 +1844,216 @@ void MainWindow::on_aiv_export_clicked()
         }
     }
 }
+void MainWindow::on_ind_export_clicked()
+{
+    ui->ind_save->click();
+    qDebug() << "beginning ind save...";
+    QString json_path = cwd.filePath("json/idg.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_lookups = json_doc.object();
+    QStringList json_keys = json_lookups.keys();
+    int json_keys_len = (int)json_keys.size();
+
+    for (int t = 0; t < json_keys_len; t++)
+    {
+        if (json_keys[t] == "40mm" || json_keys[t] == "20mm" || json_keys[t] == "10mm")
+        {
+            std::string output_html_path = cwd.filePath("html/ind_").toStdString();
+            output_html_path = output_html_path + json_keys[t].toStdString() + ".html";
+            std::ofstream output_html_file(output_html_path, std::ios::out);
+
+            if (output_html_file.is_open())
+            {
+                qDebug() << "output html file opened";
+
+                QString template_path = cwd.filePath("templates/ind.html");
+                QFile template_file(template_path);
+                if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+                {
+                    qDebug() << "html not opened";
+                    return;
+                }
+                else
+                {
+                    qDebug() << "html file opened";
+                }
+                QTextStream infile(&template_file);
+
+                while (!infile.atEnd())
+                {
+
+                    std::string line_str = infile.readLine().toStdString();
+                    const char *line = line_str.c_str();
+                    int tilda = 0;
+                    int token;
+                    for (int i = 0; i < (int)strlen(line); i++)
+                    {
+                        if (line[i] == '~' && tilda == 0)
+                        {
+                            tilda = 1;
+
+                            // Gets the token from HTML file
+                            for (int j = i + 1; j < (int)strlen(line); j++)
+                            {
+                                if (line[j] == '~' && j - i == 2)
+                                {
+                                    token = (int)line[i + 1] - 48;
+                                    i = j;
+                                    break;
+                                }
+                                else if (line[j] == '~' && j - i == 3)
+                                {
+                                    token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                                    i = j;
+                                    break;
+                                }
+                            }
+
+
+                            QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
+
+                            std::string topush;
+                            double topushf;
+                            switch (token)
+                            {
+                            case 1:
+                                topush = ui->ind_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->ind_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->ind_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->ind_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->ind_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->ind_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->ind_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->ind_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = json_keys[t].toStdString();
+                                break;
+                            case 10:
+                                topush = ui->ind_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 12:
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 13:
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 14:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 15:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 16:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 17:
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 18:
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 19:
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                                output_html_file << topushf;
+
+                                break;
+                            case 20:
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 26:
+                                topushf = json_lookups_data["avg_aggregate_impact_value"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            }
+
+                            output_html_file << topush;
+                            qDebug() << topushf;
+                            topush = "";
+                        }
+                        else
+                        {
+                            output_html_file << line[i];
+                        }
+                    }
+                }
+
+                output_html_file.close();
+                qDebug() << "file written to";
+
+                template_file.close();
+            }
+            else
+            {
+                qDebug() << "output html not opened";
+            }
+        }
+    }
+}
 
 
 
@@ -2097,4 +2307,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1+t2+t3)/3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-
