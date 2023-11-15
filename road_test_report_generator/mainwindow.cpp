@@ -1868,7 +1868,7 @@ void MainWindow::on_ind_export_clicked()
 
     for (int t = 0; t < json_keys_len; t++)
     {
-        if (json_keys[t] == "40mm" || json_keys[t] == "20mm" || json_keys[t] == "10mm")
+        if (json_keys[t] == "40mm" || json_keys[t] == "20mm" || json_keys[t] == "10mm" || json_keys[t] == "d")
         {
             std::string output_html_path = cwd.filePath("html/ind_").toStdString();
             output_html_path = output_html_path + json_keys[t].toStdString() + ".html";
