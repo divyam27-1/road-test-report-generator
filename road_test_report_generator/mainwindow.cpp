@@ -19,7 +19,8 @@ bool i = cwd.cdUp();
 std::vector<std::string> tracked_files;
 std::string OS;
 
-void removeDuplicates(std::vector<std::string>& vec) {
+void removeDuplicates(std::vector<std::string> &vec)
+{
     std::sort(vec.begin(), vec.end());
     auto it = std::unique(vec.begin(), vec.end());
     vec.erase(it, vec.end());
@@ -399,7 +400,6 @@ void MainWindow::on_save_ss_clicked()
     passing[8] = ui->fei_ss_p8->text().toFloat();
     passing[9] = ui->fei_ss_p9->text().toFloat();
 
-
     Flakiness_Elongation_Indices["p_1"] = passing[1];
     Flakiness_Elongation_Indices["p_2"] = passing[2];
     Flakiness_Elongation_Indices["p_3"] = passing[3];
@@ -454,7 +454,6 @@ void MainWindow::on_save_fei_clicked()
     A[9] = ui->fei_1_9->text().toFloat();
     A[10] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8] + A[9];
 
-
     Flakiness_Elongation_Indices["A_1"] = A[1];
     Flakiness_Elongation_Indices["A_2"] = A[2];
     Flakiness_Elongation_Indices["A_3"] = A[3];
@@ -501,7 +500,6 @@ void MainWindow::on_save_fei_clicked()
     C[9] = ui->fei_3_9->text().toFloat();
     C[10] = C[1] + C[2] + C[3] + C[4] + C[5] + C[6] + C[7] + C[8] + C[9];
 
-
     Flakiness_Elongation_Indices["C_1"] = C[1];
     Flakiness_Elongation_Indices["C_2"] = C[2];
     Flakiness_Elongation_Indices["C_3"] = C[3];
@@ -523,10 +521,10 @@ void MainWindow::on_save_fei_clicked()
     D[7] = ui->fei_4_7->text().toFloat();
     D[8] = ui->fei_4_8->text().toFloat();
     D[9] = ui->fei_4_9->text().toFloat();
-    D[10] = D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9];   //total weight
-    D[11] = 100*C[10]/A[10]; //flekiness index
-    D[12] = 100*D[10]/D[10]; //elongation index
-    D[13] = D[11] + D[12];  //combined index
+    D[10] = D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9]; // total weight
+    D[11] = 100 * C[10] / A[10];                                          // flekiness index
+    D[12] = 100 * D[10] / D[10];                                          // elongation index
+    D[13] = D[11] + D[12];                                                // combined index
     Flakiness_Elongation_Indices["D_1"] = D[1];
     Flakiness_Elongation_Indices["D_2"] = D[2];
     Flakiness_Elongation_Indices["D_3"] = D[3];
@@ -540,7 +538,6 @@ void MainWindow::on_save_fei_clicked()
     Flakiness_Elongation_Indices["flakiness index"] = D[11];
     Flakiness_Elongation_Indices["elongation index"] = D[12];
     Flakiness_Elongation_Indices["combined index"] = D[13];
-
 
     if (Flakiness_Elongation.open(QFile::WriteOnly | QFile::Text))
     {
@@ -565,16 +562,16 @@ void MainWindow::on_aiv_save_20mm_clicked()
     weight_of_cylinder_sample[2][1] = ui->aiv_20_21->text().toFloat();
     weight_of_cylinder_sample[2][2] = ui->aiv_20_22->text().toFloat();
     weight_of_cylinder_sample[2][3] = ui->aiv_20_23->text().toFloat();
-    weight_of_sample[2][1] =  weight_of_cylinder_sample[2][1] - weight_of_cylinder[2][1];
-    weight_of_sample[2][2] =  weight_of_cylinder_sample[2][2] - weight_of_cylinder[2][2];
-    weight_of_sample[2][3] =  weight_of_cylinder_sample[2][3] - weight_of_cylinder[2][3];
+    weight_of_sample[2][1] = weight_of_cylinder_sample[2][1] - weight_of_cylinder[2][1];
+    weight_of_sample[2][2] = weight_of_cylinder_sample[2][2] - weight_of_cylinder[2][2];
+    weight_of_sample[2][3] = weight_of_cylinder_sample[2][3] - weight_of_cylinder[2][3];
     weight_crushed_material[2][1] = ui->aiv_20_41->text().toFloat();
     weight_crushed_material[2][2] = ui->aiv_20_42->text().toFloat();
     weight_crushed_material[2][3] = ui->aiv_20_43->text().toFloat();
-    aggregate_impact_value[2][1] = 100*weight_crushed_material[2][1]/( weight_of_sample[2][1] );
-    aggregate_impact_value[2][2] = 100*weight_crushed_material[2][2]/( weight_of_sample[2][2] );
-    aggregate_impact_value[2][3] = 100*weight_crushed_material[2][3]/(  weight_of_sample[2][3]);
-    avg_aggregate_impact_value_10 = (aggregate_impact_value[2][1] + aggregate_impact_value[2][1] + aggregate_impact_value[2][1])/3;
+    aggregate_impact_value[2][1] = 100 * weight_crushed_material[2][1] / (weight_of_sample[2][1]);
+    aggregate_impact_value[2][2] = 100 * weight_crushed_material[2][2] / (weight_of_sample[2][2]);
+    aggregate_impact_value[2][3] = 100 * weight_crushed_material[2][3] / (weight_of_sample[2][3]);
+    avg_aggregate_impact_value_10 = (aggregate_impact_value[2][1] + aggregate_impact_value[2][1] + aggregate_impact_value[2][1]) / 3;
     aiv_json_20mm["weight_of_cylinder_1"] = weight_of_cylinder[2][1];
     aiv_json_20mm["weight_of_cylinder_2"] = weight_of_cylinder[2][2];
     aiv_json_20mm["weight_of_cylinder_3"] = weight_of_cylinder[2][3];
@@ -584,9 +581,9 @@ void MainWindow::on_aiv_save_20mm_clicked()
     aiv_json_20mm["weight_sample_1"] = weight_of_cylinder_sample[2][1];
     aiv_json_20mm["weight_sample_2"] = weight_of_cylinder_sample[2][2];
     aiv_json_20mm["weight_sample_3"] = weight_of_cylinder_sample[2][3];
-    aiv_json_20mm["weight_crushed_material_1"] =  weight_crushed_material[2][1];
-    aiv_json_20mm["weight_crushed_material_2"] =  weight_crushed_material[2][2];
-    aiv_json_20mm["weight_crushed_material_3"] =  weight_crushed_material[2][3];
+    aiv_json_20mm["weight_crushed_material_1"] = weight_crushed_material[2][1];
+    aiv_json_20mm["weight_crushed_material_2"] = weight_crushed_material[2][2];
+    aiv_json_20mm["weight_crushed_material_3"] = weight_crushed_material[2][3];
     aiv_json_20mm["aggeregate_impact_value_1"] = aggregate_impact_value[2][1];
     aiv_json_20mm["aggeregate_impact_value_2"] = aggregate_impact_value[2][2];
     aiv_json_20mm["aggeregate_impact_value_3"] = aggregate_impact_value[2][3];
@@ -598,7 +595,7 @@ void MainWindow::on_aiv_save_20mm_clicked()
         QTextStream out(&aiv_);
         QJsonDocument jsonDoc_3(aiv_json);
         out << jsonDoc_3.toJson();
-       aiv_.close();
+        aiv_.close();
     }
 }
 void MainWindow::on_aiv_save_10mm_clicked()
@@ -612,16 +609,16 @@ void MainWindow::on_aiv_save_10mm_clicked()
     weight_of_cylinder_sample[1][1] = ui->aiv_10_21->text().toFloat();
     weight_of_cylinder_sample[1][2] = ui->aiv_10_22->text().toFloat();
     weight_of_cylinder_sample[1][3] = ui->aiv_10_23->text().toFloat();
-    weight_of_sample[1][1] =  weight_of_cylinder_sample[1][1] - weight_of_cylinder[1][1];
-    weight_of_sample[1][2] =  weight_of_cylinder_sample[1][2] - weight_of_cylinder[1][2];
-    weight_of_sample[1][3] =  weight_of_cylinder_sample[1][3] - weight_of_cylinder[1][3];
+    weight_of_sample[1][1] = weight_of_cylinder_sample[1][1] - weight_of_cylinder[1][1];
+    weight_of_sample[1][2] = weight_of_cylinder_sample[1][2] - weight_of_cylinder[1][2];
+    weight_of_sample[1][3] = weight_of_cylinder_sample[1][3] - weight_of_cylinder[1][3];
     weight_crushed_material[1][1] = ui->aiv_10_41->text().toFloat();
     weight_crushed_material[1][2] = ui->aiv_10_42->text().toFloat();
     weight_crushed_material[1][3] = ui->aiv_10_43->text().toFloat();
-    aggregate_impact_value[1][1] = 100*weight_crushed_material[1][1]/( weight_of_sample[1][1] );
-    aggregate_impact_value[1][2] = 100*weight_crushed_material[1][2]/( weight_of_sample[1][2] );
-    aggregate_impact_value[1][3] = 100*weight_crushed_material[1][3]/(  weight_of_sample[1][3]);
-    avg_aggregate_impact_value_10 = (aggregate_impact_value[1][1] + aggregate_impact_value[1][1] + aggregate_impact_value[1][1])/3;
+    aggregate_impact_value[1][1] = 100 * weight_crushed_material[1][1] / (weight_of_sample[1][1]);
+    aggregate_impact_value[1][2] = 100 * weight_crushed_material[1][2] / (weight_of_sample[1][2]);
+    aggregate_impact_value[1][3] = 100 * weight_crushed_material[1][3] / (weight_of_sample[1][3]);
+    avg_aggregate_impact_value_10 = (aggregate_impact_value[1][1] + aggregate_impact_value[1][1] + aggregate_impact_value[1][1]) / 3;
     aiv_json_10mm["weight_of_cylinder_1"] = weight_of_cylinder[1][1];
     aiv_json_10mm["weight_of_cylinder_2"] = weight_of_cylinder[1][2];
     aiv_json_10mm["weight_of_cylinder_3"] = weight_of_cylinder[1][3];
@@ -631,9 +628,9 @@ void MainWindow::on_aiv_save_10mm_clicked()
     aiv_json_10mm["weight_sample_1"] = weight_of_cylinder_sample[1][1];
     aiv_json_10mm["weight_sample_2"] = weight_of_cylinder_sample[1][2];
     aiv_json_10mm["weight_sample_3"] = weight_of_cylinder_sample[1][3];
-    aiv_json_10mm["weight_crushed_material_1"] =  weight_crushed_material[1][1];
-    aiv_json_10mm["weight_crushed_material_2"] =  weight_crushed_material[1][2];
-    aiv_json_10mm["weight_crushed_material_3"] =  weight_crushed_material[1][3];
+    aiv_json_10mm["weight_crushed_material_1"] = weight_crushed_material[1][1];
+    aiv_json_10mm["weight_crushed_material_2"] = weight_crushed_material[1][2];
+    aiv_json_10mm["weight_crushed_material_3"] = weight_crushed_material[1][3];
     aiv_json_10mm["aggeregate_impact_value_1"] = aggregate_impact_value[1][1];
     aiv_json_10mm["aggeregate_impact_value_2"] = aggregate_impact_value[1][2];
     aiv_json_10mm["aggeregate_impact_value_3"] = aggregate_impact_value[1][3];
@@ -641,10 +638,10 @@ void MainWindow::on_aiv_save_10mm_clicked()
     aiv_json["10mm"] = aiv_json_10mm;
     if (aiv_.open(QFile::WriteOnly | QFile::Text))
     {
-       QTextStream out(&aiv_);
-       QJsonDocument jsonDoc_3(aiv_json);
-       out << jsonDoc_3.toJson();
-       aiv_.close();
+        QTextStream out(&aiv_);
+        QJsonDocument jsonDoc_3(aiv_json);
+        out << jsonDoc_3.toJson();
+        aiv_.close();
     }
 }
 QJsonObject idg_json;
@@ -716,17 +713,21 @@ void MainWindow::on_idg_save_40mm_clicked()
 
     for (int i = 1; i <= 3; i++)
     {
-       cumsum = 0;
-       for (int j = 1; j <= 8; j++)
-       {
-           cumsum += weight_of_retained_40[i][j];
-           ind_cumulative[i][j] = cumsum;
-           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
-           ind_cum_pass[i][j] = 100 - (cumsum/total_weight[i-1]);
-       }
+        cumsum = 0;
+        for (int j = 1; j <= 8; j++)
+        {
+            cumsum += weight_of_retained_40[i][j];
+            ind_cumulative[i][j] = cumsum;
+            ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
+            ind_cum_pass[i][j] = 100 - (cumsum / total_weight[i - 1]);
+        }
     }
 
     QJsonObject individual_gradation_40mm;
+
+    individual_gradation_40mm["total_weight_1"] = total_weight[0];
+    individual_gradation_40mm["total_weight_2"] = total_weight[1];
+    individual_gradation_40mm["total_weight_3"] = total_weight[2];
 
     individual_gradation_40mm["is_sieve_s11"] = is_sieve_40[1][1];
     individual_gradation_40mm["is_sieve_s12"] = is_sieve_40[1][2];
@@ -787,31 +788,32 @@ void MainWindow::on_idg_save_40mm_clicked()
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
 
-    for (int i = 1; i <= 3; i++) {
-       for (int j = 1; j <= 8; j++) {
-           std::string istr = std::to_string(i);
-           std::string jstr = std::to_string(j);
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 8; j++)
+        {
+            std::string istr = std::to_string(i);
+            std::string jstr = std::to_string(j);
 
+            QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+            QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+            QString target_total = QString::fromStdString(base_total + istr);
 
-           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
-           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
-           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
-           QString target_total = QString::fromStdString(base_total + istr);
-
-           individual_gradation_40mm[target_cum] = ind_cumulative[i][j];
-           individual_gradation_40mm[target_CUM] = ind_cumulative_percent[i][j];
-           individual_gradation_40mm[target_pass] = ind_cum_pass[i][j];
-       }
+            individual_gradation_40mm[target_cum] = ind_cumulative[i][j];
+            individual_gradation_40mm[target_CUM] = ind_cumulative_percent[i][j];
+            individual_gradation_40mm[target_pass] = ind_cum_pass[i][j];
+        }
     }
 
     idg_json["40mm"] = individual_gradation_40mm;
 
     if (idg.open(QFile::WriteOnly | QFile::Text))
     {
-       QTextStream out(&idg);
-       QJsonDocument jsonDoc_4(idg_json);
-       out << jsonDoc_4.toJson();
-       idg.close();
+        QTextStream out(&idg);
+        QJsonDocument jsonDoc_4(idg_json);
+        out << jsonDoc_4.toJson();
+        idg.close();
     }
 }
 void MainWindow::on_idg_save_20mm_clicked()
@@ -881,17 +883,21 @@ void MainWindow::on_idg_save_20mm_clicked()
 
     for (int i = 1; i <= 3; i++)
     {
-       cumsum = 0;
-       for (int j = 1; j <= 8; j++)
-       {
-           cumsum += weight_of_retained_40[i][j];
-           ind_cumulative[i][j] = cumsum;
-           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
-           ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
-       }
+        cumsum = 0;
+        for (int j = 1; j <= 8; j++)
+        {
+            cumsum += weight_of_retained_40[i][j];
+            ind_cumulative[i][j] = cumsum;
+            ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
+            ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+        }
     }
 
     QJsonObject individual_gradation_20mm;
+
+    individual_gradation_20mm["total_weight_1"] = total_weight[0];
+    individual_gradation_20mm["total_weight_2"] = total_weight[1];
+    individual_gradation_20mm["total_weight_3"] = total_weight[2];
 
     individual_gradation_20mm["is_sieve_s11"] = is_sieve_40[1][1];
     individual_gradation_20mm["is_sieve_s12"] = is_sieve_40[1][2];
@@ -952,31 +958,32 @@ void MainWindow::on_idg_save_20mm_clicked()
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
 
-    for (int i = 1; i <= 3; i++) {
-       for (int j = 1; j <= 8; j++) {
-           std::string istr = std::to_string(i);
-           std::string jstr = std::to_string(j);
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 8; j++)
+        {
+            std::string istr = std::to_string(i);
+            std::string jstr = std::to_string(j);
 
+            QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+            QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+            QString target_total = QString::fromStdString(base_total + istr);
 
-           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
-           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
-           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
-           QString target_total = QString::fromStdString(base_total + istr);
-
-           individual_gradation_20mm[target_cum] = ind_cumulative[i][j];
-           individual_gradation_20mm[target_CUM] = ind_cumulative_percent[i][j];
-           individual_gradation_20mm[target_pass] = ind_cum_pass[i][j];
-       }
+            individual_gradation_20mm[target_cum] = ind_cumulative[i][j];
+            individual_gradation_20mm[target_CUM] = ind_cumulative_percent[i][j];
+            individual_gradation_20mm[target_pass] = ind_cum_pass[i][j];
+        }
     }
 
     idg_json["20mm"] = individual_gradation_20mm;
 
     if (idg.open(QFile::WriteOnly | QFile::Text))
     {
-       QTextStream out(&idg);
-       QJsonDocument jsonDoc_4(idg_json);
-       out << jsonDoc_4.toJson();
-       idg.close();
+        QTextStream out(&idg);
+        QJsonDocument jsonDoc_4(idg_json);
+        out << jsonDoc_4.toJson();
+        idg.close();
     }
 }
 void MainWindow::on_idg_save_10mm_clicked()
@@ -1046,17 +1053,21 @@ void MainWindow::on_idg_save_10mm_clicked()
 
     for (int i = 1; i <= 3; i++)
     {
-       cumsum = 0;
-       for (int j = 1; j <= 8; j++)
-       {
-           cumsum += weight_of_retained_40[i][j];
-           ind_cumulative[i][j] = cumsum;
-           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
-           ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
-       }
+        cumsum = 0;
+        for (int j = 1; j <= 8; j++)
+        {
+            cumsum += weight_of_retained_40[i][j];
+            ind_cumulative[i][j] = cumsum;
+            ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
+            ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+        }
     }
 
     QJsonObject individual_gradation_10mm;
+
+    individual_gradation_10mm["total_weight_1"] = total_weight[0];
+    individual_gradation_10mm["total_weight_2"] = total_weight[1];
+    individual_gradation_10mm["total_weight_3"] = total_weight[2];
 
     individual_gradation_10mm["is_sieve_s11"] = is_sieve_40[1][1];
     individual_gradation_10mm["is_sieve_s12"] = is_sieve_40[1][2];
@@ -1117,31 +1128,32 @@ void MainWindow::on_idg_save_10mm_clicked()
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
 
-    for (int i = 1; i <= 3; i++) {
-       for (int j = 1; j <= 8; j++) {
-           std::string istr = std::to_string(i);
-           std::string jstr = std::to_string(j);
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 8; j++)
+        {
+            std::string istr = std::to_string(i);
+            std::string jstr = std::to_string(j);
 
+            QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+            QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+            QString target_total = QString::fromStdString(base_total + istr);
 
-           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
-           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
-           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
-           QString target_total = QString::fromStdString(base_total + istr);
-
-           individual_gradation_10mm[target_cum] = ind_cumulative[i][j];
-           individual_gradation_10mm[target_CUM] = ind_cumulative_percent[i][j];
-           individual_gradation_10mm[target_pass] = ind_cum_pass[i][j];
-       }
+            individual_gradation_10mm[target_cum] = ind_cumulative[i][j];
+            individual_gradation_10mm[target_CUM] = ind_cumulative_percent[i][j];
+            individual_gradation_10mm[target_pass] = ind_cum_pass[i][j];
+        }
     }
 
     idg_json["10mm"] = individual_gradation_10mm;
 
     if (idg.open(QFile::WriteOnly | QFile::Text))
     {
-       QTextStream out(&idg);
-       QJsonDocument jsonDoc_4(idg_json);
-       out << jsonDoc_4.toJson();
-       idg.close();
+        QTextStream out(&idg);
+        QJsonDocument jsonDoc_4(idg_json);
+        out << jsonDoc_4.toJson();
+        idg.close();
     }
 }
 void MainWindow::on_idg_save_d_clicked()
@@ -1212,17 +1224,21 @@ void MainWindow::on_idg_save_d_clicked()
 
     for (int i = 1; i <= 3; i++)
     {
-       cumsum = 0;
-       for (int j = 1; j <= 8; j++)
-       {
-           cumsum += weight_of_retained_40[i][j];
-           ind_cumulative[i][j] = cumsum;
-           ind_cumulative_percent[i][j] = 100 * cumsum/total_weight[i-1];
-           ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
-       }
+        cumsum = 0;
+        for (int j = 1; j <= 8; j++)
+        {
+            cumsum += weight_of_retained_40[i][j];
+            ind_cumulative[i][j] = cumsum;
+            ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
+            ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+        }
     }
 
     QJsonObject individual_gradation_d;
+
+    individual_gradation_d["total_weight_1"] = total_weight[0];
+    individual_gradation_d["total_weight_2"] = total_weight[1];
+    individual_gradation_d["total_weight_3"] = total_weight[2];
 
     individual_gradation_d["is_sieve_s11"] = is_sieve_40[1][1];
     individual_gradation_d["is_sieve_s12"] = is_sieve_40[1][2];
@@ -1283,66 +1299,72 @@ void MainWindow::on_idg_save_d_clicked()
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
 
-    for (int i = 1; i <= 3; i++) {
-       for (int j = 1; j <= 8; j++) {
-           std::string istr = std::to_string(i);
-           std::string jstr = std::to_string(j);
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 8; j++)
+        {
+            std::string istr = std::to_string(i);
+            std::string jstr = std::to_string(j);
 
+            QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+            QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+            QString target_total = QString::fromStdString(base_total + istr);
 
-           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
-           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
-           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
-           QString target_total = QString::fromStdString(base_total + istr);
-
-           individual_gradation_d[target_cum] = ind_cumulative[i][j];
-           individual_gradation_d[target_CUM] = ind_cumulative_percent[i][j];
-           individual_gradation_d[target_pass] = ind_cum_pass[i][j];
-       }
+            individual_gradation_d[target_cum] = ind_cumulative[i][j];
+            individual_gradation_d[target_CUM] = ind_cumulative_percent[i][j];
+            individual_gradation_d[target_pass] = ind_cum_pass[i][j];
+        }
     }
 
     idg_json["d"] = individual_gradation_d;
 
     if (idg.open(QFile::WriteOnly | QFile::Text))
     {
-       QTextStream out(&idg);
-       QJsonDocument jsonDoc_4(idg_json);
-       out << jsonDoc_4.toJson();
-       idg.close();
+        QTextStream out(&idg);
+        QJsonDocument jsonDoc_4(idg_json);
+        out << jsonDoc_4.toJson();
+        idg.close();
     }
-
 }
 
-
-
-
-//Deals with exports to PDF
+// Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
     qDebug() << "EXPORT triggered";
     QString program;
     QStringList args;
 
-    if (OS == "win") {
-       program = cwd.filePath("executable/wkhtmltopdf.exe");
-    } else if (OS == "linux") {
-       program = cwd.filePath("executable/wkhtmltopdf");
+    if (OS == "win")
+    {
+        program = cwd.filePath("executable/wkhtmltopdf.exe");
+    }
+    else if (OS == "linux")
+    {
+        program = cwd.filePath("executable/wkhtmltopdf");
     }
 
-    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i) {
-       if (*i == "spc") {
-           ui->spc_export->click();
-           args << cwd.filePath("html/spc_10mm.html");
-           args << cwd.filePath("html/spc_20mm.html");
-           args << cwd.filePath("html/spc_40mm.html");
-           args << cwd.filePath("html/spc_stone_dust.html");
-       } else if (*i == "fei") {
+    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
+    {
+        if (*i == "spc")
+        {
+            ui->spc_export->click();
+            args << cwd.filePath("html/spc_10mm.html");
+            args << cwd.filePath("html/spc_20mm.html");
+            args << cwd.filePath("html/spc_40mm.html");
+            args << cwd.filePath("html/spc_stone_dust.html");
+        }
+        else if (*i == "fei")
+        {
             ui->fei_export->click();
-           args << cwd.filePath("html/fei.html");
-       } else if (*i == "aiv") {
+            args << cwd.filePath("html/fei.html");
+        }
+        else if (*i == "aiv")
+        {
             ui->aiv_export->click();
             args << cwd.filePath("html/aiv_10mm.html");
             args << cwd.filePath("html/aiv_20mm.html");
-       }
+        }
     }
 
     args << cwd.filePath("output/REPORT.pdf");
@@ -1461,9 +1483,12 @@ void MainWindow::on_spc_export_clicked()
                                 topush = ui->spc_exp_4->text().toStdString();
                                 break;
                             case 9:
-                                if (json_keys[t] != "stone_dust") {
+                                if (json_keys[t] != "stone_dust")
+                                {
                                     topush = json_keys[t].toStdString();
-                                } else {
+                                }
+                                else
+                                {
                                     topush = "Stone Dust";
                                 }
                                 break;
@@ -2044,7 +2069,6 @@ void MainWindow::on_aiv_export_clicked()
                                 }
                             }
 
-
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
                             std::string topush;
@@ -2254,12 +2278,11 @@ void MainWindow::on_ind_export_clicked()
                                 }
                                 else if (line[j] == '~' && j - i == 4)
                                 {
-                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i+1]);
+                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1]);
                                     i = j;
                                     break;
                                 }
                             }
-
 
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
@@ -2296,7 +2319,7 @@ void MainWindow::on_ind_export_clicked()
                                 break;
                             case 10:
                                 topush = ui->ind_exp_6->text().toStdString();
-                                break;
+                                break; /*
                             case 11:
                                 topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
                                 output_html_file << topushf;
@@ -2434,325 +2457,325 @@ void MainWindow::on_ind_export_clicked()
                             case 22:
                                 topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
                                 output_html_file << topushf;
-                                break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                break; */
+                            case 51:
+                                topushf = json_lookups_data["is_sieve_s21"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 52:
+                                topushf = json_lookups_data["weight_of_retained_w21"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 53:
+                                topushf = json_lookups_data["cum_21"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 1:
-                                topush = ui->ind_bsc_1->toPlainText().toStdString();
-                                break;
-                            case 2:
-                                topush = ui->ind_bsc_2->toPlainText().toStdString();
-                                break;
-                            case 3:
-                                topush = ui->ind_bsc_3->toPlainText().toStdString();
-                                break;
-                            case 4:
-                                topush = ui->ind_bsc_4->toPlainText().toStdString();
-                                break;
-                            case 5:
-                                topush = ui->ind_exp_1->text().toStdString();
-                                break;
-                            case 6:
-                                topush = ui->ind_exp_2->text().toStdString();
-                                break;
-                            case 7:
-                                topush = ui->ind_exp_3->text().toStdString();
-                                break;
-                            case 8:
-                                topush = ui->ind_exp_4->text().toStdString();
-                                break;
-                            case 9:
-                                topush = json_keys[t].toStdString();
-                                break;
-                            case 10:
-                                topush = ui->ind_exp_6->text().toStdString();
-                                break;
-                            case 11:
-                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                            case 54:
+                                topushf = json_lookups_data["CUM_21"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 12:
-                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                            case 55:
+                                topushf = json_lookups_data["pass_21"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 13:
-                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                            case 56:
+                                topushf = json_lookups_data["is_sieve_s22"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 14:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                            case 57:
+                                topushf = json_lookups_data["weight_of_retained_w22"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 15:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                            case 58:
+                                topushf = json_lookups_data["cum_22"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 16:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                            case 59:
+                                topushf = json_lookups_data["CUM_22"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 17:
-                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                            case 60:
+                                topushf = json_lookups_data["pass_22"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 18:
-                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                            case 61:
+                                topushf = json_lookups_data["is_sieve_s23"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 19:
-                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                            case 62:
+                                topushf = json_lookups_data["weight_of_retained_w23"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 20:
-                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                            case 63:
+                                topushf = json_lookups_data["cum_23"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 21:
-                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                            case 64:
+                                topushf = json_lookups_data["CUM_23"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 22:
-                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                            case 65:
+                                topushf = json_lookups_data["pass_23"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                            case 66:
+                                topushf = json_lookups_data["is_sieve_s24"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 67:
+                                topushf = json_lookups_data["weight_of_retained_w24"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 68:
+                                topushf = json_lookups_data["cum_24"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 1:
-                                topush = ui->ind_bsc_1->toPlainText().toStdString();
-                                break;
-                            case 2:
-                                topush = ui->ind_bsc_2->toPlainText().toStdString();
-                                break;
-                            case 3:
-                                topush = ui->ind_bsc_3->toPlainText().toStdString();
-                                break;
-                            case 4:
-                                topush = ui->ind_bsc_4->toPlainText().toStdString();
-                                break;
-                            case 5:
-                                topush = ui->ind_exp_1->text().toStdString();
-                                break;
-                            case 6:
-                                topush = ui->ind_exp_2->text().toStdString();
-                                break;
-                            case 7:
-                                topush = ui->ind_exp_3->text().toStdString();
-                                break;
-                            case 8:
-                                topush = ui->ind_exp_4->text().toStdString();
-                                break;
-                            case 9:
-                                topush = json_keys[t].toStdString();
-                                break;
-                            case 10:
-                                topush = ui->ind_exp_6->text().toStdString();
-                                break;
-                            case 11:
-                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                            case 69:
+                                topushf = json_lookups_data["CUM_24"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 12:
-                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                            case 70:
+                                topushf = json_lookups_data["pass_24"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 13:
-                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                            case 71:
+                                topushf = json_lookups_data["is_sieve_s25"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 14:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                            case 72:
+                                topushf = json_lookups_data["weight_of_retained_w25"].toDouble();
+                                output_html_file << topushf;
+                            break;
+                          case 73:
+                            topushf = json_lookups_data["cum_25"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 74:
+                            topushf = json_lookups_data["CUM_25"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 75:
+                            topushf = json_lookups_data["pass_25"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 76:
+                            topushf = json_lookups_data["is_sieve_s26"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 77:
+                            topushf = json_lookups_data["pass_26"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 78:
+                            topushf = json_lookups_data["cum_27"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 79:
+                            topushf = json_lookups_data["is_sieve_s27"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 80:
+                            topushf = json_lookups_data["weight_of_retained_w27"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 81:
+                            topushf = json_lookups_data["cum_27"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                          case 82:
+                            topushf = json_lookups_data["pass_27"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                            case 83:
+                            topushf = json_lookups_data["cum_28"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                            case 84:
+                            topushf = json_lookups_data["is_sieve_s28"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                            case 85:
+                            topushf = json_lookups_data["weight_of_retained_w28"].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        
+                            case 91:
+                                topushf = json_lookups_data["is_sieve_s31"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 15:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                            case 92:
+                                topushf = json_lookups_data["weight_of_retained_w31"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 16:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                            case 93:
+                                topushf = json_lookups_data["cum_31"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 17:
-                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                            case 94:
+                                topushf = json_lookups_data["CUM_31"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 18:
-                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                            case 95:
+                                topushf = json_lookups_data["pass_31"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 19:
-                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                            case 96:
+                                topushf = json_lookups_data["is_sieve_s32"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 20:
-                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                            case 97:
+                                topushf = json_lookups_data["weight_of_retained_w32"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 21:
-                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                            case 98:
+                                topushf = json_lookups_data["cum_32"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 22:
-                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                            case 99:
+                                topushf = json_lookups_data["CUM_32"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                            case 100:
+                                topushf = json_lookups_data["pass_32"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 101:
+                                topushf = json_lookups_data["is_sieve_s33"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 102:
+                                topushf = json_lookups_data["weight_of_retained_w33"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 1:
-                                topush = ui->ind_bsc_1->toPlainText().toStdString();
-                                break;
-                            case 2:
-                                topush = ui->ind_bsc_2->toPlainText().toStdString();
-                                break;
-                            case 3:
-                                topush = ui->ind_bsc_3->toPlainText().toStdString();
-                                break;
-                            case 4:
-                                topush = ui->ind_bsc_4->toPlainText().toStdString();
-                                break;
-                            case 5:
-                                topush = ui->ind_exp_1->text().toStdString();
-                                break;
-                            case 6:
-                                topush = ui->ind_exp_2->text().toStdString();
-                                break;
-                            case 7:
-                                topush = ui->ind_exp_3->text().toStdString();
-                                break;
-                            case 8:
-                                topush = ui->ind_exp_4->text().toStdString();
-                                break;
-                            case 9:
-                                topush = json_keys[t].toStdString();
-                                break;
-                            case 10:
-                                topush = ui->ind_exp_6->text().toStdString();
-                                break;
-                            case 11:
-                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                            case 103:
+                                topushf = json_lookups_data["cum_33"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 12:
-                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                            case 104:
+                                topushf = json_lookups_data["CUM_33"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 13:
-                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                            case 105:
+                                topushf = json_lookups_data["pass_33"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 14:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                            case 106:
+                                topushf = json_lookups_data["is_sieve_s34"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 15:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                            case 107:
+                                topushf = json_lookups_data["weight_of_retained_w34"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 16:
-                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                            case 108:
+                                topushf = json_lookups_data["cum_34"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 17:
-                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                            case 109:
+                                topushf = json_lookups_data["CUM_34"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 18:
-                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                            case 110:
+                                topushf = json_lookups_data["pass_34"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 19:
-                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                            case 111:
+                                topushf = json_lookups_data["is_sieve_s35"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 20:
-                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                            case 112:
+                                topushf = json_lookups_data["weight_of_retained_w35"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 21:
-                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                            case 113:
+                                topushf = json_lookups_data["cum_35"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 22:
-                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                            case 114:
+                                topushf = json_lookups_data["CUM_35"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                            case 115:
+                                topushf = json_lookups_data["pass_35"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 116:
+                                topushf = json_lookups_data["is_sieve_s36"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 117:
+                                topushf = json_lookups_data["weight_of_retained_w36"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 21:
-                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                            case 118:
+                                topushf = json_lookups_data["cum_36"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 22:
-                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                            case 119:
+                                topushf = json_lookups_data["CUM_36"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                            case 120:
+                                topushf = json_lookups_data["pass_36"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 121:
+                                topushf = json_lookups_data["is_sieve_s37"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 122:
+                                topushf = json_lookups_data["weight_of_retained_w37"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 23:
-                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                            case 123:
+                                topushf = json_lookups_data["cum_37"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 24:
-                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                            case 124:
+                                topushf = json_lookups_data["CUM_37"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 25:
-                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                            case 125:
+                                topushf = json_lookups_data["pass_37"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 126:
+                                topushf = json_lookups_data["is_sieve_s38"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 127:
+                                topushf = json_lookups_data["weight_of_retained_w38"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 128:
+                                topushf = json_lookups_data["cum_38"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 129:
+                                topushf = json_lookups_data["CUM_38"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 130:
+                                topushf = json_lookups_data["pass_38"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 131:
+                                topushf = json_lookups_data["total_weight_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 132:
+                                topushf = json_lookups_data["total_weight_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 133:
+                                topushf = json_lookups_data["total_weight_3"].toDouble();
                                 output_html_file << topushf;
                                 break;
 
-                            output_html_file << topush;
-                            qDebug() << topushf;
-                            topush = "";
+                                output_html_file << topush;
+                                qDebug() << topushf;
+                                topush = "";
+                            }
                         }
                         else
                         {
@@ -2773,8 +2796,6 @@ void MainWindow::on_ind_export_clicked()
         }
     }
 }
-
-
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -2826,8 +2847,7 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
     ui->aiv_frame->move(0, target);
 }
 
-
-//Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
+// Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_11->text().toFloat();
@@ -2976,21 +2996,21 @@ void MainWindow::on_aiv_20_41_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_41->text().toFloat();
     float t2 = ui->aiv_20_31->text().toFloat();
-    std::string target = std::to_string(100*t1/t2);
+    std::string target = std::to_string(100 * t1 / t2);
     ui->aiv_20_51->setText(QString::fromStdString(target));
 }
 void MainWindow::on_aiv_20_42_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_42->text().toFloat();
     float t2 = ui->aiv_20_32->text().toFloat();
-    std::string target = std::to_string(100*t1/t2);
+    std::string target = std::to_string(100 * t1 / t2);
     ui->aiv_20_52->setText(QString::fromStdString(target));
 }
 void MainWindow::on_aiv_20_43_textChanged(const QString &arg1)
 {
     float t1 = ui->aiv_20_43->text().toFloat();
     float t2 = ui->aiv_20_33->text().toFloat();
-    std::string target = std::to_string(100*t1/t2);
+    std::string target = std::to_string(100 * t1 / t2);
     ui->aiv_20_53->setText(QString::fromStdString(target));
 }
 void MainWindow::on_aiv_10_41_textChanged(const QString &arg1)
@@ -3017,12 +3037,12 @@ void MainWindow::on_aiv_10_43_textChanged(const QString &arg1)
 void MainWindow::on_aiv_20_6_clicked()
 {
     float t1 = ui->aiv_20_51->text().toFloat(), t2 = ui->aiv_20_52->text().toFloat(), t3 = ui->aiv_20_53->text().toFloat();
-    std::string target = std::to_string((t1+t2+t3)/3);
+    std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_20_6->setText(QString::fromStdString(target));
 }
 void MainWindow::on_aiv_10_6_clicked()
 {
     float t1 = ui->aiv_10_51->text().toFloat(), t2 = ui->aiv_10_52->text().toFloat(), t3 = ui->aiv_10_53->text().toFloat();
-    std::string target = std::to_string((t1+t2+t3)/3);
+    std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }

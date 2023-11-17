@@ -166,6 +166,8 @@ private slots:
 
     void on_idg_save_d_clicked();
 
+    void on_ind_export_clicked();
+
 private:
     float scroll_sens;
 
