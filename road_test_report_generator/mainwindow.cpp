@@ -74,6 +74,9 @@ void MainWindow::on_aiv_save_clicked()
 void MainWindow::on_ind_save_clicked()
 {
     ui->idg_save_40mm->click();
+    ui->idg_save_20mm->click();
+    ui->idg_save_10mm->click();
+    ui->idg_save_d->click();
 }
 
 QJsonObject Specific_Gravity;
@@ -1365,6 +1368,14 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             args << cwd.filePath("html/aiv_10mm.html");
             args << cwd.filePath("html/aiv_20mm.html");
         }
+        else if (*i == "ind")
+        {
+            ui->ind_export->click();
+            args << cwd.filePath("html/ind_40mm.html");
+            args << cwd.filePath("html/ind_20mm.html");
+            args << cwd.filePath("html/ind_10mm.html");
+            args << cwd.filePath("html/ind_d.html");
+        }
     }
 
     args << cwd.filePath("output/REPORT.pdf");
@@ -2278,11 +2289,13 @@ void MainWindow::on_ind_export_clicked()
                                 }
                                 else if (line[j] == '~' && j - i == 4)
                                 {
-                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1]);
+                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                                     i = j;
                                     break;
                                 }
                             }
+
+                            qDebug() << token;
 
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
@@ -2315,13 +2328,20 @@ void MainWindow::on_ind_export_clicked()
                                 topush = ui->ind_exp_4->text().toStdString();
                                 break;
                             case 9:
-                                topush = json_keys[t].toStdString();
+                                if (json_keys[t] != "d")
+                                {
+                                    topush = json_keys[t].toStdString();
+                                }
+                                else
+                                {
+                                    topush = "Stone Dust";
+                                }
                                 break;
                             case 10:
                                 topush = ui->ind_exp_6->text().toStdString();
                                 break;
                             case 11:
-                                topushf = json_lookups_data[ "is_sieve_s11"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s11"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 12:
@@ -2329,7 +2349,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 13:
-                                topushf = json_lookups_data[ "cum_11" ].toDouble();
+                                topushf = json_lookups_data["cum_11"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 14:
@@ -2341,7 +2361,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 16:
-                                topushf = json_lookups_data[ "is_sieve_s12"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 17:
@@ -2349,11 +2369,11 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 18:
-                                topushf = json_lookups_data[ "cum_12" ].toDouble();
+                                topushf = json_lookups_data["cum_12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 19:
-                               topushf = json_lookups_data["CUM_12"].toDouble();
+                                topushf = json_lookups_data["CUM_12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 20:
@@ -2361,7 +2381,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 21:
-                               topushf = json_lookups_data[ "is_sieve_s13"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s13"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 22:
@@ -2369,7 +2389,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 23:
-                               topushf = json_lookups_data[ "cum_13" ].toDouble();
+                                topushf = json_lookups_data["cum_13"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 24:
@@ -2441,7 +2461,7 @@ void MainWindow::on_ind_export_clicked()
                                 topushf = json_lookups_data["pass_16"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                             case 41:
+                            case 41:
                                 topushf = json_lookups_data["is_sieve_s17"].toDouble();
                                 output_html_file << topushf;
                                 break;
@@ -2568,60 +2588,78 @@ void MainWindow::on_ind_export_clicked()
                             case 72:
                                 topushf = json_lookups_data["weight_of_retained_w25"].toDouble();
                                 output_html_file << topushf;
-                            break;
-                          case 73:
-                            topushf = json_lookups_data["cum_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 74:
-                            topushf = json_lookups_data["CUM_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 75:
-                            topushf = json_lookups_data["pass_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 76:
-                            topushf = json_lookups_data["is_sieve_s26"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 77:
-                            topushf = json_lookups_data["pass_26"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 78:
-                            topushf = json_lookups_data["cum_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 79:
-                            topushf = json_lookups_data["is_sieve_s27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 80:
-                            topushf = json_lookups_data["weight_of_retained_w27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 81:
-                            topushf = json_lookups_data["cum_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 82:
-                            topushf = json_lookups_data["pass_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                break;
+                            case 73:
+                                topushf = json_lookups_data["cum_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 74:
+                                topushf = json_lookups_data["CUM_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 75:
+                                topushf = json_lookups_data["pass_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 76:
+                                topushf = json_lookups_data["is_sieve_s26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 77:
+                                topushf = json_lookups_data["weight_of_retained_w26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 78:
+                                topushf = json_lookups_data["cum_26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 79:
+                                topushf = json_lookups_data["CUM_26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 80:
+                                topushf = json_lookups_data["pass_26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 81:
+                                topushf = json_lookups_data["is_sieve_s27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 82:
+                                topushf = json_lookups_data["weight_of_retained_w27"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 83:
-                            topushf = json_lookups_data["cum_28"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                topushf = json_lookups_data["cum_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 84:
-                            topushf = json_lookups_data["is_sieve_s28"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                topushf = json_lookups_data["CUM_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 85:
-                            topushf = json_lookups_data["weight_of_retained_w28"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                        
+                                topushf = json_lookups_data["pass_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 86:
+                                topushf = json_lookups_data["is_sieve_s28"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 87:
+                                topushf = json_lookups_data["weight_of_retained_w28"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 88:
+                                topushf = json_lookups_data["cum_28"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 89:
+                                topushf = json_lookups_data["CUM_28"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 90:
+                                topushf = json_lookups_data["pass_28"].toDouble();
+                                output_html_file << topushf;
                             case 91:
                                 topushf = json_lookups_data["is_sieve_s31"].toDouble();
                                 output_html_file << topushf;
