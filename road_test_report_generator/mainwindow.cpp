@@ -2252,6 +2252,12 @@ void MainWindow::on_ind_export_clicked()
                                     i = j;
                                     break;
                                 }
+                                else if (line[j] == '~' && j - i == 4)
+                                {
+                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i+1]);
+                                    i = j;
+                                    break;
+                                }
                             }
 
 
@@ -2302,37 +2308,30 @@ void MainWindow::on_ind_export_clicked()
                             case 13:
                                 topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 14:
                                 topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 15:
                                 topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 16:
                                 topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 17:
                                 topushf = json_lookups_data["weight_sample_1"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 18:
                                 topushf = json_lookups_data["weight_sample_2"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 19:
                                 topushf = json_lookups_data["weight_sample_3"].toDouble();
                                 output_html_file << topushf;
-
                                 break;
                             case 20:
                                 topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
@@ -2358,11 +2357,398 @@ void MainWindow::on_ind_export_clicked()
                                 topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            case 26:
-                                topushf = json_lookups_data["avg_aggregate_impact_value"].toDouble();
+                            case 1:
+                                topush = ui->ind_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->ind_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->ind_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->ind_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->ind_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->ind_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->ind_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->ind_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = json_keys[t].toStdString();
+                                break;
+                            case 10:
+                                topush = ui->ind_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                            }
+                            case 12:
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 13:
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 14:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 15:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 16:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 17:
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 18:
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 19:
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 20:
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 1:
+                                topush = ui->ind_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->ind_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->ind_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->ind_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->ind_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->ind_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->ind_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->ind_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = json_keys[t].toStdString();
+                                break;
+                            case 10:
+                                topush = ui->ind_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 12:
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 13:
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 14:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 15:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 16:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 17:
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 18:
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 19:
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 20:
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 1:
+                                topush = ui->ind_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->ind_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->ind_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->ind_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->ind_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->ind_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->ind_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->ind_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = json_keys[t].toStdString();
+                                break;
+                            case 10:
+                                topush = ui->ind_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 12:
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 13:
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 14:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 15:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 16:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 17:
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 18:
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 19:
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 20:
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 1:
+                                topush = ui->ind_bsc_1->toPlainText().toStdString();
+                                break;
+                            case 2:
+                                topush = ui->ind_bsc_2->toPlainText().toStdString();
+                                break;
+                            case 3:
+                                topush = ui->ind_bsc_3->toPlainText().toStdString();
+                                break;
+                            case 4:
+                                topush = ui->ind_bsc_4->toPlainText().toStdString();
+                                break;
+                            case 5:
+                                topush = ui->ind_exp_1->text().toStdString();
+                                break;
+                            case 6:
+                                topush = ui->ind_exp_2->text().toStdString();
+                                break;
+                            case 7:
+                                topush = ui->ind_exp_3->text().toStdString();
+                                break;
+                            case 8:
+                                topush = ui->ind_exp_4->text().toStdString();
+                                break;
+                            case 9:
+                                topush = json_keys[t].toStdString();
+                                break;
+                            case 10:
+                                topush = ui->ind_exp_6->text().toStdString();
+                                break;
+                            case 11:
+                                topushf = json_lookups_data["weight_of_cylinder_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 12:
+                                topushf = json_lookups_data["weight_of_cylinder_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 13:
+                                topushf = json_lookups_data["weight_of_cylinder_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 14:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 15:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 16:
+                                topushf = json_lookups_data["weight_of_cylinder_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 17:
+                                topushf = json_lookups_data["weight_sample_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 18:
+                                topushf = json_lookups_data["weight_sample_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 19:
+                                topushf = json_lookups_data["weight_sample_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 20:
+                                topushf = json_lookups_data["weight_crushed_material_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 21:
+                                topushf = json_lookups_data["weight_crushed_material_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 22:
+                                topushf = json_lookups_data["weight_crushed_material_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 23:
+                                topushf = json_lookups_data["aggeregate_impact_value_1"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 24:
+                                topushf = json_lookups_data["aggeregate_impact_value_2"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 25:
+                                topushf = json_lookups_data["aggeregate_impact_value_3"].toDouble();
+                                output_html_file << topushf;
+                                break;
 
                             output_html_file << topush;
                             qDebug() << topushf;
