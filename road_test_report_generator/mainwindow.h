@@ -170,6 +170,8 @@ private slots:
 
     void on_actionSave_Project_triggered();
 
+    void on_cd_save_clicked();
+
 private:
     float scroll_sens;
 

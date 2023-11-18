@@ -1339,7 +1339,99 @@ void MainWindow::on_idg_save_d_clicked()
         idg.close();
     }
 }
+void MainWindow::on_cd_save_clicked()
+{
+    tracked_files.push_back("ind");
+    removeDuplicates(tracked_files);
 
+    float cumsum = 0;
+    is_sieve_40[1][1] = ui->cg_d_is_1->text().toFloat();
+    is_sieve_40[1][2] = ui->cg_d_is_2->text().toFloat();
+    is_sieve_40[1][3] = ui->cg_d_is_3->text().toFloat();
+    is_sieve_40[1][4] = ui->cg_d_is_4->text().toFloat();
+    is_sieve_40[1][5] = ui->cg_d_is_5->text().toFloat();
+    is_sieve_40[1][6] = ui->cg_d_is_6->text().toFloat();
+    is_sieve_40[1][7] = ui->cg_d_is_7->text().toFloat();
+    is_sieve_40[1][8] = ui->cg_d_is_8->text().toFloat();
+
+    weight_of_retained_40[2][1] = ui->cg_d_wr_1->text().toFloat();
+    weight_of_retained_40[2][2] = ui->cg_d_wr_2->text().toFloat();
+    weight_of_retained_40[2][3] = ui->cg_d_wr_3->text().toFloat();
+    weight_of_retained_40[2][4] = ui->cg_d_wr_4->text().toFloat();
+    weight_of_retained_40[2][5] = ui->cg_d_wr_5->text().toFloat();
+    weight_of_retained_40[2][6] = ui->cg_d_wr_6->text().toFloat();
+    weight_of_retained_40[2][7] = ui->cg_d_wr_7->text().toFloat();
+    weight_of_retained_40[2][8] = ui->cg_d_wr_8->text().toFloat();
+
+     total_weight[0] = ui->cd_d_w_1->text().toFloat();
+
+
+
+        cumsum = 0;
+        for (int j = 1; j <= 8; j++)
+        {
+            cumsum += weight_of_retained_40[2][j];
+            ind_cumulative[0][j] = cumsum;
+            ind_cumulative_percent[0][j] = 100 * cumsum / total_weight[0];
+            ind_cum_pass[0][j] = 100 - ind_cumulative_percent[0][j];
+        }
+
+    QJsonObject combined_gradation_r;
+
+    combined_gradation_r["total_weight_1"] = total_weight[0];
+
+    combined_gradation_r["is_sieve_s1"] = is_sieve_40[1][1];
+    combined_gradation_r["is_sieve_s2"] = is_sieve_40[1][2];
+    combined_gradation_r["is_sieve_s3"] = is_sieve_40[1][3];
+    combined_gradation_r["is_sieve_s4"] = is_sieve_40[1][4];
+    combined_gradation_r["is_sieve_s5"] = is_sieve_40[1][5];
+    combined_gradation_r["is_sieve_s6"] = is_sieve_40[1][6];
+    combined_gradation_r["is_sieve_s7"] = is_sieve_40[1][7];
+    combined_gradation_r["is_sieve_s8"] = is_sieve_40[1][8];
+
+    combined_gradation_r["weight_of_retained_w1"] = weight_of_retained_40[2][1];
+    combined_gradation_r["weight_of_retained_w2"] = weight_of_retained_40[2][2];
+    combined_gradation_r["weight_of_retained_w3"] = weight_of_retained_40[2][3];
+    combined_gradation_r["weight_of_retained_w4"] = weight_of_retained_40[2][4];
+    combined_gradation_r["weight_of_retained_w5"] = weight_of_retained_40[2][5];
+    combined_gradation_r["weight_of_retained_w6"] = weight_of_retained_40[2][6];
+    combined_gradation_r["weight_of_retained_w7"] = weight_of_retained_40[2][7];
+    combined_gradation_r["weight_of_retained_w8"] = weight_of_retained_40[2][8];
+
+    std::string base_cum = "cum_";
+    std::string base_CUM = "CUM_";
+    std::string base_pass = "pass_";
+    std::string base_total = "total_weight_";
+
+
+
+        for (int j = 1; j <= 8; j++)
+        {
+
+            std::string jstr = std::to_string(j);
+
+            QString target_cum = QString::fromStdString(base_cum  + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM  + jstr);
+            QString target_pass = QString::fromStdString(base_pass  + jstr);
+            QString target_total = QString::fromStdString(base_total);
+
+            combined_gradation_r[target_cum] = ind_cumulative[0][j];
+            combined_gradation_r[target_CUM] = ind_cumulative_percent[0][j];
+            combined_gradation_r[target_pass] = ind_cum_pass[0][j];
+        }
+
+
+    idg_json["cg"] = combined_gradation_r;
+
+    if (idg.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&idg);
+        QJsonDocument jsonDoc_4(idg_json);
+        out << jsonDoc_4.toJson();
+        idg.close();
+    }
+
+}
 // Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
@@ -3356,3 +3448,5 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+
