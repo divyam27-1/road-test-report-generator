@@ -54,6 +54,13 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
     ui->tab_list->removeTab(index);
 }
 
+void MainWindow::on_actionSave_Project_triggered()
+{
+    ui->spc_save->click();
+    ui->fei_save->click();
+    ui->aiv_save->click();
+    ui->ind_save->click();
+}
 void MainWindow::on_spc_save_clicked()
 {
     ui->spc_save_0mm->click();
@@ -719,7 +726,6 @@ void MainWindow::on_idg_save_40mm_clicked()
             cumsum += weight_of_retained_40[i][j];
             ind_cumulative[i][j] = cumsum;
             ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
-            qDebug() << total_weight[i] << cumsum;
             ind_cum_pass[i][j] = 100 - (cumsum / total_weight[i - 1]);
         }
     }
@@ -783,7 +789,9 @@ void MainWindow::on_idg_save_40mm_clicked()
     individual_gradation_40mm["weight_of_retained_w36"] = weight_of_retained_40[3][6];
     individual_gradation_40mm["weight_of_retained_w37"] = weight_of_retained_40[3][7];
     individual_gradation_40mm["weight_of_retained_w38"] = weight_of_retained_40[3][8];
-     std::string base_CUM = "CUM_";
+    individual_gradation_40mm["proportion"] = ui->ind_40_7->text().toFloat();
+
+    std::string base_CUM = "CUM_";
     std::string base_cum = "cum_";
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
@@ -795,14 +803,14 @@ void MainWindow::on_idg_save_40mm_clicked()
             std::string istr = std::to_string(i);
             std::string jstr = std::to_string(j);
 
-           QString target_cum = QString::fromStdString(base_cum + istr + jstr);
-           QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
-           QString target_pass = QString::fromStdString(base_pass + istr + jstr);
-           QString target_total = QString::fromStdString(base_total + istr);
+            QString target_cum = QString::fromStdString(base_cum + istr + jstr);
+            QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
+            QString target_pass = QString::fromStdString(base_pass + istr + jstr);
+            QString target_total = QString::fromStdString(base_total + istr);
 
-           individual_gradation_40mm[target_cum] = ind_cumulative[i][j];
-           individual_gradation_40mm[target_CUM] = ind_cumulative_percent[i][j];
-           individual_gradation_40mm[target_pass] = ind_cum_pass[i][j];
+            individual_gradation_40mm[target_cum] = ind_cumulative[i][j];
+            individual_gradation_40mm[target_CUM] = ind_cumulative_percent[i][j];
+            individual_gradation_40mm[target_pass] = ind_cum_pass[i][j];
         }
     }
 
@@ -952,6 +960,7 @@ void MainWindow::on_idg_save_20mm_clicked()
     individual_gradation_20mm["weight_of_retained_w36"] = weight_of_retained_40[3][6];
     individual_gradation_20mm["weight_of_retained_w37"] = weight_of_retained_40[3][7];
     individual_gradation_20mm["weight_of_retained_w38"] = weight_of_retained_40[3][8];
+    individual_gradation_20mm["proportion"] = ui->ind_20_7->text().toFloat();
 
     std::string base_cum = "cum_";
     std::string base_CUM = "CUM_";
@@ -969,11 +978,9 @@ void MainWindow::on_idg_save_20mm_clicked()
             QString target_CUM = QString::fromStdString(base_CUM + istr + jstr);
             QString target_pass = QString::fromStdString(base_pass + istr + jstr);
             QString target_total = QString::fromStdString(base_total + istr);
-            qDebug() <<"named the keys of indg";
             individual_gradation_20mm[target_cum] = ind_cumulative[i][j];
             individual_gradation_20mm[target_CUM] = ind_cumulative_percent[i][j];
             individual_gradation_20mm[target_pass] = ind_cum_pass[i][j];
-            qDebug() <<"wrote the values of indg";
         }
     }
 
@@ -1123,6 +1130,8 @@ void MainWindow::on_idg_save_10mm_clicked()
     individual_gradation_10mm["weight_of_retained_w36"] = weight_of_retained_40[3][6];
     individual_gradation_10mm["weight_of_retained_w37"] = weight_of_retained_40[3][7];
     individual_gradation_10mm["weight_of_retained_w38"] = weight_of_retained_40[3][8];
+
+    individual_gradation_10mm["proportion"] = ui->ind_10_7->text().toFloat();
 
     std::string base_cum = "cum_";
     std::string base_CUM = "CUM_";
@@ -1295,6 +1304,8 @@ void MainWindow::on_idg_save_d_clicked()
     individual_gradation_d["weight_of_retained_w37"] = weight_of_retained_40[3][7];
     individual_gradation_d["weight_of_retained_w38"] = weight_of_retained_40[3][8];
 
+    individual_gradation_d["proportion"] = ui->ind_0_7->text().toFloat();
+
     std::string base_cum = "cum_";
     std::string base_CUM = "CUM_";
     std::string base_pass = "pass_";
@@ -1347,6 +1358,8 @@ void MainWindow::on_actionExport_to_PDF_triggered()
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
+        qDebug() << *i;
+
         if (*i == "spc")
         {
             ui->spc_export->click();
@@ -1431,7 +1444,6 @@ void MainWindow::on_spc_export_clicked()
                     {
                         if (line[i] == '~' && tilda == 0)
                         {
-                            qDebug() << "opening tilda located";
                             tilda = 1;
 
                             // Gets the token from HTML file
@@ -1450,8 +1462,6 @@ void MainWindow::on_spc_export_clicked()
                                     break;
                                 }
                             }
-
-                            qDebug() << "token found: " << token;
 
                             QJsonObject json_lookups_data = json_lookups[json_keys[t]].toObject();
 
@@ -1497,7 +1507,6 @@ void MainWindow::on_spc_export_clicked()
                                 topush = ui->spc_exp_6->text().toStdString();
                                 break;
                             case 11:
-                                qDebug() << json_lookups_data["Weight_of_sample_of_water_1"].toString();
                                 topushf = json_lookups_data["Weight_of_sample_of_water_1"].toDouble();
                                 output_html_file << topushf;
                                 break;
@@ -1591,7 +1600,6 @@ void MainWindow::on_spc_export_clicked()
                             }
 
                             output_html_file << topush;
-                            qDebug() << topushf;
                             topush = "";
                         }
                         else
@@ -1665,7 +1673,6 @@ void MainWindow::on_fei_export_clicked()
             {
                 if (line[i] == '~' && tilda == 0)
                 {
-                    qDebug() << "opening tilda located";
                     tilda = 1;
 
                     // Gets the token from HTML file
@@ -1684,8 +1691,6 @@ void MainWindow::on_fei_export_clicked()
                             break;
                         }
                     }
-
-                    qDebug() << "token found: " << token;
 
                     std::string topush;
                     double topushf;
@@ -1977,7 +1982,6 @@ void MainWindow::on_fei_export_clicked()
                     }
 
                     output_html_file << topush;
-                    qDebug() << topushf;
                     topush = "";
                 }
                 else
@@ -2180,7 +2184,6 @@ void MainWindow::on_aiv_export_clicked()
                             }
 
                             output_html_file << topush;
-                            qDebug() << topushf;
                             topush = "";
                         }
                         else
@@ -2279,7 +2282,7 @@ void MainWindow::on_ind_export_clicked()
                                 }
                                 else if (line[j] == '~' && j - i == 4)
                                 {
-                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1]);
+                                    token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                                     i = j;
                                     break;
                                 }
@@ -2322,7 +2325,7 @@ void MainWindow::on_ind_export_clicked()
                                 topush = ui->ind_exp_6->text().toStdString();
                                 break;
                             case 11:
-                                topushf = json_lookups_data[ "is_sieve_s11"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s11"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 12:
@@ -2330,7 +2333,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 13:
-                                topushf = json_lookups_data[ "cum_11" ].toDouble();
+                                topushf = json_lookups_data["cum_11"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 14:
@@ -2342,7 +2345,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 16:
-                                topushf = json_lookups_data[ "is_sieve_s12"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 17:
@@ -2350,11 +2353,11 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 18:
-                                topushf = json_lookups_data[ "cum_12" ].toDouble();
+                                topushf = json_lookups_data["cum_12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 19:
-                               topushf = json_lookups_data["CUM_12"].toDouble();
+                                topushf = json_lookups_data["CUM_12"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 20:
@@ -2362,7 +2365,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 21:
-                               topushf = json_lookups_data[ "is_sieve_s13"].toDouble();
+                                topushf = json_lookups_data["is_sieve_s13"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 22:
@@ -2370,7 +2373,7 @@ void MainWindow::on_ind_export_clicked()
                                 output_html_file << topushf;
                                 break;
                             case 23:
-                               topushf = json_lookups_data[ "cum_13" ].toDouble();
+                                topushf = json_lookups_data["cum_13"].toDouble();
                                 output_html_file << topushf;
                                 break;
                             case 24:
@@ -2442,7 +2445,7 @@ void MainWindow::on_ind_export_clicked()
                                 topushf = json_lookups_data["pass_16"].toDouble();
                                 output_html_file << topushf;
                                 break;
-                             case 41:
+                            case 41:
                                 topushf = json_lookups_data["is_sieve_s17"].toDouble();
                                 output_html_file << topushf;
                                 break;
@@ -2569,59 +2572,59 @@ void MainWindow::on_ind_export_clicked()
                             case 72:
                                 topushf = json_lookups_data["weight_of_retained_w25"].toDouble();
                                 output_html_file << topushf;
-                            break;
-                          case 73:
-                            topushf = json_lookups_data["cum_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 74:
-                            topushf = json_lookups_data["CUM_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 75:
-                            topushf = json_lookups_data["pass_25"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 76:
-                            topushf = json_lookups_data["is_sieve_s26"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 77:
-                            topushf = json_lookups_data["pass_26"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 78:
-                            topushf = json_lookups_data["cum_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 79:
-                            topushf = json_lookups_data["is_sieve_s27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 80:
-                            topushf = json_lookups_data["weight_of_retained_w27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 81:
-                            topushf = json_lookups_data["cum_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
-                          case 82:
-                            topushf = json_lookups_data["pass_27"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                break;
+                            case 73:
+                                topushf = json_lookups_data["cum_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 74:
+                                topushf = json_lookups_data["CUM_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 75:
+                                topushf = json_lookups_data["pass_25"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 76:
+                                topushf = json_lookups_data["is_sieve_s26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 77:
+                                topushf = json_lookups_data["pass_26"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 78:
+                                topushf = json_lookups_data["cum_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 79:
+                                topushf = json_lookups_data["is_sieve_s27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 80:
+                                topushf = json_lookups_data["weight_of_retained_w27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 81:
+                                topushf = json_lookups_data["cum_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
+                            case 82:
+                                topushf = json_lookups_data["pass_27"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 83:
-                            topushf = json_lookups_data["cum_28"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                topushf = json_lookups_data["cum_28"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 84:
-                            topushf = json_lookups_data["is_sieve_s28"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                topushf = json_lookups_data["is_sieve_s28"].toDouble();
+                                output_html_file << topushf;
+                                break;
                             case 85:
-                            topushf = json_lookups_data["weight_of_retained_w28"].toDouble();
-                            output_html_file << topushf;
-                            break;
+                                topushf = json_lookups_data["weight_of_retained_w28"].toDouble();
+                                output_html_file << topushf;
+                                break;
 
                             case 91:
                                 topushf = json_lookups_data["is_sieve_s31"].toDouble();
@@ -2797,7 +2800,6 @@ void MainWindow::on_ind_export_clicked()
                                 break;
 
                                 output_html_file << topush;
-                                qDebug() << topushf;
                                 topush = "";
                             }
                         }
@@ -2819,12 +2821,14 @@ void MainWindow::on_ind_export_clicked()
             }
         }
     }
+
     std::string bld_output_html_path = cwd.filePath("html/bld").toStdString();
     bld_output_html_path = bld_output_html_path + ".html";
     std::ofstream bld_output_html_file(bld_output_html_path, std::ios::out);
-    if(bld_output_html_file.is_open()){
+    if (bld_output_html_file.is_open())
+    {
         QString bld_template_path = cwd.filePath("templates/bld.html");
-         QFile bld_template_file(bld_template_path);
+        QFile bld_template_file(bld_template_path);
         if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -2832,7 +2836,7 @@ void MainWindow::on_ind_export_clicked()
         }
         else
         {
-            qDebug() << "html file opened";
+            qDebug() << "bld html template opened";
         }
         QTextStream bld_infile(&bld_template_file);
 
@@ -2866,16 +2870,16 @@ void MainWindow::on_ind_export_clicked()
                         }
                         else if (line[j] == '~' && j - i == 4)
                         {
-                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1]);
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
                         }
                     }
 
-                     QJsonObject json_lookups_data_40 = json_lookups["40mm"].toObject();
-                     QJsonObject json_lookups_data_20 = json_lookups["20mm"].toObject();
-                     QJsonObject json_lookups_data_10 = json_lookups["10mm"].toObject();
-                     QJsonObject json_lookups_data_d = json_lookups["d"].toObject();
+                    QJsonObject json_lookups_data_40 = json_lookups["40mm"].toObject();
+                    QJsonObject json_lookups_data_20 = json_lookups["20mm"].toObject();
+                    QJsonObject json_lookups_data_10 = json_lookups["10mm"].toObject();
+                    QJsonObject json_lookups_data_d = json_lookups["d"].toObject();
 
                     std::string topush;
                     double topushf;
@@ -2894,35 +2898,214 @@ void MainWindow::on_ind_export_clicked()
                         topush = ui->ind_bsc_4->toPlainText().toStdString();
                         break;
 
+                    // Deals with is_sieve
                     case 5:
-                        topushf = json_lookups_data_40[ "is_sieve_s11"].toDouble();
+                        topushf = json_lookups_data_40["is_sieve_s11"].toDouble();
                         bld_output_html_file << topushf;
                         break;
-                        bld_output_html_file << topush;
-                        qDebug() << topushf;
-                        topush = "";
+                    case 18:
+                        topushf = json_lookups_data_40["is_sieve_s12"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 31:
+                        topushf = json_lookups_data_40["is_sieve_s13"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 43:
+                        topushf = json_lookups_data_40["is_sieve_s14"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 56:
+                        topushf = json_lookups_data_40["is_sieve_s15"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 68:
+                        topushf = json_lookups_data_40["is_sieve_s16"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 81:
+                        topushf = json_lookups_data_40["is_sieve_s17"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 93:
+                        topushf = json_lookups_data_40["is_sieve_s18"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+
+                    // Deals with passing of 40mm
+                    case 6:
+                        topushf = 0.33 * (json_lookups_data_40["pass_11"].toDouble() + json_lookups_data_40["pass_21"].toDouble() + json_lookups_data_40["pass_31"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 19:
+                        topushf = 0.33 * (json_lookups_data_40["pass_12"].toDouble() + json_lookups_data_40["pass_22"].toDouble() + json_lookups_data_40["pass_32"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 32:
+                        topushf = 0.33 *( json_lookups_data_40["pass_13"].toDouble() + json_lookups_data_40["pass_23"].toDouble() + json_lookups_data_40["pass_33"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 44:
+                        topushf = 0.33 * (json_lookups_data_40["pass_14"].toDouble() + json_lookups_data_40["pass_24"].toDouble() + json_lookups_data_40["pass_34"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 57:
+                        topushf = 0.33 * (json_lookups_data_40["pass_15"].toDouble() + json_lookups_data_40["pass_25"].toDouble() + json_lookups_data_40["pass_35"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 69:
+                        topushf = 0.33 * (json_lookups_data_40["pass_16"].toDouble() + json_lookups_data_40["pass_26"].toDouble() + json_lookups_data_40["pass_36"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 82:
+                        topushf = 0.33 * (json_lookups_data_40["pass_17"].toDouble() + json_lookups_data_40["pass_27"].toDouble() + json_lookups_data_40["pass_37"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 94:
+                        topushf = 0.33 * (json_lookups_data_40["pass_18"].toDouble() + json_lookups_data_40["pass_28"].toDouble() + json_lookups_data_40["pass_38"].toDouble());
+
+                        bld_output_html_file << topushf;
+                        break;
+
+                    // Deals with 20mm passing
+                    case 7:
+                        topushf = 0.33 * (json_lookups_data_20["pass_11"].toDouble() + json_lookups_data_20["pass_21"].toDouble() + json_lookups_data_20["pass_31"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 20:
+                        topushf = 0.33 * (json_lookups_data_20["pass_12"].toDouble() + json_lookups_data_20["pass_22"].toDouble() + json_lookups_data_20["pass_32"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 33:
+                        topushf = 0.33 * (json_lookups_data_20["pass_13"].toDouble() + json_lookups_data_20["pass_23"].toDouble() + json_lookups_data_20["pass_33"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 45:
+                        topushf = 0.33 * (json_lookups_data_20["pass_14"].toDouble() + json_lookups_data_20["pass_24"].toDouble() + json_lookups_data_20["pass_34"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 58:
+                        topushf = 0.33 * (json_lookups_data_20["pass_15"].toDouble() + json_lookups_data_20["pass_25"].toDouble() + json_lookups_data_20["pass_35"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 70:
+                        topushf = 0.33 * (json_lookups_data_20["pass_16"].toDouble() + json_lookups_data_20["pass_26"].toDouble() + json_lookups_data_20["pass_36"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 83:
+                        topushf = 0.33 * (json_lookups_data_20["pass_17"].toDouble() + json_lookups_data_20["pass_27"].toDouble() + json_lookups_data_20["pass_37"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    // Cases for json_lookup_keys_10
+                    case 8:
+                        topushf = 0.33 * (json_lookups_data_10["pass_11"].toDouble() + json_lookups_data_10["pass_21"].toDouble() + json_lookups_data_10["pass_31"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 21:
+                        topushf = 0.33 * (json_lookups_data_10["pass_12"].toDouble() + json_lookups_data_10["pass_22"].toDouble() + json_lookups_data_10["pass_32"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 34:
+                        topushf = 0.33 * (json_lookups_data_10["pass_13"].toDouble() + json_lookups_data_10["pass_23"].toDouble() + json_lookups_data_10["pass_33"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 46:
+                        topushf = 0.33 * (json_lookups_data_10["pass_14"].toDouble() + json_lookups_data_10["pass_24"].toDouble() + json_lookups_data_10["pass_34"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 59:
+                        topushf = 0.33 * (json_lookups_data_10["pass_15"].toDouble() + json_lookups_data_10["pass_25"].toDouble() + json_lookups_data_10["pass_35"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 71:
+                        topushf = 0.33 * (json_lookups_data_10["pass_16"].toDouble() + json_lookups_data_10["pass_26"].toDouble() + json_lookups_data_10["pass_36"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 84:
+                        topushf = 0.33 * (json_lookups_data_10["pass_17"].toDouble() + json_lookups_data_10["pass_27"].toDouble() + json_lookups_data_10["pass_37"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 96:
+                        topushf = 0.33 * (json_lookups_data_10["pass_18"].toDouble() + json_lookups_data_10["pass_28"].toDouble() + json_lookups_data_10["pass_38"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    case 95:
+                        topushf = 0.33 * (json_lookups_data_20["pass_18"].toDouble() + json_lookups_data_20["pass_28"].toDouble() + json_lookups_data_20["pass_38"].toDouble());
+                        bld_output_html_file << topushf;
+                        break;
+
+                    // Deals with proportion of sizes
+                    case 106:
+                        topushf = json_lookups_data_40["proportion"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+                    case 107:
+                        topushf = json_lookups_data_20["proportion"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+                    case 108:
+                        topushf = json_lookups_data_10["proportion"].toDouble();
+                        bld_output_html_file << topushf;
+                    case 109:
+                        topushf = json_lookups_data_d["proportion"].toDouble();
+                        bld_output_html_file << topushf;
+                    default:
+                        qDebug() << "smthlikeyou11";
                     }
+                    bld_output_html_file << topush;
+                    qDebug() << topushf;
+                    topush = "";
                 }
-                        else{
+                else
+                {
 
                     bld_output_html_file << line[i];
-                        }
-                    }
+                }
             }
-                        bld_output_html_file.close();
-                        qDebug() << "file written to";
+        }
+        bld_output_html_file.close();
+        qDebug() << "file written to";
 
-                        bld_template_file.close();
-                    }
+        bld_template_file.close();
+    }
     else
     {
-                        qDebug() << "output html not opened";
+        qDebug() << "output html not opened";
     }
-
-    }
-
-
-
+}
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)

@@ -168,6 +168,8 @@ private slots:
 
     void on_ind_export_clicked();
 
+    void on_actionSave_Project_triggered();
+
 private:
     float scroll_sens;
 

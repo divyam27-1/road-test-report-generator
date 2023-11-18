@@ -64,7 +64,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -174,8 +174,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2144,7 +2144,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>698</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3484,7 +3484,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -4926,7 +4926,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>701</height>
+         <height>699</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5288,7 +5288,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1600</y>
+         <y>0</y>
          <width>1370</width>
          <height>2241</height>
         </rect>
@@ -7769,7 +7769,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>910</x>
-          <y>200</y>
+          <y>180</y>
           <width>113</width>
           <height>25</height>
          </rect>
@@ -7812,7 +7812,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>300</y>
+          <y>310</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7825,7 +7825,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>460</y>
+          <y>480</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7838,7 +7838,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>860</y>
+          <y>870</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7851,7 +7851,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1020</y>
+          <y>1040</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7874,7 +7874,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>710</y>
+          <y>730</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7907,7 +7907,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1400</y>
+          <y>1410</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7920,7 +7920,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1560</y>
+          <y>1580</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7943,7 +7943,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1250</y>
+          <y>1270</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7976,7 +7976,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1930</y>
+          <y>1940</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -7989,7 +7989,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>2090</y>
+          <y>2110</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -8012,7 +8012,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>1780</y>
+          <y>1800</y>
           <width>111</width>
           <height>20</height>
          </rect>
@@ -8080,6 +8080,150 @@ color: rgb(0, 0, 0);</string>
          <string>Save</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label_119">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>80</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Proportion:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_40_7">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>110</y>
+          <width>61</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_120">
+        <property name="geometry">
+         <rect>
+          <x>980</x>
+          <y>110</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/100</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_20_7">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>650</y>
+          <width>61</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_121">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>620</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Proportion:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_122">
+        <property name="geometry">
+         <rect>
+          <x>980</x>
+          <y>650</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/100</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_10_7">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1190</y>
+          <width>61</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_125">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1160</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Proportion:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_126">
+        <property name="geometry">
+         <rect>
+          <x>980</x>
+          <y>1190</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/100</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_127">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>1710</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Proportion:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_128">
+        <property name="geometry">
+         <rect>
+          <x>980</x>
+          <y>1740</y>
+          <width>67</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/100</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ind_0_7">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>1740</y>
+          <width>61</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
       <widget class="QScrollBar" name="ind_data_scroll">
        <property name="geometry">
@@ -8113,7 +8257,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">
