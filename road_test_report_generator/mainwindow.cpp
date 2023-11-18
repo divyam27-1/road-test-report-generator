@@ -2819,7 +2819,110 @@ void MainWindow::on_ind_export_clicked()
             }
         }
     }
-}
+    std::string bld_output_html_path = cwd.filePath("html/bld").toStdString();
+    bld_output_html_path = bld_output_html_path + ".html";
+    std::ofstream bld_output_html_file(bld_output_html_path, std::ios::out);
+    if(bld_output_html_file.is_open()){
+        QString bld_template_path = cwd.filePath("templates/bld.html");
+         QFile bld_template_file(bld_template_path);
+        if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream bld_infile(&bld_template_file);
+
+        while (!bld_infile.atEnd())
+        {
+
+            std::string bld_line_str = bld_infile.readLine().toStdString();
+            const char *line = bld_line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1]);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                     QJsonObject json_lookups_data_40 = json_lookups["40mm"].toObject();
+                     QJsonObject json_lookups_data_20 = json_lookups["20mm"].toObject();
+                     QJsonObject json_lookups_data_10 = json_lookups["10mm"].toObject();
+                     QJsonObject json_lookups_data_d = json_lookups["d"].toObject();
+
+                    std::string topush;
+                    double topushf;
+                    switch (token)
+                    {
+                    case 1:
+                        topush = ui->ind_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->ind_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->ind_bsc_3->toPlainText().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->ind_bsc_4->toPlainText().toStdString();
+                        break;
+
+                    case 5:
+                        topushf = json_lookups_data_40[ "is_sieve_s11"].toDouble();
+                        bld_output_html_file << topushf;
+                        break;
+                        bld_output_html_file << topush;
+                        qDebug() << topushf;
+                        topush = "";
+                    }
+                }
+                        else{
+
+                    bld_output_html_file << line[i];
+                        }
+                    }
+            }
+                        bld_output_html_file.close();
+                        qDebug() << "file written to";
+
+                        bld_template_file.close();
+                    }
+    else
+    {
+                        qDebug() << "output html not opened";
+    }
+
+    }
+
+
+
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
