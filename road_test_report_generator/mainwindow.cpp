@@ -3552,6 +3552,149 @@ void MainWindow::on_ind_export_clicked()
                     case 4:
                         topush = ui->ind_bsc_4->toPlainText().toStdString();
                         break;
+                    case 5:
+                        topushf = json_lookups_data_cg["is_sieve_s1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 6:
+                        topushf = json_lookups_data_cg["weight_of_retained_w1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 7:
+                        topushf = json_lookups_data_cg["cum_1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 8:
+                        topushf = json_lookups_data_cg["CUM_1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 9:
+                        topushf = json_lookups_data_cg["Pass_1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 10:
+                        topushf = json_lookups_data_cg["is_sieve_s2"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 11:
+                        topushf = json_lookups_data_cg["weight_of_retained_w2"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 12:
+                        topushf = json_lookups_data_cg["cum_2"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 13:
+                        topushf = json_lookups_data_cg["CUM_2"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 14:
+                        topushf = json_lookups_data_cg["Pass_2"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 15:
+                        topushf = json_lookups_data_cg["is_sieve_s3"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 16:
+                        topushf = json_lookups_data_cg["weight_of_retained_w3"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 17:
+                        topushf = json_lookups_data_cg["cum_3"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 18:
+                        topushf = json_lookups_data_cg["CUM_3"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 19:
+                        topushf = json_lookups_data_cg["Pass_3"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 20:
+                        topushf = json_lookups_data_cg["is_sieve_s4"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 21:
+                        topushf = json_lookups_data_cg["weight_of_retained_w4"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 22:
+                        topushf = json_lookups_data_cg["cum_4"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 23:
+                        topushf = json_lookups_data_cg["CUM_4"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 24:
+                        topushf = json_lookups_data_cg["Pass_4"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+
+                    case 25:
+                        topushf = json_lookups_data_cg["is_sieve_s5"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 26:
+                        topushf = json_lookups_data_cg["weight_of_retained_w5"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 27:
+                        topushf = json_lookups_data_cg["cum_5"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 28:
+                        topushf = json_lookups_data_cg["CUM_5"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 29:
+                        topushf = json_lookups_data_cg["Pass_5"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 30:
+                        topushf = json_lookups_data_cg["is_sieve_s6"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 31:
+                        topushf = json_lookups_data_cg["weight_of_retained_w6"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 32:
+                        topushf = json_lookups_data_cg["cum_6"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 33:
+                        topushf = json_lookups_data_cg["CUM_6"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 34:
+                        topushf = json_lookups_data_cg["Pass_6"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 40:
+                        topushf = json_lookups_data_cg["is_sieve_s8"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 41:
+                        topushf = json_lookups_data_cg["weight_of_retained_w8"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 42:
+                        topushf = json_lookups_data_cg["cum_8"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 43:
+                        topushf = json_lookups_data_cg["CUM_8"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 44:
+                        topushf = json_lookups_data_cg["Pass_8"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+
+
                     default:
                         qDebug() << "smthlikeyou11";
                     }
