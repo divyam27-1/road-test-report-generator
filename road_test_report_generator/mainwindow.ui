@@ -5288,7 +5288,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1540</y>
+         <y>-1750</y>
          <width>1370</width>
          <height>2591</height>
         </rect>
@@ -8980,5 +8980,1158 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_save_40mm</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>idg_40_s11</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s21</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>-1478</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>329</x>
+     <y>-1319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s12</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s22</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>397</x>
+     <y>-1472</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>403</x>
+     <y>-1321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s13</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s23</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>441</x>
+     <y>-1473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>463</x>
+     <y>-1320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s14</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s24</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>537</x>
+     <y>-1470</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>-1329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s15</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s25</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>-1468</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>-1329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s16</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s26</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>665</x>
+     <y>-1471</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>664</x>
+     <y>-1334</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s17</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s27</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>745</x>
+     <y>-1479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>747</x>
+     <y>-1327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s18</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s28</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>808</x>
+     <y>-1476</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>795</x>
+     <y>-1332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s21</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s31</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>312</x>
+     <y>-1325</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>-1160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s22</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s32</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>381</x>
+     <y>-1313</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>-1176</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s23</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s33</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>442</x>
+     <y>-1319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>451</x>
+     <y>-1160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s24</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s34</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>507</x>
+     <y>-1321</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>516</x>
+     <y>-1172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s25</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s35</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>-1320</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>595</x>
+     <y>-1168</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s26</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s36</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>682</x>
+     <y>-1319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>-1169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s27</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s37</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>773</x>
+     <y>-1324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>740</x>
+     <y>-1175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_40_s28</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s38</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>820</x>
+     <y>-1325</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>819</x>
+     <y>-1169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s11</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s21</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>296</x>
+     <y>-942</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>-764</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s12</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s22</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>-946</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>403</x>
+     <y>-779</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s13</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s23</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>453</x>
+     <y>-940</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>-769</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s14</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s24</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>524</x>
+     <y>-948</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>-781</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s15</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s25</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>606</x>
+     <y>-939</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>-767</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s16</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s26</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>663</x>
+     <y>-939</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>-783</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s17</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s27</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>729</x>
+     <y>-950</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>730</x>
+     <y>-779</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s18</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s28</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>805</x>
+     <y>-935</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>802</x>
+     <y>-780</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s21</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s31</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>-772</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>305</x>
+     <y>-624</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s22</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s32</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>371</x>
+     <y>-772</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>390</x>
+     <y>-625</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s23</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s33</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>-772</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>-625</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s24</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s34</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>550</x>
+     <y>-778</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>-626</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s25</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s35</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>580</x>
+     <y>-775</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>590</x>
+     <y>-627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s26</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s36</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>666</x>
+     <y>-777</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>662</x>
+     <y>-622</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s27</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s37</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>-779</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>738</x>
+     <y>-625</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_20_s28</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_20_s38</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>827</x>
+     <y>-768</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>800</x>
+     <y>-621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s11</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s21</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>307</x>
+     <y>-381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>-229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s12</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s22</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>379</x>
+     <y>-366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>392</x>
+     <y>-230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s13</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s23</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>437</x>
+     <y>-371</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>-234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s14</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s24</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>507</x>
+     <y>-377</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>520</x>
+     <y>-223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s15</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s25</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>-385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>588</x>
+     <y>-224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s16</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s26</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>670</x>
+     <y>-381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>658</x>
+     <y>-215</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s17</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s27</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>731</x>
+     <y>-376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>728</x>
+     <y>-222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s18</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s28</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>-373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>801</x>
+     <y>-226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s21</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s31</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>-221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>-59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s22</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s32</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>-228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>-64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s23</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s33</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>428</x>
+     <y>-221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>-66</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s24</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s34</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>556</x>
+     <y>-220</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>-57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s25</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s35</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>-225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>615</x>
+     <y>-59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s26</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s36</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>676</x>
+     <y>-227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>675</x>
+     <y>-57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s27</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s37</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>766</x>
+     <y>-233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>717</x>
+     <y>-53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_10_s28</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_10_s38</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>824</x>
+     <y>-221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>-62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s11</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s21</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s12</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s22</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>359</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s13</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s23</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>451</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s14</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s24</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>513</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s15</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s25</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>558</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>571</x>
+     <y>342</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s16</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s26</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>647</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s17</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s27</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>730</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>731</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s18</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s28</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>792</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>789</x>
+     <y>339</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s21</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s31</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>312</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>468</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s22</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s32</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>396</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s23</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s33</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>429</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>447</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s24</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s34</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>488</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>508</x>
+     <y>467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s25</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s35</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>586</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>595</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s26</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s36</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>669</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>651</x>
+     <y>483</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s27</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s37</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>692</x>
+     <y>344</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>463</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s28</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_d_s38</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>768</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>775</x>
+     <y>467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s31</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_1</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>477</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>685</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s32</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_2</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>475</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>685</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s33</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_3</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>443</x>
+     <y>683</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s34</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_4</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>689</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s35</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_5</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>567</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>589</x>
+     <y>687</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s36</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_6</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>643</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>685</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s37</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_7</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>476</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>718</x>
+     <y>695</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>idg_d_s38</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>cg_d_is_8</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>807</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>783</x>
+     <y>689</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
