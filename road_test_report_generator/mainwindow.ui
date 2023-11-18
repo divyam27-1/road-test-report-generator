@@ -5288,7 +5288,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1540</y>
+         <y>0</y>
          <width>1370</width>
          <height>2591</height>
         </rect>
@@ -8980,5 +8980,22 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_save_40mm</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>idg_40_s11</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>idg_40_s21</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

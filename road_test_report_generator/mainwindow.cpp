@@ -1363,18 +1363,16 @@ void MainWindow::on_cd_save_clicked()
     weight_of_retained_40[2][7] = ui->cg_d_wr_7->text().toFloat();
     weight_of_retained_40[2][8] = ui->cg_d_wr_8->text().toFloat();
 
-     total_weight[0] = ui->cd_d_w_1->text().toFloat();
+    total_weight[0] = ui->cd_d_w_1->text().toFloat();
 
-
-
-        cumsum = 0;
-        for (int j = 1; j <= 8; j++)
-        {
-            cumsum += weight_of_retained_40[2][j];
-            ind_cumulative[0][j] = cumsum;
-            ind_cumulative_percent[0][j] = 100 * cumsum / total_weight[0];
-            ind_cum_pass[0][j] = 100 - ind_cumulative_percent[0][j];
-        }
+    cumsum = 0;
+    for (int j = 1; j <= 8; j++)
+    {
+        cumsum += weight_of_retained_40[2][j];
+        ind_cumulative[0][j] = cumsum;
+        ind_cumulative_percent[0][j] = 100 * cumsum / total_weight[0];
+        ind_cum_pass[0][j] = 100 - ind_cumulative_percent[0][j];
+    }
 
     QJsonObject combined_gradation_r;
 
@@ -1403,23 +1401,20 @@ void MainWindow::on_cd_save_clicked()
     std::string base_pass = "pass_";
     std::string base_total = "total_weight_";
 
+    for (int j = 1; j <= 8; j++)
+    {
 
+        std::string jstr = std::to_string(j);
 
-        for (int j = 1; j <= 8; j++)
-        {
+        QString target_cum = QString::fromStdString(base_cum + jstr);
+        QString target_CUM = QString::fromStdString(base_CUM + jstr);
+        QString target_pass = QString::fromStdString(base_pass + jstr);
+        QString target_total = QString::fromStdString(base_total);
 
-            std::string jstr = std::to_string(j);
-
-            QString target_cum = QString::fromStdString(base_cum  + jstr);
-            QString target_CUM = QString::fromStdString(base_CUM  + jstr);
-            QString target_pass = QString::fromStdString(base_pass  + jstr);
-            QString target_total = QString::fromStdString(base_total);
-
-            combined_gradation_r[target_cum] = ind_cumulative[0][j];
-            combined_gradation_r[target_CUM] = ind_cumulative_percent[0][j];
-            combined_gradation_r[target_pass] = ind_cum_pass[0][j];
-        }
-
+        combined_gradation_r[target_cum] = ind_cumulative[0][j];
+        combined_gradation_r[target_CUM] = ind_cumulative_percent[0][j];
+        combined_gradation_r[target_pass] = ind_cum_pass[0][j];
+    }
 
     idg_json["cg"] = combined_gradation_r;
 
@@ -1430,7 +1425,6 @@ void MainWindow::on_cd_save_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
-
 }
 // Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
@@ -3005,24 +2999,29 @@ void MainWindow::on_ind_export_clicked()
                     bld_passing[0][7] = 0.33 * (json_lookups_data_d["pass_17"].toDouble() + json_lookups_data_d["pass_27"].toDouble() + json_lookups_data_d["pass_37"].toDouble());
                     bld_passing[0][8] = 0.33 * (json_lookups_data_d["pass_18"].toDouble() + json_lookups_data_d["pass_28"].toDouble() + json_lookups_data_d["pass_38"].toDouble());
                     double bld_taken[5][9];
-                    bld_taken[4][1] = (bld_passing[4][1] * json_lookups_data_40["proportion"].toDouble())*0.01;
-                    bld_taken[2][1] = (bld_passing[2][1] * json_lookups_data_20["proportion"].toDouble())*0.01;
-                    bld_taken[1][1] = (bld_passing[1][1] * json_lookups_data_10["proportion"].toDouble())*0.01;
-                    bld_taken[0][1] = (bld_passing[0][1] * json_lookups_data_d["proportion"].toDouble())*0.01;
-                    for(int i = 1;i<9;i++){
-                        bld_taken[4][i+1] = (bld_passing[4][i+1]*bld_taken[4][i])*0.01;
+                    bld_taken[4][1] = (bld_passing[4][1] * json_lookups_data_40["proportion"].toDouble()) * 0.01;
+                    bld_taken[2][1] = (bld_passing[2][1] * json_lookups_data_20["proportion"].toDouble()) * 0.01;
+                    bld_taken[1][1] = (bld_passing[1][1] * json_lookups_data_10["proportion"].toDouble()) * 0.01;
+                    bld_taken[0][1] = (bld_passing[0][1] * json_lookups_data_d["proportion"].toDouble()) * 0.01;
+                    for (int i = 1; i < 9; i++)
+                    {
+                        bld_taken[4][i + 1] = (bld_passing[4][i + 1] * bld_taken[4][i]) * 0.01;
                     }
-                    for(int i = 1;i<9;i++){
-                        bld_taken[2][i+1] = (bld_passing[2][i+1]*bld_taken[2][i])*0.01;
+                    for (int i = 1; i < 9; i++)
+                    {
+                        bld_taken[2][i + 1] = (bld_passing[2][i + 1] * bld_taken[2][i]) * 0.01;
                     }
-                    for(int i = 1;i<9;i++){
-                        bld_taken[1][i+1] = (bld_passing[1][i+1]*bld_taken[1][i])*0.01;
+                    for (int i = 1; i < 9; i++)
+                    {
+                        bld_taken[1][i + 1] = (bld_passing[1][i + 1] * bld_taken[1][i]) * 0.01;
                     }
-                    for(int i = 1;i<9;i++){
-                        bld_taken[0][i+1] = (bld_passing[0][i+1]*bld_taken[0][i])*0.01;
+                    for (int i = 1; i < 9; i++)
+                    {
+                        bld_taken[0][i + 1] = (bld_passing[0][i + 1] * bld_taken[0][i]) * 0.01;
                     }
                     double combined_passing[9];
-                    for(int i = 1;i<9;i++){
+                    for (int i = 1; i < 9; i++)
+                    {
                         combined_passing[i] = bld_taken[4][i] + bld_taken[2][i] + bld_taken[1][i] + bld_taken[0][i];
                     }
                     std::string topush;
@@ -3096,7 +3095,7 @@ void MainWindow::on_ind_export_clicked()
                         break;
 
                     case 32:
-                        topushf = 0.33 *( json_lookups_data_40["pass_13"].toDouble() + json_lookups_data_40["pass_23"].toDouble() + json_lookups_data_40["pass_33"].toDouble());
+                        topushf = 0.33 * (json_lookups_data_40["pass_13"].toDouble() + json_lookups_data_40["pass_23"].toDouble() + json_lookups_data_40["pass_33"].toDouble());
 
                         bld_output_html_file << topushf;
                         break;
@@ -3290,7 +3289,7 @@ void MainWindow::on_ind_export_clicked()
 
                     case 73:
 
-                        topushf =bld_taken[4][6];
+                        topushf = bld_taken[4][6];
                         bld_output_html_file << topushf;
                         break;
 
@@ -3460,7 +3459,6 @@ void MainWindow::on_ind_export_clicked()
                         bld_output_html_file << topushf;
                         break;
 
-
                     default:
                         qDebug() << "smthlikeyou11";
                     }
@@ -3479,6 +3477,98 @@ void MainWindow::on_ind_export_clicked()
         qDebug() << "file written to";
 
         bld_template_file.close();
+    }
+    else
+    {
+        qDebug() << "output html not opened";
+    }
+    std::string cmb_output_html_path = cwd.filePath("html/cmb").toStdString();
+    cmb_output_html_path = cmb_output_html_path + ".html";
+    std::ofstream cmb_output_html_file(cmb_output_html_path, std::ios::out);
+    if (cmb_output_html_file.is_open())
+    {
+        QString cmb_template_path = cwd.filePath("templates/cmb.html");
+        QFile cmb_template_file(cmb_template_path);
+        if (!cmb_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "cmb html template opened";
+        }
+        QTextStream cmb_infile(&cmb_template_file);
+        while (!cmb_infile.atEnd())
+        {
+
+            std::string cmb_line_str = cmb_infile.readLine().toStdString();
+            const char *line = cmb_line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+                    QJsonObject json_lookups_data_cg = json_lookups["cg"].toObject();
+                    std::string topush;
+
+                    double topushf;
+                    switch (token)
+                    {
+                    case 1:
+                        topush = ui->ind_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->ind_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->ind_bsc_3->toPlainText().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->ind_bsc_4->toPlainText().toStdString();
+                        break;
+                    default:
+                        qDebug() << "smthlikeyou11";
+                    }
+                    cmb_output_html_file << topush;
+                    qDebug() << topushf;
+                    topush = "";
+                }
+                else
+                {
+                    cmb_output_html_file << line[i];
+                }
+            }
+        }
+        cmb_output_html_file.close();
+        qDebug() << "file written to";
+
+        cmb_template_file.close();
     }
     else
     {
@@ -3735,5 +3825,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-
-
