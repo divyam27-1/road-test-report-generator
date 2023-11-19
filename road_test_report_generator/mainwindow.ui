@@ -25,7 +25,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1680</width>
+      <width>1441</width>
       <height>791</height>
      </rect>
     </property>
@@ -37,7 +37,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -49,7 +49,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QToolBox" name="spc_info">
       <property name="geometry">
        <rect>
-        <x>1410</x>
+        <x>1085</x>
         <y>0</y>
         <width>230</width>
         <height>760</height>
@@ -64,7 +64,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>692</height>
         </rect>
        </property>
        <attribute name="label">
@@ -174,8 +174,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>692</height>
         </rect>
        </property>
        <attribute name="label">
@@ -416,19 +416,6 @@ color: rgb(0, 0, 0);</string>
        <string>Export to PDF</string>
       </property>
      </widget>
-     <widget class="Line" name="line">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>1410</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
      <widget class="Line" name="line_2">
       <property name="geometry">
        <rect>
@@ -447,7 +434,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>1400</width>
+        <width>1065</width>
         <height>690</height>
        </rect>
       </property>
@@ -460,7 +447,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QScrollBar" name="spc_data_scroll">
        <property name="geometry">
         <rect>
-         <x>1380</x>
+         <x>1050</x>
          <y>0</y>
          <width>15</width>
          <height>670</height>
@@ -484,7 +471,7 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1370</width>
+         <width>1050</width>
          <height>1275</height>
         </rect>
        </property>
@@ -2018,7 +2005,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QToolBox" name="fei_info">
       <property name="geometry">
        <rect>
-        <x>1400</x>
+        <x>1180</x>
         <y>0</y>
         <width>230</width>
         <height>760</height>
@@ -2144,7 +2131,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>700</height>
+         <height>692</height>
         </rect>
        </property>
        <attribute name="label">
@@ -2381,7 +2368,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>1390</width>
+        <width>1170</width>
         <height>690</height>
        </rect>
       </property>
@@ -2396,7 +2383,7 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1370</width>
+         <width>1170</width>
          <height>690</height>
         </rect>
        </property>
@@ -2489,7 +2476,7 @@ color: rgb(0, 0, 0);</string>
          <rect>
           <x>30</x>
           <y>510</y>
-          <width>67</width>
+          <width>21</width>
           <height>25</height>
          </rect>
         </property>
@@ -2500,7 +2487,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLabel" name="label_91">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>60</x>
           <y>500</y>
           <width>351</width>
           <height>25</height>
@@ -2526,7 +2513,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLabel" name="label_95">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>60</x>
           <y>560</y>
           <width>281</width>
           <height>25</height>
@@ -2539,9 +2526,9 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLabel" name="label_96">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>60</x>
           <y>450</y>
-          <width>190</width>
+          <width>191</width>
           <height>25</height>
          </rect>
         </property>
@@ -2570,7 +2557,7 @@ color: rgb(0, 0, 0);</string>
          <rect>
           <x>30</x>
           <y>560</y>
-          <width>67</width>
+          <width>21</width>
           <height>25</height>
          </rect>
         </property>
@@ -2581,7 +2568,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLabel" name="label_100">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>80</x>
           <y>400</y>
           <width>79</width>
           <height>17</height>
@@ -2596,7 +2583,7 @@ color: rgb(0, 0, 0);</string>
          <rect>
           <x>30</x>
           <y>450</y>
-          <width>67</width>
+          <width>21</width>
           <height>25</height>
          </rect>
         </property>
@@ -2857,7 +2844,7 @@ color: rgb(0, 0, 0);</string>
          <rect>
           <x>30</x>
           <y>610</y>
-          <width>67</width>
+          <width>21</width>
           <height>25</height>
          </rect>
         </property>
@@ -2868,7 +2855,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLabel" name="label_102">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>60</x>
           <y>600</y>
           <width>331</width>
           <height>25</height>
@@ -2878,283 +2865,13 @@ color: rgb(0, 0, 0);</string>
          <string>Weight of Agg. Retained on Length Gauge after </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="fei_1_1">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_2">
-        <property name="geometry">
-         <rect>
-          <x>580</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_3">
-        <property name="geometry">
-         <rect>
-          <x>670</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_4">
-        <property name="geometry">
-         <rect>
-          <x>750</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_5">
-        <property name="geometry">
-         <rect>
-          <x>830</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_6">
-        <property name="geometry">
-         <rect>
-          <x>910</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_7">
-        <property name="geometry">
-         <rect>
-          <x>990</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_8">
-        <property name="geometry">
-         <rect>
-          <x>1070</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_1_9">
-        <property name="geometry">
-         <rect>
-          <x>1150</x>
-          <y>440</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_1">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_2">
-        <property name="geometry">
-         <rect>
-          <x>580</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_3">
-        <property name="geometry">
-         <rect>
-          <x>670</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_4">
-        <property name="geometry">
-         <rect>
-          <x>750</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_5">
-        <property name="geometry">
-         <rect>
-          <x>830</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_6">
-        <property name="geometry">
-         <rect>
-          <x>910</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_7">
-        <property name="geometry">
-         <rect>
-          <x>990</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_9">
-        <property name="geometry">
-         <rect>
-          <x>1150</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_2_8">
-        <property name="geometry">
-         <rect>
-          <x>1070</x>
-          <y>500</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_1">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_2">
-        <property name="geometry">
-         <rect>
-          <x>580</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_3">
-        <property name="geometry">
-         <rect>
-          <x>670</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_4">
-        <property name="geometry">
-         <rect>
-          <x>750</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_5">
-        <property name="geometry">
-         <rect>
-          <x>830</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_6">
-        <property name="geometry">
-         <rect>
-          <x>910</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_7">
-        <property name="geometry">
-         <rect>
-          <x>990</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_8">
-        <property name="geometry">
-         <rect>
-          <x>1070</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_3_9">
-        <property name="geometry">
-         <rect>
-          <x>1150</x>
-          <y>560</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_103">
         <property name="enabled">
          <bool>true</bool>
         </property>
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>390</x>
           <y>440</y>
           <width>41</width>
           <height>25</height>
@@ -3170,7 +2887,7 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>390</x>
           <y>500</y>
           <width>41</width>
           <height>25</height>
@@ -3186,7 +2903,7 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>390</x>
           <y>560</y>
           <width>41</width>
           <height>25</height>
@@ -3196,103 +2913,13 @@ color: rgb(0, 0, 0);</string>
          <string>(gm)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="fei_4_1">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_2">
-        <property name="geometry">
-         <rect>
-          <x>580</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_3">
-        <property name="geometry">
-         <rect>
-          <x>670</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_4">
-        <property name="geometry">
-         <rect>
-          <x>750</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_5">
-        <property name="geometry">
-         <rect>
-          <x>830</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_6">
-        <property name="geometry">
-         <rect>
-          <x>910</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_7">
-        <property name="geometry">
-         <rect>
-          <x>990</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_8">
-        <property name="geometry">
-         <rect>
-          <x>1070</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fei_4_9">
-        <property name="geometry">
-         <rect>
-          <x>1150</x>
-          <y>610</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_106">
         <property name="enabled">
          <bool>true</bool>
         </property>
         <property name="geometry">
          <rect>
-          <x>450</x>
+          <x>390</x>
           <y>610</y>
           <width>41</width>
           <height>25</height>
@@ -3302,23 +2929,10 @@ color: rgb(0, 0, 0);</string>
          <string>(gm)</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_72">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>525</y>
-          <width>67</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_73">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>70</x>
           <y>625</y>
           <width>211</width>
           <height>17</height>
@@ -3354,60 +2968,407 @@ color: rgb(0, 0, 0);</string>
          <string>save</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="fei_1_10">
+       <widget class="QLineEdit" name="fei_2_7">
         <property name="geometry">
          <rect>
-          <x>1230</x>
-          <y>440</y>
-          <width>81</width>
-          <height>24</height>
+          <x>930</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="fei_2_10">
+       <widget class="QLineEdit" name="fei_2_4">
         <property name="geometry">
          <rect>
-          <x>1230</x>
-          <y>500</y>
-          <width>81</width>
-          <height>24</height>
+          <x>690</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="fei_3_10">
+       <widget class="QLineEdit" name="fei_2_2">
         <property name="geometry">
          <rect>
-          <x>1230</x>
-          <y>560</y>
-          <width>81</width>
-          <height>24</height>
+          <x>520</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_3">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_8">
+        <property name="geometry">
+         <rect>
+          <x>1010</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_9">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
          </rect>
         </property>
        </widget>
        <widget class="QLineEdit" name="fei_4_10">
         <property name="geometry">
          <rect>
-          <x>1230</x>
-          <y>610</y>
+          <x>1170</x>
+          <y>620</y>
           <width>81</width>
           <height>24</height>
          </rect>
         </property>
        </widget>
+       <widget class="QLineEdit" name="fei_4_7">
+        <property name="geometry">
+         <rect>
+          <x>930</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_6">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_1">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_8">
+        <property name="geometry">
+         <rect>
+          <x>1010</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_1">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_7">
+        <property name="geometry">
+         <rect>
+          <x>930</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_10">
+        <property name="geometry">
+         <rect>
+          <x>1170</x>
+          <y>570</y>
+          <width>81</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_5">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_3">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_6">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_2">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_1">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_4">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_2">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_5">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_3">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_10">
+        <property name="geometry">
+         <rect>
+          <x>1170</x>
+          <y>450</y>
+          <width>81</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_8">
+        <property name="geometry">
+         <rect>
+          <x>1010</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_6">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_4">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_4_5">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>620</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_6">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_8">
+        <property name="geometry">
+         <rect>
+          <x>1010</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_5">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_9">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>510</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_9">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_2_10">
+        <property name="geometry">
+         <rect>
+          <x>1170</x>
+          <y>510</y>
+          <width>81</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_9">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_4">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_7">
+        <property name="geometry">
+         <rect>
+          <x>930</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_3_1">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>570</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_3">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="fei_1_2">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>450</y>
+          <width>71</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
-     </widget>
-     <widget class="Line" name="fei_line1">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>1401</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
      </widget>
      <widget class="Line" name="line_3">
       <property name="geometry">
@@ -3469,7 +3430,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QToolBox" name="aiv_info">
       <property name="geometry">
        <rect>
-        <x>1410</x>
+        <x>1080</x>
         <y>0</y>
         <width>230</width>
         <height>761</height>
@@ -3484,7 +3445,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>230</width>
-         <height>701</height>
+         <height>693</height>
         </rect>
        </property>
        <attribute name="label">
@@ -3793,7 +3754,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>1400</width>
+        <width>1065</width>
         <height>690</height>
        </rect>
       </property>
@@ -3806,7 +3767,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QScrollBar" name="aiv_data_scroll">
        <property name="geometry">
         <rect>
-         <x>1380</x>
+         <x>1050</x>
          <y>0</y>
          <width>15</width>
          <height>690</height>
@@ -3821,7 +3782,7 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1370</width>
+         <width>1050</width>
          <height>850</height>
         </rect>
        </property>
@@ -4890,19 +4851,6 @@ color: rgb(0, 0, 0);</string>
        </widget>
       </widget>
      </widget>
-     <widget class="Line" name="fei_line1_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>1410</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="ind">
      <attribute name="title">
@@ -4911,7 +4859,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QToolBox" name="ind_info">
       <property name="geometry">
        <rect>
-        <x>1410</x>
+        <x>1075</x>
         <y>0</y>
         <width>241</width>
         <height>761</height>
@@ -4926,7 +4874,7 @@ color: rgb(0, 0, 0);</string>
          <x>0</x>
          <y>0</y>
          <width>241</width>
-         <height>701</height>
+         <height>693</height>
         </rect>
        </property>
        <attribute name="label">
@@ -5274,7 +5222,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>1400</width>
+        <width>1065</width>
         <height>690</height>
        </rect>
       </property>
@@ -5288,8 +5236,8 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2200</y>
-         <width>1370</width>
+         <y>0</y>
+         <width>1050</width>
          <height>2591</height>
         </rect>
        </property>
@@ -8463,7 +8411,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QScrollBar" name="ind_data_scroll">
        <property name="geometry">
         <rect>
-         <x>1380</x>
+         <x>1050</x>
          <y>0</y>
          <width>15</width>
          <height>690</height>
@@ -8492,7 +8440,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">
@@ -8651,46 +8599,6 @@ color: rgb(0, 0, 0);</string>
   <tabstop>fei_ss_r8</tabstop>
   <tabstop>fei_ss_r9</tabstop>
   <tabstop>save_ss</tabstop>
-  <tabstop>fei_1_1</tabstop>
-  <tabstop>fei_1_2</tabstop>
-  <tabstop>fei_1_3</tabstop>
-  <tabstop>fei_1_4</tabstop>
-  <tabstop>fei_1_5</tabstop>
-  <tabstop>fei_1_6</tabstop>
-  <tabstop>fei_1_7</tabstop>
-  <tabstop>fei_1_8</tabstop>
-  <tabstop>fei_1_9</tabstop>
-  <tabstop>fei_1_10</tabstop>
-  <tabstop>fei_2_1</tabstop>
-  <tabstop>fei_2_2</tabstop>
-  <tabstop>fei_2_3</tabstop>
-  <tabstop>fei_2_4</tabstop>
-  <tabstop>fei_2_5</tabstop>
-  <tabstop>fei_2_6</tabstop>
-  <tabstop>fei_2_7</tabstop>
-  <tabstop>fei_2_8</tabstop>
-  <tabstop>fei_2_9</tabstop>
-  <tabstop>fei_2_10</tabstop>
-  <tabstop>fei_3_1</tabstop>
-  <tabstop>fei_3_2</tabstop>
-  <tabstop>fei_3_3</tabstop>
-  <tabstop>fei_3_4</tabstop>
-  <tabstop>fei_3_5</tabstop>
-  <tabstop>fei_3_6</tabstop>
-  <tabstop>fei_3_7</tabstop>
-  <tabstop>fei_3_8</tabstop>
-  <tabstop>fei_3_9</tabstop>
-  <tabstop>fei_3_10</tabstop>
-  <tabstop>fei_4_1</tabstop>
-  <tabstop>fei_4_2</tabstop>
-  <tabstop>fei_4_3</tabstop>
-  <tabstop>fei_4_4</tabstop>
-  <tabstop>fei_4_5</tabstop>
-  <tabstop>fei_4_6</tabstop>
-  <tabstop>fei_4_7</tabstop>
-  <tabstop>fei_4_8</tabstop>
-  <tabstop>fei_4_9</tabstop>
-  <tabstop>fei_4_10</tabstop>
   <tabstop>save_fei</tabstop>
   <tabstop>spc_0_w3_t2</tabstop>
   <tabstop>spc_0_w3_t3</tabstop>

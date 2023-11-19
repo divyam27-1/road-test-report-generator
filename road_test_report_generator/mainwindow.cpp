@@ -17,6 +17,9 @@
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
+bool i2 = cwd.cdUp();
+bool i3 = cwd.cdUp();
+bool i4 = cwd.cdUp();
 std::vector<std::string> tracked_files;
 std::string OS;
 
@@ -2325,7 +2328,7 @@ void MainWindow::on_aiv_export_clicked()
 void MainWindow::on_ind_export_clicked()
 {
     ui->ind_save->click();
-    qDebug() << "beginning ind save...";
+    qDebug() << "beginning ind save... at " << cwd.filePath("");
     QString json_path = cwd.filePath("json/idg.json");
 
     QFile json_file(json_path);
@@ -2948,7 +2951,7 @@ void MainWindow::on_ind_export_clicked()
         QFile bld_template_file(bld_template_path);
         if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "bld template html not opened";
             return;
         }
         else
@@ -3522,7 +3525,7 @@ void MainWindow::on_ind_export_clicked()
         QFile cmb_template_file(cmb_template_path);
         if (!cmb_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "cmb html template not opened";
             return;
         }
         else
