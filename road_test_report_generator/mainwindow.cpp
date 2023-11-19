@@ -13,6 +13,7 @@
 #include <vector>
 #include <algorithm>
 #include <QProcess>
+#include <stdlib.h>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -34,6 +35,10 @@ MainWindow::MainWindow(QWidget *parent)
     cwd.mkdir("templates");
     cwd.mkdir("output");
     cwd.mkdir("html");
+
+    ui->spc_frame->move(0,0);
+    ui->aiv_frame->move(0,0);
+    ui->ind_frame->move(0,0);
 
 #ifdef _WIN32
     OS = "win";
@@ -83,6 +88,10 @@ void MainWindow::on_aiv_save_clicked()
 void MainWindow::on_ind_save_clicked()
 {
     ui->idg_save_40mm->click();
+    ui->idg_save_20mm->click();
+    ui->idg_save_10mm->click();
+    ui->idg_save_d->click();
+    ui->cd_save->click();
 }
 
 QJsonObject Specific_Gravity;
@@ -1435,9 +1444,12 @@ void MainWindow::on_actionExport_to_PDF_triggered()
     QString program;
     QStringList args;
 
+    std::string command;
+    std::vector<std::string> comm_vec;
+
     if (OS == "win")
     {
-        program = cwd.filePath("executable/wkhtmltopdf.exe");
+        program = QString("..\\executable\\wkhtmltopdf.exe");
     }
     else if (OS == "linux")
     {
@@ -1447,6 +1459,8 @@ void MainWindow::on_actionExport_to_PDF_triggered()
     {
         //TO WRITE
     }
+    command = command + program.toStdString();
+    command = command + " ";
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -1477,11 +1491,18 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             args << cwd.filePath("html/ind_40mm.html");
             args << cwd.filePath("html/ind_20mm.html");
             args << cwd.filePath("html/ind_10mm.html");
-            args << cwd.filePath("html/ind_0mm.html");
+            args << cwd.filePath("html/ind_d.html");
+            args << cwd.filePath("html/bld.html");
+            args << cwd.filePath("html/cmb.html");
         }
     }
 
     args << cwd.filePath("output/REPORT.pdf");
+
+    QList<QString>::iterator i;
+    for (i = args.begin(); i != args.end(); ++i)
+        command = command + " " + i->toStdString();
+    qDebug() << command;
 
     QProcess *converter = new QProcess();
     converter->start(program, args);
@@ -3478,7 +3499,6 @@ void MainWindow::on_ind_export_clicked()
                         qDebug() << "smthlikeyou11";
                     }
                     bld_output_html_file << topush;
-                    qDebug() << topushf;
                     topush = "";
                 }
                 else
@@ -3692,6 +3712,26 @@ void MainWindow::on_ind_export_clicked()
                         topushf = json_lookups_data_cg["Pass_6"].toDouble();
                         cmb_output_html_file << topushf;
                         break;
+                    case 35:
+                        topushf = json_lookups_data_cg["is_sieve_s7"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 36:
+                        topushf = json_lookups_data_cg["weight_of_retained_w7"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 37:
+                        topushf = json_lookups_data_cg["cum_7"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 38:
+                        topushf = json_lookups_data_cg["CUM_7"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 39:
+                        topushf = json_lookups_data_cg["Pass_7"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
                     case 40:
                         topushf = json_lookups_data_cg["is_sieve_s8"].toDouble();
                         cmb_output_html_file << topushf;
@@ -3736,10 +3776,9 @@ void MainWindow::on_ind_export_clicked()
                         topush = ui->ind_exp_4->text().toStdString();
                         break;
                     default:
-                        qDebug() << "smthlikeyou11";
+                        qDebug() << "smthlikeyou11 " << token;
                     }
                     cmb_output_html_file << topush;
-                    qDebug() << topushf;
                     topush = "";
                 }
                 else

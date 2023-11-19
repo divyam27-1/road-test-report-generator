@@ -46,7 +46,7 @@
         "water_absorption_3": null
     },
     "40mm": {
-        "Bulk_specific_gravity_1": 0,
+        "Bulk_specific_gravity_1": null,
         "Bulk_specific_gravity_2": null,
         "Bulk_specific_gravity_3": null,
         "Weight_of_Oven_dry_sample_1": 0,
@@ -55,10 +55,10 @@
         "Weight_of_SSD_Sample_1": 0,
         "Weight_of_SSD_Sample_2": 0,
         "Weight_of_SSD_Sample_3": 0,
-        "Weight_of_sample_of_water_1": 33,
+        "Weight_of_sample_of_water_1": 0,
         "Weight_of_sample_of_water_2": 0,
         "Weight_of_sample_of_water_3": 0,
-        "apparent_specific_gravity_1": 0,
+        "apparent_specific_gravity_1": null,
         "apparent_specific_gravity_2": null,
         "apparent_specific_gravity_3": null,
         "average_apparent_specific_gravity": null,

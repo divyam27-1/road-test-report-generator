@@ -2588,7 +2588,7 @@ public:
         ind_frame_outer->setFrameShadow(QFrame::Raised);
         ind_frame = new QFrame(ind_frame_outer);
         ind_frame->setObjectName("ind_frame");
-        ind_frame->setGeometry(QRect(0, -1900, 1370, 2591));
+        ind_frame->setGeometry(QRect(0, -2200, 1370, 2591));
         ind_frame->setFrameShape(QFrame::StyledPanel);
         ind_frame->setFrameShadow(QFrame::Raised);
         label_275 = new QLabel(ind_frame);
