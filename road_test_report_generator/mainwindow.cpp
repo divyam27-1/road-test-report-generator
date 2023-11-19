@@ -3550,6 +3550,10 @@ void MainWindow::on_ind_export_clicked()
                         }
                     }
                     QJsonObject json_lookups_data_cg = json_lookups["cg"].toObject();
+                    QJsonObject json_lookups_data_40 = json_lookups["40mm"].toObject();
+                    QJsonObject json_lookups_data_20 = json_lookups["20mm"].toObject();
+                    QJsonObject json_lookups_data_10 = json_lookups["10mm"].toObject();
+                    QJsonObject json_lookups_data_d = json_lookups["d"].toObject();
                     std::string topush;
 
                     double topushf;
@@ -3708,9 +3712,29 @@ void MainWindow::on_ind_export_clicked()
                         topushf = json_lookups_data_cg["Pass_8"].toDouble();
                         cmb_output_html_file << topushf;
                         break;
-
-
-
+                    case 45:
+                        topushf = json_lookups_data_40["proportion"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 46:
+                        topushf = json_lookups_data_20["proportion"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 47:
+                        topushf = json_lookups_data_10["proportion"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 48:
+                        topushf = json_lookups_data_d["proportion"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 49:
+                        topushf = json_lookups_data_cg["total_weight_1"].toDouble();
+                        cmb_output_html_file << topushf;
+                        break;
+                    case 50:
+                        topush = ui->ind_exp_4->text().toStdString();
+                        break;
                     default:
                         qDebug() << "smthlikeyou11";
                     }
