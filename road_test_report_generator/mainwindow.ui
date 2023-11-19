@@ -8988,12 +8988,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>276</y>
+     <x>338</x>
+     <y>-1613</y>
     </hint>
     <hint type="destinationlabel">
-     <x>319</x>
-     <y>431</y>
+     <x>347</x>
+     <y>-1463</y>
     </hint>
    </hints>
   </connection>

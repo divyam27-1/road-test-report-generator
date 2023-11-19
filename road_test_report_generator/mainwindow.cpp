@@ -39,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
     OS = "win";
 #elif __linux__
     OS = "linux";
+#elif __APPLE__
+    OS = "apple";
 #endif
 
     qDebug() << OS;
@@ -1441,6 +1443,10 @@ void MainWindow::on_actionExport_to_PDF_triggered()
     {
         program = cwd.filePath("executable/wkhtmltopdf");
     }
+    else if (OS == "apple")
+    {
+        //TO WRITE
+    }
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -1464,6 +1470,14 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             ui->aiv_export->click();
             args << cwd.filePath("html/aiv_10mm.html");
             args << cwd.filePath("html/aiv_20mm.html");
+        }
+        else if (*i == "ind")
+        {
+            ui->ind_export->click();
+            args << cwd.filePath("html/ind_40mm.html");
+            args << cwd.filePath("html/ind_20mm.html");
+            args << cwd.filePath("html/ind_10mm.html");
+            args << cwd.filePath("html/ind_0mm.html");
         }
     }
 
@@ -3970,3 +3984,9 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+void MainWindow::on_idg_d_s21_cursorPositionChanged(int arg1, int arg2)
+{
+
+}
+
