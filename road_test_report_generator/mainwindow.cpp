@@ -56,11 +56,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_tabWidget_tabCloseRequested(int index)
-{
-    ui->tab_list->removeTab(index);
-}
-
 void MainWindow::on_actionSave_Project_triggered()
 {
     ui->spc_save->click();
@@ -116,9 +111,9 @@ void MainWindow::on_spc_save_40mm_clicked()
     _40mm.Weight_of_Oven_dry_sample[4][1] = ui->spc_40_w3_t1->text().toFloat();
     _40mm.Weight_of_Oven_dry_sample[4][2] = ui->spc_40_w3_t2->text().toFloat();
     _40mm.Weight_of_Oven_dry_sample[4][3] = ui->spc_40_w3_t3->text().toFloat();
-    float Bulk_specific_gravity_40[3];
-    float apparent_specific_gravity_40[3];
-    float water_absorption_40[3];
+    float Bulk_specific_gravity_40[4];
+    float apparent_specific_gravity_40[4];
+    float water_absorption_40[4];
     float average_bulk_specific_gravity_40;
     float average_apparent_specific_gravity_40;
     float average_water_absorption_40;
@@ -194,9 +189,9 @@ void MainWindow::on_spc_save_20mm_clicked()
     _20mm.Weight_of_Oven_dry_sample[2][2] = ui->spc_20_w3_t2->text().toFloat();
     _20mm.Weight_of_Oven_dry_sample[2][3] = ui->spc_20_w3_t3->text().toFloat();
 
-    float Bulk_specific_gravity_20[3];
-    float apparent_specific_gravity_20[3];
-    float water_absorption_20[3];
+    float Bulk_specific_gravity_20[4];
+    float apparent_specific_gravity_20[4];
+    float water_absorption_20[4];
     float average_bulk_specific_gravity_20;
     float average_apparent_specific_gravity_20;
     float average_water_absorption_20;
@@ -271,9 +266,9 @@ void MainWindow::on_spc_save_10mm_clicked()
     _10mm.Weight_of_Oven_dry_sample[1][1] = ui->spc_10_w3_t1->text().toFloat();
     _10mm.Weight_of_Oven_dry_sample[1][2] = ui->spc_10_w3_t2->text().toFloat();
     _10mm.Weight_of_Oven_dry_sample[1][3] = ui->spc_10_w3_t3->text().toFloat();
-    float Bulk_specific_gravity_10[3];
-    float apparent_specific_gravity_10[3];
-    float water_absorption_10[3];
+    float Bulk_specific_gravity_10[4];
+    float apparent_specific_gravity_10[4];
+    float water_absorption_10[4];
     float average_bulk_specific_gravity_10;
     float average_apparent_specific_gravity_10;
     float average_water_absorption_10;
@@ -347,9 +342,9 @@ void MainWindow::on_spc_save_0mm_clicked()
     stone_dust.Weight_of_Oven_dry_sample[0][2] = ui->spc_0_w3_t2->text().toFloat();
     stone_dust.Weight_of_Oven_dry_sample[0][3] = ui->spc_0_w3_t3->text().toFloat();
 
-    float Bulk_specific_gravity_s_d[3];
-    float apparent_specific_gravity_s_d[3];
-    float water_absorption_s_d[3];
+    float Bulk_specific_gravity_s_d[4];
+    float apparent_specific_gravity_s_d[4];
+    float water_absorption_s_d[4];
     float average_bulk_specific_gravity_s_d;
     float average_apparent_specific_gravity_s_d;
     float average_water_absorption_s_d;
@@ -1458,6 +1453,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
     else if (OS == "apple")
     {
         //TO WRITE
+        program = QString("wkhtmltopdf");
     }
     command = command + program.toStdString();
     command = command + " ";
@@ -3773,7 +3769,7 @@ void MainWindow::on_ind_export_clicked()
                         cmb_output_html_file << topushf;
                         break;
                     case 50:
-                        topush = ui->ind_exp_4->text().toStdString();
+                        topush = ui->ind_exp_2->text().toStdString();
                         break;
                     default:
                         qDebug() << "smthlikeyou11 " << token;
