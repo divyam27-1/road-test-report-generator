@@ -3459,6 +3459,7 @@ void MainWindow::on_ind_export_clicked()
                         bld_output_html_file << topushf;
                         break;
 
+
                     default:
                         qDebug() << "smthlikeyou11";
                     }
@@ -3693,6 +3694,7 @@ void MainWindow::on_ind_export_clicked()
                         topushf = json_lookups_data_cg["Pass_8"].toDouble();
                         cmb_output_html_file << topushf;
                         break;
+
 
 
                     default:
