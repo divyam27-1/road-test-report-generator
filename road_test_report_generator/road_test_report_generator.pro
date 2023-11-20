@@ -28,3 +28,12 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    ../templates/aiv.html \
+    ../templates/bld.html \
+    ../templates/cmb.html \
+    ../templates/fei.html \
+    ../templates/ind.html \
+    ../templates/spc.html \
+    ../templates/summary.html

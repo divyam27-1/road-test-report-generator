@@ -14,9 +14,13 @@
 #include <algorithm>
 #include <QProcess>
 #include <stdlib.h>
+#include <QMessageBox>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
+bool i2 = cwd.cdUp();
+bool i3 = cwd.cdUp();
+bool i4 = cwd.cdUp();
 std::vector<std::string> tracked_files;
 std::string OS;
 
@@ -49,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     qDebug() << OS;
+    qDebug() << cwd;
 }
 
 MainWindow::~MainWindow()
@@ -1456,7 +1461,6 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         program = QString("wkhtmltopdf");
     }
     command = command + program.toStdString();
-    command = command + " ";
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -1500,8 +1504,17 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         command = command + " " + i->toStdString();
     qDebug() << command;
 
-    QProcess *converter = new QProcess();
-    converter->start(program, args);
+    if (OS != "apple") {
+        QProcess *converter = new QProcess();
+        converter->start(program, args);
+    } else {
+        QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
+        std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
+        std::ofstream output_txt_file(output_txt_path, std::ios::out);
+        if(output_txt_file.is_open()) {
+            output_txt_file << command;
+        } output_txt_file.close();
+    }
 }
 void MainWindow::on_spc_export_clicked()
 {
@@ -2325,7 +2338,7 @@ void MainWindow::on_aiv_export_clicked()
 void MainWindow::on_ind_export_clicked()
 {
     ui->ind_save->click();
-    qDebug() << "beginning ind save...";
+    qDebug() << "beginning ind save... at " << cwd.filePath("");
     QString json_path = cwd.filePath("json/idg.json");
 
     QFile json_file(json_path);
@@ -2948,7 +2961,7 @@ void MainWindow::on_ind_export_clicked()
         QFile bld_template_file(bld_template_path);
         if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "bld template html not opened";
             return;
         }
         else
@@ -3522,7 +3535,7 @@ void MainWindow::on_ind_export_clicked()
         QFile cmb_template_file(cmb_template_path);
         if (!cmb_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "cmb html template not opened";
             return;
         }
         else
