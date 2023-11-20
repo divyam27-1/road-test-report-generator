@@ -37,7 +37,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -2383,7 +2383,7 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1170</width>
+         <width>1251</width>
          <height>690</height>
         </rect>
        </property>
@@ -2475,7 +2475,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>510</y>
+          <y>490</y>
           <width>21</width>
           <height>25</height>
          </rect>
@@ -2488,7 +2488,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>500</y>
+          <y>480</y>
           <width>351</width>
           <height>25</height>
          </rect>
@@ -2514,7 +2514,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>560</y>
+          <y>540</y>
           <width>281</width>
           <height>25</height>
          </rect>
@@ -2527,7 +2527,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>450</y>
+          <y>430</y>
           <width>191</width>
           <height>25</height>
          </rect>
@@ -2543,7 +2543,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>400</y>
+          <y>380</y>
           <width>41</width>
           <height>17</height>
          </rect>
@@ -2556,7 +2556,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>560</y>
+          <y>540</y>
           <width>21</width>
           <height>25</height>
          </rect>
@@ -2569,7 +2569,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>400</y>
+          <y>380</y>
           <width>79</width>
           <height>17</height>
          </rect>
@@ -2582,7 +2582,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>450</y>
+          <y>430</y>
           <width>21</width>
           <height>25</height>
          </rect>
@@ -2843,7 +2843,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>610</y>
+          <y>590</y>
           <width>21</width>
           <height>25</height>
          </rect>
@@ -2856,7 +2856,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>600</y>
+          <y>590</y>
           <width>331</width>
           <height>25</height>
          </rect>
@@ -2872,7 +2872,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>440</y>
+          <y>420</y>
           <width>41</width>
           <height>25</height>
          </rect>
@@ -2888,7 +2888,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>500</y>
+          <y>480</y>
           <width>41</width>
           <height>25</height>
          </rect>
@@ -2904,7 +2904,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>560</y>
+          <y>540</y>
           <width>41</width>
           <height>25</height>
          </rect>
@@ -2920,7 +2920,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>610</y>
+          <y>590</y>
           <width>41</width>
           <height>25</height>
          </rect>
@@ -2933,7 +2933,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>625</y>
+          <y>610</y>
           <width>211</width>
           <height>17</height>
          </rect>
@@ -2971,7 +2971,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_7">
         <property name="geometry">
          <rect>
-          <x>930</x>
+          <x>760</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -2981,7 +2981,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_4">
         <property name="geometry">
          <rect>
-          <x>690</x>
+          <x>520</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -2991,7 +2991,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_2">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>350</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3001,7 +3001,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_3">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>440</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3011,7 +3011,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_8">
         <property name="geometry">
          <rect>
-          <x>1010</x>
+          <x>840</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3021,7 +3021,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_9">
         <property name="geometry">
          <rect>
-          <x>1090</x>
+          <x>920</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3031,7 +3031,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_10">
         <property name="geometry">
          <rect>
-          <x>1170</x>
+          <x>1000</x>
           <y>620</y>
           <width>81</width>
           <height>24</height>
@@ -3041,7 +3041,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_7">
         <property name="geometry">
          <rect>
-          <x>930</x>
+          <x>760</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3051,7 +3051,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_6">
         <property name="geometry">
          <rect>
-          <x>850</x>
+          <x>680</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3061,7 +3061,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_1">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>270</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3071,7 +3071,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_8">
         <property name="geometry">
          <rect>
-          <x>1010</x>
+          <x>840</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3081,7 +3081,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_1">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>270</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3091,7 +3091,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_7">
         <property name="geometry">
          <rect>
-          <x>930</x>
+          <x>760</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3101,7 +3101,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_10">
         <property name="geometry">
          <rect>
-          <x>1170</x>
+          <x>1000</x>
           <y>570</y>
           <width>81</width>
           <height>24</height>
@@ -3111,7 +3111,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_5">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>600</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3121,7 +3121,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_3">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>440</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3131,7 +3131,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_6">
         <property name="geometry">
          <rect>
-          <x>850</x>
+          <x>680</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3141,7 +3141,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_2">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>350</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3151,7 +3151,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_1">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>270</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3161,7 +3161,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_4">
         <property name="geometry">
          <rect>
-          <x>690</x>
+          <x>520</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3171,7 +3171,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_2">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>350</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3181,7 +3181,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_5">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>600</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3191,7 +3191,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_3">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>440</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3201,7 +3201,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_10">
         <property name="geometry">
          <rect>
-          <x>1170</x>
+          <x>1000</x>
           <y>450</y>
           <width>81</width>
           <height>24</height>
@@ -3211,7 +3211,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_8">
         <property name="geometry">
          <rect>
-          <x>1010</x>
+          <x>840</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3221,7 +3221,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_6">
         <property name="geometry">
          <rect>
-          <x>850</x>
+          <x>680</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3231,7 +3231,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_4">
         <property name="geometry">
          <rect>
-          <x>690</x>
+          <x>520</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3241,7 +3241,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_4_5">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>600</x>
           <y>620</y>
           <width>71</width>
           <height>25</height>
@@ -3251,7 +3251,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_6">
         <property name="geometry">
          <rect>
-          <x>850</x>
+          <x>680</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3261,7 +3261,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_8">
         <property name="geometry">
          <rect>
-          <x>1010</x>
+          <x>840</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3271,7 +3271,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_5">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>600</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3281,7 +3281,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_9">
         <property name="geometry">
          <rect>
-          <x>1090</x>
+          <x>920</x>
           <y>510</y>
           <width>71</width>
           <height>25</height>
@@ -3291,7 +3291,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_9">
         <property name="geometry">
          <rect>
-          <x>1090</x>
+          <x>920</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3301,7 +3301,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_2_10">
         <property name="geometry">
          <rect>
-          <x>1170</x>
+          <x>1000</x>
           <y>510</y>
           <width>81</width>
           <height>24</height>
@@ -3311,7 +3311,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_9">
         <property name="geometry">
          <rect>
-          <x>1090</x>
+          <x>920</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3321,7 +3321,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_4">
         <property name="geometry">
          <rect>
-          <x>690</x>
+          <x>520</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3331,7 +3331,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_7">
         <property name="geometry">
          <rect>
-          <x>930</x>
+          <x>760</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3341,7 +3341,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_3_1">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>270</x>
           <y>570</y>
           <width>71</width>
           <height>25</height>
@@ -3351,7 +3351,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_3">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>440</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3361,7 +3361,7 @@ color: rgb(0, 0, 0);</string>
        <widget class="QLineEdit" name="fei_1_2">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>350</x>
           <y>450</y>
           <width>71</width>
           <height>25</height>
@@ -3781,7 +3781,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-160</y>
          <width>1050</width>
          <height>850</height>
         </rect>
@@ -8558,6 +8558,106 @@ color: rgb(0, 0, 0);</string>
   </action>
  </widget>
  <tabstops>
+  <tabstop>spc_40_w1_t1</tabstop>
+  <tabstop>spc_40_w1_t2</tabstop>
+  <tabstop>spc_40_w1_t3</tabstop>
+  <tabstop>spc_40_w2_t1</tabstop>
+  <tabstop>spc_40_w2_t2</tabstop>
+  <tabstop>spc_40_w2_t3</tabstop>
+  <tabstop>spc_40_w3_t1</tabstop>
+  <tabstop>spc_40_w3_t2</tabstop>
+  <tabstop>spc_40_w3_t3</tabstop>
+  <tabstop>spc_save_40mm</tabstop>
+  <tabstop>spc_20_w1_t1</tabstop>
+  <tabstop>spc_20_w1_t2</tabstop>
+  <tabstop>spc_20_w1_t3</tabstop>
+  <tabstop>spc_20_w2_t1</tabstop>
+  <tabstop>spc_20_w2_t2</tabstop>
+  <tabstop>spc_20_w2_t3</tabstop>
+  <tabstop>spc_20_w3_t1</tabstop>
+  <tabstop>spc_20_w3_t2</tabstop>
+  <tabstop>spc_20_w3_t3</tabstop>
+  <tabstop>spc_save_20mm</tabstop>
+  <tabstop>spc_10_w1_t1</tabstop>
+  <tabstop>spc_10_w1_t2</tabstop>
+  <tabstop>spc_10_w1_t3</tabstop>
+  <tabstop>spc_10_w2_t1</tabstop>
+  <tabstop>spc_10_w2_t2</tabstop>
+  <tabstop>spc_10_w2_t3</tabstop>
+  <tabstop>spc_10_w3_t1</tabstop>
+  <tabstop>spc_10_w3_t2</tabstop>
+  <tabstop>spc_10_w3_t3</tabstop>
+  <tabstop>spc_save_10mm</tabstop>
+  <tabstop>spc_0_w1_t1</tabstop>
+  <tabstop>spc_0_w1_t2</tabstop>
+  <tabstop>spc_0_w1_t3</tabstop>
+  <tabstop>spc_0_w2_t1</tabstop>
+  <tabstop>spc_0_w2_t2</tabstop>
+  <tabstop>spc_0_w2_t3</tabstop>
+  <tabstop>spc_0_w3_t1</tabstop>
+  <tabstop>spc_0_w3_t2</tabstop>
+  <tabstop>spc_0_w3_t3</tabstop>
+  <tabstop>spc_save_0mm</tabstop>
+  <tabstop>fei_ss_p1</tabstop>
+  <tabstop>fei_ss_p2</tabstop>
+  <tabstop>fei_ss_p3</tabstop>
+  <tabstop>fei_ss_p4</tabstop>
+  <tabstop>fei_ss_p5</tabstop>
+  <tabstop>fei_ss_p6</tabstop>
+  <tabstop>fei_ss_p7</tabstop>
+  <tabstop>fei_ss_p8</tabstop>
+  <tabstop>fei_ss_p9</tabstop>
+  <tabstop>fei_ss_r1</tabstop>
+  <tabstop>fei_ss_r2</tabstop>
+  <tabstop>fei_ss_r3</tabstop>
+  <tabstop>fei_ss_r4</tabstop>
+  <tabstop>fei_ss_r5</tabstop>
+  <tabstop>fei_ss_r6</tabstop>
+  <tabstop>fei_ss_r7</tabstop>
+  <tabstop>fei_ss_r8</tabstop>
+  <tabstop>fei_ss_r9</tabstop>
+  <tabstop>save_ss</tabstop>
+  <tabstop>fei_1_1</tabstop>
+  <tabstop>fei_1_2</tabstop>
+  <tabstop>fei_1_3</tabstop>
+  <tabstop>fei_1_4</tabstop>
+  <tabstop>fei_1_5</tabstop>
+  <tabstop>fei_1_6</tabstop>
+  <tabstop>fei_1_7</tabstop>
+  <tabstop>fei_1_8</tabstop>
+  <tabstop>fei_1_9</tabstop>
+  <tabstop>fei_1_10</tabstop>
+  <tabstop>fei_2_1</tabstop>
+  <tabstop>fei_2_2</tabstop>
+  <tabstop>fei_2_3</tabstop>
+  <tabstop>fei_2_4</tabstop>
+  <tabstop>fei_2_5</tabstop>
+  <tabstop>fei_2_6</tabstop>
+  <tabstop>fei_2_7</tabstop>
+  <tabstop>fei_2_8</tabstop>
+  <tabstop>fei_2_9</tabstop>
+  <tabstop>fei_2_10</tabstop>
+  <tabstop>fei_3_1</tabstop>
+  <tabstop>fei_3_2</tabstop>
+  <tabstop>fei_3_3</tabstop>
+  <tabstop>fei_3_4</tabstop>
+  <tabstop>fei_3_5</tabstop>
+  <tabstop>fei_3_6</tabstop>
+  <tabstop>fei_3_7</tabstop>
+  <tabstop>fei_3_8</tabstop>
+  <tabstop>fei_3_9</tabstop>
+  <tabstop>fei_3_10</tabstop>
+  <tabstop>fei_4_1</tabstop>
+  <tabstop>fei_4_2</tabstop>
+  <tabstop>fei_4_3</tabstop>
+  <tabstop>fei_4_4</tabstop>
+  <tabstop>fei_4_5</tabstop>
+  <tabstop>fei_4_6</tabstop>
+  <tabstop>fei_4_7</tabstop>
+  <tabstop>fei_4_8</tabstop>
+  <tabstop>fei_4_9</tabstop>
+  <tabstop>fei_4_10</tabstop>
+  <tabstop>save_fei</tabstop>
   <tabstop>aiv_20_11</tabstop>
   <tabstop>aiv_20_12</tabstop>
   <tabstop>aiv_20_13</tabstop>
@@ -8580,119 +8680,6 @@ color: rgb(0, 0, 0);</string>
   <tabstop>aiv_10_43</tabstop>
   <tabstop>aiv_10_6</tabstop>
   <tabstop>aiv_save_10mm</tabstop>
-  <tabstop>fei_ss_p1</tabstop>
-  <tabstop>fei_ss_p2</tabstop>
-  <tabstop>fei_ss_p3</tabstop>
-  <tabstop>fei_ss_p4</tabstop>
-  <tabstop>fei_ss_p5</tabstop>
-  <tabstop>fei_ss_p6</tabstop>
-  <tabstop>fei_ss_p7</tabstop>
-  <tabstop>fei_ss_p8</tabstop>
-  <tabstop>fei_ss_p9</tabstop>
-  <tabstop>fei_ss_r1</tabstop>
-  <tabstop>fei_ss_r2</tabstop>
-  <tabstop>fei_ss_r3</tabstop>
-  <tabstop>fei_ss_r4</tabstop>
-  <tabstop>fei_ss_r5</tabstop>
-  <tabstop>fei_ss_r6</tabstop>
-  <tabstop>fei_ss_r7</tabstop>
-  <tabstop>fei_ss_r8</tabstop>
-  <tabstop>fei_ss_r9</tabstop>
-  <tabstop>save_ss</tabstop>
-  <tabstop>save_fei</tabstop>
-  <tabstop>spc_0_w3_t2</tabstop>
-  <tabstop>spc_0_w3_t3</tabstop>
-  <tabstop>spc_exp_1</tabstop>
-  <tabstop>spc_exp_3</tabstop>
-  <tabstop>spc_exp_4</tabstop>
-  <tabstop>spc_exp_5</tabstop>
-  <tabstop>spc_exp_6</tabstop>
-  <tabstop>spc_bsc_1</tabstop>
-  <tabstop>spc_bsc_2</tabstop>
-  <tabstop>spc_bsc_3</tabstop>
-  <tabstop>spc_bsc_4</tabstop>
-  <tabstop>tab_list</tabstop>
-  <tabstop>spc_save_20mm</tabstop>
-  <tabstop>spc_save_10mm</tabstop>
-  <tabstop>spc_save_0mm</tabstop>
-  <tabstop>fei_bsc_1</tabstop>
-  <tabstop>fei_bsc_2</tabstop>
-  <tabstop>fei_bsc_3</tabstop>
-  <tabstop>fei_bsc_4</tabstop>
-  <tabstop>fei_exp_2</tabstop>
-  <tabstop>fei_exp_1</tabstop>
-  <tabstop>fei_exp_4</tabstop>
-  <tabstop>fei_exp_5</tabstop>
-  <tabstop>fei_exp_6</tabstop>
-  <tabstop>fei_save</tabstop>
-  <tabstop>fei_saveas</tabstop>
-  <tabstop>fei_export</tabstop>
-  <tabstop>spc_10_w1_t2</tabstop>
-  <tabstop>spc_10_w2_t1</tabstop>
-  <tabstop>spc_10_w1_t3</tabstop>
-  <tabstop>spc_10_w2_t2</tabstop>
-  <tabstop>spc_10_w3_t1</tabstop>
-  <tabstop>spc_10_w3_t2</tabstop>
-  <tabstop>spc_10_w3_t3</tabstop>
-  <tabstop>spc_0_w1_t1</tabstop>
-  <tabstop>spc_0_w1_t2</tabstop>
-  <tabstop>spc_0_w1_t3</tabstop>
-  <tabstop>spc_0_w2_t1</tabstop>
-  <tabstop>spc_0_w2_t2</tabstop>
-  <tabstop>spc_exp_2</tabstop>
-  <tabstop>spc_0_w3_t1</tabstop>
-  <tabstop>spc_save_40mm</tabstop>
-  <tabstop>fei_exp_3</tabstop>
-  <tabstop>spc_10_w2_t3</tabstop>
-  <tabstop>spc_0_w2_t3</tabstop>
-  <tabstop>aiv_save</tabstop>
-  <tabstop>aiv_saveas</tabstop>
-  <tabstop>aiv_export</tabstop>
-  <tabstop>aiv_bsc_1</tabstop>
-  <tabstop>aiv_bsc_2</tabstop>
-  <tabstop>aiv_bsc_3</tabstop>
-  <tabstop>aiv_bsc_4</tabstop>
-  <tabstop>aiv_exp_1</tabstop>
-  <tabstop>aiv_exp_2</tabstop>
-  <tabstop>aiv_exp_3</tabstop>
-  <tabstop>aiv_exp_4</tabstop>
-  <tabstop>aiv_exp_5</tabstop>
-  <tabstop>aiv_exp_6</tabstop>
-  <tabstop>spc_save</tabstop>
-  <tabstop>spc_saveas</tabstop>
-  <tabstop>spc_export</tabstop>
-  <tabstop>spc_40_w1_t1</tabstop>
-  <tabstop>spc_40_w1_t2</tabstop>
-  <tabstop>spc_40_w1_t3</tabstop>
-  <tabstop>spc_40_w2_t1</tabstop>
-  <tabstop>spc_40_w2_t2</tabstop>
-  <tabstop>spc_40_w2_t3</tabstop>
-  <tabstop>spc_20_w3_t2</tabstop>
-  <tabstop>spc_20_w1_t2</tabstop>
-  <tabstop>spc_20_w1_t1</tabstop>
-  <tabstop>spc_40_w3_t3</tabstop>
-  <tabstop>spc_20_w1_t3</tabstop>
-  <tabstop>spc_20_w2_t3</tabstop>
-  <tabstop>spc_20_w2_t2</tabstop>
-  <tabstop>spc_20_w2_t1</tabstop>
-  <tabstop>spc_20_w3_t1</tabstop>
-  <tabstop>spc_10_w1_t1</tabstop>
-  <tabstop>spc_40_w3_t2</tabstop>
-  <tabstop>spc_40_w3_t1</tabstop>
-  <tabstop>spc_20_w3_t3</tabstop>
-  <tabstop>ind_bsc_1</tabstop>
-  <tabstop>ind_bsc_2</tabstop>
-  <tabstop>ind_bsc_3</tabstop>
-  <tabstop>ind_bsc_4</tabstop>
-  <tabstop>ind_exp_1</tabstop>
-  <tabstop>ind_exp_2</tabstop>
-  <tabstop>ind_exp_3</tabstop>
-  <tabstop>ind_exp_4</tabstop>
-  <tabstop>ind_exp_5</tabstop>
-  <tabstop>ind_exp_6</tabstop>
-  <tabstop>ind_save</tabstop>
-  <tabstop>ind_saveas</tabstop>
-  <tabstop>ind_export</tabstop>
   <tabstop>idg_40_s11</tabstop>
   <tabstop>idg_40_s12</tabstop>
   <tabstop>idg_40_s13</tabstop>
@@ -8701,6 +8688,7 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_40_s16</tabstop>
   <tabstop>idg_40_s17</tabstop>
   <tabstop>idg_40_s18</tabstop>
+  <tabstop>ind_save</tabstop>
   <tabstop>idg_40_w11</tabstop>
   <tabstop>idg_40_w12</tabstop>
   <tabstop>idg_40_w13</tabstop>
@@ -8741,6 +8729,7 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_40_w36</tabstop>
   <tabstop>idg_40_w37</tabstop>
   <tabstop>idg_40_w38</tabstop>
+  <tabstop>idg_save_40mm</tabstop>
   <tabstop>idg_20_s11</tabstop>
   <tabstop>idg_20_s12</tabstop>
   <tabstop>idg_20_s13</tabstop>
@@ -8783,12 +8772,15 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_20_s38</tabstop>
   <tabstop>idg_20_w31</tabstop>
   <tabstop>idg_20_w32</tabstop>
+  <tabstop>ind_bsc_3</tabstop>
+  <tabstop>ind_bsc_2</tabstop>
   <tabstop>idg_20_w33</tabstop>
   <tabstop>idg_20_w34</tabstop>
   <tabstop>idg_20_w35</tabstop>
   <tabstop>idg_20_w36</tabstop>
   <tabstop>idg_20_w37</tabstop>
   <tabstop>idg_20_w38</tabstop>
+  <tabstop>idg_save_20mm</tabstop>
   <tabstop>idg_10_s11</tabstop>
   <tabstop>idg_10_s12</tabstop>
   <tabstop>idg_10_s13</tabstop>
@@ -8837,6 +8829,7 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_10_w36</tabstop>
   <tabstop>idg_10_w37</tabstop>
   <tabstop>idg_10_w38</tabstop>
+  <tabstop>idg_save_10mm</tabstop>
   <tabstop>idg_d_s11</tabstop>
   <tabstop>idg_d_s12</tabstop>
   <tabstop>idg_d_s13</tabstop>
@@ -8881,11 +8874,95 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_d_w32</tabstop>
   <tabstop>idg_d_w33</tabstop>
   <tabstop>idg_d_w34</tabstop>
-  <tabstop>idg_d_w35</tabstop>
   <tabstop>idg_d_w36</tabstop>
+  <tabstop>idg_d_w35</tabstop>
   <tabstop>idg_d_w37</tabstop>
   <tabstop>idg_d_w38</tabstop>
-  <tabstop>idg_save_40mm</tabstop>
+  <tabstop>idg_save_d</tabstop>
+  <tabstop>cg_d_is_1</tabstop>
+  <tabstop>cg_d_is_2</tabstop>
+  <tabstop>cg_d_is_3</tabstop>
+  <tabstop>cg_d_is_4</tabstop>
+  <tabstop>cg_d_is_5</tabstop>
+  <tabstop>cg_d_is_6</tabstop>
+  <tabstop>cg_d_is_7</tabstop>
+  <tabstop>cg_d_is_8</tabstop>
+  <tabstop>cg_d_wr_1</tabstop>
+  <tabstop>cg_d_wr_2</tabstop>
+  <tabstop>cg_d_wr_3</tabstop>
+  <tabstop>cg_d_wr_4</tabstop>
+  <tabstop>cg_d_wr_5</tabstop>
+  <tabstop>cg_d_wr_6</tabstop>
+  <tabstop>cg_d_wr_7</tabstop>
+  <tabstop>cg_d_wr_8</tabstop>
+  <tabstop>cd_save</tabstop>
+  <tabstop>tab_list</tabstop>
+  <tabstop>aiv_export</tabstop>
+  <tabstop>fei_exp_6</tabstop>
+  <tabstop>aiv_saveas</tabstop>
+  <tabstop>fei_exp_4</tabstop>
+  <tabstop>spc_exp_2</tabstop>
+  <tabstop>aiv_exp_1</tabstop>
+  <tabstop>aiv_bsc_1</tabstop>
+  <tabstop>spc_save</tabstop>
+  <tabstop>spc_saveas</tabstop>
+  <tabstop>spc_bsc_4</tabstop>
+  <tabstop>spc_export</tabstop>
+  <tabstop>aiv_bsc_2</tabstop>
+  <tabstop>fei_export</tabstop>
+  <tabstop>spc_exp_6</tabstop>
+  <tabstop>fei_exp_3</tabstop>
+  <tabstop>aiv_bsc_3</tabstop>
+  <tabstop>aiv_bsc_4</tabstop>
+  <tabstop>spc_exp_3</tabstop>
+  <tabstop>fei_save</tabstop>
+  <tabstop>spc_exp_1</tabstop>
+  <tabstop>spc_bsc_1</tabstop>
+  <tabstop>aiv_save</tabstop>
+  <tabstop>spc_bsc_2</tabstop>
+  <tabstop>fei_saveas</tabstop>
+  <tabstop>fei_exp_1</tabstop>
+  <tabstop>fei_bsc_1</tabstop>
+  <tabstop>spc_bsc_3</tabstop>
+  <tabstop>fei_exp_2</tabstop>
+  <tabstop>fei_bsc_4</tabstop>
+  <tabstop>ind_40_w1</tabstop>
+  <tabstop>ind_40_w2</tabstop>
+  <tabstop>ind_40_w3</tabstop>
+  <tabstop>ind_20_w2</tabstop>
+  <tabstop>ind_20_w3</tabstop>
+  <tabstop>ind_20_w1</tabstop>
+  <tabstop>ind_10_w2</tabstop>
+  <tabstop>ind_10_w3</tabstop>
+  <tabstop>ind_10_w1</tabstop>
+  <tabstop>ind_0_w2</tabstop>
+  <tabstop>ind_0_w3</tabstop>
+  <tabstop>ind_0_w1</tabstop>
+  <tabstop>ind_exp_4</tabstop>
+  <tabstop>ind_exp_6</tabstop>
+  <tabstop>ind_exp_3</tabstop>
+  <tabstop>ind_40_7</tabstop>
+  <tabstop>ind_20_7</tabstop>
+  <tabstop>ind_10_7</tabstop>
+  <tabstop>ind_0_7</tabstop>
+  <tabstop>ind_exp_5</tabstop>
+  <tabstop>ind_export</tabstop>
+  <tabstop>ind_bsc_4</tabstop>
+  <tabstop>ind_saveas</tabstop>
+  <tabstop>ind_exp_1</tabstop>
+  <tabstop>ind_exp_2</tabstop>
+  <tabstop>ind_bsc_1</tabstop>
+  <tabstop>spc_exp_4</tabstop>
+  <tabstop>spc_exp_5</tabstop>
+  <tabstop>aiv_exp_6</tabstop>
+  <tabstop>fei_bsc_2</tabstop>
+  <tabstop>aiv_exp_3</tabstop>
+  <tabstop>aiv_exp_4</tabstop>
+  <tabstop>aiv_exp_5</tabstop>
+  <tabstop>aiv_exp_2</tabstop>
+  <tabstop>fei_exp_5</tabstop>
+  <tabstop>fei_bsc_3</tabstop>
+  <tabstop>cd_d_w_1</tabstop>
  </tabstops>
  <resources/>
  <connections>

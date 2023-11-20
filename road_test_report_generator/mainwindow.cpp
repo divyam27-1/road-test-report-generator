@@ -737,7 +737,8 @@ void MainWindow::on_idg_save_40mm_clicked()
             cumsum += weight_of_retained_40[i][j];
             ind_cumulative[i][j] = cumsum;
             ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
-            ind_cum_pass[i][j] = 100 - (cumsum / total_weight[i - 1]);
+            ind_cum_pass[i][j] = 100 - ind_cumulative_percent[i][j];
+            qDebug() << i << " " << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass[i][j];
         }
     }
 
