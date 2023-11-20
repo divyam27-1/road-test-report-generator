@@ -18,9 +18,6 @@
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
-bool i2 = cwd.cdUp();
-bool i3 = cwd.cdUp();
-bool i4 = cwd.cdUp();
 std::vector<std::string> tracked_files;
 std::string OS;
 
@@ -51,6 +48,12 @@ MainWindow::MainWindow(QWidget *parent)
 #elif __APPLE__
     OS = "apple";
 #endif
+
+    if (OS == "apple") {
+        bool i2 = cwd.cdUp();
+        bool i3 = cwd.cdUp();
+        bool i4 = cwd.cdUp();
+    }
 
     qDebug() << OS;
     qDebug() << cwd;
