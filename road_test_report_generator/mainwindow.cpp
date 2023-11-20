@@ -15,6 +15,7 @@
 #include <QProcess>
 #include <stdlib.h>
 #include <qcustomplot.h>
+#include <QMessageBox>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -49,12 +50,22 @@ MainWindow::MainWindow(QWidget *parent)
     OS = "apple";
 #endif
 
+    if (OS == "apple") {
+        bool i2 = cwd.cdUp();
+        bool i3 = cwd.cdUp();
+        bool i4 = cwd.cdUp();
+    }
+
     qDebug() << OS;
+    qDebug() << cwd;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::on_tabWidget_tabCloseRequested(int in) {
+    //donothing
 }
 
 void MainWindow::on_actionSave_Project_triggered()
@@ -734,6 +745,8 @@ void MainWindow::on_idg_save_40mm_clicked()
             ind_cumulative[i][j] = cumsum;
             ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
             ind_cum_pass[i][j] = 100 - (cumsum / total_weight[i - 1]);
+            qDebug() << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass;
+
         }
     }
 
@@ -1457,7 +1470,6 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         program = QString("wkhtmltopdf");
     }
     command = command + program.toStdString();
-    command = command + " ";
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -1501,8 +1513,17 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         command = command + " " + i->toStdString();
     qDebug() << command;
 
-    QProcess *converter = new QProcess();
-    converter->start(program, args);
+    if (OS != "apple") {
+        QProcess *converter = new QProcess();
+        converter->start(program, args);
+    } else {
+        QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
+        std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
+        std::ofstream output_txt_file(output_txt_path, std::ios::out);
+        if(output_txt_file.is_open()) {
+            output_txt_file << command;
+        } output_txt_file.close();
+    }
 }
 void MainWindow::on_spc_export_clicked()
 {
@@ -2326,7 +2347,7 @@ void MainWindow::on_aiv_export_clicked()
 void MainWindow::on_ind_export_clicked()
 {
     ui->ind_save->click();
-    qDebug() << "beginning ind save...";
+    qDebug() << "beginning ind save... at " << cwd.filePath("");
     QString json_path = cwd.filePath("json/idg.json");
 
     QFile json_file(json_path);
@@ -2949,7 +2970,7 @@ void MainWindow::on_ind_export_clicked()
         QFile bld_template_file(bld_template_path);
         if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "bld template html not opened";
             return;
         }
         else
@@ -3056,6 +3077,42 @@ void MainWindow::on_ind_export_clicked()
                     {
                         combined_passing[i] = bld_taken[4][i] + bld_taken[2][i] + bld_taken[1][i] + bld_taken[0][i];
                     }
+
+                    QVector<double> passing(9), lower_limit(9), upper_limit(9), ss(9);
+                    double lower_limit_[8] = {100,95,60,40,25,15,8,0};
+                    double upper_limit_[8] = {100, 100, 80, 60, 40, 30, 22, 15};
+                    ss[0] = json_lookups_data_40["is_sieve_s11"].toDouble();
+                    ss[1] = json_lookups_data_40["is_sieve_s12"].toDouble();
+                    ss[2] = json_lookups_data_40["is_sieve_s13"].toDouble();
+                    ss[3] = json_lookups_data_40["is_sieve_s14"].toDouble();
+                    ss[4] = json_lookups_data_40["is_sieve_s15"].toDouble();
+                    ss[5] = json_lookups_data_40["is_sieve_s16"].toDouble();
+                    ss[6] = json_lookups_data_40["is_sieve_s17"].toDouble();
+                    ss[7] = json_lookups_data_40["is_sieve_s18"].toDouble();
+                    for(int i = 0; i < 8; ++i) {
+                        lower_limit[i] = lower_limit_[i];
+                        upper_limit[i] = upper_limit_[i];
+                        passing[i] = combined_passing[i+1];
+                    }
+
+                    // create graph and assign data to it:
+                    ui->ind_graph_1->addGraph();
+                    ui->ind_graph_1->graph(0)->setData(ss, lower_limit);
+                    ui->ind_graph_1->addGraph();
+                    ui->ind_graph_1->graph(1)->setPen(QPen(Qt::red));
+                    ui->ind_graph_1->graph(1)->setData(ss, upper_limit);
+                    ui->ind_graph_1->addGraph();
+                    ui->ind_graph_1->graph(2)->setPen(QPen(Qt::yellow));
+                    ui->ind_graph_1->graph(2)->setData(ss, passing);
+                    // give the axes some labels:
+                    ui->ind_graph_1->xAxis->setLabel("Sieve Size (mm)");
+                    ui->ind_graph_1->yAxis->setLabel("Passing %");
+                    // set axes ranges, so we see all data:
+                    ui->ind_graph_1->xAxis->setRange(0, ss[0]);
+                    ui->ind_graph_1->yAxis->setRange(0, 120);
+                    ui->ind_graph_1->replot();
+
+
                     std::string topush;
 
                     double topushf;
@@ -3523,7 +3580,7 @@ void MainWindow::on_ind_export_clicked()
         QFile cmb_template_file(cmb_template_path);
         if (!cmb_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            qDebug() << "html not opened";
+            qDebug() << "cmb html template not opened";
             return;
         }
         else

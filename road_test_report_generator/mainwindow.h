@@ -78,6 +78,8 @@ public:
 
 
 private slots:
+    void on_tabWidget_tabCloseRequested(int in);
+
     void on_spc_save_10mm_clicked();
 
     void on_spc_save_20mm_clicked();
