@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <QProcess>
 #include <stdlib.h>
+#include <qcustomplot.h>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
