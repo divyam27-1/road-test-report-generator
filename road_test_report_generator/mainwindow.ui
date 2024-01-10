@@ -174,8 +174,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -371,9 +371,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="spc_save">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>70</width>
+        <x>20</x>
+        <y>20</y>
+        <width>89</width>
         <height>25</height>
        </rect>
       </property>
@@ -387,9 +387,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="spc_saveas">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>10</y>
-        <width>80</width>
+        <x>120</x>
+        <y>20</y>
+        <width>89</width>
         <height>25</height>
        </rect>
       </property>
@@ -403,9 +403,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="spc_export">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>10</y>
-        <width>120</width>
+        <x>220</x>
+        <y>20</y>
+        <width>111</width>
         <height>25</height>
        </rect>
       </property>
@@ -2353,7 +2353,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="fei_export">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>220</x>
         <y>20</y>
         <width>111</width>
         <height>25</height>
@@ -3417,7 +3417,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="aiv_export">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>220</x>
         <y>20</y>
         <width>110</width>
         <height>25</height>
@@ -5207,14 +5207,14 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="ind_export">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>220</x>
         <y>20</y>
         <width>111</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
-       <string>Export to PDF...</string>
+       <string>Export to PDF</string>
       </property>
      </widget>
      <widget class="QFrame" name="ind_frame_outer">
@@ -5236,7 +5236,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2150</y>
+         <y>0</y>
          <width>1050</width>
          <height>2841</height>
         </rect>
