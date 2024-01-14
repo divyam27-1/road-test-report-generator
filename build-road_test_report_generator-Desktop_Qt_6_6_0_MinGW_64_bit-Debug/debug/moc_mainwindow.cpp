@@ -39,10 +39,10 @@ namespace {
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
     "MainWindow",
-    "on_spc_save_10mm_clicked",
-    "",
     "on_tabWidget_tabCloseRequested",
-    "index",
+    "",
+    "in",
+    "on_spc_save_10mm_clicked",
     "on_spc_save_20mm_clicked",
     "on_spc_save_clicked",
     "on_spc_data_scroll_valueChanged",
@@ -90,17 +90,17 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_ind_export_clicked",
     "on_actionSave_Project_triggered",
     "on_cd_save_clicked",
-    "on_idg_d_s21_cursorPositionChanged",
-    "arg2"
+    "on_ind_graph_update_clicked",
+    "updateGraph_idg"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     uint offsetsAndSizes[108];
     char stringdata0[11];
-    char stringdata1[25];
+    char stringdata1[31];
     char stringdata2[1];
-    char stringdata3[31];
-    char stringdata4[6];
+    char stringdata3[3];
+    char stringdata4[25];
     char stringdata5[25];
     char stringdata6[20];
     char stringdata7[32];
@@ -148,73 +148,73 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata49[22];
     char stringdata50[32];
     char stringdata51[19];
-    char stringdata52[35];
-    char stringdata53[5];
+    char stringdata52[28];
+    char stringdata53[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_stringdata_CLASSMainWindowENDCLASS = {
     {
         QT_MOC_LITERAL(0, 10),  // "MainWindow"
-        QT_MOC_LITERAL(11, 24),  // "on_spc_save_10mm_clicked"
-        QT_MOC_LITERAL(36, 0),  // ""
-        QT_MOC_LITERAL(37, 30),  // "on_tabWidget_tabCloseRequested"
-        QT_MOC_LITERAL(68, 5),  // "index"
-        QT_MOC_LITERAL(74, 24),  // "on_spc_save_20mm_clicked"
-        QT_MOC_LITERAL(99, 19),  // "on_spc_save_clicked"
-        QT_MOC_LITERAL(119, 31),  // "on_spc_data_scroll_valueChanged"
-        QT_MOC_LITERAL(151, 5),  // "value"
-        QT_MOC_LITERAL(157, 24),  // "on_spc_save_40mm_clicked"
-        QT_MOC_LITERAL(182, 31),  // "on_ind_data_scroll_valueChanged"
-        QT_MOC_LITERAL(214, 31),  // "on_aiv_data_scroll_valueChanged"
-        QT_MOC_LITERAL(246, 23),  // "on_spc_save_0mm_clicked"
-        QT_MOC_LITERAL(270, 21),  // "on_spc_export_clicked"
-        QT_MOC_LITERAL(292, 19),  // "on_save_fei_clicked"
-        QT_MOC_LITERAL(312, 18),  // "on_save_ss_clicked"
-        QT_MOC_LITERAL(331, 21),  // "on_fei_export_clicked"
-        QT_MOC_LITERAL(353, 24),  // "on_aiv_save_20mm_clicked"
-        QT_MOC_LITERAL(378, 24),  // "on_aiv_20_21_textChanged"
-        QT_MOC_LITERAL(403, 4),  // "arg1"
-        QT_MOC_LITERAL(408, 24),  // "on_aiv_20_11_textChanged"
-        QT_MOC_LITERAL(433, 24),  // "on_aiv_20_12_textChanged"
-        QT_MOC_LITERAL(458, 24),  // "on_aiv_20_22_textChanged"
-        QT_MOC_LITERAL(483, 24),  // "on_aiv_20_13_textChanged"
-        QT_MOC_LITERAL(508, 24),  // "on_aiv_20_23_textChanged"
-        QT_MOC_LITERAL(533, 24),  // "on_aiv_10_11_textChanged"
-        QT_MOC_LITERAL(558, 24),  // "on_aiv_10_12_textChanged"
-        QT_MOC_LITERAL(583, 24),  // "on_aiv_10_13_textChanged"
-        QT_MOC_LITERAL(608, 24),  // "on_aiv_10_21_textChanged"
-        QT_MOC_LITERAL(633, 24),  // "on_aiv_10_22_textChanged"
-        QT_MOC_LITERAL(658, 24),  // "on_aiv_10_23_textChanged"
-        QT_MOC_LITERAL(683, 24),  // "on_aiv_20_41_textChanged"
-        QT_MOC_LITERAL(708, 24),  // "on_aiv_10_41_textChanged"
-        QT_MOC_LITERAL(733, 24),  // "on_aiv_10_42_textChanged"
-        QT_MOC_LITERAL(758, 24),  // "on_aiv_10_43_textChanged"
-        QT_MOC_LITERAL(783, 24),  // "on_aiv_20_42_textChanged"
-        QT_MOC_LITERAL(808, 24),  // "on_aiv_20_43_textChanged"
-        QT_MOC_LITERAL(833, 19),  // "on_aiv_20_6_clicked"
-        QT_MOC_LITERAL(853, 19),  // "on_aiv_10_6_clicked"
-        QT_MOC_LITERAL(873, 19),  // "on_fei_save_clicked"
-        QT_MOC_LITERAL(893, 32),  // "on_actionExport_to_PDF_triggered"
-        QT_MOC_LITERAL(926, 24),  // "on_aiv_save_10mm_clicked"
-        QT_MOC_LITERAL(951, 21),  // "on_aiv_export_clicked"
-        QT_MOC_LITERAL(973, 19),  // "on_aiv_save_clicked"
-        QT_MOC_LITERAL(993, 24),  // "on_idg_save_40mm_clicked"
-        QT_MOC_LITERAL(1018, 19),  // "on_ind_save_clicked"
-        QT_MOC_LITERAL(1038, 24),  // "on_idg_save_20mm_clicked"
-        QT_MOC_LITERAL(1063, 24),  // "on_idg_save_10mm_clicked"
-        QT_MOC_LITERAL(1088, 21),  // "on_idg_save_d_clicked"
-        QT_MOC_LITERAL(1110, 21),  // "on_ind_export_clicked"
-        QT_MOC_LITERAL(1132, 31),  // "on_actionSave_Project_triggered"
-        QT_MOC_LITERAL(1164, 18),  // "on_cd_save_clicked"
-        QT_MOC_LITERAL(1183, 34),  // "on_idg_d_s21_cursorPositionCh..."
-        QT_MOC_LITERAL(1218, 4)   // "arg2"
+        QT_MOC_LITERAL(11, 30),  // "on_tabWidget_tabCloseRequested"
+        QT_MOC_LITERAL(42, 0),  // ""
+        QT_MOC_LITERAL(43, 2),  // "in"
+        QT_MOC_LITERAL(46, 24),  // "on_spc_save_10mm_clicked"
+        QT_MOC_LITERAL(71, 24),  // "on_spc_save_20mm_clicked"
+        QT_MOC_LITERAL(96, 19),  // "on_spc_save_clicked"
+        QT_MOC_LITERAL(116, 31),  // "on_spc_data_scroll_valueChanged"
+        QT_MOC_LITERAL(148, 5),  // "value"
+        QT_MOC_LITERAL(154, 24),  // "on_spc_save_40mm_clicked"
+        QT_MOC_LITERAL(179, 31),  // "on_ind_data_scroll_valueChanged"
+        QT_MOC_LITERAL(211, 31),  // "on_aiv_data_scroll_valueChanged"
+        QT_MOC_LITERAL(243, 23),  // "on_spc_save_0mm_clicked"
+        QT_MOC_LITERAL(267, 21),  // "on_spc_export_clicked"
+        QT_MOC_LITERAL(289, 19),  // "on_save_fei_clicked"
+        QT_MOC_LITERAL(309, 18),  // "on_save_ss_clicked"
+        QT_MOC_LITERAL(328, 21),  // "on_fei_export_clicked"
+        QT_MOC_LITERAL(350, 24),  // "on_aiv_save_20mm_clicked"
+        QT_MOC_LITERAL(375, 24),  // "on_aiv_20_21_textChanged"
+        QT_MOC_LITERAL(400, 4),  // "arg1"
+        QT_MOC_LITERAL(405, 24),  // "on_aiv_20_11_textChanged"
+        QT_MOC_LITERAL(430, 24),  // "on_aiv_20_12_textChanged"
+        QT_MOC_LITERAL(455, 24),  // "on_aiv_20_22_textChanged"
+        QT_MOC_LITERAL(480, 24),  // "on_aiv_20_13_textChanged"
+        QT_MOC_LITERAL(505, 24),  // "on_aiv_20_23_textChanged"
+        QT_MOC_LITERAL(530, 24),  // "on_aiv_10_11_textChanged"
+        QT_MOC_LITERAL(555, 24),  // "on_aiv_10_12_textChanged"
+        QT_MOC_LITERAL(580, 24),  // "on_aiv_10_13_textChanged"
+        QT_MOC_LITERAL(605, 24),  // "on_aiv_10_21_textChanged"
+        QT_MOC_LITERAL(630, 24),  // "on_aiv_10_22_textChanged"
+        QT_MOC_LITERAL(655, 24),  // "on_aiv_10_23_textChanged"
+        QT_MOC_LITERAL(680, 24),  // "on_aiv_20_41_textChanged"
+        QT_MOC_LITERAL(705, 24),  // "on_aiv_10_41_textChanged"
+        QT_MOC_LITERAL(730, 24),  // "on_aiv_10_42_textChanged"
+        QT_MOC_LITERAL(755, 24),  // "on_aiv_10_43_textChanged"
+        QT_MOC_LITERAL(780, 24),  // "on_aiv_20_42_textChanged"
+        QT_MOC_LITERAL(805, 24),  // "on_aiv_20_43_textChanged"
+        QT_MOC_LITERAL(830, 19),  // "on_aiv_20_6_clicked"
+        QT_MOC_LITERAL(850, 19),  // "on_aiv_10_6_clicked"
+        QT_MOC_LITERAL(870, 19),  // "on_fei_save_clicked"
+        QT_MOC_LITERAL(890, 32),  // "on_actionExport_to_PDF_triggered"
+        QT_MOC_LITERAL(923, 24),  // "on_aiv_save_10mm_clicked"
+        QT_MOC_LITERAL(948, 21),  // "on_aiv_export_clicked"
+        QT_MOC_LITERAL(970, 19),  // "on_aiv_save_clicked"
+        QT_MOC_LITERAL(990, 24),  // "on_idg_save_40mm_clicked"
+        QT_MOC_LITERAL(1015, 19),  // "on_ind_save_clicked"
+        QT_MOC_LITERAL(1035, 24),  // "on_idg_save_20mm_clicked"
+        QT_MOC_LITERAL(1060, 24),  // "on_idg_save_10mm_clicked"
+        QT_MOC_LITERAL(1085, 21),  // "on_idg_save_d_clicked"
+        QT_MOC_LITERAL(1107, 21),  // "on_ind_export_clicked"
+        QT_MOC_LITERAL(1129, 31),  // "on_actionSave_Project_triggered"
+        QT_MOC_LITERAL(1161, 18),  // "on_cd_save_clicked"
+        QT_MOC_LITERAL(1180, 27),  // "on_ind_graph_update_clicked"
+        QT_MOC_LITERAL(1208, 15)   // "updateGraph_idg"
     },
     "MainWindow",
-    "on_spc_save_10mm_clicked",
-    "",
     "on_tabWidget_tabCloseRequested",
-    "index",
+    "",
+    "in",
+    "on_spc_save_10mm_clicked",
     "on_spc_save_20mm_clicked",
     "on_spc_save_clicked",
     "on_spc_data_scroll_valueChanged",
@@ -262,8 +262,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_ind_export_clicked",
     "on_actionSave_Project_triggered",
     "on_cd_save_clicked",
-    "on_idg_d_s21_cursorPositionChanged",
-    "arg2"
+    "on_ind_graph_update_clicked",
+    "updateGraph_idg"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -275,7 +275,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      48,   14, // methods
+      49,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -283,58 +283,59 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  302,    2, 0x08,    1 /* Private */,
-       3,    1,  303,    2, 0x08,    2 /* Private */,
-       5,    0,  306,    2, 0x08,    4 /* Private */,
-       6,    0,  307,    2, 0x08,    5 /* Private */,
-       7,    1,  308,    2, 0x08,    6 /* Private */,
-       9,    0,  311,    2, 0x08,    8 /* Private */,
-      10,    1,  312,    2, 0x08,    9 /* Private */,
-      11,    1,  315,    2, 0x08,   11 /* Private */,
-      12,    0,  318,    2, 0x08,   13 /* Private */,
-      13,    0,  319,    2, 0x08,   14 /* Private */,
-      14,    0,  320,    2, 0x08,   15 /* Private */,
-      15,    0,  321,    2, 0x08,   16 /* Private */,
-      16,    0,  322,    2, 0x08,   17 /* Private */,
-      17,    0,  323,    2, 0x08,   18 /* Private */,
-      18,    1,  324,    2, 0x08,   19 /* Private */,
-      20,    1,  327,    2, 0x08,   21 /* Private */,
-      21,    1,  330,    2, 0x08,   23 /* Private */,
-      22,    1,  333,    2, 0x08,   25 /* Private */,
-      23,    1,  336,    2, 0x08,   27 /* Private */,
-      24,    1,  339,    2, 0x08,   29 /* Private */,
-      25,    1,  342,    2, 0x08,   31 /* Private */,
-      26,    1,  345,    2, 0x08,   33 /* Private */,
-      27,    1,  348,    2, 0x08,   35 /* Private */,
-      28,    1,  351,    2, 0x08,   37 /* Private */,
-      29,    1,  354,    2, 0x08,   39 /* Private */,
-      30,    1,  357,    2, 0x08,   41 /* Private */,
-      31,    1,  360,    2, 0x08,   43 /* Private */,
-      32,    1,  363,    2, 0x08,   45 /* Private */,
-      33,    1,  366,    2, 0x08,   47 /* Private */,
-      34,    1,  369,    2, 0x08,   49 /* Private */,
-      35,    1,  372,    2, 0x08,   51 /* Private */,
-      36,    1,  375,    2, 0x08,   53 /* Private */,
-      37,    0,  378,    2, 0x08,   55 /* Private */,
-      38,    0,  379,    2, 0x08,   56 /* Private */,
-      39,    0,  380,    2, 0x08,   57 /* Private */,
-      40,    0,  381,    2, 0x08,   58 /* Private */,
-      41,    0,  382,    2, 0x08,   59 /* Private */,
-      42,    0,  383,    2, 0x08,   60 /* Private */,
-      43,    0,  384,    2, 0x08,   61 /* Private */,
-      44,    0,  385,    2, 0x08,   62 /* Private */,
-      45,    0,  386,    2, 0x08,   63 /* Private */,
-      46,    0,  387,    2, 0x08,   64 /* Private */,
-      47,    0,  388,    2, 0x08,   65 /* Private */,
-      48,    0,  389,    2, 0x08,   66 /* Private */,
-      49,    0,  390,    2, 0x08,   67 /* Private */,
-      50,    0,  391,    2, 0x08,   68 /* Private */,
-      51,    0,  392,    2, 0x08,   69 /* Private */,
-      52,    2,  393,    2, 0x08,   70 /* Private */,
+       1,    1,  308,    2, 0x08,    1 /* Private */,
+       4,    0,  311,    2, 0x08,    3 /* Private */,
+       5,    0,  312,    2, 0x08,    4 /* Private */,
+       6,    0,  313,    2, 0x08,    5 /* Private */,
+       7,    1,  314,    2, 0x08,    6 /* Private */,
+       9,    0,  317,    2, 0x08,    8 /* Private */,
+      10,    1,  318,    2, 0x08,    9 /* Private */,
+      11,    1,  321,    2, 0x08,   11 /* Private */,
+      12,    0,  324,    2, 0x08,   13 /* Private */,
+      13,    0,  325,    2, 0x08,   14 /* Private */,
+      14,    0,  326,    2, 0x08,   15 /* Private */,
+      15,    0,  327,    2, 0x08,   16 /* Private */,
+      16,    0,  328,    2, 0x08,   17 /* Private */,
+      17,    0,  329,    2, 0x08,   18 /* Private */,
+      18,    1,  330,    2, 0x08,   19 /* Private */,
+      20,    1,  333,    2, 0x08,   21 /* Private */,
+      21,    1,  336,    2, 0x08,   23 /* Private */,
+      22,    1,  339,    2, 0x08,   25 /* Private */,
+      23,    1,  342,    2, 0x08,   27 /* Private */,
+      24,    1,  345,    2, 0x08,   29 /* Private */,
+      25,    1,  348,    2, 0x08,   31 /* Private */,
+      26,    1,  351,    2, 0x08,   33 /* Private */,
+      27,    1,  354,    2, 0x08,   35 /* Private */,
+      28,    1,  357,    2, 0x08,   37 /* Private */,
+      29,    1,  360,    2, 0x08,   39 /* Private */,
+      30,    1,  363,    2, 0x08,   41 /* Private */,
+      31,    1,  366,    2, 0x08,   43 /* Private */,
+      32,    1,  369,    2, 0x08,   45 /* Private */,
+      33,    1,  372,    2, 0x08,   47 /* Private */,
+      34,    1,  375,    2, 0x08,   49 /* Private */,
+      35,    1,  378,    2, 0x08,   51 /* Private */,
+      36,    1,  381,    2, 0x08,   53 /* Private */,
+      37,    0,  384,    2, 0x08,   55 /* Private */,
+      38,    0,  385,    2, 0x08,   56 /* Private */,
+      39,    0,  386,    2, 0x08,   57 /* Private */,
+      40,    0,  387,    2, 0x08,   58 /* Private */,
+      41,    0,  388,    2, 0x08,   59 /* Private */,
+      42,    0,  389,    2, 0x08,   60 /* Private */,
+      43,    0,  390,    2, 0x08,   61 /* Private */,
+      44,    0,  391,    2, 0x08,   62 /* Private */,
+      45,    0,  392,    2, 0x08,   63 /* Private */,
+      46,    0,  393,    2, 0x08,   64 /* Private */,
+      47,    0,  394,    2, 0x08,   65 /* Private */,
+      48,    0,  395,    2, 0x08,   66 /* Private */,
+      49,    0,  396,    2, 0x08,   67 /* Private */,
+      50,    0,  397,    2, 0x08,   68 /* Private */,
+      51,    0,  398,    2, 0x08,   69 /* Private */,
+      52,    0,  399,    2, 0x08,   70 /* Private */,
+      53,    0,  400,    2, 0x08,   71 /* Private */,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    8,
@@ -380,7 +381,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   19,   53,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -394,11 +396,11 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
-        // method 'on_spc_save_10mm_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_tabWidget_tabCloseRequested'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_spc_save_10mm_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_spc_save_20mm_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_spc_save_clicked'
@@ -510,10 +512,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_cd_save_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_idg_d_s21_cursorPositionChanged'
+        // method 'on_ind_graph_update_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        // method 'updateGraph_idg'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -524,8 +526,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<MainWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_spc_save_10mm_clicked(); break;
-        case 1: _t->on_tabWidget_tabCloseRequested((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 0: _t->on_tabWidget_tabCloseRequested((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 1: _t->on_spc_save_10mm_clicked(); break;
         case 2: _t->on_spc_save_20mm_clicked(); break;
         case 3: _t->on_spc_save_clicked(); break;
         case 4: _t->on_spc_data_scroll_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
@@ -571,7 +573,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 44: _t->on_ind_export_clicked(); break;
         case 45: _t->on_actionSave_Project_triggered(); break;
         case 46: _t->on_cd_save_clicked(); break;
-        case 47: _t->on_idg_d_s21_cursorPositionChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 47: _t->on_ind_graph_update_clicked(); break;
+        case 48: _t->updateGraph_idg(); break;
         default: ;
         }
     }
@@ -596,13 +599,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 48)
+        if (_id < 49)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 48;
+        _id -= 49;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 48)
+        if (_id < 49)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 48;
+        _id -= 49;
     }
     return _id;
 }

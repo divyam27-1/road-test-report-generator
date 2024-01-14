@@ -172,7 +172,9 @@ private slots:
 
     void on_cd_save_clicked();
 
-    void on_idg_d_s21_cursorPositionChanged(int arg1, int arg2);
+    void on_ind_graph_update_clicked();
+
+    void updateGraph_idg();
 
 private:
     float scroll_sens;

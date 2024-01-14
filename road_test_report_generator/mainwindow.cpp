@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <qcustomplot.h>
 #include <QMessageBox>
+#include <QMetaObject>
 
 QDir cwd = QDir::current();
 bool i = cwd.cdUp();
@@ -41,6 +42,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spc_frame->move(0,0);
     ui->aiv_frame->move(0,0);
     ui->ind_frame->move(0,0);
+
+    for (int i = 0; i < 4; i++) {
+        ui->ind_graph_1->addGraph();
+        ui->ind_graph_2->addGraph();
+    }
 
 #ifdef _WIN32
     OS = "win";
@@ -68,6 +74,9 @@ void MainWindow::on_tabWidget_tabCloseRequested(int in) {
     //donothing
 }
 
+
+
+//Deals with saving to JSON
 void MainWindow::on_actionSave_Project_triggered()
 {
     ui->spc_save->click();
@@ -1446,6 +1455,45 @@ void MainWindow::on_cd_save_clicked()
         idg.close();
     }
 }
+
+
+
+//Deals with Graphing
+void MainWindow::on_ind_graph_update_clicked()
+{
+    MainWindow::updateGraph_idg();
+}
+void MainWindow::updateGraph_idg() {
+    //Graph 1 is the combined gradation graph
+    QString json_path = cwd.filePath("json/idg.json");
+    QFile ind(json_path);
+
+    if (!ind.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray ind_json_vals_bytearray = ind.readAll();
+    QJsonDocument ind_json_doc = QJsonDocument::fromJson(ind_json_vals_bytearray);
+    QJsonObject ind_json_lookups = ind_json_doc.object();
+
+    QJsonObject cmb_json = ind_json_lookups["cg"].toObject();
+    QVector<double> cmb_is_sieve;
+    for (int i = 1; i <= 8; i++) {
+        std::string sieve_iterator = "is_sieve_s";
+        char I = i + 48;
+        sieve_iterator += I;
+        QString qsieve_iterator = QString::fromStdString(sieve_iterator);
+        cmb_is_sieve << cmb_json[qsieve_iterator].toDouble();
+    }
+}
+
+
+
 // Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
@@ -3852,6 +3900,8 @@ void MainWindow::on_ind_export_clicked()
     }
 }
 
+
+
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
@@ -3901,6 +3951,8 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
     ui->aiv_frame->move(0, target);
 }
+
+
 
 // Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
@@ -4102,8 +4154,5 @@ void MainWindow::on_aiv_10_6_clicked()
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
 
-void MainWindow::on_idg_d_s21_cursorPositionChanged(int arg1, int arg2)
-{
 
-}
 
