@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->aiv_frame->move(0,0);
     ui->ind_frame->move(0,0);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 1; i++) {
         ui->ind_graph_1->addGraph();
         ui->ind_graph_2->addGraph();
     }
@@ -1481,15 +1481,24 @@ void MainWindow::updateGraph_idg() {
     QJsonDocument ind_json_doc = QJsonDocument::fromJson(ind_json_vals_bytearray);
     QJsonObject ind_json_lookups = ind_json_doc.object();
 
-    QJsonObject cmb_json = ind_json_lookups["cg"].toObject();
-    QVector<double> cmb_is_sieve;
+    QJsonObject cmb_json = ind_json_lookups["cg"].toObject();       // QJsonObject 10mm = cmb_json["10mm"].toObject();
+    QVector<double> cmb_is_sieve, passing;
     for (int i = 1; i <= 8; i++) {
-        std::string sieve_iterator = "is_sieve_s";
+        std::string sieve_iterator = "is_sieve_s", pass_iterator = "pass_";
         char I = i + 48;
-        sieve_iterator += I;
-        QString qsieve_iterator = QString::fromStdString(sieve_iterator);
+        sieve_iterator += I; pass_iterator += I;
+        QString qsieve_iterator = QString::fromStdString(sieve_iterator), qpass_iterator = QString::fromStdString(pass_iterator);
         cmb_is_sieve << cmb_json[qsieve_iterator].toDouble();
+        passing << cmb_json[qpass_iterator].toDouble();
     }
+
+    ui->ind_graph_1->graph(0)->setData(cmb_is_sieve, passing);
+    ui->ind_graph_1->xAxis->setLabel("IS SIEVE IN MM");
+    ui->ind_graph_1->xAxis->setRange(0, 100);
+    ui->ind_graph_1->xAxis->setScaleType(QCPAxis::stLogarithmic);
+    ui->ind_graph_1->yAxis->setLabel("PASSING OF %");
+    ui->ind_graph_1->yAxis->setRange(0, 100);
+    ui->ind_graph_1->replot();
 }
 
 
