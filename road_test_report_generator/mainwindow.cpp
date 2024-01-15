@@ -3175,24 +3175,6 @@ void MainWindow::on_ind_export_clicked()
                         passing[i] = combined_passing[i+1];
                     }
 
-                    // create graph and assign data to it:
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(0)->setData(ss, lower_limit);
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(1)->setPen(QPen(Qt::red));
-                    ui->ind_graph_1->graph(1)->setData(ss, upper_limit);
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(2)->setPen(QPen(Qt::yellow));
-                    ui->ind_graph_1->graph(2)->setData(ss, passing);
-                    // give the axes some labels:
-                    ui->ind_graph_1->xAxis->setLabel("Sieve Size (mm)");
-                    ui->ind_graph_1->yAxis->setLabel("Passing %");
-                    // set axes ranges, so we see all data:
-                    ui->ind_graph_1->xAxis->setRange(0, ss[0]);
-                    ui->ind_graph_1->yAxis->setRange(0, 120);
-                    ui->ind_graph_1->replot();
-
-
                     std::string topush;
 
                     double topushf;
