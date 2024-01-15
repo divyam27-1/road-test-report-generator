@@ -64,10 +64,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::on_tabWidget_tabCloseRequested(int in) {
-    //donothing
-}
-
 
 
 //Deals with saving to JSON
@@ -1491,19 +1487,38 @@ void MainWindow::updateGraph_idg() {
         high << high_[i-1]; low << low_[i-1]; mid << mid_[i-1];
     }
 
+    ui->ind_graph_1->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
+    ui->ind_graph_1->legend->setVisible(true);
+    QFont legendFont = font();  // start out with MainWindow's font..
+    legendFont.setPointSize(9); // and make a bit smaller for legend
+    ui->ind_graph_1->legend->setFont(legendFont);
+    ui->ind_graph_1->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
+    ui->ind_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+
     ui->ind_graph_1->graph(0)->setData(cmb_is_sieve, passing);
+    ui->ind_graph_1->graph(0)->setName("Passing of %");
     ui->ind_graph_1->graph(1)->setData(cmb_is_sieve, low);
+    ui->ind_graph_1->graph(1)->setName("Lower Limit");
     ui->ind_graph_1->graph(2)->setData(cmb_is_sieve, mid);
+    ui->ind_graph_1->graph(2)->setName("Middle Limit");
     ui->ind_graph_1->graph(3)->setData(cmb_is_sieve, high);
+    ui->ind_graph_1->graph(3)->setName("Upper Limit");
 
 
+    ui->ind_graph_1->graph(3)->setChannelFillGraph(ui->ind_graph_1->graph(1));
+    ui->ind_graph_1->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 50))); // light green 20% transparent
+    ui->ind_graph_1->graph(0)->setPen(QPen(QColor(255, 0, 0)));
+    ui->ind_graph_1->graph(1)->setPen(QPen(QColor(102, 153, 130)));
+    ui->ind_graph_1->graph(2)->setPen(QPen(QColor(213, 101, 0)));
+    ui->ind_graph_1->graph(3)->setPen(QPen(QColor(140, 102, 169)));
 
     QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
-    ui->ind_graph_1->xAxis->setLabel("IS SIEVE IN MM");
-    ui->ind_graph_1->xAxis->setRange(0.001, 100);
     ui->ind_graph_1->xAxis->setScaleType(QCPAxis::stLogarithmic);
     ui->ind_graph_1->xAxis->setTicker(logTicker);
 
+    ui->ind_graph_1->xAxis->setLabel("IS SIEVE IN MM");
+    ui->ind_graph_1->xAxis->setRange(0.05, 100);
     ui->ind_graph_1->yAxis->setLabel("PASSING OF %");
     ui->ind_graph_1->yAxis->setRange(0, 100);
     ui->ind_graph_1->replot();
@@ -3160,24 +3175,6 @@ void MainWindow::on_ind_export_clicked()
                         upper_limit[i] = upper_limit_[i];
                         passing[i] = combined_passing[i+1];
                     }
-
-                    // create graph and assign data to it:
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(0)->setData(ss, lower_limit);
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(1)->setPen(QPen(Qt::red));
-                    ui->ind_graph_1->graph(1)->setData(ss, upper_limit);
-                    ui->ind_graph_1->addGraph();
-                    ui->ind_graph_1->graph(2)->setPen(QPen(Qt::yellow));
-                    ui->ind_graph_1->graph(2)->setData(ss, passing);
-                    // give the axes some labels:
-                    ui->ind_graph_1->xAxis->setLabel("Sieve Size (mm)");
-                    ui->ind_graph_1->yAxis->setLabel("Passing %");
-                    // set axes ranges, so we see all data:
-                    ui->ind_graph_1->xAxis->setRange(0, ss[0]);
-                    ui->ind_graph_1->yAxis->setRange(0, 120);
-                    ui->ind_graph_1->replot();
-
 
                     std::string topush;
 
