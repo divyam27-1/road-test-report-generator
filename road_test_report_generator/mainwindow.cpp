@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->ind_graph_2->addGraph();
     }
 
-#ifdef _WIN32
+   #ifdef _WIN32
     OS = "win";
 #elif __linux__
     OS = "linux";
@@ -1496,9 +1496,7 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_1->graph(2)->setData(cmb_is_sieve, mid);
     ui->ind_graph_1->graph(3)->setData(cmb_is_sieve, high);
 
-    QPen *pen_blue = new QPen(QColor::fromRgb(0, 128, 208);
-    QPen *pen_blue = new QPen(QColor::fromRgb(0, 128, 208);
-    ui->ind_graph_1->graph(0)->setPen(pen_blue);
+
 
     QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
     ui->ind_graph_1->xAxis->setLabel("IS SIEVE IN MM");
@@ -1570,6 +1568,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             args << cwd.filePath("html/ind_d.html");
             args << cwd.filePath("html/bld.html");
             args << cwd.filePath("html/cmb.html");
+            args << cwd.filePath("html/pass.html");
         }
     }
 
@@ -3912,6 +3911,742 @@ void MainWindow::on_ind_export_clicked()
         qDebug() << "file written to";
 
         cmb_template_file.close();
+    }
+    else
+    {
+        qDebug() << "output html not opened";
+    }
+    std::string pass_output_html_path = cwd.filePath("html/pass").toStdString();
+    pass_output_html_path = pass_output_html_path + ".html";
+    std::ofstream pass_output_html_file(pass_output_html_path, std::ios::out);
+    if (pass_output_html_file.is_open())
+    {
+        QString pass_template_path = cwd.filePath("templates/pass.html");
+        QFile pass_template_file(pass_template_path);
+        if (!pass_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "pass html template not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "pass html template opened";
+        }
+        QTextStream pass_infile(&pass_template_file);
+        while (!pass_infile.atEnd())
+        {
+
+            std::string pass_line_str = pass_infile.readLine().toStdString();
+            const char *line = pass_line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+                    QJsonObject json_lookups_data_40 = json_lookups["40mm"].toObject();
+                    QJsonObject json_lookups_data_20 = json_lookups["20mm"].toObject();
+                    QJsonObject json_lookups_data_10 = json_lookups["10mm"].toObject();
+                    QJsonObject json_lookups_data_d = json_lookups["d"].toObject();
+                    std::string topush;
+
+                    double topushf;
+                    switch (token)
+                    {
+                    case 1:
+                        topush = ui->ind_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->ind_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->ind_bsc_3->toPlainText().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->ind_bsc_4->toPlainText().toStdString();
+                        break;
+                    case 11:
+                        topushf = json_lookups_data_40["is_sieve_s1"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 12:
+                        topushf = json_lookups_data_40["Pass_11"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 13:
+                        topushf = json_lookups_data_40["Pass_21"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 14:
+                        topushf = json_lookups_data_40["Pass_31"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 15:
+                        topushf = (json_lookups_data_40["Pass_11"].toDouble() + json_lookups_data_40["Pass_21"].toDouble() + json_lookups_data_40["pass_31"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 16:
+                        topushf = json_lookups_data_40["is_sieve_s2"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 17:
+                        topushf = json_lookups_data_40["Pass_12"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 18:
+                        topushf = json_lookups_data_40["Pass_22"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 19:
+                        topushf = json_lookups_data_40["Pass_32"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 20:
+                        topushf = (json_lookups_data_40["Pass_12"].toDouble() + json_lookups_data_40["Pass_22"].toDouble() + json_lookups_data_40["Pass_32"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 21:
+                        topushf = json_lookups_data_40["is_sieve_s3"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 22:
+                        topushf = json_lookups_data_40["pass_13"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 23:
+                        topushf = json_lookups_data_40["pass_23"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 24:
+                        topushf = json_lookups_data_40["pass_33"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 25:
+                        topushf = (json_lookups_data_40["Pass_13"].toDouble() + json_lookups_data_40["Pass_23"].toDouble() + json_lookups_data_40["Pass_33"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 26:
+                        topushf = json_lookups_data_40["is_sieve_s4"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 27:
+                        topushf = json_lookups_data_40["Pass_14"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 28:
+                        topushf = json_lookups_data_40["Pass_24"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 29:
+                        topushf = json_lookups_data_40["Pass_34"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 30:
+                        topushf = (json_lookups_data_40["Pass_14"].toDouble() + json_lookups_data_40["Pass_24"].toDouble() + json_lookups_data_40["Pass_34"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+
+                    case 31:
+                        topushf = json_lookups_data_40["is_sieve_s5"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 32:
+                        topushf = json_lookups_data_40["Pass_15"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 33:
+                        topushf = json_lookups_data_40["Pass_25"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 34:
+                        topushf = json_lookups_data_40["Pass_35"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 35:
+                        topushf = (json_lookups_data_40["Pass_15"].toDouble() + json_lookups_data_40["Pass_25"].toDouble() + json_lookups_data_40["Pass_35"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 36:
+                        topushf = json_lookups_data_40["is_sieve_s6"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 37:
+                        topushf = json_lookups_data_40["Pass_16"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 38:
+                        topushf = json_lookups_data_40["Pass_26"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 39:
+                        topushf = json_lookups_data_40["Pass_36"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 40:
+                        topushf = (json_lookups_data_40["Pass_16"].toDouble() + json_lookups_data_40["Pass_26"].toDouble() + json_lookups_data_40["Pass_36"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 41:
+                        topushf = json_lookups_data_40["is_sieve_s7"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 42:
+                        topushf = json_lookups_data_40["Pass_17"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 43:
+                        topushf = json_lookups_data_40["Pass_27"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 44:
+                        topushf = json_lookups_data_40["Pass_37"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 45:
+                        topushf = (json_lookups_data_40["Pass_17"].toDouble() + json_lookups_data_40["Pass_27"].toDouble() + json_lookups_data_40["Pass_37"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 46:
+                        topushf = json_lookups_data_40["is_sieve_s8"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 47:
+                        topushf = json_lookups_data_40["Pass_18"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 48:
+                        topushf = json_lookups_data_40["Pass_28"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 49:
+                        topushf = json_lookups_data_40["Pass_38"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 50:
+                        topushf = (json_lookups_data_40["Pass_18"].toDouble() + json_lookups_data_40["Pass_28"].toDouble() + json_lookups_data_40["Pass_38"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 51:
+                        topushf = json_lookups_data_20["is_sieve_s1"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 52:
+                        topushf = json_lookups_data_20["Pass_11"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 53:
+                        topushf = json_lookups_data_20["Pass_21"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 54:
+                        topushf = json_lookups_data_20["Pass_31"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 55:
+                        topushf = (json_lookups_data_20["Pass_11"].toDouble() + json_lookups_data_20["Pass_21"].toDouble() + json_lookups_data_20["pass_31"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 56:
+                        topushf = json_lookups_data_20["is_sieve_s2"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 57:
+                        topushf = json_lookups_data_20["Pass_12"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 58:
+                        topushf = json_lookups_data_20["Pass_22"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 59:
+                        topushf = json_lookups_data_20["Pass_32"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 60:
+                        topushf = (json_lookups_data_20["Pass_12"].toDouble() + json_lookups_data_20["Pass_22"].toDouble() + json_lookups_data_20["Pass_32"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 61:
+                        topushf = json_lookups_data_20["is_sieve_s3"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 62:
+                        topushf = json_lookups_data_20["pass_13"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 63:
+                        topushf = json_lookups_data_20["pass_23"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 64:
+                        topushf = json_lookups_data_20["pass_33"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 65:
+                        topushf = (json_lookups_data_20["Pass_13"].toDouble() + json_lookups_data_20["Pass_23"].toDouble() + json_lookups_data_20["Pass_33"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 66:
+                        topushf = json_lookups_data_20["is_sieve_s4"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 67:
+                        topushf = json_lookups_data_20["Pass_14"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+
+                    case 68:
+                        topushf = json_lookups_data_20["Pass_24"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 69:
+                        topushf = json_lookups_data_20["Pass_34"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 70:
+                        topushf = (json_lookups_data_20["Pass_14"].toDouble() + json_lookups_data_20["Pass_24"].toDouble() + json_lookups_data_20["Pass_34"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 71:
+                        topushf = json_lookups_data_20["is_sieve_s5"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 72:
+                        topushf = json_lookups_data_20["Pass_15"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 73:
+                        topushf = json_lookups_data_20["Pass_25"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 74:
+                        topushf = json_lookups_data_20["Pass_35"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 75:
+                        topushf = (json_lookups_data_20["Pass_15"].toDouble() + json_lookups_data_20["Pass_25"].toDouble() + json_lookups_data_20["Pass_35"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 76:
+                        topushf = json_lookups_data_20["is_sieve_s6"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 77:
+                        topushf = json_lookups_data_20["Pass_16"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 78:
+                        topushf = json_lookups_data_20["Pass_26"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 79:
+                        topushf = json_lookups_data_20["Pass_36"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 80:
+                        topushf = (json_lookups_data_20["Pass_16"].toDouble() + json_lookups_data_20["Pass_26"].toDouble() + json_lookups_data_20["Pass_36"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 81:
+                        topushf = json_lookups_data_20["is_sieve_s7"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 82:
+                        topushf = json_lookups_data_20["Pass_17"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 83:
+                        topushf = json_lookups_data_20["Pass_27"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 84:
+                        topushf = json_lookups_data_20["Pass_37"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 85:
+                        topushf = (json_lookups_data_20["Pass_17"].toDouble() + json_lookups_data_20["Pass_27"].toDouble() + json_lookups_data_20["Pass_37"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 86:
+                        topushf = json_lookups_data_20["is_sieve_s8"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 87:
+                        topushf = json_lookups_data_20["Pass_18"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 88:
+                        topushf = json_lookups_data_20["Pass_28"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 89:
+                        topushf = json_lookups_data_20["Pass_38"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 90:
+                        topushf = (json_lookups_data_20["Pass_18"].toDouble() + json_lookups_data_20["Pass_28"].toDouble() + json_lookups_data_20["Pass_38"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 91:
+                        topushf = json_lookups_data_10["is_sieve_s1"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 92:
+                        topushf = json_lookups_data_10["Pass_11"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 93:
+                        topushf = json_lookups_data_10["Pass_21"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 94:
+                        topushf = json_lookups_data_10["Pass_31"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 95:
+                        topushf = (json_lookups_data_10["Pass_11"].toDouble() + json_lookups_data_10["Pass_21"].toDouble() + json_lookups_data_10["pass_31"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 96:
+                        topushf = json_lookups_data_10["is_sieve_s2"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 97:
+                        topushf = json_lookups_data_10["Pass_12"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 98:
+                        topushf = json_lookups_data_10["Pass_22"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 99:
+                        topushf = json_lookups_data_10["Pass_32"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 100:
+                        topushf = (json_lookups_data_10["Pass_12"].toDouble() + json_lookups_data_10["Pass_22"].toDouble() + json_lookups_data_10["Pass_32"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 101:
+                        topushf = json_lookups_data_10["is_sieve_s3"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 102:
+                        topushf = json_lookups_data_10["pass_13"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 103:
+                        topushf = json_lookups_data_10["pass_23"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 104:
+                        topushf = json_lookups_data_10["pass_33"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 105:
+                        topushf = (json_lookups_data_10["Pass_13"].toDouble() + json_lookups_data_10["Pass_23"].toDouble() + json_lookups_data_10["Pass_33"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 106:
+                        topushf = json_lookups_data_10["is_sieve_s4"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 107:
+                        topushf = json_lookups_data_10["Pass_14"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 108:
+                        topushf = json_lookups_data_10["Pass_24"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 109:
+                        topushf = json_lookups_data_10["Pass_34"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 110:
+                        topushf = (json_lookups_data_10["Pass_14"].toDouble() + json_lookups_data_10["Pass_24"].toDouble() + json_lookups_data_10["Pass_34"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 111:
+                        topushf = json_lookups_data_10["is_sieve_s5"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 112:
+                        topushf = json_lookups_data_10["Pass_15"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 113:
+                        topushf = json_lookups_data_10["Pass_25"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 114:
+                        topushf = json_lookups_data_10["Pass_35"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 115:
+                        topushf = (json_lookups_data_10["Pass_15"].toDouble() + json_lookups_data_10["Pass_25"].toDouble() + json_lookups_data_10["Pass_35"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 116:
+                        topushf = json_lookups_data_10["is_sieve_s6"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 117:
+                        topushf = json_lookups_data_10["Pass_16"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 118:
+                        topushf = json_lookups_data_10["Pass_26"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 119:
+                        topushf = json_lookups_data_10["Pass_36"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 120:
+                        topushf = (json_lookups_data_10["Pass_16"].toDouble() + json_lookups_data_10["Pass_26"].toDouble() + json_lookups_data_10["Pass_36"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 121:
+                        topushf = json_lookups_data_10["is_sieve_s7"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 122:
+                        topushf = json_lookups_data_10["Pass_17"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 123:
+                        topushf = json_lookups_data_10["Pass_27"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 124:
+                        topushf = json_lookups_data_10["Pass_37"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 125:
+                        topushf = (json_lookups_data_10["Pass_17"].toDouble() + json_lookups_data_10["Pass_27"].toDouble() + json_lookups_data_10["Pass_37"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 126:
+                        topushf = json_lookups_data_10["is_sieve_s8"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 127:
+                        topushf = json_lookups_data_10["Pass_18"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 128:
+                        topushf = json_lookups_data_10["Pass_28"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 129:
+                        topushf = json_lookups_data_10["Pass_38"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 130:
+                        topushf = (json_lookups_data_10["Pass_18"].toDouble() + json_lookups_data_10["Pass_28"].toDouble() + json_lookups_data_10["Pass_38"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+
+                    case 131:
+                        topushf = json_lookups_data_d["is_sieve_s1"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 132:
+                        topushf = json_lookups_data_d["Pass_11"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 133:
+                        topushf = json_lookups_data_d["Pass_21"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 134:
+                        topushf = json_lookups_data_d["Pass_31"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 135:
+                        topushf = (json_lookups_data_d["Pass_11"].toDouble() + json_lookups_data_d["Pass_21"].toDouble() + json_lookups_data_d["pass_31"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 136:
+                        topushf = json_lookups_data_d["is_sieve_s2"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 137:
+                        topushf = json_lookups_data_d["Pass_12"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 138:
+                        topushf = json_lookups_data_d["Pass_22"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 139:
+                        topushf = json_lookups_data_d["Pass_32"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 140:
+                        topushf = (json_lookups_data_d["Pass_12"].toDouble() + json_lookups_data_d["Pass_22"].toDouble() + json_lookups_data_d["Pass_32"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 141:
+                        topushf = json_lookups_data_d["is_sieve_s3"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 142:
+                        topushf = json_lookups_data_d["pass_13"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 143:
+                        topushf = json_lookups_data_d["pass_23"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 144:
+                        topushf = json_lookups_data_d["pass_33"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 145:
+                        topushf = (json_lookups_data_d["Pass_13"].toDouble() + json_lookups_data_d["Pass_23"].toDouble() + json_lookups_data_d["Pass_33"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 146:
+                        topushf = json_lookups_data_d["is_sieve_s4"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 147:
+                        topushf = json_lookups_data_10["Pass_14"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 148:
+                        topushf = json_lookups_data_10["Pass_24"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 149:
+                        topushf = json_lookups_data_10["Pass_34"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 150:
+                        topushf = (json_lookups_data_10["Pass_14"].toDouble() + json_lookups_data_10["Pass_24"].toDouble() + json_lookups_data_10["Pass_34"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 151:
+                        topushf = json_lookups_data_10["is_sieve_s5"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 152:
+                        topushf = json_lookups_data_10["Pass_15"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 153:
+                        topushf = json_lookups_data_10["Pass_25"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 154:
+                        topushf = json_lookups_data_10["Pass_35"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 155:
+                        topushf = (json_lookups_data_10["Pass_15"].toDouble() + json_lookups_data_10["Pass_25"].toDouble() + json_lookups_data_10["Pass_35"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 156:
+                        topushf = json_lookups_data_10["is_sieve_s6"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 157:
+                        topushf = json_lookups_data_10["Pass_16"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 158:
+                        topushf = json_lookups_data_10["Pass_26"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 159:
+                        topushf = json_lookups_data_10["Pass_36"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 160:
+                        topushf = (json_lookups_data_10["Pass_16"].toDouble() + json_lookups_data_10["Pass_26"].toDouble() + json_lookups_data_10["Pass_36"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 161:
+                        topushf = json_lookups_data_10["is_sieve_s7"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 162:
+                        topushf = json_lookups_data_10["Pass_17"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 163:
+                        topushf = json_lookups_data_10["Pass_27"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 164:
+                        topushf = json_lookups_data_10["Pass_37"].toDouble();
+                        pass_output_html_file << topushf;
+                    case 165:
+                        topushf = (json_lookups_data_10["Pass_17"].toDouble() + json_lookups_data_10["Pass_27"].toDouble() + json_lookups_data_10["Pass_37"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    case 166:
+                        topushf = json_lookups_data_10["is_sieve_s8"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 167:
+                        topushf = json_lookups_data_10["Pass_18"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 168:
+                        topushf = json_lookups_data_10["Pass_28"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 169:
+                        topushf = json_lookups_data_10["Pass_38"].toDouble();
+                        pass_output_html_file << topushf;
+                        break;
+                    case 170:
+                        topushf = (json_lookups_data_10["Pass_18"].toDouble() + json_lookups_data_10["Pass_28"].toDouble() + json_lookups_data_10["Pass_38"].toDouble())/3;
+                        pass_output_html_file << topushf;
+                        break;
+                    default:
+                        qDebug() << "smthlikeyou11 " << token;
+                    }
+                    pass_output_html_file << topush;
+                    topush = "";
+                }
+                else
+                {
+                    pass_output_html_file << line[i];
+                }
+            }
+        }
+        pass_output_html_file.close();
+        qDebug() << "file written to";
+
+        pass_template_file.close();
     }
     else
     {
