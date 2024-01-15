@@ -174,8 +174,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>700</height>
         </rect>
        </property>
        <attribute name="label">
@@ -381,7 +381,7 @@ color: rgb(0, 0, 0);</string>
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Save </string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QPushButton" name="spc_saveas">
@@ -5188,7 +5188,7 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="text">
-       <string>Save </string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QPushButton" name="ind_saveas">
@@ -5236,7 +5236,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2550</y>
+         <y>-2020</y>
          <width>1050</width>
          <height>2901</height>
         </rect>
@@ -5321,6 +5321,12 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s12">
         <property name="geometry">
@@ -5330,6 +5336,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s13">
@@ -5341,6 +5350,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s14">
         <property name="geometry">
@@ -5350,6 +5362,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s15">
@@ -5361,6 +5376,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s16">
         <property name="geometry">
@@ -5370,6 +5388,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s17">
@@ -5381,6 +5402,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s18">
         <property name="geometry">
@@ -5390,6 +5414,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_w11">
@@ -5520,6 +5547,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s22">
         <property name="geometry">
@@ -5529,6 +5559,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s23">
@@ -5540,6 +5573,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s24">
         <property name="geometry">
@@ -5549,6 +5585,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s25">
@@ -5560,6 +5599,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s26">
         <property name="geometry">
@@ -5569,6 +5611,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s27">
@@ -5580,6 +5625,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s28">
         <property name="geometry">
@@ -5589,6 +5637,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_w21">
@@ -5719,6 +5770,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s32">
         <property name="geometry">
@@ -5728,6 +5782,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s33">
@@ -5739,6 +5796,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s34">
         <property name="geometry">
@@ -5748,6 +5808,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s35">
@@ -5759,6 +5822,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s36">
         <property name="geometry">
@@ -5768,6 +5834,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s37">
@@ -5779,6 +5848,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_s38">
         <property name="geometry">
@@ -5788,6 +5860,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_40_w31">
@@ -5931,6 +6006,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s12">
         <property name="geometry">
@@ -5940,6 +6018,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s13">
@@ -5951,6 +6032,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s14">
         <property name="geometry">
@@ -5960,6 +6044,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s15">
@@ -5971,6 +6058,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s16">
         <property name="geometry">
@@ -5980,6 +6070,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s17">
@@ -5991,6 +6084,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s18">
         <property name="geometry">
@@ -6000,6 +6096,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_w11">
@@ -6130,6 +6229,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s22">
         <property name="geometry">
@@ -6139,6 +6241,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s23">
@@ -6150,6 +6255,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s24">
         <property name="geometry">
@@ -6159,6 +6267,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s25">
@@ -6170,6 +6281,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s26">
         <property name="geometry">
@@ -6179,6 +6293,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s27">
@@ -6190,6 +6307,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s28">
         <property name="geometry">
@@ -6199,6 +6319,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_w21">
@@ -6329,6 +6452,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s32">
         <property name="geometry">
@@ -6338,6 +6464,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s33">
@@ -6349,6 +6478,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s34">
         <property name="geometry">
@@ -6358,6 +6490,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s35">
@@ -6369,6 +6504,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s36">
         <property name="geometry">
@@ -6378,6 +6516,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s37">
@@ -6389,6 +6530,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_s38">
         <property name="geometry">
@@ -6398,6 +6542,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_20_w31">
@@ -6541,6 +6688,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s12">
         <property name="geometry">
@@ -6550,6 +6700,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s13">
@@ -6561,6 +6714,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s14">
         <property name="geometry">
@@ -6570,6 +6726,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s15">
@@ -6581,6 +6740,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s16">
         <property name="geometry">
@@ -6590,6 +6752,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s17">
@@ -6601,6 +6766,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s18">
         <property name="geometry">
@@ -6610,6 +6778,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_w11">
@@ -6740,6 +6911,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s22">
         <property name="geometry">
@@ -6749,6 +6923,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s23">
@@ -6760,6 +6937,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s24">
         <property name="geometry">
@@ -6769,6 +6949,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s25">
@@ -6780,6 +6963,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s26">
         <property name="geometry">
@@ -6789,6 +6975,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s27">
@@ -6800,6 +6989,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s28">
         <property name="geometry">
@@ -6809,6 +7001,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_w21">
@@ -6939,6 +7134,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s32">
         <property name="geometry">
@@ -6948,6 +7146,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s33">
@@ -6959,6 +7160,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s34">
         <property name="geometry">
@@ -6968,6 +7172,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s35">
@@ -6979,6 +7186,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s36">
         <property name="geometry">
@@ -6988,6 +7198,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s37">
@@ -6999,6 +7212,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_s38">
         <property name="geometry">
@@ -7008,6 +7224,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_10_w31">
@@ -7151,6 +7370,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s12">
         <property name="geometry">
@@ -7160,6 +7382,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s13">
@@ -7171,6 +7396,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s14">
         <property name="geometry">
@@ -7180,6 +7408,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s15">
@@ -7191,6 +7422,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s16">
         <property name="geometry">
@@ -7200,6 +7434,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s17">
@@ -7211,6 +7448,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s18">
         <property name="geometry">
@@ -7220,6 +7460,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_w11">
@@ -7350,6 +7593,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s22">
         <property name="geometry">
@@ -7359,6 +7605,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s23">
@@ -7370,6 +7619,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s24">
         <property name="geometry">
@@ -7379,6 +7631,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s25">
@@ -7390,6 +7645,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s26">
         <property name="geometry">
@@ -7399,6 +7657,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s27">
@@ -7410,6 +7671,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s28">
         <property name="geometry">
@@ -7419,6 +7683,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_w21">
@@ -7549,6 +7816,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s32">
         <property name="geometry">
@@ -7558,6 +7828,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s33">
@@ -7569,6 +7842,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s34">
         <property name="geometry">
@@ -7578,6 +7854,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s35">
@@ -7589,6 +7868,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s36">
         <property name="geometry">
@@ -7598,6 +7880,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s37">
@@ -7609,6 +7894,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_s38">
         <property name="geometry">
@@ -7618,6 +7906,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="idg_d_w31">
@@ -7722,6 +8013,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="ind_40_w2">
         <property name="geometry">
@@ -7732,6 +8026,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="ind_40_w3">
         <property name="geometry">
@@ -7741,6 +8038,9 @@ color: rgb(0, 0, 0);</string>
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>in gms</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_74">
@@ -7817,6 +8117,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLabel" name="label_79">
         <property name="geometry">
@@ -7840,6 +8143,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="ind_20_w1">
         <property name="geometry">
@@ -7849,6 +8155,9 @@ color: rgb(0, 0, 0);</string>
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>in gms</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_80">
@@ -7886,6 +8195,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLabel" name="label_86">
         <property name="geometry">
@@ -7909,6 +8221,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="ind_10_w1">
         <property name="geometry">
@@ -7918,6 +8233,9 @@ color: rgb(0, 0, 0);</string>
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>in gms</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_89">
@@ -7955,6 +8273,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLabel" name="label_93">
         <property name="geometry">
@@ -7978,6 +8299,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="placeholderText">
+         <string>in gms</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="ind_0_w1">
         <property name="geometry">
@@ -7987,6 +8311,9 @@ color: rgb(0, 0, 0);</string>
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>in gms</string>
         </property>
        </widget>
        <widget class="QPushButton" name="idg_save_20mm">
@@ -8220,6 +8547,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>53</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_2">
         <property name="geometry">
@@ -8229,6 +8559,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>45</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_3">
@@ -8240,6 +8573,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>22.4</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_4">
         <property name="geometry">
@@ -8249,6 +8585,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>11.2</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_5">
@@ -8260,6 +8599,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>4.75</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_6">
         <property name="geometry">
@@ -8269,6 +8611,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>2.36</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_7">
@@ -8280,6 +8625,9 @@ color: rgb(0, 0, 0);</string>
           <height>25</height>
          </rect>
         </property>
+        <property name="text">
+         <string>0.6</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_is_8">
         <property name="geometry">
@@ -8289,6 +8637,9 @@ color: rgb(0, 0, 0);</string>
           <width>61</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="text">
+         <string>0.075</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="cg_d_wr_1">
@@ -8405,6 +8756,9 @@ color: rgb(0, 0, 0);</string>
           <width>113</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>in gms</string>
         </property>
        </widget>
        <widget class="QCustomPlot" name="ind_graph_1" native="true">

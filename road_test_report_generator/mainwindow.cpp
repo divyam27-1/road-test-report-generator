@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->aiv_frame->move(0,0);
     ui->ind_frame->move(0,0);
 
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 4; i++) {
         ui->ind_graph_1->addGraph();
         ui->ind_graph_2->addGraph();
     }
@@ -55,12 +55,6 @@ MainWindow::MainWindow(QWidget *parent)
 #elif __APPLE__
     OS = "apple";
 #endif
-
-    if (OS == "apple") {
-        bool i2 = cwd.cdUp();
-        bool i3 = cwd.cdUp();
-        bool i4 = cwd.cdUp();
-    }
 
     qDebug() << OS;
     qDebug() << cwd;
@@ -1482,7 +1476,11 @@ void MainWindow::updateGraph_idg() {
     QJsonObject ind_json_lookups = ind_json_doc.object();
 
     QJsonObject cmb_json = ind_json_lookups["cg"].toObject();       // QJsonObject 10mm = cmb_json["10mm"].toObject();
-    QVector<double> cmb_is_sieve, passing;
+    double mid_[] = {100.00, 97.50, 70.00, 50.00, 32.50, 22.50, 15.00, 2.50};
+    double low_[] = {100.0, 95.0, 60.0, 40.0, 25.0, 15.0, 8.0, 0.0};
+    double high_[] = {100.0, 100.0, 80.0, 60.0, 40.0, 30.0, 22.0, 5.0};
+
+    QVector<double> cmb_is_sieve, passing, high, mid, low;
     for (int i = 1; i <= 8; i++) {
         std::string sieve_iterator = "is_sieve_s", pass_iterator = "pass_";
         char I = i + 48;
@@ -1490,12 +1488,24 @@ void MainWindow::updateGraph_idg() {
         QString qsieve_iterator = QString::fromStdString(sieve_iterator), qpass_iterator = QString::fromStdString(pass_iterator);
         cmb_is_sieve << cmb_json[qsieve_iterator].toDouble();
         passing << cmb_json[qpass_iterator].toDouble();
+        high << high_[i-1]; low << low_[i-1]; mid << mid_[i-1];
     }
 
     ui->ind_graph_1->graph(0)->setData(cmb_is_sieve, passing);
+    ui->ind_graph_1->graph(1)->setData(cmb_is_sieve, low);
+    ui->ind_graph_1->graph(2)->setData(cmb_is_sieve, mid);
+    ui->ind_graph_1->graph(3)->setData(cmb_is_sieve, high);
+
+    QPen *pen_blue = new QPen(QColor::fromRgb(0, 128, 208);
+    QPen *pen_blue = new QPen(QColor::fromRgb(0, 128, 208);
+    ui->ind_graph_1->graph(0)->setPen(pen_blue);
+
+    QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
     ui->ind_graph_1->xAxis->setLabel("IS SIEVE IN MM");
-    ui->ind_graph_1->xAxis->setRange(0, 100);
+    ui->ind_graph_1->xAxis->setRange(0.001, 100);
     ui->ind_graph_1->xAxis->setScaleType(QCPAxis::stLogarithmic);
+    ui->ind_graph_1->xAxis->setTicker(logTicker);
+
     ui->ind_graph_1->yAxis->setLabel("PASSING OF %");
     ui->ind_graph_1->yAxis->setRange(0, 100);
     ui->ind_graph_1->replot();
