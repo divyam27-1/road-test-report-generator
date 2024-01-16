@@ -1444,6 +1444,8 @@ void MainWindow::on_cd_save_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
+
+    updateGraph_idg();
 }
 
 
@@ -1522,6 +1524,15 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_1->yAxis->setLabel("PASSING OF %");
     ui->ind_graph_1->yAxis->setRange(0, 100);
     ui->ind_graph_1->replot();
+
+    QString file_savepath = cwd.filePath("html/combined_graph.png");
+    QFile graph_file(file_savepath);
+    if (!graph_file.open(QIODevice::WriteOnly))
+    {
+        qDebug() << graph_file.errorString();
+    } else {
+        ui->ind_graph_1->savePng(file_savepath);
+    }
 }
 
 
