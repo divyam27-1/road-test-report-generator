@@ -98,6 +98,7 @@ void MainWindow::on_ind_save_clicked()
     ui->idg_save_10mm->click();
     ui->idg_save_d->click();
     ui->cd_save->click();
+    updateGraph_idg();
 }
 
 QJsonObject Specific_Gravity;
@@ -910,7 +911,7 @@ void MainWindow::on_idg_save_20mm_clicked()
 
     for (int i = 1; i <= 3; i++)
     {
-        cumsum = 1;
+        cumsum = 0;
         for (int j = 1; j <= 8; j++)
         {
             cumsum += weight_of_retained_40[i][j];
@@ -1445,7 +1446,6 @@ void MainWindow::on_cd_save_clicked()
         idg.close();
     }
 
-    updateGraph_idg();
 }
 
 
@@ -1478,13 +1478,13 @@ void MainWindow::updateGraph_idg() {
     double low_[] = {100.0, 95.0, 60.0, 40.0, 25.0, 15.0, 8.0, 0.0};
     double high_[] = {100.0, 100.0, 80.0, 60.0, 40.0, 30.0, 22.0, 5.0};
 
-    QVector<double> cmb_is_sieve, passing, high, mid, low;
+    QVector<double> is_sieve, passing, high, mid, low;
     for (int i = 1; i <= 8; i++) {
         std::string sieve_iterator = "is_sieve_s", pass_iterator = "pass_";
         char I = i + 48;
         sieve_iterator += I; pass_iterator += I;
         QString qsieve_iterator = QString::fromStdString(sieve_iterator), qpass_iterator = QString::fromStdString(pass_iterator);
-        cmb_is_sieve << cmb_json[qsieve_iterator].toDouble();
+        is_sieve << cmb_json[qsieve_iterator].toDouble();
         passing << cmb_json[qpass_iterator].toDouble();
         high << high_[i-1]; low << low_[i-1]; mid << mid_[i-1];
     }
@@ -1498,13 +1498,13 @@ void MainWindow::updateGraph_idg() {
     // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
     ui->ind_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
 
-    ui->ind_graph_1->graph(0)->setData(cmb_is_sieve, passing);
+    ui->ind_graph_1->graph(0)->setData(is_sieve, passing);
     ui->ind_graph_1->graph(0)->setName("Passing of %");
-    ui->ind_graph_1->graph(1)->setData(cmb_is_sieve, low);
+    ui->ind_graph_1->graph(1)->setData(is_sieve, low);
     ui->ind_graph_1->graph(1)->setName("Lower Limit");
-    ui->ind_graph_1->graph(2)->setData(cmb_is_sieve, mid);
+    ui->ind_graph_1->graph(2)->setData(is_sieve, mid);
     ui->ind_graph_1->graph(2)->setName("Middle Limit");
-    ui->ind_graph_1->graph(3)->setData(cmb_is_sieve, high);
+    ui->ind_graph_1->graph(3)->setData(is_sieve, high);
     ui->ind_graph_1->graph(3)->setName("Upper Limit");
 
 
@@ -1533,8 +1533,71 @@ void MainWindow::updateGraph_idg() {
     } else {
         ui->ind_graph_1->savePng(file_savepath);
     }
-}
 
+    //Now we update the Blending Graph
+    //First step is getting the values from the individual gradation json file and blending the values together in proportion
+    QJsonObject idg40 = ind_json_lookups["40mm"].toObject(), idg20 = ind_json_lookups["20mm"].toObject(), idg10 = ind_json_lookups["10mm"].toObject(), idg0 = ind_json_lookups["d"].toObject();
+    QVector<double> blend_val;
+    for (int i = 1; i <= 8; i++) {
+        double components[4];
+
+        char I = i+48;
+        std::string it1 = "pass_1" + I, it2 = "pass_2" + I, it3 ="pass_3" + I;
+        QString qit1 = QString::fromStdString(it1), qit2 = QString::fromStdString(it2), qit3 = QString::fromStdString(it3);
+        components[0] = (idg40[qit1].toDouble() + idg40[qit2].toDouble() + idg40[qit3].toDouble()) * 0.33;
+        components[1] = (idg20[qit1].toDouble() + idg20[qit2].toDouble() + idg20[qit3].toDouble()) * 0.33;
+        components[2] = (idg10[qit1].toDouble() + idg10[qit2].toDouble() + idg10[qit3].toDouble()) * 0.33;
+        components[3] = (idg0[qit1].toDouble() + idg0[qit2].toDouble() + idg0[qit3].toDouble()) * 0.33;
+
+        qDebug() << components[0] << components[1] << components[2] << components[3];
+
+        components[0] *= idg40["proportion"].toDouble()/100;
+        components[1] *= idg20["proportion"].toDouble()/100;
+        components[2] *= idg10["proportion"].toDouble()/100;
+        components[3] *= idg0["proportion"].toDouble()/100;
+
+        double sum = 0;
+        for (int j = 0; j < 4; j++) {
+            sum += components[j];
+        }
+
+        blend_val << sum;
+    }
+
+    ui->ind_graph_2->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
+    ui->ind_graph_2->legend->setVisible(true);
+    ui->ind_graph_2->legend->setFont(legendFont);
+    ui->ind_graph_2->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
+    ui->ind_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+
+    ui->ind_graph_2->graph(0)->setData(is_sieve, blend_val);
+    ui->ind_graph_2->graph(0)->setName("Passing of %");
+    ui->ind_graph_2->graph(1)->setData(is_sieve, low);
+    ui->ind_graph_2->graph(1)->setName("Lower Limit");
+    ui->ind_graph_2->graph(2)->setData(is_sieve, mid);
+    ui->ind_graph_2->graph(2)->setName("Middle Limit");
+    ui->ind_graph_2->graph(3)->setData(is_sieve, high);
+    ui->ind_graph_2->graph(3)->setName("Upper Limit");
+
+
+    ui->ind_graph_2->graph(3)->setChannelFillGraph(ui->ind_graph_2->graph(1));
+    ui->ind_graph_2->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 50))); // light green 20% transparent
+    ui->ind_graph_2->graph(0)->setPen(QPen(QColor(255, 0, 0)));
+    ui->ind_graph_2->graph(1)->setPen(QPen(QColor(102, 153, 130)));
+    ui->ind_graph_2->graph(2)->setPen(QPen(QColor(213, 101, 0)));
+    ui->ind_graph_2->graph(3)->setPen(QPen(QColor(140, 102, 169)));
+
+    QSharedPointer<QCPAxisTickerLog> logTicker2(new QCPAxisTickerLog);
+    ui->ind_graph_2->xAxis->setScaleType(QCPAxis::stLogarithmic);
+    ui->ind_graph_2->xAxis->setTicker(logTicker2);
+
+    ui->ind_graph_2->xAxis->setLabel("IS SIEVE IN MM");
+    ui->ind_graph_2->xAxis->setRange(0.05, 100);
+    ui->ind_graph_2->yAxis->setLabel("PASSING OF %");
+    ui->ind_graph_2->yAxis->setRange(0, 100);
+    ui->ind_graph_2->replot();
+}
 
 
 // Deals with exports to PDF
