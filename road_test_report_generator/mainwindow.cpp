@@ -744,8 +744,8 @@ void MainWindow::on_idg_save_40mm_clicked()
             cumsum += weight_of_retained_40[i][j];
             ind_cumulative[i][j] = cumsum;
             ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
-            ind_cum_pass[i][j] = 100 - (cumsum / total_weight[i - 1]);
-            qDebug() << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass;
+            ind_cum_pass[i][j] = 100 - (100 * cumsum / total_weight[i - 1]);
+            //qDebug() << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass[i][j];
 
         }
     }
@@ -1459,6 +1459,7 @@ void MainWindow::updateGraph_idg() {
     //Graph 1 is the combined gradation graph
     QString json_path = cwd.filePath("json/idg.json");
     QFile ind(json_path);
+    QString file_savepath;
 
     if (!ind.open(QIODevice::ReadOnly | QIODevice::Text))
     {
@@ -1507,12 +1508,13 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_1->graph(3)->setData(is_sieve, high);
     ui->ind_graph_1->graph(3)->setName("Upper Limit");
 
+    QPen redPen(Qt::red, 2);
 
     ui->ind_graph_1->graph(3)->setChannelFillGraph(ui->ind_graph_1->graph(1));
-    ui->ind_graph_1->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 50))); // light green 20% transparent
-    ui->ind_graph_1->graph(0)->setPen(QPen(QColor(255, 0, 0)));
+    ui->ind_graph_1->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 20))); // light green 20% transparent
+    ui->ind_graph_1->graph(0)->setPen(redPen);
     ui->ind_graph_1->graph(1)->setPen(QPen(QColor(102, 153, 130)));
-    ui->ind_graph_1->graph(2)->setPen(QPen(QColor(213, 101, 0)));
+    ui->ind_graph_1->graph(2)->setPen(QPen(QColor(170, 101, 0, 200)));
     ui->ind_graph_1->graph(3)->setPen(QPen(QColor(140, 102, 169)));
 
     QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
@@ -1525,11 +1527,11 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_1->yAxis->setRange(0, 100);
     ui->ind_graph_1->replot();
 
-    QString file_savepath = cwd.filePath("html/combined_graph.png");
-    QFile graph_file(file_savepath);
-    if (!graph_file.open(QIODevice::WriteOnly))
+    file_savepath = cwd.filePath("html/combined_graph.png");
+    QFile graph_file_cmb(file_savepath);
+    if (!graph_file_cmb.open(QIODevice::WriteOnly))
     {
-        qDebug() << graph_file.errorString();
+        qDebug() << graph_file_cmb.errorString();
     } else {
         ui->ind_graph_1->savePng(file_savepath);
     }
@@ -1537,12 +1539,14 @@ void MainWindow::updateGraph_idg() {
     //Now we update the Blending Graph
     //First step is getting the values from the individual gradation json file and blending the values together in proportion
     QJsonObject idg40 = ind_json_lookups["40mm"].toObject(), idg20 = ind_json_lookups["20mm"].toObject(), idg10 = ind_json_lookups["10mm"].toObject(), idg0 = ind_json_lookups["d"].toObject();
+    qDebug() << idg40;
     QVector<double> blend_val;
     for (int i = 1; i <= 8; i++) {
         double components[4];
 
-        char I = i+48;
-        std::string it1 = "pass_1" + I, it2 = "pass_2" + I, it3 ="pass_3" + I;
+        //char I = i+48;
+        std::string it1 = "pass_1" + std::to_string(i), it2 = "pass_2" + std::to_string(i), it3 ="pass_3" + std::to_string(i);
+        qDebug() << it1 << it2 << it3;
         QString qit1 = QString::fromStdString(it1), qit2 = QString::fromStdString(it2), qit3 = QString::fromStdString(it3);
         components[0] = (idg40[qit1].toDouble() + idg40[qit2].toDouble() + idg40[qit3].toDouble()) * 0.33;
         components[1] = (idg20[qit1].toDouble() + idg20[qit2].toDouble() + idg20[qit3].toDouble()) * 0.33;
@@ -1582,10 +1586,10 @@ void MainWindow::updateGraph_idg() {
 
 
     ui->ind_graph_2->graph(3)->setChannelFillGraph(ui->ind_graph_2->graph(1));
-    ui->ind_graph_2->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 50))); // light green 20% transparent
-    ui->ind_graph_2->graph(0)->setPen(QPen(QColor(255, 0, 0)));
+    ui->ind_graph_2->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 20))); // light green 20% transparent
+    ui->ind_graph_2->graph(0)->setPen(redPen);
     ui->ind_graph_2->graph(1)->setPen(QPen(QColor(102, 153, 130)));
-    ui->ind_graph_2->graph(2)->setPen(QPen(QColor(213, 101, 0)));
+    ui->ind_graph_2->graph(2)->setPen(QPen(QColor(170, 101, 0)));
     ui->ind_graph_2->graph(3)->setPen(QPen(QColor(140, 102, 169)));
 
     QSharedPointer<QCPAxisTickerLog> logTicker2(new QCPAxisTickerLog);
@@ -1597,6 +1601,15 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_2->yAxis->setLabel("PASSING OF %");
     ui->ind_graph_2->yAxis->setRange(0, 100);
     ui->ind_graph_2->replot();
+
+    file_savepath = cwd.filePath("html/blending_graph.png");
+    QFile graph_file_bld(file_savepath);
+    if (!graph_file_bld.open(QIODevice::WriteOnly))
+    {
+        qDebug() << graph_file_bld.errorString();
+    } else {
+        ui->ind_graph_2->savePng(file_savepath);
+    }
 }
 
 
