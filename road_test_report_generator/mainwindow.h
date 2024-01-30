@@ -183,6 +183,16 @@ private slots:
 
     void on_mdd_export_clicked();
 
+    void on_spc_saveas_clicked();
+
+    void on_fei_saveas_clicked();
+
+    void on_aiv_saveas_clicked();
+
+    void on_ind_saveas_clicked();
+
+    void on_mdd_saveas_clicked();
+
 private:
     float scroll_sens;
 

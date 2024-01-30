@@ -17,11 +17,15 @@
 #include <qcustomplot.h>
 #include <QMessageBox>
 #include <QMetaObject>
+#include <QFileDialog>
+#include <QDateTime>
 
 QDir cwd = QDir::current();
+QDir swd = cwd;
 bool i = cwd.cdUp();
 std::vector<std::string> tracked_files;
 std::string OS;
+bool saveas_done = false;
 
 void removeDuplicates(std::vector<std::string> &vec)
 {
@@ -185,7 +189,54 @@ void MainWindow::on_mdd_save_clicked()
 }
 
 
+//Deals with save as requests
+void MainWindow::on_spc_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->spc_save->click();
+}
+void MainWindow::on_fei_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->fei_save->click();
+}
+void MainWindow::on_aiv_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->aiv_save->click();
+}
+void MainWindow::on_ind_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->ind_save->click();
+}
+void MainWindow::on_mdd_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->mdd_save->click();
+}
 
+//Deals with saving to JSON (subfunctions)
 void MainWindow::on_mdd_save_update_clicked()
 {
     ui->mdd_save->click();
@@ -1870,6 +1921,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         program = QString("wkhtmltopdf");
     }
     command = command + program.toStdString();
+    QString fname = "";
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -1909,9 +1961,13 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             ui->mdd_export->click();
             args << cwd.filePath("html/mdd.html");
         }
+
+        fname += "_" + QString::fromStdString(*i);
     }
 
-    args << cwd.filePath("output/REPORT.pdf");
+    fname = "REPORT_" + QDateTime::currentDateTime().toString(Qt::ISODateWithMs) + fname + ".pdf";
+    fname.replace(QRegularExpression("[^\\w\\.]"), "_");
+    args << swd.filePath(fname);
 
     QList<QString>::iterator i;
     for (i = args.begin(); i != args.end(); ++i)
@@ -1920,7 +1976,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
 
     if (OS != "apple") {
         QProcess *converter = new QProcess();
-        converter->start(program, args);
+        converter->startDetached(program, args);
     } else {
         QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
         std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
@@ -5404,4 +5460,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-

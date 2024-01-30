@@ -5236,7 +5236,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2020</y>
+         <y>0</y>
          <width>1050</width>
          <height>2901</height>
         </rect>
@@ -10010,12 +10010,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>338</x>
-     <y>-1613</y>
+     <x>345</x>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
-     <x>347</x>
-     <y>-1463</y>
+     <x>345</x>
+     <y>438</y>
     </hint>
    </hints>
   </connection>
