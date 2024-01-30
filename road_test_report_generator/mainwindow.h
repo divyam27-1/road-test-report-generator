@@ -175,6 +175,14 @@ private slots:
 
     void updateGraph_idg();
 
+    void updateGraph_mdd();
+
+    void on_mdd_save_update_clicked();
+
+    void on_mdd_save_clicked();
+
+    void on_mdd_export_clicked();
+
 private:
     float scroll_sens;
 

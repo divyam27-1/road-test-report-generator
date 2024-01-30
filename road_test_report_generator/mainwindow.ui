@@ -37,7 +37,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <property name="tabsClosable">
      <bool>false</bool>
@@ -2378,7 +2378,7 @@ color: rgb(0, 0, 0);</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QFrame" name="fei_1_12">
+      <widget class="QFrame" name="fei_frame">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -3555,8 +3555,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>100</width>
-         <height>30</height>
+         <width>230</width>
+         <height>701</height>
         </rect>
        </property>
        <attribute name="label">
@@ -8816,6 +8816,725 @@ color: rgb(0, 0, 0);</string>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="mdd">
+     <attribute name="title">
+      <string>MDD</string>
+     </attribute>
+     <widget class="QPushButton" name="mdd_save">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mdd_saveas">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>20</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save As...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mdd_export">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Export to PDF</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="mdd_frame">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>1050</width>
+        <height>690</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_108">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>111</width>
+         <height>60</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;MDD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>840</x>
+         <y>120</y>
+         <width>140</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Mass of Mould... (gm)</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>840</x>
+         <y>170</y>
+         <width>140</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Volume of Mould... (cc)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_72">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>110</y>
+         <width>49</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Test No.</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_110">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_111">
+          <property name="text">
+           <string>2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_112">
+          <property name="text">
+           <string>3</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_113">
+          <property name="text">
+           <string>4</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_109">
+          <property name="text">
+           <string>5</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_114">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>200</y>
+         <width>211</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Wt. Of wet sample +mould  (gm)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_115">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>270</y>
+         <width>201</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tray no</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_116">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>350</y>
+         <width>201</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Weight of Tray  (gm)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_117">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>430</y>
+         <width>211</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Wt. Of wet sample+Tray. (gm)</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>300</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLineEdit" name="tray_1"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tray_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tray_3"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tray_4"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tray_5"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>380</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLineEdit" name="wt_tray_1"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wt_tray_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wt_tray_3"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wt_tray_4"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wt_tray_5"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>460</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLineEdit" name="wst_1"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wst_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wst_3"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wst_4"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wst_5"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLineEdit" name="wsm_1"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wsm_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wsm_3"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wsm_4"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wsm_5"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QCustomPlot" name="mdd_graph" native="true">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>220</y>
+         <width>460</width>
+         <height>460</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="mdd_save_update">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>610</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save and Update</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_118">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>510</y>
+         <width>211</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Wt. Of dry sample+Tray. (gm)</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_7">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>540</y>
+         <width>541</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLineEdit" name="wds_1"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wds_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wds_3"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wds_4"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="wds_5"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QToolBox" name="mdd_info">
+      <property name="geometry">
+       <rect>
+        <x>1060</x>
+        <y>0</y>
+        <width>230</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="mdd_bsc">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>230</width>
+         <height>701</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Basic Info</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget_11">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>221</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_21">
+         <item>
+          <widget class="QLabel" name="label_359">
+           <property name="text">
+            <string>Name of the Work</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="mdd_bsc_1"/>
+         </item>
+         <item>
+          <spacer name="side_socr_11">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>100</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_360">
+           <property name="text">
+            <string>Name of the Client</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="mdd_bsc_2"/>
+         </item>
+         <item>
+          <spacer name="side_spcr_22">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>100</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_361">
+           <property name="text">
+            <string>Name of the Consultant</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="mdd_bsc_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="side_spcr_23">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>100</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_362">
+           <property name="text">
+            <string>Name of the Contractor</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="mdd_bsc_4"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="mdd_exp">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>230</width>
+         <height>701</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Experiment Info</string>
+       </attribute>
+       <widget class="QWidget" name="formLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>231</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout_2">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::ExpandingFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_129">
+           <property name="text">
+            <string>Date Of Sampling</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <spacer name="verticalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_130">
+           <property name="text">
+            <string>Date Of Testing</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_131">
+           <property name="text">
+            <string>Sample No.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="mdd_exp_3"/>
+         </item>
+         <item row="5" column="0">
+          <spacer name="verticalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_132">
+           <property name="text">
+            <string>Frequency test</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="mdd_exp_4"/>
+         </item>
+         <item row="7" column="0">
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_133">
+           <property name="text">
+            <string>Type Of Material</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="mdd_exp_5"/>
+         </item>
+         <item row="9" column="0">
+          <spacer name="verticalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_134">
+           <property name="text">
+            <string>Source Approval</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="mdd_exp_6"/>
+         </item>
+         <item row="3" column="0">
+          <spacer name="verticalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="mdd_exp_7"/>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_136">
+           <property name="text">
+            <string>Source of Material</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QLineEdit" name="mdd_exp_8"/>
+         </item>
+         <item row="14" column="0">
+          <widget class="QLabel" name="label_137">
+           <property name="text">
+            <string>Sample At.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <spacer name="verticalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="13" column="0">
+          <spacer name="verticalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1">
+          <widget class="QDateEdit" name="mdd_exp_1">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QDateEdit" name="mdd_exp_2">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </widget>
