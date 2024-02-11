@@ -1588,6 +1588,66 @@ void MainWindow::on_cd_save_clicked()
     }
 
 }
+void MainWindow::on_grad_save_clicked()
+{
+    tracked_files.push_back("grad");
+    removeDuplicates(tracked_files);
+
+    QJsonObject grad_json;
+
+    for (int i = 1; i <= 3; i++) {
+        QJsonObject grad_json_mm;
+        for (int j = 1; j <= 8; j++) {
+
+            double sum = 0;
+            for (int k = 1; k <= 5; k++) {
+                QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
+
+                QLineEdit* tedit = ui->dbm_tab_list->findChild<QLineEdit*>(object_name);
+
+                if (tedit) {
+                    double num = tedit->text().toDouble();
+                    sum += num;
+                } else {
+                    qDebug() << "Could not find a child with name " << object_name;
+                }
+            }
+
+            QString avg_key = QString("avg_%1").arg(j);
+            grad_json_mm[avg_key] = sum/5;
+        }
+
+        QString top_level_key = "";
+
+        switch (i) {
+        case 1:
+            top_level_key = "25-16mm";
+            break;
+        case 2:
+            top_level_key = "16-4.75mm";
+            break;
+        case 3:
+            top_level_key = "below_4.75mm";
+            break;
+        default:
+            top_level_key = "error in i in on_grad_save_clicked";
+            break;
+        }
+
+        grad_json[top_level_key] = grad_json_mm;
+    }
+
+    QFile grad_file(cwd.filePath("json/grad.json"));
+
+    if (!grad_file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::information(this, "Tits", "Error opening grad json file");
+    }
+
+    QTextStream out(&grad_file);
+    QJsonDocument json_doc(grad_json);
+    out << json_doc.toJson();
+    grad_file.close();
+}
 
 
 
@@ -1976,7 +2036,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
 
     if (OS != "apple") {
         QProcess *converter = new QProcess();
-        converter->startDetached(program, args);
+        converter->start(program, args);
     } else {
         QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
         std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
@@ -5224,7 +5284,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 
         // By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
         // This area has to be the current tab, which is selected with the switch operator
-        switch (ui->tab_list->currentIndex())
+        switch (ui->wmm_tab_list->currentIndex())
         {
         case 0:
             scroll_pos = ui->spc_data_scroll->value();

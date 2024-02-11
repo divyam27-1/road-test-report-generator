@@ -193,6 +193,8 @@ private slots:
 
     void on_mdd_saveas_clicked();
 
+    void on_grad_save_clicked();
+
 private:
     float scroll_sens;
 
