@@ -195,6 +195,8 @@ private slots:
 
     void on_grad_save_clicked();
 
+    void on_grad_data_scroll_valueChanged(int value);
+
 private:
     float scroll_sens;
 

@@ -236,6 +236,7 @@ void MainWindow::on_mdd_saveas_clicked()
     ui->mdd_save->click();
 }
 
+
 //Deals with saving to JSON (subfunctions)
 void MainWindow::on_mdd_save_update_clicked()
 {
@@ -1597,16 +1598,29 @@ void MainWindow::on_grad_save_clicked()
 
     for (int i = 1; i <= 3; i++) {
         QJsonObject grad_json_mm;
+
+        QString prop_spinbox_name = QString("grad_prop_%1").arg(i);
+        QDoubleSpinBox* spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox*>(prop_spinbox_name);
+        double proportion = spinbox->value()/100;
+
+        if (spinbox) {
+            grad_json_mm["proportion"] = proportion*100;
+        } else {
+            qDebug() << "Could not find a child with name" << prop_spinbox_name;
+        }
+
         for (int j = 1; j <= 8; j++) {
 
             double sum = 0;
             for (int k = 1; k <= 5; k++) {
+
                 QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
 
                 QLineEdit* tedit = ui->dbm_tab_list->findChild<QLineEdit*>(object_name);
 
                 if (tedit) {
                     double num = tedit->text().toDouble();
+                    grad_json_mm[object_name] = num;
                     sum += num;
                 } else {
                     qDebug() << "Could not find a child with name " << object_name;
@@ -1615,9 +1629,12 @@ void MainWindow::on_grad_save_clicked()
 
             QString avg_key = QString("avg_%1").arg(j);
             grad_json_mm[avg_key] = sum/5;
+
+            double avg_prop = proportion * sum/5;
+            grad_json_mm["prop_"+avg_key] = avg_prop;
         }
 
-        QString top_level_key = "";
+        QString top_level_key;
 
         switch (i) {
         case 1:
@@ -1636,6 +1653,28 @@ void MainWindow::on_grad_save_clicked()
 
         grad_json[top_level_key] = grad_json_mm;
     }
+
+    double *proportinal_passing_averages = new double[8];
+    for (int i = 0; i < 8; i++) {proportinal_passing_averages[i] = 0;}
+
+    for (QString key: grad_json.keys()) {
+
+        QJsonObject grad_json_mm = grad_json[key].toObject();
+
+        for (int i = 0; i < 8; i++) {
+            QString prop_avg_key = QString("prop_avg_%1").arg(i);
+            proportinal_passing_averages[i] += grad_json_mm[prop_avg_key].toDouble();
+        }
+    }
+
+    QJsonObject grad_bld_json;
+    for (int i = 0; i < 8; i++) {
+        grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
+    }
+
+    delete[] proportinal_passing_averages;
+
+    grad_json["blending"] = grad_bld_json;
 
     QFile grad_file(cwd.filePath("json/grad.json"));
 
@@ -5301,6 +5340,13 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         default:
             break;
         }
+        switch (ui->dbm_tab_list->currentIndex())
+        {
+        case 0:
+            scroll_pos = ui->grad_data_scroll->value();
+            ui->grad_data_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
+        }
     }
 }
 void MainWindow::on_spc_data_scroll_valueChanged(int value)
@@ -5317,6 +5363,11 @@ void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 {
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
     ui->aiv_frame->move(0, target);
+}
+void MainWindow::on_grad_data_scroll_valueChanged(int value)
+{
+    float target = (ui->grad_frame_outer->height() - ui->grad_frame->height()) * value / 100;
+    ui->grad_frame->move(0, target);
 }
 
 
@@ -5520,3 +5571,6 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
+
+
