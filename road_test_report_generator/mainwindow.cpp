@@ -1596,9 +1596,14 @@ void MainWindow::on_grad_save_clicked()
 
     QJsonObject grad_json;
 
+    /* Triple nested loop to save JSON for gradation
+        i: top level loop for different types of experiments (21mm, 16mm, 4mm)
+        j: mid level loop for different is seive values in one experiment
+        k: bottom level loop for different samples of a seive value     */
     for (int i = 1; i <= 3; i++) {
         QJsonObject grad_json_mm;
 
+        //this block and the if else stmt get the proportion of a specific experiment in the dbm mixture
         QString prop_spinbox_name = QString("grad_prop_%1").arg(i);
         QDoubleSpinBox* spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox*>(prop_spinbox_name);
         double proportion = spinbox->value()/100;
@@ -1611,6 +1616,7 @@ void MainWindow::on_grad_save_clicked()
 
         for (int j = 1; j <= 8; j++) {
 
+            //This next part simply takes the average of the 5 samples and saves the sample data along with the average to JSON
             double sum = 0;
             for (int k = 1; k <= 5; k++) {
 
@@ -1630,6 +1636,7 @@ void MainWindow::on_grad_save_clicked()
             QString avg_key = QString("avg_%1").arg(j);
             grad_json_mm[avg_key] = sum/5;
 
+            //This part takes the proportion of the average we will take for the final mix
             double avg_prop = proportion * sum/5;
             grad_json_mm["prop_"+avg_key] = avg_prop;
         }
@@ -1654,6 +1661,9 @@ void MainWindow::on_grad_save_clicked()
         grad_json[top_level_key] = grad_json_mm;
     }
 
+    /* For blending the values, we will have to do a few more sweeps of the data, this time taking the weighted average
+       of our sample averages across diff experiments to blend them. The proportional_passing_averages data structure
+       was made to temporarily hold the values as they are averaged*/
     double *proportinal_passing_averages = new double[8];
     for (int i = 0; i < 8; i++) {proportinal_passing_averages[i] = 0;}
 
@@ -1667,6 +1677,7 @@ void MainWindow::on_grad_save_clicked()
         }
     }
 
+    //create the blending json object, which will added to the grad json file as its own top level json class
     QJsonObject grad_bld_json;
     for (int i = 0; i < 8; i++) {
         grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
@@ -1676,6 +1687,7 @@ void MainWindow::on_grad_save_clicked()
 
     grad_json["blending"] = grad_bld_json;
 
+    //Boilerplate write to file code
     QFile grad_file(cwd.filePath("json/grad.json"));
 
     if (!grad_file.open(QFile::WriteOnly | QFile::Text)) {
