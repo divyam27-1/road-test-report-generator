@@ -9656,9 +9656,9 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-670</y>
+           <y>0</y>
            <width>1050</width>
-           <height>1481</height>
+           <height>1991</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -10662,7 +10662,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>610</x>
-            <y>80</y>
+            <y>90</y>
             <width>62</width>
             <height>30</height>
            </rect>
@@ -10672,7 +10672,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>680</x>
-            <y>80</y>
+            <y>90</y>
             <width>51</width>
             <height>30</height>
            </rect>
@@ -10685,7 +10685,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>520</x>
-            <y>80</y>
+            <y>90</y>
             <width>81</width>
             <height>30</height>
            </rect>
@@ -10734,7 +10734,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>700</x>
-            <y>1000</y>
+            <y>1010</y>
             <width>51</width>
             <height>30</height>
            </rect>
@@ -10747,7 +10747,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>630</x>
-            <y>1000</y>
+            <y>1010</y>
             <width>62</width>
             <height>30</height>
            </rect>
@@ -10757,13 +10757,59 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>540</x>
-            <y>1000</y>
+            <y>1010</y>
             <width>81</width>
             <height>30</height>
            </rect>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Proportion:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QCustomPlot" name="grad_graph_1" native="true">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>1440</y>
+            <width>470</width>
+            <height>470</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QCustomPlot" name="grad_graph_2" native="true">
+          <property name="geometry">
+           <rect>
+            <x>540</x>
+            <y>1440</y>
+            <width>470</width>
+            <height>470</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="grad_bld_graph_label">
+          <property name="geometry">
+           <rect>
+            <x>125</x>
+            <y>1910</y>
+            <width>280</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Gradation Blending Graph&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="jmf_graph_label">
+          <property name="geometry">
+           <rect>
+            <x>715</x>
+            <y>1910</y>
+            <width>120</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;JMF Graph&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </widget>
@@ -10824,10 +10870,18 @@ color: rgb(0, 0, 0);</string>
      <string>View</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuExperiment">
+    <property name="title">
+     <string>Experiment</string>
+    </property>
+    <addaction name="actionWMM"/>
+    <addaction name="actionDBM"/>
+   </widget>
    <addaction name="menuHome"/>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
+   <addaction name="menuExperiment"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew_Project">
@@ -10898,6 +10952,16 @@ color: rgb(0, 0, 0);</string>
   <action name="actionundo">
    <property name="text">
     <string>undo</string>
+   </property>
+  </action>
+  <action name="actionWMM">
+   <property name="text">
+    <string>WMM</string>
+   </property>
+  </action>
+  <action name="actionDBM">
+   <property name="text">
+    <string>DBM</string>
    </property>
   </action>
  </widget>
@@ -11248,12 +11312,28 @@ color: rgb(0, 0, 0);</string>
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>345</x>
-     <y>288</y>
+     <x>320</x>
+     <y>286</y>
     </hint>
     <hint type="destinationlabel">
-     <x>345</x>
-     <y>438</y>
+     <x>320</x>
+     <y>436</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>grad_s2_8</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>grad_s3_8</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>681</y>
     </hint>
    </hints>
   </connection>

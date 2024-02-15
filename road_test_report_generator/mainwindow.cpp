@@ -50,9 +50,15 @@ MainWindow::MainWindow(QWidget *parent)
     for (int i = 0; i < 4; i++) {
         ui->ind_graph_1->addGraph();
         ui->ind_graph_2->addGraph();
+        ui->grad_graph_1->addGraph();
+        ui->grad_graph_2->addGraph();
     }
     ui->mdd_graph->addGraph();
     ui->mdd_graph->addGraph();
+    ui->grad_graph_2->addGraph(); ui->grad_graph_2->addGraph();
+
+    ui->grad_bld_graph_label->hide();
+    ui->jmf_graph_label->hide();
 
    #ifdef _WIN32
     OS = "win";
@@ -1594,6 +1600,8 @@ void MainWindow::on_grad_save_clicked()
     tracked_files.push_back("grad");
     removeDuplicates(tracked_files);
 
+    updateGraph_grad();
+
     QJsonObject grad_json;
 
     /* Triple nested loop to save JSON for gradation
@@ -1686,6 +1694,18 @@ void MainWindow::on_grad_save_clicked()
     delete[] proportinal_passing_averages;
 
     grad_json["blending"] = grad_bld_json;
+
+    QJsonObject seive_sizes;
+    //Since the sieve sizes are the same we just save the seives from the first one
+    for (int i = 1; i <= 8; i++) {
+        QLineEdit* tedit = ui->grad_frame_outer->findChild<QLineEdit*>(QString("grad_s1_%1").arg(i));
+        if (tedit) {
+            seive_sizes[QString("is_seive_%1").arg(i)] = tedit->text().toDouble();
+        } else {
+            qDebug() << "seive tedit error";
+        }
+    }
+    grad_json["seive_sizes"] = seive_sizes;
 
     //Boilerplate write to file code
     QFile grad_file(cwd.filePath("json/grad.json"));
@@ -2007,6 +2027,137 @@ void MainWindow::updateGraph_mdd() {
     }
 
 }
+void MainWindow::updateGraph_grad() {
+
+    QString json_path = cwd.filePath("json/grad.json");
+    QFile grad_file(json_path);
+    QString grad_bld_savepath = cwd.filePath("html/grad_graph.png");
+    QString grad_jmf_savepath = cwd.filePath("html/jmf_graph.png");
+
+    if (!grad_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "grad json not opened";
+        return;
+    }
+
+    QByteArray grad_bytes = grad_file.readAll();
+    QJsonDocument grad_json_doc = QJsonDocument::fromJson(grad_bytes);
+    QJsonObject grad = grad_json_doc.object();
+    QJsonObject grad_bld = grad["blending"].toObject();
+    QJsonObject grad_seive = grad["seive_sizes"].toObject();
+
+    QVector<double> max, min, mid, dbm_pass, seives, jmf_max, jmf_min;
+
+    max = {100,100,95,80,54,42,21,8};
+    min = {100,90,71,56,38,28,7,2};
+    mid = {100,95,83,68,46,35,14,5};
+    jmf_max = {100,100,95,79,48,36,18,6};
+    jmf_min = {100,90,82,65,36,26,10,2};
+
+    for (auto key: grad_seive.keys()) {
+        seives << grad_seive[key].toDouble();
+    }
+    for (auto key: grad_bld.keys()) {
+        dbm_pass << grad_bld[key].toDouble();
+
+    }
+
+    ui->grad_graph_1->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
+    ui->grad_graph_1->legend->setVisible(true);
+    QFont legendFont = font();  // start out with MainWindow's font..
+    legendFont.setPointSize(9); // and make a bit smaller for legend
+    ui->grad_graph_1->legend->setFont(legendFont);
+    ui->grad_graph_1->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
+    ui->grad_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+
+    ui->grad_graph_1->graph(0)->setData(seives, dbm_pass);
+    ui->grad_graph_1->graph(0)->setName("Passing of %");
+    ui->grad_graph_1->graph(1)->setData(seives, min);
+    ui->grad_graph_1->graph(1)->setName("Lower Limit");
+    ui->grad_graph_1->graph(2)->setData(seives, mid);
+    ui->grad_graph_1->graph(2)->setName("Middle Limit");
+    ui->grad_graph_1->graph(3)->setData(seives, max);
+    ui->grad_graph_1->graph(3)->setName("Upper Limit");
+
+    QPen redPen(Qt::red, 2);
+
+    ui->grad_graph_1->graph(0)->setPen(redPen);
+    ui->grad_graph_1->graph(1)->setPen(QPen(QColor(102, 153, 130)));
+    ui->grad_graph_1->graph(2)->setPen(QPen(QColor(170, 101, 0, 200)));
+    ui->grad_graph_1->graph(3)->setPen(QPen(QColor(140, 102, 169)));
+
+    QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
+    ui->grad_graph_1->xAxis->setScaleType(QCPAxis::stLogarithmic);
+    ui->grad_graph_1->xAxis->setTicker(logTicker);
+
+    ui->grad_graph_1->xAxis->setLabel("IS SIEVE IN MM");
+    ui->grad_graph_1->xAxis->setRange(0.05, 100);
+    ui->grad_graph_1->yAxis->setLabel("PASSING OF %");
+    ui->grad_graph_1->yAxis->setRange(0, 100);
+    ui->grad_graph_1->replot();
+
+    ui->grad_bld_graph_label->show();
+
+    ui->grad_graph_2->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
+    ui->grad_graph_2->legend->setVisible(true);
+    ui->grad_graph_2->legend->setFont(legendFont);
+    ui->grad_graph_2->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    ui->grad_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+
+    ui->grad_graph_2->graph(0)->setData(seives, dbm_pass);
+    ui->grad_graph_2->graph(0)->setName("Passing of %");
+    ui->grad_graph_2->graph(1)->setData(seives, min);
+    ui->grad_graph_2->graph(1)->setName("Lower Limit");
+    ui->grad_graph_2->graph(3)->setData(seives, max);
+    ui->grad_graph_2->graph(3)->setName("Upper Limit");
+    ui->grad_graph_2->graph(4)->setData(seives, jmf_max);
+    ui->grad_graph_2->graph(4)->setName("JMF Upper Limit");
+    ui->grad_graph_2->graph(5)->setData(seives, jmf_min);
+    ui->grad_graph_2->graph(5)->setName("JMF Lower Limit");
+
+    QPen jmf_max_pen;
+    jmf_max_pen.setColor(QColor(188, 66, 245));
+    jmf_max_pen.setStyle(Qt::DashLine);
+
+    QPen jmf_min_pen;
+    jmf_min_pen.setColor(QColor(240, 125, 40));
+    jmf_min_pen.setStyle(Qt::DashDotLine);
+
+    ui->grad_graph_2->graph(0)->setPen(redPen);
+    ui->grad_graph_2->graph(1)->setPen(QPen(QColor(0,0,0)));
+    ui->grad_graph_2->graph(3)->setPen(QPen(QColor(0,0,0)));
+    ui->grad_graph_2->graph(4)->setPen(QPen(QColor(188,66,245)));
+    ui->grad_graph_2->graph(5)->setPen(QPen(QColor(240, 125, 40)));
+
+    ui->grad_graph_2->xAxis->setScaleType(QCPAxis::stLogarithmic);
+    ui->grad_graph_2->xAxis->setTicker(logTicker);
+
+    ui->grad_graph_2->xAxis->setLabel("IS SIEVE IN MM");
+    ui->grad_graph_2->xAxis->setRange(0.05, 100);
+    ui->grad_graph_2->yAxis->setLabel("PASSING OF %");
+    ui->grad_graph_2->yAxis->setRange(0, 100);
+    ui->grad_graph_2->replot();
+
+    ui->jmf_graph_label->show();
+
+    QFile grad_graph(grad_bld_savepath);
+    if(!grad_graph.open(QIODevice::WriteOnly)) {
+        qDebug() << grad_graph.errorString();
+    } else {
+        ui->grad_graph_1->savePng(grad_bld_savepath);
+        grad_graph.close();
+    }
+
+    QFile grad_jmf_graph(grad_jmf_savepath);
+    if (!grad_jmf_graph.open(QIODevice::WriteOnly)) {
+        qDebug() << grad_jmf_graph.errorString();
+    } else {
+        ui->grad_graph_2->savePng(grad_jmf_savepath);
+        grad_jmf_graph.close();
+    }
+
+}
+
 
 // Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
@@ -5384,6 +5535,18 @@ void MainWindow::on_grad_data_scroll_valueChanged(int value)
 
 
 
+//Deal with switchin windows
+void MainWindow::on_actionWMM_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+void MainWindow::on_actionDBM_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+
 // Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
 {
@@ -5583,6 +5746,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-
-
-

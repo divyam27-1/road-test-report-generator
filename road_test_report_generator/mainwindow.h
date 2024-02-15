@@ -197,6 +197,13 @@ private slots:
 
     void on_grad_data_scroll_valueChanged(int value);
 
+    void updateGraph_grad();
+
+
+    void on_actionWMM_triggered();
+
+    void on_actionDBM_triggered();
+
 private:
     float scroll_sens;
 
