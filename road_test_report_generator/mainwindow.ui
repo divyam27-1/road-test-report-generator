@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="wmm_page">
      <widget class="QTabWidget" name="wmm_tab_list">
@@ -59,7 +59,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -78,7 +78,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="spc_bsc">
          <property name="geometry">
@@ -196,8 +196,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>230</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -2019,6 +2019,25 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </widget>
        </widget>
+       <widget class="QLabel" name="spc_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="fei">
        <attribute name="title">
@@ -2445,7 +2464,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>190</y>
+            <y>200</y>
             <width>67</width>
             <height>25</height>
            </rect>
@@ -2471,7 +2490,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>120</x>
-            <y>190</y>
+            <y>200</y>
             <width>51</width>
             <height>25</height>
            </rect>
@@ -2684,8 +2703,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p1">
           <property name="geometry">
            <rect>
-            <x>260</x>
-            <y>190</y>
+            <x>230</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2694,8 +2713,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p3">
           <property name="geometry">
            <rect>
-            <x>450</x>
-            <y>190</y>
+            <x>390</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2704,8 +2723,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p2">
           <property name="geometry">
            <rect>
-            <x>350</x>
-            <y>190</y>
+            <x>310</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2714,8 +2733,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p5">
           <property name="geometry">
            <rect>
-            <x>640</x>
-            <y>190</y>
+            <x>550</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2724,8 +2743,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p4">
           <property name="geometry">
            <rect>
-            <x>540</x>
-            <y>190</y>
+            <x>470</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2734,8 +2753,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p6">
           <property name="geometry">
            <rect>
-            <x>730</x>
-            <y>190</y>
+            <x>630</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2744,8 +2763,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p7">
           <property name="geometry">
            <rect>
-            <x>820</x>
-            <y>190</y>
+            <x>710</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2754,8 +2773,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p8">
           <property name="geometry">
            <rect>
-            <x>900</x>
-            <y>190</y>
+            <x>790</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2764,8 +2783,8 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_p9">
           <property name="geometry">
            <rect>
-            <x>990</x>
-            <y>190</y>
+            <x>870</x>
+            <y>200</y>
             <width>71</width>
             <height>25</height>
            </rect>
@@ -2774,7 +2793,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r1">
           <property name="geometry">
            <rect>
-            <x>260</x>
+            <x>230</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2784,7 +2803,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r2">
           <property name="geometry">
            <rect>
-            <x>350</x>
+            <x>310</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2794,7 +2813,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r3">
           <property name="geometry">
            <rect>
-            <x>450</x>
+            <x>390</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2804,7 +2823,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r4">
           <property name="geometry">
            <rect>
-            <x>540</x>
+            <x>470</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2814,7 +2833,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r5">
           <property name="geometry">
            <rect>
-            <x>640</x>
+            <x>550</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2824,7 +2843,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r6">
           <property name="geometry">
            <rect>
-            <x>730</x>
+            <x>630</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2834,7 +2853,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r7">
           <property name="geometry">
            <rect>
-            <x>820</x>
+            <x>710</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2844,7 +2863,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r8">
           <property name="geometry">
            <rect>
-            <x>900</x>
+            <x>790</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -2854,7 +2873,7 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLineEdit" name="fei_ss_r9">
           <property name="geometry">
            <rect>
-            <x>990</x>
+            <x>870</x>
             <y>250</y>
             <width>71</width>
             <height>25</height>
@@ -3403,6 +3422,25 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="fei_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -4872,6 +4910,25 @@ color: rgb(0, 0, 0);</string>
           </property>
          </widget>
         </widget>
+       </widget>
+       <widget class="QLabel" name="aiv_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="ind">
@@ -8840,6 +8897,25 @@ color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </widget>
+       <widget class="QLabel" name="ind_saved">
+        <property name="geometry">
+         <rect>
+          <x>790</x>
+          <y>60</y>
+          <width>100</width>
+          <height>135</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon_small.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="mdd">
        <attribute name="title">
@@ -8915,7 +8991,7 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLineEdit" name="lineEdit">
          <property name="geometry">
           <rect>
-           <x>840</x>
+           <x>630</x>
            <y>120</y>
            <width>140</width>
            <height>31</height>
@@ -8931,7 +9007,7 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLineEdit" name="lineEdit_2">
          <property name="geometry">
           <rect>
-           <x>840</x>
+           <x>630</x>
            <y>170</y>
            <width>140</width>
            <height>30</height>
@@ -9558,6 +9634,25 @@ color: rgb(0, 0, 0);</string>
           </layout>
          </widget>
         </widget>
+       </widget>
+       <widget class="QLabel" name="mdd_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
        </widget>
       </widget>
      </widget>
@@ -10814,6 +10909,25 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </widget>
        </widget>
+       <widget class="QLabel" name="grad_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -11303,7 +11417,9 @@ color: rgb(0, 0, 0);</string>
   <tabstop>idg_d_w38</tabstop>
   <tabstop>idg_save_40mm</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>idg_40_s11</sender>

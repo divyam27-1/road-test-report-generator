@@ -77,6 +77,7 @@ public:
     std::string OS;
 
 
+    void save_check();
 private slots:
 
     void on_spc_save_10mm_clicked();

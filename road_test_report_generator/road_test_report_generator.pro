@@ -37,3 +37,7 @@ DISTFILES += \
     ../templates/summary.html
 
 QMAKE_CXXFLAGS += -Wa,-mbig-obj
+
+RESOURCES += \
+    html_templates.qrc \
+    icons.qrc

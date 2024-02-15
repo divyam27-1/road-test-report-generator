@@ -23,7 +23,10 @@
 QDir cwd = QDir::current();
 QDir swd = cwd;
 bool i = cwd.cdUp();
+
 std::vector<std::string> tracked_files;
+const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad"};
+
 std::string OS;
 bool saveas_done = false;
 
@@ -70,6 +73,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     qDebug() << OS;
     qDebug() << cwd;
+
+    save_check();
 }
 
 MainWindow::~MainWindow()
@@ -116,6 +121,8 @@ void MainWindow::on_mdd_save_clicked()
 {
     tracked_files.push_back("mdd");
     removeDuplicates(tracked_files);
+
+    save_check();
 
     float mdd_ds[5][5];
     mdd_ds[0][0] = ui->wsm_1->text().toFloat();
@@ -241,6 +248,34 @@ void MainWindow::on_mdd_saveas_clicked()
     }
     ui->mdd_save->click();
 }
+void MainWindow::save_check() {
+    for (auto exp: all_experiments) {
+        if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end()) {
+            QLabel* indicator = ui->stackedWidget->findChild<QLabel*>(QString::fromStdString(exp)+"_saved");
+            if (indicator) {
+                //qDebug() << "indicator" << exp << "found";
+                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon.png"));
+                if (indicator->height() < 200) {
+                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon_small.png"));
+                } qDebug () << "saved pixmap set";
+            } else {
+                //qDebug() << "indicator not found";
+            }
+        } else {
+            QLabel* indicator = ui->stackedWidget->findChild<QLabel*>(QString::fromStdString(exp)+"_saved");
+            if (indicator) {
+                //qDebug() << "indicator found";
+                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon.png"));
+                if (indicator->height() < 200) {
+                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon_small.png"));
+                }
+            } else {
+                qDebug() << "indicator not found";
+            }//
+        }
+    }
+}
+
 
 
 //Deals with saving to JSON (subfunctions)
@@ -255,6 +290,9 @@ void MainWindow::on_spc_save_40mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     type_of_material _40mm;
 
     // achha lagega:)
@@ -333,6 +371,9 @@ void MainWindow::on_spc_save_20mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     type_of_material _20mm;
 
     _20mm.Weight_of_sample_of_water[2][0] = 0;
@@ -411,6 +452,8 @@ void MainWindow::on_spc_save_10mm_clicked()
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
 
+    save_check();
+
     type_of_material _10mm;
 
     _10mm.Weight_of_sample_of_water[1][0] = 0;
@@ -486,6 +529,9 @@ void MainWindow::on_spc_save_0mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     type_of_material stone_dust;
 
     stone_dust.Weight_of_sample_of_water[0][0] = 0;
@@ -563,6 +609,9 @@ void MainWindow::on_save_ss_clicked()
 {
     tracked_files.push_back("fei");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     passing[1] = ui->fei_ss_p1->text().toFloat();
     passing[2] = ui->fei_ss_p2->text().toFloat();
     passing[3] = ui->fei_ss_p3->text().toFloat();
@@ -615,6 +664,9 @@ void MainWindow::on_save_fei_clicked()
 {
     tracked_files.push_back("fei");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     A[0] = 0;
     A[1] = ui->fei_1_1->text().toFloat();
     A[2] = ui->fei_1_2->text().toFloat();
@@ -727,8 +779,12 @@ QFile aiv_(cwd.filePath("json/aiv.json"));
 void MainWindow::on_aiv_save_20mm_clicked()
 {
     QJsonObject aiv_json_20mm;
+
     tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
     weight_of_cylinder[2][3] = ui->aiv_20_13->text().toFloat();
@@ -774,8 +830,12 @@ void MainWindow::on_aiv_save_20mm_clicked()
 void MainWindow::on_aiv_save_10mm_clicked()
 {
     QJsonObject aiv_json_10mm;
+
     tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
+
+    save_check();
+
     weight_of_cylinder[1][1] = ui->aiv_10_11->text().toFloat();
     weight_of_cylinder[1][2] = ui->aiv_10_12->text().toFloat();
     weight_of_cylinder[1][3] = ui->aiv_10_13->text().toFloat();
@@ -823,6 +883,8 @@ void MainWindow::on_idg_save_40mm_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
+
+    save_check();
 
     float cumsum = 0;
 
@@ -997,6 +1059,8 @@ void MainWindow::on_idg_save_20mm_clicked()
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
 
+    save_check();
+
     float cumsum = 0;
 
     is_sieve_40[1][1] = ui->idg_20_s11->text().toFloat();
@@ -1166,6 +1230,8 @@ void MainWindow::on_idg_save_10mm_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
+
+    save_check();
 
     float cumsum = 0;
 
@@ -1340,6 +1406,8 @@ void MainWindow::on_idg_save_d_clicked()
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
 
+    save_check();
+
     float cumsum = 0;
 
     is_sieve_40[1][1] = ui->idg_d_s11->text().toFloat();
@@ -1512,6 +1580,8 @@ void MainWindow::on_cd_save_clicked()
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
 
+    save_check();
+
     float cumsum = 0;
     is_sieve_40[1][1] = ui->cg_d_is_1->text().toFloat();
     is_sieve_40[1][2] = ui->cg_d_is_2->text().toFloat();
@@ -1601,6 +1671,8 @@ void MainWindow::on_grad_save_clicked()
     removeDuplicates(tracked_files);
 
     updateGraph_grad();
+
+    save_check();
 
     QJsonObject grad_json;
 
@@ -2283,7 +2355,7 @@ void MainWindow::on_spc_export_clicked()
                 qDebug() << "output html file opened";
 
                 QString template_path = cwd.filePath("templates/spc.html");
-                QFile template_file(template_path);
+                QFile template_file(":/templates/templates/spc.html");
                 if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
                 {
                     qDebug() << "html not opened";
@@ -2482,6 +2554,15 @@ void MainWindow::on_spc_export_clicked()
             }
         }
     }
+
+    std::vector<std::string> temp_tracked = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("spc");
+    qDebug() << tracked_files;
+    ui->actionExport_to_PDF->trigger();
+
+    tracked_files.clear();
+    tracked_files = temp_tracked;
 }
 void MainWindow::on_fei_export_clicked()
 {
@@ -2512,7 +2593,7 @@ void MainWindow::on_fei_export_clicked()
         qDebug() << "output html file opened";
 
         QString template_path = cwd.filePath("templates/fei.html");
-        QFile template_file(template_path);
+        QFile template_file(":/templates/templates/fei.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -2858,6 +2939,15 @@ void MainWindow::on_fei_export_clicked()
 
         template_file.close();
     }
+
+    std::vector<std::string> temp_tracked = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("fei");
+    qDebug() << tracked_files;
+    ui->actionExport_to_PDF->trigger();
+
+    tracked_files.clear();
+    tracked_files = temp_tracked;
 }
 void MainWindow::on_aiv_export_clicked()
 {
@@ -2894,7 +2984,7 @@ void MainWindow::on_aiv_export_clicked()
                 qDebug() << "output html file opened";
 
                 QString template_path = cwd.filePath("templates/aiv.html");
-                QFile template_file(template_path);
+                QFile template_file(":/templates/templates/aiv.html");
                 if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
                 {
                     qDebug() << "html not opened";
@@ -3066,6 +3156,14 @@ void MainWindow::on_aiv_export_clicked()
             }
         }
     }
+    std::vector<std::string> temp_tracked = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("aiv");
+    qDebug() << tracked_files;
+    ui->actionExport_to_PDF->trigger();
+
+    tracked_files.clear();
+    tracked_files = temp_tracked;
 }
 void MainWindow::on_ind_export_clicked()
 {
@@ -3102,7 +3200,7 @@ void MainWindow::on_ind_export_clicked()
                 qDebug() << "output html file opened";
 
                 QString template_path = cwd.filePath("templates/ind.html");
-                QFile template_file(template_path);
+                QFile template_file(":/templates/templates/ind.html");
                 if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
                 {
                     qDebug() << "html not opened";
@@ -3691,7 +3789,7 @@ void MainWindow::on_ind_export_clicked()
     if (bld_output_html_file.is_open())
     {
         QString bld_template_path = cwd.filePath("templates/bld.html");
-        QFile bld_template_file(bld_template_path);
+        QFile bld_template_file(":/templates/templates/bld.html");
         if (!bld_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "bld template html not opened";
@@ -4283,7 +4381,7 @@ void MainWindow::on_ind_export_clicked()
     if (cmb_output_html_file.is_open())
     {
         QString cmb_template_path = cwd.filePath("templates/cmb.html");
-        QFile cmb_template_file(cmb_template_path);
+        QFile cmb_template_file(":/templates/templates/cmb.html");
         if (!cmb_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "cmb html template not opened";
@@ -4562,7 +4660,7 @@ void MainWindow::on_ind_export_clicked()
     if (pass_output_html_file.is_open())
     {
         QString pass_template_path = cwd.filePath("templates/pass.html");
-        QFile pass_template_file(pass_template_path);
+        QFile pass_template_file(":/templates/templates/pass.html");
         if (!pass_template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "pass html template not opened";
@@ -5291,6 +5389,15 @@ void MainWindow::on_ind_export_clicked()
     {
         qDebug() << "output html not opened";
     }
+
+    std::vector<std::string> temp_tracked = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("ind");
+    qDebug() << tracked_files;
+    ui->actionExport_to_PDF->trigger();
+
+    tracked_files.clear();
+    tracked_files = temp_tracked;
 }
 void MainWindow::on_mdd_export_clicked()
 {
@@ -5467,6 +5574,14 @@ void MainWindow::on_mdd_export_clicked()
     } else {
         qDebug() << "mdd output html file not opened";
     }
+    std::vector<std::string> temp_tracked = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("mdd");
+    qDebug() << tracked_files;
+    ui->actionExport_to_PDF->trigger();
+
+    tracked_files.clear();
+    tracked_files = temp_tracked;
 }
 
 
