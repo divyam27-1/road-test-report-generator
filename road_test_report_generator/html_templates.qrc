@@ -11,5 +11,8 @@
         <file>templates/summary.html</file>
         <file>templates/grad_bld.html</file>
         <file>templates/Gradation.html</file>
+        <file>templates/12.html</file>
+        <file>templates/14.html</file>
+        <file>templates/15.html</file>
     </qresource>
 </RCC>
