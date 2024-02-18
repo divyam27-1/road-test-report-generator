@@ -90,6 +90,7 @@ void MainWindow::on_actionSave_Project_triggered()
     ui->fei_save->click();
     ui->aiv_save->click();
     ui->ind_save->click();
+    ui->grad_save->click();
 }
 void MainWindow::on_spc_save_clicked()
 {
@@ -121,8 +122,6 @@ void MainWindow::on_mdd_save_clicked()
 {
     tracked_files.push_back("mdd");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float mdd_ds[5][5];
     mdd_ds[0][0] = ui->wsm_1->text().toFloat();
@@ -199,6 +198,8 @@ void MainWindow::on_mdd_save_clicked()
     } else {
         qDebug() << "SUYGETSU AIMS THE RESET ABSOLUTELY INCREDIBLE";
     }
+
+    save_check();
 }
 
 
@@ -274,6 +275,22 @@ void MainWindow::save_check() {
             }//
         }
     }
+
+    for (auto file: tracked_files) {
+        if (file == "spc") {
+            generate_html_spc();
+        } else if (file == "fei") {
+            generate_html_fei();
+        } else if (file == "aiv") {
+            generate_html_aiv();
+        } else if (file == "ind") {
+            generate_html_ind();
+        } else if (file == "mdd") {
+            generate_html_mdd();
+        } else if (file == "grad") {
+            generate_html_grad();
+        }
+    }
 }
 
 
@@ -290,8 +307,6 @@ void MainWindow::on_spc_save_40mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     type_of_material _40mm;
 
@@ -366,13 +381,13 @@ void MainWindow::on_spc_save_40mm_clicked()
         // Close the file
         spe_gravity.close();
     }
+
+    save_check();
 }
 void MainWindow::on_spc_save_20mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     type_of_material _20mm;
 
@@ -446,13 +461,13 @@ void MainWindow::on_spc_save_20mm_clicked()
         // Close the file
         spe_gravity.close();
     }
+
+    save_check();
 }
 void MainWindow::on_spc_save_10mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     type_of_material _10mm;
 
@@ -524,13 +539,13 @@ void MainWindow::on_spc_save_10mm_clicked()
         // Close the file
         spe_gravity.close();
     }
+
+    save_check();
 }
 void MainWindow::on_spc_save_0mm_clicked()
 {
     tracked_files.push_back("spc");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     type_of_material stone_dust;
 
@@ -602,6 +617,8 @@ void MainWindow::on_spc_save_0mm_clicked()
         // Close the file
         spe_gravity.close();
     }
+
+    save_check();
 }
 QJsonObject Flakiness_Elongation_Indices;
 QFile Flakiness_Elongation(cwd.filePath("json/fei.json"));
@@ -609,8 +626,6 @@ void MainWindow::on_save_ss_clicked()
 {
     tracked_files.push_back("fei");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     passing[1] = ui->fei_ss_p1->text().toFloat();
     passing[2] = ui->fei_ss_p2->text().toFloat();
@@ -659,13 +674,13 @@ void MainWindow::on_save_ss_clicked()
 
         Flakiness_Elongation.close();
     }
+
+    save_check();
 }
 void MainWindow::on_save_fei_clicked()
 {
     tracked_files.push_back("fei");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     A[0] = 0;
     A[1] = ui->fei_1_1->text().toFloat();
@@ -773,6 +788,8 @@ void MainWindow::on_save_fei_clicked()
 
         Flakiness_Elongation.close();
     }
+
+    save_check();
 }
 QJsonObject aiv_json;
 QFile aiv_(cwd.filePath("json/aiv.json"));
@@ -782,8 +799,6 @@ void MainWindow::on_aiv_save_20mm_clicked()
 
     tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     weight_of_cylinder[2][1] = ui->aiv_20_11->text().toFloat();
     weight_of_cylinder[2][2] = ui->aiv_20_12->text().toFloat();
@@ -826,6 +841,8 @@ void MainWindow::on_aiv_save_20mm_clicked()
         out << jsonDoc_3.toJson();
         aiv_.close();
     }
+
+    save_check();
 }
 void MainWindow::on_aiv_save_10mm_clicked()
 {
@@ -833,8 +850,6 @@ void MainWindow::on_aiv_save_10mm_clicked()
 
     tracked_files.push_back("aiv");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     weight_of_cylinder[1][1] = ui->aiv_10_11->text().toFloat();
     weight_of_cylinder[1][2] = ui->aiv_10_12->text().toFloat();
@@ -876,6 +891,8 @@ void MainWindow::on_aiv_save_10mm_clicked()
         out << jsonDoc_3.toJson();
         aiv_.close();
     }
+
+    save_check();
 }
 QJsonObject idg_json;
 QFile idg(cwd.filePath("json/idg.json"));
@@ -883,8 +900,6 @@ void MainWindow::on_idg_save_40mm_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float cumsum = 0;
 
@@ -1053,13 +1068,13 @@ void MainWindow::on_idg_save_40mm_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
+
+    save_check();
 }
 void MainWindow::on_idg_save_20mm_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float cumsum = 0;
 
@@ -1225,13 +1240,13 @@ void MainWindow::on_idg_save_20mm_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
+
+    save_check();
 }
 void MainWindow::on_idg_save_10mm_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float cumsum = 0;
 
@@ -1399,14 +1414,14 @@ void MainWindow::on_idg_save_10mm_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
+
+    save_check();
 }
 void MainWindow::on_idg_save_d_clicked()
 {
 
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float cumsum = 0;
 
@@ -1574,13 +1589,13 @@ void MainWindow::on_idg_save_d_clicked()
         out << jsonDoc_4.toJson();
         idg.close();
     }
+
+    save_check();
 }
 void MainWindow::on_cd_save_clicked()
 {
     tracked_files.push_back("ind");
     removeDuplicates(tracked_files);
-
-    save_check();
 
     float cumsum = 0;
     is_sieve_40[1][1] = ui->cg_d_is_1->text().toFloat();
@@ -1664,6 +1679,8 @@ void MainWindow::on_cd_save_clicked()
         idg.close();
     }
 
+    save_check();
+
 }
 void MainWindow::on_grad_save_clicked()
 {
@@ -1671,8 +1688,6 @@ void MainWindow::on_grad_save_clicked()
     removeDuplicates(tracked_files);
 
     updateGraph_grad();
-
-    save_check();
 
     QJsonObject grad_json;
 
@@ -1790,6 +1805,8 @@ void MainWindow::on_grad_save_clicked()
     QJsonDocument json_doc(grad_json);
     out << json_doc.toJson();
     grad_file.close();
+
+    save_check();
 }
 
 
@@ -2231,9 +2248,9 @@ void MainWindow::updateGraph_grad() {
 }
 
 
+
 // Deals with exports to PDF
-void MainWindow::on_actionExport_to_PDF_triggered()
-{
+void MainWindow::on_actionExport_to_PDF_triggered() {
     qDebug() << "EXPORT triggered";
     QString program;
     QStringList args;
@@ -2257,13 +2274,12 @@ void MainWindow::on_actionExport_to_PDF_triggered()
     command = command + program.toStdString();
     QString fname = "";
 
-    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
-    {
+    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i) {
         qDebug() << *i;
 
         if (*i == "spc")
         {
-            ui->spc_export->click();
+            //ui->spc_export->click();
             args << cwd.filePath("html/spc_10mm.html");
             args << cwd.filePath("html/spc_20mm.html");
             args << cwd.filePath("html/spc_40mm.html");
@@ -2271,18 +2287,18 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         }
         else if (*i == "fei")
         {
-            ui->fei_export->click();
+            //ui->fei_export->click();
             args << cwd.filePath("html/fei.html");
         }
         else if (*i == "aiv")
         {
-            ui->aiv_export->click();
+            //ui->aiv_export->click();
             args << cwd.filePath("html/aiv_10mm.html");
             args << cwd.filePath("html/aiv_20mm.html");
         }
         else if (*i == "ind")
         {
-            ui->ind_export->click();
+            //ui->ind_export->click();
             args << cwd.filePath("html/ind_40mm.html");
             args << cwd.filePath("html/ind_20mm.html");
             args << cwd.filePath("html/ind_10mm.html");
@@ -2292,7 +2308,7 @@ void MainWindow::on_actionExport_to_PDF_triggered()
             args << cwd.filePath("html/pass.html");
         } else if (*i == "mdd")
         {
-            ui->mdd_export->click();
+            //ui->mdd_export->click();
             args << cwd.filePath("html/mdd.html");
         }
 
@@ -2322,7 +2338,71 @@ void MainWindow::on_actionExport_to_PDF_triggered()
 }
 void MainWindow::on_spc_export_clicked()
 {
-    ui->spc_save->click();
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("spc");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_fei_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("fei");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_aiv_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("aiv");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_ind_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("ind");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_mdd_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("mdd");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_grad_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("grad");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+
+
+
+//Deals with HTML generation
+void MainWindow::generate_html_spc()
+{
+    //ui->spc_save->click();
     qDebug() << "beginning spc save...";
     QString json_path = cwd.filePath("json/spc.json");
 
@@ -2554,19 +2634,10 @@ void MainWindow::on_spc_export_clicked()
             }
         }
     }
-
-    std::vector<std::string> temp_tracked = tracked_files;
-    tracked_files.clear();
-    tracked_files.push_back("spc");
-    qDebug() << tracked_files;
-    ui->actionExport_to_PDF->trigger();
-
-    tracked_files.clear();
-    tracked_files = temp_tracked;
 }
-void MainWindow::on_fei_export_clicked()
+void MainWindow::generate_html_fei()
 {
-    ui->fei_save->click();
+    //ui->fei_save->click();
     qDebug() << "beginning fei save...";
     QString json_path = cwd.filePath("json/fei.json");
 
@@ -2939,19 +3010,10 @@ void MainWindow::on_fei_export_clicked()
 
         template_file.close();
     }
-
-    std::vector<std::string> temp_tracked = tracked_files;
-    tracked_files.clear();
-    tracked_files.push_back("fei");
-    qDebug() << tracked_files;
-    ui->actionExport_to_PDF->trigger();
-
-    tracked_files.clear();
-    tracked_files = temp_tracked;
 }
-void MainWindow::on_aiv_export_clicked()
+void MainWindow::generate_html_aiv()
 {
-    ui->aiv_save->click();
+   // ui->aiv_save->click();
     qDebug() << "beginning aiv save...";
     QString json_path = cwd.filePath("json/aiv.json");
 
@@ -3156,18 +3218,10 @@ void MainWindow::on_aiv_export_clicked()
             }
         }
     }
-    std::vector<std::string> temp_tracked = tracked_files;
-    tracked_files.clear();
-    tracked_files.push_back("aiv");
-    qDebug() << tracked_files;
-    ui->actionExport_to_PDF->trigger();
-
-    tracked_files.clear();
-    tracked_files = temp_tracked;
 }
-void MainWindow::on_ind_export_clicked()
+void MainWindow::generate_html_ind()
 {
-    ui->ind_save->click();
+    //ui->ind_save->click();
     qDebug() << "beginning ind save... at " << cwd.filePath("");
     QString json_path = cwd.filePath("json/idg.json");
 
@@ -5390,18 +5444,10 @@ void MainWindow::on_ind_export_clicked()
         qDebug() << "output html not opened";
     }
 
-    std::vector<std::string> temp_tracked = tracked_files;
-    tracked_files.clear();
-    tracked_files.push_back("ind");
-    qDebug() << tracked_files;
-    ui->actionExport_to_PDF->trigger();
-
-    tracked_files.clear();
-    tracked_files = temp_tracked;
 }
-void MainWindow::on_mdd_export_clicked()
+void MainWindow::generate_html_mdd()
 {
-    ui->mdd_save->click();
+    //ui->mdd_save->click();
     qDebug() << "beginning mdd save...";
     QString json_path = cwd.filePath("json/mdd.json");
 
@@ -5427,7 +5473,7 @@ void MainWindow::on_mdd_export_clicked()
         qDebug() << "output html file opened";
 
         QString template_path = cwd.filePath("templates/mdd.html");
-        QFile template_file(template_path);
+        QFile template_file(":/templates/templates/mdd.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -5574,16 +5620,175 @@ void MainWindow::on_mdd_export_clicked()
     } else {
         qDebug() << "mdd output html file not opened";
     }
-    std::vector<std::string> temp_tracked = tracked_files;
-    tracked_files.clear();
-    tracked_files.push_back("mdd");
-    qDebug() << tracked_files;
-    ui->actionExport_to_PDF->trigger();
-
-    tracked_files.clear();
-    tracked_files = temp_tracked;
 }
+void MainWindow::generate_html_grad() {
+    //ui->mdd_save->click();
+    qDebug() << "beginning grad save...";
+    QString json_path = cwd.filePath("json/grad.json");
 
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_obj = json_doc.object();
+
+    QJsonObject json1 = json_obj["25-16mm"].toObject();
+    QJsonObject json2 = json_obj["16-4.75mm"].toObject();
+    qDebug() << json2;
+    QJsonObject json3 = json_obj["below_4.75mm"].toObject();
+    QJsonObject seives = json_obj["seive_sizes"].toObject();
+
+    std::string output_html_path = cwd.filePath("html/grad.html").toStdString();
+    std::ofstream output_html_file(output_html_path, std::ios::out);
+
+    if (output_html_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QString template_path = cwd.filePath("templates/mdd.html");
+        QFile template_file(":/templates/templates/Gradation.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        } else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    if ((token >= 4) && (token <= 59)) {
+                        token -= 4;
+                        QString arg;
+
+                        switch (token%7) {
+                        case 0:
+                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            topushf = seives[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        case 6:
+                            arg = QString("avg_%1").arg(1 + token/7);
+                            topushf = json1[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        default:
+                            arg = QString("grad_p1%1_%2").arg(1 + token/7).arg(token%7);
+                            topushf = json1[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        }
+                    } else if ((token >= 60) && (token <= 115)) {
+                        token -= 60;
+                        QString arg;
+
+                        switch (token%7) {
+                        case 0:
+                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            topushf = seives[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        case 6:
+                            arg = QString("avg_%1").arg(1 + token/7);
+                            topushf = json2[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        default:
+                            arg = QString("grad_p2%1_%2").arg(1 + token/7).arg(token%7);
+                            topushf = json2[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        }
+                    } else if ((token >= 116) && (token <= 171)) {
+                        token -= 116;
+                        QString arg;
+
+                        switch (token%7) {
+                        case 0:
+                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            topushf = seives[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        case 6:
+                            arg = QString("avg_%1").arg(1 + token/7);
+                            topushf = json3[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        default:
+                            arg = QString("grad_p3%1_%2").arg(1 + token/7).arg(token%7);
+                            topushf = json3[arg].toDouble();
+                            output_html_file << topushf;
+                            break;
+                        }
+                    } else {
+                        qDebug() << token <<  "WIP";
+                    }
+
+                    output_html_file << topush;
+                    topush = "";
+
+                } else {
+                    output_html_file << line[i];
+                }
+            }
+
+        }
+        json_file.close();
+        output_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    } else {
+        qDebug() << "mdd output html file not opened";
+    }
+}
 
 
 // Deals with Scrolling
