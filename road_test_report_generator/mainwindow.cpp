@@ -2313,7 +2313,7 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
         } else if (*i == "grad") {
             args << cwd.filePath("html/grad.html");
             args << cwd.filePath("html/grad_bld.html");
-            //args << cwd.filePath("jmf.html");
+            args << cwd.filePath("jmf.html");
         }
 
         fname += "_" + QString::fromStdString(*i);
@@ -5941,6 +5941,135 @@ void MainWindow::generate_html_grad() {
         }
         json_file.close();
         output_grad_bld_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    } else {
+        qDebug() << "grad bld output html file not opened";
+    }
+
+    output_html_path = cwd.filePath("html/grad_jmf.html");
+    std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
+
+
+    if (output_grad_jmf_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QString template_path = cwd.filePath("templates/mdd.html");
+        QFile template_file(":/templates/templates/grad_jmf.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        } else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    switch (token) {
+                    case 1:
+                        output_grad_jmf_file << json1["proportion"].toDouble();
+                        break;
+                    case 2:
+                        output_grad_jmf_file << json2["proportion"].toDouble();
+                        break;
+                    case 3:
+                        output_grad_jmf_file << json3["proportion"].toDouble();
+                        break;
+                    case 69:
+                        topush = ui->grad_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 70:
+                        topush = ui->grad_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 71:
+                        topush = ui->grad_bsc_3->toPlainText().toStdString();
+                        break;
+                    case 72:
+                        topush = ui->grad_bsc_4->toPlainText().toStdString();
+                        break;
+                    default:
+                        qDebug() << "FlashBack is like the suygetsu of apac";
+                        break;
+                    }
+                    if ((token >= 4) && (token <= 11)) {
+                        token -= 4;
+                        QString arg = QString("avg_%1").arg(1 + token%10);
+                        output_grad_jmf_file << json1[arg].toDouble();
+                    } else if ((token >= 20) && (token <= 27)) {
+                        token -= 20;
+                        output_grad_jmf_file << json2[QString("avg_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 36) && (token <= 43)) {
+                        token -= 36;
+                        output_grad_jmf_file << json3[QString("avg_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 12) && (token <= 19)) {
+                        token -= 12;
+                        output_grad_jmf_file << json1[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 28) && (token <= 35)) {
+                        token -= 28;
+                        output_grad_jmf_file << json2[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 44) && (token <= 51)) {
+                        token -= 44;
+                        output_grad_jmf_file << json3[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 53) && (token <= 60)) {
+                        token -= 53;
+                        output_grad_jmf_file << bld[QString("bld_%1").arg(1 + token%10)].toDouble();
+                    } else if (token == 52) {
+                        output_grad_jmf_file << "100";
+                    }
+
+                    output_grad_jmf_file << topush;
+                    topush = "";
+
+                } else {
+                    output_grad_jmf_file << line[i];
+                }
+            }
+
+        }
+        json_file.close();
+        output_grad_jmf_file.close();
         qDebug() << "file written to";
 
         template_file.close();
