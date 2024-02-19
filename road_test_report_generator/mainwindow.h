@@ -78,6 +78,10 @@ public:
 
 
     void save_check();
+    void generate_html_spc();
+    void generate_html_grad();
+public slots:
+    void on_fei_export_clicked();
 private slots:
 
     void on_spc_save_10mm_clicked();
@@ -96,13 +100,11 @@ private slots:
 
     void on_spc_save_0mm_clicked();
 
-    void on_spc_export_clicked();
-
     void on_save_fei_clicked();
 
     void on_save_ss_clicked();
 
-    void on_fei_export_clicked();
+    void generate_html_fei();
 
     void on_aiv_save_20mm_clicked();
 
@@ -152,7 +154,7 @@ private slots:
 
     void on_aiv_save_10mm_clicked();
 
-    void on_aiv_export_clicked();
+    void generate_html_aiv();
 
     void on_aiv_save_clicked();
 
@@ -166,7 +168,7 @@ private slots:
 
     void on_idg_save_d_clicked();
 
-    void on_ind_export_clicked();
+    void generate_html_ind();
 
     void on_actionSave_Project_triggered();
 
@@ -182,7 +184,7 @@ private slots:
 
     void on_mdd_save_clicked();
 
-    void on_mdd_export_clicked();
+    void generate_html_mdd();
 
     void on_spc_saveas_clicked();
 
@@ -200,11 +202,16 @@ private slots:
 
     void updateGraph_grad();
 
-
     void on_actionWMM_triggered();
 
     void on_actionDBM_triggered();
 
+    void on_spc_export_clicked();
+
+    void on_aiv_export_clicked();
+    void on_ind_export_clicked();
+    void on_mdd_export_clicked();
+    void on_grad_export_clicked();
 private:
     float scroll_sens;
 
