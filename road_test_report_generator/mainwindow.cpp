@@ -5958,7 +5958,7 @@ void MainWindow::generate_html_grad() {
         qDebug() << "output html file opened";
 
         QString template_path = cwd.filePath("templates/mdd.html");
-        QFile template_file(":/templates/templates/grad_jmf.html");
+        QFile template_file(":/templates/templates/dbm_job_mix_formula.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
