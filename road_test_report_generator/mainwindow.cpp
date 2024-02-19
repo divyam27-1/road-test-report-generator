@@ -2314,7 +2314,7 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
         } else if (*i == "grad") {
             args << cwd.filePath("html/grad.html");
             args << cwd.filePath("html/grad_bld.html");
-            args << cwd.filePath("jmf.html");
+            args << cwd.filePath("html/grad_jmf.html");
         }
 
         fname += "_" + QString::fromStdString(*i);
