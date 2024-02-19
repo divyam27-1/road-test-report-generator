@@ -6008,56 +6008,18 @@ void MainWindow::generate_html_grad() {
                     std::string topush;
                     double topushf;
 
-                    switch (token) {
-                    case 1:
-                        output_grad_jmf_file << json1["proportion"].toDouble();
-                        break;
-                    case 2:
-                        output_grad_jmf_file << json2["proportion"].toDouble();
-                        break;
-                    case 3:
-                        output_grad_jmf_file << json3["proportion"].toDouble();
-                        break;
-                    case 69:
+                    if (token == 1) {
                         topush = ui->grad_bsc_1->toPlainText().toStdString();
-                        break;
-                    case 70:
-                        topush = ui->grad_bsc_2->toPlainText().toStdString();
-                        break;
-                    case 71:
-                        topush = ui->grad_bsc_3->toPlainText().toStdString();
-                        break;
-                    case 72:
-                        topush = ui->grad_bsc_4->toPlainText().toStdString();
-                        break;
-                    default:
-                        qDebug() << "FlashBack is like the suygetsu of apac";
-                        break;
-                    }
-                    if ((token >= 4) && (token <= 11)) {
+                    } else if (token == 2) {
+                        topush = ui->grad_bsc_2->toHtml().toStdString();
+                    } else if (token == 3) {
+                        topush = "IS SEIVE";
+                    } else if ((token >= 4) && (token <= 11)) {
                         token -= 4;
-                        QString arg = QString("avg_%1").arg(1 + token%10);
-                        output_grad_jmf_file << json1[arg].toDouble();
-                    } else if ((token >= 20) && (token <= 27)) {
-                        token -= 20;
-                        output_grad_jmf_file << json2[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 36) && (token <= 43)) {
-                        token -= 36;
-                        output_grad_jmf_file << json3[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 12) && (token <= 19)) {
-                        token -= 12;
-                        output_grad_jmf_file << json1[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 28) && (token <= 35)) {
-                        token -= 28;
-                        output_grad_jmf_file << json2[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 44) && (token <= 51)) {
-                        token -= 44;
-                        output_grad_jmf_file << json3[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 53) && (token <= 60)) {
-                        token -= 53;
+                        output_grad_jmf_file << seives[QString("is_seive_%1").arg(1 + token%10)].toDouble();
+                    } else if ((token >= 13) && (token <= 20)) {
+                        token -= 13;
                         output_grad_jmf_file << bld[QString("bld_%1").arg(1 + token%10)].toDouble();
-                    } else if (token == 52) {
-                        output_grad_jmf_file << "100";
                     }
 
                     output_grad_jmf_file << topush;
