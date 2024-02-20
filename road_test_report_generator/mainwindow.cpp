@@ -6141,7 +6141,7 @@ void MainWindow::on_aiv_20_11_textChanged(const QString &arg1)
     // Set precision to two decimal places
     std::setprecision(1);
     std::string target_string = std::to_string(target);
-
+`
     ui->aiv_20_31->setText(QString::fromStdString(target_string));
 }
 void MainWindow::on_aiv_20_22_textChanged(const QString &arg1)
