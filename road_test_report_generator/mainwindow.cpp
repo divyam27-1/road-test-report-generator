@@ -1776,6 +1776,7 @@ void MainWindow::on_grad_save_clicked()
     //create the blending json object, which will added to the grad json file as its own top level json class
     QJsonObject grad_bld_json;
     for (int i = 0; i < 8; i++) {
+        qDebug() << proportinal_passing_averages[i];
         grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
     }
 
@@ -5902,7 +5903,7 @@ void MainWindow::generate_html_grad() {
                         topush = ui->grad_bsc_4->toPlainText().toStdString();
                         break;
                     default:
-                        qDebug() << "FlashBack is like the suygetsu of apac";
+                        //qDebug() << "FlashBack is like the suygetsu of apac";
                         break;
                     }
                     if ((token >= 4) && (token <= 11)) {
@@ -5949,7 +5950,7 @@ void MainWindow::generate_html_grad() {
         qDebug() << "grad bld output html file not opened";
     }
 
-    output_html_path = cwd.filePath("html/grad_jmf.html");
+    output_html_path = cwd.filePath("html/grad_jmf.html").toStdString();
     std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
 
 
