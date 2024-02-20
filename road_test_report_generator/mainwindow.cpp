@@ -5949,7 +5949,7 @@ void MainWindow::generate_html_grad() {
         qDebug() << "grad bld output html file not opened";
     }
 
-    output_html_path = cwd.filePath("html/grad_jmf.html");
+    output_html_path : cwd.filePath("html/grad_jmf.html");
     std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
 
 
@@ -6140,7 +6140,6 @@ void MainWindow::on_aiv_20_11_textChanged(const QString &arg1)
     // Set precision to two decimal places
     std::setprecision(1);
     std::string target_string = std::to_string(target);
-`
     ui->aiv_20_31->setText(QString::fromStdString(target_string));
 }
 void MainWindow::on_aiv_20_22_textChanged(const QString &arg1)
