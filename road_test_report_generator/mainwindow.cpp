@@ -5949,7 +5949,7 @@ void MainWindow::generate_html_grad() {
         qDebug() << "grad bld output html file not opened";
     }
 
-    output_html_path : cwd.filePath("html/grad_jmf.html");
+    output_html_path:  cwd.filePath("html/grad_jmf.html");
     std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
 
 

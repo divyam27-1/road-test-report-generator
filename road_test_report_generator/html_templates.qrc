@@ -14,8 +14,9 @@
         <file>templates/tensile_strength_ratio.html</file>
         <file>templates/test_properties_curves.html</file>
         <file>templates/optimum_binder_content_determination.html</file>
-        <file>templates/13.html</file>
+        <file>templates/worksheet_volumetric_analysis.html</file>
         <file>templates/dbm_job_mix_formula.html</file>
         <file>templates/detemination_of_spc_gravity.html</file>
+        <file>templates/Marshall_test_data.html</file>
     </qresource>
 </RCC>
