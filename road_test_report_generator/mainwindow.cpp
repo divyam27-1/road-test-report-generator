@@ -250,6 +250,15 @@ void MainWindow::on_mdd_saveas_clicked()
     }
     ui->mdd_save->click();
 }
+void MainWindow::on_grad_saveas_clicked()
+{
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->mdd_save->click();
+}
 void MainWindow::save_check() {
     for (auto exp: all_experiments) {
         if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end()) {

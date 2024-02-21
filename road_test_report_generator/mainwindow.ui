@@ -9663,7 +9663,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1671</width>
+        <width>1441</width>
         <height>791</height>
        </rect>
       </property>
@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11261,11 +11261,11 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="marshall">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Marshall Test</string>
        </attribute>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="marshall_save">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -11278,10 +11278,10 @@ color: rgb(0, 0, 0);</string>
          <string>Save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="marshall_export">
         <property name="geometry">
          <rect>
-          <x>130</x>
+          <x>270</x>
           <y>20</y>
           <width>80</width>
           <height>24</height>
@@ -11291,17 +11291,17 @@ color: rgb(0, 0, 0);</string>
          <string> Export to pdf</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="marshall_sabeas">
         <property name="geometry">
          <rect>
-          <x>250</x>
+          <x>150</x>
           <y>20</y>
           <width>80</width>
           <height>24</height>
          </rect>
         </property>
         <property name="text">
-         <string>Save as pdf</string>
+         <string>Save As...</string>
         </property>
        </widget>
        <widget class="QScrollBar" name="grad_data_scroll_2">
@@ -11653,7 +11653,7 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>70</y>
           <width>1050</width>
           <height>1991</height>
          </rect>
@@ -11669,12 +11669,12 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>10</x>
            <y>20</y>
-           <width>601</width>
+           <width>821</width>
            <height>60</height>
           </rect>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;MARSHALL TEST DATA (ASTM : D -1559 )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;MARSHALL TEST DATA (ASTM : D -1559 ) &lt;/span&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#ce310a;&quot;&gt;[WORK IN PROGRESS]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_521">
@@ -11757,7 +11757,7 @@ Mix </string>
           <rect>
            <x>20</x>
            <y>180</y>
-           <width>61</width>
+           <width>64</width>
            <height>121</height>
           </rect>
          </property>
@@ -12314,7 +12314,7 @@ Density</string>
           <rect>
            <x>20</x>
            <y>440</y>
-           <width>61</width>
+           <width>64</width>
            <height>121</height>
           </rect>
          </property>
@@ -12708,7 +12708,7 @@ Density</string>
           <rect>
            <x>40</x>
            <y>750</y>
-           <width>61</width>
+           <width>64</width>
            <height>121</height>
           </rect>
          </property>
@@ -13102,7 +13102,7 @@ Density</string>
           <rect>
            <x>30</x>
            <y>1020</y>
-           <width>61</width>
+           <width>64</width>
            <height>121</height>
           </rect>
          </property>
@@ -13496,7 +13496,7 @@ Density</string>
           <rect>
            <x>30</x>
            <y>1290</y>
-           <width>61</width>
+           <width>64</width>
            <height>121</height>
           </rect>
          </property>
@@ -14049,6 +14049,209 @@ Density</string>
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="tensile">
+       <attribute name="title">
+        <string>Tensile Strength Ratio</string>
+       </attribute>
+       <widget class="QPushButton" name="tensile_saveas">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>20</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save As...</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tensile_export">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>110</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export to PDF</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tensile_save">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_280">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>501</width>
+          <height>60</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 30 Minutes Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_281">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>80</y>
+          <width>501</width>
+          <height>60</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 24 Hours Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_180">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>160</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;% Of Bitumen in Mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="doubleSpinBox">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>160</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::PlusMinus</enum>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_181">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>210</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_182">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>260</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;SSD Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_183">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>310</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Bulk Density&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_253">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>360</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Stability&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_254">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>400</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Reading&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_255">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>440</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Volume Correction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_256">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>480</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Flow&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_7">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>210</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -14076,7 +14279,6 @@ Density</string>
     <addaction name="separator"/>
     <addaction name="actionSave_Project"/>
     <addaction name="actionSave_Project_As"/>
-    <addaction name="actionExport_JSON"/>
     <addaction name="separator"/>
     <addaction name="actionExport_to_PDF"/>
     <addaction name="separator"/>
@@ -14134,8 +14336,12 @@ Density</string>
    </property>
   </action>
   <action name="actionExport_to_PDF">
+   <property name="icon">
+    <iconset theme="accessories-character-map">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
    <property name="text">
-    <string>EXPORT</string>
+    <string>EXPORT ALL</string>
    </property>
   </action>
   <action name="actionView_JSON">

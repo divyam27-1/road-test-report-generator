@@ -212,6 +212,7 @@ private slots:
     void on_ind_export_clicked();
     void on_mdd_export_clicked();
     void on_grad_export_clicked();
+    void on_grad_saveas_clicked();
 private:
     float scroll_sens;
 
