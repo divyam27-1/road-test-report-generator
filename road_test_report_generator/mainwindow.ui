@@ -14092,162 +14092,631 @@ Density</string>
          <string>Save</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_280">
+       <widget class="QFrame" name="tensile_frame_outer">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>10</x>
+          <y>70</y>
+          <width>1065</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QScrollBar" name="tensile_scroll">
+         <property name="geometry">
+          <rect>
+           <x>1040</x>
+           <y>0</y>
+           <width>25</width>
+           <height>690</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+        <widget class="QFrame" name="tensile_frame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1040</width>
+           <height>1081</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_281">
+          <property name="geometry">
+           <rect>
+            <x>570</x>
+            <y>80</y>
+            <width>501</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 24 Hours Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_262">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>480</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Flow&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_61">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>210</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_61">
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_55">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>440</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_55">
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_59">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>310</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_59">
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_57">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>440</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_57">
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_corr_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_280">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>80</y>
+            <width>501</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 30 Minutes Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_52">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>260</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLineEdit" name="tensile_sssd_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_ssd_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_ssd_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_60">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>400</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_60">
+           <item>
+            <widget class="QLineEdit" name="tensile_read_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_read_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_read_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_253">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>360</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Stability&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_255">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>440</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Volume Correction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_259">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>160</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;% Of Bitumen in Mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_258">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>440</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Volume Correction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_62">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>480</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_62">
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_53">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>310</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_gmb_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_261">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>210</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_180">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>160</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;% Of Bitumen in Mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_257">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>360</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Stability&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_264">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>260</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;SSD Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_58">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>260</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_58">
+           <item>
+            <widget class="QLineEdit" name="tensile_ssd_2_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_ssd_2_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_ssd_2_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_54">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>400</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_38">
+           <item>
+            <widget class="QLineEdit" name="tensile_read_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_read_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_read_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_254">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>400</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Reading&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="tensile_btmn_2">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>160</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="maximum">
+           <double>100.000000000000000</double>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_181">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>210</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_51">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>210</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_wt_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_256">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>480</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Flow&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="tensile_btmn_1">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>160</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="maximum">
+           <double>100.000000000000000</double>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_183">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>310</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Bulk Density&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_56">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>480</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_56">
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_1_1"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_1_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tensile_flow_1_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_263">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>310</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Bulk Density&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_182">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>260</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;SSD Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_260">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>400</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Reading&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_265">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>10</y>
+            <width>581</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:700;&quot;&gt;Tensile Strength Ratio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_266">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
           <y>80</y>
-          <width>501</width>
-          <height>60</height>
+          <width>201</width>
+          <height>51</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 30 Minutes Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Client&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_281">
+       <widget class="QTextEdit" name="tensile_bsc_1">
         <property name="geometry">
          <rect>
-          <x>570</x>
-          <y>80</y>
-          <width>501</width>
-          <height>60</height>
+          <x>1090</x>
+          <y>130</y>
+          <width>301</width>
+          <height>81</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_267">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
+          <y>240</y>
+          <width>201</width>
+          <height>51</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;After 24 Hours Immersion in Water&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Contractor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_180">
+       <widget class="QTextEdit" name="tensile_bsc_2">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>160</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;% Of Bitumen in Mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QDoubleSpinBox" name="doubleSpinBox">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>160</y>
-          <width>101</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::PlusMinus</enum>
-        </property>
-        <property name="maximum">
-         <double>100.000000000000000</double>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_181">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>210</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_182">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>260</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;SSD Wt. in Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_183">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>310</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Bulk Density&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_253">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>360</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Stability&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_254">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>400</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Reading&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_255">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>440</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Volume Correction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_256">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>480</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Flow&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_7">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>210</y>
-          <width>113</width>
-          <height>22</height>
+          <x>1090</x>
+          <y>290</y>
+          <width>301</width>
+          <height>81</height>
          </rect>
         </property>
        </widget>
