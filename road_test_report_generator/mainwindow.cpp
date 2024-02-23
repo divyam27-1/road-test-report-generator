@@ -1726,8 +1726,8 @@ void MainWindow::on_grad_save_clicked()
             for (int k = 1; k <= 5; k++) {
 
                 QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
-
-                QLineEdit* tedit = ui->dbm_tab_list->findChild<QLineEdit*>(object_name);
+                
+                QLineEdit* tedit = ui->compact_paving_mixture->findChild<QLineEdit*>(object_name);
 
                 if (tedit) {
                     double num = tedit->text().toDouble();
@@ -6083,7 +6083,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         default:
             break;
         }
-        switch (ui->dbm_tab_list->currentIndex())
+        switch (ui->compact_paving_mixture->currentIndex())
         {
         case 0:
             scroll_pos = ui->grad_data_scroll->value();
