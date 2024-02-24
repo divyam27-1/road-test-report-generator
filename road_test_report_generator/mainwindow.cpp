@@ -26,7 +26,7 @@ QDir swd = cwd;
 bool i = cwd.cdUp();
 
 std::vector<std::string> tracked_files;
-const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad"};
+const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile"};
 
 std::string OS;
 bool saveas_done = false;
@@ -201,6 +201,54 @@ void MainWindow::on_mdd_save_clicked()
     }
 
     save_check();
+}
+void MainWindow::on_tensile_save_clicked()
+{
+    tracked_files.push_back("tensile");
+    removeDuplicates(tracked_files);
+
+    QJsonObject tensile_json;
+    QJsonObject min_30, hr_24;
+
+    min_30["tensile_btmn"] = ui->tensile_btmn_1->text().toDouble();
+    hr_24["tensile_btmn"] = ui->tensile_btmn_2->text().toDouble();
+
+    QStringList tensile_exp_names = {"tensile_wt_%1_%2", "tensile_ssd_%1_%2", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_corr_%1_%2", "tensile_flow_%1_%2"};
+
+    for (QString exp: tensile_exp_names) {
+        for (int i = 1; i <= 2; i++) {
+            for (int j = 1; j <= 3; j++) {
+
+                QString obj_name = exp.arg(i).arg(j);
+                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(obj_name);
+
+                double tedit_text = tedit->text().toDouble();
+                if (i == 1) {
+                    min_30[obj_name] = tedit_text;
+                } else if (i == 2) {
+                    hr_24[obj_name] = tedit_text;
+                }
+            }
+        }
+    }
+
+    tensile_json["30mins"] = min_30;
+    tensile_json["24hrs"] = hr_24;
+
+    QFile tensile_json_file(cwd.filePath("json/tensile.json"));
+
+    if (tensile_json_file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&tensile_json_file);
+        QJsonDocument jsonDoc_1(tensile_json);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        tensile_json_file.close();
+    } else {
+        qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
+    }
 }
 
 
@@ -1727,7 +1775,7 @@ void MainWindow::on_grad_save_clicked()
 
                 QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
                 
-                QLineEdit* tedit = ui->compact_paving_mixture->findChild<QLineEdit*>(object_name);
+                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(object_name);
 
                 if (tedit) {
                     double num = tedit->text().toDouble();
@@ -6083,7 +6131,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         default:
             break;
         }
-        switch (ui->compact_paving_mixture->currentIndex())
+        switch (ui->dbm_tab_list->currentIndex())
         {
         case 0:
             scroll_pos = ui->grad_data_scroll->value();

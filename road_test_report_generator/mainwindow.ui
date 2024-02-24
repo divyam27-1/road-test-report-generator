@@ -14107,19 +14107,6 @@ Density</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QScrollBar" name="tensile_scroll">
-         <property name="geometry">
-          <rect>
-           <x>1040</x>
-           <y>0</y>
-           <width>25</width>
-           <height>690</height>
-          </rect>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
         <widget class="QFrame" name="tensile_frame">
          <property name="geometry">
           <rect>
@@ -14139,7 +14126,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>570</x>
-            <y>80</y>
+            <y>120</y>
             <width>501</width>
             <height>60</height>
            </rect>
@@ -14152,7 +14139,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>610</x>
-            <y>480</y>
+            <y>520</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14165,7 +14152,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>210</y>
+            <y>250</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14186,7 +14173,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>440</y>
+            <y>480</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14207,7 +14194,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>310</y>
+            <y>350</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14228,7 +14215,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>440</y>
+            <y>480</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14249,7 +14236,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>80</y>
+            <y>120</y>
             <width>501</width>
             <height>60</height>
            </rect>
@@ -14262,14 +14249,14 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>260</y>
+            <y>300</y>
             <width>241</width>
             <height>31</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_13">
            <item>
-            <widget class="QLineEdit" name="tensile_sssd_1_1"/>
+            <widget class="QLineEdit" name="tensile_ssd_1_1"/>
            </item>
            <item>
             <widget class="QLineEdit" name="tensile_ssd_1_2"/>
@@ -14283,7 +14270,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>400</y>
+            <y>440</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14304,7 +14291,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>360</y>
+            <y>400</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14317,7 +14304,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>60</x>
-            <y>440</y>
+            <y>480</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14330,7 +14317,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>600</x>
-            <y>160</y>
+            <y>200</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14343,7 +14330,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>610</x>
-            <y>440</y>
+            <y>480</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14356,7 +14343,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>480</y>
+            <y>520</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14377,7 +14364,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>310</y>
+            <y>350</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14398,7 +14385,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>600</x>
-            <y>210</y>
+            <y>250</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14411,7 +14398,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>160</y>
+            <y>200</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14424,7 +14411,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>600</x>
-            <y>360</y>
+            <y>400</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14437,7 +14424,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>600</x>
-            <y>260</y>
+            <y>300</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14450,7 +14437,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>260</y>
+            <y>300</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14471,7 +14458,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>400</y>
+            <y>440</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14492,7 +14479,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>60</x>
-            <y>400</y>
+            <y>440</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14505,7 +14492,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>770</x>
-            <y>160</y>
+            <y>200</y>
             <width>101</width>
             <height>31</height>
            </rect>
@@ -14524,7 +14511,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>210</y>
+            <y>250</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14537,7 +14524,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>210</y>
+            <y>250</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14558,7 +14545,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>60</x>
-            <y>480</y>
+            <y>520</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14571,7 +14558,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>160</y>
+            <y>200</y>
             <width>101</width>
             <height>31</height>
            </rect>
@@ -14590,7 +14577,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>310</y>
+            <y>350</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14603,7 +14590,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>480</y>
+            <y>520</y>
             <width>241</width>
             <height>31</height>
            </rect>
@@ -14624,7 +14611,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>600</x>
-            <y>310</y>
+            <y>350</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14637,7 +14624,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>260</y>
+            <y>300</y>
             <width>151</width>
             <height>31</height>
            </rect>
@@ -14650,7 +14637,7 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>610</x>
-            <y>400</y>
+            <y>440</y>
             <width>121</width>
             <height>31</height>
            </rect>
@@ -14662,14 +14649,50 @@ Density</string>
          <widget class="QLabel" name="label_265">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>20</x>
             <y>10</y>
-            <width>581</width>
+            <width>431</width>
             <height>71</height>
            </rect>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:700;&quot;&gt;Tensile Strength Ratio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Tensile Strength Ratio&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>80</y>
+            <width>71</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_268">
+          <property name="geometry">
+           <rect>
+            <x>970</x>
+            <y>80</y>
+            <width>41</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;%&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_269">
+          <property name="geometry">
+           <rect>
+            <x>590</x>
+            <y>80</y>
+            <width>291</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Proving Ring Calibration Factor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </widget>
