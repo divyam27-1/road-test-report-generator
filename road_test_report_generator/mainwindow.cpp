@@ -213,6 +213,7 @@ void MainWindow::on_tensile_save_clicked()
     min_30["tensile_btmn"] = ui->tensile_btmn_1->text().toDouble();
     hr_24["tensile_btmn"] = ui->tensile_btmn_2->text().toDouble();
 
+
     QStringList tensile_exp_names = {"tensile_wt_%1_%2", "tensile_ssd_%1_%2", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_corr_%1_%2", "tensile_flow_%1_%2"};
 
     for (QString exp: tensile_exp_names) {
@@ -234,6 +235,7 @@ void MainWindow::on_tensile_save_clicked()
 
     tensile_json["30mins"] = min_30;
     tensile_json["24hrs"] = hr_24;
+    tensile_json["ring"] = ui->tensile_ring->text().toDouble();
 
     QFile tensile_json_file(cwd.filePath("json/tensile.json"));
 
