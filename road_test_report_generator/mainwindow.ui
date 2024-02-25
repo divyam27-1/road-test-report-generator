@@ -11291,7 +11291,7 @@ color: rgb(0, 0, 0);</string>
          <string> Export to PDF</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="marshall_sabeas">
+       <widget class="QPushButton" name="marshall_saveas">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -11947,7 +11947,7 @@ color: rgb(0, 0, 0);</string>
           <x>1060</x>
           <y>60</y>
           <width>20</width>
-          <height>931</height>
+          <height>690</height>
          </rect>
         </property>
         <property name="orientation">
@@ -14147,7 +14147,7 @@ Density</string>
  </customwidgets>
  <tabstops>
   <tabstop>marshall_save</tabstop>
-  <tabstop>marshall_sabeas</tabstop>
+  <tabstop>marshall_saveas</tabstop>
   <tabstop>marshall_export</tabstop>
   <tabstop>marshall_ring</tabstop>
   <tabstop>grad_s1_9</tabstop>

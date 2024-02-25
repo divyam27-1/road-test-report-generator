@@ -215,6 +215,10 @@ private slots:
     void on_grad_saveas_clicked();
     void on_tensile_save_clicked();
 
+    void on_marshall_scroll_valueChanged(int value);
+
+    void on_marshall_saveas_clicked();
+
 private:
     float scroll_sens;
 

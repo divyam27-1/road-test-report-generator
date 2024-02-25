@@ -309,6 +309,16 @@ void MainWindow::on_grad_saveas_clicked()
     }
     ui->mdd_save->click();
 }
+void MainWindow::on_marshall_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->marshall_save->click();
+}
+
+
 void MainWindow::save_check() {
     for (auto exp: all_experiments) {
         if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end()) {
@@ -6139,6 +6149,9 @@ void MainWindow::wheelEvent(QWheelEvent *event)
             scroll_pos = ui->grad_data_scroll->value();
             ui->grad_data_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
             break;
+        case 1:
+            scroll_pos = ui->marshall_scroll->value();
+            ui->marshall_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
         }
     }
 }
@@ -6161,6 +6174,11 @@ void MainWindow::on_grad_data_scroll_valueChanged(int value)
 {
     float target = (ui->grad_frame_outer->height() - ui->grad_frame->height()) * value / 100;
     ui->grad_frame->move(0, target);
+}
+void MainWindow::on_marshall_scroll_valueChanged(int value)
+{
+    float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
+    ui->marshall_frame->move(0, target);
 }
 
 
