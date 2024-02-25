@@ -212,9 +212,11 @@ void MainWindow::on_tensile_save_clicked()
 
     min_30["tensile_btmn"] = ui->tensile_btmn_1->text().toDouble();
     hr_24["tensile_btmn"] = ui->tensile_btmn_2->text().toDouble();
+    tensile_json["ring"] = ui->tensile_ring->text().toDouble();
 
 
     QStringList tensile_exp_names = {"tensile_wt_%1_%2", "tensile_ssd_%1_%2", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_corr_%1_%2", "tensile_flow_%1_%2"};
+
 
     for (QString exp: tensile_exp_names) {
         for (int i = 1; i <= 2; i++) {
@@ -229,6 +231,112 @@ void MainWindow::on_tensile_save_clicked()
                 } else if (i == 2) {
                     hr_24[obj_name] = tedit_text;
                 }
+            }
+        }
+    }
+
+    // calculation for volume
+    double volum;
+    QString volum_key = QString("tensile_wt_%1_%2_vol");
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            QString wt_obj_name = QString("tensile_wt_%1_%2").arg(i).arg(j);
+            QString gmb_obj_name = QString("tensile_gmb_%1_%2").arg(i).arg(j);
+
+            QLineEdit* wt_tedit = ui->dbm_page->findChild<QLineEdit*>(wt_obj_name);
+            QLineEdit* gmb_tedit = ui->dbm_page->findChild<QLineEdit*>(gmb_obj_name);
+            double wt_value = wt_tedit->text().toDouble();
+            double gmb_value = gmb_tedit->text().toDouble();
+
+            volum = wt_value / gmb_value;
+
+            volum_key = QString("tensile_wt_%1_%2_vol").arg(i).arg(j);
+            if (i == 1) {
+                min_30[volum_key] = volum;
+            } else if (i == 2) {
+                hr_24[volum_key] = volum;
+            }
+        }
+    }
+
+
+    //calculation for wt in air
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            QString wt_obj_name = QString("tensile_wt_%1_%2_vol").arg(i).arg(j);
+            QString ssd_obj_name = QString("tensile_ssd_%1_%2").arg(i).arg(j);
+
+            double wt_vol = 0.0;
+            if (i == 1) {
+                wt_vol = min_30[wt_obj_name].toDouble();
+            } else if (i == 2) {
+                wt_vol = hr_24[wt_obj_name].toDouble();
+            }
+
+            QLineEdit* ssd_tedit = ui->dbm_page->findChild<QLineEdit*>(ssd_obj_name);
+
+            double ssd_value = ssd_tedit->text().toDouble();
+
+            double result = ssd_value - wt_vol;
+            qDebug() << result << ssd_value << wt_vol;
+
+            QString result_key = QString("tensile_ssd_wt_diff_%1_%2").arg(i).arg(j);
+            if (i == 1) {
+                min_30[result_key] = result;
+            } else if (i == 2) {
+                hr_24[result_key] = result;
+            }
+        }
+    }
+
+
+    //calculation for load
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            QString read_obj_name = QString("tensile_read_%1_%2").arg(i).arg(j);
+
+            QLineEdit* read_tedit = ui->dbm_page->findChild<QLineEdit*>(read_obj_name);
+
+            double read_value = read_tedit->text().toDouble();
+
+            double ring = tensile_json["ring"].toDouble();
+
+            double result = ring * read_value;
+            QString result_key = QString("tensile_read_%1_%2_load").arg(i).arg(j);
+
+            if (i == 1) {
+                min_30[result_key] = result;
+            } else if (i == 2) {
+                hr_24[result_key] = result;
+            }
+        }
+    }
+
+
+    //calculation for corrected load
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            QString wt_obj_name = QString("tensile_read_%1_%2_load").arg(i).arg(j);
+            QString corr_obj_name = QString("tensile_corr_%1_%2").arg(i).arg(j);
+
+            double reading = 0.0;
+            if (i == 1) {
+                reading = min_30[wt_obj_name].toDouble();
+            } else if (i == 2) {
+                reading = hr_24[wt_obj_name].toDouble();
+            }
+
+            QLineEdit* corr_tedit = ui->dbm_page->findChild<QLineEdit*>(corr_obj_name);
+
+            double ssd_value = corr_tedit->text().toDouble();
+
+            double result = ssd_value * reading;
+
+            QString result_key = QString("tensile_corrected_load_%1_%2").arg(i).arg(j);
+            if (i == 1) {
+                min_30[result_key] = result;
+            } else if (i == 2) {
+                hr_24[result_key] = result;
             }
         }
     }
@@ -251,6 +359,8 @@ void MainWindow::on_tensile_save_clicked()
     } else {
         qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
     }
+    save_check();
+
 }
 
 
