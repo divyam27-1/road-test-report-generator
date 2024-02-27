@@ -222,6 +222,7 @@ private slots:
     void on_tensile_saveas_clicked();
     void on_vol_scroll_valueChanged(int value);
 
+    void on_marshall_save_clicked();
 private:
     float scroll_sens;
 

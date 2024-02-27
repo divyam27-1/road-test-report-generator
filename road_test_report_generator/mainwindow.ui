@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -15527,6 +15527,109 @@ color: rgb(0, 0, 0);</string>
           </property>
          </widget>
         </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="effspc">
+       <attribute name="title">
+        <string>Effective Specific Gravity</string>
+       </attribute>
+       <widget class="QPushButton" name="tensile_save_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tensile_saveas_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>20</y>
+          <width>89</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save As...</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="tensile_bsc_5">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>130</y>
+          <width>301</width>
+          <height>81</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_585">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
+          <y>80</y>
+          <width>201</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Client&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="tensile_bsc_6">
+        <property name="geometry">
+         <rect>
+          <x>1090</x>
+          <y>290</y>
+          <width>301</width>
+          <height>81</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_586">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
+          <y>240</y>
+          <width>201</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Contractor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tensile_export_3">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>110</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export to PDF</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_587">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>90</y>
+          <width>621</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Determination of Effective Specific &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Gravity for Combined Aggregate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
        </widget>
       </widget>
      </widget>

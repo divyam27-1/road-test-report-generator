@@ -371,6 +371,9 @@ void MainWindow::on_tensile_save_clicked()
     save_check();
 
 }
+void MainWindow::on_marshall_save_clicked() {
+
+}
 
 
 //Deals with save as requests
@@ -6311,7 +6314,6 @@ void MainWindow::on_marshall_scroll_valueChanged(int value)
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
 }
-
 QVector<int> non_scrolling_elements = {290,184,215,217,216,271,286,272,287,293,294,295};
 void MainWindow::on_vol_scroll_valueChanged(int value)
 {
