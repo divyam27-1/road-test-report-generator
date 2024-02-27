@@ -341,6 +341,15 @@ void MainWindow::on_tensile_save_clicked()
         }
     }
 
+    //calculation for averages
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            QString gmb_name = QString("tensile_gmb_%1_%2").arg(i).arg(j);
+
+
+        }
+    }
+
     tensile_json["30mins"] = min_30;
     tensile_json["24hrs"] = hr_24;
     tensile_json["ring"] = ui->tensile_ring->text().toDouble();
@@ -426,6 +435,14 @@ void MainWindow::on_marshall_saveas_clicked() {
         saveas_done = true;
     }
     ui->marshall_save->click();
+}
+void MainWindow::on_tensile_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done) {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->tensile_save->click();
 }
 
 
@@ -6262,6 +6279,10 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         case 1:
             scroll_pos = ui->marshall_scroll->value();
             ui->marshall_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
+        case 3:
+            scroll_pos = ui->vol_scroll->value();
+            ui->vol_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
         }
     }
 }
@@ -6289,6 +6310,25 @@ void MainWindow::on_marshall_scroll_valueChanged(int value)
 {
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
+}
+
+QVector<int> non_scrolling_elements = {290,184,215,217,216,271,286,272,287,293,294,295};
+void MainWindow::on_vol_scroll_valueChanged(int value)
+{
+    float target = (ui->vol_frame_outer->width() - ui->vol_frame->width()) * value / 100;
+    ui->vol_frame->move(target, ui->vol_frame->y());
+
+    for (auto i: non_scrolling_elements) {
+        QString elem_name = QString::fromStdString("label_" + std::to_string(i));
+        QLabel* label = ui->vol_frame->findChild<QLabel*>(elem_name);
+
+        if(label) {
+            label->raise();
+            label->move(-1*target, label->y());
+        } else {
+            qDebug() << "element" << i << "not found";
+        }
+    }
 }
 
 
