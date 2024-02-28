@@ -85,8 +85,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>700</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -2060,8 +2060,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>700</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -3504,8 +3504,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>701</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -4952,8 +4952,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>701</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -9318,8 +9318,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>221</width>
-           <height>701</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>98</width>
+           <height>28</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11432,8 +11432,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>98</width>
+           <height>28</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11737,8 +11737,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>98</width>
+           <height>28</height>
           </rect>
          </property>
          <attribute name="label">
@@ -14094,8 +14094,8 @@ Density</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>701</height>
+           <width>98</width>
+           <height>28</height>
           </rect>
          </property>
          <attribute name="label">

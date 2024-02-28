@@ -343,11 +343,38 @@ void MainWindow::on_tensile_save_clicked()
 
     //calculation for averages
     for (int i = 1; i <= 2; i++) {
+        double avg_gmb = 0, avg_corr_load = 0, avg_flow = 0;
         for (int j = 1; j <= 3; j++) {
             QString gmb_name = QString("tensile_gmb_%1_%2").arg(i).arg(j);
+            QString corr_load_name = QString("tensile_corrected_load_%1_%2").arg(i).arg(j);
+            QString flow_name = QString("tensile_flow_%1_%2").arg(i).arg(j);
 
-
+            if (i == 1) {
+                avg_gmb += min_30[gmb_name].toDouble()/3;
+                avg_corr_load += min_30[corr_load_name].toDouble()/3;
+                avg_flow += min_30[flow_name].toDouble()/3;
+            } else if (i == 2) {
+                avg_gmb += hr_24[gmb_name].toDouble()/3;
+                avg_corr_load += hr_24[corr_load_name].toDouble()/3;
+                avg_flow += hr_24[flow_name].toDouble()/3;
+            } else {
+                qDebug() << "index out of bounds while calculating tensile averages";
+            }
         }
+
+        if (i == 1) {
+            min_30["avg_gmb"] = avg_gmb;
+            min_30["avg_corrected_load"] = avg_corr_load;
+            min_30["avg_flow"] = avg_flow;
+        } else if (i == 2) {
+            hr_24["avg_gmb"] = avg_gmb;
+            hr_24["avg_corrected_load"] = avg_corr_load;
+            hr_24["avg_flow"] = avg_flow;
+        } else {
+            qDebug() << "index out of bound while emplacing tensile averages";
+        }
+
+        tensile_json["water_sensitivity"] = hr_24["avg_corrected_load"].toDouble()/min_30["avg_corrected_load"].toDouble();
     }
 
     tensile_json["30mins"] = min_30;
@@ -6148,7 +6175,7 @@ void MainWindow::generate_html_grad() {
         qDebug() << "grad bld output html file not opened";
     }
 
-    output_html_path:  cwd.filePath("html/grad_jmf.html");
+    output_html_path = cwd.filePath("html/grad_jmf.html").toStdString();
     std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
 
 
@@ -6239,6 +6266,25 @@ void MainWindow::generate_html_grad() {
         qDebug() << "grad bld output html file not opened";
     }
 }
+void MainWindow::generate_html_tensile() {
+    qDebug() << "beginning tensile save...";
+    QString json_path = cwd.filePath("json/tensile.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_obj = json_doc.object();
+}
+
 
 
 // Deals with Scrolling

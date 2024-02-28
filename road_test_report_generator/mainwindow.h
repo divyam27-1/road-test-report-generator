@@ -229,5 +229,6 @@ private:
     Ui::MainWindow *ui;
 
     void wheelEvent(QWheelEvent *event) override;
+    void generate_html_tensile();
 };
 #endif // MAINWINDOW_H
