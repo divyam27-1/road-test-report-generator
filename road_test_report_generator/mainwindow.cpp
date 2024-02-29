@@ -19,6 +19,7 @@
 #include <QMetaObject>
 #include <QFileDialog>
 #include <QDateTime>
+#include <map>
 
 
 QDir cwd = QDir::current();
@@ -373,9 +374,10 @@ void MainWindow::on_tensile_save_clicked()
         } else {
             qDebug() << "index out of bound while emplacing tensile averages";
         }
-
-        tensile_json["water_sensitivity"] = hr_24["avg_corrected_load"].toDouble()/min_30["avg_corrected_load"].toDouble();
     }
+
+    tensile_json["water_sensitivity"] = 100 * hr_24["avg_corrected_load"].toDouble()/min_30["avg_corrected_load"].toDouble();
+
 
     tensile_json["30mins"] = min_30;
     tensile_json["24hrs"] = hr_24;
@@ -516,6 +518,8 @@ void MainWindow::save_check() {
             generate_html_mdd();
         } else if (file == "grad") {
             generate_html_grad();
+        } else if (file == "tensile") {
+            generate_html_tensile();
         }
     }
 }
@@ -6282,7 +6286,11 @@ void MainWindow::generate_html_tensile() {
     }
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
-    QJsonObject json_obj = json_doc.object();
+    QJsonObject tensile_json = json_doc.object();
+    QJsonObject min_30 = tensile_json["30mins"].toObject();
+    QJsonObject hr_24 = tensile_json["24hrs"].toObject();
+
+    std::vector<std::string> json_values_parser = {"tensile_wt_%1_%2", "tensile_ssd_wt_diff_%1_%2", "tensile_ssd_%1_%2", "tensile_wt_%1_%2_vol", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_read_%1_%2_load", "tensile_corr_%1_%2", "tensile_corrected_load_%1_%2", "tensile_flow_%1_%2"};
 
     std::string output_html_path = cwd.filePath("html/tensile.html").toStdString();
     std::ofstream output_html_file(output_html_path, std::ios::out);
@@ -6343,72 +6351,81 @@ void MainWindow::generate_html_tensile() {
 
                     switch (token) {
                     case 1:
-                        output_grad_bld_file << json1["proportion"].toDouble();
+                        topushf = tensile_json["ring"].toDouble();
                         break;
                     case 2:
-                        output_grad_bld_file << json2["proportion"].toDouble();
+                        topushf = min_30["tensile_btmn"].toDouble();
                         break;
-                    case 3:
-                        output_grad_bld_file << json3["proportion"].toDouble();
+                    case 33:
+                        topushf = min_30["avg_gmb"].toDouble();
+                        break;
+                    case 34:
+                        topushf = min_30["avg_corrected_load"].toDouble();
+                        break;
+                    case 35:
+                        topushf = min_30["avg_flow"].toDouble();
+                        break;
+                    case 36:
+                        topushf = hr_24["tensile_btmn"].toDouble();
+                        break;
+                    case 67:
+                        topushf = hr_24["avg_gmb"].toDouble();
+                        break;
+                    case 68:
+                        topushf = hr_24["avg_corrected_load"].toDouble();
                         break;
                     case 69:
-                        topush = ui->grad_bsc_1->toPlainText().toStdString();
+                        topushf = hr_24["avg_flow"].toDouble();
                         break;
                     case 70:
-                        topush = ui->grad_bsc_2->toPlainText().toStdString();
-                        break;
-                    case 71:
-                        topush = ui->grad_bsc_3->toPlainText().toStdString();
-                        break;
-                    case 72:
-                        topush = ui->grad_bsc_4->toPlainText().toStdString();
+                        topushf = tensile_json["water_sensitivity"].toDouble();
                         break;
                     default:
-                        qDebug() << "FlashBack is like the suygetsu of apac";
-                        break;
-                    }
-                    if ((token >= 4) && (token <= 11)) {
-                        token -= 4;
-                        QString arg = QString("avg_%1").arg(1 + token%10);
-                        output_grad_bld_file << json1[arg].toDouble();
-                    } else if ((token >= 20) && (token <= 27)) {
-                        token -= 20;
-                        output_grad_bld_file << json2[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 36) && (token <= 43)) {
-                        token -= 36;
-                        output_grad_bld_file << json3[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 12) && (token <= 19)) {
-                        token -= 12;
-                        output_grad_bld_file << json1[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 28) && (token <= 35)) {
-                        token -= 28;
-                        output_grad_bld_file << json2[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 44) && (token <= 51)) {
-                        token -= 44;
-                        output_grad_bld_file << json3[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 53) && (token <= 60)) {
-                        token -= 53;
-                        output_grad_bld_file << bld[QString("bld_%1").arg(1 + token%10)].toDouble();
-                    } else if (token == 52) {
-                        output_grad_bld_file << "100";
+                        if ((token >= 3) && (token <= 32)) {
+                            token -= 3;
+                            int i = token%10;
+
+                            QString lookup_key = QString::fromStdString(json_values_parser[i]);
+                            lookup_key = lookup_key.arg(1).arg(1 + token/10);
+
+                            qDebug() << "lookup key:" << lookup_key;
+
+                            topushf = min_30[lookup_key].toDouble();
+                            break;
+                        } else if ((token >= 37) && (token <= 66)) {
+                            token -= 37;
+                            int i = token%10;
+
+                            QString lookup_key = QString::fromStdString(json_values_parser[i]);
+                            lookup_key = lookup_key.arg(2).arg(1 + token/10);
+
+                            qDebug() << "lookup key:" <<lookup_key;
+
+                            topushf = hr_24[lookup_key].toDouble();
+                            break;
+                        } else {
+                            qDebug () << "token" << token << "out of bounds, this really should not be happening";
+                            break;
+                        }
                     }
 
-                    output_grad_bld_file << topush;
+                    output_html_file << topush;
+                    output_html_file << topushf;
                     topush = "";
 
                 } else {
-                    output_grad_bld_file << line[i];
+                    output_html_file << line[i];
                 }
             }
 
         }
         json_file.close();
-        output_grad_bld_file.close();
+        output_html_file.close();
         qDebug() << "file written to";
 
         template_file.close();
     } else {
-        qDebug() << "grad bld output html file not opened";
+        qDebug() << "tensile output html file not opened";
     }
 }
 
