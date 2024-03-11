@@ -6428,6 +6428,108 @@ void MainWindow::generate_html_tensile() {
         qDebug() << "tensile output html file not opened";
     }
 }
+void MainWindow::generate_html_marshall() {
+    qDebug() << "beginning marshall save...";
+    QString json_path = cwd.filePath("json/marshall.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject marshall_json = json_doc.object();
+    std::vector<QJsonObject> marshall_obj;
+
+    for (const auto key: marshall_json.keys()) {
+        marshall_obj.push_back(marshall_json[key].toObject());
+    }
+
+
+    std::vector<std::string> json_values_parser = {"tensile_wt_%1_%2", "tensile_ssd_wt_diff_%1_%2", "tensile_ssd_%1_%2", "tensile_wt_%1_%2_vol", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_read_%1_%2_load", "tensile_corr_%1_%2", "tensile_corrected_load_%1_%2", "tensile_flow_%1_%2"};
+
+    std::string output_html_path = cwd.filePath("html/tensile.html").toStdString();
+    std::ofstream output_html_file(output_html_path, std::ios::out);
+
+    if (output_html_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/tensile_strength_ratio.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        } else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    output_html_file << topush;
+                    output_html_file << topushf;
+                    topush = "";
+
+                } else {
+                    output_html_file << line[i];
+                }
+            }
+
+        }
+        json_file.close();
+        output_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    } else {
+        qDebug() << "tensile output html file not opened";
+    }
+}
 
 
 

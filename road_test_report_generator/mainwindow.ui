@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>551</width>
-           <height>700</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -13996,7 +13996,7 @@ Density</string>
        <widget class="QToolBox" name="vol_info">
         <property name="geometry">
          <rect>
-          <x>1050</x>
+          <x>1070</x>
           <y>0</y>
           <width>261</width>
           <height>761</height>
@@ -14355,7 +14355,7 @@ Density</string>
          <rect>
           <x>10</x>
           <y>70</y>
-          <width>1021</width>
+          <width>1045</width>
           <height>691</height>
          </rect>
         </property>
@@ -14370,7 +14370,7 @@ Density</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1441</width>
+           <width>1631</width>
            <height>690</height>
           </rect>
          </property>
@@ -14391,10 +14391,10 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_65">
            <item>
-            <widget class="QLineEdit" name="tensile_gmb_2_4"/>
+            <widget class="QLineEdit" name="vol_total_1"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="tensile_gmb_2_5"/>
+            <widget class="QLineEdit" name="vol_total_2"/>
            </item>
           </layout>
          </widget>
@@ -14409,10 +14409,10 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_40">
            <item>
-            <widget class="QLineEdit" name="tensile_ssd_1_4"/>
+            <widget class="QLineEdit" name="vol_apparent_2"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="tensile_ssd_1_5"/>
+            <widget class="QLineEdit" name="vol_bulk_2"/>
            </item>
           </layout>
          </widget>
@@ -14459,10 +14459,10 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_44">
            <item>
-            <widget class="QLineEdit" name="tensile_gmb_1_4"/>
+            <widget class="QLineEdit" name="vol_apparent_3"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="tensile_gmb_1_5"/>
+            <widget class="QLineEdit" name="vol_bulk_3"/>
            </item>
           </layout>
          </widget>
@@ -14493,10 +14493,10 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_50">
            <item>
-            <widget class="QLineEdit" name="tensile_read_1_4"/>
+            <widget class="QLineEdit" name="vol_btmn_1"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="tensile_read_1_5"/>
+            <widget class="QLineEdit" name="vol_btmn_2"/>
            </item>
           </layout>
          </widget>
@@ -14521,7 +14521,7 @@ Density</string>
            <rect>
             <x>10</x>
             <y>250</y>
-            <width>211</width>
+            <width>231</width>
             <height>31</height>
            </rect>
           </property>
@@ -14543,10 +14543,10 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_52">
            <item>
-            <widget class="QLineEdit" name="tensile_wt_1_4"/>
+            <widget class="QLineEdit" name="vol_apparent_1"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="tensile_wt_1_5"/>
+            <widget class="QLineEdit" name="vol_bulk_1"/>
            </item>
           </layout>
          </widget>
@@ -14745,14 +14745,14 @@ color: rgb(0, 0, 0);</string>
          <widget class="QLabel" name="label_230">
           <property name="geometry">
            <rect>
-            <x>608</x>
+            <x>658</x>
             <y>480</y>
-            <width>101</width>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
           <property name="text">
-           <string>Gmm(practically)</string>
+           <string>Gmm</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_232">
@@ -14807,7 +14807,7 @@ color: rgb(0, 0, 0);</string>
            <string>Vfb</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="vol_gsb_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14817,7 +14817,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_4">
+         <widget class="QLineEdit" name="vol_gmm_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14827,7 +14827,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_5">
+         <widget class="QLineEdit" name="vol_gmb_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14837,7 +14837,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_6">
+         <widget class="QLineEdit" name="vol_vma_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14847,7 +14847,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_7">
+         <widget class="QLineEdit" name="vol_va_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14857,7 +14857,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_8">
+         <widget class="QLineEdit" name="vol_vfb_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14880,7 +14880,7 @@ color: rgb(0, 0, 0);</string>
            <string>Pb</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_9">
+         <widget class="QLineEdit" name="vol_pb_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14903,7 +14903,7 @@ color: rgb(0, 0, 0);</string>
            <string>Ps</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_10">
+         <widget class="QLineEdit" name="vol_ps_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14926,7 +14926,7 @@ color: rgb(0, 0, 0);</string>
            <string>P-3</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_11">
+         <widget class="QLineEdit" name="vol_p3_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14949,7 +14949,7 @@ color: rgb(0, 0, 0);</string>
            <string>P-2</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_12">
+         <widget class="QLineEdit" name="vol_p2_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -14972,7 +14972,7 @@ color: rgb(0, 0, 0);</string>
            <string>P-1</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_13">
+         <widget class="QLineEdit" name="vol_p1_1">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -15034,7 +15034,7 @@ color: rgb(0, 0, 0);</string>
            <string>T-1</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_14">
+         <widget class="QLineEdit" name="vol_vma_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15044,7 +15044,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_15">
+         <widget class="QLineEdit" name="vol_vfb_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15054,7 +15054,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_16">
+         <widget class="QLineEdit" name="vol_gmb_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15064,7 +15064,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_17">
+         <widget class="QLineEdit" name="vol_ps_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15087,7 +15087,7 @@ color: rgb(0, 0, 0);</string>
            <string>T-2</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_18">
+         <widget class="QLineEdit" name="vol_p2_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15097,7 +15097,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_19">
+         <widget class="QLineEdit" name="vol_p3_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15107,7 +15107,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_20">
+         <widget class="QLineEdit" name="vol_gsb_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15117,7 +15117,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_21">
+         <widget class="QLineEdit" name="vol_gmm_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15127,7 +15127,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_22">
+         <widget class="QLineEdit" name="vol_va_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15137,7 +15137,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_23">
+         <widget class="QLineEdit" name="vol_p1_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15147,7 +15147,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_24">
+         <widget class="QLineEdit" name="vol_pb_2">
           <property name="geometry">
            <rect>
             <x>900</x>
@@ -15157,7 +15157,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_25">
+         <widget class="QLineEdit" name="vol_vma_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15167,7 +15167,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_26">
+         <widget class="QLineEdit" name="vol_vfb_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15177,7 +15177,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_27">
+         <widget class="QLineEdit" name="vol_gmb_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15187,7 +15187,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_28">
+         <widget class="QLineEdit" name="vol_ps_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15210,7 +15210,7 @@ color: rgb(0, 0, 0);</string>
            <string>T-3</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_29">
+         <widget class="QLineEdit" name="vol_p2_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15220,7 +15220,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_30">
+         <widget class="QLineEdit" name="vol_p3_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15230,7 +15230,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_31">
+         <widget class="QLineEdit" name="vol_gsb_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15240,7 +15240,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_32">
+         <widget class="QLineEdit" name="vol_gmm_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15250,7 +15250,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_33">
+         <widget class="QLineEdit" name="vol_va_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15260,7 +15260,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_34">
+         <widget class="QLineEdit" name="vol_p1_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15270,7 +15270,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_35">
+         <widget class="QLineEdit" name="vol_pb_3">
           <property name="geometry">
            <rect>
             <x>1030</x>
@@ -15280,7 +15280,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_36">
+         <widget class="QLineEdit" name="vol_vma_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15290,7 +15290,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_37">
+         <widget class="QLineEdit" name="vol_vfb_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15300,7 +15300,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_38">
+         <widget class="QLineEdit" name="vol_gmb_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15310,7 +15310,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_39">
+         <widget class="QLineEdit" name="vol_ps_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15333,7 +15333,7 @@ color: rgb(0, 0, 0);</string>
            <string>T-4</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_40">
+         <widget class="QLineEdit" name="vol_p2_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15343,7 +15343,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_41">
+         <widget class="QLineEdit" name="vol_p3_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15353,7 +15353,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_42">
+         <widget class="QLineEdit" name="vol_gsb_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15363,7 +15363,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_43">
+         <widget class="QLineEdit" name="vol_gmm_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15373,7 +15373,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_44">
+         <widget class="QLineEdit" name="vol_va_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15383,7 +15383,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_45">
+         <widget class="QLineEdit" name="vol_p1_4">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15393,7 +15393,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_46">
+         <widget class="QLineEdit" name="vol_pb_6">
           <property name="geometry">
            <rect>
             <x>1160</x>
@@ -15403,7 +15403,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_47">
+         <widget class="QLineEdit" name="vol_vma_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15413,7 +15413,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_48">
+         <widget class="QLineEdit" name="vol_vfb_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15423,7 +15423,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_49">
+         <widget class="QLineEdit" name="vol_gmb_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15433,7 +15433,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_50">
+         <widget class="QLineEdit" name="vol_ps_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15456,7 +15456,7 @@ color: rgb(0, 0, 0);</string>
            <string>T-5</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_51">
+         <widget class="QLineEdit" name="vol_p2_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15466,7 +15466,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_52">
+         <widget class="QLineEdit" name="vol_p3_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15476,7 +15476,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_53">
+         <widget class="QLineEdit" name="vol_gsb_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15486,7 +15486,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_54">
+         <widget class="QLineEdit" name="vol_gmm_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15496,7 +15496,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_55">
+         <widget class="QLineEdit" name="vol_va_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15506,7 +15506,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_56">
+         <widget class="QLineEdit" name="vol_p1_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15516,7 +15516,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_57">
+         <widget class="QLineEdit" name="vol_pb_5">
           <property name="geometry">
            <rect>
             <x>1290</x>
@@ -15526,32 +15526,492 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
+         <widget class="QLabel" name="label_285">
+          <property name="geometry">
+           <rect>
+            <x>1460</x>
+            <y>160</y>
+            <width>111</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Conformity at OBC</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_va_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>600</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_gmm_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>480</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_ps_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>350</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_vma_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>560</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_p2_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>260</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_vfb_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>640</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_gmb_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>520</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_gsb_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>440</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_p1_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>210</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_pb_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>400</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="vol_p3_obc">
+          <property name="geometry">
+           <rect>
+            <x>1450</x>
+            <y>310</y>
+            <width>130</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="Line" name="line">
+          <property name="geometry">
+           <rect>
+            <x>1413</x>
+            <y>150</y>
+            <width>20</width>
+            <height>541</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+         <widget class="Line" name="line_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>1621</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
         </widget>
        </widget>
-      </widget>
-      <widget class="QWidget" name="effspc">
-       <attribute name="title">
-        <string>Effective Specific Gravity</string>
-       </attribute>
-       <widget class="QPushButton" name="tensile_save_3">
+       <widget class="QLabel" name="vol_saved">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>20</y>
-          <width>89</width>
-          <height>25</height>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>135</height>
          </rect>
         </property>
         <property name="text">
-         <string>Save</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon_small.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
-       <widget class="QPushButton" name="tensile_saveas_3">
+      </widget>
+      <widget class="QWidget" name="gmm">
+       <attribute name="title">
+        <string>GMM</string>
+       </attribute>
+       <widget class="QToolBox" name="gmm_info">
+        <property name="geometry">
+         <rect>
+          <x>1070</x>
+          <y>0</y>
+          <width>261</width>
+          <height>761</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="vol_bsc_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Basic Info</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>258</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_26">
+           <item>
+            <widget class="QLabel" name="label_288">
+             <property name="text">
+              <string>Name of the Client</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_name"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_289">
+             <property name="text">
+              <string>Name of the Contractor</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_contractor"/>
+           </item>
+           <item>
+            <spacer name="side_socr_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_14">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_15">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="grad_exp_32">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>100</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Experiment Info</string>
+         </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_17">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>10</y>
+            <width>221</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_27">
+           <item>
+            <widget class="QLabel" name="label_291">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_1">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_292">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Testing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_2">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_39">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_8">
+             <property name="rowWrapPolicy">
+              <enum>QFormLayout::DontWrapRows</enum>
+             </property>
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_296">
+               <property name="text">
+                <string>Sample no.</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="gmm_exp_3"/>
+             </item>
+             <item row="1" column="1">
+              <spacer name="verticalSpacer_40">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_297">
+               <property name="text">
+                <string>Source of Material</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="gmm_exp_4"/>
+             </item>
+             <item row="3" column="1">
+              <spacer name="verticalSpacer_51">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_298">
+               <property name="text">
+                <string>Source Approval</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="gmm_exp_5"/>
+             </item>
+             <item row="5" column="1">
+              <spacer name="verticalSpacer_52">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_299">
+               <property name="text">
+                <string>Sample At</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="gmm_exp_6"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_300">
+               <property name="text">
+                <string>Freequency Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="gmm_exp_7"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="gmm_saveas">
         <property name="geometry">
          <rect>
           <x>120</x>
           <y>20</y>
-          <width>89</width>
+          <width>90</width>
           <height>25</height>
          </rect>
         </property>
@@ -15559,53 +16019,20 @@ color: rgb(0, 0, 0);</string>
          <string>Save As...</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="tensile_bsc_5">
+       <widget class="QPushButton" name="gmm_save">
         <property name="geometry">
          <rect>
-          <x>1090</x>
-          <y>130</y>
-          <width>301</width>
-          <height>81</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_585">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>80</y>
-          <width>201</width>
-          <height>51</height>
+          <x>20</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Client&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>Save</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="tensile_bsc_6">
-        <property name="geometry">
-         <rect>
-          <x>1090</x>
-          <y>290</y>
-          <width>301</width>
-          <height>81</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_586">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>240</y>
-          <width>201</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name of Contractor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="tensile_export_3">
+       <widget class="QPushButton" name="gmm_export">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -15618,17 +16045,2090 @@ color: rgb(0, 0, 0);</string>
          <string>Export to PDF</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_587">
+       <widget class="QFrame" name="gmm_frame_outer">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>90</y>
-          <width>621</width>
-          <height>111</height>
+          <x>10</x>
+          <y>70</y>
+          <width>1031</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QFrame" name="gmm_frame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1031</width>
+           <height>1521</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_301">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>861</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
+
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MAXIMUM GRAVITY OF PAVING MIXTURE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_307">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>110</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_8">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>620</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_29">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_308">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_309">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_310">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_332">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_363">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_12">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>620</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm2_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm2_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm2_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm2_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm2_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm2_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm2_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm2_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm2_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm2_12"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_364">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>570</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4.25 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_13">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>1090</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_30">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_365">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_366">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_367">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_368">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_369">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_14">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>1090</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm3_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm3_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm3_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm3_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm3_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm3_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm3_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm3_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm3_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm3_12"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_370">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>1040</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 .5% Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>160</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_28">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_302">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_303">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_304">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_305">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_306">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>160</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm1_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm1_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm1_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm1_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm1_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm1_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm1_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm1_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm1_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm1_12"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QScrollBar" name="gmm_scroll">
+        <property name="geometry">
+         <rect>
+          <x>1040</x>
+          <y>70</y>
+          <width>25</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="rheology">
+       <attribute name="title">
+        <string>Bitumen Rheology</string>
+       </attribute>
+       <widget class="QPushButton" name="gmm_save_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Determination of Effective Specific &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Gravity for Combined Aggregate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QToolBox" name="gmm_info_2">
+        <property name="geometry">
+         <rect>
+          <x>1070</x>
+          <y>0</y>
+          <width>261</width>
+          <height>761</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="vol_bsc_4">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Basic Info</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_15">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>258</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_31">
+           <item>
+            <widget class="QLabel" name="label_371">
+             <property name="text">
+              <string>Name of the Client</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_name_2"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_373">
+             <property name="text">
+              <string>Name of the Contractor</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_contractor_2"/>
+           </item>
+           <item>
+            <spacer name="side_socr_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_16">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_17">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="grad_exp_33">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Experiment Info</string>
+         </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_18">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>10</y>
+            <width>221</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_32">
+           <item>
+            <widget class="QLabel" name="label_374">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_8">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_53">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_375">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Testing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_9">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_54">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_11">
+             <property name="rowWrapPolicy">
+              <enum>QFormLayout::DontWrapRows</enum>
+             </property>
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_376">
+               <property name="text">
+                <string>Sample no.</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="gmm_exp_10"/>
+             </item>
+             <item row="1" column="1">
+              <spacer name="verticalSpacer_55">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_377">
+               <property name="text">
+                <string>Source of Material</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="gmm_exp_11"/>
+             </item>
+             <item row="3" column="1">
+              <spacer name="verticalSpacer_56">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_378">
+               <property name="text">
+                <string>Source Approval</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="gmm_exp_12"/>
+             </item>
+             <item row="5" column="1">
+              <spacer name="verticalSpacer_57">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_379">
+               <property name="text">
+                <string>Sample At</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="gmm_exp_13"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_382">
+               <property name="text">
+                <string>Freequency Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="gmm_exp_14"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="gmm_export_2">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>110</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export to PDF</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="gmm_saveas_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save As...</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="gmm_frame_outer_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>1031</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QFrame" name="gmm_frame_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1031</width>
+           <height>2511</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_383">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>861</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
+
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BITUMEN RHEOLOGY&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_384">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>110</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Stripping Value of Aggregates&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_396">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>1190</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Penetration Test&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_20">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>160</y>
+            <width>341</width>
+            <height>381</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_35">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_397">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time of mixing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_398">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of Aggregate before mixing (℃)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_399">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of Bitumen before mixing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_400">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time of placing in water bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_401">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of water bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_402">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time of visual inspection&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_21">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>160</y>
+            <width>361</width>
+            <height>381</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm1_53"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm1_24"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm1_43"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm1_44"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QDateTimeEdit" name="dateTimeEdit_2"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm1_33"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm1_23"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm1_34"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm1_54"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QDateTimeEdit" name="dateTimeEdit_3"/>
+           </item>
+           <item row="5" column="2">
+            <widget class="QDateTimeEdit" name="dateTimeEdit_4"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_390">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>670</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Softening Point&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_403">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>730</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Liquid Used in Bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_3">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>730</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_404">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>760</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_4">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>760</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_405">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>765</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_5">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>760</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_406">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>760</y>
+            <width>241</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling in Water Bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_407">
+          <property name="geometry">
+           <rect>
+            <x>800</x>
+            <y>765</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_19">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>800</y>
+            <width>251</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_33">
+           <item>
+            <widget class="QLabel" name="label_408">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample No. 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_475">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ball No. 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QLabel" name="label_477">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample - 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_476">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample - 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_20">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>800</y>
+            <width>250</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_36">
+           <item>
+            <widget class="QLabel" name="label_478">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample No. 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_479">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ball No. 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_63">
+             <item>
+              <widget class="QLabel" name="label_480">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample - 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_481">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sample - 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_21">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>800</y>
+            <width>241</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_37">
+           <item>
+            <widget class="QLabel" name="label_482">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Mean Value&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_483">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Of&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_484">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Softening Point&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_385">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>830</y>
+            <width>141</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Testing Activity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_386">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>930</y>
+            <width>151</width>
+            <height>131</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp. at which&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;sample touches &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;bottom plate &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;( in centigrade)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>970</y>
+            <width>101</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+          <property name="geometry">
+           <rect>
+            <x>620</x>
+            <y>970</y>
+            <width>101</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>970</y>
+            <width>101</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+          <property name="geometry">
+           <rect>
+            <x>490</x>
+            <y>970</y>
+            <width>101</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_387">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>970</y>
+            <width>171</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Mean&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_5">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>640</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>580</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>1100</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1160</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_508">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1250</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Pouring Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_9">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>1250</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_10">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>1280</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_509">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1280</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Room Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_510">
+          <property name="geometry">
+           <rect>
+            <x>460</x>
+            <y>1250</y>
+            <width>231</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling in Atmosphere&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_11">
+          <property name="geometry">
+           <rect>
+            <x>720</x>
+            <y>1250</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_12">
+          <property name="geometry">
+           <rect>
+            <x>720</x>
+            <y>1280</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_511">
+          <property name="geometry">
+           <rect>
+            <x>460</x>
+            <y>1280</y>
+            <width>231</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling in Water Bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_14">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>1310</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_513">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1310</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Actual Test Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_531">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>1390</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Test 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_532">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1390</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Test 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_533">
+          <property name="geometry">
+           <rect>
+            <x>670</x>
+            <y>1390</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Test 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_534">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1390</y>
+            <width>251</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Penetrometer Readings (mm)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_535">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>1440</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Initial&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_536">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>1490</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Final&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_537">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>1540</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Penetration Value&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_538">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>1610</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Mean Penetration Value: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_13">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1440</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_15">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>1440</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_16">
+          <property name="geometry">
+           <rect>
+            <x>670</x>
+            <y>1440</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_17">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1490</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_18">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>1490</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_19">
+          <property name="geometry">
+           <rect>
+            <x>670</x>
+            <y>1490</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_395">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>1540</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_512">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>1540</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_514">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>1540</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_539">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1610</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>1670</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_9">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1730</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_540">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>1760</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Ductility&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_20">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>1850</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_541">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1820</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Pouring Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_21">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>1820</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_542">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>1850</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Test Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_543">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1250</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>℃</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_544">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1280</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>℃</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_545">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1310</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>℃</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_546">
+          <property name="geometry">
+           <rect>
+            <x>840</x>
+            <y>1250</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>hr</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_547">
+          <property name="geometry">
+           <rect>
+            <x>840</x>
+            <y>1280</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>hr</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_548">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1820</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>℃</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_549">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>1850</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>℃</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_550">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>1890</y>
+            <width>261</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specified Period of Cooling (minutes)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_551">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>1920</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;In Air&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_552">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>1950</y>
+            <width>231</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;In Water Bath Before Trimming&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_553">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>1980</y>
+            <width>231</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;In Water Bath After Trimming&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_554">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>2010</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Rate of Pull&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_22">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1920</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_23">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1950</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_24">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>1980</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_25">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>2010</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_555">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>2010</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>mm/min</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_556">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>2145</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Ductility in cm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_557">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>2100</y>
+            <width>161</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Briquette Number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_558">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>2150</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_26">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>2150</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_559">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>2150</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_27">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>2150</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_560">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>2150</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_28">
+          <property name="geometry">
+           <rect>
+            <x>540</x>
+            <y>2150</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_561">
+          <property name="geometry">
+           <rect>
+            <x>710</x>
+            <y>2100</y>
+            <width>161</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Mean Value (cm)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_562">
+          <property name="geometry">
+           <rect>
+            <x>720</x>
+            <y>2150</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_6">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>2220</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_10">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>2280</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QScrollBar" name="gmm_scroll_2">
+        <property name="geometry">
+         <rect>
+          <x>1040</x>
+          <y>70</y>
+          <width>25</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
        </widget>
       </widget>
@@ -16590,76 +19090,71 @@ color: rgb(0, 0, 0);</string>
   <tabstop>vol_save</tabstop>
   <tabstop>vol_saveas</tabstop>
   <tabstop>vol_export</tabstop>
-  <tabstop>tensile_gmb_2_4</tabstop>
-  <tabstop>tensile_gmb_2_5</tabstop>
-  <tabstop>tensile_ssd_1_4</tabstop>
-  <tabstop>tensile_ssd_1_5</tabstop>
-  <tabstop>tensile_gmb_1_4</tabstop>
-  <tabstop>tensile_gmb_1_5</tabstop>
-  <tabstop>tensile_read_1_4</tabstop>
-  <tabstop>tensile_read_1_5</tabstop>
-  <tabstop>tensile_wt_1_4</tabstop>
-  <tabstop>tensile_wt_1_5</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>lineEdit_5</tabstop>
-  <tabstop>lineEdit_6</tabstop>
-  <tabstop>lineEdit_7</tabstop>
-  <tabstop>lineEdit_8</tabstop>
-  <tabstop>lineEdit_9</tabstop>
-  <tabstop>lineEdit_10</tabstop>
-  <tabstop>lineEdit_11</tabstop>
-  <tabstop>lineEdit_12</tabstop>
-  <tabstop>lineEdit_13</tabstop>
-  <tabstop>lineEdit_14</tabstop>
-  <tabstop>lineEdit_15</tabstop>
-  <tabstop>lineEdit_16</tabstop>
-  <tabstop>lineEdit_17</tabstop>
-  <tabstop>lineEdit_18</tabstop>
-  <tabstop>lineEdit_19</tabstop>
-  <tabstop>lineEdit_20</tabstop>
-  <tabstop>lineEdit_21</tabstop>
-  <tabstop>lineEdit_22</tabstop>
-  <tabstop>lineEdit_23</tabstop>
-  <tabstop>lineEdit_24</tabstop>
-  <tabstop>lineEdit_25</tabstop>
-  <tabstop>lineEdit_26</tabstop>
-  <tabstop>lineEdit_27</tabstop>
-  <tabstop>lineEdit_28</tabstop>
-  <tabstop>lineEdit_29</tabstop>
-  <tabstop>lineEdit_30</tabstop>
-  <tabstop>lineEdit_31</tabstop>
-  <tabstop>lineEdit_32</tabstop>
-  <tabstop>lineEdit_33</tabstop>
-  <tabstop>lineEdit_34</tabstop>
-  <tabstop>lineEdit_35</tabstop>
-  <tabstop>lineEdit_36</tabstop>
-  <tabstop>lineEdit_37</tabstop>
-  <tabstop>lineEdit_38</tabstop>
-  <tabstop>lineEdit_39</tabstop>
-  <tabstop>lineEdit_40</tabstop>
-  <tabstop>lineEdit_41</tabstop>
-  <tabstop>lineEdit_42</tabstop>
-  <tabstop>lineEdit_43</tabstop>
-  <tabstop>lineEdit_44</tabstop>
-  <tabstop>lineEdit_45</tabstop>
-  <tabstop>lineEdit_46</tabstop>
-  <tabstop>lineEdit_47</tabstop>
-  <tabstop>lineEdit_48</tabstop>
-  <tabstop>lineEdit_49</tabstop>
-  <tabstop>lineEdit_50</tabstop>
-  <tabstop>lineEdit_51</tabstop>
-  <tabstop>lineEdit_52</tabstop>
-  <tabstop>lineEdit_53</tabstop>
-  <tabstop>lineEdit_54</tabstop>
-  <tabstop>lineEdit_55</tabstop>
-  <tabstop>lineEdit_56</tabstop>
-  <tabstop>lineEdit_57</tabstop>
-  <tabstop>tensile_save_3</tabstop>
-  <tabstop>tensile_saveas_3</tabstop>
-  <tabstop>tensile_bsc_5</tabstop>
-  <tabstop>tensile_bsc_6</tabstop>
-  <tabstop>tensile_export_3</tabstop>
+  <tabstop>vol_total_1</tabstop>
+  <tabstop>vol_total_2</tabstop>
+  <tabstop>vol_apparent_2</tabstop>
+  <tabstop>vol_bulk_2</tabstop>
+  <tabstop>vol_apparent_3</tabstop>
+  <tabstop>vol_bulk_3</tabstop>
+  <tabstop>vol_btmn_1</tabstop>
+  <tabstop>vol_btmn_2</tabstop>
+  <tabstop>vol_apparent_1</tabstop>
+  <tabstop>vol_bulk_1</tabstop>
+  <tabstop>vol_gsb_1</tabstop>
+  <tabstop>vol_gmm_1</tabstop>
+  <tabstop>vol_gmb_1</tabstop>
+  <tabstop>vol_vma_1</tabstop>
+  <tabstop>vol_va_1</tabstop>
+  <tabstop>vol_vfb_1</tabstop>
+  <tabstop>vol_pb_1</tabstop>
+  <tabstop>vol_ps_1</tabstop>
+  <tabstop>vol_p3_1</tabstop>
+  <tabstop>vol_p2_1</tabstop>
+  <tabstop>vol_p1_1</tabstop>
+  <tabstop>vol_vma_2</tabstop>
+  <tabstop>vol_vfb_2</tabstop>
+  <tabstop>vol_gmb_2</tabstop>
+  <tabstop>vol_ps_2</tabstop>
+  <tabstop>vol_p2_2</tabstop>
+  <tabstop>vol_p3_2</tabstop>
+  <tabstop>vol_gsb_2</tabstop>
+  <tabstop>vol_gmm_2</tabstop>
+  <tabstop>vol_va_2</tabstop>
+  <tabstop>vol_p1_2</tabstop>
+  <tabstop>vol_pb_2</tabstop>
+  <tabstop>vol_vma_3</tabstop>
+  <tabstop>vol_vfb_3</tabstop>
+  <tabstop>vol_gmb_3</tabstop>
+  <tabstop>vol_ps_3</tabstop>
+  <tabstop>vol_p2_3</tabstop>
+  <tabstop>vol_p3_3</tabstop>
+  <tabstop>vol_gsb_3</tabstop>
+  <tabstop>vol_gmm_3</tabstop>
+  <tabstop>vol_va_3</tabstop>
+  <tabstop>vol_p1_3</tabstop>
+  <tabstop>vol_pb_3</tabstop>
+  <tabstop>vol_vma_4</tabstop>
+  <tabstop>vol_vfb_4</tabstop>
+  <tabstop>vol_gmb_4</tabstop>
+  <tabstop>vol_ps_4</tabstop>
+  <tabstop>vol_p2_4</tabstop>
+  <tabstop>vol_p3_4</tabstop>
+  <tabstop>vol_gsb_4</tabstop>
+  <tabstop>vol_gmm_4</tabstop>
+  <tabstop>vol_va_4</tabstop>
+  <tabstop>vol_p1_4</tabstop>
+  <tabstop>vol_pb_6</tabstop>
+  <tabstop>vol_vma_5</tabstop>
+  <tabstop>vol_vfb_5</tabstop>
+  <tabstop>vol_gmb_5</tabstop>
+  <tabstop>vol_ps_5</tabstop>
+  <tabstop>vol_p2_5</tabstop>
+  <tabstop>vol_p3_5</tabstop>
+  <tabstop>vol_gsb_5</tabstop>
+  <tabstop>vol_gmm_5</tabstop>
+  <tabstop>vol_va_5</tabstop>
+  <tabstop>vol_p1_5</tabstop>
+  <tabstop>vol_pb_5</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc"/>

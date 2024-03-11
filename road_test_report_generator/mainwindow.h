@@ -230,5 +230,6 @@ private:
 
     void wheelEvent(QWheelEvent *event) override;
     void generate_html_tensile();
+    void generate_html_marshall();
 };
 #endif // MAINWINDOW_H
