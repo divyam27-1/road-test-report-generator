@@ -16428,7 +16428,7 @@ color: rgb(0, 0, 0);</string>
        <attribute name="title">
         <string>Bitumen Rheology</string>
        </attribute>
-       <widget class="QPushButton" name="gmm_save_2">
+       <widget class="QPushButton" name="rheology_save">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -16451,7 +16451,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="vol_bsc_4">
          <property name="geometry">
@@ -16483,7 +16483,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="gmm_name_2"/>
+            <widget class="QTextEdit" name="rheology_name"/>
            </item>
            <item>
             <widget class="QLabel" name="label_373">
@@ -16493,7 +16493,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="gmm_contractor_2"/>
+            <widget class="QTextEdit" name="rheology_contractor"/>
            </item>
            <item>
             <spacer name="side_socr_8">
@@ -16645,7 +16645,7 @@ color: rgb(0, 0, 0);</string>
              <item row="0" column="0">
               <widget class="QLabel" name="label_376">
                <property name="text">
-                <string>Sample no.</string>
+                <string>Grade of Bitumen</string>
                </property>
               </widget>
              </item>
@@ -16671,7 +16671,7 @@ color: rgb(0, 0, 0);</string>
              <item row="2" column="0">
               <widget class="QLabel" name="label_377">
                <property name="text">
-                <string>Source of Material</string>
+                <string>Source of Aggregate</string>
                </property>
               </widget>
              </item>
@@ -16697,7 +16697,7 @@ color: rgb(0, 0, 0);</string>
              <item row="4" column="0">
               <widget class="QLabel" name="label_378">
                <property name="text">
-                <string>Source Approval</string>
+                <string>Manufacturer</string>
                </property>
               </widget>
              </item>
@@ -16723,7 +16723,7 @@ color: rgb(0, 0, 0);</string>
              <item row="6" column="0">
               <widget class="QLabel" name="label_379">
                <property name="text">
-                <string>Sample At</string>
+                <string>Size of Aggregrate</string>
                </property>
               </widget>
              </item>
@@ -16733,7 +16733,7 @@ color: rgb(0, 0, 0);</string>
              <item row="7" column="0">
               <widget class="QLabel" name="label_382">
                <property name="text">
-                <string>Freequency Test</string>
+                <string>Sample Location</string>
                </property>
               </widget>
              </item>
@@ -16746,7 +16746,7 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </widget>
        </widget>
-       <widget class="QPushButton" name="gmm_export_2">
+       <widget class="QPushButton" name="rheology_export">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -16759,7 +16759,7 @@ color: rgb(0, 0, 0);</string>
          <string>Export to PDF</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="gmm_saveas_2">
+       <widget class="QPushButton" name="rheology_saveas">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -16793,7 +16793,7 @@ color: rgb(0, 0, 0);</string>
            <x>0</x>
            <y>0</y>
            <width>1031</width>
-           <height>2511</height>
+           <height>3091</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -16914,40 +16914,40 @@ color: rgb(0, 0, 0);</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="4" column="2">
-            <widget class="QLineEdit" name="gmm1_53"/>
+            <widget class="QLineEdit" name="rheology_strip_52"/>
            </item>
            <item row="0" column="0">
-            <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+            <widget class="QDateTimeEdit" name="rheology_strip_11"/>
            </item>
            <item row="1" column="2">
-            <widget class="QLineEdit" name="gmm1_24"/>
+            <widget class="QLineEdit" name="rheology_strip_22"/>
            </item>
            <item row="3" column="0">
-            <widget class="QLineEdit" name="gmm1_43"/>
+            <widget class="QLineEdit" name="rheology_strip_41"/>
            </item>
            <item row="3" column="2">
-            <widget class="QLineEdit" name="gmm1_44"/>
+            <widget class="QLineEdit" name="rheology_strip_42"/>
            </item>
            <item row="0" column="2">
-            <widget class="QDateTimeEdit" name="dateTimeEdit_2"/>
+            <widget class="QDateTimeEdit" name="rheology_strip_12"/>
            </item>
            <item row="2" column="0">
-            <widget class="QLineEdit" name="gmm1_33"/>
+            <widget class="QLineEdit" name="rheology_strip_31"/>
            </item>
            <item row="1" column="0">
-            <widget class="QLineEdit" name="gmm1_23"/>
+            <widget class="QLineEdit" name="rheology_strip_21"/>
            </item>
            <item row="2" column="2">
-            <widget class="QLineEdit" name="gmm1_34"/>
+            <widget class="QLineEdit" name="rheology_strip_32"/>
            </item>
            <item row="4" column="0">
-            <widget class="QLineEdit" name="gmm1_54"/>
+            <widget class="QLineEdit" name="rheology_strip_51"/>
            </item>
            <item row="5" column="0">
-            <widget class="QDateTimeEdit" name="dateTimeEdit_3"/>
+            <widget class="QDateTimeEdit" name="rheology_strip_61"/>
            </item>
            <item row="5" column="2">
-            <widget class="QDateTimeEdit" name="dateTimeEdit_4"/>
+            <widget class="QDateTimeEdit" name="rheology_strip_62"/>
            </item>
           </layout>
          </widget>
@@ -16977,7 +16977,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Liquid Used in Bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="rheology_soft_1">
           <property name="geometry">
            <rect>
             <x>240</x>
@@ -17000,7 +17000,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_4">
+         <widget class="QLineEdit" name="rheology_soft_2">
           <property name="geometry">
            <rect>
             <x>240</x>
@@ -17023,7 +17023,7 @@ color: rgb(0, 0, 0);</string>
            <string>min</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_5">
+         <widget class="QLineEdit" name="rheology_soft_3">
           <property name="geometry">
            <rect>
             <x>680</x>
@@ -17239,7 +17239,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp. at which&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;sample touches &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;bottom plate &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;( in centigrade)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+         <widget class="QDoubleSpinBox" name="rheology_soft_4">
           <property name="geometry">
            <rect>
             <x>230</x>
@@ -17249,7 +17249,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+         <widget class="QDoubleSpinBox" name="rheology_soft_7">
           <property name="geometry">
            <rect>
             <x>620</x>
@@ -17259,7 +17259,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+         <widget class="QDoubleSpinBox" name="rheology_soft_5">
           <property name="geometry">
            <rect>
             <x>360</x>
@@ -17269,7 +17269,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+         <widget class="QDoubleSpinBox" name="rheology_soft_6">
           <property name="geometry">
            <rect>
             <x>490</x>
@@ -17279,7 +17279,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLabel" name="label_387">
+         <widget class="QLabel" name="rheology_soft_mean">
           <property name="geometry">
            <rect>
             <x>770</x>
@@ -17305,7 +17305,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="rheology_strip_save">
           <property name="geometry">
            <rect>
             <x>60</x>
@@ -17318,7 +17318,7 @@ color: rgb(0, 0, 0);</string>
            <string>Save</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="rheology_soft_save">
           <property name="geometry">
            <rect>
             <x>60</x>
@@ -17357,7 +17357,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Pouring Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_9">
+         <widget class="QLineEdit" name="rheology_pen_1">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -17367,7 +17367,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_10">
+         <widget class="QLineEdit" name="rheology_pen_2">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -17403,7 +17403,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling in Atmosphere&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_11">
+         <widget class="QLineEdit" name="rheology_pen_4">
           <property name="geometry">
            <rect>
             <x>720</x>
@@ -17413,7 +17413,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_12">
+         <widget class="QLineEdit" name="rheology_pen_5">
           <property name="geometry">
            <rect>
             <x>720</x>
@@ -17436,7 +17436,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Period of Cooling in Water Bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_14">
+         <widget class="QLineEdit" name="rheology_pen_3">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -17563,7 +17563,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Mean Penetration Value: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_13">
+         <widget class="QLineEdit" name="rheology_pen_6">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -17573,7 +17573,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_15">
+         <widget class="QLineEdit" name="rheology_pen_8">
           <property name="geometry">
            <rect>
             <x>510</x>
@@ -17583,7 +17583,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_16">
+         <widget class="QLineEdit" name="rheology_pen_10">
           <property name="geometry">
            <rect>
             <x>670</x>
@@ -17593,7 +17593,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_17">
+         <widget class="QLineEdit" name="rheology_pen_7">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -17603,7 +17603,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_18">
+         <widget class="QLineEdit" name="rheology_pen_9">
           <property name="geometry">
            <rect>
             <x>510</x>
@@ -17613,7 +17613,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_19">
+         <widget class="QLineEdit" name="rheology_pen_11">
           <property name="geometry">
            <rect>
             <x>670</x>
@@ -17662,7 +17662,7 @@ color: rgb(0, 0, 0);</string>
            <string>0</string>
           </property>
          </widget>
-         <widget class="QLabel" name="label_539">
+         <widget class="QLabel" name="rheology_pen_mean">
           <property name="geometry">
            <rect>
             <x>390</x>
@@ -17675,7 +17675,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="rheology_pen_save">
           <property name="geometry">
            <rect>
             <x>60</x>
@@ -17714,7 +17714,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Ductility&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_20">
+         <widget class="QLineEdit" name="rheology_ductility_2">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -17737,7 +17737,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Pouring Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_21">
+         <widget class="QLineEdit" name="rheology_ductility_1">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -17916,7 +17916,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Rate of Pull&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_22">
+         <widget class="QLineEdit" name="rheology_ductility_3">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -17926,7 +17926,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_23">
+         <widget class="QLineEdit" name="rheology_ductility_4">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -17936,7 +17936,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_24">
+         <widget class="QLineEdit" name="rheology_ductility_5">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -17946,7 +17946,7 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_25">
+         <widget class="QLineEdit" name="rheology_ductility_6">
           <property name="geometry">
            <rect>
             <x>350</x>
@@ -18008,7 +18008,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_26">
+         <widget class="QLineEdit" name="rheology_ductility_7">
           <property name="geometry">
            <rect>
             <x>240</x>
@@ -18031,7 +18031,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_27">
+         <widget class="QLineEdit" name="rheology_ductility_8">
           <property name="geometry">
            <rect>
             <x>390</x>
@@ -18054,7 +18054,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_28">
+         <widget class="QLineEdit" name="rheology_ductility_9">
           <property name="geometry">
            <rect>
             <x>540</x>
@@ -18077,7 +18077,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Mean Value (cm)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QLabel" name="label_562">
+         <widget class="QLabel" name="rheology_ductility_mean">
           <property name="geometry">
            <rect>
             <x>720</x>
@@ -18090,7 +18090,7 @@ color: rgb(0, 0, 0);</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="rheology_ductility_save">
           <property name="geometry">
            <rect>
             <x>60</x>
@@ -18108,6 +18108,354 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>0</x>
             <y>2280</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_563">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>2310</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Flash Point&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="rheology_flash_mean">
+          <property name="geometry">
+           <rect>
+            <x>720</x>
+            <y>2420</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_565">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>2370</y>
+            <width>161</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Sample Number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_566">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>2420</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_567">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>2420</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_568">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>2415</y>
+            <width>141</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Flash Point ( ℃ )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="rheology_flash_1">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>2420</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="rheology_flash_3">
+          <property name="geometry">
+           <rect>
+            <x>540</x>
+            <y>2420</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="rheology_flash_2">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>2420</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_569">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>2420</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_570">
+          <property name="geometry">
+           <rect>
+            <x>710</x>
+            <y>2370</y>
+            <width>161</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Mean Value&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="rheology_flash_save">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>2540</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_11">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>2600</y>
+            <width>1031</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_564">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>2640</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Viscosity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>2710</y>
+            <width>531</width>
+            <height>241</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="rheology_viscosity_4"/>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QLabel" name="label_562">
+             <property name="text">
+              <string>Size of Tube</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="label_577">
+             <property name="text">
+              <string>Constant cSt/second</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLineEdit" name="rheology_viscosity_6"/>
+           </item>
+           <item row="5" column="0" rowspan="2" colspan="2">
+            <widget class="QLabel" name="label_571">
+             <property name="text">
+              <string>Calibration Factor for Bulbs</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="2">
+            <widget class="QLabel" name="label_572">
+             <property name="text">
+              <string>Time for Bulbs (sec)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLabel" name="label_576">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Bulb B</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QLineEdit" name="rheology_viscosity_9"/>
+           </item>
+           <item row="6" column="3">
+            <widget class="QLineEdit" name="rheology_viscosity_8"/>
+           </item>
+           <item row="7" column="3">
+            <widget class="QLineEdit" name="rheology_viscosity_10"/>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_581">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Kinematic Viscosity in cSt</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLineEdit" name="rheology_viscosity_7"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_580">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Absolute Viscosity in Poise</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QLabel" name="label_539">
+             <property name="text">
+              <string>Water Bath Time (min)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="rheology_viscosity_1"/>
+           </item>
+           <item row="0" column="2" colspan="2">
+            <widget class="QLabel" name="label_579">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Results&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="rheology_viscosity_2"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="rheology_viscosity_5"/>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QLabel" name="label_387">
+             <property name="text">
+              <string>Test Temperature (℃) </string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="rheology_viscosity_3"/>
+           </item>
+           <item row="0" column="0" rowspan="2" colspan="2">
+            <widget class="QLabel" name="label_578">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Description&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="rheology_viscosity_save">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>3020</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_12">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>3080</y>
             <width>1031</width>
             <height>16</height>
            </rect>
