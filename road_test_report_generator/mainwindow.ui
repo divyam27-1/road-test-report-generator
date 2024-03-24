@@ -9662,7 +9662,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-10</y>
         <width>1681</width>
         <height>791</height>
        </rect>
@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>551</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11973,7 +11973,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-340</y>
            <width>1050</width>
            <height>1451</height>
           </rect>
@@ -14602,9 +14602,9 @@ Density</string>
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>20</y>
+            <y>10</y>
             <width>861</width>
-            <height>131</height>
+            <height>91</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -14613,7 +14613,7 @@ Density</string>
 color: rgb(0, 0, 0);</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WORKSHEET FOR VOLUMETRIC ANALYSIS OF&lt;/p&gt;&lt;p&gt;COMPACTED PAVING MIXTURE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WORKSHEET FOR VOLUMETRIC ANALYSIS OF COMPACTED&lt;br/&gt;PAVING MIXTURE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_293">
@@ -15675,6 +15675,171 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
+         <widget class="QLabel" name="label_388">
+          <property name="geometry">
+           <rect>
+            <x>380</x>
+            <y>110</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
+
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:400;&quot;&gt;Specific Gravity G&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_389">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>110</y>
+            <width>371</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
+
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:400;&quot;&gt;Composition by % wt. of Total Mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_391">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>190</y>
+            <width>291</width>
+            <height>491</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(245, 250, 159, 228);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <zorder>label_389</zorder>
+         <zorder>horizontalLayoutWidget_65</zorder>
+         <zorder>horizontalLayoutWidget_67</zorder>
+         <zorder>horizontalLayoutWidget_70</zorder>
+         <zorder>horizontalLayoutWidget_72</zorder>
+         <zorder>horizontalLayoutWidget_73</zorder>
+         <zorder>label_290</zorder>
+         <zorder>label_218</zorder>
+         <zorder>label_220</zorder>
+         <zorder>label_225</zorder>
+         <zorder>label_227</zorder>
+         <zorder>label_228</zorder>
+         <zorder>label_229</zorder>
+         <zorder>label_230</zorder>
+         <zorder>label_232</zorder>
+         <zorder>label_237</zorder>
+         <zorder>label_239</zorder>
+         <zorder>label_240</zorder>
+         <zorder>vol_gsb_1</zorder>
+         <zorder>vol_gmm_1</zorder>
+         <zorder>vol_gmb_1</zorder>
+         <zorder>vol_vma_1</zorder>
+         <zorder>vol_va_1</zorder>
+         <zorder>vol_vfb_1</zorder>
+         <zorder>label_241</zorder>
+         <zorder>vol_pb_1</zorder>
+         <zorder>label_242</zorder>
+         <zorder>vol_ps_1</zorder>
+         <zorder>label_244</zorder>
+         <zorder>vol_p3_1</zorder>
+         <zorder>label_249</zorder>
+         <zorder>vol_p2_1</zorder>
+         <zorder>label_251</zorder>
+         <zorder>vol_p1_1</zorder>
+         <zorder>label_252</zorder>
+         <zorder>label_270</zorder>
+         <zorder>label_273</zorder>
+         <zorder>label_274</zorder>
+         <zorder>vol_vma_2</zorder>
+         <zorder>vol_vfb_2</zorder>
+         <zorder>vol_gmb_2</zorder>
+         <zorder>vol_ps_2</zorder>
+         <zorder>label_277</zorder>
+         <zorder>vol_p2_2</zorder>
+         <zorder>vol_p3_2</zorder>
+         <zorder>vol_gsb_2</zorder>
+         <zorder>vol_gmm_2</zorder>
+         <zorder>vol_va_2</zorder>
+         <zorder>vol_p1_2</zorder>
+         <zorder>vol_pb_2</zorder>
+         <zorder>vol_vma_3</zorder>
+         <zorder>vol_vfb_3</zorder>
+         <zorder>vol_gmb_3</zorder>
+         <zorder>vol_ps_3</zorder>
+         <zorder>label_282</zorder>
+         <zorder>vol_p2_3</zorder>
+         <zorder>vol_p3_3</zorder>
+         <zorder>vol_gsb_3</zorder>
+         <zorder>vol_gmm_3</zorder>
+         <zorder>vol_va_3</zorder>
+         <zorder>vol_p1_3</zorder>
+         <zorder>vol_pb_3</zorder>
+         <zorder>vol_vma_4</zorder>
+         <zorder>vol_vfb_4</zorder>
+         <zorder>vol_gmb_4</zorder>
+         <zorder>vol_ps_4</zorder>
+         <zorder>label_283</zorder>
+         <zorder>vol_p2_4</zorder>
+         <zorder>vol_p3_4</zorder>
+         <zorder>vol_gsb_4</zorder>
+         <zorder>vol_gmm_4</zorder>
+         <zorder>vol_va_4</zorder>
+         <zorder>vol_p1_4</zorder>
+         <zorder>vol_pb_6</zorder>
+         <zorder>vol_vma_5</zorder>
+         <zorder>vol_vfb_5</zorder>
+         <zorder>vol_gmb_5</zorder>
+         <zorder>vol_ps_5</zorder>
+         <zorder>label_284</zorder>
+         <zorder>vol_p2_5</zorder>
+         <zorder>vol_p3_5</zorder>
+         <zorder>vol_gsb_5</zorder>
+         <zorder>vol_gmm_5</zorder>
+         <zorder>vol_va_5</zorder>
+         <zorder>vol_p1_5</zorder>
+         <zorder>vol_pb_5</zorder>
+         <zorder>vol_va_obc</zorder>
+         <zorder>vol_gmm_obc</zorder>
+         <zorder>vol_ps_obc</zorder>
+         <zorder>vol_vma_obc</zorder>
+         <zorder>vol_p2_obc</zorder>
+         <zorder>vol_vfb_obc</zorder>
+         <zorder>vol_gmb_obc</zorder>
+         <zorder>vol_gsb_obc</zorder>
+         <zorder>vol_p1_obc</zorder>
+         <zorder>vol_pb_obc</zorder>
+         <zorder>vol_p3_obc</zorder>
+         <zorder>line</zorder>
+         <zorder>line_4</zorder>
+         <zorder>label_388</zorder>
+         <zorder>label_391</zorder>
+         <zorder>label_295</zorder>
+         <zorder>label_294</zorder>
+         <zorder>label_293</zorder>
+         <zorder>label_287</zorder>
+         <zorder>label_286</zorder>
+         <zorder>label_285</zorder>
+         <zorder>label_272</zorder>
+         <zorder>label_184</zorder>
+         <zorder>label_215</zorder>
+         <zorder>label_216</zorder>
+         <zorder>label_217</zorder>
+         <zorder>label_271</zorder>
         </widget>
        </widget>
        <widget class="QLabel" name="vol_saved">
@@ -15802,8 +15967,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -16203,7 +16368,7 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>30</x>
             <y>570</y>
-            <width>191</width>
+            <width>211</width>
             <height>31</height>
            </rect>
           </property>
@@ -16445,15 +16610,15 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>1070</x>
-          <y>0</y>
+          <y>10</y>
           <width>261</width>
           <height>761</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
-        <widget class="QWidget" name="vol_bsc_4">
+        <widget class="QWidget" name="rheology_bsc">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -16537,7 +16702,7 @@ color: rgb(0, 0, 0);</string>
           </layout>
          </widget>
         </widget>
-        <widget class="QWidget" name="grad_exp_33">
+        <widget class="QWidget" name="rheology_exp">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -16573,7 +16738,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QDateEdit" name="gmm_exp_8">
+            <widget class="QDateEdit" name="rh_sample">
              <property name="displayFormat">
               <string>d/M/yyyy</string>
              </property>
@@ -16609,7 +16774,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QDateEdit" name="gmm_exp_9">
+            <widget class="QDateEdit" name="rh_test">
              <property name="displayFormat">
               <string>d/M/yyyy</string>
              </property>
@@ -16650,7 +16815,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QSpinBox" name="gmm_exp_10"/>
+              <widget class="QSpinBox" name="rh_grade"/>
              </item>
              <item row="1" column="1">
               <spacer name="verticalSpacer_55">
@@ -16676,7 +16841,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="gmm_exp_11"/>
+              <widget class="QLineEdit" name="rh_src"/>
              </item>
              <item row="3" column="1">
               <spacer name="verticalSpacer_56">
@@ -16702,7 +16867,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="gmm_exp_12"/>
+              <widget class="QLineEdit" name="rh_manufacturer"/>
              </item>
              <item row="5" column="1">
               <spacer name="verticalSpacer_57">
@@ -16728,7 +16893,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="6" column="1">
-              <widget class="QLineEdit" name="gmm_exp_13"/>
+              <widget class="QLineEdit" name="rh_size"/>
              </item>
              <item row="7" column="0">
               <widget class="QLabel" name="label_382">
@@ -16738,7 +16903,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="7" column="1">
-              <widget class="QLineEdit" name="gmm_exp_14"/>
+              <widget class="QLineEdit" name="rh_loc"/>
              </item>
             </layout>
            </item>
@@ -16772,7 +16937,7 @@ color: rgb(0, 0, 0);</string>
          <string>Save As...</string>
         </property>
        </widget>
-       <widget class="QFrame" name="gmm_frame_outer_2">
+       <widget class="QFrame" name="rheology_frame_outer">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -16787,7 +16952,7 @@ color: rgb(0, 0, 0);</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QFrame" name="gmm_frame_2">
+        <widget class="QFrame" name="rheology_frame">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -18466,7 +18631,7 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </widget>
        </widget>
-       <widget class="QScrollBar" name="gmm_scroll_2">
+       <widget class="QScrollBar" name="rheology_scroll">
         <property name="geometry">
          <rect>
           <x>1040</x>
@@ -18478,6 +18643,503 @@ color: rgb(0, 0, 0);</string>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="wa">
+       <attribute name="title">
+        <string>Water Absorption</string>
+       </attribute>
+       <widget class="QPushButton" name="rheology_save_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rheology_export_4">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>110</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export to PDF</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rheology_saveas_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save As...</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="rheology_frame_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>1031</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_684">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>311</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Water Absorption&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_685">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>110</y>
+           <width>281</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Aggregrate size: 25-16mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="gridLayoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>190</y>
+           <width>481</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_691">
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="lineEdit_3"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_687">
+            <property name="text">
+             <string>Weight of Basket in water (gms)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLineEdit" name="lineEdit_4"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_686">
+            <property name="text">
+             <string>Weight Of Aggregate and Basket in water (gms)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_690">
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="lineEdit_7"/>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLineEdit" name="lineEdit_8"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_694">
+            <property name="text">
+             <string>Sample 1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="label_695">
+            <property name="text">
+             <string>Sample 2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_688">
+            <property name="text">
+             <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_692">
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLineEdit" name="lineEdit_5"/>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLineEdit" name="lineEdit_9"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_689">
+            <property name="text">
+             <string>Weight of Oven Dried Sample,(g)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="label_693">
+            <property name="text">
+             <string>D</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QLineEdit" name="lineEdit_6"/>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLineEdit" name="lineEdit_10"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QToolBox" name="gmm_info_3">
+        <property name="geometry">
+         <rect>
+          <x>1040</x>
+          <y>10</y>
+          <width>261</width>
+          <height>761</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="rheology_bsc_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Basic Info</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_28">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>258</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_48">
+           <item>
+            <widget class="QLabel" name="label_675">
+             <property name="text">
+              <string>Name of the Client</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="rheology_name_3"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_676">
+             <property name="text">
+              <string>Name of the Contractor</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="rheology_contractor_3"/>
+           </item>
+           <item>
+            <spacer name="side_socr_14">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_28">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_29">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="rheology_exp_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>100</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Experiment Info</string>
+         </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_27">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>10</y>
+            <width>221</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_49">
+           <item>
+            <widget class="QLabel" name="label_677">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="rh_sample_3">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_68">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_678">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Testing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="rh_test_3">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_69">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_14">
+             <property name="rowWrapPolicy">
+              <enum>QFormLayout::DontWrapRows</enum>
+             </property>
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_679">
+               <property name="text">
+                <string>Grade of Bitumen</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="rh_grade_3"/>
+             </item>
+             <item row="1" column="1">
+              <spacer name="verticalSpacer_70">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_680">
+               <property name="text">
+                <string>Source of Aggregate</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="rh_src_3"/>
+             </item>
+             <item row="3" column="1">
+              <spacer name="verticalSpacer_71">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_681">
+               <property name="text">
+                <string>Manufacturer</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="rh_manufacturer_3"/>
+             </item>
+             <item row="5" column="1">
+              <spacer name="verticalSpacer_72">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_682">
+               <property name="text">
+                <string>Size of Aggregrate</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="rh_size_3"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_683">
+               <property name="text">
+                <string>Sample Location</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="rh_loc_3"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
        </widget>
       </widget>
      </widget>

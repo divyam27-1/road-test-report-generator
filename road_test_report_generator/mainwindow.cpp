@@ -403,6 +403,75 @@ void MainWindow::on_tensile_save_clicked()
 void MainWindow::on_marshall_save_clicked() {
 
 }
+void MainWindow::on_vol_save_clicked() {
+
+    tracked_files.push_back("vol");
+    removeDuplicates(tracked_files);
+
+    QJsonObject specific_gravity;
+    QJsonObject composition;
+
+    QStringList spg_expnames = {"apparent", "bulk", "total", "btmn"};
+
+    for (int i = 1; i <= 3; i++) {
+        for (QString s: spg_expnames) {
+
+            QString constructor = "vol_" + s + "_%1";
+            QString obj_name = constructor.arg(i);
+
+            QLineEdit* tedit = ui->vol->findChild<QLineEdit*>(obj_name);
+
+            if (tedit) {
+                specific_gravity[obj_name] = tedit->text().toDouble();
+            } else {
+                qDebug() << "Error on saving 'vol' at" << obj_name << "constructor" << constructor << "tedit not found";
+            }
+        }
+    }
+
+    specific_gravity["vol_eff_1"] = (ui->vol_apparent_1->text().toDouble() + ui->vol_bulk_1->text().toDouble())/2;
+    specific_gravity["vol_eff_2"] = (ui->vol_apparent_2->text().toDouble() + ui->vol_bulk_2->text().toDouble())/2;
+    specific_gravity["vol_eff_3"] = (ui->vol_apparent_3->text().toDouble() + ui->vol_bulk_3->text().toDouble())/2;
+
+    QStringList comp_expnames = {"p1", "p2", "p3", "pb", "gsb", "gmm", "gmb"};
+
+    for (int i = 1; i <= 5; i++) {
+        for (QString s: comp_expnames) {
+
+            QString constructor = "vol_" + s + "_%1";
+            QString obj_name = constructor.arg(i);
+
+            QLineEdit* tedit = ui->vol->findChild<QLineEdit*>(obj_name);
+
+            if (tedit) {
+                composition[obj_name] = tedit->text().toDouble();
+            } else {
+                qDebug() << "Error on saving 'vol' at" << obj_name << "constructor" << constructor << "teditnotfound";
+            }
+        }
+    }
+
+    QJsonObject vol_json;
+    vol_json["spg"] = specific_gravity;
+    vol_json["composition"] = composition;
+
+    QFile vol_json_file(cwd.filePath("json/vol.json"));
+
+    if (vol_json_file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&vol_json_file);
+        QJsonDocument jsonDoc_1(vol_json);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        vol_json_file.close();
+    } else {
+        qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
+    }
+    save_check();
+}
+
 
 
 //Deals with save as requests
@@ -478,6 +547,8 @@ void MainWindow::on_tensile_saveas_clicked() {
 }
 
 
+
+//Save Check function is simultaeneously the most and least important function
 void MainWindow::save_check() {
     for (auto exp: all_experiments) {
         if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end()) {
@@ -6578,6 +6649,15 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         case 3:
             scroll_pos = ui->vol_scroll->value();
             ui->vol_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
+        case 4:
+            scroll_pos = ui->gmm_scroll->value();
+            ui->gmm_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
+        case 5:
+            scroll_pos = ui->rheology_scroll->value();
+            ui->rheology_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
         }
     }
 }
@@ -6606,13 +6686,13 @@ void MainWindow::on_marshall_scroll_valueChanged(int value)
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
 }
-QVector<int> non_scrolling_elements = {290,184,215,217,216,271,286,272,287,293,294,295};
+QVector<int> vol_non_scrolling_elements = {391,290,184,215,217,216,271,286,272,287,293,294,295};
 void MainWindow::on_vol_scroll_valueChanged(int value)
 {
     float target = (ui->vol_frame_outer->width() - ui->vol_frame->width()) * value / 100;
     ui->vol_frame->move(target, ui->vol_frame->y());
 
-    for (auto i: non_scrolling_elements) {
+    for (auto i: vol_non_scrolling_elements) {
         QString elem_name = QString::fromStdString("label_" + std::to_string(i));
         QLabel* label = ui->vol_frame->findChild<QLabel*>(elem_name);
 
@@ -6623,6 +6703,16 @@ void MainWindow::on_vol_scroll_valueChanged(int value)
             qDebug() << "element" << i << "not found";
         }
     }
+}
+void MainWindow::on_gmm_scroll_valueChanged(int value)
+{
+    float target = (ui->gmm_frame_outer->height() - ui->gmm_frame->height()) * value / 100;
+    ui->gmm_frame->move(0, target);
+}
+void MainWindow::on_rheology_scroll_valueChanged(int value)
+{
+    float target = (ui->rheology_frame_outer->height() - ui->rheology_frame->height()) * value / 100;
+    ui->rheology_frame->move(0, target);
 }
 
 
