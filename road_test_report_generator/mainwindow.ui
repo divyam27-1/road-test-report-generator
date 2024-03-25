@@ -196,8 +196,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -9662,7 +9662,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-10</y>
+        <y>0</y>
         <width>1681</width>
         <height>791</height>
        </rect>
@@ -11973,7 +11973,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-340</y>
+           <y>0</y>
            <width>1050</width>
            <height>1451</height>
           </rect>
@@ -18649,7 +18649,7 @@ color: rgb(0, 0, 0);</string>
        <attribute name="title">
         <string>Water Absorption</string>
        </attribute>
-       <widget class="QPushButton" name="rheology_save_4">
+       <widget class="QPushButton" name="wa_save">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -18662,7 +18662,7 @@ color: rgb(0, 0, 0);</string>
          <string>Save</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="rheology_export_4">
+       <widget class="QPushButton" name="wa_export">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -18675,7 +18675,7 @@ color: rgb(0, 0, 0);</string>
          <string>Export to PDF</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="rheology_saveas_4">
+       <widget class="QPushButton" name="wa_saveas">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -18688,155 +18688,7 @@ color: rgb(0, 0, 0);</string>
          <string>Save As...</string>
         </property>
        </widget>
-       <widget class="QFrame" name="rheology_frame_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>70</y>
-          <width>1031</width>
-          <height>690</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_684">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>311</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Water Absorption&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_685">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>110</y>
-           <width>281</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Aggregrate size: 25-16mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget_3">
-         <property name="geometry">
-          <rect>
-           <x>40</x>
-           <y>190</y>
-           <width>481</width>
-           <height>151</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_11">
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_691">
-            <property name="text">
-             <string>B</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLineEdit" name="lineEdit_3"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_687">
-            <property name="text">
-             <string>Weight of Basket in water (gms)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="lineEdit_4"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_686">
-            <property name="text">
-             <string>Weight Of Aggregate and Basket in water (gms)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_690">
-            <property name="text">
-             <string>A</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QLineEdit" name="lineEdit_7"/>
-          </item>
-          <item row="2" column="3">
-           <widget class="QLineEdit" name="lineEdit_8"/>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLabel" name="label_694">
-            <property name="text">
-             <string>Sample 1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QLabel" name="label_695">
-            <property name="text">
-             <string>Sample 2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_688">
-            <property name="text">
-             <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="label_692">
-            <property name="text">
-             <string>C</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QLineEdit" name="lineEdit_5"/>
-          </item>
-          <item row="3" column="3">
-           <widget class="QLineEdit" name="lineEdit_9"/>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_689">
-            <property name="text">
-             <string>Weight of Oven Dried Sample,(g)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="label_693">
-            <property name="text">
-             <string>D</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QLineEdit" name="lineEdit_6"/>
-          </item>
-          <item row="4" column="3">
-           <widget class="QLineEdit" name="lineEdit_10"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-       <widget class="QToolBox" name="gmm_info_3">
+       <widget class="QToolBox" name="wa_info">
         <property name="geometry">
          <rect>
           <x>1040</x>
@@ -18846,7 +18698,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="rheology_bsc_3">
          <property name="geometry">
@@ -18878,7 +18730,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="rheology_name_3"/>
+            <widget class="QTextEdit" name="wa_name"/>
            </item>
            <item>
             <widget class="QLabel" name="label_676">
@@ -18888,7 +18740,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="rheology_contractor_3"/>
+            <widget class="QTextEdit" name="wa_contractor"/>
            </item>
            <item>
             <spacer name="side_socr_14">
@@ -18937,8 +18789,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -18968,7 +18820,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QDateEdit" name="rh_sample_3">
+            <widget class="QDateEdit" name="wa_date">
              <property name="displayFormat">
               <string>d/M/yyyy</string>
              </property>
@@ -19004,7 +18856,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item>
-            <widget class="QDateEdit" name="rh_test_3">
+            <widget class="QDateEdit" name="wa_test">
              <property name="displayFormat">
               <string>d/M/yyyy</string>
              </property>
@@ -19045,7 +18897,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QSpinBox" name="rh_grade_3"/>
+              <widget class="QSpinBox" name="wa_grade"/>
              </item>
              <item row="1" column="1">
               <spacer name="verticalSpacer_70">
@@ -19071,7 +18923,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="rh_src_3"/>
+              <widget class="QLineEdit" name="wa_src"/>
              </item>
              <item row="3" column="1">
               <spacer name="verticalSpacer_71">
@@ -19097,7 +18949,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="rh_manufacturer_3"/>
+              <widget class="QLineEdit" name="wa_manufacturer"/>
              </item>
              <item row="5" column="1">
               <spacer name="verticalSpacer_72">
@@ -19123,7 +18975,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="6" column="1">
-              <widget class="QLineEdit" name="rh_size_3"/>
+              <widget class="QLineEdit" name="wa_size"/>
              </item>
              <item row="7" column="0">
               <widget class="QLabel" name="label_683">
@@ -19133,13 +18985,543 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="7" column="1">
-              <widget class="QLineEdit" name="rh_loc_3"/>
+              <widget class="QLineEdit" name="wa_loc"/>
              </item>
             </layout>
            </item>
           </layout>
          </widget>
         </widget>
+       </widget>
+       <widget class="QFrame" name="wa_frame_outer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>1015</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QFrame" name="wa_frame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1015</width>
+           <height>1251</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_684">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>311</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; font-weight:700;&quot;&gt;Water Absorption&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_685">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>110</y>
+            <width>281</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Aggregrate size: 25-16mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget_3">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>190</y>
+            <width>501</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_691">
+             <property name="text">
+              <string>B</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="wa1_11"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_687">
+             <property name="text">
+              <string>Weight of Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="wa1_21"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_686">
+             <property name="text">
+              <string>Weight Of Aggregate and Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_690">
+             <property name="text">
+              <string>A</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="wa1_12"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="wa1_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_694">
+             <property name="text">
+              <string>Sample 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_695">
+             <property name="text">
+              <string>Sample 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_688">
+             <property name="text">
+              <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_692">
+             <property name="text">
+              <string>C</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="wa1_31"/>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="wa1_32"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_689">
+             <property name="text">
+              <string>Weight of Oven Dried Sample,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_693">
+             <property name="text">
+              <string>D</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="wa1_41"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLineEdit" name="wa1_42"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_696">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>390</y>
+            <width>281</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Aggregrate size: 16-4.75mm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget_5">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>470</y>
+            <width>501</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_697">
+             <property name="text">
+              <string>B</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="wa2_11"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_698">
+             <property name="text">
+              <string>Weight of Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="wa2_21"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_699">
+             <property name="text">
+              <string>Weight Of Aggregate and Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_700">
+             <property name="text">
+              <string>A</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="wa2_12"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="wa2_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_701">
+             <property name="text">
+              <string>Sample 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_702">
+             <property name="text">
+              <string>Sample 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_703">
+             <property name="text">
+              <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_704">
+             <property name="text">
+              <string>C</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="wa2_31"/>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="wa2_32"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_705">
+             <property name="text">
+              <string>Weight of Oven Dried Sample,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_706">
+             <property name="text">
+              <string>D</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="wa2_41"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLineEdit" name="wa2_42"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_707">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>670</y>
+            <width>281</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Aggregrate size: Stone Dust&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget_6">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>750</y>
+            <width>501</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_708">
+             <property name="text">
+              <string>B</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="wa3_11"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_709">
+             <property name="text">
+              <string>Weight of Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="wa3_21"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_710">
+             <property name="text">
+              <string>Weight Of Aggregate and Basket in water (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_711">
+             <property name="text">
+              <string>A</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="wa3_12"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="wa3_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_712">
+             <property name="text">
+              <string>Sample 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_713">
+             <property name="text">
+              <string>Sample 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_714">
+             <property name="text">
+              <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_715">
+             <property name="text">
+              <string>C</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="wa3_31"/>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="wa3_32"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_716">
+             <property name="text">
+              <string>Weight of Oven Dried Sample,(g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_717">
+             <property name="text">
+              <string>D</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="wa3_41"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLineEdit" name="wa3_42"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_718">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>950</y>
+            <width>281</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Cleanliness of Sample&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget_7">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>1030</y>
+            <width>651</width>
+            <height>161</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="wa4_32"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="wa4_21"/>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="wa4_12"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_719">
+             <property name="text">
+              <string>B</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_724">
+             <property name="text">
+              <string>Sample 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="wa4_22"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_722">
+             <property name="text">
+              <string>A</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_721">
+             <property name="text">
+              <string>Weight Of Aggregate before washing (gms)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="wa4_31"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_720">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Weight of Aggregate after washing in 75 MIC &lt;/p&gt;&lt;p&gt;IS SEIVE (gms)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_725">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Weight of material passing through 75 MIC&lt;/p&gt;&lt;p&gt;IS sieve (gms.)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_726">
+             <property name="text">
+              <string>C</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_723">
+             <property name="text">
+              <string>Sample 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="wa4_11"/>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_727">
+             <property name="text">
+              <string>Sample 3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QLineEdit" name="wa4_13"/>
+           </item>
+           <item row="2" column="4">
+            <widget class="QLineEdit" name="wa4_23"/>
+           </item>
+           <item row="3" column="4">
+            <widget class="QLineEdit" name="wa4_33"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QScrollBar" name="wa_scroll">
+        <property name="geometry">
+         <rect>
+          <x>1025</x>
+          <y>70</y>
+          <width>16</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
        </widget>
       </widget>
      </widget>

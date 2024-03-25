@@ -6658,6 +6658,10 @@ void MainWindow::wheelEvent(QWheelEvent *event)
             scroll_pos = ui->rheology_scroll->value();
             ui->rheology_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
             break;
+        case 6:
+            scroll_pos = ui->wa_scroll->value();
+            ui->wa_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            break;
         }
     }
 }
@@ -6713,6 +6717,11 @@ void MainWindow::on_rheology_scroll_valueChanged(int value)
 {
     float target = (ui->rheology_frame_outer->height() - ui->rheology_frame->height()) * value / 100;
     ui->rheology_frame->move(0, target);
+}
+void MainWindow::on_wa_scroll_valueChanged(int value)
+{
+    float target = (ui->wa_frame_outer->height() - ui->wa_frame->height()) * value / 100;
+    ui->wa_frame->move(0, target);
 }
 
 
@@ -6927,3 +6936,4 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+
