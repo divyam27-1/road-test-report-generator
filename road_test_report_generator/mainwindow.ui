@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>551</width>
-           <height>700</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11972,8 +11972,8 @@ color: rgb(0, 0, 0);</string>
         <widget class="QFrame" name="marshall_frame">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>-340</y>
+           <x>-240</x>
+           <y>-710</y>
            <width>1050</width>
            <height>1451</height>
           </rect>
@@ -12686,22 +12686,22 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_45">
            <item>
-            <widget class="QLineEdit" name="grad_p11_67"/>
+            <widget class="QLineEdit" name="marshall_3_31"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p11_69"/>
+            <widget class="QLineEdit" name="marshall_3_32"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_56"/>
+            <widget class="QLineEdit" name="marshall_3_33"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_57"/>
+            <widget class="QLineEdit" name="marshall_3_25"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_59"/>
+            <widget class="QLineEdit" name="marshall_3_35"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p11_71"/>
+            <widget class="QLineEdit" name="marshall_3_36"/>
            </item>
           </layout>
          </widget>
@@ -12716,22 +12716,22 @@ Density</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_46">
            <item>
-            <widget class="QLineEdit" name="grad_p11_73"/>
+            <widget class="QLineEdit" name="marshall_3_21"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p11_75"/>
+            <widget class="QLineEdit" name="marshall_3_22"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_61"/>
+            <widget class="QLineEdit" name="marshall_3_23"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_62"/>
+            <widget class="QLineEdit" name="marshall_3_24"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p12_64"/>
+            <widget class="QLineEdit" name="marshall_3_26"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="grad_p11_77"/>
+            <widget class="QLineEdit" name="marshall_3_27"/>
            </item>
           </layout>
          </widget>
@@ -13223,7 +13223,7 @@ Density</string>
             <widget class="QLineEdit" name="marshall_4_33"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="marshall_4_34"/>
+            <widget class="QLineEdit" name="marshall_4_27"/>
            </item>
            <item>
             <widget class="QLineEdit" name="marshall_4_35"/>
@@ -15967,8 +15967,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>701</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -16707,8 +16707,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>261</width>
-           <height>701</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -19152,7 +19152,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1680</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHome">
@@ -19758,17 +19758,17 @@ color: rgb(0, 0, 0);</string>
   <tabstop>marshall_3_14</tabstop>
   <tabstop>marshall_3_15</tabstop>
   <tabstop>grad_s1_19</tabstop>
-  <tabstop>grad_p11_73</tabstop>
-  <tabstop>grad_p11_75</tabstop>
-  <tabstop>grad_p12_61</tabstop>
-  <tabstop>grad_p12_62</tabstop>
-  <tabstop>grad_p11_77</tabstop>
+  <tabstop>marshall_3_21</tabstop>
+  <tabstop>marshall_3_22</tabstop>
+  <tabstop>marshall_3_23</tabstop>
+  <tabstop>marshall_3_24</tabstop>
+  <tabstop>marshall_3_27</tabstop>
   <tabstop>grad_s1_20</tabstop>
-  <tabstop>grad_p11_67</tabstop>
-  <tabstop>grad_p11_69</tabstop>
-  <tabstop>grad_p12_56</tabstop>
-  <tabstop>grad_p12_59</tabstop>
-  <tabstop>grad_p11_71</tabstop>
+  <tabstop>marshall_3_31</tabstop>
+  <tabstop>marshall_3_32</tabstop>
+  <tabstop>marshall_3_33</tabstop>
+  <tabstop>marshall_3_35</tabstop>
+  <tabstop>marshall_3_36</tabstop>
   <tabstop>grad_s1_21</tabstop>
   <tabstop>marshall_4_00</tabstop>
   <tabstop>marshall_4_11</tabstop>
@@ -19785,7 +19785,7 @@ color: rgb(0, 0, 0);</string>
   <tabstop>marshall_4_31</tabstop>
   <tabstop>marshall_4_32</tabstop>
   <tabstop>marshall_4_33</tabstop>
-  <tabstop>marshall_4_34</tabstop>
+  <tabstop>marshall_4_27</tabstop>
   <tabstop>marshall_4_35</tabstop>
   <tabstop>grad_s1_24</tabstop>
   <tabstop>marshall_5_00</tabstop>
@@ -19794,8 +19794,8 @@ color: rgb(0, 0, 0);</string>
   <tabstop>marshall_5_13</tabstop>
   <tabstop>marshall_3_00</tabstop>
   <tabstop>marshall_3_16</tabstop>
-  <tabstop>grad_p12_64</tabstop>
-  <tabstop>grad_p12_57</tabstop>
+  <tabstop>marshall_3_26</tabstop>
+  <tabstop>marshall_3_25</tabstop>
   <tabstop>marshall_4_12</tabstop>
   <tabstop>marshall_4_21</tabstop>
   <tabstop>grad_s1_23</tabstop>
