@@ -230,6 +230,8 @@ private slots:
     void on_vol_save_clicked();
     void on_wa_scroll_valueChanged(int value);
 
+    void on_gmm_save_clicked();
+
 private:
     float scroll_sens;
 

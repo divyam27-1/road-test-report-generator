@@ -560,9 +560,9 @@ void MainWindow::on_gmm_save_clicked()
         }
     }
 
-    gmm_400["avg"] = (gmm_400["gmm_5_1"] + gmm_400["gmm_5_2"])/2;
-    gmm_425["avg"] = (gmm_425["gmm_5_1"] + gmm_425["gmm_5_2"])/2;
-    gmm_450["avg"] = (gmm_450["gmm_5_1"] + gmm_450["gmm_5_2"])/2;
+    gmm_400["avg"] = (gmm_400["gmm_5_1"].toDouble() + gmm_400["gmm_5_2"].toDouble())/2;
+    gmm_425["avg"] = (gmm_425["gmm_5_1"].toDouble() + gmm_425["gmm_5_2"].toDouble())/2;
+    gmm_450["avg"] = (gmm_450["gmm_5_1"].toDouble() + gmm_450["gmm_5_2"].toDouble())/2;
 
     gmm_data["4.00"] = gmm_400; gmm_data["4.25"] = gmm_425; gmm_data["4.50"] = gmm_450;
 }
