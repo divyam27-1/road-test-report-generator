@@ -22,6 +22,16 @@
 #include <map>
 
 
+/* TODO:
+- Saving JSON for Marshall Data
+- Verify JSON save for Tensile and Gradation
+- Saving JSON for Rheology
+- Saving JSON for Water Absorption
+- Generation of HTML for the aforementioned
+- Deciding if we need a page for Specific Gradation of Bitumen or we can slot it in somewhere
+- QOL features (saveas button, saved ribbon, fixing UI of vol, etc.
+*/
+
 QDir cwd = QDir::current();
 QDir swd = cwd;
 bool i = cwd.cdUp();
@@ -451,6 +461,50 @@ void MainWindow::on_vol_save_clicked() {
         }
     }
 
+    QStringList calc_expnames = {"ps", "vma", "va", "vfb"};
+    for (QString s: calc_expnames) {
+        for (int i = 1; i <= 5; i++) {
+
+            QString constructor = "vol_" + s + "_%1";
+            QString obj_name = constructor.arg(i);
+
+            double output;
+            //Switch statement handles every experiment differently
+            if (s == "ps") {
+                QString db_constructor = "vol_pb_%1";
+                QString db_call = db_constructor.arg(i);
+
+                double db_val = composition[db_call].toDouble();
+
+                output = 100 - db_val;
+            } else if (s == "vma") {
+                QString db_constructor_1 = "vol_gmb_%1", db_constructor_2 = "vol_ps_%1", db_constructor_3 = "vol_gsb_%1";
+                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i), db_call_3 = db_constructor_3.arg(i);
+
+                double val_gmb = composition[db_call_1].toDouble(), val_ps = composition[db_call_2].toDouble(), val_gsb = composition[db_call_3].toDouble();
+
+                output = 100 - (val_gmb*val_ps/val_gsb);
+            } else if (s == "va") {
+                QString db_constructor_1 = "vol_gmm_%1", db_constructor_2 = "vol_gmb_%1";
+                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i);
+
+                double val_gmm = composition[db_call_1].toDouble(), val_gmb = composition[db_call_2].toDouble();
+
+                output = (val_gmm - val_gmb)*100/val_gmm;
+            } else if (s == "vfb") {
+                QString db_constructor_1 = "vol_vma_%1", db_constructor_2 = "vol_va_%1";
+                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i);
+
+                double val_vma = composition[db_call_1].toDouble(), val_va = composition[db_call_2].toDouble();
+
+                output = (val_vma - val_va)*100/val_vma;
+            }
+
+            composition[obj_name] = output;
+        }
+    }
+
+
     QJsonObject vol_json;
     vol_json["spg"] = specific_gravity;
     vol_json["composition"] = composition;
@@ -470,6 +524,47 @@ void MainWindow::on_vol_save_clicked() {
         qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
     save_check();
+}
+void MainWindow::on_gmm_save_clicked()
+{
+    tracked_files.push_back("vol");
+    removeDuplicates(tracked_files);
+
+    QJsonObject gmm_data, gmm_400, gmm_425, gmm_450;
+
+    QString constructor = "gmm%1_%2%3";
+    QString json_constructor = "gmm_%1_%2";
+
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 5; j++) {
+            for (int k = 1; k <= 2; k++) {
+
+                QString obj_name = constructor.arg(i).arg(j).arg(k);
+                QString json_key = json_constructor.arg(j).arg(k);
+
+                QLineEdit* tedit = ui->gmm->findChild<QLineEdit*>(obj_name);
+
+                if (tedit) {
+
+                    if (i == 1) {
+                        gmm_400[json_key] = tedit->text().toDouble();
+                    } else if (i == 2) {
+                        gmm_425[json_key] = tedit->text().toDouble();
+                    } else if (i == 3) {
+                        gmm_450[json_key] = tedit->text().toDouble();
+                    }
+                } else {
+                    qDebug() << "Error on saving 'gmm' at" << obj_name << "constructor:" << constructor << "tedit not found";
+                }
+            }
+        }
+    }
+
+    gmm_400["avg"] = (gmm_400["gmm_5_1"] + gmm_400["gmm_5_2"])/2;
+    gmm_425["avg"] = (gmm_425["gmm_5_1"] + gmm_425["gmm_5_2"])/2;
+    gmm_450["avg"] = (gmm_450["gmm_5_1"] + gmm_450["gmm_5_2"])/2;
+
+    gmm_data["4.00"] = gmm_400; gmm_data["4.25"] = gmm_425; gmm_data["4.50"] = gmm_450;
 }
 
 
@@ -6690,7 +6785,7 @@ void MainWindow::on_marshall_scroll_valueChanged(int value)
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
 }
-QVector<int> vol_non_scrolling_elements = {391,290,184,215,217,216,271,286,272,287,293,294,295};
+QVector<int> vol_non_scrolling_elements = {391,290,184,215,217,216,271,286,272,287};
 void MainWindow::on_vol_scroll_valueChanged(int value)
 {
     float target = (ui->vol_frame_outer->width() - ui->vol_frame->width()) * value / 100;
@@ -6936,4 +7031,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-

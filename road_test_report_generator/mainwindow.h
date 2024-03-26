@@ -228,6 +228,8 @@ private slots:
     void on_rheology_scroll_valueChanged(int value);
 
     void on_vol_save_clicked();
+    void on_wa_scroll_valueChanged(int value);
+
 private:
     float scroll_sens;
 
