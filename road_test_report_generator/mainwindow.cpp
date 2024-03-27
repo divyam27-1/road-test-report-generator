@@ -412,6 +412,493 @@ void MainWindow::on_tensile_save_clicked()
 }
 void MainWindow::on_marshall_save_clicked() {
 
+    QJsonObject marshall_json;
+    tracked_files.push_back("marshall");
+    removeDuplicates(tracked_files);
+    QJsonObject level_1,level_2,level_3,level_4,level_5;
+    level_1["marshall_1_00"] = ui->marshall_1_00->text().toDouble();
+    level_2["marshall_2_00"] = ui->marshall_2_00->text().toDouble();
+    level_3["marshall_3_00"] = ui->marshall_3_00->text().toDouble();
+    level_4["marshall_4_00"] = ui->marshall_4_00->text().toDouble();
+    level_5["marshall_5_00"] = ui->marshall_5_00->text().toDouble();
+
+    QStringList marshall_exp_names = {"marshall_%1_%2%3"};
+
+    for (QString exp: marshall_exp_names) {
+        for(int i=1;i<=5;i++){
+            for (int j = 1; j <= 3; j++) {
+                for (int k = 1; k <= 6; k++) {
+
+                    QString obj_name = exp.arg(i).arg(j).arg(k);
+                    QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(obj_name);
+
+                    if (tedit) {
+
+                        double tedit_text = tedit->text().toDouble();
+
+                        qDebug() << tedit_text;
+                        if (i == 1) {
+                            level_1[obj_name] = tedit_text;
+                        }
+                        else if(i==2){
+                            level_2[obj_name] = tedit_text;
+                        }
+                        else if(i==3){
+                            level_3[obj_name] = tedit_text;
+                        }
+                        else if(i==4){
+                            level_4[obj_name] = tedit_text;
+                        }
+                        else if(i==5){
+                            level_5[obj_name] = tedit_text;
+                        }
+
+                    } else {
+                        qDebug() << "out of bounds at:" << i << j << k;
+                    }
+                }
+            }
+        }
+    }
+    //level_1
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 1; k <= 3; k += 2) {
+            QString vol_obj_name = QString("marshall_vol_1_%1%2").arg(j).arg(k);
+            QString num_value = QString("marshall_1_%1%2").arg(j).arg(k);
+            QString den_value = QString("marshall_1_%1%2").arg(j).arg(k + 2);
+
+            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
+            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+
+            double numerator = num_edit->text().toDouble();
+            double denominator = den_edit->text().toDouble();
+
+            if (denominator != 0) {
+                double result = numerator / denominator;
+                level_1[vol_obj_name]=result;
+            }
+        }
+    }
+
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 2; k <= 3; k += 2) {
+            QString wt_water_key = QString("marshall_wt_water_1_%1%2").arg(j).arg(k);
+            QString wt_water_num_value = QString("marshall_1_%1%2").arg(j).arg(k);
+            QString wt_water_vol_value = QString("marshall_vol_1_%1%2").arg(j).arg(k - 1);
+
+            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+                double wt_water_numerator = wt_water_num_edit->text().toDouble();
+
+                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+
+                double wt_water = wt_water_numerator - wt_water_volume;
+
+                level_1[wt_water_key] = wt_water;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    for (int j = 1; j <= 3; j++) {
+        int k=4;
+        QString load_key = QString("marshall_load_1_%1%2").arg(j).arg(k);
+        QString reading = QString("marshall_1_%1%2").arg(j).arg(k);
+        QString ring=("marshall_ring");
+        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
+        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        double read_it = reading_num_edit->text().toDouble();
+
+        double ring_it = ring_edit->text().toDouble();
+
+        double result=read_it*ring_it;
+
+        level_1[load_key]=result;
+
+
+    }
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 4; k <= 5; k += 2) {
+            QString correct_load = QString("marshall_corrected_load_1_%1%2").arg(j).arg(k);
+            QString load = QString("marshall_load_1_%1%2").arg(j).arg(k);
+            QString volume_crc = QString("marshall_1_%1%2").arg(j).arg(k+1);
+
+            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+
+            if (vol_crc_edit && level_1.contains(load)) {
+                double vol_crc_val = vol_crc_edit->text().toDouble();
+
+                double load_it = level_1[load].toDouble();
+
+                double result = vol_crc_val*load_it;
+
+                level_1[correct_load] = result;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+
+    //level_2
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 1; k <= 3; k += 2) {
+            QString vol_obj_name = QString("marshall_vol_2_%1%2").arg(j).arg(k);
+            QString num_value = QString("marshall_2_%1%2").arg(j).arg(k);
+            QString den_value = QString("marshall_2_%1%2").arg(j).arg(k + 2);
+
+            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
+            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+
+            double numerator = num_edit->text().toDouble();
+            double denominator = den_edit->text().toDouble();
+
+            if (denominator != 0) {
+                double result = numerator / denominator;
+                level_2[vol_obj_name]=result;
+            }
+        }
+    }
+
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 2; k <= 3; k += 2) {
+            QString wt_water_key = QString("marshall_wt_water_2_%1%2").arg(j).arg(k);
+            QString wt_water_num_value = QString("marshall_2_%1%2").arg(j).arg(k);
+            QString wt_water_vol_value = QString("marshall_vol_2_%1%2").arg(j).arg(k - 1);
+
+            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+                double wt_water_numerator = wt_water_num_edit->text().toDouble();
+
+                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+
+                double wt_water = wt_water_numerator - wt_water_volume;
+
+                level_2[wt_water_key] = wt_water;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    for (int j = 1; j <= 3; j++) {
+        int k=4;
+        QString load_key = QString("marshall_load_2_%1%2").arg(j).arg(k);
+        QString reading = QString("marshall_2_%1%2").arg(j).arg(k);
+        QString ring=("marshall_ring");
+        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
+        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        double read_it = reading_num_edit->text().toDouble();
+
+        double ring_it = ring_edit->text().toDouble();
+
+        double result=read_it*ring_it;
+
+        level_2[load_key]=result;
+
+
+    }
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 4; k <= 5; k += 2) {
+            QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
+            QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
+            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k+1);
+
+            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+
+            if (vol_crc_edit && level_1.contains(load)) {
+                double vol_crc_val = vol_crc_edit->text().toDouble();
+
+                double load_it = level_1[load].toDouble();
+
+                double result = vol_crc_val*load_it;
+
+                level_2[correct_load] = result;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    //level_3
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 1; k <= 3; k += 2) {
+            QString vol_obj_name = QString("marshall_vol_3_%1%2").arg(j).arg(k);
+            QString num_value = QString("marshall_3_%1%2").arg(j).arg(k);
+            QString den_value = QString("marshall_3_%1%2").arg(j).arg(k + 2);
+
+            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
+            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+
+            double numerator = num_edit->text().toDouble();
+            double denominator = den_edit->text().toDouble();
+
+            if (denominator != 0) {
+                double result = numerator / denominator;
+                level_3[vol_obj_name]=result;
+            }
+        }
+    }
+
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 2; k <= 3; k += 2) {
+            QString wt_water_key = QString("marshall_wt_water_3_%1%2").arg(j).arg(k);
+            QString wt_water_num_value = QString("marshall_3_%1%2").arg(j).arg(k);
+            QString wt_water_vol_value = QString("marshall_vol_3_%1%2").arg(j).arg(k - 1);
+
+            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+                double wt_water_numerator = wt_water_num_edit->text().toDouble();
+
+                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+
+                double wt_water = wt_water_numerator - wt_water_volume;
+
+                level_3[wt_water_key] = wt_water;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    for (int j = 1; j <= 3; j++) {
+        int k=4;
+        QString load_key = QString("marshall_load_3_%1%2").arg(j).arg(k);
+        QString reading = QString("marshall_3_%1%2").arg(j).arg(k);
+        QString ring=("marshall_ring");
+        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
+        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        double read_it = reading_num_edit->text().toDouble();
+
+        double ring_it = ring_edit->text().toDouble();
+
+        double result=read_it*ring_it;
+
+        level_3[load_key]=result;
+
+
+    }
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 4; k <= 5; k += 2) {
+            QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
+            QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
+            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k+1);
+
+            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+
+            if (vol_crc_edit && level_1.contains(load)) {
+                double vol_crc_val = vol_crc_edit->text().toDouble();
+
+                double load_it = level_1[load].toDouble();
+
+                double result = vol_crc_val*load_it;
+
+                level_3[correct_load] = result;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    //level_4
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 1; k <= 3; k += 2) {
+            QString vol_obj_name = QString("marshall_vol_4_%1%2").arg(j).arg(k);
+            QString num_value = QString("marshall_4_%1%2").arg(j).arg(k);
+            QString den_value = QString("marshall_4_%1%2").arg(j).arg(k + 2);
+
+            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
+            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+
+            double numerator = num_edit->text().toDouble();
+            double denominator = den_edit->text().toDouble();
+
+            if (denominator != 0) {
+                double result = numerator / denominator;
+                level_4[vol_obj_name]=result;
+            }
+        }
+    }
+
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 2; k <= 3; k += 2) {
+            QString wt_water_key = QString("marshall_wt_water_4_%1%2").arg(j).arg(k);
+            QString wt_water_num_value = QString("marshall_4_%1%2").arg(j).arg(k);
+            QString wt_water_vol_value = QString("marshall_vol_4_%1%2").arg(j).arg(k - 1);
+
+            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+                double wt_water_numerator = wt_water_num_edit->text().toDouble();
+
+                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+
+                double wt_water = wt_water_numerator - wt_water_volume;
+
+                level_4[wt_water_key] = wt_water;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    for (int j = 1; j <= 3; j++) {
+        int k=4;
+        QString load_key = QString("marshall_load_4_%1%2").arg(j).arg(k);
+        QString reading = QString("marshall_4_%1%2").arg(j).arg(k);
+        QString ring=("marshall_ring");
+        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
+        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        double read_it = reading_num_edit->text().toDouble();
+
+        double ring_it = ring_edit->text().toDouble();
+
+        double result=read_it*ring_it;
+
+        level_4[load_key]=result;
+
+
+    }
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 4; k <= 5; k += 2) {
+            QString correct_load = QString("marshall_corrected_load_4_%1%2").arg(j).arg(k);
+            QString load = QString("marshall_load_4_%1%2").arg(j).arg(k);
+            QString volume_crc = QString("marshall_4_%1%2").arg(j).arg(k+1);
+
+            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+
+            if (vol_crc_edit && level_1.contains(load)) {
+                double vol_crc_val = vol_crc_edit->text().toDouble();
+
+                double load_it = level_1[load].toDouble();
+
+                double result = vol_crc_val*load_it;
+
+                level_4[correct_load] = result;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    //level_5
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 1; k <= 3; k += 2) {
+            QString vol_obj_name = QString("marshall_vol_5_%1%2").arg(j).arg(k);
+            QString num_value = QString("marshall_5_%1%2").arg(j).arg(k);
+            QString den_value = QString("marshall_5_%1%2").arg(j).arg(k + 2);
+
+            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
+            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+
+            double numerator = num_edit->text().toDouble();
+            double denominator = den_edit->text().toDouble();
+
+            if (denominator != 0) {
+                double result = numerator / denominator;
+                level_5[vol_obj_name]=result;
+            }
+        }
+    }
+
+
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 2; k <= 3; k += 2) {
+            QString wt_water_key = QString("marshall_wt_water_5_%1%2").arg(j).arg(k);
+            QString wt_water_num_value = QString("marshall_5_%1%2").arg(j).arg(k);
+            QString wt_water_vol_value = QString("marshall_vol_5_%1%2").arg(j).arg(k - 1);
+
+            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+                double wt_water_numerator = wt_water_num_edit->text().toDouble();
+
+                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+
+                double wt_water = wt_water_numerator - wt_water_volume;
+
+                level_5[wt_water_key] = wt_water;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+    for (int j = 1; j <= 3; j++) {
+        int k=4;
+        QString load_key = QString("marshall_load_5_%1%2").arg(j).arg(k);
+        QString reading = QString("marshall_5_%1%2").arg(j).arg(k);
+        QString ring=("marshall_ring");
+        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
+        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        double read_it = reading_num_edit->text().toDouble();
+
+        double ring_it = ring_edit->text().toDouble();
+
+        double result=read_it*ring_it;
+
+        level_5[load_key]=result;
+
+
+    }
+    for (int j = 1; j <= 3; j++) {
+        for (int k = 4; k <= 5; k += 2) {
+            QString correct_load = QString("marshall_corrected_load_5_%1%2").arg(j).arg(k);
+            QString load = QString("marshall_load_5_%1%2").arg(j).arg(k);
+            QString volume_crc = QString("marshall_5_%1%2").arg(j).arg(k+1);
+
+            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+
+            if (vol_crc_edit && level_1.contains(load)) {
+                double vol_crc_val = vol_crc_edit->text().toDouble();
+
+                double load_it = level_1[load].toDouble();
+
+                double result = vol_crc_val*load_it;
+
+                level_5[correct_load] = result;
+            } else {
+                qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
+            }
+
+        }
+    }
+
+    QFile marshall_json_file(cwd.filePath("json/marshall.json"));
+    marshall_json["level_1"] = level_1;
+    marshall_json["level_2"] = level_2;
+    marshall_json["level_3"] = level_3;
+    marshall_json["level_4"] = level_4;
+    marshall_json["level_5"] = level_5;
+    //    tensile_json["24hrs"] = hr_24;
+    //    tensile_json["ring"] = ui->tensile_ring->text().toDouble();
+    if (marshall_json_file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&marshall_json_file);
+        QJsonDocument jsonDoc_1(marshall_json);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        marshall_json_file.close();
+    } else {
+        qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
+    }
+    save_check();
+
+
 }
 void MainWindow::on_vol_save_clicked() {
 
