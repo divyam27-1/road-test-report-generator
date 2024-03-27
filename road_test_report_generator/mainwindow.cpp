@@ -23,10 +23,9 @@
 
 
 /* TODO:
-- Saving JSON for Marshall Data
+- Fix bugs in saving JSON for Marshall
 - Verify JSON save for Tensile and Gradation
 - Saving JSON for Rheology
-- Saving JSON for Water Absorption
 - Generation of HTML for the aforementioned
 - Deciding if we need a page for Specific Gradation of Bitumen or we can slot it in somewhere
 - QOL features (saveas button, saved ribbon, fixing UI of vol, etc.
@@ -412,10 +411,11 @@ void MainWindow::on_tensile_save_clicked()
 }
 void MainWindow::on_marshall_save_clicked() {
 
-    QJsonObject marshall_json;
     tracked_files.push_back("marshall");
     removeDuplicates(tracked_files);
-    QJsonObject level_1,level_2,level_3,level_4,level_5;
+
+    QJsonObject marshall_json, level_1,level_2,level_3,level_4,level_5;
+
     level_1["marshall_1_00"] = ui->marshall_1_00->text().toDouble();
     level_2["marshall_2_00"] = ui->marshall_2_00->text().toDouble();
     level_3["marshall_3_00"] = ui->marshall_3_00->text().toDouble();
@@ -436,7 +436,6 @@ void MainWindow::on_marshall_save_clicked() {
 
                         double tedit_text = tedit->text().toDouble();
 
-                        qDebug() << tedit_text;
                         if (i == 1) {
                             level_1[obj_name] = tedit_text;
                         }
@@ -454,12 +453,13 @@ void MainWindow::on_marshall_save_clicked() {
                         }
 
                     } else {
-                        qDebug() << "out of bounds at:" << i << j << k;
+                        qDebug() << "input save out of bounds at:" << i << j << k;
                     }
                 }
             }
         }
     }
+
     //level_1
     for (int j = 1; j <= 3; j++) {
         for (int k = 1; k <= 3; k += 2) {
@@ -503,6 +503,7 @@ void MainWindow::on_marshall_save_clicked() {
 
         }
     }
+
     for (int j = 1; j <= 3; j++) {
         int k=4;
         QString load_key = QString("marshall_load_1_%1%2").arg(j).arg(k);
@@ -517,8 +518,6 @@ void MainWindow::on_marshall_save_clicked() {
         double result=read_it*ring_it;
 
         level_1[load_key]=result;
-
-
     }
 
     for (int j = 1; j <= 3; j++) {
@@ -882,8 +881,7 @@ void MainWindow::on_marshall_save_clicked() {
     marshall_json["level_3"] = level_3;
     marshall_json["level_4"] = level_4;
     marshall_json["level_5"] = level_5;
-    //    tensile_json["24hrs"] = hr_24;
-    //    tensile_json["ring"] = ui->tensile_ring->text().toDouble();
+
     if (marshall_json_file.open(QFile::WriteOnly | QFile::Text))
     {
         QTextStream out(&marshall_json_file);
@@ -932,11 +930,13 @@ void MainWindow::on_vol_save_clicked() {
 
     QStringList comp_expnames = {"p1", "p2", "p3", "pb", "gsb", "gmm", "gmb"};
 
-    for (int i = 1; i <= 5; i++) {
+    for (int i = 0; i <= 5; i++) {
         for (QString s: comp_expnames) {
 
             QString constructor = "vol_" + s + "_%1";
-            QString obj_name = constructor.arg(i);
+            QString arg = (i == 0) ? "obc" : QString::number(i);
+
+            QString obj_name = constructor.arg(arg);
 
             QLineEdit* tedit = ui->vol->findChild<QLineEdit*>(obj_name);
 
@@ -950,37 +950,38 @@ void MainWindow::on_vol_save_clicked() {
 
     QStringList calc_expnames = {"ps", "vma", "va", "vfb"};
     for (QString s: calc_expnames) {
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 0; i <= 5; i++) {
 
+            QString arg = (i == 0) ? "obc" : QString::number(i);
             QString constructor = "vol_" + s + "_%1";
-            QString obj_name = constructor.arg(i);
+            QString obj_name = constructor.arg(arg);
 
             double output;
             //Switch statement handles every experiment differently
             if (s == "ps") {
                 QString db_constructor = "vol_pb_%1";
-                QString db_call = db_constructor.arg(i);
+                QString db_call = db_constructor.arg(arg);
 
                 double db_val = composition[db_call].toDouble();
 
                 output = 100 - db_val;
             } else if (s == "vma") {
                 QString db_constructor_1 = "vol_gmb_%1", db_constructor_2 = "vol_ps_%1", db_constructor_3 = "vol_gsb_%1";
-                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i), db_call_3 = db_constructor_3.arg(i);
+                QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg), db_call_3 = db_constructor_3.arg(arg);
 
                 double val_gmb = composition[db_call_1].toDouble(), val_ps = composition[db_call_2].toDouble(), val_gsb = composition[db_call_3].toDouble();
 
                 output = 100 - (val_gmb*val_ps/val_gsb);
             } else if (s == "va") {
                 QString db_constructor_1 = "vol_gmm_%1", db_constructor_2 = "vol_gmb_%1";
-                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i);
+                QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg);
 
                 double val_gmm = composition[db_call_1].toDouble(), val_gmb = composition[db_call_2].toDouble();
 
                 output = (val_gmm - val_gmb)*100/val_gmm;
             } else if (s == "vfb") {
                 QString db_constructor_1 = "vol_vma_%1", db_constructor_2 = "vol_va_%1";
-                QString db_call_1 = db_constructor_1.arg(i), db_call_2 = db_constructor_2.arg(i);
+                QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg);
 
                 double val_vma = composition[db_call_1].toDouble(), val_va = composition[db_call_2].toDouble();
 
@@ -990,6 +991,7 @@ void MainWindow::on_vol_save_clicked() {
             composition[obj_name] = output;
         }
     }
+
 
 
     QJsonObject vol_json;
