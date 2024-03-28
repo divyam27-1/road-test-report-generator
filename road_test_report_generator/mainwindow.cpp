@@ -36,7 +36,7 @@ QDir swd = cwd;
 bool i = cwd.cdUp();
 
 std::vector<std::string> tracked_files;
-const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile"};
+const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "wa", "vol", "gmm", "rheology"};
 
 std::string OS;
 bool saveas_done = false;
@@ -209,6 +209,132 @@ void MainWindow::on_mdd_save_clicked()
     } else {
         qDebug() << "SUYGETSU AIMS THE RESET ABSOLUTELY INCREDIBLE";
     }
+
+    save_check();
+}
+void MainWindow::on_grad_save_clicked()
+{
+    tracked_files.push_back("grad");
+    removeDuplicates(tracked_files);
+
+    updateGraph_grad();
+
+    QJsonObject grad_json;
+
+    /* Triple nested loop to save JSON for gradation
+        i: top level loop for different types of experiments (21mm, 16mm, 4mm)
+        j: mid level loop for different is seive values in one experiment
+        k: bottom level loop for different samples of a seive value     */
+    for (int i = 1; i <= 3; i++) {
+        QJsonObject grad_json_mm;
+
+        //this block and the if else stmt get the proportion of a specific experiment in the dbm mixture
+        QString prop_spinbox_name = QString("grad_prop_%1").arg(i);
+        QDoubleSpinBox* spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox*>(prop_spinbox_name);
+        double proportion = spinbox->value()/100;
+
+        if (spinbox) {
+            grad_json_mm["proportion"] = proportion*100;
+        } else {
+            qDebug() << "Could not find a child with name" << prop_spinbox_name;
+        }
+
+        for (int j = 1; j <= 8; j++) {
+
+            //This next part simply takes the average of the 5 samples and saves the sample data along with the average to JSON
+            double sum = 0;
+            for (int k = 1; k <= 5; k++) {
+
+                QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
+
+                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(object_name);
+
+                if (tedit) {
+                    double num = tedit->text().toDouble();
+                    grad_json_mm[object_name] = num;
+                    sum += num;
+                } else {
+                    qDebug() << "Could not find a child with name " << object_name;
+                }
+            }
+
+            QString avg_key = QString("avg_%1").arg(j);
+            grad_json_mm[avg_key] = sum/5;
+
+            //This part takes the proportion of the average we will take for the final mix
+            double avg_prop = proportion * sum/5;
+            grad_json_mm["prop_"+avg_key] = avg_prop;
+        }
+
+        QString top_level_key;
+
+        switch (i) {
+        case 1:
+            top_level_key = "25-16mm";
+            break;
+        case 2:
+            top_level_key = "16-4.75mm";
+            break;
+        case 3:
+            top_level_key = "below_4.75mm";
+            break;
+        default:
+            top_level_key = "error in i in on_grad_save_clicked";
+            break;
+        }
+
+        grad_json[top_level_key] = grad_json_mm;
+    }
+
+    /* For blending the values, we will have to do a few more sweeps of the data, this time taking the weighted average
+       of our sample averages across diff experiments to blend them. The proportional_passing_averages data structure
+       was made to temporarily hold the values as they are averaged*/
+    double *proportinal_passing_averages = new double[8];
+    for (int i = 0; i < 8; i++) {proportinal_passing_averages[i] = 0;}
+
+    for (QString key: grad_json.keys()) {
+
+        QJsonObject grad_json_mm = grad_json[key].toObject();
+
+        for (int i = 0; i < 8; i++) {
+            QString prop_avg_key = QString("prop_avg_%1").arg(i);
+            proportinal_passing_averages[i] += grad_json_mm[prop_avg_key].toDouble();
+        }
+    }
+
+    //create the blending json object, which will added to the grad json file as its own top level json class
+    QJsonObject grad_bld_json;
+    for (int i = 0; i < 8; i++) {
+        grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
+    }
+
+    delete[] proportinal_passing_averages;
+
+    grad_json["blending"] = grad_bld_json;
+
+    QJsonObject seive_sizes;
+    //Since the sieve sizes are the same we just save the seives from the first one
+    for (int i = 1; i <= 8; i++) {
+        QLineEdit* tedit = ui->grad_frame_outer->findChild<QLineEdit*>(QString("grad_s1_%1").arg(i));
+        if (tedit) {
+            seive_sizes[QString("is_seive_%1").arg(i)] = tedit->text().toDouble();
+        } else {
+            qDebug() << "seive tedit error";
+        }
+    }
+    grad_json["seive_sizes"] = seive_sizes;
+
+    //Boilerplate write to file code
+    QFile grad_file(cwd.filePath("json/grad.json"));
+
+    if (!grad_file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::information(this, "Tits", "Error opening grad json file");
+    }
+
+    QTextStream out(&grad_file);
+    QJsonDocument json_doc(grad_json);
+    out << json_doc.toJson();
+    grad_file.close();
 
     save_check();
 }
@@ -1016,7 +1142,7 @@ void MainWindow::on_vol_save_clicked() {
 }
 void MainWindow::on_gmm_save_clicked()
 {
-    tracked_files.push_back("vol");
+    tracked_files.push_back("gmm");
     removeDuplicates(tracked_files);
 
     QJsonObject gmm_data, gmm_400, gmm_425, gmm_450;
@@ -1054,6 +1180,107 @@ void MainWindow::on_gmm_save_clicked()
     gmm_450["avg"] = (gmm_450["gmm_5_1"].toDouble() + gmm_450["gmm_5_2"].toDouble())/2;
 
     gmm_data["4.00"] = gmm_400; gmm_data["4.25"] = gmm_425; gmm_data["4.50"] = gmm_450;
+}
+void MainWindow::on_rheology_save_clicked()
+{
+    tracked_files.push_back("gmm");
+    removeDuplicates(tracked_files);
+
+    QJsonObject rh_json, strip, soft, pen, ductility, flash, viscosity;
+
+    auto strip_eval = [](QJsonObject strip_in) {
+        return strip_in;
+    };
+
+    auto soft_eval = [](QJsonObject soft_in) {
+        QString constructor = "rheology_soft_%1";
+        QString obj_name;
+
+        double sum=0;
+        for (int i = 4; i < 8; i++) {
+            obj_name = constructor.arg(i);
+
+            sum += soft_in[obj_name].toDouble();
+        }
+
+        soft_in["rheology_soft_8"] = sum/4;
+
+        return soft_in;
+    };
+
+    auto pen_eval = [](QJsonObject pen_in) {
+        QString constructor = "rheology_pen_%1";
+        QString init_name, fin_name, pen_key;
+
+        double sum = 0;
+        for (int i = 6; i <= 12; i += 2) {
+            init_name = constructor.arg(i); fin_name = constructor.arg(i+1);
+            double penetration = pen_in[fin_name].toDouble() - pen_in[init_name].toDouble();
+
+            int pen_index = 9 + (i/2);
+            pen_key = constructor.arg(pen_index);
+            pen_in[pen_key] = penetration;
+            sum += penetration;
+        }
+
+        pen_in["rheology_pen_15"] = sum/3;
+
+        return pen_in;
+    };
+
+    auto ductility_eval = [](QJsonObject ductility_in) {
+        QString constructor = "rheology_ductility_%1";
+        QString obj_name;
+
+        double sum=0;
+        for (int i = 7; i < 10; i++) {
+            obj_name = constructor.arg(i);
+
+            sum += ductility_in[obj_name].toDouble();
+        }
+
+        ductility_in["rheology_soft_8"] = sum/3;
+
+        return ductility_in;
+    };
+
+    auto flash_eval = [](QJsonObject flash_in) {
+        flash_in["rheology_flash_4"] = (flash_in["rheology_flash_1"].toDouble() +flash_in["rheology_flash_2"].toDouble() +flash_in["rheology_flash_3"].toDouble())/3;
+        return flash_in;
+    };
+
+    auto viscosity_eval = [](QJsonObject viscosity_in) {
+        viscosity_in["rheology_viscosity_11"] = (viscosity_in["rheology_viscosity_in_7"].toDouble() * viscosity_in["rheology_viscosity_9"].toDouble());
+        viscosity_in["rheology_viscosity_12"] = (viscosity_in["rheology_viscosity_in_8"].toDouble() * viscosity_in["rheology_viscosity_10"].toDouble());
+
+        return viscosity_in;
+    };
+
+    auto spc_eval = [](QJsonObject spc_in) {
+        QString constructor = "rheology_spc_%2%1";
+        QString obj_name;
+
+        double a, b, c, d, spc, sum;
+        for (int i = 1; i <= 3; i++) {
+            obj_name = constructor.arg(i);
+
+            a = spc_in[obj_name.arg(1)].toDouble();
+            b = spc_in[obj_name.arg(2)].toDouble();
+            c = spc_in[obj_name.arg(3)].toDouble();
+            d = spc_in[obj_name.arg(4)].toDouble();
+
+            spc = (c - a)/(b+c-a-d);
+            sum += spc;
+
+            spc_in[QString::fromStdString("rheology_spc_%1").arg(i)] = spc;
+        }
+
+        spc_in["rheology_spc_mean"] = sum/3;
+
+        return spc_in;
+    };
+
+    save_check();
 }
 
 
@@ -2567,132 +2794,6 @@ void MainWindow::on_cd_save_clicked()
 
     save_check();
 
-}
-void MainWindow::on_grad_save_clicked()
-{
-    tracked_files.push_back("grad");
-    removeDuplicates(tracked_files);
-
-    updateGraph_grad();
-
-    QJsonObject grad_json;
-
-    /* Triple nested loop to save JSON for gradation
-        i: top level loop for different types of experiments (21mm, 16mm, 4mm)
-        j: mid level loop for different is seive values in one experiment
-        k: bottom level loop for different samples of a seive value     */
-    for (int i = 1; i <= 3; i++) {
-        QJsonObject grad_json_mm;
-
-        //this block and the if else stmt get the proportion of a specific experiment in the dbm mixture
-        QString prop_spinbox_name = QString("grad_prop_%1").arg(i);
-        QDoubleSpinBox* spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox*>(prop_spinbox_name);
-        double proportion = spinbox->value()/100;
-
-        if (spinbox) {
-            grad_json_mm["proportion"] = proportion*100;
-        } else {
-            qDebug() << "Could not find a child with name" << prop_spinbox_name;
-        }
-
-        for (int j = 1; j <= 8; j++) {
-
-            //This next part simply takes the average of the 5 samples and saves the sample data along with the average to JSON
-            double sum = 0;
-            for (int k = 1; k <= 5; k++) {
-
-                QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
-                
-                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(object_name);
-
-                if (tedit) {
-                    double num = tedit->text().toDouble();
-                    grad_json_mm[object_name] = num;
-                    sum += num;
-                } else {
-                    qDebug() << "Could not find a child with name " << object_name;
-                }
-            }
-
-            QString avg_key = QString("avg_%1").arg(j);
-            grad_json_mm[avg_key] = sum/5;
-
-            //This part takes the proportion of the average we will take for the final mix
-            double avg_prop = proportion * sum/5;
-            grad_json_mm["prop_"+avg_key] = avg_prop;
-        }
-
-        QString top_level_key;
-
-        switch (i) {
-        case 1:
-            top_level_key = "25-16mm";
-            break;
-        case 2:
-            top_level_key = "16-4.75mm";
-            break;
-        case 3:
-            top_level_key = "below_4.75mm";
-            break;
-        default:
-            top_level_key = "error in i in on_grad_save_clicked";
-            break;
-        }
-
-        grad_json[top_level_key] = grad_json_mm;
-    }
-
-    /* For blending the values, we will have to do a few more sweeps of the data, this time taking the weighted average
-       of our sample averages across diff experiments to blend them. The proportional_passing_averages data structure
-       was made to temporarily hold the values as they are averaged*/
-    double *proportinal_passing_averages = new double[8];
-    for (int i = 0; i < 8; i++) {proportinal_passing_averages[i] = 0;}
-
-    for (QString key: grad_json.keys()) {
-
-        QJsonObject grad_json_mm = grad_json[key].toObject();
-
-        for (int i = 0; i < 8; i++) {
-            QString prop_avg_key = QString("prop_avg_%1").arg(i);
-            proportinal_passing_averages[i] += grad_json_mm[prop_avg_key].toDouble();
-        }
-    }
-
-    //create the blending json object, which will added to the grad json file as its own top level json class
-    QJsonObject grad_bld_json;
-    for (int i = 0; i < 8; i++) {
-        grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
-    }
-
-    delete[] proportinal_passing_averages;
-
-    grad_json["blending"] = grad_bld_json;
-
-    QJsonObject seive_sizes;
-    //Since the sieve sizes are the same we just save the seives from the first one
-    for (int i = 1; i <= 8; i++) {
-        QLineEdit* tedit = ui->grad_frame_outer->findChild<QLineEdit*>(QString("grad_s1_%1").arg(i));
-        if (tedit) {
-            seive_sizes[QString("is_seive_%1").arg(i)] = tedit->text().toDouble();
-        } else {
-            qDebug() << "seive tedit error";
-        }
-    }
-    grad_json["seive_sizes"] = seive_sizes;
-
-    //Boilerplate write to file code
-    QFile grad_file(cwd.filePath("json/grad.json"));
-
-    if (!grad_file.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::information(this, "Tits", "Error opening grad json file");
-    }
-
-    QTextStream out(&grad_file);
-    QJsonDocument json_doc(grad_json);
-    out << json_doc.toJson();
-    grad_file.close();
-
-    save_check();
 }
 
 
@@ -7520,3 +7621,4 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+

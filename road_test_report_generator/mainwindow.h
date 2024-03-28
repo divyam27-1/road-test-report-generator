@@ -232,6 +232,8 @@ private slots:
 
     void on_gmm_save_clicked();
 
+    void on_rheology_save_clicked();
+
 private:
     float scroll_sens;
 
