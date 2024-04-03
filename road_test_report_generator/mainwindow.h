@@ -234,6 +234,8 @@ private slots:
 
     void on_rheology_save_clicked();
 
+    void on_wa_save_clicked();
+
 private:
     float scroll_sens;
 

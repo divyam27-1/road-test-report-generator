@@ -1186,7 +1186,14 @@ void MainWindow::on_rheology_save_clicked()
     tracked_files.push_back("gmm");
     removeDuplicates(tracked_files);
 
-    QJsonObject rh_json, strip, soft, pen, ductility, flash, viscosity;
+    QJsonObject rh_json, strip, soft, pen, ductility, flash, viscosity, spc;
+    const std::map<QString, int> exp_valcount = {{"strip", 6}, //Internal iteration from 1 to 2
+                                                 {"soft", 7},
+                                                 {"pen", 11},
+                                                 {"ductility", 9},
+                                                 {"flash", 3},
+                                                 {"viscosity", 10},
+                                                 {"spc", 4}}; //Internal iteration from 1 to 3
 
     auto strip_eval = [](QJsonObject strip_in) {
         return strip_in;
@@ -1281,6 +1288,111 @@ void MainWindow::on_rheology_save_clicked()
     };
 
     save_check();
+}
+void MainWindow::on_wa_save_clicked()
+{
+    tracked_files.push_back("vol");
+    removeDuplicates(tracked_files);
+
+    QJsonObject wa_data, wa_10, wa_20, wa_dust, wa_cleanliness;
+
+    QString constructor = "wa%1_%2%3";
+    QString json_constructor = "wa_%1_%2";
+
+    for (int i = 1; i <= 4; i++) {
+        for (int j = 1; j < 5; j++) {
+            for (int k = 1; k <= 2; k++) {
+
+                QString obj_name = constructor.arg(i).arg(j).arg(k);
+                QString json_key = json_constructor.arg(j).arg(k);
+
+                QLineEdit* tedit = ui->wa->findChild<QLineEdit*>(obj_name);
+
+                if (tedit) {
+
+                    if (i == 1) {
+                        wa_10[json_key] = tedit->text().toDouble();
+                    } else if (i == 2) {
+                        wa_20[json_key] = tedit->text().toDouble();
+                    } else if (i == 3) {
+                        wa_dust[json_key] = tedit->text().toDouble();
+                    }
+                    else if(i == 4) {
+                        wa_cleanliness[json_key] = tedit->text().toDouble();
+                    }
+                } else {
+                    qDebug() << "Error on saving 'WA' at" << obj_name << "constructor:" << constructor << "tedit not found";
+                }
+            }
+        }
+        if(i==4){
+            for(int j = 1; j <4; j++) {
+                for(int k = 1; k <4;k++) {
+                    QString obj_name = constructor.arg(i).arg(j).arg(k);
+                    QString json_key = json_constructor.arg(j).arg(k);
+                    QLineEdit* tedit = ui->wa->findChild<QLineEdit*>(obj_name);
+                    if (tedit) {
+                        if(i == 4) {
+                            wa_cleanliness[json_key] = tedit->text().toDouble();
+                        }
+                    } else {
+                        qDebug() << "Error on saving 'WA_cleanliness' at" << obj_name << "constructor:" << constructor << "tedit not found";
+                    }
+
+
+                }
+            }}
+    }
+    QJsonObject waa_10, waa_20, waa_dust, waa_cleanliness;
+
+    for(int i = 1; i <4;i++){
+        for(int k = 1; k <3;k++){
+            std::string k_str = std::to_string(k);
+            QString k_qstr = QString::fromStdString(k_str);
+
+            if(i == 1){
+                waa_10["answer_1_"+k_qstr] = wa_10["wa_4_"+k_qstr].toDouble()/(wa_10["wa_3_"+k_qstr].toDouble()+wa_10["wa_2_"+k_qstr].toDouble()-wa_10["wa_1_"+k_qstr].toDouble());
+                waa_10["answer_2_"+k_qstr] = wa_10["wa_4_"+k_qstr].toDouble()/(wa_10["wa_4_"+k_qstr].toDouble()+wa_10["wa_2_"+k_qstr].toDouble()-wa_10["wa_1_"+k_qstr].toDouble());
+                waa_10["answer_3_"+k_qstr] = ((wa_10["wa_3_"+k_qstr].toDouble()-wa_10["wa_4_"+k_qstr].toDouble())/wa_10["wa_4_"+k_qstr].toDouble())*100;
+            }else if(i == 2){
+                waa_20["answer_1_"+k_qstr] = wa_20["wa_4_"+k_qstr].toDouble()/(wa_20["wa_3_"+k_qstr].toDouble()+wa_20["wa_2_"+k_qstr].toDouble()-wa_20["wa_1_"+k_qstr].toDouble());
+                waa_20["answer_2_"+k_qstr] = wa_20["wa_4_"+k_qstr].toDouble()/(wa_20["wa_4_"+k_qstr].toDouble()+wa_20["wa_2_"+k_qstr].toDouble()-wa_20["wa_1_"+k_qstr].toDouble());
+                waa_20["answer_3_"+k_qstr] = ((wa_20["wa_3_"+k_qstr].toDouble()-wa_20["wa_4_"+k_qstr].toDouble())/wa_20["wa_4_"+k_qstr].toDouble())*100;
+            }
+            else if(i==3){
+                waa_dust["answer_1_"+k_qstr] = wa_dust["wa_1_"+k_qstr].toDouble()/(wa_dust["wa_2_"+k_qstr].toDouble()+wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
+                waa_dust["answer_2_"+k_qstr] = wa_dust["wa_3_"+k_qstr].toDouble()/(wa_dust["wa_2_"+k_qstr].toDouble()+wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
+                waa_dust["answer_3_"+k_qstr] = wa_dust["wa_1_"+k_qstr].toDouble()/(wa_dust["wa_1_"+k_qstr].toDouble()+wa_dust["wa_2_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
+                waa_dust["answer_4_"+k_qstr] = ((wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_1_"+k_qstr].toDouble())/wa_dust["wa_1_"+k_qstr].toDouble())*100;
+            }
+            else if(i==4){
+                waa_cleanliness["aggregate%"+k_qstr] = (wa_cleanliness["wa_3_"+k_qstr].toDouble()/wa_cleanliness["wa_1_"+k_qstr].toDouble())*100;
+            }
+        }
+    }
+
+
+    for(int i = 1; i <4;i++){
+        std::string i_str = std::to_string(i);
+        QString i_qstr = QString::fromStdString(i_str);
+
+        wa_10["wa10_average_"+i_qstr] =  (waa_10["answer_"+ i_qstr + "_1"].toDouble() + waa_10["answer_"+ i_qstr + "_2"].toDouble())/2;
+    }
+    for(int i = 1; i <4;i++){
+        std::string i_str = std::to_string(i);
+        QString i_qstr = QString::fromStdString(i_str);
+
+        wa_20["wa20_average_"+i_qstr] =  (waa_20["answer_"+ i_qstr + "_1"].toDouble() + waa_20["answer_"+ i_qstr + "_2"].toDouble())/2;
+    }
+
+    wa_data["10"] =  wa_10;
+    wa_data["20"] =  wa_20;
+    wa_data["dust"] =  wa_dust;
+    wa_data["cleanliness"] =  wa_cleanliness;
+    wa_data["answer_10"] = waa_10;
+    wa_data["answer_20"] = waa_20;
+    wa_data["answer_dust"] = waa_dust;
+    wa_data["answer_cleanliness"] = waa_cleanliness;
 }
 
 
@@ -7621,4 +7733,3 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
-
