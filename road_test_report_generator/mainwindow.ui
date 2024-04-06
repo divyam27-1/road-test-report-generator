@@ -85,8 +85,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -2060,8 +2060,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -3504,8 +3504,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -4952,8 +4952,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -9318,8 +9318,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>221</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11432,8 +11432,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11737,8 +11737,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -14010,8 +14010,8 @@ Density</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -15592,8 +15592,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -16351,8 +16351,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -16684,7 +16684,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-3080</y>
+           <y>-470</y>
            <width>1045</width>
            <height>3581</height>
           </rect>
@@ -16806,41 +16806,41 @@ color: rgb(0, 0, 0);</string>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="4" column="2">
-            <widget class="QLineEdit" name="rheology_strip_52"/>
-           </item>
-           <item row="0" column="0">
-            <widget class="QDateTimeEdit" name="rheology_strip_11"/>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="rheology_strip_22"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLineEdit" name="rheology_strip_41"/>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLineEdit" name="rheology_strip_42"/>
-           </item>
-           <item row="0" column="2">
-            <widget class="QDateTimeEdit" name="rheology_strip_12"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="rheology_strip_31"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="rheology_strip_21"/>
-           </item>
            <item row="2" column="2">
             <widget class="QLineEdit" name="rheology_strip_32"/>
            </item>
            <item row="4" column="0">
             <widget class="QLineEdit" name="rheology_strip_51"/>
            </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="rheology_strip_41"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="rheology_strip_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="rheology_strip_12"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="rheology_strip_52"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="rheology_strip_31"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="rheology_strip_11"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="rheology_strip_42"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="rheology_strip_21"/>
+           </item>
            <item row="5" column="0">
-            <widget class="QDateTimeEdit" name="rheology_strip_61"/>
+            <widget class="QLineEdit" name="rheology_strip_61"/>
            </item>
            <item row="5" column="2">
-            <widget class="QDateTimeEdit" name="rheology_strip_62"/>
+            <widget class="QLineEdit" name="rheology_strip_62"/>
            </item>
           </layout>
          </widget>
@@ -17141,6 +17141,9 @@ color: rgb(0, 0, 0);</string>
             <height>41</height>
            </rect>
           </property>
+          <property name="maximum">
+           <double>999.990000000000009</double>
+          </property>
          </widget>
          <widget class="QDoubleSpinBox" name="rheology_soft_7">
           <property name="geometry">
@@ -17150,6 +17153,9 @@ color: rgb(0, 0, 0);</string>
             <width>101</width>
             <height>41</height>
            </rect>
+          </property>
+          <property name="maximum">
+           <double>999.990000000000009</double>
           </property>
          </widget>
          <widget class="QDoubleSpinBox" name="rheology_soft_5">
@@ -17161,6 +17167,9 @@ color: rgb(0, 0, 0);</string>
             <height>41</height>
            </rect>
           </property>
+          <property name="maximum">
+           <double>999.990000000000009</double>
+          </property>
          </widget>
          <widget class="QDoubleSpinBox" name="rheology_soft_6">
           <property name="geometry">
@@ -17170,6 +17179,9 @@ color: rgb(0, 0, 0);</string>
             <width>101</width>
             <height>41</height>
            </rect>
+          </property>
+          <property name="maximum">
+           <double>999.990000000000009</double>
           </property>
          </widget>
          <widget class="QLabel" name="rheology_soft_mean">
@@ -17190,7 +17202,7 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>0</x>
             <y>640</y>
-            <width>1031</width>
+            <width>1041</width>
             <height>16</height>
            </rect>
           </property>
@@ -17229,7 +17241,7 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>0</x>
             <y>1160</y>
-            <width>1031</width>
+            <width>1041</width>
             <height>16</height>
            </rect>
           </property>
@@ -17586,7 +17598,7 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>0</x>
             <y>1730</y>
-            <width>1031</width>
+            <width>1041</width>
             <height>16</height>
            </rect>
           </property>
@@ -18758,8 +18770,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>98</width>
-           <height>28</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">
@@ -20663,17 +20675,13 @@ color: rgb(0, 0, 0);</string>
   <tabstop>rheology_export</tabstop>
   <tabstop>rheology_saveas</tabstop>
   <tabstop>rheology_strip_52</tabstop>
-  <tabstop>rheology_strip_11</tabstop>
   <tabstop>rheology_strip_22</tabstop>
   <tabstop>rheology_strip_41</tabstop>
   <tabstop>rheology_strip_42</tabstop>
-  <tabstop>rheology_strip_12</tabstop>
   <tabstop>rheology_strip_31</tabstop>
   <tabstop>rheology_strip_21</tabstop>
   <tabstop>rheology_strip_32</tabstop>
   <tabstop>rheology_strip_51</tabstop>
-  <tabstop>rheology_strip_61</tabstop>
-  <tabstop>rheology_strip_62</tabstop>
   <tabstop>rheology_soft_1</tabstop>
   <tabstop>rheology_soft_2</tabstop>
   <tabstop>rheology_soft_3</tabstop>

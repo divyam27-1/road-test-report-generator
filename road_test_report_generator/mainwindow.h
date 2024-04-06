@@ -80,6 +80,14 @@ public:
     void save_check();
     void generate_html_spc();
     void generate_html_grad();
+
+    QJsonObject soft_eval(QJsonObject soft_in);
+    QJsonObject strip_eval(QJsonObject strip_in);
+    QJsonObject pen_eval(QJsonObject pen_in);
+    QJsonObject ductility_eval(QJsonObject ductility_in);
+    QJsonObject flash_eval(QJsonObject flash_in);
+    QJsonObject viscosity_eval(QJsonObject viscosity_in);
+    QJsonObject spc_eval(QJsonObject spc_in);
 public slots:
     void on_fei_export_clicked();
 private slots:

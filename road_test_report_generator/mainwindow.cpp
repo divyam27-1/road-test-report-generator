@@ -20,7 +20,7 @@
 #include <QFileDialog>
 #include <QDateTime>
 #include <map>
-
+#include <functional>
 
 /* TODO:
 - Fix bugs in saving JSON for Marshall
@@ -57,11 +57,12 @@ MainWindow::MainWindow(QWidget *parent)
     cwd.mkdir("output");
     cwd.mkdir("html");
 
-    ui->spc_frame->move(0,0);
-    ui->aiv_frame->move(0,0);
-    ui->ind_frame->move(0,0);
+    ui->spc_frame->move(0, 0);
+    ui->aiv_frame->move(0, 0);
+    ui->ind_frame->move(0, 0);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
+    {
         ui->ind_graph_1->addGraph();
         ui->ind_graph_2->addGraph();
         ui->grad_graph_1->addGraph();
@@ -69,12 +70,13 @@ MainWindow::MainWindow(QWidget *parent)
     }
     ui->mdd_graph->addGraph();
     ui->mdd_graph->addGraph();
-    ui->grad_graph_2->addGraph(); ui->grad_graph_2->addGraph();
+    ui->grad_graph_2->addGraph();
+    ui->grad_graph_2->addGraph();
 
     ui->grad_bld_graph_label->hide();
     ui->jmf_graph_label->hide();
 
-   #ifdef _WIN32
+#ifdef _WIN32
     OS = "win";
 #elif __linux__
     OS = "linux";
@@ -93,8 +95,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-//Deals with saving to JSON
+// Deals with saving to JSON
 void MainWindow::on_actionSave_Project_triggered()
 {
     ui->spc_save->click();
@@ -171,15 +172,16 @@ void MainWindow::on_mdd_save_clicked()
     QFile mdd_json(cwd.filePath("json/mdd.json"));
 
     QJsonObject mdd;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         std::string I = std::to_string(i);
         std::string wsm = "wsm" + I, ws = "ws" + I, wds = "wds" + I, tray = "tray" + I, wt_tray = "wt_tray" + I, wst = "wst" + I, wdst = "wdst" + I, ww = "ww" + I, wdsm = "wdsm" + I, water_contents = "water_content" + I, density = "density" + I;
 
-        float wet_density = (mdd_ds[0][i] - mass)/vol;
+        float wet_density = (mdd_ds[0][i] - mass) / vol;
         float weight_of_water = mdd_ds[3][i] - mdd_ds[4][i];
         float weight_of_dry_sample = mdd_ds[4][i] - mdd_ds[2][i];
-        float water_content = 100*weight_of_water/weight_of_dry_sample;
-        float dry_density = 100*(wet_density/(100+water_content));
+        float water_content = 100 * weight_of_water / weight_of_dry_sample;
+        float dry_density = 100 * (wet_density / (100 + water_content));
 
         mdd[QString::fromStdString(wsm)] = mdd_ds[0][i];
         mdd[QString::fromStdString(ws)] = mdd_ds[0][i] - mass;
@@ -206,7 +208,9 @@ void MainWindow::on_mdd_save_clicked()
 
         // Close the file
         mdd_json.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "SUYGETSU AIMS THE RESET ABSOLUTELY INCREDIBLE";
     }
 
@@ -225,50 +229,60 @@ void MainWindow::on_grad_save_clicked()
         i: top level loop for different types of experiments (21mm, 16mm, 4mm)
         j: mid level loop for different is seive values in one experiment
         k: bottom level loop for different samples of a seive value     */
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= 3; i++)
+    {
         QJsonObject grad_json_mm;
 
-        //this block and the if else stmt get the proportion of a specific experiment in the dbm mixture
+        // this block and the if else stmt get the proportion of a specific experiment in the dbm mixture
         QString prop_spinbox_name = QString("grad_prop_%1").arg(i);
-        QDoubleSpinBox* spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox*>(prop_spinbox_name);
-        double proportion = spinbox->value()/100;
+        QDoubleSpinBox *spinbox = ui->grad_frame_outer->findChild<QDoubleSpinBox *>(prop_spinbox_name);
+        double proportion = spinbox->value() / 100;
 
-        if (spinbox) {
-            grad_json_mm["proportion"] = proportion*100;
-        } else {
+        if (spinbox)
+        {
+            grad_json_mm["proportion"] = proportion * 100;
+        }
+        else
+        {
             qDebug() << "Could not find a child with name" << prop_spinbox_name;
         }
 
-        for (int j = 1; j <= 8; j++) {
+        for (int j = 1; j <= 8; j++)
+        {
 
-            //This next part simply takes the average of the 5 samples and saves the sample data along with the average to JSON
+            // This next part simply takes the average of the 5 samples and saves the sample data along with the average to JSON
             double sum = 0;
-            for (int k = 1; k <= 5; k++) {
+            for (int k = 1; k <= 5; k++)
+            {
 
                 QString object_name = QString("grad_p%1%2_%3").arg(i).arg(j).arg(k);
 
-                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(object_name);
+                QLineEdit *tedit = ui->dbm_page->findChild<QLineEdit *>(object_name);
 
-                if (tedit) {
+                if (tedit)
+                {
                     double num = tedit->text().toDouble();
                     grad_json_mm[object_name] = num;
                     sum += num;
-                } else {
+                }
+                else
+                {
                     qDebug() << "Could not find a child with name " << object_name;
                 }
             }
 
             QString avg_key = QString("avg_%1").arg(j);
-            grad_json_mm[avg_key] = sum/5;
+            grad_json_mm[avg_key] = sum / 5;
 
-            //This part takes the proportion of the average we will take for the final mix
-            double avg_prop = proportion * sum/5;
-            grad_json_mm["prop_"+avg_key] = avg_prop;
+            // This part takes the proportion of the average we will take for the final mix
+            double avg_prop = proportion * sum / 5;
+            grad_json_mm["prop_" + avg_key] = avg_prop;
         }
 
         QString top_level_key;
 
-        switch (i) {
+        switch (i)
+        {
         case 1:
             top_level_key = "25-16mm";
             break;
@@ -290,22 +304,28 @@ void MainWindow::on_grad_save_clicked()
        of our sample averages across diff experiments to blend them. The proportional_passing_averages data structure
        was made to temporarily hold the values as they are averaged*/
     double *proportinal_passing_averages = new double[8];
-    for (int i = 0; i < 8; i++) {proportinal_passing_averages[i] = 0;}
+    for (int i = 0; i < 8; i++)
+    {
+        proportinal_passing_averages[i] = 0;
+    }
 
-    for (QString key: grad_json.keys()) {
+    for (QString key : grad_json.keys())
+    {
 
         QJsonObject grad_json_mm = grad_json[key].toObject();
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             QString prop_avg_key = QString("prop_avg_%1").arg(i);
             proportinal_passing_averages[i] += grad_json_mm[prop_avg_key].toDouble();
         }
     }
 
-    //create the blending json object, which will added to the grad json file as its own top level json class
+    // create the blending json object, which will added to the grad json file as its own top level json class
     QJsonObject grad_bld_json;
-    for (int i = 0; i < 8; i++) {
-        grad_bld_json[QString("bld_%1").arg(i+1)] = proportinal_passing_averages[i];
+    for (int i = 0; i < 8; i++)
+    {
+        grad_bld_json[QString("bld_%1").arg(i + 1)] = proportinal_passing_averages[i];
     }
 
     delete[] proportinal_passing_averages;
@@ -313,21 +333,26 @@ void MainWindow::on_grad_save_clicked()
     grad_json["blending"] = grad_bld_json;
 
     QJsonObject seive_sizes;
-    //Since the sieve sizes are the same we just save the seives from the first one
-    for (int i = 1; i <= 8; i++) {
-        QLineEdit* tedit = ui->grad_frame_outer->findChild<QLineEdit*>(QString("grad_s1_%1").arg(i));
-        if (tedit) {
+    // Since the sieve sizes are the same we just save the seives from the first one
+    for (int i = 1; i <= 8; i++)
+    {
+        QLineEdit *tedit = ui->grad_frame_outer->findChild<QLineEdit *>(QString("grad_s1_%1").arg(i));
+        if (tedit)
+        {
             seive_sizes[QString("is_seive_%1").arg(i)] = tedit->text().toDouble();
-        } else {
+        }
+        else
+        {
             qDebug() << "seive tedit error";
         }
     }
     grad_json["seive_sizes"] = seive_sizes;
 
-    //Boilerplate write to file code
+    // Boilerplate write to file code
     QFile grad_file(cwd.filePath("json/grad.json"));
 
-    if (!grad_file.open(QFile::WriteOnly | QFile::Text)) {
+    if (!grad_file.open(QFile::WriteOnly | QFile::Text))
+    {
         QMessageBox::information(this, "Tits", "Error opening grad json file");
     }
 
@@ -350,21 +375,25 @@ void MainWindow::on_tensile_save_clicked()
     hr_24["tensile_btmn"] = ui->tensile_btmn_2->text().toDouble();
     tensile_json["ring"] = ui->tensile_ring->text().toDouble();
 
-
     QStringList tensile_exp_names = {"tensile_wt_%1_%2", "tensile_ssd_%1_%2", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_corr_%1_%2", "tensile_flow_%1_%2"};
 
-
-    for (QString exp: tensile_exp_names) {
-        for (int i = 1; i <= 2; i++) {
-            for (int j = 1; j <= 3; j++) {
+    for (QString exp : tensile_exp_names)
+    {
+        for (int i = 1; i <= 2; i++)
+        {
+            for (int j = 1; j <= 3; j++)
+            {
 
                 QString obj_name = exp.arg(i).arg(j);
-                QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(obj_name);
+                QLineEdit *tedit = ui->dbm_page->findChild<QLineEdit *>(obj_name);
 
                 double tedit_text = tedit->text().toDouble();
-                if (i == 1) {
+                if (i == 1)
+                {
                     min_30[obj_name] = tedit_text;
-                } else if (i == 2) {
+                }
+                else if (i == 2)
+                {
                     hr_24[obj_name] = tedit_text;
                 }
             }
@@ -374,42 +403,51 @@ void MainWindow::on_tensile_save_clicked()
     // calculation for volume
     double volum;
     QString volum_key = QString("tensile_wt_%1_%2_vol");
-    for (int i = 1; i <= 2; i++) {
-        for (int j = 1; j <= 3; j++) {
+    for (int i = 1; i <= 2; i++)
+    {
+        for (int j = 1; j <= 3; j++)
+        {
             QString wt_obj_name = QString("tensile_wt_%1_%2").arg(i).arg(j);
             QString gmb_obj_name = QString("tensile_gmb_%1_%2").arg(i).arg(j);
 
-            QLineEdit* wt_tedit = ui->dbm_page->findChild<QLineEdit*>(wt_obj_name);
-            QLineEdit* gmb_tedit = ui->dbm_page->findChild<QLineEdit*>(gmb_obj_name);
+            QLineEdit *wt_tedit = ui->dbm_page->findChild<QLineEdit *>(wt_obj_name);
+            QLineEdit *gmb_tedit = ui->dbm_page->findChild<QLineEdit *>(gmb_obj_name);
             double wt_value = wt_tedit->text().toDouble();
             double gmb_value = gmb_tedit->text().toDouble();
 
             volum = wt_value / gmb_value;
 
             volum_key = QString("tensile_wt_%1_%2_vol").arg(i).arg(j);
-            if (i == 1) {
+            if (i == 1)
+            {
                 min_30[volum_key] = volum;
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 hr_24[volum_key] = volum;
             }
         }
     }
 
-
-    //calculation for wt in air
-    for (int i = 1; i <= 2; i++) {
-        for (int j = 1; j <= 3; j++) {
+    // calculation for wt in air
+    for (int i = 1; i <= 2; i++)
+    {
+        for (int j = 1; j <= 3; j++)
+        {
             QString wt_obj_name = QString("tensile_wt_%1_%2_vol").arg(i).arg(j);
             QString ssd_obj_name = QString("tensile_ssd_%1_%2").arg(i).arg(j);
 
             double wt_vol = 0.0;
-            if (i == 1) {
+            if (i == 1)
+            {
                 wt_vol = min_30[wt_obj_name].toDouble();
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 wt_vol = hr_24[wt_obj_name].toDouble();
             }
 
-            QLineEdit* ssd_tedit = ui->dbm_page->findChild<QLineEdit*>(ssd_obj_name);
+            QLineEdit *ssd_tedit = ui->dbm_page->findChild<QLineEdit *>(ssd_obj_name);
 
             double ssd_value = ssd_tedit->text().toDouble();
 
@@ -417,21 +455,25 @@ void MainWindow::on_tensile_save_clicked()
             qDebug() << result << ssd_value << wt_vol;
 
             QString result_key = QString("tensile_ssd_wt_diff_%1_%2").arg(i).arg(j);
-            if (i == 1) {
+            if (i == 1)
+            {
                 min_30[result_key] = result;
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 hr_24[result_key] = result;
             }
         }
     }
 
-
-    //calculation for load
-    for (int i = 1; i <= 2; i++) {
-        for (int j = 1; j <= 3; j++) {
+    // calculation for load
+    for (int i = 1; i <= 2; i++)
+    {
+        for (int j = 1; j <= 3; j++)
+        {
             QString read_obj_name = QString("tensile_read_%1_%2").arg(i).arg(j);
 
-            QLineEdit* read_tedit = ui->dbm_page->findChild<QLineEdit*>(read_obj_name);
+            QLineEdit *read_tedit = ui->dbm_page->findChild<QLineEdit *>(read_obj_name);
 
             double read_value = read_tedit->text().toDouble();
 
@@ -440,79 +482,100 @@ void MainWindow::on_tensile_save_clicked()
             double result = ring * read_value;
             QString result_key = QString("tensile_read_%1_%2_load").arg(i).arg(j);
 
-            if (i == 1) {
+            if (i == 1)
+            {
                 min_30[result_key] = result;
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 hr_24[result_key] = result;
             }
         }
     }
 
-
-    //calculation for corrected load
-    for (int i = 1; i <= 2; i++) {
-        for (int j = 1; j <= 3; j++) {
+    // calculation for corrected load
+    for (int i = 1; i <= 2; i++)
+    {
+        for (int j = 1; j <= 3; j++)
+        {
             QString wt_obj_name = QString("tensile_read_%1_%2_load").arg(i).arg(j);
             QString corr_obj_name = QString("tensile_corr_%1_%2").arg(i).arg(j);
 
             double reading = 0.0;
-            if (i == 1) {
+            if (i == 1)
+            {
                 reading = min_30[wt_obj_name].toDouble();
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 reading = hr_24[wt_obj_name].toDouble();
             }
 
-            QLineEdit* corr_tedit = ui->dbm_page->findChild<QLineEdit*>(corr_obj_name);
+            QLineEdit *corr_tedit = ui->dbm_page->findChild<QLineEdit *>(corr_obj_name);
 
             double ssd_value = corr_tedit->text().toDouble();
 
             double result = ssd_value * reading;
 
             QString result_key = QString("tensile_corrected_load_%1_%2").arg(i).arg(j);
-            if (i == 1) {
+            if (i == 1)
+            {
                 min_30[result_key] = result;
-            } else if (i == 2) {
+            }
+            else if (i == 2)
+            {
                 hr_24[result_key] = result;
             }
         }
     }
 
-    //calculation for averages
-    for (int i = 1; i <= 2; i++) {
+    // calculation for averages
+    for (int i = 1; i <= 2; i++)
+    {
         double avg_gmb = 0, avg_corr_load = 0, avg_flow = 0;
-        for (int j = 1; j <= 3; j++) {
+        for (int j = 1; j <= 3; j++)
+        {
             QString gmb_name = QString("tensile_gmb_%1_%2").arg(i).arg(j);
             QString corr_load_name = QString("tensile_corrected_load_%1_%2").arg(i).arg(j);
             QString flow_name = QString("tensile_flow_%1_%2").arg(i).arg(j);
 
-            if (i == 1) {
-                avg_gmb += min_30[gmb_name].toDouble()/3;
-                avg_corr_load += min_30[corr_load_name].toDouble()/3;
-                avg_flow += min_30[flow_name].toDouble()/3;
-            } else if (i == 2) {
-                avg_gmb += hr_24[gmb_name].toDouble()/3;
-                avg_corr_load += hr_24[corr_load_name].toDouble()/3;
-                avg_flow += hr_24[flow_name].toDouble()/3;
-            } else {
+            if (i == 1)
+            {
+                avg_gmb += min_30[gmb_name].toDouble() / 3;
+                avg_corr_load += min_30[corr_load_name].toDouble() / 3;
+                avg_flow += min_30[flow_name].toDouble() / 3;
+            }
+            else if (i == 2)
+            {
+                avg_gmb += hr_24[gmb_name].toDouble() / 3;
+                avg_corr_load += hr_24[corr_load_name].toDouble() / 3;
+                avg_flow += hr_24[flow_name].toDouble() / 3;
+            }
+            else
+            {
                 qDebug() << "index out of bounds while calculating tensile averages";
             }
         }
 
-        if (i == 1) {
+        if (i == 1)
+        {
             min_30["avg_gmb"] = avg_gmb;
             min_30["avg_corrected_load"] = avg_corr_load;
             min_30["avg_flow"] = avg_flow;
-        } else if (i == 2) {
+        }
+        else if (i == 2)
+        {
             hr_24["avg_gmb"] = avg_gmb;
             hr_24["avg_corrected_load"] = avg_corr_load;
             hr_24["avg_flow"] = avg_flow;
-        } else {
+        }
+        else
+        {
             qDebug() << "index out of bound while emplacing tensile averages";
         }
     }
 
-    tensile_json["water_sensitivity"] = 100 * hr_24["avg_corrected_load"].toDouble()/min_30["avg_corrected_load"].toDouble();
-
+    tensile_json["water_sensitivity"] = 100 * hr_24["avg_corrected_load"].toDouble() / min_30["avg_corrected_load"].toDouble();
 
     tensile_json["30mins"] = min_30;
     tensile_json["24hrs"] = hr_24;
@@ -529,18 +592,20 @@ void MainWindow::on_tensile_save_clicked()
 
         // Close the file
         tensile_json_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
     }
     save_check();
-
 }
-void MainWindow::on_marshall_save_clicked() {
+void MainWindow::on_marshall_save_clicked()
+{
 
     tracked_files.push_back("marshall");
     removeDuplicates(tracked_files);
 
-    QJsonObject marshall_json, level_1,level_2,level_3,level_4,level_5;
+    QJsonObject marshall_json, level_1, level_2, level_3, level_4, level_5;
 
     level_1["marshall_1_00"] = ui->marshall_1_00->text().toDouble();
     level_2["marshall_2_00"] = ui->marshall_2_00->text().toDouble();
@@ -550,35 +615,46 @@ void MainWindow::on_marshall_save_clicked() {
 
     QStringList marshall_exp_names = {"marshall_%1_%2%3"};
 
-    for (QString exp: marshall_exp_names) {
-        for(int i=1;i<=5;i++){
-            for (int j = 1; j <= 3; j++) {
-                for (int k = 1; k <= 6; k++) {
+    for (QString exp : marshall_exp_names)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            for (int j = 1; j <= 3; j++)
+            {
+                for (int k = 1; k <= 6; k++)
+                {
 
                     QString obj_name = exp.arg(i).arg(j).arg(k);
-                    QLineEdit* tedit = ui->dbm_page->findChild<QLineEdit*>(obj_name);
+                    QLineEdit *tedit = ui->dbm_page->findChild<QLineEdit *>(obj_name);
 
-                    if (tedit) {
+                    if (tedit)
+                    {
 
                         double tedit_text = tedit->text().toDouble();
 
-                        if (i == 1) {
+                        if (i == 1)
+                        {
                             level_1[obj_name] = tedit_text;
                         }
-                        else if(i==2){
+                        else if (i == 2)
+                        {
                             level_2[obj_name] = tedit_text;
                         }
-                        else if(i==3){
+                        else if (i == 3)
+                        {
                             level_3[obj_name] = tedit_text;
                         }
-                        else if(i==4){
+                        else if (i == 4)
+                        {
                             level_4[obj_name] = tedit_text;
                         }
-                        else if(i==5){
+                        else if (i == 5)
+                        {
                             level_5[obj_name] = tedit_text;
                         }
-
-                    } else {
+                    }
+                    else
+                    {
                         qDebug() << "input save out of bounds at:" << i << j << k;
                     }
                 }
@@ -586,36 +662,41 @@ void MainWindow::on_marshall_save_clicked() {
         }
     }
 
-    //level_1
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 1; k <= 3; k += 2) {
+    // level_1
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 1; k <= 3; k += 2)
+        {
             QString vol_obj_name = QString("marshall_vol_1_%1%2").arg(j).arg(k);
             QString num_value = QString("marshall_1_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_1_%1%2").arg(j).arg(k + 2);
 
-            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
-            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+            QLineEdit *num_edit = ui->dbm_page->findChild<QLineEdit *>(num_value);
+            QLineEdit *den_edit = ui->dbm_page->findChild<QLineEdit *>(den_value);
 
             double numerator = num_edit->text().toDouble();
             double denominator = den_edit->text().toDouble();
 
-            if (denominator != 0) {
+            if (denominator != 0)
+            {
                 double result = numerator / denominator;
-                level_1[vol_obj_name]=result;
+                level_1[vol_obj_name] = result;
             }
         }
     }
 
-
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 2; k <= 3; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 2; k <= 3; k += 2)
+        {
             QString wt_water_key = QString("marshall_wt_water_1_%1%2").arg(j).arg(k);
             QString wt_water_num_value = QString("marshall_1_%1%2").arg(j).arg(k);
             QString wt_water_vol_value = QString("marshall_vol_1_%1%2").arg(j).arg(k - 1);
 
-            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+            QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
                 double wt_water_volume = level_1[wt_water_vol_value].toDouble();
@@ -623,82 +704,93 @@ void MainWindow::on_marshall_save_clicked() {
                 double wt_water = wt_water_numerator - wt_water_volume;
 
                 level_1[wt_water_key] = wt_water;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
 
-    for (int j = 1; j <= 3; j++) {
-        int k=4;
+    for (int j = 1; j <= 3; j++)
+    {
+        int k = 4;
         QString load_key = QString("marshall_load_1_%1%2").arg(j).arg(k);
         QString reading = QString("marshall_1_%1%2").arg(j).arg(k);
-        QString ring=("marshall_ring");
-        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
-        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        QString ring = ("marshall_ring");
+        QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
+        QLineEdit *ring_edit = ui->dbm_page->findChild<QLineEdit *>(ring);
         double read_it = reading_num_edit->text().toDouble();
 
         double ring_it = ring_edit->text().toDouble();
 
-        double result=read_it*ring_it;
+        double result = read_it * ring_it;
 
-        level_1[load_key]=result;
+        level_1[load_key] = result;
     }
 
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 4; k <= 5; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 4; k <= 5; k += 2)
+        {
             QString correct_load = QString("marshall_corrected_load_1_%1%2").arg(j).arg(k);
             QString load = QString("marshall_load_1_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_1_%1%2").arg(j).arg(k+1);
+            QString volume_crc = QString("marshall_1_%1%2").arg(j).arg(k + 1);
 
-            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+            QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load)) {
+            if (vol_crc_edit && level_1.contains(load))
+            {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
                 double load_it = level_1[load].toDouble();
 
-                double result = vol_crc_val*load_it;
+                double result = vol_crc_val * load_it;
 
                 level_1[correct_load] = result;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
 
-    //level_2
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 1; k <= 3; k += 2) {
+    // level_2
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 1; k <= 3; k += 2)
+        {
             QString vol_obj_name = QString("marshall_vol_2_%1%2").arg(j).arg(k);
             QString num_value = QString("marshall_2_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_2_%1%2").arg(j).arg(k + 2);
 
-            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
-            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+            QLineEdit *num_edit = ui->dbm_page->findChild<QLineEdit *>(num_value);
+            QLineEdit *den_edit = ui->dbm_page->findChild<QLineEdit *>(den_value);
 
             double numerator = num_edit->text().toDouble();
             double denominator = den_edit->text().toDouble();
 
-            if (denominator != 0) {
+            if (denominator != 0)
+            {
                 double result = numerator / denominator;
-                level_2[vol_obj_name]=result;
+                level_2[vol_obj_name] = result;
             }
         }
     }
 
-
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 2; k <= 3; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 2; k <= 3; k += 2)
+        {
             QString wt_water_key = QString("marshall_wt_water_2_%1%2").arg(j).arg(k);
             QString wt_water_num_value = QString("marshall_2_%1%2").arg(j).arg(k);
             QString wt_water_vol_value = QString("marshall_vol_2_%1%2").arg(j).arg(k - 1);
 
-            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+            QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
                 double wt_water_volume = level_1[wt_water_vol_value].toDouble();
@@ -706,82 +798,91 @@ void MainWindow::on_marshall_save_clicked() {
                 double wt_water = wt_water_numerator - wt_water_volume;
 
                 level_2[wt_water_key] = wt_water;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    for (int j = 1; j <= 3; j++) {
-        int k=4;
+    for (int j = 1; j <= 3; j++)
+    {
+        int k = 4;
         QString load_key = QString("marshall_load_2_%1%2").arg(j).arg(k);
         QString reading = QString("marshall_2_%1%2").arg(j).arg(k);
-        QString ring=("marshall_ring");
-        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
-        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        QString ring = ("marshall_ring");
+        QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
+        QLineEdit *ring_edit = ui->dbm_page->findChild<QLineEdit *>(ring);
         double read_it = reading_num_edit->text().toDouble();
 
         double ring_it = ring_edit->text().toDouble();
 
-        double result=read_it*ring_it;
+        double result = read_it * ring_it;
 
-        level_2[load_key]=result;
-
-
+        level_2[load_key] = result;
     }
 
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 4; k <= 5; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 4; k <= 5; k += 2)
+        {
             QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
             QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k+1);
+            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k + 1);
 
-            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+            QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load)) {
+            if (vol_crc_edit && level_1.contains(load))
+            {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
                 double load_it = level_1[load].toDouble();
 
-                double result = vol_crc_val*load_it;
+                double result = vol_crc_val * load_it;
 
                 level_2[correct_load] = result;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    //level_3
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 1; k <= 3; k += 2) {
+    // level_3
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 1; k <= 3; k += 2)
+        {
             QString vol_obj_name = QString("marshall_vol_3_%1%2").arg(j).arg(k);
             QString num_value = QString("marshall_3_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_3_%1%2").arg(j).arg(k + 2);
 
-            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
-            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+            QLineEdit *num_edit = ui->dbm_page->findChild<QLineEdit *>(num_value);
+            QLineEdit *den_edit = ui->dbm_page->findChild<QLineEdit *>(den_value);
 
             double numerator = num_edit->text().toDouble();
             double denominator = den_edit->text().toDouble();
 
-            if (denominator != 0) {
+            if (denominator != 0)
+            {
                 double result = numerator / denominator;
-                level_3[vol_obj_name]=result;
+                level_3[vol_obj_name] = result;
             }
         }
     }
 
-
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 2; k <= 3; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 2; k <= 3; k += 2)
+        {
             QString wt_water_key = QString("marshall_wt_water_3_%1%2").arg(j).arg(k);
             QString wt_water_num_value = QString("marshall_3_%1%2").arg(j).arg(k);
             QString wt_water_vol_value = QString("marshall_vol_3_%1%2").arg(j).arg(k - 1);
 
-            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+            QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
                 double wt_water_volume = level_1[wt_water_vol_value].toDouble();
@@ -789,82 +890,91 @@ void MainWindow::on_marshall_save_clicked() {
                 double wt_water = wt_water_numerator - wt_water_volume;
 
                 level_3[wt_water_key] = wt_water;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    for (int j = 1; j <= 3; j++) {
-        int k=4;
+    for (int j = 1; j <= 3; j++)
+    {
+        int k = 4;
         QString load_key = QString("marshall_load_3_%1%2").arg(j).arg(k);
         QString reading = QString("marshall_3_%1%2").arg(j).arg(k);
-        QString ring=("marshall_ring");
-        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
-        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        QString ring = ("marshall_ring");
+        QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
+        QLineEdit *ring_edit = ui->dbm_page->findChild<QLineEdit *>(ring);
         double read_it = reading_num_edit->text().toDouble();
 
         double ring_it = ring_edit->text().toDouble();
 
-        double result=read_it*ring_it;
+        double result = read_it * ring_it;
 
-        level_3[load_key]=result;
-
-
+        level_3[load_key] = result;
     }
 
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 4; k <= 5; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 4; k <= 5; k += 2)
+        {
             QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
             QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k+1);
+            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k + 1);
 
-            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+            QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load)) {
+            if (vol_crc_edit && level_1.contains(load))
+            {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
                 double load_it = level_1[load].toDouble();
 
-                double result = vol_crc_val*load_it;
+                double result = vol_crc_val * load_it;
 
                 level_3[correct_load] = result;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    //level_4
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 1; k <= 3; k += 2) {
+    // level_4
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 1; k <= 3; k += 2)
+        {
             QString vol_obj_name = QString("marshall_vol_4_%1%2").arg(j).arg(k);
             QString num_value = QString("marshall_4_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_4_%1%2").arg(j).arg(k + 2);
 
-            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
-            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+            QLineEdit *num_edit = ui->dbm_page->findChild<QLineEdit *>(num_value);
+            QLineEdit *den_edit = ui->dbm_page->findChild<QLineEdit *>(den_value);
 
             double numerator = num_edit->text().toDouble();
             double denominator = den_edit->text().toDouble();
 
-            if (denominator != 0) {
+            if (denominator != 0)
+            {
                 double result = numerator / denominator;
-                level_4[vol_obj_name]=result;
+                level_4[vol_obj_name] = result;
             }
         }
     }
 
-
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 2; k <= 3; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 2; k <= 3; k += 2)
+        {
             QString wt_water_key = QString("marshall_wt_water_4_%1%2").arg(j).arg(k);
             QString wt_water_num_value = QString("marshall_4_%1%2").arg(j).arg(k);
             QString wt_water_vol_value = QString("marshall_vol_4_%1%2").arg(j).arg(k - 1);
 
-            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+            QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
                 double wt_water_volume = level_1[wt_water_vol_value].toDouble();
@@ -872,82 +982,91 @@ void MainWindow::on_marshall_save_clicked() {
                 double wt_water = wt_water_numerator - wt_water_volume;
 
                 level_4[wt_water_key] = wt_water;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    for (int j = 1; j <= 3; j++) {
-        int k=4;
+    for (int j = 1; j <= 3; j++)
+    {
+        int k = 4;
         QString load_key = QString("marshall_load_4_%1%2").arg(j).arg(k);
         QString reading = QString("marshall_4_%1%2").arg(j).arg(k);
-        QString ring=("marshall_ring");
-        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
-        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        QString ring = ("marshall_ring");
+        QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
+        QLineEdit *ring_edit = ui->dbm_page->findChild<QLineEdit *>(ring);
         double read_it = reading_num_edit->text().toDouble();
 
         double ring_it = ring_edit->text().toDouble();
 
-        double result=read_it*ring_it;
+        double result = read_it * ring_it;
 
-        level_4[load_key]=result;
-
-
+        level_4[load_key] = result;
     }
 
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 4; k <= 5; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 4; k <= 5; k += 2)
+        {
             QString correct_load = QString("marshall_corrected_load_4_%1%2").arg(j).arg(k);
             QString load = QString("marshall_load_4_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_4_%1%2").arg(j).arg(k+1);
+            QString volume_crc = QString("marshall_4_%1%2").arg(j).arg(k + 1);
 
-            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+            QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load)) {
+            if (vol_crc_edit && level_1.contains(load))
+            {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
                 double load_it = level_1[load].toDouble();
 
-                double result = vol_crc_val*load_it;
+                double result = vol_crc_val * load_it;
 
                 level_4[correct_load] = result;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    //level_5
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 1; k <= 3; k += 2) {
+    // level_5
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 1; k <= 3; k += 2)
+        {
             QString vol_obj_name = QString("marshall_vol_5_%1%2").arg(j).arg(k);
             QString num_value = QString("marshall_5_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_5_%1%2").arg(j).arg(k + 2);
 
-            QLineEdit* num_edit = ui->dbm_page->findChild<QLineEdit*>(num_value);
-            QLineEdit* den_edit = ui->dbm_page->findChild<QLineEdit*>(den_value);
+            QLineEdit *num_edit = ui->dbm_page->findChild<QLineEdit *>(num_value);
+            QLineEdit *den_edit = ui->dbm_page->findChild<QLineEdit *>(den_value);
 
             double numerator = num_edit->text().toDouble();
             double denominator = den_edit->text().toDouble();
 
-            if (denominator != 0) {
+            if (denominator != 0)
+            {
                 double result = numerator / denominator;
-                level_5[vol_obj_name]=result;
+                level_5[vol_obj_name] = result;
             }
         }
     }
 
-
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 2; k <= 3; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 2; k <= 3; k += 2)
+        {
             QString wt_water_key = QString("marshall_wt_water_5_%1%2").arg(j).arg(k);
             QString wt_water_num_value = QString("marshall_5_%1%2").arg(j).arg(k);
             QString wt_water_vol_value = QString("marshall_vol_5_%1%2").arg(j).arg(k - 1);
 
-            QLineEdit* wt_water_num_edit = ui->dbm_page->findChild<QLineEdit*>(wt_water_num_value);
+            QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value)) {
+            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
                 double wt_water_volume = level_1[wt_water_vol_value].toDouble();
@@ -955,49 +1074,53 @@ void MainWindow::on_marshall_save_clicked() {
                 double wt_water = wt_water_numerator - wt_water_volume;
 
                 level_5[wt_water_key] = wt_water;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
-    for (int j = 1; j <= 3; j++) {
-        int k=4;
+    for (int j = 1; j <= 3; j++)
+    {
+        int k = 4;
         QString load_key = QString("marshall_load_5_%1%2").arg(j).arg(k);
         QString reading = QString("marshall_5_%1%2").arg(j).arg(k);
-        QString ring=("marshall_ring");
-        QLineEdit* reading_num_edit = ui->dbm_page->findChild<QLineEdit*>(reading);
-        QLineEdit* ring_edit = ui->dbm_page->findChild<QLineEdit*>(ring);
+        QString ring = ("marshall_ring");
+        QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
+        QLineEdit *ring_edit = ui->dbm_page->findChild<QLineEdit *>(ring);
         double read_it = reading_num_edit->text().toDouble();
 
         double ring_it = ring_edit->text().toDouble();
 
-        double result=read_it*ring_it;
+        double result = read_it * ring_it;
 
-        level_5[load_key]=result;
-
-
+        level_5[load_key] = result;
     }
-    for (int j = 1; j <= 3; j++) {
-        for (int k = 4; k <= 5; k += 2) {
+    for (int j = 1; j <= 3; j++)
+    {
+        for (int k = 4; k <= 5; k += 2)
+        {
             QString correct_load = QString("marshall_corrected_load_5_%1%2").arg(j).arg(k);
             QString load = QString("marshall_load_5_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_5_%1%2").arg(j).arg(k+1);
+            QString volume_crc = QString("marshall_5_%1%2").arg(j).arg(k + 1);
 
-            QLineEdit* vol_crc_edit = ui->dbm_page->findChild<QLineEdit*>(volume_crc);
+            QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load)) {
+            if (vol_crc_edit && level_1.contains(load))
+            {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
                 double load_it = level_1[load].toDouble();
 
-                double result = vol_crc_val*load_it;
+                double result = vol_crc_val * load_it;
 
                 level_5[correct_load] = result;
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-
         }
     }
 
@@ -1017,14 +1140,15 @@ void MainWindow::on_marshall_save_clicked() {
 
         // Close the file
         marshall_json_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
     }
     save_check();
-
-
 }
-void MainWindow::on_vol_save_clicked() {
+void MainWindow::on_vol_save_clicked()
+{
 
     tracked_files.push_back("vol");
     removeDuplicates(tracked_files);
@@ -1034,91 +1158,108 @@ void MainWindow::on_vol_save_clicked() {
 
     QStringList spg_expnames = {"apparent", "bulk", "total", "btmn"};
 
-    for (int i = 1; i <= 3; i++) {
-        for (QString s: spg_expnames) {
+    for (int i = 1; i <= 3; i++)
+    {
+        for (QString s : spg_expnames)
+        {
 
             QString constructor = "vol_" + s + "_%1";
             QString obj_name = constructor.arg(i);
 
-            QLineEdit* tedit = ui->vol->findChild<QLineEdit*>(obj_name);
+            QLineEdit *tedit = ui->vol->findChild<QLineEdit *>(obj_name);
 
-            if (tedit) {
+            if (tedit)
+            {
                 specific_gravity[obj_name] = tedit->text().toDouble();
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error on saving 'vol' at" << obj_name << "constructor" << constructor << "tedit not found";
             }
         }
     }
 
-    specific_gravity["vol_eff_1"] = (ui->vol_apparent_1->text().toDouble() + ui->vol_bulk_1->text().toDouble())/2;
-    specific_gravity["vol_eff_2"] = (ui->vol_apparent_2->text().toDouble() + ui->vol_bulk_2->text().toDouble())/2;
-    specific_gravity["vol_eff_3"] = (ui->vol_apparent_3->text().toDouble() + ui->vol_bulk_3->text().toDouble())/2;
+    specific_gravity["vol_eff_1"] = (ui->vol_apparent_1->text().toDouble() + ui->vol_bulk_1->text().toDouble()) / 2;
+    specific_gravity["vol_eff_2"] = (ui->vol_apparent_2->text().toDouble() + ui->vol_bulk_2->text().toDouble()) / 2;
+    specific_gravity["vol_eff_3"] = (ui->vol_apparent_3->text().toDouble() + ui->vol_bulk_3->text().toDouble()) / 2;
 
     QStringList comp_expnames = {"p1", "p2", "p3", "pb", "gsb", "gmm", "gmb"};
 
-    for (int i = 0; i <= 5; i++) {
-        for (QString s: comp_expnames) {
+    for (int i = 0; i <= 5; i++)
+    {
+        for (QString s : comp_expnames)
+        {
 
             QString constructor = "vol_" + s + "_%1";
             QString arg = (i == 0) ? "obc" : QString::number(i);
 
             QString obj_name = constructor.arg(arg);
 
-            QLineEdit* tedit = ui->vol->findChild<QLineEdit*>(obj_name);
+            QLineEdit *tedit = ui->vol->findChild<QLineEdit *>(obj_name);
 
-            if (tedit) {
+            if (tedit)
+            {
                 composition[obj_name] = tedit->text().toDouble();
-            } else {
+            }
+            else
+            {
                 qDebug() << "Error on saving 'vol' at" << obj_name << "constructor" << constructor << "teditnotfound";
             }
         }
     }
 
     QStringList calc_expnames = {"ps", "vma", "va", "vfb"};
-    for (QString s: calc_expnames) {
-        for (int i = 0; i <= 5; i++) {
+    for (QString s : calc_expnames)
+    {
+        for (int i = 0; i <= 5; i++)
+        {
 
             QString arg = (i == 0) ? "obc" : QString::number(i);
             QString constructor = "vol_" + s + "_%1";
             QString obj_name = constructor.arg(arg);
 
             double output;
-            //Switch statement handles every experiment differently
-            if (s == "ps") {
+            // Switch statement handles every experiment differently
+            if (s == "ps")
+            {
                 QString db_constructor = "vol_pb_%1";
                 QString db_call = db_constructor.arg(arg);
 
                 double db_val = composition[db_call].toDouble();
 
                 output = 100 - db_val;
-            } else if (s == "vma") {
+            }
+            else if (s == "vma")
+            {
                 QString db_constructor_1 = "vol_gmb_%1", db_constructor_2 = "vol_ps_%1", db_constructor_3 = "vol_gsb_%1";
                 QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg), db_call_3 = db_constructor_3.arg(arg);
 
                 double val_gmb = composition[db_call_1].toDouble(), val_ps = composition[db_call_2].toDouble(), val_gsb = composition[db_call_3].toDouble();
 
-                output = 100 - (val_gmb*val_ps/val_gsb);
-            } else if (s == "va") {
+                output = 100 - (val_gmb * val_ps / val_gsb);
+            }
+            else if (s == "va")
+            {
                 QString db_constructor_1 = "vol_gmm_%1", db_constructor_2 = "vol_gmb_%1";
                 QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg);
 
                 double val_gmm = composition[db_call_1].toDouble(), val_gmb = composition[db_call_2].toDouble();
 
-                output = (val_gmm - val_gmb)*100/val_gmm;
-            } else if (s == "vfb") {
+                output = (val_gmm - val_gmb) * 100 / val_gmm;
+            }
+            else if (s == "vfb")
+            {
                 QString db_constructor_1 = "vol_vma_%1", db_constructor_2 = "vol_va_%1";
                 QString db_call_1 = db_constructor_1.arg(arg), db_call_2 = db_constructor_2.arg(arg);
 
                 double val_vma = composition[db_call_1].toDouble(), val_va = composition[db_call_2].toDouble();
 
-                output = (val_vma - val_va)*100/val_vma;
+                output = (val_vma - val_va) * 100 / val_vma;
             }
 
             composition[obj_name] = output;
         }
     }
-
-
 
     QJsonObject vol_json;
     vol_json["spg"] = specific_gravity;
@@ -1135,7 +1276,9 @@ void MainWindow::on_vol_save_clicked() {
 
         // Close the file
         vol_json_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
     save_check();
@@ -1150,36 +1293,49 @@ void MainWindow::on_gmm_save_clicked()
     QString constructor = "gmm%1_%2%3";
     QString json_constructor = "gmm_%1_%2";
 
-    for (int i = 1; i <= 3; i++) {
-        for (int j = 1; j <= 5; j++) {
-            for (int k = 1; k <= 2; k++) {
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 5; j++)
+        {
+            for (int k = 1; k <= 2; k++)
+            {
 
                 QString obj_name = constructor.arg(i).arg(j).arg(k);
                 QString json_key = json_constructor.arg(j).arg(k);
 
-                QLineEdit* tedit = ui->gmm->findChild<QLineEdit*>(obj_name);
+                QLineEdit *tedit = ui->gmm->findChild<QLineEdit *>(obj_name);
 
-                if (tedit) {
+                if (tedit)
+                {
 
-                    if (i == 1) {
+                    if (i == 1)
+                    {
                         gmm_400[json_key] = tedit->text().toDouble();
-                    } else if (i == 2) {
+                    }
+                    else if (i == 2)
+                    {
                         gmm_425[json_key] = tedit->text().toDouble();
-                    } else if (i == 3) {
+                    }
+                    else if (i == 3)
+                    {
                         gmm_450[json_key] = tedit->text().toDouble();
                     }
-                } else {
+                }
+                else
+                {
                     qDebug() << "Error on saving 'gmm' at" << obj_name << "constructor:" << constructor << "tedit not found";
                 }
             }
         }
     }
 
-    gmm_400["avg"] = (gmm_400["gmm_5_1"].toDouble() + gmm_400["gmm_5_2"].toDouble())/2;
-    gmm_425["avg"] = (gmm_425["gmm_5_1"].toDouble() + gmm_425["gmm_5_2"].toDouble())/2;
-    gmm_450["avg"] = (gmm_450["gmm_5_1"].toDouble() + gmm_450["gmm_5_2"].toDouble())/2;
+    gmm_400["avg"] = (gmm_400["gmm_5_1"].toDouble() + gmm_400["gmm_5_2"].toDouble()) / 2;
+    gmm_425["avg"] = (gmm_425["gmm_5_1"].toDouble() + gmm_425["gmm_5_2"].toDouble()) / 2;
+    gmm_450["avg"] = (gmm_450["gmm_5_1"].toDouble() + gmm_450["gmm_5_2"].toDouble()) / 2;
 
-    gmm_data["4.00"] = gmm_400; gmm_data["4.25"] = gmm_425; gmm_data["4.50"] = gmm_450;
+    gmm_data["4.00"] = gmm_400;
+    gmm_data["4.25"] = gmm_425;
+    gmm_data["4.50"] = gmm_450;
 }
 void MainWindow::on_rheology_save_clicked()
 {
@@ -1187,108 +1343,107 @@ void MainWindow::on_rheology_save_clicked()
     removeDuplicates(tracked_files);
 
     QJsonObject rh_json, strip, soft, pen, ductility, flash, viscosity, spc;
-    const std::map<QString, int> exp_valcount = {{"strip", 6}, //Internal iteration from 1 to 2
+    const QString constructor = "rheology_%1_%2";
+    const std::vector<QString> exp_names = {"soft", "strip", "pen", "ductility", "flash", "viscosity", "spc"};
+    const std::map<QString, int> exp_valcount = {{"strip", 6}, // Internal iteration from 1 to 2
                                                  {"soft", 7},
                                                  {"pen", 11},
                                                  {"ductility", 9},
                                                  {"flash", 3},
                                                  {"viscosity", 10},
-                                                 {"spc", 4}}; //Internal iteration from 1 to 3
+                                                 {"spc", 4}}; // Internal iteration from 1 to 3
 
-    auto strip_eval = [](QJsonObject strip_in) {
-        return strip_in;
-    };
+    std::map<QString, QJsonObject(MainWindow::*)(QJsonObject)> func_map = {{"strip", strip_eval},
+                                                                           {"soft", soft_eval},
+                                                                           {"pen", pen_eval},
+                                                                           {"ductility", ductility_eval},
+                                                                           {"flash", flash_eval},
+                                                                           {"viscosity", viscosity_eval},
+                                                                           {"spc", spc_eval}};
 
-    auto soft_eval = [](QJsonObject soft_in) {
-        QString constructor = "rheology_soft_%1";
-        QString obj_name;
 
-        double sum=0;
-        for (int i = 4; i < 8; i++) {
-            obj_name = constructor.arg(i);
+    std::map<QString, QJsonObject> json_map = {{"strip", strip},
+                                               {"soft", soft},
+                                               {"pen", pen},
+                                               {"ductility", ductility},
+                                               {"flash", flash},
+                                               {"viscosity", viscosity},
+                                               {"spc", spc}};
 
-            sum += soft_in[obj_name].toDouble();
+    for (auto it : exp_names)
+    {
+        QString exp_name = it;
+        int exp_count = exp_valcount.at(it);
+        for (int i = 1; i <= exp_count; ++i)
+        {
+
+            if (exp_name == "strip")
+            {
+                QString obj_name_1 = constructor.arg(exp_name).arg(exp_count * 10 + 1);
+                QString obj_name_2 = constructor.arg(exp_name).arg(exp_count * 10 + 2);
+
+                QLineEdit *tedit_1 = ui->rheology->findChild<QLineEdit *>(obj_name_1);
+                QLineEdit *tedit_2 = ui->rheology->findChild<QLineEdit *>(obj_name_2);
+
+                if (!(tedit_1 && tedit_2))
+                {
+                    qDebug() << "somethinglikeyou11 is wrong with rheology strip";
+                    continue;
+                }
+
+                QString text_1 = tedit_1->text(), text_2 = tedit_2->text();
+                strip[obj_name_1] = text_1.toDouble();
+                strip[obj_name_2] = text_2.toDouble();
+            }
+            else if (exp_name == "spc")
+            {
+                QString obj_name_1 = constructor.arg(exp_name).arg(exp_count * 10 + 1);
+                QString obj_name_2 = constructor.arg(exp_name).arg(exp_count * 10 + 2);
+                QString obj_name_3 = constructor.arg(exp_name).arg(exp_count * 10 + 3);
+
+                QLineEdit *tedit_1 = ui->rheology->findChild<QLineEdit *>(obj_name_1);
+                QLineEdit *tedit_2 = ui->rheology->findChild<QLineEdit *>(obj_name_2);
+                QLineEdit *tedit_3 = ui->rheology->findChild<QLineEdit *>(obj_name_3);
+
+                if (!(tedit_1 && tedit_2))
+                {
+                    qDebug() << "somethinglikeyou11 is wrong with rheology strip";
+                    continue;
+                }
+
+                QString text_1 = tedit_1->text();
+                QString text_2 = tedit_2->text();
+                QString text_3 = tedit_3->text();
+
+                spc[obj_name_1] = text_1.toDouble();
+                spc[obj_name_2] = text_2.toDouble();
+                spc[obj_name_3] = text_3.toDouble();
+            }
+            else
+            {
+                QString obj_name = constructor.arg(exp_name).arg(i);
+                QString text;
+
+                QObject *obj = ui->rheology->findChild<QObject *>(obj_name);
+                if (QLineEdit* lineEdit = qobject_cast<QLineEdit*>(obj)) {text = lineEdit->text();}
+                else if (QDoubleSpinBox* dspinEdit = qobject_cast<QDoubleSpinBox*>(obj)) {text = dspinEdit->text();}
+
+                else
+                {
+                    qDebug() << "something broke with rheology save" << exp_name;
+                    continue;
+                }
+
+                json_map[exp_name][obj_name] = text.toDouble();
+            }
         }
 
-        soft_in["rheology_soft_8"] = sum/4;
-
-        return soft_in;
-    };
-
-    auto pen_eval = [](QJsonObject pen_in) {
-        QString constructor = "rheology_pen_%1";
-        QString init_name, fin_name, pen_key;
-
-        double sum = 0;
-        for (int i = 6; i <= 12; i += 2) {
-            init_name = constructor.arg(i); fin_name = constructor.arg(i+1);
-            double penetration = pen_in[fin_name].toDouble() - pen_in[init_name].toDouble();
-
-            int pen_index = 9 + (i/2);
-            pen_key = constructor.arg(pen_index);
-            pen_in[pen_key] = penetration;
-            sum += penetration;
-        }
-
-        pen_in["rheology_pen_15"] = sum/3;
-
-        return pen_in;
-    };
-
-    auto ductility_eval = [](QJsonObject ductility_in) {
-        QString constructor = "rheology_ductility_%1";
-        QString obj_name;
-
-        double sum=0;
-        for (int i = 7; i < 10; i++) {
-            obj_name = constructor.arg(i);
-
-            sum += ductility_in[obj_name].toDouble();
-        }
-
-        ductility_in["rheology_soft_8"] = sum/3;
-
-        return ductility_in;
-    };
-
-    auto flash_eval = [](QJsonObject flash_in) {
-        flash_in["rheology_flash_4"] = (flash_in["rheology_flash_1"].toDouble() +flash_in["rheology_flash_2"].toDouble() +flash_in["rheology_flash_3"].toDouble())/3;
-        return flash_in;
-    };
-
-    auto viscosity_eval = [](QJsonObject viscosity_in) {
-        viscosity_in["rheology_viscosity_11"] = (viscosity_in["rheology_viscosity_in_7"].toDouble() * viscosity_in["rheology_viscosity_9"].toDouble());
-        viscosity_in["rheology_viscosity_12"] = (viscosity_in["rheology_viscosity_in_8"].toDouble() * viscosity_in["rheology_viscosity_10"].toDouble());
-
-        return viscosity_in;
-    };
-
-    auto spc_eval = [](QJsonObject spc_in) {
-        QString constructor = "rheology_spc_%2%1";
-        QString obj_name;
-
-        double a, b, c, d, spc, sum;
-        for (int i = 1; i <= 3; i++) {
-            obj_name = constructor.arg(i);
-
-            a = spc_in[obj_name.arg(1)].toDouble();
-            b = spc_in[obj_name.arg(2)].toDouble();
-            c = spc_in[obj_name.arg(3)].toDouble();
-            d = spc_in[obj_name.arg(4)].toDouble();
-
-            spc = (c - a)/(b+c-a-d);
-            sum += spc;
-
-            spc_in[QString::fromStdString("rheology_spc_%1").arg(i)] = spc;
-        }
-
-        spc_in["rheology_spc_mean"] = sum/3;
-
-        return spc_in;
-    };
+        json_map[exp_name] = (this->*func_map.at(exp_name))(json_map[exp_name]);
+    }
 
     save_check();
 }
+
 void MainWindow::on_wa_save_clicked()
 {
     tracked_files.push_back("vol");
@@ -1299,109 +1454,134 @@ void MainWindow::on_wa_save_clicked()
     QString constructor = "wa%1_%2%3";
     QString json_constructor = "wa_%1_%2";
 
-    for (int i = 1; i <= 4; i++) {
-        for (int j = 1; j < 5; j++) {
-            for (int k = 1; k <= 2; k++) {
+    for (int i = 1; i <= 4; i++)
+    {
+        for (int j = 1; j < 5; j++)
+        {
+            for (int k = 1; k <= 2; k++)
+            {
 
                 QString obj_name = constructor.arg(i).arg(j).arg(k);
                 QString json_key = json_constructor.arg(j).arg(k);
 
-                QLineEdit* tedit = ui->wa->findChild<QLineEdit*>(obj_name);
+                QLineEdit *tedit = ui->wa->findChild<QLineEdit *>(obj_name);
 
-                if (tedit) {
+                if (tedit)
+                {
 
-                    if (i == 1) {
+                    if (i == 1)
+                    {
                         wa_10[json_key] = tedit->text().toDouble();
-                    } else if (i == 2) {
+                    }
+                    else if (i == 2)
+                    {
                         wa_20[json_key] = tedit->text().toDouble();
-                    } else if (i == 3) {
+                    }
+                    else if (i == 3)
+                    {
                         wa_dust[json_key] = tedit->text().toDouble();
                     }
-                    else if(i == 4) {
+                    else if (i == 4)
+                    {
                         wa_cleanliness[json_key] = tedit->text().toDouble();
                     }
-                } else {
+                }
+                else
+                {
                     qDebug() << "Error on saving 'WA' at" << obj_name << "constructor:" << constructor << "tedit not found";
                 }
             }
         }
-        if(i==4){
-            for(int j = 1; j <4; j++) {
-                for(int k = 1; k <4;k++) {
+        if (i == 4)
+        {
+            for (int j = 1; j < 4; j++)
+            {
+                for (int k = 1; k < 4; k++)
+                {
                     QString obj_name = constructor.arg(i).arg(j).arg(k);
                     QString json_key = json_constructor.arg(j).arg(k);
-                    QLineEdit* tedit = ui->wa->findChild<QLineEdit*>(obj_name);
-                    if (tedit) {
-                        if(i == 4) {
+                    QLineEdit *tedit = ui->wa->findChild<QLineEdit *>(obj_name);
+                    if (tedit)
+                    {
+                        if (i == 4)
+                        {
                             wa_cleanliness[json_key] = tedit->text().toDouble();
                         }
-                    } else {
+                    }
+                    else
+                    {
                         qDebug() << "Error on saving 'WA_cleanliness' at" << obj_name << "constructor:" << constructor << "tedit not found";
                     }
-
-
                 }
-            }}
+            }
+        }
     }
     QJsonObject waa_10, waa_20, waa_dust, waa_cleanliness;
 
-    for(int i = 1; i <4;i++){
-        for(int k = 1; k <3;k++){
+    for (int i = 1; i < 4; i++)
+    {
+        for (int k = 1; k < 3; k++)
+        {
             std::string k_str = std::to_string(k);
             QString k_qstr = QString::fromStdString(k_str);
 
-            if(i == 1){
-                waa_10["answer_1_"+k_qstr] = wa_10["wa_4_"+k_qstr].toDouble()/(wa_10["wa_3_"+k_qstr].toDouble()+wa_10["wa_2_"+k_qstr].toDouble()-wa_10["wa_1_"+k_qstr].toDouble());
-                waa_10["answer_2_"+k_qstr] = wa_10["wa_4_"+k_qstr].toDouble()/(wa_10["wa_4_"+k_qstr].toDouble()+wa_10["wa_2_"+k_qstr].toDouble()-wa_10["wa_1_"+k_qstr].toDouble());
-                waa_10["answer_3_"+k_qstr] = ((wa_10["wa_3_"+k_qstr].toDouble()-wa_10["wa_4_"+k_qstr].toDouble())/wa_10["wa_4_"+k_qstr].toDouble())*100;
-            }else if(i == 2){
-                waa_20["answer_1_"+k_qstr] = wa_20["wa_4_"+k_qstr].toDouble()/(wa_20["wa_3_"+k_qstr].toDouble()+wa_20["wa_2_"+k_qstr].toDouble()-wa_20["wa_1_"+k_qstr].toDouble());
-                waa_20["answer_2_"+k_qstr] = wa_20["wa_4_"+k_qstr].toDouble()/(wa_20["wa_4_"+k_qstr].toDouble()+wa_20["wa_2_"+k_qstr].toDouble()-wa_20["wa_1_"+k_qstr].toDouble());
-                waa_20["answer_3_"+k_qstr] = ((wa_20["wa_3_"+k_qstr].toDouble()-wa_20["wa_4_"+k_qstr].toDouble())/wa_20["wa_4_"+k_qstr].toDouble())*100;
+            if (i == 1)
+            {
+                waa_10["answer_1_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_3_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
+                waa_10["answer_2_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_4_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
+                waa_10["answer_3_" + k_qstr] = ((wa_10["wa_3_" + k_qstr].toDouble() - wa_10["wa_4_" + k_qstr].toDouble()) / wa_10["wa_4_" + k_qstr].toDouble()) * 100;
             }
-            else if(i==3){
-                waa_dust["answer_1_"+k_qstr] = wa_dust["wa_1_"+k_qstr].toDouble()/(wa_dust["wa_2_"+k_qstr].toDouble()+wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
-                waa_dust["answer_2_"+k_qstr] = wa_dust["wa_3_"+k_qstr].toDouble()/(wa_dust["wa_2_"+k_qstr].toDouble()+wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
-                waa_dust["answer_3_"+k_qstr] = wa_dust["wa_1_"+k_qstr].toDouble()/(wa_dust["wa_1_"+k_qstr].toDouble()+wa_dust["wa_2_"+k_qstr].toDouble()-wa_dust["wa_4_"+k_qstr].toDouble());
-                waa_dust["answer_4_"+k_qstr] = ((wa_dust["wa_3_"+k_qstr].toDouble()-wa_dust["wa_1_"+k_qstr].toDouble())/wa_dust["wa_1_"+k_qstr].toDouble())*100;
+            else if (i == 2)
+            {
+                waa_20["answer_1_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_3_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
+                waa_20["answer_2_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_4_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
+                waa_20["answer_3_" + k_qstr] = ((wa_20["wa_3_" + k_qstr].toDouble() - wa_20["wa_4_" + k_qstr].toDouble()) / wa_20["wa_4_" + k_qstr].toDouble()) * 100;
             }
-            else if(i==4){
-                waa_cleanliness["aggregate%"+k_qstr] = (wa_cleanliness["wa_3_"+k_qstr].toDouble()/wa_cleanliness["wa_1_"+k_qstr].toDouble())*100;
+            else if (i == 3)
+            {
+                waa_dust["answer_1_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+                waa_dust["answer_2_" + k_qstr] = wa_dust["wa_3_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+                waa_dust["answer_3_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_1_" + k_qstr].toDouble() + wa_dust["wa_2_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+                waa_dust["answer_4_" + k_qstr] = ((wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_1_" + k_qstr].toDouble()) / wa_dust["wa_1_" + k_qstr].toDouble()) * 100;
+            }
+            else if (i == 4)
+            {
+                waa_cleanliness["aggregate%" + k_qstr] = (wa_cleanliness["wa_3_" + k_qstr].toDouble() / wa_cleanliness["wa_1_" + k_qstr].toDouble()) * 100;
             }
         }
     }
 
-
-    for(int i = 1; i <4;i++){
+    for (int i = 1; i < 4; i++)
+    {
         std::string i_str = std::to_string(i);
         QString i_qstr = QString::fromStdString(i_str);
 
-        wa_10["wa10_average_"+i_qstr] =  (waa_10["answer_"+ i_qstr + "_1"].toDouble() + waa_10["answer_"+ i_qstr + "_2"].toDouble())/2;
+        wa_10["wa10_average_" + i_qstr] = (waa_10["answer_" + i_qstr + "_1"].toDouble() + waa_10["answer_" + i_qstr + "_2"].toDouble()) / 2;
     }
-    for(int i = 1; i <4;i++){
+    for (int i = 1; i < 4; i++)
+    {
         std::string i_str = std::to_string(i);
         QString i_qstr = QString::fromStdString(i_str);
 
-        wa_20["wa20_average_"+i_qstr] =  (waa_20["answer_"+ i_qstr + "_1"].toDouble() + waa_20["answer_"+ i_qstr + "_2"].toDouble())/2;
+        wa_20["wa20_average_" + i_qstr] = (waa_20["answer_" + i_qstr + "_1"].toDouble() + waa_20["answer_" + i_qstr + "_2"].toDouble()) / 2;
     }
 
-    wa_data["10"] =  wa_10;
-    wa_data["20"] =  wa_20;
-    wa_data["dust"] =  wa_dust;
-    wa_data["cleanliness"] =  wa_cleanliness;
+    wa_data["10"] = wa_10;
+    wa_data["20"] = wa_20;
+    wa_data["dust"] = wa_dust;
+    wa_data["cleanliness"] = wa_cleanliness;
     wa_data["answer_10"] = waa_10;
     wa_data["answer_20"] = waa_20;
     wa_data["answer_dust"] = waa_dust;
     wa_data["answer_cleanliness"] = waa_cleanliness;
 }
 
-
-
-//Deals with save as requests
+// Deals with save as requests
 void MainWindow::on_spc_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1410,7 +1590,8 @@ void MainWindow::on_spc_saveas_clicked()
 void MainWindow::on_fei_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1419,7 +1600,8 @@ void MainWindow::on_fei_saveas_clicked()
 void MainWindow::on_aiv_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1428,7 +1610,8 @@ void MainWindow::on_aiv_saveas_clicked()
 void MainWindow::on_ind_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1437,7 +1620,8 @@ void MainWindow::on_ind_saveas_clicked()
 void MainWindow::on_mdd_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1446,23 +1630,28 @@ void MainWindow::on_mdd_saveas_clicked()
 void MainWindow::on_grad_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
     ui->mdd_save->click();
 }
-void MainWindow::on_marshall_saveas_clicked() {
+void MainWindow::on_marshall_saveas_clicked()
+{
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
     ui->marshall_save->click();
 }
-void MainWindow::on_tensile_saveas_clicked() {
+void MainWindow::on_tensile_saveas_clicked()
+{
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
-    if (!saveas_done) {
+    if (!saveas_done)
+    {
         QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
         saveas_done = true;
     }
@@ -1471,48 +1660,76 @@ void MainWindow::on_tensile_saveas_clicked() {
 
 
 
-//Save Check function is simultaeneously the most and least important function
-void MainWindow::save_check() {
-    for (auto exp: all_experiments) {
-        if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end()) {
-            QLabel* indicator = ui->stackedWidget->findChild<QLabel*>(QString::fromStdString(exp)+"_saved");
-            if (indicator) {
-                //qDebug() << "indicator" << exp << "found";
+// Save Check function is simultaeneously the most and least important function
+void MainWindow::save_check()
+{
+    for (auto exp : all_experiments)
+    {
+        if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end())
+        {
+            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
+            if (indicator)
+            {
+                // qDebug() << "indicator" << exp << "found";
                 indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon.png"));
-                if (indicator->height() < 200) {
+                if (indicator->height() < 200)
+                {
                     indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon_small.png"));
-                } qDebug () << "saved pixmap set";
-            } else {
-                //qDebug() << "indicator not found";
+                }
+                qDebug() << "saved pixmap set";
             }
-        } else {
-            QLabel* indicator = ui->stackedWidget->findChild<QLabel*>(QString::fromStdString(exp)+"_saved");
-            if (indicator) {
-                //qDebug() << "indicator found";
+            else
+            {
+                // qDebug() << "indicator not found";
+            }
+        }
+        else
+        {
+            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
+            if (indicator)
+            {
+                // qDebug() << "indicator found";
                 indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon.png"));
-                if (indicator->height() < 200) {
+                if (indicator->height() < 200)
+                {
                     indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon_small.png"));
                 }
-            } else {
+            }
+            else
+            {
                 qDebug() << "indicator not found";
-            }//
+            } //
         }
     }
 
-    for (auto file: tracked_files) {
-        if (file == "spc") {
+    for (auto file : tracked_files)
+    {
+        if (file == "spc")
+        {
             generate_html_spc();
-        } else if (file == "fei") {
+        }
+        else if (file == "fei")
+        {
             generate_html_fei();
-        } else if (file == "aiv") {
+        }
+        else if (file == "aiv")
+        {
             generate_html_aiv();
-        } else if (file == "ind") {
+        }
+        else if (file == "ind")
+        {
             generate_html_ind();
-        } else if (file == "mdd") {
+        }
+        else if (file == "mdd")
+        {
             generate_html_mdd();
-        } else if (file == "grad") {
+        }
+        else if (file == "grad")
+        {
             generate_html_grad();
-        } else if (file == "tensile") {
+        }
+        else if (file == "tensile")
+        {
             generate_html_tensile();
         }
     }
@@ -1520,7 +1737,7 @@ void MainWindow::save_check() {
 
 
 
-//Deals with saving to JSON (subfunctions)
+// Deals with saving to JSON (subfunctions)
 void MainWindow::on_mdd_save_update_clicked()
 {
     ui->mdd_save->click();
@@ -2195,8 +2412,7 @@ void MainWindow::on_idg_save_40mm_clicked()
             ind_cumulative[i][j] = cumsum;
             ind_cumulative_percent[i][j] = 100 * cumsum / total_weight[i - 1];
             ind_cum_pass[i][j] = 100 - (100 * cumsum / total_weight[i - 1]);
-            //qDebug() << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass[i][j];
-
+            // qDebug() << cumsum << " " << ind_cumulative_percent[i][j] << " " << ind_cum_pass[i][j];
         }
     }
 
@@ -2905,23 +3121,127 @@ void MainWindow::on_cd_save_clicked()
     }
 
     save_check();
+}
+QJsonObject MainWindow::soft_eval(QJsonObject soft_in)
+{
+    qDebug() << "beggining soft eval";
+    qDebug() << soft_in;
+    QString constructor = "rheology_soft_%1";
+    qDebug() << constructor;
+    QString obj_name;
 
+    double sum = 0;
+    for (int i = 4; i < 8; i++)
+    {
+        obj_name = constructor.arg(i);
+
+        sum += soft_in[obj_name].toDouble();
+        qDebug() << obj_name << sum;
+    }
+
+    soft_in["rheology_soft_8"] = sum / 4;
+
+    return soft_in;
+}
+QJsonObject MainWindow::strip_eval(QJsonObject strip_in)
+{
+    return strip_in;
+}
+QJsonObject MainWindow::pen_eval(QJsonObject pen_in)
+{
+    QString constructor = "rheology_pen_%1";
+    QString init_name, fin_name, pen_key;
+
+    double sum = 0;
+    for (int i = 6; i <= 12; i += 2)
+    {
+        init_name = constructor.arg(i);
+        fin_name = constructor.arg(i + 1);
+        double penetration = pen_in[fin_name].toDouble() - pen_in[init_name].toDouble();
+
+        int pen_index = 9 + (i / 2);
+        pen_key = constructor.arg(pen_index);
+        pen_in[pen_key] = penetration;
+        sum += penetration;
+    }
+
+    pen_in["rheology_pen_15"] = sum / 3;
+
+    return pen_in;
+}
+QJsonObject MainWindow::ductility_eval(QJsonObject ductility_in)
+{
+    QString constructor = "rheology_ductility_%1";
+    QString obj_name;
+
+    double sum = 0;
+    for (int i = 7; i < 10; i++)
+    {
+        obj_name = constructor.arg(i);
+
+        sum += ductility_in[obj_name].toDouble();
+    }
+
+    ductility_in["rheology_soft_8"] = sum / 3;
+
+    return ductility_in;
+}
+QJsonObject MainWindow::flash_eval(QJsonObject flash_in)
+{
+    flash_in["rheology_flash_4"] = (flash_in["rheology_flash_1"].toDouble() + flash_in["rheology_flash_2"].toDouble() + flash_in["rheology_flash_3"].toDouble()) / 3;
+    return flash_in;
+}
+QJsonObject MainWindow::viscosity_eval(QJsonObject viscosity_in)
+{
+    viscosity_in["rheology_viscosity_11"] = (viscosity_in["rheology_viscosity_in_7"].toDouble() * viscosity_in["rheology_viscosity_9"].toDouble());
+    viscosity_in["rheology_viscosity_12"] = (viscosity_in["rheology_viscosity_in_8"].toDouble() * viscosity_in["rheology_viscosity_10"].toDouble());
+
+    return viscosity_in;
+}
+QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
+{
+    QString constructor = "rheology_spc_%2%1";
+    QString obj_name;
+
+    double a, b, c, d, spc, sum;
+    for (int i = 1; i <= 3; i++)
+    {
+        obj_name = constructor.arg(i);
+
+        a = spc_in[obj_name.arg(1)].toDouble();
+        b = spc_in[obj_name.arg(2)].toDouble();
+        c = spc_in[obj_name.arg(3)].toDouble();
+        d = spc_in[obj_name.arg(4)].toDouble();
+
+        spc = (c - a) / (b + c - a - d);
+        sum += spc;
+
+        spc_in[QString::fromStdString("rheology_spc_%1").arg(i)] = spc;
+    }
+
+    spc_in["rheology_spc_mean"] = sum / 3;
+
+    return spc_in;
 }
 
 
 
-//Deals with Graphing
-std::vector<double> quadfit(std::vector<double>& x, std::vector<double>& y) {
+
+// Deals with Graphing
+std::vector<double> quadfit(std::vector<double> &x, std::vector<double> &y)
+{
 
     double x1, x2, x3, y1, y2, y3; // The coordinates of the three points
-    double a, b, c; // The coefficients of the quadratic equation
-    std::vector<double> result; // The vector to store the coefficients
+    double a, b, c;                // The coefficients of the quadratic equation
+    std::vector<double> result;    // The vector to store the coefficients
 
     int max_index = std::max_element(y.begin(), y.end()) - y.begin();
     int min_index = std::min_element(y.begin(), y.end()) - y.begin();
     int med_index = -1;
-    for (int i = 0; i < y.size(); i++) {
-        if (i != max_index && i != min_index) {
+    for (int i = 0; i < y.size(); i++)
+    {
+        if (i != max_index && i != min_index)
+        {
             med_index = i;
             break;
         }
@@ -2947,7 +3267,8 @@ std::vector<double> quadfit(std::vector<double>& x, std::vector<double>& y) {
 
     return result;
 }
-std::vector<double> quadval(std::vector<double>& x, std::vector<double>& coeff) {
+std::vector<double> quadval(std::vector<double> &x, std::vector<double> &coeff)
+{
 
     double a, b, c;
     int m = x.size();
@@ -2957,7 +3278,8 @@ std::vector<double> quadval(std::vector<double>& x, std::vector<double>& coeff) 
     b = coeff[1];
     c = coeff[2];
 
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++)
+    {
         y.push_back(a * x[i] * x[i] + b * x[i] + c); // Store the y value
     }
 
@@ -2968,8 +3290,9 @@ void MainWindow::on_ind_graph_update_clicked()
 {
     MainWindow::updateGraph_idg();
 }
-void MainWindow::updateGraph_idg() {
-    //Graph 1 is the combined gradation graph
+void MainWindow::updateGraph_idg()
+{
+    // Graph 1 is the combined gradation graph
     QString json_path = cwd.filePath("json/idg.json");
     QFile ind(json_path);
     QString file_savepath;
@@ -2987,20 +3310,24 @@ void MainWindow::updateGraph_idg() {
     QJsonDocument ind_json_doc = QJsonDocument::fromJson(ind_json_vals_bytearray);
     QJsonObject ind_json_lookups = ind_json_doc.object();
 
-    QJsonObject cmb_json = ind_json_lookups["cg"].toObject();       // QJsonObject 10mm = cmb_json["10mm"].toObject();
+    QJsonObject cmb_json = ind_json_lookups["cg"].toObject(); // QJsonObject 10mm = cmb_json["10mm"].toObject();
     double mid_[] = {100.00, 97.50, 70.00, 50.00, 32.50, 22.50, 15.00, 2.50};
     double low_[] = {100.0, 95.0, 60.0, 40.0, 25.0, 15.0, 8.0, 0.0};
     double high_[] = {100.0, 100.0, 80.0, 60.0, 40.0, 30.0, 22.0, 5.0};
 
     QVector<double> is_sieve, passing, high, mid, low;
-    for (int i = 1; i <= 8; i++) {
+    for (int i = 1; i <= 8; i++)
+    {
         std::string sieve_iterator = "is_sieve_s", pass_iterator = "pass_";
         char I = i + 48;
-        sieve_iterator += I; pass_iterator += I;
+        sieve_iterator += I;
+        pass_iterator += I;
         QString qsieve_iterator = QString::fromStdString(sieve_iterator), qpass_iterator = QString::fromStdString(pass_iterator);
         is_sieve << cmb_json[qsieve_iterator].toDouble();
         passing << cmb_json[qpass_iterator].toDouble();
-        high << high_[i-1]; low << low_[i-1]; mid << mid_[i-1];
+        high << high_[i - 1];
+        low << low_[i - 1];
+        mid << mid_[i - 1];
     }
 
     ui->ind_graph_1->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
@@ -3008,9 +3335,9 @@ void MainWindow::updateGraph_idg() {
     QFont legendFont = font();  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
     ui->ind_graph_1->legend->setFont(legendFont);
-    ui->ind_graph_1->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    ui->ind_graph_1->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
     // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
-    ui->ind_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+    ui->ind_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom | Qt::AlignRight);
 
     ui->ind_graph_1->graph(0)->setData(is_sieve, passing);
     ui->ind_graph_1->graph(0)->setName("Passing of %");
@@ -3045,20 +3372,23 @@ void MainWindow::updateGraph_idg() {
     if (!graph_file_cmb.open(QIODevice::WriteOnly))
     {
         qDebug() << graph_file_cmb.errorString();
-    } else {
+    }
+    else
+    {
         ui->ind_graph_1->savePng(file_savepath);
     }
 
-    //Now we update the Blending Graph
-    //First step is getting the values from the individual gradation json file and blending the values together in proportion
+    // Now we update the Blending Graph
+    // First step is getting the values from the individual gradation json file and blending the values together in proportion
     QJsonObject idg40 = ind_json_lookups["40mm"].toObject(), idg20 = ind_json_lookups["20mm"].toObject(), idg10 = ind_json_lookups["10mm"].toObject(), idg0 = ind_json_lookups["d"].toObject();
     qDebug() << idg40;
     QVector<double> blend_val;
-    for (int i = 1; i <= 8; i++) {
+    for (int i = 1; i <= 8; i++)
+    {
         double components[4];
 
-        //char I = i+48;
-        std::string it1 = "pass_1" + std::to_string(i), it2 = "pass_2" + std::to_string(i), it3 ="pass_3" + std::to_string(i);
+        // char I = i+48;
+        std::string it1 = "pass_1" + std::to_string(i), it2 = "pass_2" + std::to_string(i), it3 = "pass_3" + std::to_string(i);
         qDebug() << it1 << it2 << it3;
         QString qit1 = QString::fromStdString(it1), qit2 = QString::fromStdString(it2), qit3 = QString::fromStdString(it3);
         components[0] = (idg40[qit1].toDouble() + idg40[qit2].toDouble() + idg40[qit3].toDouble()) * 0.33;
@@ -3068,13 +3398,14 @@ void MainWindow::updateGraph_idg() {
 
         qDebug() << components[0] << components[1] << components[2] << components[3];
 
-        components[0] *= idg40["proportion"].toDouble()/100;
-        components[1] *= idg20["proportion"].toDouble()/100;
-        components[2] *= idg10["proportion"].toDouble()/100;
-        components[3] *= idg0["proportion"].toDouble()/100;
+        components[0] *= idg40["proportion"].toDouble() / 100;
+        components[1] *= idg20["proportion"].toDouble() / 100;
+        components[2] *= idg10["proportion"].toDouble() / 100;
+        components[3] *= idg0["proportion"].toDouble() / 100;
 
         double sum = 0;
-        for (int j = 0; j < 4; j++) {
+        for (int j = 0; j < 4; j++)
+        {
             sum += components[j];
         }
 
@@ -3084,9 +3415,9 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_2->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
     ui->ind_graph_2->legend->setVisible(true);
     ui->ind_graph_2->legend->setFont(legendFont);
-    ui->ind_graph_2->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    ui->ind_graph_2->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
     // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
-    ui->ind_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+    ui->ind_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom | Qt::AlignRight);
 
     ui->ind_graph_2->graph(0)->setData(is_sieve, blend_val);
     ui->ind_graph_2->graph(0)->setName("Passing of %");
@@ -3096,7 +3427,6 @@ void MainWindow::updateGraph_idg() {
     ui->ind_graph_2->graph(2)->setName("Middle Limit");
     ui->ind_graph_2->graph(3)->setData(is_sieve, high);
     ui->ind_graph_2->graph(3)->setName("Upper Limit");
-
 
     ui->ind_graph_2->graph(3)->setChannelFillGraph(ui->ind_graph_2->graph(1));
     ui->ind_graph_2->graph(3)->setBrush(QBrush(QColor(0, 255, 0, 20))); // light green 20% transparent
@@ -3120,17 +3450,21 @@ void MainWindow::updateGraph_idg() {
     if (!graph_file_bld.open(QIODevice::WriteOnly))
     {
         qDebug() << graph_file_bld.errorString();
-    } else {
+    }
+    else
+    {
         ui->ind_graph_2->savePng(file_savepath);
     }
 }
-void MainWindow::updateGraph_mdd() {
+void MainWindow::updateGraph_mdd()
+{
 
     QString json_path = cwd.filePath("json/mdd.json");
     QFile mdd_file(json_path);
     QString img_savepath = cwd.filePath("html/mdd_graph.png");
 
-    if (!mdd_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!mdd_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qDebug() << "mdd json not opened";
         return;
     }
@@ -3141,7 +3475,8 @@ void MainWindow::updateGraph_mdd() {
 
     std::vector<double> moisture, density;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         std::string I = std::to_string(i);
         moisture.push_back(mdd[QString::fromStdString("water_content" + I)].toDouble());
         density.push_back(mdd[QString::fromStdString("density" + I)].toDouble());
@@ -3157,7 +3492,8 @@ void MainWindow::updateGraph_mdd() {
     int y_min_index = std::min_element(density.begin(), density.end()) - density.begin();
     double max_x = moisture[x_max_index], min_x = moisture[x_min_index];
     double tick = (0.01 * (max_x - min_x));
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 100; i++)
+    {
         double to_push = min_x + i * tick;
         x_fit.push_back(to_push);
     }
@@ -3179,15 +3515,20 @@ void MainWindow::updateGraph_mdd() {
 
         // Close the file
         mdd_file_write.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "SUYGETSU AIMS THE RESET ABSOLUTELY INCREDIBLE";
     }
 
     QVector<double> x, y, graph_x_fit, graph_y_fit;
-    for (int i = 0; i < moisture.size(); i++) {
+    for (int i = 0; i < moisture.size(); i++)
+    {
         x << moisture[i];
         y << density[i];
-    } for (int i = 0; i < x_fit.size(); i++) {
+    }
+    for (int i = 0; i < x_fit.size(); i++)
+    {
         graph_x_fit << x_fit[i];
         graph_y_fit << y_fit[i];
     }
@@ -3195,9 +3536,9 @@ void MainWindow::updateGraph_mdd() {
     ui->mdd_graph->graph(0)->setData(x, y);
     ui->mdd_graph->graph(1)->setData(graph_x_fit, graph_y_fit);
 
-    ui->mdd_graph->xAxis->setRange(min_x-0.5, max_x+0.5);
+    ui->mdd_graph->xAxis->setRange(min_x - 0.5, max_x + 0.5);
     ui->mdd_graph->xAxis->setLabel("Moisture Content %");
-    ui->mdd_graph->yAxis->setRange(density[y_min_index] - 0.1*density[y_min_index], density[y_max_index] + 0.1*density[y_max_index]);
+    ui->mdd_graph->yAxis->setRange(density[y_min_index] - 0.1 * density[y_min_index], density[y_max_index] + 0.1 * density[y_max_index]);
     ui->mdd_graph->yAxis->setLabel("Dry Density gm/cc");
 
     ui->mdd_graph->graph(0)->setScatterStyle(QCPScatterStyle::ssCross);
@@ -3208,21 +3549,25 @@ void MainWindow::updateGraph_mdd() {
     ui->mdd_graph->replot();
 
     QFile mdd_graph(img_savepath);
-    if(!mdd_graph.open(QIODevice::WriteOnly)) {
+    if (!mdd_graph.open(QIODevice::WriteOnly))
+    {
         qDebug() << mdd_graph.errorString();
-    } else {
+    }
+    else
+    {
         ui->mdd_graph->savePng(img_savepath);
     }
-
 }
-void MainWindow::updateGraph_grad() {
+void MainWindow::updateGraph_grad()
+{
 
     QString json_path = cwd.filePath("json/grad.json");
     QFile grad_file(json_path);
     QString grad_bld_savepath = cwd.filePath("html/grad_graph.png");
     QString grad_jmf_savepath = cwd.filePath("html/jmf_graph.png");
 
-    if (!grad_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!grad_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qDebug() << "grad json not opened";
         return;
     }
@@ -3235,18 +3580,19 @@ void MainWindow::updateGraph_grad() {
 
     QVector<double> max, min, mid, dbm_pass, seives, jmf_max, jmf_min;
 
-    max = {100,100,95,80,54,42,21,8};
-    min = {100,90,71,56,38,28,7,2};
-    mid = {100,95,83,68,46,35,14,5};
-    jmf_max = {100,100,95,79,48,36,18,6};
-    jmf_min = {100,90,82,65,36,26,10,2};
+    max = {100, 100, 95, 80, 54, 42, 21, 8};
+    min = {100, 90, 71, 56, 38, 28, 7, 2};
+    mid = {100, 95, 83, 68, 46, 35, 14, 5};
+    jmf_max = {100, 100, 95, 79, 48, 36, 18, 6};
+    jmf_min = {100, 90, 82, 65, 36, 26, 10, 2};
 
-    for (auto key: grad_seive.keys()) {
+    for (auto key : grad_seive.keys())
+    {
         seives << grad_seive[key].toDouble();
     }
-    for (auto key: grad_bld.keys()) {
+    for (auto key : grad_bld.keys())
+    {
         dbm_pass << grad_bld[key].toDouble();
-
     }
 
     ui->grad_graph_1->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
@@ -3254,9 +3600,9 @@ void MainWindow::updateGraph_grad() {
     QFont legendFont = font();  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
     ui->grad_graph_1->legend->setFont(legendFont);
-    ui->grad_graph_1->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    ui->grad_graph_1->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
     // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
-    ui->grad_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+    ui->grad_graph_1->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom | Qt::AlignRight);
 
     ui->grad_graph_1->graph(0)->setData(seives, dbm_pass);
     ui->grad_graph_1->graph(0)->setName("Passing of %");
@@ -3289,8 +3635,8 @@ void MainWindow::updateGraph_grad() {
     ui->grad_graph_2->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom)); // period as decimal separator and comma as thousand separator
     ui->grad_graph_2->legend->setVisible(true);
     ui->grad_graph_2->legend->setFont(legendFont);
-    ui->grad_graph_2->legend->setBrush(QBrush(QColor(255,255,255,230)));
-    ui->grad_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
+    ui->grad_graph_2->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
+    ui->grad_graph_2->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom | Qt::AlignRight);
 
     ui->grad_graph_2->graph(0)->setData(seives, dbm_pass);
     ui->grad_graph_2->graph(0)->setName("Passing of %");
@@ -3312,9 +3658,9 @@ void MainWindow::updateGraph_grad() {
     jmf_min_pen.setStyle(Qt::DashDotLine);
 
     ui->grad_graph_2->graph(0)->setPen(redPen);
-    ui->grad_graph_2->graph(1)->setPen(QPen(QColor(0,0,0)));
-    ui->grad_graph_2->graph(3)->setPen(QPen(QColor(0,0,0)));
-    ui->grad_graph_2->graph(4)->setPen(QPen(QColor(188,66,245)));
+    ui->grad_graph_2->graph(1)->setPen(QPen(QColor(0, 0, 0)));
+    ui->grad_graph_2->graph(3)->setPen(QPen(QColor(0, 0, 0)));
+    ui->grad_graph_2->graph(4)->setPen(QPen(QColor(188, 66, 245)));
     ui->grad_graph_2->graph(5)->setPen(QPen(QColor(240, 125, 40)));
 
     ui->grad_graph_2->xAxis->setScaleType(QCPAxis::stLogarithmic);
@@ -3329,27 +3675,31 @@ void MainWindow::updateGraph_grad() {
     ui->jmf_graph_label->show();
 
     QFile grad_graph(grad_bld_savepath);
-    if(!grad_graph.open(QIODevice::WriteOnly)) {
+    if (!grad_graph.open(QIODevice::WriteOnly))
+    {
         qDebug() << grad_graph.errorString();
-    } else {
+    }
+    else
+    {
         ui->grad_graph_1->savePng(grad_bld_savepath);
         grad_graph.close();
     }
 
     QFile grad_jmf_graph(grad_jmf_savepath);
-    if (!grad_jmf_graph.open(QIODevice::WriteOnly)) {
+    if (!grad_jmf_graph.open(QIODevice::WriteOnly))
+    {
         qDebug() << grad_jmf_graph.errorString();
-    } else {
+    }
+    else
+    {
         ui->grad_graph_2->savePng(grad_jmf_savepath);
         grad_jmf_graph.close();
     }
-
 }
 
-
-
 // Deals with exports to PDF
-void MainWindow::on_actionExport_to_PDF_triggered() {
+void MainWindow::on_actionExport_to_PDF_triggered()
+{
     qDebug() << "EXPORT triggered";
     QString program;
     QStringList args;
@@ -3367,18 +3717,19 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
     }
     else if (OS == "apple")
     {
-        //TO WRITE
+        // TO WRITE
         program = QString("wkhtmltopdf");
     }
     command = command + program.toStdString();
     QString fname = "";
 
-    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i) {
+    for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
+    {
         qDebug() << *i;
 
         if (*i == "spc")
         {
-            //ui->spc_export->click();
+            // ui->spc_export->click();
             args << cwd.filePath("html/spc_10mm.html");
             args << cwd.filePath("html/spc_20mm.html");
             args << cwd.filePath("html/spc_40mm.html");
@@ -3386,18 +3737,18 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
         }
         else if (*i == "fei")
         {
-            //ui->fei_export->click();
+            // ui->fei_export->click();
             args << cwd.filePath("html/fei.html");
         }
         else if (*i == "aiv")
         {
-            //ui->aiv_export->click();
+            // ui->aiv_export->click();
             args << cwd.filePath("html/aiv_10mm.html");
             args << cwd.filePath("html/aiv_20mm.html");
         }
         else if (*i == "ind")
         {
-            //ui->ind_export->click();
+            // ui->ind_export->click();
             args << cwd.filePath("html/ind_40mm.html");
             args << cwd.filePath("html/ind_20mm.html");
             args << cwd.filePath("html/ind_10mm.html");
@@ -3405,11 +3756,14 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
             args << cwd.filePath("html/bld.html");
             args << cwd.filePath("html/cmb.html");
             args << cwd.filePath("html/pass.html");
-        } else if (*i == "mdd")
+        }
+        else if (*i == "mdd")
         {
-            //ui->mdd_export->click();
+            // ui->mdd_export->click();
             args << cwd.filePath("html/mdd.html");
-        } else if (*i == "grad") {
+        }
+        else if (*i == "grad")
+        {
             args << cwd.filePath("html/grad.html");
             args << cwd.filePath("html/grad_bld.html");
             args << cwd.filePath("html/grad_jmf.html");
@@ -3427,16 +3781,21 @@ void MainWindow::on_actionExport_to_PDF_triggered() {
         command = command + " " + i->toStdString();
     qDebug() << command;
 
-    if (OS != "apple") {
+    if (OS != "apple")
+    {
         QProcess *converter = new QProcess();
         converter->start(program, args);
-    } else {
+    }
+    else
+    {
         QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
         std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
         std::ofstream output_txt_file(output_txt_path, std::ios::out);
-        if(output_txt_file.is_open()) {
+        if (output_txt_file.is_open())
+        {
             output_txt_file << command;
-        } output_txt_file.close();
+        }
+        output_txt_file.close();
     }
 }
 void MainWindow::on_spc_export_clicked()
@@ -3500,12 +3859,10 @@ void MainWindow::on_grad_export_clicked()
     qDebug() << tracked_files;
 }
 
-
-
-//Deals with HTML generation
+// Deals with HTML generation
 void MainWindow::generate_html_spc()
 {
-    //ui->spc_save->click();
+    // ui->spc_save->click();
     qDebug() << "beginning spc save...";
     QString json_path = cwd.filePath("json/spc.json");
 
@@ -3740,7 +4097,7 @@ void MainWindow::generate_html_spc()
 }
 void MainWindow::generate_html_fei()
 {
-    //ui->fei_save->click();
+    // ui->fei_save->click();
     qDebug() << "beginning fei save...";
     QString json_path = cwd.filePath("json/fei.json");
 
@@ -4116,7 +4473,7 @@ void MainWindow::generate_html_fei()
 }
 void MainWindow::generate_html_aiv()
 {
-   // ui->aiv_save->click();
+    // ui->aiv_save->click();
     qDebug() << "beginning aiv save...";
     QString json_path = cwd.filePath("json/aiv.json");
 
@@ -4324,7 +4681,7 @@ void MainWindow::generate_html_aiv()
 }
 void MainWindow::generate_html_ind()
 {
-    //ui->ind_save->click();
+    // ui->ind_save->click();
     qDebug() << "beginning ind save... at " << cwd.filePath("");
     QString json_path = cwd.filePath("json/idg.json");
 
@@ -5058,7 +5415,7 @@ void MainWindow::generate_html_ind()
                     }
 
                     QVector<double> passing(9), lower_limit(9), upper_limit(9), ss(9);
-                    double lower_limit_[8] = {100,95,60,40,25,15,8,0};
+                    double lower_limit_[8] = {100, 95, 60, 40, 25, 15, 8, 0};
                     double upper_limit_[8] = {100, 100, 80, 60, 40, 30, 22, 15};
                     ss[0] = json_lookups_data_40["is_sieve_s11"].toDouble();
                     ss[1] = json_lookups_data_40["is_sieve_s12"].toDouble();
@@ -5068,10 +5425,11 @@ void MainWindow::generate_html_ind()
                     ss[5] = json_lookups_data_40["is_sieve_s16"].toDouble();
                     ss[6] = json_lookups_data_40["is_sieve_s17"].toDouble();
                     ss[7] = json_lookups_data_40["is_sieve_s18"].toDouble();
-                    for(int i = 0; i < 8; ++i) {
+                    for (int i = 0; i < 8; ++i)
+                    {
                         lower_limit[i] = lower_limit_[i];
                         upper_limit[i] = upper_limit_[i];
-                        passing[i] = combined_passing[i+1];
+                        passing[i] = combined_passing[i + 1];
                     }
 
                     std::string topush;
@@ -5509,7 +5867,6 @@ void MainWindow::generate_html_ind()
                         bld_output_html_file << topushf;
                         break;
 
-
                     default:
                         qDebug() << "smthlikeyou11";
                     }
@@ -5901,7 +6258,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 15:
-                        topushf = (json_lookups_data_40["pass_11"].toDouble() + json_lookups_data_40["pass_21"].toDouble() + json_lookups_data_40["pass_31"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_11"].toDouble() + json_lookups_data_40["pass_21"].toDouble() + json_lookups_data_40["pass_31"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 16:
@@ -5921,7 +6278,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 20:
-                        topushf = (json_lookups_data_40["pass_12"].toDouble() + json_lookups_data_40["pass_22"].toDouble() + json_lookups_data_40["pass_32"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_12"].toDouble() + json_lookups_data_40["pass_22"].toDouble() + json_lookups_data_40["pass_32"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 21:
@@ -5941,7 +6298,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 25:
-                        topushf = (json_lookups_data_40["pass_13"].toDouble() + json_lookups_data_40["pass_23"].toDouble() + json_lookups_data_40["pass_33"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_13"].toDouble() + json_lookups_data_40["pass_23"].toDouble() + json_lookups_data_40["pass_33"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 26:
@@ -5961,7 +6318,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 30:
-                        topushf = (json_lookups_data_40["pass_14"].toDouble() + json_lookups_data_40["pass_24"].toDouble() + json_lookups_data_40["pass_34"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_14"].toDouble() + json_lookups_data_40["pass_24"].toDouble() + json_lookups_data_40["pass_34"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
 
@@ -5982,7 +6339,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 35:
-                        topushf = (json_lookups_data_40["pass_15"].toDouble() + json_lookups_data_40["pass_25"].toDouble() + json_lookups_data_40["pass_35"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_15"].toDouble() + json_lookups_data_40["pass_25"].toDouble() + json_lookups_data_40["pass_35"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 36:
@@ -6002,7 +6359,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 40:
-                        topushf = (json_lookups_data_40["pass_16"].toDouble() + json_lookups_data_40["pass_26"].toDouble() + json_lookups_data_40["pass_36"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_16"].toDouble() + json_lookups_data_40["pass_26"].toDouble() + json_lookups_data_40["pass_36"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 41:
@@ -6022,7 +6379,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 45:
-                        topushf = (json_lookups_data_40["pass_17"].toDouble() + json_lookups_data_40["pass_27"].toDouble() + json_lookups_data_40["pass_37"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_17"].toDouble() + json_lookups_data_40["pass_27"].toDouble() + json_lookups_data_40["pass_37"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 46:
@@ -6042,7 +6399,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 50:
-                        topushf = (json_lookups_data_40["pass_18"].toDouble() + json_lookups_data_40["pass_28"].toDouble() + json_lookups_data_40["pass_38"].toDouble())/3;
+                        topushf = (json_lookups_data_40["pass_18"].toDouble() + json_lookups_data_40["pass_28"].toDouble() + json_lookups_data_40["pass_38"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 51:
@@ -6062,7 +6419,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 55:
-                        topushf = (json_lookups_data_20["pass_11"].toDouble() + json_lookups_data_20["pass_21"].toDouble() + json_lookups_data_20["pass_31"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_11"].toDouble() + json_lookups_data_20["pass_21"].toDouble() + json_lookups_data_20["pass_31"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 56:
@@ -6082,7 +6439,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 60:
-                        topushf = (json_lookups_data_20["pass_12"].toDouble() + json_lookups_data_20["pass_22"].toDouble() + json_lookups_data_20["pass_32"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_12"].toDouble() + json_lookups_data_20["pass_22"].toDouble() + json_lookups_data_20["pass_32"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 61:
@@ -6102,7 +6459,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 65:
-                        topushf = (json_lookups_data_20["pass_13"].toDouble() + json_lookups_data_20["pass_23"].toDouble() + json_lookups_data_20["pass_33"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_13"].toDouble() + json_lookups_data_20["pass_23"].toDouble() + json_lookups_data_20["pass_33"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 66:
@@ -6122,7 +6479,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 70:
-                        topushf = (json_lookups_data_20["pass_14"].toDouble() + json_lookups_data_20["pass_24"].toDouble() + json_lookups_data_20["pass_34"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_14"].toDouble() + json_lookups_data_20["pass_24"].toDouble() + json_lookups_data_20["pass_34"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 71:
@@ -6142,7 +6499,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 75:
-                        topushf = (json_lookups_data_20["pass_15"].toDouble() + json_lookups_data_20["pass_25"].toDouble() + json_lookups_data_20["pass_35"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_15"].toDouble() + json_lookups_data_20["pass_25"].toDouble() + json_lookups_data_20["pass_35"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 76:
@@ -6162,7 +6519,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 80:
-                        topushf = (json_lookups_data_20["pass_16"].toDouble() + json_lookups_data_20["pass_26"].toDouble() + json_lookups_data_20["pass_36"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_16"].toDouble() + json_lookups_data_20["pass_26"].toDouble() + json_lookups_data_20["pass_36"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 81:
@@ -6182,7 +6539,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 85:
-                        topushf = (json_lookups_data_20["pass_17"].toDouble() + json_lookups_data_20["pass_27"].toDouble() + json_lookups_data_20["pass_37"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_17"].toDouble() + json_lookups_data_20["pass_27"].toDouble() + json_lookups_data_20["pass_37"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 86:
@@ -6202,7 +6559,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 90:
-                        topushf = (json_lookups_data_20["pass_18"].toDouble() + json_lookups_data_20["pass_28"].toDouble() + json_lookups_data_20["pass_38"].toDouble())/3;
+                        topushf = (json_lookups_data_20["pass_18"].toDouble() + json_lookups_data_20["pass_28"].toDouble() + json_lookups_data_20["pass_38"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 91:
@@ -6222,7 +6579,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 95:
-                        topushf = (json_lookups_data_10["pass_11"].toDouble() + json_lookups_data_10["pass_21"].toDouble() + json_lookups_data_10["pass_31"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_11"].toDouble() + json_lookups_data_10["pass_21"].toDouble() + json_lookups_data_10["pass_31"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 96:
@@ -6242,7 +6599,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 100:
-                        topushf = (json_lookups_data_10["pass_12"].toDouble() + json_lookups_data_10["pass_22"].toDouble() + json_lookups_data_10["pass_32"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_12"].toDouble() + json_lookups_data_10["pass_22"].toDouble() + json_lookups_data_10["pass_32"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 101:
@@ -6262,7 +6619,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 105:
-                        topushf = (json_lookups_data_10["pass_13"].toDouble() + json_lookups_data_10["pass_23"].toDouble() + json_lookups_data_10["pass_33"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_13"].toDouble() + json_lookups_data_10["pass_23"].toDouble() + json_lookups_data_10["pass_33"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 106:
@@ -6282,7 +6639,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 110:
-                        topushf = (json_lookups_data_10["Pass_14"].toDouble() + json_lookups_data_10["Pass_24"].toDouble() + json_lookups_data_10["Pass_34"].toDouble())/3;
+                        topushf = (json_lookups_data_10["Pass_14"].toDouble() + json_lookups_data_10["Pass_24"].toDouble() + json_lookups_data_10["Pass_34"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 111:
@@ -6302,7 +6659,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 115:
-                        topushf = (json_lookups_data_10["Pass_15"].toDouble() + json_lookups_data_10["Pass_25"].toDouble() + json_lookups_data_10["Pass_35"].toDouble())/3;
+                        topushf = (json_lookups_data_10["Pass_15"].toDouble() + json_lookups_data_10["Pass_25"].toDouble() + json_lookups_data_10["Pass_35"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 116:
@@ -6322,7 +6679,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 120:
-                        topushf = (json_lookups_data_10["Pass_16"].toDouble() + json_lookups_data_10["Pass_26"].toDouble() + json_lookups_data_10["Pass_36"].toDouble())/3;
+                        topushf = (json_lookups_data_10["Pass_16"].toDouble() + json_lookups_data_10["Pass_26"].toDouble() + json_lookups_data_10["Pass_36"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 121:
@@ -6342,7 +6699,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 125:
-                        topushf = (json_lookups_data_10["pass_17"].toDouble() + json_lookups_data_10["pass_27"].toDouble() + json_lookups_data_10["pass_37"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_17"].toDouble() + json_lookups_data_10["pass_27"].toDouble() + json_lookups_data_10["pass_37"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 126:
@@ -6362,7 +6719,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 130:
-                        topushf = (json_lookups_data_10["pass_18"].toDouble() + json_lookups_data_10["pass_28"].toDouble() + json_lookups_data_10["pass_38"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_18"].toDouble() + json_lookups_data_10["pass_28"].toDouble() + json_lookups_data_10["pass_38"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 131:
@@ -6382,7 +6739,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 135:
-                        topushf = (json_lookups_data_d["pass_11"].toDouble() + json_lookups_data_d["pass_21"].toDouble() + json_lookups_data_d["pass_31"].toDouble())/3;
+                        topushf = (json_lookups_data_d["pass_11"].toDouble() + json_lookups_data_d["pass_21"].toDouble() + json_lookups_data_d["pass_31"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 136:
@@ -6402,7 +6759,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 140:
-                        topushf = (json_lookups_data_d["pass_12"].toDouble() + json_lookups_data_d["pass_22"].toDouble() + json_lookups_data_d["pass_32"].toDouble())/3;
+                        topushf = (json_lookups_data_d["pass_12"].toDouble() + json_lookups_data_d["pass_22"].toDouble() + json_lookups_data_d["pass_32"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 141:
@@ -6422,7 +6779,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 145:
-                        topushf = (json_lookups_data_d["pass_13"].toDouble() + json_lookups_data_d["pass_23"].toDouble() + json_lookups_data_d["pass_33"].toDouble())/3;
+                        topushf = (json_lookups_data_d["pass_13"].toDouble() + json_lookups_data_d["pass_23"].toDouble() + json_lookups_data_d["pass_33"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 146:
@@ -6442,7 +6799,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 150:
-                        topushf = (json_lookups_data_10["pass_14"].toDouble() + json_lookups_data_10["pass_24"].toDouble() + json_lookups_data_10["pass_34"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_14"].toDouble() + json_lookups_data_10["pass_24"].toDouble() + json_lookups_data_10["pass_34"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 151:
@@ -6462,7 +6819,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 155:
-                        topushf = (json_lookups_data_10["pass_15"].toDouble() + json_lookups_data_10["pass_25"].toDouble() + json_lookups_data_10["pass_35"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_15"].toDouble() + json_lookups_data_10["pass_25"].toDouble() + json_lookups_data_10["pass_35"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 156:
@@ -6482,7 +6839,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 160:
-                        topushf = (json_lookups_data_10["pass_16"].toDouble() + json_lookups_data_10["pass_26"].toDouble() + json_lookups_data_10["pass_36"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_16"].toDouble() + json_lookups_data_10["pass_26"].toDouble() + json_lookups_data_10["pass_36"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 161:
@@ -6502,7 +6859,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 165:
-                        topushf = (json_lookups_data_10["pass_17"].toDouble() + json_lookups_data_10["pass_27"].toDouble() + json_lookups_data_10["pass_37"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_17"].toDouble() + json_lookups_data_10["pass_27"].toDouble() + json_lookups_data_10["pass_37"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     case 166:
@@ -6522,7 +6879,7 @@ void MainWindow::generate_html_ind()
                         pass_output_html_file << topushf;
                         break;
                     case 170:
-                        topushf = (json_lookups_data_10["pass_18"].toDouble() + json_lookups_data_10["pass_28"].toDouble() + json_lookups_data_10["pass_38"].toDouble())/3;
+                        topushf = (json_lookups_data_10["pass_18"].toDouble() + json_lookups_data_10["pass_28"].toDouble() + json_lookups_data_10["pass_38"].toDouble()) / 3;
                         pass_output_html_file << topushf;
                         break;
                     default:
@@ -6546,11 +6903,10 @@ void MainWindow::generate_html_ind()
     {
         qDebug() << "output html not opened";
     }
-
 }
 void MainWindow::generate_html_mdd()
 {
-    //ui->mdd_save->click();
+    // ui->mdd_save->click();
     qDebug() << "beginning mdd save...";
     QString json_path = cwd.filePath("json/mdd.json");
 
@@ -6620,112 +6976,157 @@ void MainWindow::generate_html_mdd()
 
                     std::string topush;
                     double topushf;
-                    int j = (token - 14)%6;
+                    int j = (token - 14) % 6;
 
-                    if (token == 11) {
+                    if (token == 11)
+                    {
                         QString it = QString::fromStdString("mass");
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if (token == 12) {
+                    }
+                    else if (token == 12)
+                    {
                         topushf = json_obj["vol"].toDouble();
                         output_html_file << topushf;
-                    } else if (token == 13) {
+                    }
+                    else if (token == 13)
+                    {
                         topushf = json_obj["MDD"].toDouble();
-                    } else if (token == 80) {
+                    }
+                    else if (token == 80)
+                    {
                         topushf = json_obj["OMC"].toDouble();
-                    } else if ((token >= 14) && (token < 20)) {
+                    }
+                    else if ((token >= 14) && (token < 20))
+                    {
                         QString it = QString::fromStdString("wsm" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 20) && (token < 26)) {
+                    }
+                    else if ((token >= 20) && (token < 26))
+                    {
                         QString it = QString::fromStdString("ws" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 26) && (token < 32)) {
+                    }
+                    else if ((token >= 26) && (token < 32))
+                    {
                         QString it = QString::fromStdString("wds" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 32) && (token < 38)) {
+                    }
+                    else if ((token >= 32) && (token < 38))
+                    {
                         QString it = QString::fromStdString("tray" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 38) && (token < 44)) {
+                    }
+                    else if ((token >= 38) && (token < 44))
+                    {
                         QString it = QString::fromStdString("wt_tray" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 44) && (token < 50)) {
+                    }
+                    else if ((token >= 44) && (token < 50))
+                    {
                         QString it = QString::fromStdString("wst" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 50) && (token < 56)) {
+                    }
+                    else if ((token >= 50) && (token < 56))
+                    {
                         QString it = QString::fromStdString("wdst" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 56) && (token < 62)) {
+                    }
+                    else if ((token >= 56) && (token < 62))
+                    {
                         QString it = QString::fromStdString("ww" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 62) && (token < 68)) {
+                    }
+                    else if ((token >= 62) && (token < 68))
+                    {
                         QString it = QString::fromStdString("wdsm" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 68) && (token < 74)) {
+                    }
+                    else if ((token >= 68) && (token < 74))
+                    {
                         QString it = QString::fromStdString("water_content" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
-                    } else if ((token >= 74) && (token < 80)) {
+                    }
+                    else if ((token >= 74) && (token < 80))
+                    {
                         QString it = QString::fromStdString("density" + std::to_string(j));
                         topushf = json_obj[it].toDouble();
                         output_html_file << topushf;
                     }
 
-                    switch (token) {
+                    switch (token)
+                    {
                     case 1:
-                        topush = ui->mdd_bsc_1->toPlainText().toStdString(); break;
+                        topush = ui->mdd_bsc_1->toPlainText().toStdString();
+                        break;
                     case 2:
-                        topush = ui->mdd_bsc_2->toPlainText().toStdString(); break;
+                        topush = ui->mdd_bsc_2->toPlainText().toStdString();
+                        break;
                     case 3:
-                        topush = ui->mdd_bsc_3->toPlainText().toStdString(); break;
+                        topush = ui->mdd_bsc_3->toPlainText().toStdString();
+                        break;
                     case 4:
-                        topush = ui->mdd_bsc_4->toPlainText().toStdString(); break;
+                        topush = ui->mdd_bsc_4->toPlainText().toStdString();
+                        break;
                     case 5:
-                        topush = ui->mdd_exp_1->text().toStdString(); break;
+                        topush = ui->mdd_exp_1->text().toStdString();
+                        break;
                     case 6:
-                        topush = ui->mdd_exp_2->text().toStdString(); break;
+                        topush = ui->mdd_exp_2->text().toStdString();
+                        break;
                     case 7:
-                        topush = ui->mdd_exp_3->text().toStdString(); break;
+                        topush = ui->mdd_exp_3->text().toStdString();
+                        break;
                     case 8:
-                        topush = ui->mdd_exp_4->text().toStdString(); break;
+                        topush = ui->mdd_exp_4->text().toStdString();
+                        break;
                     case 81:
-                        topush = ui->mdd_exp_5->text().toStdString(); break;
+                        topush = ui->mdd_exp_5->text().toStdString();
+                        break;
                     case 9:
-                        topush = ui->mdd_exp_6->text().toStdString(); break;
+                        topush = ui->mdd_exp_6->text().toStdString();
+                        break;
                     case 82:
-                        topush = ui->mdd_exp_7->text().toStdString(); break;
+                        topush = ui->mdd_exp_7->text().toStdString();
+                        break;
                     case 10:
-                        topush = ui->mdd_exp_8->text().toStdString(); break;
+                        topush = ui->mdd_exp_8->text().toStdString();
+                        break;
                     }
 
                     output_html_file << topush;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_html_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_html_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "mdd output html file not opened";
     }
 }
-void MainWindow::generate_html_grad() {
-    //ui->mdd_save->click();
+void MainWindow::generate_html_grad()
+{
+    // ui->mdd_save->click();
     qDebug() << "beginning grad save...";
     QString json_path = cwd.filePath("json/grad.json");
 
@@ -6796,7 +7197,8 @@ void MainWindow::generate_html_grad() {
                             token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
-                        } else if (line[j] == '~' && j - i == 4)
+                        }
+                        else if (line[j] == '~' && j - i == 4)
                         {
                             token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
@@ -6807,71 +7209,82 @@ void MainWindow::generate_html_grad() {
                     std::string topush;
                     double topushf;
 
-                    if ((token >= 4) && (token <= 59)) {
+                    if ((token >= 4) && (token <= 59))
+                    {
                         token -= 4;
                         QString arg;
 
-                        switch (token%7) {
+                        switch (token % 7)
+                        {
                         case 0:
-                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            arg = QString("is_seive_%1").arg(1 + token / 7);
                             topushf = seives[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         case 6:
-                            arg = QString("avg_%1").arg(1 + token/7);
+                            arg = QString("avg_%1").arg(1 + token / 7);
                             topushf = json1[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         default:
-                            arg = QString("grad_p1%1_%2").arg(1 + token/7).arg(token%7);
+                            arg = QString("grad_p1%1_%2").arg(1 + token / 7).arg(token % 7);
                             topushf = json1[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         }
-                    } else if ((token >= 60) && (token <= 115)) {
+                    }
+                    else if ((token >= 60) && (token <= 115))
+                    {
                         token -= 60;
                         QString arg;
 
-                        switch (token%7) {
+                        switch (token % 7)
+                        {
                         case 0:
-                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            arg = QString("is_seive_%1").arg(1 + token / 7);
                             topushf = seives[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         case 6:
-                            arg = QString("avg_%1").arg(1 + token/7);
+                            arg = QString("avg_%1").arg(1 + token / 7);
                             topushf = json2[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         default:
-                            arg = QString("grad_p2%1_%2").arg(1 + token/7).arg(token%7);
+                            arg = QString("grad_p2%1_%2").arg(1 + token / 7).arg(token % 7);
                             topushf = json2[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         }
-                    } else if ((token >= 116) && (token <= 171)) {
+                    }
+                    else if ((token >= 116) && (token <= 171))
+                    {
                         token -= 116;
                         QString arg;
 
-                        switch (token%7) {
+                        switch (token % 7)
+                        {
                         case 0:
-                            arg = QString("is_seive_%1").arg(1 + token/7);
+                            arg = QString("is_seive_%1").arg(1 + token / 7);
                             topushf = seives[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         case 6:
-                            arg = QString("avg_%1").arg(1 + token/7);
+                            arg = QString("avg_%1").arg(1 + token / 7);
                             topushf = json3[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         default:
-                            arg = QString("grad_p3%1_%2").arg(1 + token/7).arg(token%7);
+                            arg = QString("grad_p3%1_%2").arg(1 + token / 7).arg(token % 7);
                             topushf = json3[arg].toDouble();
                             output_html_file << topushf;
                             break;
                         }
-                    } else {
-                        switch (token) {
+                    }
+                    else
+                    {
+                        switch (token)
+                        {
                         case 1:
                             topush = ui->grad_exp_1->text().toStdString();
                             break;
@@ -6903,19 +7316,21 @@ void MainWindow::generate_html_grad() {
 
                     output_html_file << topush;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_html_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_html_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "mdd output html file not opened";
     }
 
@@ -6966,7 +7381,8 @@ void MainWindow::generate_html_grad() {
                             token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
-                        } else if (line[j] == '~' && j - i == 4)
+                        }
+                        else if (line[j] == '~' && j - i == 4)
                         {
                             token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
@@ -6977,7 +7393,8 @@ void MainWindow::generate_html_grad() {
                     std::string topush;
                     double topushf;
 
-                    switch (token) {
+                    switch (token)
+                    {
                     case 1:
                         output_grad_bld_file << json1["proportion"].toDouble();
                         break;
@@ -7003,53 +7420,69 @@ void MainWindow::generate_html_grad() {
                         qDebug() << "FlashBack is like the suygetsu of apac";
                         break;
                     }
-                    if ((token >= 4) && (token <= 11)) {
+                    if ((token >= 4) && (token <= 11))
+                    {
                         token -= 4;
-                        QString arg = QString("avg_%1").arg(1 + token%10);
+                        QString arg = QString("avg_%1").arg(1 + token % 10);
                         output_grad_bld_file << json1[arg].toDouble();
-                    } else if ((token >= 20) && (token <= 27)) {
+                    }
+                    else if ((token >= 20) && (token <= 27))
+                    {
                         token -= 20;
-                        output_grad_bld_file << json2[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 36) && (token <= 43)) {
+                        output_grad_bld_file << json2[QString("avg_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 36) && (token <= 43))
+                    {
                         token -= 36;
-                        output_grad_bld_file << json3[QString("avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 12) && (token <= 19)) {
+                        output_grad_bld_file << json3[QString("avg_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 12) && (token <= 19))
+                    {
                         token -= 12;
-                        output_grad_bld_file << json1[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 28) && (token <= 35)) {
+                        output_grad_bld_file << json1[QString("prop_avg_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 28) && (token <= 35))
+                    {
                         token -= 28;
-                        output_grad_bld_file << json2[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 44) && (token <= 51)) {
+                        output_grad_bld_file << json2[QString("prop_avg_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 44) && (token <= 51))
+                    {
                         token -= 44;
-                        output_grad_bld_file << json3[QString("prop_avg_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 53) && (token <= 60)) {
+                        output_grad_bld_file << json3[QString("prop_avg_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 53) && (token <= 60))
+                    {
                         token -= 53;
-                        output_grad_bld_file << bld[QString("bld_%1").arg(1 + token%10)].toDouble();
-                    } else if (token == 52) {
+                        output_grad_bld_file << bld[QString("bld_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if (token == 52)
+                    {
                         output_grad_bld_file << "100";
                     }
 
                     output_grad_bld_file << topush;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_grad_bld_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_grad_bld_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "grad bld output html file not opened";
     }
 
     output_html_path = cwd.filePath("html/grad_jmf.html").toStdString();
     std::ofstream output_grad_jmf_file(output_html_path, std::ios::out);
-
 
     if (output_grad_jmf_file.is_open())
     {
@@ -7095,7 +7528,8 @@ void MainWindow::generate_html_grad() {
                             token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
-                        } else if (line[j] == '~' && j - i == 4)
+                        }
+                        else if (line[j] == '~' && j - i == 4)
                         {
                             token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
@@ -7106,39 +7540,51 @@ void MainWindow::generate_html_grad() {
                     std::string topush;
                     double topushf;
 
-                    if (token == 1) {
+                    if (token == 1)
+                    {
                         topush = ui->grad_bsc_1->toPlainText().toStdString();
-                    } else if (token == 2) {
+                    }
+                    else if (token == 2)
+                    {
                         topush = ui->grad_bsc_2->toHtml().toStdString();
-                    } else if (token == 3) {
+                    }
+                    else if (token == 3)
+                    {
                         topush = "IS SEIVE";
-                    } else if ((token >= 4) && (token <= 11)) {
+                    }
+                    else if ((token >= 4) && (token <= 11))
+                    {
                         token -= 4;
-                        output_grad_jmf_file << seives[QString("is_seive_%1").arg(1 + token%10)].toDouble();
-                    } else if ((token >= 13) && (token <= 20)) {
+                        output_grad_jmf_file << seives[QString("is_seive_%1").arg(1 + token % 10)].toDouble();
+                    }
+                    else if ((token >= 13) && (token <= 20))
+                    {
                         token -= 13;
-                        output_grad_jmf_file << bld[QString("bld_%1").arg(1 + token%10)].toDouble();
+                        output_grad_jmf_file << bld[QString("bld_%1").arg(1 + token % 10)].toDouble();
                     }
 
                     output_grad_jmf_file << topush;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_grad_jmf_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_grad_jmf_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "grad bld output html file not opened";
     }
 }
-void MainWindow::generate_html_tensile() {
+void MainWindow::generate_html_tensile()
+{
     qDebug() << "beginning tensile save...";
     QString json_path = cwd.filePath("json/tensile.json");
 
@@ -7206,7 +7652,8 @@ void MainWindow::generate_html_tensile() {
                             token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
-                        } else if (line[j] == '~' && j - i == 4)
+                        }
+                        else if (line[j] == '~' && j - i == 4)
                         {
                             token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
@@ -7217,7 +7664,8 @@ void MainWindow::generate_html_tensile() {
                     std::string topush;
                     double topushf;
 
-                    switch (token) {
+                    switch (token)
+                    {
                     case 1:
                         topushf = tensile_json["ring"].toDouble();
                         break;
@@ -7249,30 +7697,35 @@ void MainWindow::generate_html_tensile() {
                         topushf = tensile_json["water_sensitivity"].toDouble();
                         break;
                     default:
-                        if ((token >= 3) && (token <= 32)) {
+                        if ((token >= 3) && (token <= 32))
+                        {
                             token -= 3;
-                            int i = token%10;
+                            int i = token % 10;
 
                             QString lookup_key = QString::fromStdString(json_values_parser[i]);
-                            lookup_key = lookup_key.arg(1).arg(1 + token/10);
+                            lookup_key = lookup_key.arg(1).arg(1 + token / 10);
 
                             qDebug() << "lookup key:" << lookup_key;
 
                             topushf = min_30[lookup_key].toDouble();
                             break;
-                        } else if ((token >= 37) && (token <= 66)) {
+                        }
+                        else if ((token >= 37) && (token <= 66))
+                        {
                             token -= 37;
-                            int i = token%10;
+                            int i = token % 10;
 
                             QString lookup_key = QString::fromStdString(json_values_parser[i]);
-                            lookup_key = lookup_key.arg(2).arg(1 + token/10);
+                            lookup_key = lookup_key.arg(2).arg(1 + token / 10);
 
-                            qDebug() << "lookup key:" <<lookup_key;
+                            qDebug() << "lookup key:" << lookup_key;
 
                             topushf = hr_24[lookup_key].toDouble();
                             break;
-                        } else {
-                            qDebug () << "token" << token << "out of bounds, this really should not be happening";
+                        }
+                        else
+                        {
+                            qDebug() << "token" << token << "out of bounds, this really should not be happening";
                             break;
                         }
                     }
@@ -7280,23 +7733,26 @@ void MainWindow::generate_html_tensile() {
                     output_html_file << topush;
                     output_html_file << topushf;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_html_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_html_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "tensile output html file not opened";
     }
 }
-void MainWindow::generate_html_marshall() {
+void MainWindow::generate_html_marshall()
+{
     qDebug() << "beginning marshall save...";
     QString json_path = cwd.filePath("json/marshall.json");
 
@@ -7315,10 +7771,10 @@ void MainWindow::generate_html_marshall() {
     QJsonObject marshall_json = json_doc.object();
     std::vector<QJsonObject> marshall_obj;
 
-    for (const auto key: marshall_json.keys()) {
+    for (const auto key : marshall_json.keys())
+    {
         marshall_obj.push_back(marshall_json[key].toObject());
     }
-
 
     std::vector<std::string> json_values_parser = {"tensile_wt_%1_%2", "tensile_ssd_wt_diff_%1_%2", "tensile_ssd_%1_%2", "tensile_wt_%1_%2_vol", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_read_%1_%2_load", "tensile_corr_%1_%2", "tensile_corrected_load_%1_%2", "tensile_flow_%1_%2"};
 
@@ -7368,7 +7824,8 @@ void MainWindow::generate_html_marshall() {
                             token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
                             i = j;
                             break;
-                        } else if (line[j] == '~' && j - i == 4)
+                        }
+                        else if (line[j] == '~' && j - i == 4)
                         {
                             token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
                             i = j;
@@ -7382,24 +7839,24 @@ void MainWindow::generate_html_marshall() {
                     output_html_file << topush;
                     output_html_file << topushf;
                     topush = "";
-
-                } else {
+                }
+                else
+                {
                     output_html_file << line[i];
                 }
             }
-
         }
         json_file.close();
         output_html_file.close();
         qDebug() << "file written to";
 
         template_file.close();
-    } else {
+    }
+    else
+    {
         qDebug() << "tensile output html file not opened";
     }
 }
-
-
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -7437,27 +7894,27 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         {
         case 0:
             scroll_pos = ui->grad_data_scroll->value();
-            ui->grad_data_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->grad_data_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 1:
             scroll_pos = ui->marshall_scroll->value();
-            ui->marshall_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->marshall_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 3:
             scroll_pos = ui->vol_scroll->value();
-            ui->vol_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->vol_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 4:
             scroll_pos = ui->gmm_scroll->value();
-            ui->gmm_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->gmm_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 5:
             scroll_pos = ui->rheology_scroll->value();
-            ui->rheology_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->rheology_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 6:
             scroll_pos = ui->wa_scroll->value();
-            ui->wa_scroll->setValue((int)(scroll_pos + delta.y()/ scroll_sens));
+            ui->wa_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         }
     }
@@ -7487,20 +7944,24 @@ void MainWindow::on_marshall_scroll_valueChanged(int value)
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
 }
-QVector<int> vol_non_scrolling_elements = {391,290,184,215,217,216,271,286,272,287};
+QVector<int> vol_non_scrolling_elements = {391, 290, 184, 215, 217, 216, 271, 286, 272, 287};
 void MainWindow::on_vol_scroll_valueChanged(int value)
 {
     float target = (ui->vol_frame_outer->width() - ui->vol_frame->width()) * value / 100;
     ui->vol_frame->move(target, ui->vol_frame->y());
 
-    for (auto i: vol_non_scrolling_elements) {
+    for (auto i : vol_non_scrolling_elements)
+    {
         QString elem_name = QString::fromStdString("label_" + std::to_string(i));
-        QLabel* label = ui->vol_frame->findChild<QLabel*>(elem_name);
+        QLabel *label = ui->vol_frame->findChild<QLabel *>(elem_name);
 
-        if(label) {
+        if (label)
+        {
             label->raise();
-            label->move(-1*target, label->y());
-        } else {
+            label->move(-1 * target, label->y());
+        }
+        else
+        {
             qDebug() << "element" << i << "not found";
         }
     }
@@ -7521,9 +7982,7 @@ void MainWindow::on_wa_scroll_valueChanged(int value)
     ui->wa_frame->move(0, target);
 }
 
-
-
-//Deal with switchin windows
+// Deal with switchin windows
 void MainWindow::on_actionWMM_triggered()
 {
     ui->stackedWidget->setCurrentIndex(0);
@@ -7532,8 +7991,6 @@ void MainWindow::on_actionDBM_triggered()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
-
-
 
 // Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)
