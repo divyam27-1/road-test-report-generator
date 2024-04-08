@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -19765,73 +19765,73 @@ color: rgb(0, 0, 0);</string>
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>marshall_save</tabstop>
-  <tabstop>marshall_saveas</tabstop>
   <tabstop>marshall_export</tabstop>
   <tabstop>marshall_ring</tabstop>
-  <tabstop>grad_s1_9</tabstop>
-  <tabstop>marshall_1_11</tabstop>
-  <tabstop>marshall_1_12</tabstop>
-  <tabstop>marshall_1_13</tabstop>
-  <tabstop>marshall_1_14</tabstop>
-  <tabstop>marshall_1_15</tabstop>
-  <tabstop>marshall_1_16</tabstop>
-  <tabstop>grad_s1_10</tabstop>
+  <tabstop>wa1_11</tabstop>
+  <tabstop>wa1_12</tabstop>
+  <tabstop>wa1_21</tabstop>
+  <tabstop>wa1_22</tabstop>
+  <tabstop>wa1_31</tabstop>
+  <tabstop>wa1_32</tabstop>
+  <tabstop>wa1_41</tabstop>
+  <tabstop>wa1_42</tabstop>
   <tabstop>marshall_1_21</tabstop>
   <tabstop>marshall_1_22</tabstop>
-  <tabstop>marshall_1_23</tabstop>
-  <tabstop>marshall_1_24</tabstop>
-  <tabstop>marshall_1_25</tabstop>
-  <tabstop>marshall_1_26</tabstop>
-  <tabstop>grad_s1_11</tabstop>
-  <tabstop>marshall_1_31</tabstop>
-  <tabstop>marshall_1_32</tabstop>
-  <tabstop>marshall_1_33</tabstop>
-  <tabstop>marshall_1_34</tabstop>
-  <tabstop>marshall_1_35</tabstop>
-  <tabstop>marshall_1_36</tabstop>
-  <tabstop>grad_s1_15</tabstop>
-  <tabstop>marshall_2_11</tabstop>
-  <tabstop>marshall_2_12</tabstop>
-  <tabstop>marshall_2_13</tabstop>
-  <tabstop>marshall_2_14</tabstop>
-  <tabstop>marshall_2_15</tabstop>
-  <tabstop>marshall_2_16</tabstop>
-  <tabstop>grad_s1_16</tabstop>
-  <tabstop>marshall_2_21</tabstop>
-  <tabstop>marshall_2_22</tabstop>
-  <tabstop>marshall_2_23</tabstop>
-  <tabstop>marshall_2_24</tabstop>
-  <tabstop>marshall_2_25</tabstop>
-  <tabstop>marshall_2_26</tabstop>
-  <tabstop>grad_s1_17</tabstop>
-  <tabstop>marshall_2_31</tabstop>
-  <tabstop>marshall_2_32</tabstop>
-  <tabstop>marshall_2_33</tabstop>
-  <tabstop>marshall_2_34</tabstop>
-  <tabstop>marshall_2_35</tabstop>
-  <tabstop>marshall_2_36</tabstop>
-  <tabstop>grad_s1_18</tabstop>
-  <tabstop>marshall_3_11</tabstop>
-  <tabstop>marshall_3_12</tabstop>
-  <tabstop>marshall_3_13</tabstop>
-  <tabstop>marshall_3_14</tabstop>
-  <tabstop>marshall_3_15</tabstop>
-  <tabstop>marshall_3_16</tabstop>
-  <tabstop>grad_s1_19</tabstop>
-  <tabstop>grad_p14_1</tabstop>
-  <tabstop>marshall_3_26</tabstop>
-  <tabstop>vol_gmm_obc</tabstop>
-  <tabstop>vol_gmb_1</tabstop>
-  <tabstop>vol_gmb_2</tabstop>
-  <tabstop>vol_gmb_3</tabstop>
-  <tabstop>marshall_3_23</tabstop>
-  <tabstop>marshall_3_22</tabstop>
-  <tabstop>marshall_3_21</tabstop>
-  <tabstop>marshall_3_24</tabstop>
-  <tabstop>marshall_3_25</tabstop>
-  <tabstop>marshall_3_25</tabstop>
-  <tabstop>marshall_3_26</tabstop>
+  <tabstop>wa2_11</tabstop>
+  <tabstop>wa2_12</tabstop>
+  <tabstop>wa2_21</tabstop>
+  <tabstop>wa2_22</tabstop>
+  <tabstop>wa2_31</tabstop>
+  <tabstop>wa2_32</tabstop>
+  <tabstop>wa2_41</tabstop>
+  <tabstop>wa2_42</tabstop>
+  <tabstop>wa3_11</tabstop>
+  <tabstop>wa3_12</tabstop>
+  <tabstop>wa3_21</tabstop>
+  <tabstop>wa3_22</tabstop>
+  <tabstop>wa3_31</tabstop>
+  <tabstop>wa3_32</tabstop>
+  <tabstop>wa3_41</tabstop>
+  <tabstop>wa3_42</tabstop>
+  <tabstop>wa4_11</tabstop>
+  <tabstop>wa4_12</tabstop>
+  <tabstop>wa4_13</tabstop>
+  <tabstop>wa4_21</tabstop>
+  <tabstop>wa4_22</tabstop>
+  <tabstop>wa4_23</tabstop>
+  <tabstop>wa4_31</tabstop>
+  <tabstop>wa4_32</tabstop>
+  <tabstop>wa4_33</tabstop>
+  <tabstop>gmm1_11</tabstop>
+  <tabstop>gmm1_12</tabstop>
+  <tabstop>gmm1_21</tabstop>
+  <tabstop>gmm1_22</tabstop>
+  <tabstop>gmm1_31</tabstop>
+  <tabstop>gmm1_32</tabstop>
+  <tabstop>gmm1_41</tabstop>
+  <tabstop>gmm1_42</tabstop>
+  <tabstop>gmm1_51</tabstop>
+  <tabstop>gmm1_52</tabstop>
+  <tabstop>gmm2_11</tabstop>
+  <tabstop>gmm2_12</tabstop>
+  <tabstop>gmm2_21</tabstop>
+  <tabstop>gmm2_22</tabstop>
+  <tabstop>gmm2_31</tabstop>
+  <tabstop>gmm2_32</tabstop>
+  <tabstop>gmm2_41</tabstop>
+  <tabstop>gmm2_42</tabstop>
+  <tabstop>gmm2_51</tabstop>
+  <tabstop>gmm2_52</tabstop>
+  <tabstop>gmm3_11</tabstop>
+  <tabstop>gmm3_12</tabstop>
+  <tabstop>gmm3_21</tabstop>
+  <tabstop>gmm3_22</tabstop>
+  <tabstop>gmm3_31</tabstop>
+  <tabstop>gmm3_32</tabstop>
+  <tabstop>gmm3_41</tabstop>
+  <tabstop>gmm3_42</tabstop>
+  <tabstop>gmm3_51</tabstop>
+  <tabstop>gmm3_52</tabstop>
   <tabstop>grad_s1_20</tabstop>
   <tabstop>marshall_3_31</tabstop>
   <tabstop>marshall_3_32</tabstop>
@@ -20632,36 +20632,36 @@ color: rgb(0, 0, 0);</string>
   <tabstop>gmm_saveas</tabstop>
   <tabstop>gmm_save</tabstop>
   <tabstop>gmm_export</tabstop>
-  <tabstop>gmm2_11</tabstop>
-  <tabstop>gmm2_21</tabstop>
-  <tabstop>gmm2_31</tabstop>
-  <tabstop>gmm2_32</tabstop>
-  <tabstop>gmm2_41</tabstop>
-  <tabstop>gmm2_42</tabstop>
-  <tabstop>gmm2_52</tabstop>
-  <tabstop>gmm2_51</tabstop>
-  <tabstop>gmm2_22</tabstop>
-  <tabstop>gmm2_12</tabstop>
-  <tabstop>gmm3_11</tabstop>
-  <tabstop>gmm3_21</tabstop>
-  <tabstop>gmm3_31</tabstop>
-  <tabstop>gmm3_32</tabstop>
-  <tabstop>gmm3_41</tabstop>
-  <tabstop>gmm3_42</tabstop>
-  <tabstop>gmm3_52</tabstop>
-  <tabstop>gmm3_51</tabstop>
-  <tabstop>gmm3_22</tabstop>
-  <tabstop>gmm3_12</tabstop>
-  <tabstop>gmm1_11</tabstop>
-  <tabstop>gmm1_21</tabstop>
-  <tabstop>gmm1_31</tabstop>
-  <tabstop>gmm1_32</tabstop>
-  <tabstop>gmm1_41</tabstop>
-  <tabstop>gmm1_42</tabstop>
-  <tabstop>gmm1_52</tabstop>
-  <tabstop>gmm1_51</tabstop>
-  <tabstop>gmm1_22</tabstop>
-  <tabstop>gmm1_12</tabstop>
+  <tabstop>marshall_3_11</tabstop>
+  <tabstop>marshall_3_13</tabstop>
+  <tabstop>marshall_3_15</tabstop>
+  <tabstop>marshall_3_16</tabstop>
+  <tabstop>grad_s1_19</tabstop>
+  <tabstop>grad_p14_1</tabstop>
+  <tabstop>vol_gmm_obc</tabstop>
+  <tabstop>marshall_3_26</tabstop>
+  <tabstop>marshall_3_14</tabstop>
+  <tabstop>marshall_3_12</tabstop>
+  <tabstop>vol_gmb_1</tabstop>
+  <tabstop>vol_gmb_3</tabstop>
+  <tabstop>marshall_3_22</tabstop>
+  <tabstop>marshall_3_21</tabstop>
+  <tabstop>marshall_3_24</tabstop>
+  <tabstop>marshall_3_25</tabstop>
+  <tabstop>marshall_3_26</tabstop>
+  <tabstop>marshall_3_25</tabstop>
+  <tabstop>marshall_3_23</tabstop>
+  <tabstop>vol_gmb_2</tabstop>
+  <tabstop>marshall_2_25</tabstop>
+  <tabstop>grad_s1_17</tabstop>
+  <tabstop>marshall_2_32</tabstop>
+  <tabstop>marshall_2_33</tabstop>
+  <tabstop>marshall_2_34</tabstop>
+  <tabstop>marshall_2_35</tabstop>
+  <tabstop>grad_s1_18</tabstop>
+  <tabstop>marshall_2_36</tabstop>
+  <tabstop>marshall_2_31</tabstop>
+  <tabstop>marshall_2_26</tabstop>
   <tabstop>rheology_save</tabstop>
   <tabstop>rheology_name</tabstop>
   <tabstop>rheology_contractor</tabstop>
@@ -20745,41 +20745,58 @@ color: rgb(0, 0, 0);</string>
   <tabstop>wa_manufacturer</tabstop>
   <tabstop>wa_size</tabstop>
   <tabstop>wa_loc</tabstop>
-  <tabstop>wa1_11</tabstop>
-  <tabstop>wa1_21</tabstop>
-  <tabstop>wa1_31</tabstop>
-  <tabstop>wa1_41</tabstop>
-  <tabstop>wa1_12</tabstop>
-  <tabstop>wa1_22</tabstop>
-  <tabstop>wa1_32</tabstop>
-  <tabstop>wa1_42</tabstop>
-  <tabstop>wa2_11</tabstop>
-  <tabstop>wa2_21</tabstop>
-  <tabstop>wa2_12</tabstop>
-  <tabstop>wa2_22</tabstop>
-  <tabstop>wa2_31</tabstop>
-  <tabstop>wa2_32</tabstop>
-  <tabstop>wa2_41</tabstop>
-  <tabstop>wa2_42</tabstop>
-  <tabstop>wa3_11</tabstop>
-  <tabstop>wa3_21</tabstop>
-  <tabstop>wa3_12</tabstop>
-  <tabstop>wa3_22</tabstop>
-  <tabstop>wa3_31</tabstop>
-  <tabstop>wa3_32</tabstop>
-  <tabstop>wa3_41</tabstop>
-  <tabstop>wa3_42</tabstop>
-  <tabstop>wa4_11</tabstop>
-  <tabstop>wa4_21</tabstop>
-  <tabstop>wa4_12</tabstop>
-  <tabstop>wa4_22</tabstop>
-  <tabstop>wa4_31</tabstop>
-  <tabstop>wa4_32</tabstop>
-  <tabstop>wa4_13</tabstop>
-  <tabstop>wa4_23</tabstop>
-  <tabstop>wa4_33</tabstop>
+  <tabstop>marshall_save</tabstop>
+  <tabstop>grad_s1_9</tabstop>
+  <tabstop>marshall_1_12</tabstop>
+  <tabstop>marshall_1_14</tabstop>
+  <tabstop>marshall_saveas</tabstop>
+  <tabstop>marshall_1_11</tabstop>
+  <tabstop>marshall_1_13</tabstop>
+  <tabstop>marshall_1_15</tabstop>
+  <tabstop>marshall_1_16</tabstop>
+  <tabstop>marshall_1_23</tabstop>
+  <tabstop>grad_s1_10</tabstop>
+  <tabstop>marshall_1_24</tabstop>
+  <tabstop>marshall_1_25</tabstop>
+  <tabstop>marshall_1_26</tabstop>
+  <tabstop>grad_s1_11</tabstop>
+  <tabstop>marshall_1_31</tabstop>
+  <tabstop>marshall_1_32</tabstop>
+  <tabstop>marshall_1_34</tabstop>
+  <tabstop>marshall_1_33</tabstop>
+  <tabstop>marshall_1_35</tabstop>
+  <tabstop>marshall_1_36</tabstop>
+  <tabstop>grad_s1_15</tabstop>
+  <tabstop>marshall_2_11</tabstop>
+  <tabstop>marshall_2_12</tabstop>
+  <tabstop>marshall_2_13</tabstop>
+  <tabstop>marshall_2_16</tabstop>
+  <tabstop>marshall_2_14</tabstop>
+  <tabstop>grad_s1_16</tabstop>
+  <tabstop>marshall_2_22</tabstop>
+  <tabstop>marshall_2_23</tabstop>
+  <tabstop>marshall_2_15</tabstop>
+  <tabstop>marshall_2_21</tabstop>
+  <tabstop>marshall_2_24</tabstop>
   <tabstop>vol_gmb_obc</tabstop>
   <tabstop>vol_gmb_5</tabstop>
+  <tabstop>rheology_spc_save</tabstop>
+  <tabstop>rheology_spc_33</tabstop>
+  <tabstop>rheology_spc_22</tabstop>
+  <tabstop>rheology_spc_23</tabstop>
+  <tabstop>rheology_spc_21</tabstop>
+  <tabstop>rheology_spc_13</tabstop>
+  <tabstop>rheology_spc_42</tabstop>
+  <tabstop>rheology_spc_11</tabstop>
+  <tabstop>rheology_spc_41</tabstop>
+  <tabstop>rheology_spc_31</tabstop>
+  <tabstop>rheology_spc_12</tabstop>
+  <tabstop>rheology_spc_43</tabstop>
+  <tabstop>rheology_spc_32</tabstop>
+  <tabstop>rheology_strip_11</tabstop>
+  <tabstop>rheology_strip_12</tabstop>
+  <tabstop>rheology_strip_61</tabstop>
+  <tabstop>rheology_strip_62</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc"/>

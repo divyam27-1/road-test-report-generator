@@ -1336,6 +1336,23 @@ void MainWindow::on_gmm_save_clicked()
     gmm_data["4.00"] = gmm_400;
     gmm_data["4.25"] = gmm_425;
     gmm_data["4.50"] = gmm_450;
+
+    QFile gmm_json_file(cwd.filePath("json/gmm.json"));
+
+    if (gmm_json_file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&gmm_json_file);
+        QJsonDocument jsonDoc_1(gmm_data);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        gmm_json_file.close();
+    }
+    else
+    {
+        qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
+    }
 }
 void MainWindow::on_rheology_save_clicked()
 {
@@ -1353,14 +1370,13 @@ void MainWindow::on_rheology_save_clicked()
                                                  {"viscosity", 10},
                                                  {"spc", 4}}; // Internal iteration from 1 to 3
 
-    std::map<QString, QJsonObject(MainWindow::*)(QJsonObject)> func_map = {{"strip", strip_eval},
-                                                                           {"soft", soft_eval},
-                                                                           {"pen", pen_eval},
-                                                                           {"ductility", ductility_eval},
-                                                                           {"flash", flash_eval},
-                                                                           {"viscosity", viscosity_eval},
-                                                                           {"spc", spc_eval}};
-
+    std::map<QString, QJsonObject (MainWindow::*)(QJsonObject)> func_map = {{"strip", strip_eval},
+                                                                            {"soft", soft_eval},
+                                                                            {"pen", pen_eval},
+                                                                            {"ductility", ductility_eval},
+                                                                            {"flash", flash_eval},
+                                                                            {"viscosity", viscosity_eval},
+                                                                            {"spc", spc_eval}};
 
     std::map<QString, QJsonObject> json_map = {{"strip", strip},
                                                {"soft", soft},
@@ -1392,8 +1408,8 @@ void MainWindow::on_rheology_save_clicked()
                 }
 
                 QString text_1 = tedit_1->text(), text_2 = tedit_2->text();
-                strip[obj_name_1] = text_1.toDouble();
-                strip[obj_name_2] = text_2.toDouble();
+                strip[obj_name_1] = text_1;
+                strip[obj_name_2] = text_2;
             }
             else if (exp_name == "spc")
             {
@@ -1415,9 +1431,9 @@ void MainWindow::on_rheology_save_clicked()
                 QString text_2 = tedit_2->text();
                 QString text_3 = tedit_3->text();
 
-                spc[obj_name_1] = text_1.toDouble();
-                spc[obj_name_2] = text_2.toDouble();
-                spc[obj_name_3] = text_3.toDouble();
+                spc[obj_name_1] = text_1;
+                spc[obj_name_2] = text_2;
+                spc[obj_name_3] = text_3;
             }
             else
             {
@@ -1425,8 +1441,14 @@ void MainWindow::on_rheology_save_clicked()
                 QString text;
 
                 QObject *obj = ui->rheology->findChild<QObject *>(obj_name);
-                if (QLineEdit* lineEdit = qobject_cast<QLineEdit*>(obj)) {text = lineEdit->text();}
-                else if (QDoubleSpinBox* dspinEdit = qobject_cast<QDoubleSpinBox*>(obj)) {text = dspinEdit->text();}
+                if (QLineEdit *lineEdit = qobject_cast<QLineEdit *>(obj))
+                {
+                    text = lineEdit->text();
+                }
+                else if (QDoubleSpinBox *dspinEdit = qobject_cast<QDoubleSpinBox *>(obj))
+                {
+                    text = dspinEdit->text();
+                }
 
                 else
                 {
@@ -1434,16 +1456,33 @@ void MainWindow::on_rheology_save_clicked()
                     continue;
                 }
 
-                json_map[exp_name][obj_name] = text.toDouble();
+                json_map[exp_name][obj_name] = text;
             }
         }
 
         json_map[exp_name] = (this->*func_map.at(exp_name))(json_map[exp_name]);
+        rh_json[exp_name] = json_map.at(exp_name);
+    }
+
+    QFile rheology_json_file(cwd.filePath("json/rheology.json"));
+
+    if (rheology_json_file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&rheology_json_file);
+        QJsonDocument jsonDoc_1(rh_json);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        rheology_json_file.close();
+    }
+    else
+    {
+        qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
 
     save_check();
 }
-
 void MainWindow::on_wa_save_clicked()
 {
     tracked_files.push_back("vol");
@@ -1456,7 +1495,7 @@ void MainWindow::on_wa_save_clicked()
 
     for (int i = 1; i <= 4; i++)
     {
-        for (int j = 1; j < 5; j++)
+        for (int j = 1; j <= 4; j++)
         {
             for (int k = 1; k <= 2; k++)
             {
@@ -1480,10 +1519,6 @@ void MainWindow::on_wa_save_clicked()
                     else if (i == 3)
                     {
                         wa_dust[json_key] = tedit->text().toDouble();
-                    }
-                    else if (i == 4)
-                    {
-                        wa_cleanliness[json_key] = tedit->text().toDouble();
                     }
                 }
                 else
@@ -1516,39 +1551,33 @@ void MainWindow::on_wa_save_clicked()
             }
         }
     }
+
     QJsonObject waa_10, waa_20, waa_dust, waa_cleanliness;
 
-    for (int i = 1; i < 4; i++)
+    for (int k = 1; k <= 2; k++)
     {
-        for (int k = 1; k < 3; k++)
-        {
-            std::string k_str = std::to_string(k);
-            QString k_qstr = QString::fromStdString(k_str);
+        std::string k_str = std::to_string(k);
+        QString k_qstr = QString::fromStdString(k_str);
 
-            if (i == 1)
-            {
-                waa_10["answer_1_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_3_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
-                waa_10["answer_2_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_4_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
-                waa_10["answer_3_" + k_qstr] = ((wa_10["wa_3_" + k_qstr].toDouble() - wa_10["wa_4_" + k_qstr].toDouble()) / wa_10["wa_4_" + k_qstr].toDouble()) * 100;
-            }
-            else if (i == 2)
-            {
-                waa_20["answer_1_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_3_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
-                waa_20["answer_2_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_4_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
-                waa_20["answer_3_" + k_qstr] = ((wa_20["wa_3_" + k_qstr].toDouble() - wa_20["wa_4_" + k_qstr].toDouble()) / wa_20["wa_4_" + k_qstr].toDouble()) * 100;
-            }
-            else if (i == 3)
-            {
-                waa_dust["answer_1_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
-                waa_dust["answer_2_" + k_qstr] = wa_dust["wa_3_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
-                waa_dust["answer_3_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_1_" + k_qstr].toDouble() + wa_dust["wa_2_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
-                waa_dust["answer_4_" + k_qstr] = ((wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_1_" + k_qstr].toDouble()) / wa_dust["wa_1_" + k_qstr].toDouble()) * 100;
-            }
-            else if (i == 4)
-            {
-                waa_cleanliness["aggregate%" + k_qstr] = (wa_cleanliness["wa_3_" + k_qstr].toDouble() / wa_cleanliness["wa_1_" + k_qstr].toDouble()) * 100;
-            }
-        }
+        waa_10["answer_1_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_3_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
+        waa_10["answer_2_" + k_qstr] = wa_10["wa_4_" + k_qstr].toDouble() / (wa_10["wa_4_" + k_qstr].toDouble() + wa_10["wa_2_" + k_qstr].toDouble() - wa_10["wa_1_" + k_qstr].toDouble());
+        waa_10["answer_3_" + k_qstr] = ((wa_10["wa_3_" + k_qstr].toDouble() - wa_10["wa_4_" + k_qstr].toDouble()) / wa_10["wa_4_" + k_qstr].toDouble()) * 100;
+
+        waa_20["answer_1_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_3_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
+        waa_20["answer_2_" + k_qstr] = wa_20["wa_4_" + k_qstr].toDouble() / (wa_20["wa_4_" + k_qstr].toDouble() + wa_20["wa_2_" + k_qstr].toDouble() - wa_20["wa_1_" + k_qstr].toDouble());
+        waa_20["answer_3_" + k_qstr] = ((wa_20["wa_3_" + k_qstr].toDouble() - wa_20["wa_4_" + k_qstr].toDouble()) / wa_20["wa_4_" + k_qstr].toDouble()) * 100;
+
+        waa_dust["answer_1_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+        waa_dust["answer_2_" + k_qstr] = wa_dust["wa_3_" + k_qstr].toDouble() / (wa_dust["wa_2_" + k_qstr].toDouble() + wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+        waa_dust["answer_3_" + k_qstr] = wa_dust["wa_1_" + k_qstr].toDouble() / (wa_dust["wa_1_" + k_qstr].toDouble() + wa_dust["wa_2_" + k_qstr].toDouble() - wa_dust["wa_4_" + k_qstr].toDouble());
+        waa_dust["answer_4_" + k_qstr] = ((wa_dust["wa_3_" + k_qstr].toDouble() - wa_dust["wa_1_" + k_qstr].toDouble()) / wa_dust["wa_1_" + k_qstr].toDouble()) * 100;
+    }
+
+    for (int k = 1; k <= 3; k++)
+    {
+        std::string k_str = std::to_string(k);
+        QString k_qstr = QString::fromStdString(k_str);
+        waa_cleanliness["aggregate%" + k_qstr] = (wa_cleanliness["wa_3_" + k_qstr].toDouble() / wa_cleanliness["wa_1_" + k_qstr].toDouble()) * 100;
     }
 
     for (int i = 1; i < 4; i++)
@@ -1574,6 +1603,23 @@ void MainWindow::on_wa_save_clicked()
     wa_data["answer_20"] = waa_20;
     wa_data["answer_dust"] = waa_dust;
     wa_data["answer_cleanliness"] = waa_cleanliness;
+
+    QFile wa_json(cwd.filePath("json/wa.json"));
+
+    if (wa_json.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(&wa_json);
+        QJsonDocument jsonDoc_1(wa_data);
+
+        out << jsonDoc_1.toJson();
+
+        // Close the file
+        wa_json.close();
+    }
+    else
+    {
+        qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
+    }
 }
 
 // Deals with save as requests
@@ -1658,8 +1704,6 @@ void MainWindow::on_tensile_saveas_clicked()
     ui->tensile_save->click();
 }
 
-
-
 // Save Check function is simultaeneously the most and least important function
 void MainWindow::save_check()
 {
@@ -1734,8 +1778,6 @@ void MainWindow::save_check()
         }
     }
 }
-
-
 
 // Deals with saving to JSON (subfunctions)
 void MainWindow::on_mdd_save_update_clicked()
@@ -3223,9 +3265,6 @@ QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
 
     return spc_in;
 }
-
-
-
 
 // Deals with Graphing
 std::vector<double> quadfit(std::vector<double> &x, std::vector<double> &y)
