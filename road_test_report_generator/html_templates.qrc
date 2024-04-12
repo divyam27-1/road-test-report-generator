@@ -18,5 +18,6 @@
         <file>templates/dbm_job_mix_formula.html</file>
         <file>templates/detemination_of_spc_gravity.html</file>
         <file>templates/Marshall_test_data.html</file>
+        <file>templates/gravity_and_water_absorption.html</file>
     </qresource>
 </RCC>

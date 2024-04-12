@@ -23,12 +23,11 @@
 #include <functional>
 
 /* TODO:
-- Fix bugs in saving JSON for Marshall
-- Verify JSON save for Tensile and Gradation
-- Saving JSON for Rheology
-- Generation of HTML for the aforementioned
-- Deciding if we need a page for Specific Gradation of Bitumen or we can slot it in somewhere
-- QOL features (saveas button, saved ribbon, fixing UI of vol, etc.
+- Generation of HTML for :-
+ 1) vol (divyam)
+ 2) rheology (divyam)
+ 3) water absorption (sahu)
+ 4) gmm (atharv)
 */
 
 QDir cwd = QDir::current();
@@ -1356,7 +1355,7 @@ void MainWindow::on_gmm_save_clicked()
 }
 void MainWindow::on_rheology_save_clicked()
 {
-    tracked_files.push_back("gmm");
+    tracked_files.push_back("rheology");
     removeDuplicates(tracked_files);
 
     QJsonObject rh_json, strip, soft, pen, ductility, flash, viscosity, spc;
@@ -1485,7 +1484,7 @@ void MainWindow::on_rheology_save_clicked()
 }
 void MainWindow::on_wa_save_clicked()
 {
-    tracked_files.push_back("vol");
+    tracked_files.push_back("wa");
     removeDuplicates(tracked_files);
 
     QJsonObject wa_data, wa_10, wa_20, wa_dust, wa_cleanliness;
@@ -1620,6 +1619,8 @@ void MainWindow::on_wa_save_clicked()
     {
         qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
+
+    save_check();
 }
 
 // Deals with save as requests
@@ -1775,6 +1776,26 @@ void MainWindow::save_check()
         else if (file == "tensile")
         {
             generate_html_tensile();
+        }
+        else if (file == "vol")
+        {
+            generate_html_vol();
+        }
+        else if (file == "gmm")
+        {
+            generate_html_gmm();
+        }
+        else if (file == "rheology")
+        {
+            generate_html_rheology();
+        }
+        else if (file == "marshall")
+        {
+            generate_html_marshall();
+        }
+        else if (file == "wa")
+        {
+            generate_html_wa();
         }
     }
 }
@@ -7895,6 +7916,9 @@ void MainWindow::generate_html_marshall()
     {
         qDebug() << "tensile output html file not opened";
     }
+}
+void MainWindow::generate_html_vol() {
+
 }
 
 // Deals with Scrolling
