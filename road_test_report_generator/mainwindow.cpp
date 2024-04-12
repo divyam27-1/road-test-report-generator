@@ -1207,7 +1207,7 @@ void MainWindow::on_vol_save_clicked()
         }
     }
 
-    QStringList calc_expnames = {"ps", "vma", "va", "vfb"};
+    QStringList calc_expnames = {"ps", "vma", "va", "vfb", "pb"};
     for (QString s : calc_expnames)
     {
         for (int i = 0; i <= 5; i++)
@@ -1227,6 +1227,10 @@ void MainWindow::on_vol_save_clicked()
                 double db_val = composition[db_call].toDouble();
 
                 output = 100 - db_val;
+                QLabel* label = ui->vol->findChild<QLabel*>(obj_name);
+                if (label) {
+                    label->setText(QString::number(output));
+                }
             }
             else if (s == "vma")
             {
@@ -1703,6 +1707,42 @@ void MainWindow::on_tensile_saveas_clicked()
         saveas_done = true;
     }
     ui->tensile_save->click();
+}
+void MainWindow::on_vol_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done)
+    {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->vol_save->click();
+}
+void MainWindow::on_gmm_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done)
+    {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->gmm_save->click();
+}
+void MainWindow::on_rheology_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done)
+    {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->rheology_save->click();
+}
+void MainWindow::on_wa_saveas_clicked() {
+    swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
+    if (!saveas_done)
+    {
+        QMessageBox::information(this, "Outputs Folder", tr("When you click EXPORT in the 'File' tab the output will be stored on that particular directory"));
+        saveas_done = true;
+    }
+    ui->wa_save->click();
 }
 
 // Save Check function is simultaeneously the most and least important function
@@ -7811,6 +7851,7 @@ void MainWindow::generate_html_tensile()
         qDebug() << "tensile output html file not opened";
     }
 }
+//Not Done Yet
 void MainWindow::generate_html_marshall()
 {
     qDebug() << "beginning marshall save...";
@@ -7918,6 +7959,217 @@ void MainWindow::generate_html_marshall()
     }
 }
 void MainWindow::generate_html_vol() {
+    qDebug() << "beginning vol save...";
+    QString json_path = cwd.filePath("json/vol.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject json_obj = json_doc.object();
+    QJsonObject spg_json = json_obj["spg"].toObject(), vol_json = json_obj["composition"].toObject();
+
+    std::string determination_of_eff_spg_path = cwd.filePath("html/determination_of_eff_spg.html").toStdString();
+    std::ofstream determination_of_eff_spg_file(determination_of_eff_spg_path, std::ios::out);
+
+    if (determination_of_eff_spg_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file("qrc:/templates/templates/detemination_of_spc_gravity.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    switch (token) {
+                    case 1:
+                        topush = ui->vol_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->vol_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = "25-16 mm";
+                        break;
+                    case 7:
+                        topush = "16-4.75 mm";
+                        break;
+                    case 11:
+                        topush = "4.75 down";
+                        break;
+                    default:
+                        if ((token - 4)%4 == 0) {
+                            topushf = spg_json[QString::fromStdString("vol_bulk_%1").arg((int)(token-4)/4)].toDouble();
+                        } else if ((token - 4)%4 == 1) {
+                            topushf = spg_json[QString::fromStdString("vol_apparent_%1").arg((int)(token-4)/4)].toDouble();
+                        } else if ((token - 4)%4 == 1) {
+                            topushf = spg_json[QString::fromStdString("vol_eff_%1").arg((int)(token-4)/4)].toDouble();
+                        }
+                    }
+
+
+                    determination_of_eff_spg_file << topush; topush = "";
+                    determination_of_eff_spg_file << topushf; topushf = 0;
+                }
+                else
+                {
+                    determination_of_eff_spg_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        determination_of_eff_spg_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+
+    std::string vol_output_path = cwd.filePath("html/vol_analysis.html").toStdString();
+    std::ofstream vol_output_file(vol_output_path, std::ios::out);
+
+    std::vector<QString>row_vol = {"vol_p1_%1", "vol_p2_%1", "vol_p3_%1", "vol_ps_%1", "vol_pb_%1", "vol_gsb_%1", "vol_gmm_%1", "vol_gmb_%1", "vol_vma_%1", "vol_va_%1", "vol_vfb_%1"};
+    std::vector<QString>spg_vol = {}
+
+    if (vol_output_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file("qrc:/templates/templates/worksheet_volumetric_analysis.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+                    double topushf;
+
+                    //Files in the spg values
+                    if (token <= 40) {
+                        token--;
+
+                        int token_hpos = token%8;
+                        int token_vpos = (int)token/8;
+                    }
+
+                    vol_output_file << topush;
+                    vol_output_file << topushf;
+                }
+                else
+                {
+                    vol_output_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        vol_output_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+}
+void MainWindow::generate_html_gmm() {
+
+}
+void MainWindow::generate_html_rheology() {
+
+}
+void MainWindow::generate_html_wa() {
 
 }
 

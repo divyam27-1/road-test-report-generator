@@ -244,6 +244,10 @@ private slots:
 
     void on_wa_save_clicked();
 
+    void on_vol_saveas_clicked();
+    void on_gmm_saveas_clicked();
+    void on_rheology_saveas_clicked();
+    void on_wa_saveas_clicked();
 private:
     float scroll_sens;
 
@@ -252,5 +256,9 @@ private:
     void wheelEvent(QWheelEvent *event) override;
     void generate_html_tensile();
     void generate_html_marshall();
+    void generate_html_vol();
+    void generate_html_gmm();
+    void generate_html_rheology();
+    void generate_html_wa();
 };
 #endif // MAINWINDOW_H
