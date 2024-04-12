@@ -1192,6 +1192,10 @@ void MainWindow::on_vol_save_clicked()
             QString constructor = "vol_" + s + "_%1";
             QString arg = (i == 0) ? "obc" : QString::number(i);
 
+            if (s == "pb") {
+                qDebug() << "here";
+            }
+
             QString obj_name = constructor.arg(arg);
 
             QLineEdit *tedit = ui->vol->findChild<QLineEdit *>(obj_name);
@@ -1207,7 +1211,7 @@ void MainWindow::on_vol_save_clicked()
         }
     }
 
-    QStringList calc_expnames = {"ps", "vma", "va", "vfb", "pb"};
+    QStringList calc_expnames = {"ps", "vma", "va", "vfb"};
     for (QString s : calc_expnames)
     {
         for (int i = 0; i <= 5; i++)
@@ -7984,111 +7988,7 @@ void MainWindow::generate_html_vol() {
     {
         qDebug() << "output html file opened";
 
-        QFile template_file("qrc:/templates/templates/detemination_of_spc_gravity.html");
-        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
-        {
-            qDebug() << "html not opened";
-            return;
-        }
-        else
-        {
-            qDebug() << "html file opened";
-        }
-        QTextStream infile(&template_file);
-
-        while (!infile.atEnd())
-        {
-
-            std::string line_str = infile.readLine().toStdString();
-            const char *line = line_str.c_str();
-            int tilda = 0;
-            int token;
-            for (int i = 0; i < (int)strlen(line); i++)
-            {
-                if (line[i] == '~' && tilda == 0)
-                {
-                    tilda = 1;
-
-                    // Gets the token from HTML file
-                    for (int j = i + 1; j < (int)strlen(line); j++)
-                    {
-                        if (line[j] == '~' && j - i == 2)
-                        {
-                            token = (int)line[i + 1] - 48;
-                            i = j;
-                            break;
-                        }
-                        else if (line[j] == '~' && j - i == 3)
-                        {
-                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
-                            i = j;
-                            break;
-                        }
-                        else if (line[j] == '~' && j - i == 4)
-                        {
-                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
-                            i = j;
-                            break;
-                        }
-                    }
-
-                    std::string topush;
-                    double topushf;
-
-                    switch (token) {
-                    case 1:
-                        topush = ui->vol_bsc_1->toPlainText().toStdString();
-                        break;
-                    case 2:
-                        topush = ui->vol_bsc_2->toPlainText().toStdString();
-                        break;
-                    case 3:
-                        topush = "25-16 mm";
-                        break;
-                    case 7:
-                        topush = "16-4.75 mm";
-                        break;
-                    case 11:
-                        topush = "4.75 down";
-                        break;
-                    default:
-                        if ((token - 4)%4 == 0) {
-                            topushf = spg_json[QString::fromStdString("vol_bulk_%1").arg((int)(token-4)/4)].toDouble();
-                        } else if ((token - 4)%4 == 1) {
-                            topushf = spg_json[QString::fromStdString("vol_apparent_%1").arg((int)(token-4)/4)].toDouble();
-                        } else if ((token - 4)%4 == 1) {
-                            topushf = spg_json[QString::fromStdString("vol_eff_%1").arg((int)(token-4)/4)].toDouble();
-                        }
-                    }
-
-
-                    determination_of_eff_spg_file << topush; topush = "";
-                    determination_of_eff_spg_file << topushf; topushf = 0;
-                }
-                else
-                {
-                    determination_of_eff_spg_file << line[i];
-                }
-            }
-        }
-        json_file.close();
-        determination_of_eff_spg_file.close();
-        qDebug() << "file written to";
-
-        template_file.close();
-    }
-
-    std::string vol_output_path = cwd.filePath("html/vol_analysis.html").toStdString();
-    std::ofstream vol_output_file(vol_output_path, std::ios::out);
-
-    std::vector<QString>row_vol = {"vol_p1_%1", "vol_p2_%1", "vol_p3_%1", "vol_ps_%1", "vol_pb_%1", "vol_gsb_%1", "vol_gmm_%1", "vol_gmb_%1", "vol_vma_%1", "vol_va_%1", "vol_vfb_%1"};
-    std::vector<QString>spg_vol = {}
-
-    if (vol_output_file.is_open())
-    {
-        qDebug() << "output html file opened";
-
-        QFile template_file("qrc:/templates/templates/worksheet_volumetric_analysis.html");
+        QFile template_file(":/templates/templates/detemination_of_spc_gravity.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -8139,12 +8039,156 @@ void MainWindow::generate_html_vol() {
                     std::string topush = "";
                     double topushf;
 
-                    //Files in the spg values
-                    if (token <= 40) {
+                    switch (token) {
+                    case 1:
+                        topush = ui->vol_bsc_1->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->vol_bsc_2->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = "25-16 mm";
+                        break;
+                    case 7:
+                        topush = "16-4.75 mm";
+                        break;
+                    case 11:
+                        topush = "4.75 down";
+                        break;
+                    default:
+                        if ((token - 4)%4 == 0) {
+                            topushf = spg_json[QString::fromStdString("vol_bulk_%1").arg(1 + (int)(token-4)/4)].toDouble();
+                        } else if ((token - 4)%4 == 1) {
+                            topushf = spg_json[QString::fromStdString("vol_apparent_%1").arg(1 + (int)(token-4)/4)].toDouble();
+                        } else if ((token - 4)%4 == 2) {
+                            topushf = spg_json[QString::fromStdString("vol_eff_%1").arg(1 + (int)(token-4)/4)].toDouble();
+                        }
+                        determination_of_eff_spg_file << topushf;
+                    }
+
+
+                    determination_of_eff_spg_file << topush;
+                }
+                else
+                {
+                    determination_of_eff_spg_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        determination_of_eff_spg_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+
+    std::string vol_output_path = cwd.filePath("html/vol_analysis.html").toStdString();
+    std::ofstream vol_output_file(vol_output_path, std::ios::out);
+
+    std::vector<QString>row_vol = {"vol_p1_%1", "vol_p2_%1", "vol_p3_%1", "vol_ps_%1", "vol_pb_%1", "vol_gsb_%1", "vol_gmm_%1", "vol_gmb_%1", "vol_vma_%1", "vol_va_%1", "vol_vfb_%1"};
+    std::vector<QString>spg_vol = {"vol_%1_1", "vol_%1_2", "vol_%1_3"};
+
+    if (vol_output_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/worksheet_volumetric_analysis.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+                    double topushf;
+
+                    if (token <= 24) {
                         token--;
 
                         int token_hpos = token%8;
                         int token_vpos = (int)token/8;
+
+                        if (token_hpos < 3) {
+                            std::map<int, QString> hpos_spg_map = {{0, "apparent"}, {1, "bulk"}, {2, "eff"}};
+
+                            QString k = spg_vol[token_vpos].arg(hpos_spg_map[token_hpos]);
+                            topushf = spg_json[k].toDouble();
+                        } else {
+                            QString k = row_vol[token_vpos].arg(token_hpos-2);
+                            topushf = vol_json[k].toDouble();
+                        }
+                    } else if (token <= 40) {
+
+                        if (token == 25) {
+                            topushf = spg_json["vol_total_1"].toDouble();
+                        } else if (token == 26) {
+                            topushf = spg_json["vol_total_2"].toDouble();
+                        } else if (token == 33) {
+                            topushf = spg_json["vol_btmn_1"].toDouble();
+                        } else if (token == 34) {
+                            topushf = spg_json["vol_btmn_2"].toDouble();
+                        } else {
+                            token--;
+
+                            int token_hpos = token%8;
+                            int token_vpos = (int)token/8;
+
+                            QString k = row_vol[token_vpos].arg(token_hpos-2);
+                            topushf = vol_json[k].toDouble();
+                        }
+                    } else if (token <= 76) {
+                        token -= 41;
+
+                        int token_hpos = token%6;
+                        int token_vpos = 5 + (int)token/6;
+
+                        if (token_hpos == 0) {continue;}
+
+                        QString k = row_vol[token_vpos].arg(token_hpos);
+                        topushf = vol_json[k].toDouble();
+                    } else {
+                        qDebug() << "error at generating normal volumetric worksheet html file: token outside bound 76";
                     }
 
                     vol_output_file << topush;

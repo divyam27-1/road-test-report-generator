@@ -14003,15 +14003,15 @@ Density</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="vol_bsc">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -14368,7 +14368,7 @@ Density</string>
         <widget class="QFrame" name="vol_frame">
          <property name="geometry">
           <rect>
-           <x>-620</x>
+           <x>0</x>
            <y>0</y>
            <width>1631</width>
            <height>690</height>
