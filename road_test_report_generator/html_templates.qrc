@@ -19,5 +19,6 @@
         <file>templates/detemination_of_spc_gravity.html</file>
         <file>templates/Marshall_test_data.html</file>
         <file>templates/gravity_and_water_absorption.html</file>
+        <file>templates/worksheet_volumetric_analysis_obc.html</file>
     </qresource>
 </RCC>

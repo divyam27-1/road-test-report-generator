@@ -8206,6 +8206,130 @@ void MainWindow::generate_html_vol() {
 
         template_file.close();
     }
+
+    std::string obc_output_path = cwd.filePath("html/vol_obc_analysis.html").toStdString();
+    std::ofstream obc_output_file(obc_output_path, std::ios::out);
+
+    std::map<int, QString> obc_vals_map = {
+        {16, QString("vol_p1_%1").arg("obc")},
+        {17, QString("vol_p2_%1").arg("obc")},
+        {18, QString("vol_p3_%1").arg("obc")},
+        {19, QString("vol_ps_%1").arg("obc")},
+        {20, QString("vol_pb_%1").arg("obc")},
+        {21, QString("vol_gsb_%1").arg("obc")},
+        {22, QString("vol_gmm_%1").arg("obc")},
+        {23, QString("vol_gmb_%1").arg("obc")},
+        {24, QString("vol_vma_%1").arg("obc")},
+        {25, QString("vol_va_%1").arg("obc")},
+        {26, QString("vol_vfb_%1").arg("obc")}
+    };
+    std::map<int, QString> obc_spg_map = {{1, "vol_apparent_%1"},
+                                                {2, "vol_bulk_%1"},
+                                                {3, "vol_eff_%1"}};
+
+    if (obc_output_file.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/worksheet_volumetric_analysis_obc.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+
+                    if (token == 1) {
+                        topush = ui->vol_bsc_1->toPlainText().toStdString();
+                    } else if (token == 2) {
+                        topush = ui->vol_bsc_2->toPlainText().toStdString();
+                    } else if ((token >= 3)&&(token <= 11)) {
+                        int token_row = 1 + token%3;
+                        int token_col = (int)token/3;
+
+                        QString db_query = obc_spg_map[token_col].arg(token_row);
+                        double db_val = spg_json[db_query].toDouble();
+
+                        obc_output_file << db_val;
+                    } else if (token >= 16) {
+                        QString db_query = obc_vals_map[token];
+                        double db_val = vol_json[db_query].toDouble();
+
+                        obc_output_file << db_val;
+                    } else if (token == 12) {
+                        double db_val = spg_json["vol_total_1"].toDouble();
+
+                        obc_output_file << db_val;
+                    } else if (token == 13) {
+                        double db_val = spg_json["vol_total_2"].toDouble();
+
+                        obc_output_file << db_val;
+                    } else if (token == 14) {
+                        double db_val = spg_json["vol_btmn_1"].toDouble();
+
+                        obc_output_file << db_val;
+                    } else if (token == 15) {
+                        double db_val = spg_json["vol_btmn_2"].toDouble();
+
+                        obc_output_file << db_val;
+                    }
+
+                    obc_output_file << topush;
+                }
+                else
+                {
+                    obc_output_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        obc_output_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
 }
 void MainWindow::generate_html_gmm() {
 
