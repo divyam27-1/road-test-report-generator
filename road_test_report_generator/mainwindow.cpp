@@ -24,7 +24,7 @@
 
 /* TODO:
 - Generation of HTML for :-
- 1) vol (divyam)
+ 1) vol (divyam) DONE
  2) rheology (divyam)
  3) water absorption (sahu)
  4) gmm (atharv)
