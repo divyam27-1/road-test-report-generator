@@ -16702,7 +16702,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-3010</y>
            <width>1045</width>
            <height>3581</height>
           </rect>
@@ -20843,6 +20843,118 @@ color: rgb(0, 0, 0);</string>
     <hint type="destinationlabel">
      <x>100</x>
      <y>1479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_spc_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>3493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_viscosity_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>2999</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_flash_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>2517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_ductility_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>2201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>83</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_pen_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>1641</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>98</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_soft_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>1071</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>94</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rheology_strip_save</sender>
+   <signal>clicked()</signal>
+   <receiver>rheology_save</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>553</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>88</x>
+     <y>58</y>
     </hint>
    </hints>
   </connection>

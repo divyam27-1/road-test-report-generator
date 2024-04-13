@@ -8336,6 +8336,102 @@ void MainWindow::generate_html_gmm() {
 }
 void MainWindow::generate_html_rheology() {
 
+    qDebug() << "beginning rheology save...";
+    QString json_path = cwd.filePath("json/rheology.json");
+
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject rheology_json = json_doc.object();
+    std::vector<QJsonObject> marshall_obj;
+
+    std::string ductility_html_path = cwd.filePath("html/ductility.html").toStdString();
+    std::ofstream ductility_html_file(ductility_html_path, std::ios::out);
+
+    if (ductility_html_file.is_open())
+    {
+        qDebug() << "ductility html file opened";
+
+        QFile template_file(":/templates/templates/tensile_strength_ratio.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    ductility_html_file << topush;
+                    ductility_html_file << topushf;
+                    topush = "";
+                }
+                else
+                {
+                    ductility_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        ductility_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "tensile output html file not opened";
+    }
 }
 void MainWindow::generate_html_wa() {
 
