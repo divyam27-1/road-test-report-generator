@@ -1402,8 +1402,8 @@ void MainWindow::on_rheology_save_clicked()
 
             if (exp_name == "strip")
             {
-                QString obj_name_1 = constructor.arg(exp_name).arg(exp_count * 10 + 1);
-                QString obj_name_2 = constructor.arg(exp_name).arg(exp_count * 10 + 2);
+                QString obj_name_1 = constructor.arg(exp_name).arg(i * 10 + 1);
+                QString obj_name_2 = constructor.arg(exp_name).arg(i * 10 + 2);
 
                 QLineEdit *tedit_1 = ui->rheology->findChild<QLineEdit *>(obj_name_1);
                 QLineEdit *tedit_2 = ui->rheology->findChild<QLineEdit *>(obj_name_2);
@@ -1414,15 +1414,23 @@ void MainWindow::on_rheology_save_clicked()
                     continue;
                 }
 
+                bool ok1, ok2;
                 QString text_1 = tedit_1->text(), text_2 = tedit_2->text();
-                strip[obj_name_1] = text_1;
-                strip[obj_name_2] = text_2;
+                double num1 = text_1.toDouble(&ok1), num2 = text_2.toDouble(&ok2);
+
+                if (ok1 && ok2) {
+                    json_map[exp_name][obj_name_1] = num1;
+                    json_map[exp_name][obj_name_2] = num2;
+                } else {
+                    json_map[exp_name][obj_name_1] = text_1;
+                    json_map[exp_name][obj_name_2] = text_2;
+                }
             }
             else if (exp_name == "spc")
             {
-                QString obj_name_1 = constructor.arg(exp_name).arg(exp_count * 10 + 1);
-                QString obj_name_2 = constructor.arg(exp_name).arg(exp_count * 10 + 2);
-                QString obj_name_3 = constructor.arg(exp_name).arg(exp_count * 10 + 3);
+                QString obj_name_1 = constructor.arg(exp_name).arg(i * 10 + 1);
+                QString obj_name_2 = constructor.arg(exp_name).arg(i * 10 + 2);
+                QString obj_name_3 = constructor.arg(exp_name).arg(i * 10 + 3);
 
                 QLineEdit *tedit_1 = ui->rheology->findChild<QLineEdit *>(obj_name_1);
                 QLineEdit *tedit_2 = ui->rheology->findChild<QLineEdit *>(obj_name_2);
@@ -1434,13 +1442,25 @@ void MainWindow::on_rheology_save_clicked()
                     continue;
                 }
 
+                bool ok1, ok2, ok3;
+
                 QString text_1 = tedit_1->text();
                 QString text_2 = tedit_2->text();
                 QString text_3 = tedit_3->text();
 
-                spc[obj_name_1] = text_1;
-                spc[obj_name_2] = text_2;
-                spc[obj_name_3] = text_3;
+                double num1 = text_1.toDouble(&ok1);
+                double num2 = text_2.toDouble(&ok2);
+                double num3 = text_3.toDouble(&ok3);
+
+                if (ok1) {json_map[exp_name][obj_name_1] = num1;}
+                else {json_map[exp_name][obj_name_1] = text_1;}
+
+                if (ok2) {json_map[exp_name][obj_name_2] = num2;}
+                else {json_map[exp_name][obj_name_2] = text_2;}
+
+                if (ok3) {json_map[exp_name][obj_name_3] = num3;}
+                else {json_map[exp_name][obj_name_3] = text_3;}
+
             }
             else
             {
@@ -1463,7 +1483,14 @@ void MainWindow::on_rheology_save_clicked()
                     continue;
                 }
 
-                json_map[exp_name][obj_name] = text;
+                bool ok;
+                double text_num = text.toDouble(&ok);
+
+                if (ok) {
+                    json_map[exp_name][obj_name] = text_num;
+                } else {
+                    json_map[exp_name][obj_name] = text;
+                }
             }
         }
 
@@ -8352,7 +8379,6 @@ void MainWindow::generate_html_rheology() {
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
     QJsonObject rheology_json = json_doc.object();
-    std::vector<QJsonObject> marshall_obj;
 
     std::string ductility_html_path = cwd.filePath("html/ductility.html").toStdString();
     std::ofstream ductility_html_file(ductility_html_path, std::ios::out);

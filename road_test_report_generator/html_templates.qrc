@@ -20,5 +20,12 @@
         <file>templates/Marshall_test_data.html</file>
         <file>templates/gravity_and_water_absorption.html</file>
         <file>templates/worksheet_volumetric_analysis_obc.html</file>
+        <file>templates/rheology_duktility.html</file>
+        <file>templates/rheology_flash.html</file>
+        <file>templates/rheology_penetration.html</file>
+        <file>templates/rheology_softening.html</file>
+        <file>templates/rheology_spc.html</file>
+        <file>templates/rheology_striping.html</file>
+        <file>templates/rheology_viscosity.html</file>
     </qresource>
 </RCC>
