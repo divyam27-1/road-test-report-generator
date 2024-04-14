@@ -28,6 +28,7 @@
  2) rheology (divyam)
  3) water absorption (sahu)
  4) gmm (atharv)
+ 5) marshall test (divyam)
 */
 
 QDir cwd = QDir::current();
@@ -46,6 +47,8 @@ void removeDuplicates(std::vector<std::string> &vec)
     auto it = std::unique(vec.begin(), vec.end());
     vec.erase(it, vec.end());
 }
+
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -93,6 +96,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 // Deals with saving to JSON
 void MainWindow::on_actionSave_Project_triggered()
@@ -1658,6 +1663,8 @@ void MainWindow::on_wa_save_clicked()
     save_check();
 }
 
+
+
 // Deals with save as requests
 void MainWindow::on_spc_saveas_clicked()
 {
@@ -1776,6 +1783,8 @@ void MainWindow::on_wa_saveas_clicked() {
     ui->wa_save->click();
 }
 
+
+
 // Save Check function is simultaeneously the most and least important function
 void MainWindow::save_check()
 {
@@ -1870,6 +1879,8 @@ void MainWindow::save_check()
         }
     }
 }
+
+
 
 // Deals with saving to JSON (subfunctions)
 void MainWindow::on_mdd_save_update_clicked()
@@ -3316,7 +3327,7 @@ QJsonObject MainWindow::ductility_eval(QJsonObject ductility_in)
         sum += ductility_in[obj_name].toDouble();
     }
 
-    ductility_in["rheology_soft_8"] = sum / 3;
+    ductility_in["rheology_ductility_10"] = sum / 3;
 
     return ductility_in;
 }
@@ -3357,6 +3368,8 @@ QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
 
     return spc_in;
 }
+
+
 
 // Deals with Graphing
 std::vector<double> quadfit(std::vector<double> &x, std::vector<double> &y)
@@ -3828,6 +3841,8 @@ void MainWindow::updateGraph_grad()
     }
 }
 
+
+
 // Deals with exports to PDF
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
@@ -3989,6 +4004,8 @@ void MainWindow::on_grad_export_clicked()
 
     qDebug() << tracked_files;
 }
+
+
 
 // Deals with HTML generation
 void MainWindow::generate_html_spc()
@@ -8387,7 +8404,9 @@ void MainWindow::generate_html_rheology() {
     {
         qDebug() << "ductility html file opened";
 
-        QFile template_file(":/templates/templates/tensile_strength_ratio.html");
+        QJsonObject duc_json = rheology_json["ductility"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_duktility.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -8438,9 +8457,35 @@ void MainWindow::generate_html_rheology() {
                     std::string topush;
                     double topushf;
 
+                    //bool ok;
+                    switch (token) {
+                    case 100:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 101:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 1:
+                        topush = ui->rh_loc->text().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    default:
+                        topushf = duc_json[QString::fromStdString("rheology_ductility_%1").arg(token-5)].toDouble();
+                        ductility_html_file << topushf;
+                    }
+
                     ductility_html_file << topush;
-                    ductility_html_file << topushf;
-                    topush = "";
                 }
                 else
                 {
@@ -8462,6 +8507,8 @@ void MainWindow::generate_html_rheology() {
 void MainWindow::generate_html_wa() {
 
 }
+
+
 
 // Deals with Scrolling
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -8587,6 +8634,8 @@ void MainWindow::on_wa_scroll_valueChanged(int value)
     ui->wa_frame->move(0, target);
 }
 
+
+
 // Deal with switchin windows
 void MainWindow::on_actionWMM_triggered()
 {
@@ -8596,6 +8645,8 @@ void MainWindow::on_actionDBM_triggered()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+
 
 // Deals with autoupdating labels on the AIV tab. Also the worst code I have ever written.
 void MainWindow::on_aiv_20_21_textChanged(const QString &arg1)

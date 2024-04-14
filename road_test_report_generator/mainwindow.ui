@@ -16702,7 +16702,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-3010</y>
+           <y>0</y>
            <width>1045</width>
            <height>3581</height>
           </rect>
@@ -16787,7 +16787,7 @@ color: rgb(0, 0, 0);</string>
            <item>
             <widget class="QLabel" name="label_399">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of Bitumen before mixing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of Bitumen before mixing (℃)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -16801,7 +16801,7 @@ color: rgb(0, 0, 0);</string>
            <item>
             <widget class="QLabel" name="label_401">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of water bath&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Temp of water bath (℃)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -17883,7 +17883,7 @@ color: rgb(0, 0, 0);</string>
           <property name="geometry">
            <rect>
             <x>470</x>
-            <y>2010</y>
+            <y>2015</y>
             <width>51</width>
             <height>16</height>
            </rect>
@@ -18691,6 +18691,45 @@ color: rgb(0, 0, 0);</string>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;MEAN&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_485">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>1955</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_486">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>1925</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_487">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>1985</y>
+            <width>49</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min</string>
           </property>
          </widget>
         </widget>
@@ -19841,77 +19880,77 @@ color: rgb(0, 0, 0);</string>
   <tabstop>gmm3_31</tabstop>
   <tabstop>gmm3_32</tabstop>
   <tabstop>gmm3_41</tabstop>
-  <tabstop>gmm3_42</tabstop>
-  <tabstop>gmm3_51</tabstop>
-  <tabstop>gmm3_52</tabstop>
-  <tabstop>grad_s1_20</tabstop>
-  <tabstop>marshall_3_31</tabstop>
-  <tabstop>marshall_3_32</tabstop>
-  <tabstop>marshall_3_33</tabstop>
-  <tabstop>grad_p15_3</tabstop>
-  <tabstop>marshall_3_34</tabstop>
-  <tabstop>marshall_3_34</tabstop>
-  <tabstop>marshall_3_35</tabstop>
-  <tabstop>marshall_3_36</tabstop>
-  <tabstop>grad_s1_21</tabstop>
-  <tabstop>marshall_4_11</tabstop>
-  <tabstop>marshall_4_12</tabstop>
-  <tabstop>marshall_4_13</tabstop>
-  <tabstop>marshall_4_14</tabstop>
-  <tabstop>marshall_4_15</tabstop>
-  <tabstop>marshall_4_16</tabstop>
-  <tabstop>grad_s1_22</tabstop>
-  <tabstop>marshall_4_21</tabstop>
-  <tabstop>marshall_4_22</tabstop>
-  <tabstop>marshall_4_23</tabstop>
-  <tabstop>marshall_4_24</tabstop>
-  <tabstop>marshall_4_25</tabstop>
-  <tabstop>marshall_4_26</tabstop>
-  <tabstop>grad_s1_23</tabstop>
-  <tabstop>marshall_4_31</tabstop>
-  <tabstop>marshall_4_32</tabstop>
-  <tabstop>marshall_4_33</tabstop>
-  <tabstop>marshall_4_34</tabstop>
-  <tabstop>marshall_4_35</tabstop>
-  <tabstop>marshall_4_36</tabstop>
-  <tabstop>grad_s1_24</tabstop>
-  <tabstop>marshall_5_11</tabstop>
-  <tabstop>marshall_5_12</tabstop>
-  <tabstop>marshall_5_13</tabstop>
-  <tabstop>marshall_5_14</tabstop>
-  <tabstop>marshall_5_15</tabstop>
-  <tabstop>marshall_5_16</tabstop>
-  <tabstop>grad_s1_25</tabstop>
-  <tabstop>marshall_5_21</tabstop>
-  <tabstop>marshall_5_22</tabstop>
-  <tabstop>marshall_5_23</tabstop>
-  <tabstop>marshall_5_24</tabstop>
-  <tabstop>marshall_5_25</tabstop>
-  <tabstop>marshall_5_26</tabstop>
-  <tabstop>grad_s1_26</tabstop>
-  <tabstop>marshall_5_31</tabstop>
-  <tabstop>marshall_5_32</tabstop>
-  <tabstop>marshall_5_33</tabstop>
-  <tabstop>marshall_5_34</tabstop>
-  <tabstop>marshall_5_35</tabstop>
-  <tabstop>marshall_5_36</tabstop>
-  <tabstop>grad_s2_5</tabstop>
-  <tabstop>grad_p25_1</tabstop>
-  <tabstop>grad_p25_2</tabstop>
-  <tabstop>grad_p25_3</tabstop>
-  <tabstop>grad_p25_4</tabstop>
-  <tabstop>grad_p25_5</tabstop>
-  <tabstop>grad_s2_6</tabstop>
-  <tabstop>grad_p26_1</tabstop>
-  <tabstop>grad_p26_2</tabstop>
-  <tabstop>grad_p26_3</tabstop>
-  <tabstop>grad_p26_4</tabstop>
-  <tabstop>grad_p26_5</tabstop>
-  <tabstop>grad_s2_7</tabstop>
-  <tabstop>grad_p27_1</tabstop>
-  <tabstop>grad_p27_2</tabstop>
-  <tabstop>grad_p27_3</tabstop>
-  <tabstop>grad_p27_4</tabstop>
+  <tabstop>rheology_strip_11</tabstop>
+  <tabstop>rheology_strip_12</tabstop>
+  <tabstop>rheology_strip_21</tabstop>
+  <tabstop>rheology_strip_22</tabstop>
+  <tabstop>rheology_strip_31</tabstop>
+  <tabstop>rheology_strip_32</tabstop>
+  <tabstop>rheology_strip_41</tabstop>
+  <tabstop>rheology_strip_42</tabstop>
+  <tabstop>rheology_strip_51</tabstop>
+  <tabstop>rheology_strip_52</tabstop>
+  <tabstop>rheology_strip_61</tabstop>
+  <tabstop>rheology_strip_62</tabstop>
+  <tabstop>rheology_strip_save</tabstop>
+  <tabstop>rheology_soft_1</tabstop>
+  <tabstop>rheology_soft_2</tabstop>
+  <tabstop>rheology_soft_3</tabstop>
+  <tabstop>rheology_soft_4</tabstop>
+  <tabstop>rheology_soft_5</tabstop>
+  <tabstop>rheology_soft_6</tabstop>
+  <tabstop>rheology_soft_7</tabstop>
+  <tabstop>rheology_soft_save</tabstop>
+  <tabstop>rheology_pen_1</tabstop>
+  <tabstop>rheology_pen_2</tabstop>
+  <tabstop>rheology_pen_3</tabstop>
+  <tabstop>rheology_pen_4</tabstop>
+  <tabstop>rheology_pen_5</tabstop>
+  <tabstop>rheology_pen_6</tabstop>
+  <tabstop>rheology_pen_8</tabstop>
+  <tabstop>rheology_pen_10</tabstop>
+  <tabstop>rheology_pen_7</tabstop>
+  <tabstop>rheology_pen_9</tabstop>
+  <tabstop>rheology_pen_11</tabstop>
+  <tabstop>rheology_pen_save</tabstop>
+  <tabstop>rheology_ductility_1</tabstop>
+  <tabstop>rheology_ductility_2</tabstop>
+  <tabstop>rheology_ductility_3</tabstop>
+  <tabstop>rheology_ductility_4</tabstop>
+  <tabstop>rheology_ductility_5</tabstop>
+  <tabstop>rheology_ductility_6</tabstop>
+  <tabstop>rheology_ductility_7</tabstop>
+  <tabstop>rheology_ductility_8</tabstop>
+  <tabstop>rheology_ductility_9</tabstop>
+  <tabstop>rheology_ductility_save</tabstop>
+  <tabstop>rheology_flash_1</tabstop>
+  <tabstop>rheology_flash_2</tabstop>
+  <tabstop>rheology_flash_3</tabstop>
+  <tabstop>rheology_flash_save</tabstop>
+  <tabstop>rheology_viscosity_1</tabstop>
+  <tabstop>rheology_viscosity_2</tabstop>
+  <tabstop>rheology_viscosity_3</tabstop>
+  <tabstop>rheology_viscosity_4</tabstop>
+  <tabstop>rheology_viscosity_5</tabstop>
+  <tabstop>rheology_viscosity_6</tabstop>
+  <tabstop>rheology_viscosity_7</tabstop>
+  <tabstop>rheology_viscosity_8</tabstop>
+  <tabstop>rheology_viscosity_9</tabstop>
+  <tabstop>rheology_viscosity_10</tabstop>
+  <tabstop>rheology_viscosity_save</tabstop>
+  <tabstop>rheology_spc_11</tabstop>
+  <tabstop>rheology_spc_12</tabstop>
+  <tabstop>rheology_spc_13</tabstop>
+  <tabstop>rheology_spc_21</tabstop>
+  <tabstop>rheology_spc_22</tabstop>
+  <tabstop>rheology_spc_23</tabstop>
+  <tabstop>rheology_spc_31</tabstop>
+  <tabstop>rheology_spc_32</tabstop>
+  <tabstop>rheology_spc_33</tabstop>
+  <tabstop>rheology_spc_41</tabstop>
+  <tabstop>rheology_spc_42</tabstop>
+  <tabstop>rheology_spc_43</tabstop>
+  <tabstop>rheology_spc_save</tabstop>
   <tabstop>grad_p27_5</tabstop>
   <tabstop>grad_s2_8</tabstop>
   <tabstop>grad_p28_1</tabstop>
@@ -20686,60 +20725,60 @@ color: rgb(0, 0, 0);</string>
   <tabstop>rh_loc</tabstop>
   <tabstop>rheology_export</tabstop>
   <tabstop>rheology_saveas</tabstop>
-  <tabstop>rheology_strip_52</tabstop>
-  <tabstop>rheology_strip_22</tabstop>
-  <tabstop>rheology_strip_41</tabstop>
-  <tabstop>rheology_strip_42</tabstop>
-  <tabstop>rheology_strip_31</tabstop>
-  <tabstop>rheology_strip_21</tabstop>
-  <tabstop>rheology_strip_32</tabstop>
-  <tabstop>rheology_strip_51</tabstop>
-  <tabstop>rheology_soft_1</tabstop>
-  <tabstop>rheology_soft_2</tabstop>
-  <tabstop>rheology_soft_3</tabstop>
-  <tabstop>rheology_soft_4</tabstop>
-  <tabstop>rheology_soft_7</tabstop>
-  <tabstop>rheology_soft_5</tabstop>
-  <tabstop>rheology_soft_6</tabstop>
-  <tabstop>rheology_strip_save</tabstop>
-  <tabstop>rheology_soft_save</tabstop>
-  <tabstop>rheology_pen_1</tabstop>
-  <tabstop>rheology_pen_2</tabstop>
-  <tabstop>rheology_pen_4</tabstop>
-  <tabstop>rheology_pen_5</tabstop>
-  <tabstop>rheology_pen_3</tabstop>
-  <tabstop>rheology_pen_6</tabstop>
-  <tabstop>rheology_pen_8</tabstop>
-  <tabstop>rheology_pen_10</tabstop>
-  <tabstop>rheology_pen_7</tabstop>
-  <tabstop>rheology_pen_9</tabstop>
-  <tabstop>rheology_pen_11</tabstop>
-  <tabstop>rheology_pen_save</tabstop>
-  <tabstop>rheology_ductility_2</tabstop>
-  <tabstop>rheology_ductility_1</tabstop>
-  <tabstop>rheology_ductility_3</tabstop>
-  <tabstop>rheology_ductility_4</tabstop>
-  <tabstop>rheology_ductility_5</tabstop>
-  <tabstop>rheology_ductility_6</tabstop>
-  <tabstop>rheology_ductility_7</tabstop>
-  <tabstop>rheology_ductility_8</tabstop>
-  <tabstop>rheology_ductility_9</tabstop>
-  <tabstop>rheology_ductility_save</tabstop>
-  <tabstop>rheology_flash_1</tabstop>
-  <tabstop>rheology_flash_3</tabstop>
-  <tabstop>rheology_flash_2</tabstop>
-  <tabstop>rheology_flash_save</tabstop>
-  <tabstop>rheology_viscosity_4</tabstop>
-  <tabstop>rheology_viscosity_6</tabstop>
-  <tabstop>rheology_viscosity_9</tabstop>
-  <tabstop>rheology_viscosity_8</tabstop>
-  <tabstop>rheology_viscosity_10</tabstop>
-  <tabstop>rheology_viscosity_7</tabstop>
-  <tabstop>rheology_viscosity_1</tabstop>
-  <tabstop>rheology_viscosity_2</tabstop>
-  <tabstop>rheology_viscosity_5</tabstop>
-  <tabstop>rheology_viscosity_3</tabstop>
-  <tabstop>rheology_viscosity_save</tabstop>
+  <tabstop>marshall_3_34</tabstop>
+  <tabstop>grad_s1_20</tabstop>
+  <tabstop>marshall_3_33</tabstop>
+  <tabstop>grad_p15_3</tabstop>
+  <tabstop>marshall_3_31</tabstop>
+  <tabstop>gmm3_52</tabstop>
+  <tabstop>marshall_3_32</tabstop>
+  <tabstop>marshall_3_34</tabstop>
+  <tabstop>marshall_4_11</tabstop>
+  <tabstop>marshall_4_12</tabstop>
+  <tabstop>marshall_4_13</tabstop>
+  <tabstop>marshall_4_14</tabstop>
+  <tabstop>grad_s1_22</tabstop>
+  <tabstop>marshall_4_15</tabstop>
+  <tabstop>marshall_4_16</tabstop>
+  <tabstop>grad_s1_21</tabstop>
+  <tabstop>marshall_4_21</tabstop>
+  <tabstop>marshall_4_22</tabstop>
+  <tabstop>marshall_4_23</tabstop>
+  <tabstop>marshall_4_25</tabstop>
+  <tabstop>marshall_4_26</tabstop>
+  <tabstop>marshall_4_24</tabstop>
+  <tabstop>grad_s1_23</tabstop>
+  <tabstop>marshall_4_31</tabstop>
+  <tabstop>marshall_4_32</tabstop>
+  <tabstop>marshall_4_33</tabstop>
+  <tabstop>marshall_4_34</tabstop>
+  <tabstop>marshall_4_35</tabstop>
+  <tabstop>marshall_4_36</tabstop>
+  <tabstop>marshall_5_11</tabstop>
+  <tabstop>grad_s1_24</tabstop>
+  <tabstop>marshall_5_12</tabstop>
+  <tabstop>marshall_5_13</tabstop>
+  <tabstop>marshall_5_14</tabstop>
+  <tabstop>marshall_5_15</tabstop>
+  <tabstop>marshall_5_16</tabstop>
+  <tabstop>grad_s1_25</tabstop>
+  <tabstop>marshall_5_21</tabstop>
+  <tabstop>marshall_5_22</tabstop>
+  <tabstop>marshall_5_23</tabstop>
+  <tabstop>marshall_5_25</tabstop>
+  <tabstop>marshall_5_24</tabstop>
+  <tabstop>marshall_5_26</tabstop>
+  <tabstop>marshall_5_33</tabstop>
+  <tabstop>marshall_5_35</tabstop>
+  <tabstop>grad_p25_1</tabstop>
+  <tabstop>grad_s2_5</tabstop>
+  <tabstop>grad_p25_2</tabstop>
+  <tabstop>marshall_5_36</tabstop>
+  <tabstop>grad_s1_26</tabstop>
+  <tabstop>marshall_5_31</tabstop>
+  <tabstop>marshall_5_34</tabstop>
+  <tabstop>marshall_5_32</tabstop>
+  <tabstop>grad_p25_3</tabstop>
   <tabstop>gmm2_51</tabstop>
   <tabstop>vol_bsc_2</tabstop>
   <tabstop>grad_p15_4</tabstop>
@@ -20792,23 +20831,23 @@ color: rgb(0, 0, 0);</string>
   <tabstop>marshall_2_24</tabstop>
   <tabstop>gmm3_11</tabstop>
   <tabstop>gmm2_52</tabstop>
-  <tabstop>rheology_spc_save</tabstop>
-  <tabstop>rheology_spc_33</tabstop>
-  <tabstop>rheology_spc_22</tabstop>
-  <tabstop>rheology_spc_23</tabstop>
-  <tabstop>rheology_spc_21</tabstop>
-  <tabstop>rheology_spc_13</tabstop>
-  <tabstop>rheology_spc_42</tabstop>
-  <tabstop>rheology_spc_11</tabstop>
-  <tabstop>rheology_spc_41</tabstop>
-  <tabstop>rheology_spc_31</tabstop>
-  <tabstop>rheology_spc_12</tabstop>
-  <tabstop>rheology_spc_43</tabstop>
-  <tabstop>rheology_spc_32</tabstop>
-  <tabstop>rheology_strip_11</tabstop>
-  <tabstop>rheology_strip_12</tabstop>
-  <tabstop>rheology_strip_61</tabstop>
-  <tabstop>rheology_strip_62</tabstop>
+  <tabstop>grad_p27_4</tabstop>
+  <tabstop>grad_s2_7</tabstop>
+  <tabstop>grad_p26_2</tabstop>
+  <tabstop>grad_p26_3</tabstop>
+  <tabstop>grad_p26_1</tabstop>
+  <tabstop>grad_s2_6</tabstop>
+  <tabstop>grad_p27_2</tabstop>
+  <tabstop>grad_p25_4</tabstop>
+  <tabstop>grad_p27_1</tabstop>
+  <tabstop>grad_p26_4</tabstop>
+  <tabstop>grad_p25_5</tabstop>
+  <tabstop>grad_p27_3</tabstop>
+  <tabstop>grad_p26_5</tabstop>
+  <tabstop>gmm3_42</tabstop>
+  <tabstop>gmm3_51</tabstop>
+  <tabstop>marshall_3_35</tabstop>
+  <tabstop>marshall_3_36</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc"/>
@@ -20854,7 +20893,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>128</x>
-     <y>3493</y>
+     <y>3553</y>
     </hint>
     <hint type="destinationlabel">
      <x>71</x>
@@ -20870,7 +20909,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>152</x>
-     <y>2999</y>
+     <y>3059</y>
     </hint>
     <hint type="destinationlabel">
      <x>92</x>
@@ -20886,7 +20925,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>116</x>
-     <y>2517</y>
+     <y>2577</y>
     </hint>
     <hint type="destinationlabel">
      <x>50</x>
@@ -20902,7 +20941,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>112</x>
-     <y>2201</y>
+     <y>2261</y>
     </hint>
     <hint type="destinationlabel">
      <x>83</x>
@@ -20918,7 +20957,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>115</x>
-     <y>1641</y>
+     <y>1701</y>
     </hint>
     <hint type="destinationlabel">
      <x>98</x>
@@ -20934,7 +20973,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>133</x>
-     <y>1071</y>
+     <y>1131</y>
     </hint>
     <hint type="destinationlabel">
      <x>94</x>
@@ -20950,7 +20989,7 @@ color: rgb(0, 0, 0);</string>
    <hints>
     <hint type="sourcelabel">
      <x>158</x>
-     <y>553</y>
+     <y>613</y>
     </hint>
     <hint type="destinationlabel">
      <x>88</x>

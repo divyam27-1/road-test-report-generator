@@ -27,5 +27,7 @@
         <file>templates/rheology_spc.html</file>
         <file>templates/rheology_striping.html</file>
         <file>templates/rheology_viscosity.html</file>
+        <file>templates/GMM_pg18.html</file>
+        <file>templates/gravity_and_water_absorption_fine.html</file>
     </qresource>
 </RCC>
