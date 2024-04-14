@@ -16369,8 +16369,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>261</width>
+           <height>701</height>
           </rect>
          </property>
          <attribute name="label">
@@ -16561,7 +16561,47 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QSpinBox" name="rh_grade"/>
+              <widget class="QLineEdit" name="rh_grade"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_377">
+               <property name="text">
+                <string>Source of Aggregate</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="rh_src"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_378">
+               <property name="text">
+                <string>Manufacturer</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="rh_manufacturer"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_379">
+               <property name="text">
+                <string>Type of Material</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="rh_type"/>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_382">
+               <property name="text">
+                <string>Sample Location</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="rh_loc"/>
              </item>
              <item row="1" column="1">
               <spacer name="verticalSpacer_55">
@@ -16579,77 +16619,15 @@ color: rgb(0, 0, 0);</string>
                </property>
               </spacer>
              </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_377">
-               <property name="text">
-                <string>Source of Aggregate</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="rh_src"/>
-             </item>
-             <item row="3" column="1">
-              <spacer name="verticalSpacer_56">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_378">
-               <property name="text">
-                <string>Manufacturer</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLineEdit" name="rh_manufacturer"/>
-             </item>
-             <item row="5" column="1">
-              <spacer name="verticalSpacer_57">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="6" column="0">
-              <widget class="QLabel" name="label_379">
-               <property name="text">
-                <string>Size of Aggregrate</string>
-               </property>
-              </widget>
-             </item>
              <item row="6" column="1">
               <widget class="QLineEdit" name="rh_size"/>
              </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="label_382">
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_294">
                <property name="text">
-                <string>Sample Location</string>
+                <string>Size of Aggregates</string>
                </property>
               </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QLineEdit" name="rh_loc"/>
              </item>
             </layout>
            </item>
@@ -16702,7 +16680,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-2840</y>
            <width>1045</width>
            <height>3581</height>
           </rect>
@@ -18427,7 +18405,7 @@ color: rgb(0, 0, 0);</string>
             <enum>QLayout::SetMaximumSize</enum>
            </property>
            <item row="2" column="3">
-            <widget class="QLineEdit" name="rheology_spc_33">
+            <widget class="QLineEdit" name="rheology_spc_3_3">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18437,7 +18415,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QLineEdit" name="rheology_spc_22">
+            <widget class="QLineEdit" name="rheology_spc_2_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18447,7 +18425,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="1" column="3">
-            <widget class="QLineEdit" name="rheology_spc_23">
+            <widget class="QLineEdit" name="rheology_spc_2_3">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18457,7 +18435,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="rheology_spc_21">
+            <widget class="QLineEdit" name="rheology_spc_2_1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18467,7 +18445,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="0" column="3">
-            <widget class="QLineEdit" name="rheology_spc_13">
+            <widget class="QLineEdit" name="rheology_spc_1_3">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18498,7 +18476,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="3" column="2">
-            <widget class="QLineEdit" name="rheology_spc_42">
+            <widget class="QLineEdit" name="rheology_spc_4_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18508,7 +18486,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="rheology_spc_11">
+            <widget class="QLineEdit" name="rheology_spc_1_1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18518,7 +18496,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QLineEdit" name="rheology_spc_41">
+            <widget class="QLineEdit" name="rheology_spc_4_1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18528,7 +18506,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="rheology_spc_31">
+            <widget class="QLineEdit" name="rheology_spc_3_1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18538,7 +18516,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLineEdit" name="rheology_spc_12">
+            <widget class="QLineEdit" name="rheology_spc_1_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18548,7 +18526,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="3" column="3">
-            <widget class="QLineEdit" name="rheology_spc_43">
+            <widget class="QLineEdit" name="rheology_spc_4_3">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -18558,7 +18536,7 @@ color: rgb(0, 0, 0);</string>
             </widget>
            </item>
            <item row="2" column="2">
-            <widget class="QLineEdit" name="rheology_spc_32">
+            <widget class="QLineEdit" name="rheology_spc_3_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
                <horstretch>0</horstretch>
@@ -19938,18 +19916,18 @@ color: rgb(0, 0, 0);</string>
   <tabstop>rheology_viscosity_9</tabstop>
   <tabstop>rheology_viscosity_10</tabstop>
   <tabstop>rheology_viscosity_save</tabstop>
-  <tabstop>rheology_spc_11</tabstop>
-  <tabstop>rheology_spc_12</tabstop>
-  <tabstop>rheology_spc_13</tabstop>
-  <tabstop>rheology_spc_21</tabstop>
-  <tabstop>rheology_spc_22</tabstop>
-  <tabstop>rheology_spc_23</tabstop>
-  <tabstop>rheology_spc_31</tabstop>
-  <tabstop>rheology_spc_32</tabstop>
-  <tabstop>rheology_spc_33</tabstop>
-  <tabstop>rheology_spc_41</tabstop>
-  <tabstop>rheology_spc_42</tabstop>
-  <tabstop>rheology_spc_43</tabstop>
+  <tabstop>rheology_spc_1_1</tabstop>
+  <tabstop>rheology_spc_1_2</tabstop>
+  <tabstop>rheology_spc_1_3</tabstop>
+  <tabstop>rheology_spc_2_1</tabstop>
+  <tabstop>rheology_spc_2_2</tabstop>
+  <tabstop>rheology_spc_2_3</tabstop>
+  <tabstop>rheology_spc_3_1</tabstop>
+  <tabstop>rheology_spc_3_2</tabstop>
+  <tabstop>rheology_spc_3_3</tabstop>
+  <tabstop>rheology_spc_4_1</tabstop>
+  <tabstop>rheology_spc_4_2</tabstop>
+  <tabstop>rheology_spc_4_3</tabstop>
   <tabstop>rheology_spc_save</tabstop>
   <tabstop>grad_p27_5</tabstop>
   <tabstop>grad_s2_8</tabstop>
@@ -20718,10 +20696,9 @@ color: rgb(0, 0, 0);</string>
   <tabstop>rheology_contractor</tabstop>
   <tabstop>rh_sample</tabstop>
   <tabstop>rh_test</tabstop>
-  <tabstop>rh_grade</tabstop>
   <tabstop>rh_src</tabstop>
   <tabstop>rh_manufacturer</tabstop>
-  <tabstop>rh_size</tabstop>
+  <tabstop>rh_type</tabstop>
   <tabstop>rh_loc</tabstop>
   <tabstop>rheology_export</tabstop>
   <tabstop>rheology_saveas</tabstop>

@@ -1433,9 +1433,9 @@ void MainWindow::on_rheology_save_clicked()
             }
             else if (exp_name == "spc")
             {
-                QString obj_name_1 = constructor.arg(exp_name).arg(i * 10 + 1);
-                QString obj_name_2 = constructor.arg(exp_name).arg(i * 10 + 2);
-                QString obj_name_3 = constructor.arg(exp_name).arg(i * 10 + 3);
+                QString obj_name_1 = constructor.arg(exp_name).arg("%2_%3").arg(i).arg(1);
+                QString obj_name_2 = constructor.arg(exp_name).arg("%2_%3").arg(i).arg(2);
+                QString obj_name_3 = constructor.arg(exp_name).arg("%2_%3").arg(i).arg(3);
 
                 QLineEdit *tedit_1 = ui->rheology->findChild<QLineEdit *>(obj_name_1);
                 QLineEdit *tedit_2 = ui->rheology->findChild<QLineEdit *>(obj_name_2);
@@ -3345,18 +3345,17 @@ QJsonObject MainWindow::viscosity_eval(QJsonObject viscosity_in)
 }
 QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
 {
-    QString constructor = "rheology_spc_%2%1";
+    QString constructor = "rheology_spc_%1_%2";
     QString obj_name;
 
     double a, b, c, d, spc, sum;
     for (int i = 1; i <= 3; i++)
     {
-        obj_name = constructor.arg(i);
-
-        a = spc_in[obj_name.arg(1)].toDouble();
-        b = spc_in[obj_name.arg(2)].toDouble();
-        c = spc_in[obj_name.arg(3)].toDouble();
-        d = spc_in[obj_name.arg(4)].toDouble();
+        QString a_test = constructor.arg(1).arg(i);
+        a = spc_in[constructor.arg(1).arg(i)].toDouble();
+        b = spc_in[constructor.arg(2).arg(i)].toDouble();
+        c = spc_in[constructor.arg(3).arg(i)].toDouble();
+        d = spc_in[constructor.arg(4).arg(i)].toDouble();
 
         spc = (c - a) / (b + c - a - d);
         sum += spc;
@@ -8502,6 +8501,612 @@ void MainWindow::generate_html_rheology() {
     else
     {
         qDebug() << "tensile output html file not opened";
+    }
+
+    std::string flash_html_path = cwd.filePath("html/flash.html").toStdString();
+    std::ofstream flash_html_file(flash_html_path, std::ios::out);
+
+    if (flash_html_file.is_open())
+    {
+        qDebug() << "flash html file opened";
+
+        QJsonObject flash_json = rheology_json["flash"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_flash.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 1:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 11:
+                        topush = ui->rh_loc->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 6:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 7:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    default:
+                        topushf = flash_json[QString::fromStdString("rheology_flash_%1").arg(token-12)].toDouble();
+                        flash_html_file << topushf;
+                    }
+
+                    flash_html_file << topush;
+                }
+                else
+                {
+                    flash_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        flash_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "flash output html file not opened";
+    }
+
+    std::string pen_html_path = cwd.filePath("html/penetration.html").toStdString();
+    std::ofstream pen_html_file(pen_html_path, std::ios::out);
+
+    if (pen_html_file.is_open())
+    {
+        qDebug() << "penetration html file opened";
+
+        QJsonObject penetration_json = rheology_json["pen"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_penetration.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 100:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 200:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 1:
+                        topush = ui->rh_loc->text().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    default:
+                        topushf = penetration_json[QString::fromStdString("rheology_pen_%1").arg(token-6)].toDouble();
+                        pen_html_file << topushf;
+                    }
+
+                    pen_html_file << topush;
+                }
+                else
+                {
+                    pen_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        pen_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "pen output html file not opened";
+    }
+
+    std::string soft_html_path = cwd.filePath("html/softening.html").toStdString();
+    std::ofstream soft_html_file(soft_html_path, std::ios::out);
+
+    if (soft_html_file.is_open())
+    {
+        qDebug() << "soft html file opened";
+
+        QJsonObject soft_json = rheology_json["soft"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_softening.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 100:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 200:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 1:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->rh_manufacturer->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    default:
+                        topushf = soft_json[QString::fromStdString("rheology_soft_%1").arg(token-5)].toDouble();
+                        soft_html_file << topushf;
+                    }
+
+                    soft_html_file << topush;
+                }
+                else
+                {
+                    soft_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        soft_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "soft output html file not opened";
+    }
+
+    std::string spc_html_path = cwd.filePath("html/rh_spc.html").toStdString();
+    std::ofstream spc_html_file(spc_html_path, std::ios::out);
+
+    if (spc_html_file.is_open())
+    {
+        qDebug() << "soft html file opened";
+
+        QJsonObject spc_json = rheology_json["spc"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_spc.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 1:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->rh_loc->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 6:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 7:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    case 8:
+                        topush = ui->rh_type->text().toStdString();
+                        break;
+                    case 21:
+                        topushf = spc_json["rheology_spc_1"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 22:
+                        topushf = spc_json["rheology_spc_2"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 23:
+                        topushf = spc_json["rheology_spc_3"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 24:
+                        topushf = spc_json["rheology_spc_mean"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 9:
+                        topushf = spc_json["rheology_spc_1_1"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 10:
+                        topushf = spc_json["rheology_spc_1_2"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 11:
+                        topushf = spc_json["rheology_spc_1_3"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 12:
+                        topushf = spc_json["rheology_spc_2_1"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 13:
+                        topushf = spc_json["rheology_spc_2_2"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 14:
+                        topushf = spc_json["rheology_spc_2_3"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 15:
+                        topushf = spc_json["rheology_spc_3_1"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 16:
+                        topushf = spc_json["rheology_spc_3_2"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 17:
+                        topushf = spc_json["rheology_spc_3_3"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 18:
+                        topushf = spc_json["rheology_spc_4_1"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 19:
+                        topushf = spc_json["rheology_spc_4_2"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    case 20:
+                        topushf = spc_json["rheology_spc_4_3"].toDouble();
+                        spc_html_file << topushf;
+                        break;
+                    }
+
+                    spc_html_file << topush;
+                }
+                else
+                {
+                    spc_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        spc_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "spc output html file not opened";
+    }
+
+    std::string striping_html_path = cwd.filePath("html/strip.html").toStdString();
+    std::ofstream striping_html_file(striping_html_path, std::ios::out);
+
+    if (striping_html_file.is_open())
+    {
+        qDebug() << "soft html file opened";
+
+        QJsonObject strip_json = rheology_json["strip"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_striping.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 1:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 3:
+                        topush = ui->rh_size->text().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    case 6:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 7:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    default:
+                        int odd = token%2;
+                        token = (int) (token-odd)/2;
+                        token -= 3;
+
+                        int to_get = token*10;
+                        to_get += 1 + odd;
+
+                        topush = strip_json[QString::fromStdString("rheology_strip_%1").arg(to_get)].toString().toStdString();
+                        break;
+                    }
+
+                    striping_html_file << topush;
+                }
+                else
+                {
+                    striping_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        striping_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "strip output html file not opened";
     }
 }
 void MainWindow::generate_html_wa() {
