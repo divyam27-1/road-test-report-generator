@@ -29,6 +29,8 @@
  3) water absorption (sahu) DONE
  4) gmm (atharv) DONE
  5) marshall test (divyam)
+ 6) generate graphs of marshall data and tensile strength (divyam)
+ 7) fix graph of jmf (divyam)
 */
 
 QDir cwd = QDir::current();
