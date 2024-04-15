@@ -28,7 +28,8 @@
  2) rheology (divyam) DONE
  3) water absorption (sahu) DONE
  4) gmm (atharv) DONE
- 5) marshall test (divyam)
+ 5) marshall test (sahu)
+ 6) graphing of all (div)
 */
 
 QDir cwd = QDir::current();
@@ -669,9 +670,9 @@ void MainWindow::on_marshall_save_clicked()
     // level_1
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 1; k <= 3; k += 2)
-        {
-            QString vol_obj_name = QString("marshall_vol_1_%1%2").arg(j).arg(k);
+        int k = 1;
+
+            QString vol_obj_name = QString("marshall_vol_1_%1").arg(j).arg(k);
             QString num_value = QString("marshall_1_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_1_%1%2").arg(j).arg(k + 2);
 
@@ -686,16 +687,14 @@ void MainWindow::on_marshall_save_clicked()
                 double result = numerator / denominator;
                 level_1[vol_obj_name] = result;
             }
-        }
     }
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 2; k <= 3; k += 2)
-        {
-            QString wt_water_key = QString("marshall_wt_water_1_%1%2").arg(j).arg(k);
+            int k = 2;
+            QString wt_water_key = QString("marshall_wt_water_1_%1").arg(j);
             QString wt_water_num_value = QString("marshall_1_%1%2").arg(j).arg(k);
-            QString wt_water_vol_value = QString("marshall_vol_1_%1%2").arg(j).arg(k - 1);
+            QString wt_water_vol_value = QString("marshall_vol_1_%1").arg(j);
 
             QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
@@ -713,13 +712,13 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
+
     }
 
     for (int j = 1; j <= 3; j++)
     {
         int k = 4;
-        QString load_key = QString("marshall_load_1_%1%2").arg(j).arg(k);
+        QString load_key = QString("marshall_load_1_%1").arg(j);
         QString reading = QString("marshall_1_%1%2").arg(j).arg(k);
         QString ring = ("marshall_ring");
         QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
@@ -735,10 +734,9 @@ void MainWindow::on_marshall_save_clicked()
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 4; k <= 5; k += 2)
-        {
-            QString correct_load = QString("marshall_corrected_load_1_%1%2").arg(j).arg(k);
-            QString load = QString("marshall_load_1_%1%2").arg(j).arg(k);
+        int k = 4;
+            QString correct_load = QString("marshall_corrected_load_1_%1").arg(j);
+            QString load = QString("marshall_load_1_%1").arg(j);
             QString volume_crc = QString("marshall_1_%1%2").arg(j).arg(k + 1);
 
             QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
@@ -757,15 +755,14 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
 
     // level_2
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 1; k <= 3; k += 2)
-        {
-            QString vol_obj_name = QString("marshall_vol_2_%1%2").arg(j).arg(k);
+        int k = 1;
+
+            QString vol_obj_name = QString("marshall_vol_2_%1").arg(j);
             QString num_value = QString("marshall_2_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_2_%1%2").arg(j).arg(k + 2);
 
@@ -780,24 +777,22 @@ void MainWindow::on_marshall_save_clicked()
                 double result = numerator / denominator;
                 level_2[vol_obj_name] = result;
             }
-        }
     }
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 2; k <= 3; k += 2)
-        {
-            QString wt_water_key = QString("marshall_wt_water_2_%1%2").arg(j).arg(k);
+        int k = 2;
+            QString wt_water_key = QString("marshall_wt_water_2_%1").arg(j);
             QString wt_water_num_value = QString("marshall_2_%1%2").arg(j).arg(k);
-            QString wt_water_vol_value = QString("marshall_vol_2_%1%2").arg(j).arg(k - 1);
+            QString wt_water_vol_value = QString("marshall_vol_2_%1").arg(j);
 
             QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            if (wt_water_num_edit && level_2.contains(wt_water_vol_value))
             {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
-                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+                double wt_water_volume = level_2[wt_water_vol_value].toDouble();
 
                 double wt_water = wt_water_numerator - wt_water_volume;
 
@@ -807,12 +802,12 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     for (int j = 1; j <= 3; j++)
     {
         int k = 4;
-        QString load_key = QString("marshall_load_2_%1%2").arg(j).arg(k);
+        QString load_key = QString("marshall_load_2_%1").arg(j);
         QString reading = QString("marshall_2_%1%2").arg(j).arg(k);
         QString ring = ("marshall_ring");
         QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
@@ -828,19 +823,18 @@ void MainWindow::on_marshall_save_clicked()
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 4; k <= 5; k += 2)
-        {
-            QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
-            QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
+int k = 4;
+            QString correct_load = QString("marshall_corrected_load_2_%1").arg(j);
+            QString load = QString("marshall_load_2_%1").arg(j);
             QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k + 1);
 
             QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load))
+            if (vol_crc_edit && level_2.contains(load))
             {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
-                double load_it = level_1[load].toDouble();
+                double load_it = level_2[load].toDouble();
 
                 double result = vol_crc_val * load_it;
 
@@ -850,14 +844,14 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
+
     }
+
     // level_3
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 1; k <= 3; k += 2)
-        {
-            QString vol_obj_name = QString("marshall_vol_3_%1%2").arg(j).arg(k);
+        int k = 1;
+            QString vol_obj_name = QString("marshall_vol_3_%1").arg(j);
             QString num_value = QString("marshall_3_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_3_%1%2").arg(j).arg(k + 2);
 
@@ -872,24 +866,23 @@ void MainWindow::on_marshall_save_clicked()
                 double result = numerator / denominator;
                 level_3[vol_obj_name] = result;
             }
-        }
+
     }
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 2; k <= 3; k += 2)
-        {
-            QString wt_water_key = QString("marshall_wt_water_3_%1%2").arg(j).arg(k);
+int k = 2;
+            QString wt_water_key = QString("marshall_wt_water_3_%1").arg(j);
             QString wt_water_num_value = QString("marshall_3_%1%2").arg(j).arg(k);
-            QString wt_water_vol_value = QString("marshall_vol_3_%1%2").arg(j).arg(k - 1);
+            QString wt_water_vol_value = QString("marshall_vol_3_%1").arg(j);
 
             QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            if (wt_water_num_edit && level_3.contains(wt_water_vol_value))
             {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
-                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+                double wt_water_volume = level_3[wt_water_vol_value].toDouble();
 
                 double wt_water = wt_water_numerator - wt_water_volume;
 
@@ -899,12 +892,12 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     for (int j = 1; j <= 3; j++)
     {
         int k = 4;
-        QString load_key = QString("marshall_load_3_%1%2").arg(j).arg(k);
+        QString load_key = QString("marshall_load_3_%1").arg(j);
         QString reading = QString("marshall_3_%1%2").arg(j).arg(k);
         QString ring = ("marshall_ring");
         QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
@@ -920,19 +913,18 @@ void MainWindow::on_marshall_save_clicked()
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 4; k <= 5; k += 2)
-        {
-            QString correct_load = QString("marshall_corrected_load_2_%1%2").arg(j).arg(k);
-            QString load = QString("marshall_load_2_%1%2").arg(j).arg(k);
-            QString volume_crc = QString("marshall_2_%1%2").arg(j).arg(k + 1);
+        int k = 4;
+            QString correct_load = QString("marshall_corrected_load_3_%1").arg(j);
+            QString load = QString("marshall_load_3_%1").arg(j);
+            QString volume_crc = QString("marshall_3_%1%2").arg(j).arg(k + 1);
 
             QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load))
+            if (vol_crc_edit && level_3.contains(load))
             {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
-                double load_it = level_1[load].toDouble();
+                double load_it = level_3[load].toDouble();
 
                 double result = vol_crc_val * load_it;
 
@@ -942,14 +934,14 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     // level_4
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 1; k <= 3; k += 2)
-        {
-            QString vol_obj_name = QString("marshall_vol_4_%1%2").arg(j).arg(k);
+        int k = 1;
+
+            QString vol_obj_name = QString("marshall_vol_4_%1").arg(j);
             QString num_value = QString("marshall_4_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_4_%1%2").arg(j).arg(k + 2);
 
@@ -964,24 +956,22 @@ void MainWindow::on_marshall_save_clicked()
                 double result = numerator / denominator;
                 level_4[vol_obj_name] = result;
             }
-        }
     }
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 2; k <= 3; k += 2)
-        {
-            QString wt_water_key = QString("marshall_wt_water_4_%1%2").arg(j).arg(k);
+        int k = 2;
+            QString wt_water_key = QString("marshall_wt_water_4_%1").arg(j);
             QString wt_water_num_value = QString("marshall_4_%1%2").arg(j).arg(k);
-            QString wt_water_vol_value = QString("marshall_vol_4_%1%2").arg(j).arg(k - 1);
+            QString wt_water_vol_value = QString("marshall_vol_4_%1").arg(j);
 
             QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            if (wt_water_num_edit && level_4.contains(wt_water_vol_value))
             {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
-                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+                double wt_water_volume = level_4[wt_water_vol_value].toDouble();
 
                 double wt_water = wt_water_numerator - wt_water_volume;
 
@@ -991,12 +981,12 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     for (int j = 1; j <= 3; j++)
     {
         int k = 4;
-        QString load_key = QString("marshall_load_4_%1%2").arg(j).arg(k);
+        QString load_key = QString("marshall_load_4_%1").arg(j);
         QString reading = QString("marshall_4_%1%2").arg(j).arg(k);
         QString ring = ("marshall_ring");
         QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
@@ -1012,19 +1002,18 @@ void MainWindow::on_marshall_save_clicked()
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 4; k <= 5; k += 2)
-        {
-            QString correct_load = QString("marshall_corrected_load_4_%1%2").arg(j).arg(k);
-            QString load = QString("marshall_load_4_%1%2").arg(j).arg(k);
+        int k = 4;
+            QString correct_load = QString("marshall_corrected_load_4_%1").arg(j);
+            QString load = QString("marshall_load_4_%1").arg(j);
             QString volume_crc = QString("marshall_4_%1%2").arg(j).arg(k + 1);
 
             QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load))
+            if (vol_crc_edit && level_4.contains(load))
             {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
-                double load_it = level_1[load].toDouble();
+                double load_it = level_4[load].toDouble();
 
                 double result = vol_crc_val * load_it;
 
@@ -1034,14 +1023,13 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     // level_5
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 1; k <= 3; k += 2)
-        {
-            QString vol_obj_name = QString("marshall_vol_5_%1%2").arg(j).arg(k);
+        int k = 1;
+            QString vol_obj_name = QString("marshall_vol_5_%1").arg(j);
             QString num_value = QString("marshall_5_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_5_%1%2").arg(j).arg(k + 2);
 
@@ -1056,24 +1044,22 @@ void MainWindow::on_marshall_save_clicked()
                 double result = numerator / denominator;
                 level_5[vol_obj_name] = result;
             }
-        }
     }
 
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 2; k <= 3; k += 2)
-        {
-            QString wt_water_key = QString("marshall_wt_water_5_%1%2").arg(j).arg(k);
+        int k = 2;
+            QString wt_water_key = QString("marshall_wt_water_5_%1").arg(j);
             QString wt_water_num_value = QString("marshall_5_%1%2").arg(j).arg(k);
-            QString wt_water_vol_value = QString("marshall_vol_5_%1%2").arg(j).arg(k - 1);
+            QString wt_water_vol_value = QString("marshall_vol_5_%1").arg(j);
 
             QLineEdit *wt_water_num_edit = ui->dbm_page->findChild<QLineEdit *>(wt_water_num_value);
 
-            if (wt_water_num_edit && level_1.contains(wt_water_vol_value))
+            if (wt_water_num_edit && level_5.contains(wt_water_vol_value))
             {
                 double wt_water_numerator = wt_water_num_edit->text().toDouble();
 
-                double wt_water_volume = level_1[wt_water_vol_value].toDouble();
+                double wt_water_volume = level_5[wt_water_vol_value].toDouble();
 
                 double wt_water = wt_water_numerator - wt_water_volume;
 
@@ -1083,12 +1069,12 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
+
     for (int j = 1; j <= 3; j++)
     {
         int k = 4;
-        QString load_key = QString("marshall_load_5_%1%2").arg(j).arg(k);
+        QString load_key = QString("marshall_load_5_%1").arg(j);
         QString reading = QString("marshall_5_%1%2").arg(j).arg(k);
         QString ring = ("marshall_ring");
         QLineEdit *reading_num_edit = ui->dbm_page->findChild<QLineEdit *>(reading);
@@ -1101,21 +1087,21 @@ void MainWindow::on_marshall_save_clicked()
 
         level_5[load_key] = result;
     }
+
     for (int j = 1; j <= 3; j++)
     {
-        for (int k = 4; k <= 5; k += 2)
-        {
-            QString correct_load = QString("marshall_corrected_load_5_%1%2").arg(j).arg(k);
-            QString load = QString("marshall_load_5_%1%2").arg(j).arg(k);
+        int k = 4;
+            QString correct_load = QString("marshall_corrected_load_5_%1").arg(j);
+            QString load = QString("marshall_load_5_%1").arg(j);
             QString volume_crc = QString("marshall_5_%1%2").arg(j).arg(k + 1);
 
             QLineEdit *vol_crc_edit = ui->dbm_page->findChild<QLineEdit *>(volume_crc);
 
-            if (vol_crc_edit && level_1.contains(load))
+            if (vol_crc_edit && level_5.contains(load))
             {
                 double vol_crc_val = vol_crc_edit->text().toDouble();
 
-                double load_it = level_1[load].toDouble();
+                double load_it = level_5[load].toDouble();
 
                 double result = vol_crc_val * load_it;
 
@@ -1125,7 +1111,6 @@ void MainWindow::on_marshall_save_clicked()
             {
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
-        }
     }
 
     QFile marshall_json_file(cwd.filePath("json/marshall.json"));
@@ -7910,7 +7895,6 @@ void MainWindow::generate_html_tensile()
         qDebug() << "tensile output html file not opened";
     }
 }
-//Not Done Yet
 void MainWindow::generate_html_marshall()
 {
     qDebug() << "beginning marshall save...";
@@ -7929,23 +7913,17 @@ void MainWindow::generate_html_marshall()
     QByteArray json_vals_bytearray = json_file.readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
     QJsonObject marshall_json = json_doc.object();
-    std::vector<QJsonObject> marshall_obj;
 
-    for (const auto key : marshall_json.keys())
-    {
-        marshall_obj.push_back(marshall_json[key].toObject());
-    }
+    QJsonObject lv1 = marshall_json["level_1"].toObject(), lv2 = marshall_json["level_2"].toObject(), lv3 = marshall_json["level_3"].toObject(), lv4 = marshall_json["level_4"].toObject(), lv5 = marshall_json["level_5"].toObject();
 
-    std::vector<std::string> json_values_parser = {"tensile_wt_%1_%2", "tensile_ssd_wt_diff_%1_%2", "tensile_ssd_%1_%2", "tensile_wt_%1_%2_vol", "tensile_gmb_%1_%2", "tensile_read_%1_%2", "tensile_read_%1_%2_load", "tensile_corr_%1_%2", "tensile_corrected_load_%1_%2", "tensile_flow_%1_%2"};
-
-    std::string output_html_path = cwd.filePath("html/tensile.html").toStdString();
+    std::string output_html_path = cwd.filePath("html/marshall.html").toStdString();
     std::ofstream output_html_file(output_html_path, std::ios::out);
 
     if (output_html_file.is_open())
     {
         qDebug() << "output html file opened";
 
-        QFile template_file(":/templates/templates/tensile_strength_ratio.html");
+        QFile template_file(":/templates/templates/Marshall_test_data.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             qDebug() << "html not opened";
@@ -7993,12 +7971,262 @@ void MainWindow::generate_html_marshall()
                         }
                     }
 
-                    std::string topush;
-                    double topushf;
+                    std::string topush = "";
+                    double topushf = -999999;
+                    double sum = 0;
+
+
+                    switch (token) {
+                     case 1:
+                        topush = ui->marshal_nameofclient->toPlainText().toStdString();
+                        break;
+                     case 2:
+                        topush = ui->marshal_nameofcontractor->toPlainText().toStdString();
+                        break;
+                     case 3:
+                        topushf = ui->marshall_ring->text().toDouble();
+                        break;
+                     case 35:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv1[QString::fromStdString("marshall_1_%1").arg(j)+QString::number(3)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 36:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv1[QString::fromStdString("marshall_corrected_load_1_%1").arg(j)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 37:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv1[QString::fromStdString("marshall_1_%1").arg(6 + j*10)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 68:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv2[QString::fromStdString("marshall_2_%1").arg(j)+QString::number(3)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 69:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv2[QString::fromStdString("marshall_corrected_load_2_%1").arg(j)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 70:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv2[QString::fromStdString("marshall_2_%1").arg(6 + j*10)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 101:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv3[QString::fromStdString("marshall_3_%1").arg(j)+QString::number(3)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 102:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv3[QString::fromStdString("marshall_corrected_load_3_%1").arg(j)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 103:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv3[QString::fromStdString("marshall_3_%1").arg(6 + j*10)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 138:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv4[QString::fromStdString("marshall_4_%1").arg(j)+QString::number(3)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 139:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv4[QString::fromStdString("marshall_corrected_load_4_%1").arg(j)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 140:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv4[QString::fromStdString("marshall_4_%1").arg(6 + j*10)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 185:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv5[QString::fromStdString("marshall_5_%1").arg(j)+QString::number(3)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 186:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv5[QString::fromStdString("marshall_corrected_load_5_%1").arg(j)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 187:
+                        for (int j = 1; j <= 3; j++) {
+                            sum += lv5[QString::fromStdString("marshall_5_%1").arg(6 + j*10)].toDouble();
+                        }
+                        topushf = sum/3;
+                        break;
+                     case 500:
+                        topushf = lv1["marshall_1_00"].toDouble();
+                        break;
+                     case 501:
+                        topushf = lv2["marshall_2_00"].toDouble();
+                        break;
+                     case 502:
+                        topushf = lv3["marshall_3_00"].toDouble();
+                        break;
+                     case 503:
+                        topushf = lv4["marshall_4_00"].toDouble();
+                        break;
+                     case 504:
+                        topushf = lv5["marshall_5_00"].toDouble();
+                        break;
+                    }
+
+                     if ((token >= 5)&&(token <= 34)) {
+                        token -= 5;
+                        int j = token%10;
+                        int k = 1 + (int)token/10;
+
+                        if (j == 0) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(1)].toDouble();
+                        } else if (j == 1) {
+                            topushf = lv1[QString::fromStdString("marshall_wt_water_1_%1").arg(k)].toDouble();
+                        } else if (j == 2) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(2)].toDouble();
+                        } else if (j == 3) {
+                            topushf = lv1[QString::fromStdString("marshall_vol_1_%1").arg(k)].toDouble();
+                        } else if (j == 4) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(3)].toDouble();
+                        } else if (j == 5) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(4)].toDouble();
+                        } else if (j == 6) {
+                            topushf = lv1[QString::fromStdString("marshall_load_1_%1").arg(k)].toDouble();
+                        } else if (j == 7) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(5)].toDouble();
+                        } else if (j == 8) {
+                            topushf = lv1[QString::fromStdString("marshall_corrected_load_1_%1").arg(k)].toDouble();
+                        } else if (j == 9) {
+                            topushf = lv1[QString::fromStdString("marshall_1_%1%2").arg(k).arg(6)].toDouble();
+                        }
+                     } else if ((token >= 38)&&(token <= 67)) {
+                        token -= 38;
+                        int j = token%10;
+                        int k = 1 + (int)token/10;
+
+                        if (j == 0) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(1)].toDouble();
+                        } else if (j == 1) {
+                            topushf = lv2[QString::fromStdString("marshall_wt_water_2_%1").arg(k)].toDouble();
+                        } else if (j == 2) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(2)].toDouble();
+                        } else if (j == 3) {
+                            topushf = lv2[QString::fromStdString("marshall_vol_2_%1").arg(k)].toDouble();
+                        } else if (j == 4) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(3)].toDouble();
+                        } else if (j == 5) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(4)].toDouble();
+                        } else if (j == 6) {
+                            topushf = lv2[QString::fromStdString("marshall_load_2_%1").arg(k)].toDouble();
+                        } else if (j == 7) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(5)].toDouble();
+                        } else if (j == 8) {
+                            topushf = lv2[QString::fromStdString("marshall_corrected_load_2_%1").arg(k)].toDouble();
+                        } else if (j == 9) {
+                            topushf = lv2[QString::fromStdString("marshall_2_%1%2").arg(k).arg(6)].toDouble();
+                        }
+                     } else if ((token >= 71)&&(token <= 100)) {
+                        token -= 71;
+                        int j = token%10;
+                        int k = 1 + (int)token/10;
+
+                        if (j == 0) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(1)].toDouble();
+                        } else if (j == 1) {
+                            topushf = lv3[QString::fromStdString("marshall_wt_water_3_%1").arg(k)].toDouble();
+                        } else if (j == 2) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(2)].toDouble();
+                        } else if (j == 3) {
+                            topushf = lv3[QString::fromStdString("marshall_vol_3_%1").arg(k)].toDouble();
+                        } else if (j == 4) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(3)].toDouble();
+                        } else if (j == 5) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(4)].toDouble();
+                        } else if (j == 6) {
+                            topushf = lv3[QString::fromStdString("marshall_load_3_%1").arg(k)].toDouble();
+                        } else if (j == 7) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(5)].toDouble();
+                        } else if (j == 8) {
+                            topushf = lv3[QString::fromStdString("marshall_corrected_load_3_%1").arg(k)].toDouble();
+                        } else if (j == 9) {
+                            topushf = lv3[QString::fromStdString("marshall_3_%1%2").arg(k).arg(6)].toDouble();
+                        }
+                     } else if ((token >= 104)&&(token <= 133)) {
+                        token -= 104;
+                        int j = token%10;
+                        int k = 1 + (int)token/10;
+
+                        if (j == 0) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(1)].toDouble();
+                        } else if (j == 1) {
+                            topushf = lv4[QString::fromStdString("marshall_wt_water_4_%1").arg(k)].toDouble();
+                        } else if (j == 2) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(2)].toDouble();
+                        } else if (j == 3) {
+                            topushf = lv4[QString::fromStdString("marshall_vol_4_%1").arg(k)].toDouble();
+                        } else if (j == 4) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(3)].toDouble();
+                        } else if (j == 5) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(4)].toDouble();
+                        } else if (j == 6) {
+                            topushf = lv4[QString::fromStdString("marshall_load_4_%1").arg(k)].toDouble();
+                        } else if (j == 7) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(5)].toDouble();
+                        } else if (j == 8) {
+                            topushf = lv4[QString::fromStdString("marshall_corrected_load_4_%1").arg(k)].toDouble();
+                        } else if (j == 9) {
+                            topushf = lv4[QString::fromStdString("marshall_4_%1%2").arg(k).arg(6)].toDouble();
+                        }
+                     } else if ((token >= 142)&&(token <= 170)) {
+                        token -= 142;
+                        int j = token%10;
+                        int k = 1 + (int)token/10;
+
+                        if (j == 0) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(1)].toDouble();
+                        } else if (j == 1) {
+                            topushf = lv5[QString::fromStdString("marshall_wt_water_5_%1").arg(k)].toDouble();
+                        } else if (j == 2) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(2)].toDouble();
+                        } else if (j == 3) {
+                            topushf = lv5[QString::fromStdString("marshall_vol_5_%1").arg(k)].toDouble();
+                        } else if (j == 4) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(3)].toDouble();
+                        } else if (j == 5) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(4)].toDouble();
+                        } else if (j == 6) {
+                            topushf = lv5[QString::fromStdString("marshall_load_5_%1").arg(k)].toDouble();
+                        } else if (j == 7) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(5)].toDouble();
+                        } else if (j == 8) {
+                            topushf = lv5[QString::fromStdString("marshall_corrected_load_5_%1").arg(k)].toDouble();
+                        } else if (j == 9) {
+                            topushf = lv5[QString::fromStdString("marshall_5_%1%2").arg(k).arg(6)].toDouble();
+                        }
+                     }
 
                     output_html_file << topush;
-                    output_html_file << topushf;
-                    topush = "";
+                    if (topushf != -999999) {output_html_file << topushf;}
                 }
                 else
                 {
