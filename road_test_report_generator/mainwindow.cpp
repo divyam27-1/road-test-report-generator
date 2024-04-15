@@ -1549,11 +1549,11 @@ void MainWindow::on_wa_save_clicked()
 
                     if (i == 1)
                     {
-                        wa_10[json_key] = tedit->text().toDouble();
+                        wa_20[json_key] = tedit->text().toDouble();
                     }
                     else if (i == 2)
                     {
-                        wa_20[json_key] = tedit->text().toDouble();
+                        wa_10[json_key] = tedit->text().toDouble();
                     }
                     else if (i == 3)
                     {
@@ -3338,8 +3338,8 @@ QJsonObject MainWindow::flash_eval(QJsonObject flash_in)
 }
 QJsonObject MainWindow::viscosity_eval(QJsonObject viscosity_in)
 {
-    viscosity_in["rheology_viscosity_11"] = (viscosity_in["rheology_viscosity_in_7"].toDouble() * viscosity_in["rheology_viscosity_9"].toDouble());
-    viscosity_in["rheology_viscosity_12"] = (viscosity_in["rheology_viscosity_in_8"].toDouble() * viscosity_in["rheology_viscosity_10"].toDouble());
+    viscosity_in["rheology_viscosity_11"] = (viscosity_in["rheology_viscosity_7"].toDouble() * viscosity_in["rheology_viscosity_9"].toDouble());
+    viscosity_in["rheology_viscosity_12"] = (viscosity_in["rheology_viscosity_8"].toDouble() * viscosity_in["rheology_viscosity_10"].toDouble());
 
     return viscosity_in;
 }
@@ -9108,9 +9108,401 @@ void MainWindow::generate_html_rheology() {
     {
         qDebug() << "strip output html file not opened";
     }
+
+    std::string viscosity_html_path = cwd.filePath("html/rh_vis.html").toStdString();
+    std::ofstream viscosity_html_file(viscosity_html_path, std::ios::out);
+
+    if (viscosity_html_file.is_open())
+    {
+        qDebug() << "vis html file opened";
+
+        QJsonObject rh_vis_json = rheology_json["viscosity"].toObject();
+
+        QFile template_file(":/templates/templates/rheology_viscosity.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush;
+                    double topushf;
+
+                    //bool ok;
+                    switch (token) {
+                    case 1:
+                        topush = ui->rheology_name->toPlainText().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->rheology_contractor->toPlainText().toStdString();
+                        break;
+                    case 4:
+                        topush = ui->rh_sample->text().toStdString();
+                        break;
+                    case 5:
+                        topush = ui->rh_src->text().toStdString();
+                        break;
+                    case 6:
+                        topush = ui->rh_test->text().toStdString();
+                        break;
+                    case 7:
+                        topush = ui->rh_grade->text().toStdString();
+                        break;
+                    default:
+                        topushf = rh_vis_json[QString::fromStdString("rheology_viscosity_%1").arg(token-10)].toDouble();
+                        viscosity_html_file << topushf;
+                        break;
+                    }
+
+                    viscosity_html_file << topush;
+                }
+                else
+                {
+                    viscosity_html_file << line[i];
+                }
+            }
+        }
+        json_file.close();
+        viscosity_html_file.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+    else
+    {
+        qDebug() << "viscosity output html file not opened";
+    }
 }
 void MainWindow::generate_html_wa() {
+    qDebug() << "beginning wa save...";
 
+    QString json_path = cwd.filePath("json/wa.json");
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject wa_json = json_doc.object();
+    QJsonObject wa_10 = wa_json["10"].toObject();
+    QJsonObject waa_10 = wa_json["answer_10"].toObject();
+    QJsonObject wa_20 = wa_json["20"].toObject();
+    QJsonObject waa_20 = wa_json["answer_20"].toObject();
+    QJsonObject wa_dust = wa_json["dust"].toObject();
+    QJsonObject waa_dust = wa_json["answer_dust"].toObject();
+    QJsonObject wa_cleanliness = wa_json["cleanliness"].toObject();
+    QJsonObject waa_cleanliness = wa_json["answer_cleanliness"].toObject();
+
+    std::string wa_path_10 = cwd.filePath("html/wa_10.html").toStdString();
+    std::ofstream wa_file_10(wa_path_10, std::ios::out);
+
+    if (wa_file_10.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/gravity_and_water_absorption.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+                    double topushf = -12362701;
+
+                    if ((token >= 1) && (token <= 8)) {
+                        int j = (token + 1) / 2;  // Calculate the first index after "wa_"
+                        int k = token % 2 == 0 ? 2 : 1;  // Calculate the second index
+                        std::string key = "wa_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = wa_10[QString::fromStdString(key)].toDouble();
+                    } else if ((token >= 9) && (token <= 14)) {
+                        int j = (token-7) / 2;
+                        int k = (token-8) % 2 == 0 ? 2 : 1;
+                        std::string key = "answer_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = waa_10[QString::fromStdString(key)].toDouble();
+                    } else if (token <= 17) {
+                        int k = token-14;
+                        topushf = wa_10[QString::fromStdString("wa10_average_%1").arg(k)].toDouble();
+                    }
+
+                    if (topushf != -12362701) {wa_file_10 << topushf;}
+                    wa_file_10 << topush;
+                }
+                else
+                {
+                    wa_file_10 << line[i];
+                }
+            }
+        }
+        json_file.close();
+        wa_file_10.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+
+    std::string wa_path_20 = cwd.filePath("html/wa_20.html").toStdString();
+    std::ofstream wa_file_20(wa_path_20, std::ios::out);
+
+    if (wa_file_20.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/gravity_and_water_absorption.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+                    double topushf = -12362701;
+
+                    if ((token >= 1) && (token <= 8)) {
+                        int j = (token + 1) / 2;  // Calculate the first index after "wa_"
+                        int k = token % 2 == 0 ? 2 : 1;  // Calculate the second index
+                        std::string key = "wa_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = wa_20[QString::fromStdString(key)].toDouble();
+                    } else if ((token >= 9) && (token <= 14)) {
+                        int j = (token-7) / 2;
+                        int k = (token-8) % 2 == 0 ? 2 : 1;
+                        std::string key = "answer_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = waa_20[QString::fromStdString(key)].toDouble();
+                    } else if (token <= 17) {
+                        int k = token-14;
+                        topushf = wa_20[QString::fromStdString("wa20_average_%1").arg(k)].toDouble();
+                    }
+
+                    if (topushf != -12362701) {wa_file_20 << topushf;}
+                    wa_file_20 << topush;
+                }
+                else
+                {
+                    wa_file_20 << line[i];
+                }
+            }
+        }
+        json_file.close();
+        wa_file_20.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+
+    std::string wa_path_dust = cwd.filePath("html/wa_dust.html").toStdString();
+    std::ofstream wa_file_dust(wa_path_dust, std::ios::out);
+
+    if (wa_file_dust.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/gravity_and_water_absorption_fine.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+                    double topushf = -12362701;
+
+                    if ((token >= 1) && (token <= 8)) {
+                        int j = (token + 1) / 2;  // Calculate the first index after "wa_"
+                        int k = token % 2 == 0 ? 2 : 1;  // Calculate the second index
+                        std::string key = "wa_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = wa_dust[QString::fromStdString(key)].toDouble();
+                    } else if ((token >= 9) && (token <= 16)) {
+                        int j = (token-7) / 2;
+                        int k = (token-8) % 2 == 0 ? 2 : 1;
+                        std::string key = "answer_" + std::to_string(j) + "_" + std::to_string(k);
+                        topushf = waa_dust[QString::fromStdString(key)].toDouble();
+                    } else if (token <= 20) {
+                        int k = token-14;
+                        topushf = wa_dust[QString::fromStdString("wadust_average_%1").arg(k)].toDouble();
+                    }
+
+                    if (topushf != -12362701) {wa_file_dust << topushf;}
+                    wa_file_dust << topush;
+                }
+                else
+                {
+                    wa_file_dust << line[i];
+                }
+            }
+        }
+        json_file.close();
+        wa_file_dust.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
 }
 
 

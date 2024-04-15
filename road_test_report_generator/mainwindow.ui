@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -16680,7 +16680,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-2840</y>
+           <y>-2430</y>
            <width>1045</width>
            <height>3581</height>
           </rect>
@@ -19392,8 +19392,8 @@ color: rgb(0, 0, 0);</string>
            <rect>
             <x>40</x>
             <y>750</y>
-            <width>501</width>
-            <height>151</height>
+            <width>660</width>
+            <height>156</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_13">
@@ -19410,7 +19410,7 @@ color: rgb(0, 0, 0);</string>
            <item row="2" column="0">
             <widget class="QLabel" name="label_709">
              <property name="text">
-              <string>Weight of Basket in water (gms)</string>
+              <string>Weight of Pycnometer Filled with Water (gm)</string>
              </property>
             </widget>
            </item>
@@ -19420,7 +19420,7 @@ color: rgb(0, 0, 0);</string>
            <item row="1" column="0">
             <widget class="QLabel" name="label_710">
              <property name="text">
-              <string>Weight Of Aggregate and Basket in water (gms)</string>
+              <string>Weight of Oven Dried Sample (gms)</string>
              </property>
             </widget>
            </item>
@@ -19454,14 +19454,14 @@ color: rgb(0, 0, 0);</string>
            <item row="3" column="0">
             <widget class="QLabel" name="label_714">
              <property name="text">
-              <string>Weight of Saturated Surface Dried Sample in Air,(g)</string>
+              <string>Weight of Saturated Surface Dried Sample in Air (gm)  </string>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="label_715">
              <property name="text">
-              <string>C</string>
+              <string>S</string>
              </property>
             </widget>
            </item>
@@ -19474,14 +19474,14 @@ color: rgb(0, 0, 0);</string>
            <item row="4" column="0">
             <widget class="QLabel" name="label_716">
              <property name="text">
-              <string>Weight of Oven Dried Sample,(g)</string>
+              <string>Weight of Pycnometer + Sample + Water (gm)</string>
              </property>
             </widget>
            </item>
            <item row="4" column="1">
             <widget class="QLabel" name="label_717">
              <property name="text">
-              <string>D</string>
+              <string>C</string>
              </property>
             </widget>
            </item>
@@ -19929,42 +19929,42 @@ color: rgb(0, 0, 0);</string>
   <tabstop>rheology_spc_4_2</tabstop>
   <tabstop>rheology_spc_4_3</tabstop>
   <tabstop>rheology_spc_save</tabstop>
-  <tabstop>grad_p27_5</tabstop>
-  <tabstop>grad_s2_8</tabstop>
-  <tabstop>grad_p28_1</tabstop>
-  <tabstop>grad_p28_2</tabstop>
-  <tabstop>grad_p28_3</tabstop>
-  <tabstop>grad_p28_4</tabstop>
-  <tabstop>grad_p28_5</tabstop>
-  <tabstop>grad_prop_3</tabstop>
-  <tabstop>grad_s3_1</tabstop>
-  <tabstop>grad_p31_1</tabstop>
-  <tabstop>grad_p31_2</tabstop>
-  <tabstop>grad_p31_3</tabstop>
-  <tabstop>grad_p31_4</tabstop>
-  <tabstop>grad_p31_5</tabstop>
-  <tabstop>grad_s3_2</tabstop>
-  <tabstop>grad_p32_1</tabstop>
-  <tabstop>grad_p32_2</tabstop>
-  <tabstop>grad_p32_3</tabstop>
-  <tabstop>grad_p32_4</tabstop>
-  <tabstop>grad_p32_5</tabstop>
-  <tabstop>grad_s3_3</tabstop>
-  <tabstop>grad_p33_1</tabstop>
-  <tabstop>grad_p33_2</tabstop>
-  <tabstop>grad_p33_3</tabstop>
-  <tabstop>grad_p33_4</tabstop>
-  <tabstop>grad_p33_5</tabstop>
-  <tabstop>grad_s3_4</tabstop>
-  <tabstop>grad_p34_1</tabstop>
-  <tabstop>grad_p34_2</tabstop>
-  <tabstop>grad_p34_3</tabstop>
-  <tabstop>grad_p34_4</tabstop>
-  <tabstop>grad_p34_5</tabstop>
-  <tabstop>grad_s3_5</tabstop>
-  <tabstop>grad_p35_1</tabstop>
-  <tabstop>grad_p35_2</tabstop>
-  <tabstop>grad_p35_3</tabstop>
+  <tabstop>wa_save</tabstop>
+  <tabstop>wa_saveas</tabstop>
+  <tabstop>wa_export</tabstop>
+  <tabstop>wa1_11</tabstop>
+  <tabstop>wa1_12</tabstop>
+  <tabstop>wa1_21</tabstop>
+  <tabstop>wa1_22</tabstop>
+  <tabstop>wa1_31</tabstop>
+  <tabstop>wa1_32</tabstop>
+  <tabstop>wa1_41</tabstop>
+  <tabstop>wa1_42</tabstop>
+  <tabstop>wa2_11</tabstop>
+  <tabstop>wa2_12</tabstop>
+  <tabstop>wa2_21</tabstop>
+  <tabstop>wa2_22</tabstop>
+  <tabstop>wa2_31</tabstop>
+  <tabstop>wa2_32</tabstop>
+  <tabstop>wa2_41</tabstop>
+  <tabstop>wa2_42</tabstop>
+  <tabstop>wa3_11</tabstop>
+  <tabstop>wa3_12</tabstop>
+  <tabstop>wa3_21</tabstop>
+  <tabstop>wa3_22</tabstop>
+  <tabstop>wa3_31</tabstop>
+  <tabstop>wa3_32</tabstop>
+  <tabstop>wa3_41</tabstop>
+  <tabstop>wa3_42</tabstop>
+  <tabstop>wa4_11</tabstop>
+  <tabstop>wa4_12</tabstop>
+  <tabstop>wa4_13</tabstop>
+  <tabstop>wa4_21</tabstop>
+  <tabstop>wa4_22</tabstop>
+  <tabstop>wa4_23</tabstop>
+  <tabstop>wa4_31</tabstop>
+  <tabstop>wa4_32</tabstop>
+  <tabstop>wa4_33</tabstop>
   <tabstop>grad_p35_4</tabstop>
   <tabstop>grad_p35_5</tabstop>
   <tabstop>grad_s3_6</tabstop>
@@ -20240,9 +20240,9 @@ color: rgb(0, 0, 0);</string>
   <tabstop>mdd_exp_1</tabstop>
   <tabstop>mdd_exp_2</tabstop>
   <tabstop>dbm_tab_list</tabstop>
-  <tabstop>wa4_33</tabstop>
-  <tabstop>wa4_31</tabstop>
-  <tabstop>wa4_32</tabstop>
+  <tabstop>grad_p35_3</tabstop>
+  <tabstop>grad_p35_1</tabstop>
+  <tabstop>grad_p35_2</tabstop>
   <tabstop>gmm1_12</tabstop>
   <tabstop>gmm1_21</tabstop>
   <tabstop>gmm1_22</tabstop>
@@ -20521,46 +20521,46 @@ color: rgb(0, 0, 0);</string>
   <tabstop>tensile_ssd_1_2</tabstop>
   <tabstop>tensile_corr_1_2</tabstop>
   <tabstop>tensile_ssd_1_1</tabstop>
-  <tabstop>wa2_21</tabstop>
-  <tabstop>wa2_22</tabstop>
-  <tabstop>wa2_31</tabstop>
-  <tabstop>wa1_41</tabstop>
-  <tabstop>wa1_42</tabstop>
+  <tabstop>grad_p31_5</tabstop>
+  <tabstop>grad_s3_2</tabstop>
+  <tabstop>grad_p32_1</tabstop>
+  <tabstop>grad_p31_1</tabstop>
+  <tabstop>grad_p31_2</tabstop>
   <tabstop>marshall_1_21</tabstop>
-  <tabstop>wa3_11</tabstop>
-  <tabstop>wa3_12</tabstop>
-  <tabstop>wa3_21</tabstop>
-  <tabstop>wa3_41</tabstop>
-  <tabstop>wa3_42</tabstop>
-  <tabstop>wa4_11</tabstop>
+  <tabstop>grad_p32_5</tabstop>
+  <tabstop>grad_s3_3</tabstop>
+  <tabstop>grad_p33_1</tabstop>
+  <tabstop>grad_p33_5</tabstop>
+  <tabstop>grad_s3_4</tabstop>
+  <tabstop>grad_p34_1</tabstop>
   <tabstop>tensile_wt_2_1</tabstop>
   <tabstop>marshall_export</tabstop>
   <tabstop>marshall_ring</tabstop>
-  <tabstop>wa2_42</tabstop>
-  <tabstop>wa3_31</tabstop>
-  <tabstop>wa3_32</tabstop>
-  <tabstop>wa4_12</tabstop>
-  <tabstop>wa4_13</tabstop>
-  <tabstop>wa4_21</tabstop>
-  <tabstop>wa1_11</tabstop>
-  <tabstop>wa1_12</tabstop>
-  <tabstop>wa1_21</tabstop>
+  <tabstop>grad_p32_4</tabstop>
+  <tabstop>grad_p33_3</tabstop>
+  <tabstop>grad_p33_4</tabstop>
+  <tabstop>grad_p34_2</tabstop>
+  <tabstop>grad_p34_3</tabstop>
+  <tabstop>grad_p34_4</tabstop>
+  <tabstop>grad_p28_2</tabstop>
+  <tabstop>grad_p28_3</tabstop>
+  <tabstop>grad_p28_4</tabstop>
   <tabstop>marshall_2_00</tabstop>
-  <tabstop>wa2_32</tabstop>
-  <tabstop>wa2_41</tabstop>
-  <tabstop>wa1_22</tabstop>
-  <tabstop>wa1_31</tabstop>
-  <tabstop>wa1_32</tabstop>
+  <tabstop>grad_p32_2</tabstop>
+  <tabstop>grad_p32_3</tabstop>
+  <tabstop>grad_p28_5</tabstop>
+  <tabstop>grad_prop_3</tabstop>
+  <tabstop>grad_s3_1</tabstop>
   <tabstop>grad_s1_4</tabstop>
   <tabstop>marshall_1_00</tabstop>
   <tabstop>tensile_flow_1_2</tabstop>
   <tabstop>tensile_btmn_2</tabstop>
   <tabstop>tensile_flow_1_1</tabstop>
   <tabstop>marshall_1_22</tabstop>
-  <tabstop>wa2_11</tabstop>
-  <tabstop>wa2_12</tabstop>
-  <tabstop>wa4_22</tabstop>
-  <tabstop>wa4_23</tabstop>
+  <tabstop>grad_p31_3</tabstop>
+  <tabstop>grad_p31_4</tabstop>
+  <tabstop>grad_p34_5</tabstop>
+  <tabstop>grad_s3_5</tabstop>
   <tabstop>tensile_corr_1_3</tabstop>
   <tabstop>aiv_20_23</tabstop>
   <tabstop>fei_ss_p6</tabstop>
@@ -20643,7 +20643,7 @@ color: rgb(0, 0, 0);</string>
   <tabstop>grad_export</tabstop>
   <tabstop>grad_p12_5</tabstop>
   <tabstop>tensile_flow_2_3</tabstop>
-  <tabstop>wa3_22</tabstop>
+  <tabstop>grad_p33_2</tabstop>
   <tabstop>grad_p13_5</tabstop>
   <tabstop>grad_p11_5</tabstop>
   <tabstop>tensile_wt_1_3</tabstop>
@@ -20761,9 +20761,9 @@ color: rgb(0, 0, 0);</string>
   <tabstop>grad_p15_4</tabstop>
   <tabstop>grad_p14_2</tabstop>
   <tabstop>grad_p14_3</tabstop>
-  <tabstop>wa_save</tabstop>
-  <tabstop>wa_export</tabstop>
-  <tabstop>wa_saveas</tabstop>
+  <tabstop>grad_p27_5</tabstop>
+  <tabstop>grad_p28_1</tabstop>
+  <tabstop>grad_s2_8</tabstop>
   <tabstop>wa_name</tabstop>
   <tabstop>wa_contractor</tabstop>
   <tabstop>wa_date</tabstop>
@@ -20825,6 +20825,8 @@ color: rgb(0, 0, 0);</string>
   <tabstop>gmm3_51</tabstop>
   <tabstop>marshall_3_35</tabstop>
   <tabstop>marshall_3_36</tabstop>
+  <tabstop>rh_grade</tabstop>
+  <tabstop>rh_size</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc"/>
