@@ -25,9 +25,9 @@
 /* TODO:
 - Generation of HTML for :-
  1) vol (divyam) DONE
- 2) rheology (divyam)
- 3) water absorption (sahu)
- 4) gmm (atharv)
+ 2) rheology (divyam) DONE
+ 3) water absorption (sahu) DONE
+ 4) gmm (atharv) DONE
  5) marshall test (divyam)
 */
 
@@ -1365,6 +1365,8 @@ void MainWindow::on_gmm_save_clicked()
     {
         qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
+
+    save_check();
 }
 void MainWindow::on_rheology_save_clicked()
 {
@@ -1785,48 +1787,58 @@ void MainWindow::on_wa_saveas_clicked() {
 
 
 
-// Save Check function is simultaeneously the most and least important function
+/**
+ * @brief Checks the save status of all experiments and generates the corresponding HTML files.
+ *
+ * This function iterates over all experiments and checks if they are present in the tracked_files.
+ * If an experiment is tracked, it sets the corresponding indicator to the saved icon.
+ * If not, it sets the indicator to the unsaved icon.
+ * After checking the save status, it generates the corresponding HTML file for each tracked file.
+ *
+ * This function must be called at the end of the 'save' function of any experiment, to first verify the save state of the experiment and to
+ * automatically generate the HTML files regarding the experiment
+ *
+ * @note This function does not take any parameters or return any values.
+ */
 void MainWindow::save_check()
 {
+    // Iterate over all experiments
     for (auto exp : all_experiments)
     {
+        // Find the experiment in the tracked files
         if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end())
         {
+            // Get the save indicator for the experiment
             QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
             if (indicator)
             {
-                // qDebug() << "indicator" << exp << "found";
+                // Set the indicator to the saved icon
                 indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon.png"));
                 if (indicator->height() < 200)
                 {
+                    // Use a smaller icon for small indicators
                     indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon_small.png"));
                 }
-                qDebug() << "saved pixmap set";
-            }
-            else
-            {
-                // qDebug() << "indicator not found";
             }
         }
         else
         {
+            // Get the save indicator for the experiment
             QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
             if (indicator)
             {
-                // qDebug() << "indicator found";
+                // Set the indicator to the unsaved icon
                 indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon.png"));
                 if (indicator->height() < 200)
                 {
+                    // Use a smaller icon for small indicators
                     indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon_small.png"));
                 }
             }
-            else
-            {
-                qDebug() << "indicator not found";
-            } //
         }
     }
 
+    // Generate the corresponding HTML file for each tracked file
     for (auto file : tracked_files)
     {
         if (file == "spc")
@@ -8375,6 +8387,182 @@ void MainWindow::generate_html_vol() {
     }
 }
 void MainWindow::generate_html_gmm() {
+    qDebug() << "beginning gmm save...";
+
+    QString json_path = cwd.filePath("json/gmm.json");
+    QFile json_file(json_path);
+    if (!json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "gmm json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "gmm json file opened";
+    }
+    QByteArray json_vals_bytearray = json_file.readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(json_vals_bytearray);
+    QJsonObject gmm_json = json_doc.object();
+
+
+    QString vol_json_path = cwd.filePath("json/vol.json");
+    QFile vol_json_file(vol_json_path);
+    if (!vol_json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "vol json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "vol json file opened";
+    }
+    QByteArray vol_vals_bytearray = vol_json_file.readAll();
+    QJsonDocument vol_json_doc = QJsonDocument::fromJson(vol_vals_bytearray);
+    QJsonObject vol_json = vol_json_doc.object();
+    QJsonObject vol_comp_json = vol_json["composition"].toObject();
+
+    QString rheology_json_path = cwd.filePath("json/rheology.json");
+    QFile rheology_json_file(rheology_json_path);
+    if (!rheology_json_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "rheology json file not opened";
+        return;
+    }
+    else
+    {
+        qDebug() << "rheology json file opened";
+    }
+    QByteArray rheology_vals_bytearray = rheology_json_file.readAll();
+    QJsonDocument rheology_json_doc = QJsonDocument::fromJson(rheology_vals_bytearray);
+    QJsonObject rheology_json = rheology_json_doc.object();
+    QJsonObject rhspc_json = rheology_json["spc"].toObject();
+
+    std::vector<QString> gmm_json_titles = {"4.00", "4.25", "4.50"};
+
+    for (QString title: gmm_json_titles) {
+
+        std::string gmm_html_path = cwd.filePath(QString::fromStdString("html/gmm_%1.html").arg(title)).toStdString();
+        std::ofstream gmm_html_file(gmm_html_path, std::ios::out);
+
+        if (gmm_html_file.is_open())
+        {
+            qDebug() << "gmm html file" << title <<  "opened";
+
+            QJsonObject gmm_obj = gmm_json[title].toObject();
+
+            QFile template_file(":/templates/templates/GMM_pg18.html");
+            if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+            {
+                qDebug() << "html not opened";
+                return;
+            }
+            else
+            {
+                qDebug() << "html file opened";
+            }
+            QTextStream infile(&template_file);
+
+            while (!infile.atEnd())
+            {
+
+                std::string line_str = infile.readLine().toStdString();
+                const char *line = line_str.c_str();
+                int tilda = 0;
+                int token;
+                for (int i = 0; i < (int)strlen(line); i++)
+                {
+                    if (line[i] == '~' && tilda == 0)
+                    {
+                        tilda = 1;
+
+                        // Gets the token from HTML file
+                        for (int j = i + 1; j < (int)strlen(line); j++)
+                        {
+                            if (line[j] == '~' && j - i == 2)
+                            {
+                                token = (int)line[i + 1] - 48;
+                                i = j;
+                                break;
+                            }
+                            else if (line[j] == '~' && j - i == 3)
+                            {
+                                token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                                i = j;
+                                break;
+                            }
+                            else if (line[j] == '~' && j - i == 4)
+                            {
+                                token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                                i = j;
+                                break;
+                            }
+                        }
+
+                        std::string topush;
+                        double topushf = -12362701;
+
+                        switch (token) {
+                        case 1:
+                            topush = ui->gmm_work->toHtml().toStdString();
+                            break;
+                        case 2:
+                            topush = ui->gmm_name->toHtml().toStdString();
+                            break;
+                        case 3:
+                            topush = ui->gmm_consultant->toHtml().toStdString();
+                            break;
+                        case 4:
+                            topush = ui->gmm_contractor->toHtml().toStdString();
+                            break;
+                        case 5:
+                            topush = ui->gmm_exp_1->text().toStdString();
+                            break;
+                        case 6:
+                            topush = ui->gmm_exp_3->text().toStdString();
+                            break;
+                        case 7:
+                            topush = ui->gmm_exp_2->text().toStdString();
+                            break;
+                        case 8:
+                            topushf = rhspc_json["rheology_spc_mean"].toDouble();
+                            break;
+                        case 9:
+                            topushf = vol_comp_json["vol_gsb_obc"].toDouble();
+                            break;
+                        case 10:
+                            topush = title.toStdString();
+                            break;
+                        case 21:
+                            topushf = gmm_obj["avg"].toDouble();
+                            break;
+                        default:
+                            int j = (int)((token-9)/2);
+                            int k = token%2? 2:1;
+                            topushf = gmm_obj[QString::fromStdString("gmm_%1_%2").arg(j).arg(k)].toDouble();
+                            break;
+                        }
+
+                        if (topushf != -12362701) {gmm_html_file << topushf;}
+                        gmm_html_file << topush;
+                    }
+                    else
+                    {
+                        gmm_html_file << line[i];
+                    }
+                }
+            }
+            json_file.close();
+            gmm_html_file.close();
+            qDebug() << "file written to";
+
+            template_file.close();
+        }
+        else
+        {
+            qDebug() << "gmm output html file not opened";
+        }
+
+    }
 
 }
 void MainWindow::generate_html_rheology() {
@@ -9554,12 +9742,12 @@ void MainWindow::wheelEvent(QWheelEvent *event)
             ui->vol_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 4:
-            scroll_pos = ui->gmm_scroll->value();
-            ui->gmm_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
-            break;
-        case 5:
             scroll_pos = ui->rheology_scroll->value();
             ui->rheology_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
+            break;
+        case 5:
+            scroll_pos = ui->gmm_scroll->value();
+            ui->gmm_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 6:
             scroll_pos = ui->wa_scroll->value();

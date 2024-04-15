@@ -9674,7 +9674,7 @@ color: rgb(0, 0, 0);</string>
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="grad">
        <attribute name="title">
@@ -11056,8 +11056,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>551</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11432,8 +11432,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>230</width>
+           <height>700</height>
           </rect>
          </property>
          <attribute name="label">
@@ -11737,8 +11737,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>611</width>
+           <height>781</height>
           </rect>
          </property>
          <attribute name="label">
@@ -15589,752 +15589,6 @@ color: rgb(0, 0, 0);</string>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="gmm">
-       <attribute name="title">
-        <string>GMM</string>
-       </attribute>
-       <widget class="QToolBox" name="gmm_info">
-        <property name="geometry">
-         <rect>
-          <x>1070</x>
-          <y>0</y>
-          <width>261</width>
-          <height>761</height>
-         </rect>
-        </property>
-        <property name="currentIndex">
-         <number>1</number>
-        </property>
-        <widget class="QWidget" name="vol_bsc_3">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>100</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <attribute name="label">
-          <string>Basic Info</string>
-         </attribute>
-         <widget class="QWidget" name="layoutWidget_7">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>258</width>
-            <height>691</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_26">
-           <item>
-            <widget class="QLabel" name="label_288">
-             <property name="text">
-              <string>Name of the Client</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTextEdit" name="gmm_name"/>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_289">
-             <property name="text">
-              <string>Name of the Contractor</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTextEdit" name="gmm_contractor"/>
-           </item>
-           <item>
-            <spacer name="side_socr_7">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>100</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <spacer name="side_spcr_14">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>100</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <spacer name="side_spcr_15">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>100</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="grad_exp_32">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>261</width>
-           <height>701</height>
-          </rect>
-         </property>
-         <attribute name="label">
-          <string>Experiment Info</string>
-         </attribute>
-         <widget class="QWidget" name="verticalLayoutWidget_17">
-          <property name="geometry">
-           <rect>
-            <x>9</x>
-            <y>10</y>
-            <width>221</width>
-            <height>691</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_27">
-           <item>
-            <widget class="QLabel" name="label_291">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Date of Sampling</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QDateEdit" name="gmm_exp_1">
-             <property name="displayFormat">
-              <string>d/M/yyyy</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_38">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_292">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Date of Testing</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QDateEdit" name="gmm_exp_2">
-             <property name="displayFormat">
-              <string>d/M/yyyy</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_39">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <layout class="QFormLayout" name="formLayout_8">
-             <property name="rowWrapPolicy">
-              <enum>QFormLayout::DontWrapRows</enum>
-             </property>
-             <property name="verticalSpacing">
-              <number>6</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_296">
-               <property name="text">
-                <string>Type of Activity</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QSpinBox" name="gmm_exp_3"/>
-             </item>
-             <item row="1" column="1">
-              <spacer name="verticalSpacer_40">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_297">
-               <property name="text">
-                <string>Source of Material</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="gmm_exp_4"/>
-             </item>
-             <item row="3" column="1">
-              <spacer name="verticalSpacer_51">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_298">
-               <property name="text">
-                <string>Source Approval</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLineEdit" name="gmm_exp_5"/>
-             </item>
-             <item row="5" column="1">
-              <spacer name="verticalSpacer_52">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="6" column="0">
-              <widget class="QLabel" name="label_299">
-               <property name="text">
-                <string>Sample At</string>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="1">
-              <widget class="QLineEdit" name="gmm_exp_6"/>
-             </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="label_300">
-               <property name="text">
-                <string>Freequency Test</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QLineEdit" name="gmm_exp_7"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QPushButton" name="gmm_saveas">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>20</y>
-          <width>90</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Save As...</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="gmm_save">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>20</y>
-          <width>90</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Save</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="gmm_export">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>20</y>
-          <width>110</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Export to PDF</string>
-        </property>
-       </widget>
-       <widget class="QFrame" name="gmm_frame_outer">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>70</y>
-          <width>1045</width>
-          <height>691</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QFrame" name="gmm_frame">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>1045</width>
-           <height>1521</height>
-          </rect>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="label_301">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>861</width>
-            <height>81</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
-
-color: rgb(0, 0, 0);</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MAXIMUM GRAVITY OF PAVING MIXTURE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_307">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>110</y>
-            <width>191</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_8">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>620</y>
-            <width>341</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_29">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_308">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_309">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_310">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_332">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_363">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_12">
-          <property name="geometry">
-           <rect>
-            <x>430</x>
-            <y>620</y>
-            <width>361</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QLineEdit" name="gmm2_11"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="gmm2_21"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="gmm2_31"/>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLineEdit" name="gmm2_32"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLineEdit" name="gmm2_41"/>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLineEdit" name="gmm2_42"/>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLineEdit" name="gmm2_52"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLineEdit" name="gmm2_51"/>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="gmm2_22"/>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="gmm2_12"/>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="label_364">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>570</y>
-            <width>211</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4.25 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_13">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>1090</y>
-            <width>341</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_30">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_365">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_366">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_367">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_368">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_369">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_14">
-          <property name="geometry">
-           <rect>
-            <x>430</x>
-            <y>1090</y>
-            <width>361</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QLineEdit" name="gmm3_11"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="gmm3_21"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="gmm3_31"/>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLineEdit" name="gmm3_32"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLineEdit" name="gmm3_41"/>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLineEdit" name="gmm3_42"/>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLineEdit" name="gmm3_52"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLineEdit" name="gmm3_51"/>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="gmm3_22"/>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="gmm3_12"/>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QLabel" name="label_370">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>1040</y>
-            <width>191</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 .5% Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>160</y>
-            <width>341</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_28">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_302">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_303">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_304">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_305">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_306">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>430</x>
-            <y>160</y>
-            <width>361</width>
-            <height>351</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <widget class="QLineEdit" name="gmm1_11"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="gmm1_21"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="gmm1_31"/>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLineEdit" name="gmm1_32"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLineEdit" name="gmm1_41"/>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLineEdit" name="gmm1_42"/>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLineEdit" name="gmm1_52"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLineEdit" name="gmm1_51"/>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="gmm1_22"/>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="gmm1_12"/>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QScrollBar" name="gmm_scroll">
-        <property name="geometry">
-         <rect>
-          <x>1050</x>
-          <y>70</y>
-          <width>25</width>
-          <height>690</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-       <widget class="QLabel" name="gmm_saved">
-        <property name="geometry">
-         <rect>
-          <x>940</x>
-          <y>60</y>
-          <width>100</width>
-          <height>200</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </widget>
       <widget class="QWidget" name="rheology">
        <attribute name="title">
         <string>Bitumen Rheology</string>
@@ -16362,7 +15616,7 @@ color: rgb(0, 0, 0);</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="rheology_bsc">
          <property name="geometry">
@@ -18726,6 +17980,772 @@ color: rgb(0, 0, 0);</string>
         </property>
        </widget>
        <widget class="QLabel" name="rheology_saved">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>60</y>
+          <width>100</width>
+          <height>200</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/saved_icons/icons/tab_unsaved_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="gmm">
+       <attribute name="title">
+        <string>Maximum Gravity</string>
+       </attribute>
+       <widget class="QToolBox" name="gmm_info">
+        <property name="geometry">
+         <rect>
+          <x>1080</x>
+          <y>0</y>
+          <width>261</width>
+          <height>761</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="vol_bsc_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Basic Info</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>258</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_26">
+           <item>
+            <widget class="QLabel" name="label_295">
+             <property name="text">
+              <string>Name of the Work</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_work"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_288">
+             <property name="text">
+              <string>Name of the Client</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_name"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_393">
+             <property name="text">
+              <string>Name of the Consultant</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_consultant"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_289">
+             <property name="text">
+              <string>Name of the Contractor</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="gmm_contractor"/>
+           </item>
+           <item>
+            <spacer name="side_socr_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_14">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="side_spcr_15">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="grad_exp_32">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>261</width>
+           <height>701</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Experiment Info</string>
+         </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_17">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>10</y>
+            <width>221</width>
+            <height>691</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_27">
+           <item>
+            <widget class="QLabel" name="label_291">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_1">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_292">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Date of Testing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="gmm_exp_2">
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_39">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_8">
+             <property name="rowWrapPolicy">
+              <enum>QFormLayout::DontWrapRows</enum>
+             </property>
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_296">
+               <property name="text">
+                <string>Type of Activity</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="gmm_exp_3"/>
+             </item>
+             <item row="1" column="1">
+              <spacer name="verticalSpacer_40">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_297">
+               <property name="text">
+                <string>Source of Material</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="gmm_exp_4"/>
+             </item>
+             <item row="3" column="1">
+              <spacer name="verticalSpacer_51">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_298">
+               <property name="text">
+                <string>Source Approval</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="gmm_exp_5"/>
+             </item>
+             <item row="5" column="1">
+              <spacer name="verticalSpacer_52">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_299">
+               <property name="text">
+                <string>Sample At</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="gmm_exp_6"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_300">
+               <property name="text">
+                <string>Freequency Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="gmm_exp_7"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="gmm_saveas">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save As...</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="gmm_save">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>90</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="gmm_export">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>110</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export to PDF</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="gmm_frame_outer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>1045</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QFrame" name="gmm_frame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1045</width>
+           <height>1521</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_301">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>861</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 700 26pt &quot;Segoe UI&quot;;
+
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MAXIMUM GRAVITY OF PAVING MIXTURE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_307">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>110</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_8">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>620</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_29">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_308">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_309">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_310">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_332">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_363">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_12">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>620</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm2_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm2_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm2_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm2_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm2_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm2_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm2_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm2_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm2_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm2_12"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_364">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>570</y>
+            <width>211</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4.25 % Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_13">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>1090</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_30">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_365">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_366">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_367">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_368">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_369">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_14">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>1090</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm3_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm3_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm3_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm3_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm3_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm3_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm3_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm3_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm3_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm3_12"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QLabel" name="label_370">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>1040</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;4 .5% Bitumen Content&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>160</y>
+            <width>341</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_28">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_302">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Empty Flask in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_303">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Sample (loose mix) in gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_304">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask filled with water, gm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_305">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Weight of Flask + Sample + Water&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;after removal of air by vacuum, gms&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_306">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Maximum Theoretical Specific Gravity of mix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>160</y>
+            <width>361</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="gmm1_11"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="gmm1_21"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="gmm1_31"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="gmm1_32"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="gmm1_41"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="gmm1_42"/>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="gmm1_52"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLineEdit" name="gmm1_51"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="gmm1_22"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="gmm1_12"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QScrollBar" name="gmm_scroll">
+        <property name="geometry">
+         <rect>
+          <x>1050</x>
+          <y>70</y>
+          <width>25</width>
+          <height>690</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="gmm_saved">
         <property name="geometry">
          <rect>
           <x>940</x>
