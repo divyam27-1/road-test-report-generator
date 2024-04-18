@@ -248,6 +248,12 @@ private slots:
     void on_gmm_saveas_clicked();
     void on_rheology_saveas_clicked();
     void on_wa_saveas_clicked();
+    void on_marshall_export_clicked();
+    void on_tensile_export_clicked();
+    void on_vol_export_clicked();
+    void on_gmm_export_clicked();
+    void on_rheology_export_clicked();
+    void on_wa_export_clicked();
 private:
     float scroll_sens;
 
@@ -260,5 +266,12 @@ private:
     void generate_html_gmm();
     void generate_html_rheology();
     void generate_html_wa();
+    void updateGraph_dbm();
+    void generate_bitumen_gmb_graph(std::vector<QJsonObject> marshall_levels);
+    void generate_bitumen_stability_graph(std::vector<QJsonObject> marshall_levels);
+    void generate_bitumen_flow_graph(std::vector<QJsonObject> marshall_levels);
+    void generate_bitumen_va_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol);
+    void generate_bitumen_vma_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol);
+    void generate_bitumen_vfb_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol);
 };
 #endif // MAINWINDOW_H

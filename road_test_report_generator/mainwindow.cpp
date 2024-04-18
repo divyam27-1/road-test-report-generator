@@ -21,35 +21,72 @@
 #include <QDateTime>
 #include <map>
 #include <functional>
+#include <algorithm>
 
 /* TODO:
 - Generation of HTML for :-
- 1) vol (divyam) DONE
- 2) rheology (divyam) DONE
- 3) water absorption (sahu) DONE
- 4) gmm (atharv) DONE
- 5) marshall test (sahu)
- 6) graphing of all (div)
+1) finish graphing (6 graphs) DONION RINGS
+2) make the rheology elements autoupdate on saving DONION RINGS
+3) add link between gmb on vol and gmb on marshall MISSION IMPOSSIBLE
+4) make the pdf packages DONION RINGS
+5) add the export solo buttons
+6) build for distribution
 */
 
 QDir cwd = QDir::current();
 QDir swd = cwd;
 bool i = cwd.cdUp();
 
+//T Flip Flop, its used in some functions to fix some bugs
+bool TFF = true;
+
 std::vector<std::string> tracked_files;
-const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "wa", "vol", "gmm", "rheology"};
+const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "vol", "gmm", "rheology", "wa"};
+const std::vector<QString> all_exp_qstr {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "vol", "gmm", "rheology", "wa"};
+const std::map<QString, QString> exp_classify = {{"spc", "wmm"},
+                                                 {"aiv", "wmm"},
+                                                 {"fei", "wmm"},
+                                                 {"ind", "wmm"},
+                                                 {"mdd", "wmm"},
+                                                 {"grad", "dbm"},
+                                                 {"marshall", "dbm"},
+                                                 {"tensile", "dbm"},
+                                                 {"wa", "dbm"},
+                                                 {"vol", "dbm"},
+                                                 {"gmm", "dbm"},
+                                                 {"rheology", "dbm"}};
 
 std::string OS;
 bool saveas_done = false;
 
-void removeDuplicates(std::vector<std::string> &vec)
+void removeDuplicates(std::vector<std::string> &vec, const std::vector<QString> &ref = all_exp_qstr)
 {
+    // Remove duplicates from vec
     std::sort(vec.begin(), vec.end());
     auto it = std::unique(vec.begin(), vec.end());
     vec.erase(it, vec.end());
+
+    // Create a mapping from elements of ref to their indices
+    std::map<QString, int> refIndexMap;
+    for (int i = 0; i < ref.size(); ++i) {
+        refIndexMap[ref[i]] = i;
+    }
+
+    // Custom comparator function to sort vec based on the order of ref
+    auto comparator = [&refIndexMap](const std::string &a, const std::string &b) {
+        auto itA = refIndexMap.find(QString::fromStdString(a));
+        auto itB = refIndexMap.find(QString::fromStdString(b));
+        // If either element is not found in ref, keep their relative order
+        if (itA == refIndexMap.end() || itB == refIndexMap.end()) {
+            return a < b;
+        }
+        // Otherwise, sort based on their order in ref
+        return itA->second < itB->second;
+    };
+
+    // Sort vec according to the order of ref
+    std::sort(vec.begin(), vec.end(), comparator);
 }
-
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -308,7 +345,7 @@ void MainWindow::on_grad_save_clicked()
     /* For blending the values, we will have to do a few more sweeps of the data, this time taking the weighted average
        of our sample averages across diff experiments to blend them. The proportional_passing_averages data structure
        was made to temporarily hold the values as they are averaged*/
-    double *proportinal_passing_averages = new double[8];
+    double proportinal_passing_averages[8];
     for (int i = 0; i < 8; i++)
     {
         proportinal_passing_averages[i] = 0;
@@ -321,7 +358,7 @@ void MainWindow::on_grad_save_clicked()
 
         for (int i = 0; i < 8; i++)
         {
-            QString prop_avg_key = QString("prop_avg_%1").arg(i);
+            QString prop_avg_key = QString("prop_avg_%1").arg(i+1);
             proportinal_passing_averages[i] += grad_json_mm[prop_avg_key].toDouble();
         }
     }
@@ -332,8 +369,6 @@ void MainWindow::on_grad_save_clicked()
     {
         grad_bld_json[QString("bld_%1").arg(i + 1)] = proportinal_passing_averages[i];
     }
-
-    delete[] proportinal_passing_averages;
 
     grad_json["blending"] = grad_bld_json;
 
@@ -367,6 +402,13 @@ void MainWindow::on_grad_save_clicked()
     grad_file.close();
 
     save_check();
+
+    if (TFF) {
+        TFF = false;
+        ui->grad_save->click();
+    } else {
+        TFF = true;
+    }
 }
 void MainWindow::on_tensile_save_clicked()
 {
@@ -624,17 +666,17 @@ void MainWindow::on_marshall_save_clicked()
     {
         for (int i = 1; i <= 5; i++)
         {
+            double sum_gmb = 0, sum_flow = 0;
+
             for (int j = 1; j <= 3; j++)
             {
                 for (int k = 1; k <= 6; k++)
                 {
-
                     QString obj_name = exp.arg(i).arg(j).arg(k);
                     QLineEdit *tedit = ui->dbm_page->findChild<QLineEdit *>(obj_name);
 
                     if (tedit)
                     {
-
                         double tedit_text = tedit->text().toDouble();
 
                         if (i == 1)
@@ -657,6 +699,12 @@ void MainWindow::on_marshall_save_clicked()
                         {
                             level_5[obj_name] = tedit_text;
                         }
+
+                        if (k == 3) {
+                            sum_gmb += tedit_text;
+                        } else if (k == 6) {
+                            sum_flow += tedit_text;
+                        }
                     }
                     else
                     {
@@ -664,15 +712,43 @@ void MainWindow::on_marshall_save_clicked()
                     }
                 }
             }
+
+            sum_gmb /= 3; sum_flow /= 3;
+            if (i == 1)
+            {
+                level_1["avg_gmb"] = sum_gmb;
+                level_1["avg_flow"] = sum_flow;
+            }
+            else if (i == 2)
+            {
+                level_2["avg_gmb"] = sum_gmb;
+                level_2["avg_flow"] = sum_flow;
+            }
+            else if (i == 3)
+            {
+                level_3["avg_gmb"] = sum_gmb;
+                level_3["avg_flow"] = sum_flow;
+            }
+            else if (i == 4)
+            {
+                level_4["avg_gmb"] = sum_gmb;
+                level_4["avg_flow"] = sum_flow;
+            }
+            else if (i == 5)
+            {
+                level_5["avg_gmb"] = sum_gmb;
+                level_5["avg_flow"] = sum_flow;
+            }
         }
     }
 
+    double sum_stb = 0;
     // level_1
     for (int j = 1; j <= 3; j++)
     {
         int k = 1;
 
-            QString vol_obj_name = QString("marshall_vol_1_%1").arg(j).arg(k);
+            QString vol_obj_name = QString("marshall_vol_1_%1").arg(j);
             QString num_value = QString("marshall_1_%1%2").arg(j).arg(k);
             QString den_value = QString("marshall_1_%1%2").arg(j).arg(k + 2);
 
@@ -748,14 +824,19 @@ void MainWindow::on_marshall_save_clicked()
                 double load_it = level_1[load].toDouble();
 
                 double result = vol_crc_val * load_it;
+                sum_stb += result;
 
                 level_1[correct_load] = result;
             }
             else
-            {
+                {
+
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
     }
+    sum_stb /= 3;
+    level_1["avg_stability"] = sum_stb;
+    sum_stb = 0;
 
     // level_2
     for (int j = 1; j <= 3; j++)
@@ -837,15 +918,20 @@ int k = 4;
                 double load_it = level_2[load].toDouble();
 
                 double result = vol_crc_val * load_it;
+                sum_stb += result;
 
                 level_2[correct_load] = result;
             }
             else
-            {
+                {
+
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
 
     }
+    sum_stb /= 3;
+    level_2["avg_stability"] = sum_stb;
+    sum_stb = 0;
 
     // level_3
     for (int j = 1; j <= 3; j++)
@@ -927,6 +1013,7 @@ int k = 2;
                 double load_it = level_3[load].toDouble();
 
                 double result = vol_crc_val * load_it;
+                sum_stb += result;
 
                 level_3[correct_load] = result;
             }
@@ -935,6 +1022,9 @@ int k = 2;
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
     }
+    sum_stb /= 3;
+    level_3["avg_stability"] = sum_stb;
+    sum_stb = 0;
 
     // level_4
     for (int j = 1; j <= 3; j++)
@@ -1016,6 +1106,7 @@ int k = 2;
                 double load_it = level_4[load].toDouble();
 
                 double result = vol_crc_val * load_it;
+                sum_stb += result;
 
                 level_4[correct_load] = result;
             }
@@ -1024,6 +1115,9 @@ int k = 2;
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
     }
+    sum_stb /= 3;
+    level_4["avg_stability"] = sum_stb;
+    sum_stb = 0;
 
     // level_5
     for (int j = 1; j <= 3; j++)
@@ -1104,6 +1198,7 @@ int k = 2;
                 double load_it = level_5[load].toDouble();
 
                 double result = vol_crc_val * load_it;
+                sum_stb += result;
 
                 level_5[correct_load] = result;
             }
@@ -1112,6 +1207,9 @@ int k = 2;
                 qDebug() << "Error: LineEdit not found for j=" << j << " and k=" << k;
             }
     }
+    sum_stb /= 3;
+    level_5["avg_stability"] = sum_stb;
+    sum_stb = 0;
 
     QFile marshall_json_file(cwd.filePath("json/marshall.json"));
     marshall_json["level_1"] = level_1;
@@ -1119,6 +1217,7 @@ int k = 2;
     marshall_json["level_3"] = level_3;
     marshall_json["level_4"] = level_4;
     marshall_json["level_5"] = level_5;
+    std::vector<QJsonObject> levels = {level_1, level_2, level_3, level_4, level_5};
 
     if (marshall_json_file.open(QFile::WriteOnly | QFile::Text))
     {
@@ -1134,6 +1233,8 @@ int k = 2;
     {
         qDebug() << "SUYGETSU AIMS THE RESET on tensile_save ABSOLUTELY INCREDIBLE";
     }
+
+    updateGraph_dbm();
     save_check();
 }
 void MainWindow::on_vol_save_clicked()
@@ -1278,6 +1379,8 @@ void MainWindow::on_vol_save_clicked()
     {
         qDebug() << "SUYGETSU AIMS THE RESET on vol_save ABSOLUTELY INCREDIBLE";
     }
+
+    updateGraph_dbm();
     save_check();
 }
 void MainWindow::on_gmm_save_clicked()
@@ -3283,6 +3386,8 @@ QJsonObject MainWindow::soft_eval(QJsonObject soft_in)
 
     soft_in["rheology_soft_8"] = sum / 4;
 
+    ui->rheology_soft_mean->setText(QString::number(sum/4, 'g', 4));
+
     return soft_in;
 }
 QJsonObject MainWindow::strip_eval(QJsonObject strip_in)
@@ -3295,7 +3400,7 @@ QJsonObject MainWindow::pen_eval(QJsonObject pen_in)
     QString init_name, fin_name, pen_key;
 
     double sum = 0;
-    for (int i = 6; i <= 12; i += 2)
+    for (int i = 6; i <= 10; i += 2)
     {
         init_name = constructor.arg(i);
         fin_name = constructor.arg(i + 1);
@@ -3308,6 +3413,11 @@ QJsonObject MainWindow::pen_eval(QJsonObject pen_in)
     }
 
     pen_in["rheology_pen_15"] = sum / 3;
+
+    ui->rh_pen_val1->setText(QString::number(pen_in["rheology_pen_12"].toDouble(), 'g', 4));
+    ui->rh_pen_val2->setText(QString::number(pen_in["rheology_pen_13"].toDouble(), 'g', 4));
+    ui->rh_pen_val3->setText(QString::number(pen_in["rheology_pen_14"].toDouble(), 'g', 4));
+    ui->rheology_pen_mean->setText(QString::number(pen_in["rheology_pen_15"].toDouble(), 'g', 4));
 
     return pen_in;
 }
@@ -3325,12 +3435,15 @@ QJsonObject MainWindow::ductility_eval(QJsonObject ductility_in)
     }
 
     ductility_in["rheology_ductility_10"] = sum / 3;
+    ui->rheology_ductility_mean->setText(QString::number(ductility_in["rheology_ductility_10"].toDouble(), 'g', 4));
 
     return ductility_in;
 }
 QJsonObject MainWindow::flash_eval(QJsonObject flash_in)
 {
     flash_in["rheology_flash_4"] = (flash_in["rheology_flash_1"].toDouble() + flash_in["rheology_flash_2"].toDouble() + flash_in["rheology_flash_3"].toDouble()) / 3;
+
+    ui->rheology_flash_mean->setText(QString::number(flash_in["rheology_flash_4"].toDouble(), 'g', 4));
     return flash_in;
 }
 QJsonObject MainWindow::viscosity_eval(QJsonObject viscosity_in)
@@ -3348,7 +3461,6 @@ QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
     double a, b, c, d, spc, sum;
     for (int i = 1; i <= 3; i++)
     {
-        QString a_test = constructor.arg(1).arg(i);
         a = spc_in[constructor.arg(1).arg(i)].toDouble();
         b = spc_in[constructor.arg(2).arg(i)].toDouble();
         c = spc_in[constructor.arg(3).arg(i)].toDouble();
@@ -3357,10 +3469,15 @@ QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
         spc = (c - a) / (b + c - a - d);
         sum += spc;
 
-        spc_in[QString::fromStdString("rheology_spc_%1").arg(i)] = spc;
+        obj_name = QString::fromStdString("rheology_spc_%1").arg(i);
+
+        spc_in[obj_name] = spc;
+        QLabel* label = ui->rheology->findChild<QLabel*>(obj_name);
+        label->setText(QString::number(spc, 'g', 4));
     }
 
     spc_in["rheology_spc_mean"] = sum / 3;
+    ui->rheology_spc_mean->setText(QString::number(sum/3, 'g', 4));
 
     return spc_in;
 }
@@ -3424,6 +3541,34 @@ std::vector<double> quadval(std::vector<double> &x, std::vector<double> &coeff)
     }
 
     return y;
+}
+double lagrangeInterpolation(const std::vector<std::pair<double, double>>& points, double x) {
+    double result = 0; // Initialize result
+
+    // Compute the result using Lagrange Interpolation formula
+    for (int i = 0; i < points.size(); i++) {
+        double term = points[i].second;
+        for (int j = 0; j < points.size(); j++) {
+            if (j != i) {
+                term = term * (x - points[j].first) / double(points[i].first - points[j].first);
+            }
+        }
+
+        // Add current term to result
+        result += term;
+    }
+
+    return result;
+}
+std::vector<std::pair<double, double>> curvefit(const std::vector<std::pair<double, double>> &points, double start, double end, double accuracy = 100) {
+    double step = (end - start)/accuracy;
+
+    std::vector<std::pair<double, double>> curve;
+    for (double d = start; d < end; d += step) {
+        curve.push_back({d, lagrangeInterpolation(points, d)});
+    }
+
+    return curve;
 }
 
 void MainWindow::on_ind_graph_update_clicked()
@@ -3763,11 +3908,20 @@ void MainWindow::updateGraph_grad()
     QSharedPointer<QCPAxisTickerLog> logTicker(new QCPAxisTickerLog);
     ui->grad_graph_1->xAxis->setScaleType(QCPAxis::stLogarithmic);
     ui->grad_graph_1->xAxis->setTicker(logTicker);
+    ui->grad_graph_1->xAxis->grid()->setVisible(true);
+    ui->grad_graph_1->yAxis->grid()->setVisible(true);
+    ui->grad_graph_1->xAxis->grid()->setSubGridVisible(true);
+    ui->grad_graph_1->yAxis->grid()->setSubGridVisible(true);
+    ui->grad_graph_1->xAxis->grid()->setSubGridPen(QPen(Qt::gray, 1, Qt::DotLine));
+    ui->grad_graph_1->yAxis->grid()->setSubGridPen(QPen(Qt::gray, 1, Qt::DotLine));
+    ui->grad_graph_1->axisRect()->setBackground(QBrush(QColor(255,255,204,200)));
 
     ui->grad_graph_1->xAxis->setLabel("IS SIEVE IN MM");
     ui->grad_graph_1->xAxis->setRange(0.05, 100);
     ui->grad_graph_1->yAxis->setLabel("PASSING OF %");
     ui->grad_graph_1->yAxis->setRange(0, 100);
+    ui->grad_graph_1->plotLayout()->addElement(0, 0, new QCPTextElement(ui->grad_graph_1, "DBM Gradation"));
+
     ui->grad_graph_1->replot();
 
     ui->grad_bld_graph_label->show();
@@ -3802,6 +3956,14 @@ void MainWindow::updateGraph_grad()
     ui->grad_graph_2->graph(3)->setPen(QPen(QColor(0, 0, 0)));
     ui->grad_graph_2->graph(4)->setPen(QPen(QColor(188, 66, 245)));
     ui->grad_graph_2->graph(5)->setPen(QPen(QColor(240, 125, 40)));
+    ui->grad_graph_2->xAxis->grid()->setVisible(true);
+    ui->grad_graph_2->yAxis->grid()->setVisible(true);
+    ui->grad_graph_2->xAxis->grid()->setPen(QPen(Qt::gray, 1, Qt::SolidLine));
+    ui->grad_graph_2->yAxis->grid()->setPen(QPen(Qt::gray, 1, Qt::SolidLine));
+    ui->grad_graph_2->xAxis->grid()->setSubGridVisible(true);
+    ui->grad_graph_2->yAxis->grid()->setSubGridVisible(true);
+    ui->grad_graph_2->xAxis->grid()->setSubGridPen(QPen(Qt::gray, 1, Qt::DotLine));
+    ui->grad_graph_2->yAxis->grid()->setSubGridPen(QPen(Qt::gray, 1, Qt::DotLine));
 
     ui->grad_graph_2->xAxis->setScaleType(QCPAxis::stLogarithmic);
     ui->grad_graph_2->xAxis->setTicker(logTicker);
@@ -3810,6 +3972,8 @@ void MainWindow::updateGraph_grad()
     ui->grad_graph_2->xAxis->setRange(0.05, 100);
     ui->grad_graph_2->yAxis->setLabel("PASSING OF %");
     ui->grad_graph_2->yAxis->setRange(0, 100);
+    ui->grad_graph_2->plotLayout()->addElement(0, 0, new QCPTextElement(ui->grad_graph_2, "DBM Job Mix Formula"));
+
     ui->grad_graph_2->replot();
 
     ui->jmf_graph_label->show();
@@ -3836,6 +4000,495 @@ void MainWindow::updateGraph_grad()
         grad_jmf_graph.close();
     }
 }
+void MainWindow::updateGraph_dbm() {
+    //For these 6 graphs we do not make any ui element we just make the plots in instances of qcp and then save it as png
+
+    QString marshall_json_path = cwd.filePath("json/marshall.json");
+    QString vol_json_path = cwd.filePath("json/vol.json");
+
+    QFile marshall_json_file(marshall_json_path);
+    std::vector<QJsonObject> marshall_levels;
+    if (marshall_json_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QByteArray marshall_bytes = marshall_json_file.readAll();
+        QJsonDocument marshall_json_doc = QJsonDocument::fromJson(marshall_bytes);
+        QJsonObject marshall_json = marshall_json_doc.object();
+        for (auto key: marshall_json.keys()) {
+            marshall_levels.push_back(marshall_json[key].toObject());
+        }
+    }
+    marshall_json_file.close();
+
+    QFile vol_json_file(vol_json_path);
+    QJsonObject vol_comp;
+    if (vol_json_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QByteArray vol_bytes = vol_json_file.readAll();
+        QJsonDocument vol_json_doc = QJsonDocument::fromJson(vol_bytes);
+        QJsonObject vol_json = vol_json_doc.object();
+        vol_comp = vol_json["composition"].toObject();
+    }
+    vol_json_file.close();
+
+    generate_bitumen_gmb_graph(marshall_levels);
+    generate_bitumen_stability_graph(marshall_levels);
+    generate_bitumen_flow_graph(marshall_levels);
+    generate_bitumen_va_graph(marshall_levels, vol_comp);
+    generate_bitumen_vma_graph(marshall_levels, vol_comp);
+    generate_bitumen_vfb_graph(marshall_levels, vol_comp);
+
+    std::string graph_page_path = cwd.filePath("html/properties_curves.html").toStdString();
+    std::ofstream graph_page(graph_page_path, std::ios::out);
+
+    if (graph_page.is_open())
+    {
+        qDebug() << "output html file opened";
+
+        QFile template_file(":/templates/templates/test_properties_curves.html");
+        if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "html not opened";
+            return;
+        }
+        else
+        {
+            qDebug() << "html file opened";
+        }
+        QTextStream infile(&template_file);
+
+        while (!infile.atEnd())
+        {
+
+            std::string line_str = infile.readLine().toStdString();
+            const char *line = line_str.c_str();
+            int tilda = 0;
+            int token;
+            for (int i = 0; i < (int)strlen(line); i++)
+            {
+                if (line[i] == '~' && tilda == 0)
+                {
+                    tilda = 1;
+
+                    // Gets the token from HTML file
+                    for (int j = i + 1; j < (int)strlen(line); j++)
+                    {
+                        if (line[j] == '~' && j - i == 2)
+                        {
+                            token = (int)line[i + 1] - 48;
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 3)
+                        {
+                            token = ((int)line[i + 2] - 48) + 10 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                        else if (line[j] == '~' && j - i == 4)
+                        {
+                            token = ((int)line[i + 3] - 48) + 10 * ((int)line[i + 2] - 48) + 100 * ((int)line[i + 1] - 48);
+                            i = j;
+                            break;
+                        }
+                    }
+
+                    std::string topush = "";
+
+                    switch (token) {
+                    case 1:
+                        topush = ui->marshal_nameofclient->toHtml().toStdString();
+                        break;
+                    case 2:
+                        topush = ui->marshal_nameofcontractor->toHtml().toStdString();
+                        break;
+                    }
+
+                    graph_page << topush;
+                }
+                else
+                {
+                    graph_page << line[i];
+                }
+            }
+        }
+
+        graph_page.close();
+        qDebug() << "file written to";
+
+        template_file.close();
+    }
+}
+void MainWindow::generate_bitumen_stability_graph(std::vector<QJsonObject> marshall_levels) {
+
+    QCustomPlot *stability_graph = new QCustomPlot();
+
+    QString stability_savepath = cwd.filePath("html/stability_graph.png");
+
+    stability_graph->addGraph();
+    stability_graph->addGraph();
+
+    // Prepare Data
+    std::vector<std::pair<double, double>> stability_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+        double stability = marshall_levels[i]["avg_stability"].toDouble();
+
+        stability_points.push_back({bitumen, stability});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax-xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < stability_points.size(); ++i) {
+        x << stability_points[i].first;
+        y << stability_points[i].second;
+    }
+    stability_graph->graph(0)->setData(x, y);
+    stability_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    stability_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to stability_points and add the result to the second graph
+    auto fitted_points = curvefit(stability_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    stability_graph->graph(1)->setData(x_fit, y_fit);
+    stability_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    stability_graph->setBackground(Qt::white);
+    stability_graph->plotLayout()->addElement(0, 0, new QCPTextElement(stability_graph, "Bitumen vs Stability"));
+
+    stability_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    stability_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    stability_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    stability_graph->yAxis->setLabel("Stability (Kg)");
+
+    stability_graph->replot();
+
+    stability_graph->savePng(stability_savepath);
+
+    delete stability_graph;
+}
+void MainWindow::generate_bitumen_gmb_graph(std::vector<QJsonObject> marshall_levels) {
+
+    QCustomPlot *gmb_graph = new QCustomPlot();
+
+    QString gmb_savepath = cwd.filePath("html/gmb_graph.png");
+
+    gmb_graph->addGraph();
+    gmb_graph->addGraph();
+
+    //Prepare Data
+    std::vector<std::pair<double, double>> gmb_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+        double gmb = marshall_levels[i]["avg_gmb"].toDouble();
+
+        gmb_points.push_back({bitumen, gmb});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax - xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < gmb_points.size(); ++i) {
+        x << gmb_points[i].first;
+        y << gmb_points[i].second;
+    }
+    gmb_graph->graph(0)->setData(x, y);
+    gmb_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    gmb_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to gmb_points and add the result to the second graph
+    auto fitted_points = curvefit(gmb_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    gmb_graph->graph(1)->setData(x_fit, y_fit);
+    gmb_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    gmb_graph->setBackground(Qt::white);
+    gmb_graph->plotLayout()->addElement(0, 0, new QCPTextElement(gmb_graph, "Bitumen vs Bulk Density"));
+
+    gmb_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    gmb_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    gmb_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    gmb_graph->yAxis->setLabel("Bulk Density (gcc)");
+
+    gmb_graph->replot();
+
+    gmb_graph->savePng(gmb_savepath);
+
+    delete gmb_graph;
+}
+void MainWindow::generate_bitumen_flow_graph(std::vector<QJsonObject> marshall_levels) {
+
+    QCustomPlot *flow_graph = new QCustomPlot();
+
+    QString flow_savepath = cwd.filePath("html/flow_graph.png");
+
+    flow_graph->addGraph();
+    flow_graph->addGraph();
+
+    //Prepare Data
+    std::vector<std::pair<double, double>> flow_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+        double flow = marshall_levels[i]["avg_flow"].toDouble();
+
+        flow_points.push_back({bitumen, flow});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax - xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < flow_points.size(); ++i) {
+        x << flow_points[i].first;
+        y << flow_points[i].second;
+    }
+    flow_graph->graph(0)->setData(x, y);
+    flow_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    flow_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to gmb_points and add the result to the second graph
+    auto fitted_points = curvefit(flow_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    flow_graph->graph(1)->setData(x_fit, y_fit);
+    flow_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    flow_graph->setBackground(Qt::white);
+    flow_graph->plotLayout()->addElement(0, 0, new QCPTextElement(flow_graph, "Bitumen vs Bulk Density"));
+
+    flow_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    flow_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    flow_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    flow_graph->yAxis->setLabel("Flow (mm)");
+
+    flow_graph->replot();
+
+    flow_graph->savePng(flow_savepath);
+
+    delete flow_graph;
+}
+void MainWindow::generate_bitumen_va_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol) {
+
+    QCustomPlot *va_graph = new QCustomPlot();
+
+    QString va_swd = cwd.filePath("html/va_graph.png");
+
+    va_graph->addGraph();
+    va_graph->addGraph();
+
+    //Prepare Data
+    std::vector<std::pair<double, double>> va_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double va = vol[QString::fromStdString("vol_va_%1").arg(i+1)].toDouble();
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+
+        va_points.push_back({bitumen, va});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax - xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < va_points.size(); ++i) {
+        x << va_points[i].first;
+        y << va_points[i].second;
+    }
+    va_graph->graph(0)->setData(x, y);
+    va_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    va_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to gmb_points and add the result to the second graph
+    auto fitted_points = curvefit(va_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    va_graph->graph(1)->setData(x_fit, y_fit);
+    va_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    va_graph->setBackground(Qt::white);
+    va_graph->plotLayout()->addElement(0, 0, new QCPTextElement(va_graph, "Bitumen vs Air Voids"));
+
+    va_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    va_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    va_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    va_graph->yAxis->setLabel("Air Voids (%)");
+
+    va_graph->replot();
+
+    va_graph->savePng(va_swd);
+
+    delete va_graph;
+}
+void MainWindow::generate_bitumen_vma_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol) {
+
+    QCustomPlot *vma_graph = new QCustomPlot();
+
+    QString vma_swd = cwd.filePath("html/vma_graph.png");
+
+    vma_graph->addGraph();
+    vma_graph->addGraph();
+
+    //Prepare Data
+    std::vector<std::pair<double, double>> vma_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double vma = vol[QString::fromStdString("vol_vma_%1").arg(i+1)].toDouble();
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+
+        vma_points.push_back({bitumen, vma});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax - xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < vma_points.size(); ++i) {
+        x << vma_points[i].first;
+        y << vma_points[i].second;
+    }
+    vma_graph->graph(0)->setData(x, y);
+    vma_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    vma_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to gmb_points and add the result to the second graph
+    auto fitted_points = curvefit(vma_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    vma_graph->graph(1)->setData(x_fit, y_fit);
+    vma_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    vma_graph->setBackground(Qt::white);
+    vma_graph->plotLayout()->addElement(0, 0, new QCPTextElement(vma_graph, "Bitumen vs VMA"));
+
+    vma_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    vma_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    vma_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    vma_graph->yAxis->setLabel("VMA");
+
+    vma_graph->replot();
+
+    vma_graph->savePng(vma_swd);
+
+    delete vma_graph;
+}
+void MainWindow::generate_bitumen_vfb_graph(std::vector<QJsonObject> marshall_levels, QJsonObject vol) {
+
+    QCustomPlot *vfb_graph = new QCustomPlot();
+
+    QString vfb_swd = cwd.filePath("html/vfb_graph.png");
+
+    vfb_graph->addGraph();
+    vfb_graph->addGraph();
+
+    //Prepare Data
+    std::vector<std::pair<double, double>> vfb_points;
+    std::vector<double> bitumen_content;
+    for (int i = 0; i < marshall_levels.size(); i++) {
+        double vfb = vol[QString::fromStdString("vol_vfb_%1").arg(i+1)].toDouble();
+        double bitumen = marshall_levels[i][QString::fromStdString("marshall_%1_00").arg(i+1)].toDouble();
+
+        vfb_points.push_back({bitumen, vfb});
+        bitumen_content.push_back(bitumen);
+    }
+    double xmax = *std::max_element(bitumen_content.begin(), bitumen_content.end());
+    double xmin = *std::min_element(bitumen_content.begin(), bitumen_content.end());
+    double range = xmax - xmin;
+
+    // Add data to the first graph and set it to scatter style with squares
+    QVector<double> x, y;
+    for (int i = 0; i < vfb_points.size(); ++i) {
+        x << vfb_points[i].first;
+        y << vfb_points[i].second;
+    }
+    vfb_graph->graph(0)->setData(x, y);
+    vfb_graph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    vfb_graph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssSquare, Qt::black, Qt::white, 7));
+
+    // Apply curvefit function to gmb_points and add the result to the second graph
+    auto fitted_points = curvefit(vfb_points, xmin-(range/20), xmax+(range/20));
+    QVector<double> x_fit, y_fit;
+    for (int i = 0; i < fitted_points.size(); ++i) {
+        x_fit << fitted_points[i].first;
+        y_fit << fitted_points[i].second;
+    }
+    vfb_graph->graph(1)->setData(x_fit, y_fit);
+    vfb_graph->graph(1)->setPen(QPen(Qt::black));
+    xmin = *std::min_element(x_fit.constBegin(), x_fit.constEnd());
+    xmax = *std::max_element(x_fit.constBegin(), x_fit.constEnd());
+    double ymin = *std::min_element(y_fit.constBegin(), y_fit.constEnd());
+    double ymax = *std::max_element(y_fit.constBegin(), y_fit.constEnd());
+
+    vfb_graph->setBackground(Qt::white);
+    vfb_graph->plotLayout()->addElement(0, 0, new QCPTextElement(vfb_graph, "Bitumen vs VFB"));
+
+    vfb_graph->xAxis->setRange(xmin-(range/4), xmax+(range/4));
+    vfb_graph->xAxis->setLabel("Bitumen Content (%)");
+
+    vfb_graph->yAxis->setRange(ymin-(range/3), ymax+(range/3));
+    vfb_graph->yAxis->setLabel("VFB (%)");
+
+    vfb_graph->replot();
+
+    vfb_graph->savePng(vfb_swd);
+
+    delete vfb_graph;
+}
+
 
 
 
@@ -3843,27 +4496,32 @@ void MainWindow::updateGraph_grad()
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
     qDebug() << "EXPORT triggered";
-    QString program;
-    QStringList args;
+    QString program_wmm;
+    QStringList args_wmm;
 
-    std::string command;
-    std::vector<std::string> comm_vec;
+    QString program_dbm;
+    QStringList args_dbm;
+
+    std::string command_wmm, command_dbm;
 
     if (OS == "win")
     {
-        program = QString("..\\executable\\wkhtmltopdf.exe");
+        program_wmm = QString("..\\executable\\wkhtmltopdf.exe");
+        program_dbm = QString("..\\executable\\wkhtmltopdf.exe");
     }
     else if (OS == "linux")
     {
-        program = cwd.filePath("executable/wkhtmltopdf");
+        program_wmm = cwd.filePath("executable/wkhtmltopdf");
+        program_dbm = cwd.filePath("executable/wkhtmltopdf");
     }
     else if (OS == "apple")
     {
         // TO WRITE
-        program = QString("wkhtmltopdf");
+        program_wmm = QString("wkhtmltopdf");
+        program_dbm = QString("wkhtmltopdf");
     }
-    command = command + program.toStdString();
-    QString fname = "";
+    command_wmm = command_wmm + program_wmm.toStdString();
+    command_dbm = command_dbm + program_dbm.toStdString();
 
     for (auto i = tracked_files.begin(); i != tracked_files.end(); ++i)
     {
@@ -3871,71 +4529,103 @@ void MainWindow::on_actionExport_to_PDF_triggered()
 
         if (*i == "spc")
         {
-            // ui->spc_export->click();
-            args << cwd.filePath("html/spc_10mm.html");
-            args << cwd.filePath("html/spc_20mm.html");
-            args << cwd.filePath("html/spc_40mm.html");
-            args << cwd.filePath("html/spc_stone_dust.html");
+            args_wmm << cwd.filePath("html/spc_10mm.html");
+            args_wmm << cwd.filePath("html/spc_20mm.html");
+            args_wmm << cwd.filePath("html/spc_40mm.html");
+            args_wmm << cwd.filePath("html/spc_stone_dust.html");
         }
         else if (*i == "fei")
         {
-            // ui->fei_export->click();
-            args << cwd.filePath("html/fei.html");
+            args_wmm << cwd.filePath("html/fei.html");
         }
         else if (*i == "aiv")
         {
-            // ui->aiv_export->click();
-            args << cwd.filePath("html/aiv_10mm.html");
-            args << cwd.filePath("html/aiv_20mm.html");
+            args_wmm << cwd.filePath("html/aiv_10mm.html");
+            args_wmm << cwd.filePath("html/aiv_20mm.html");
         }
         else if (*i == "ind")
         {
-            // ui->ind_export->click();
-            args << cwd.filePath("html/ind_40mm.html");
-            args << cwd.filePath("html/ind_20mm.html");
-            args << cwd.filePath("html/ind_10mm.html");
-            args << cwd.filePath("html/ind_d.html");
-            args << cwd.filePath("html/bld.html");
-            args << cwd.filePath("html/cmb.html");
-            args << cwd.filePath("html/pass.html");
+            args_wmm << cwd.filePath("html/ind_40mm.html");
+            args_wmm << cwd.filePath("html/ind_20mm.html");
+            args_wmm << cwd.filePath("html/ind_10mm.html");
+            args_wmm << cwd.filePath("html/ind_d.html");
+            args_wmm << cwd.filePath("html/bld.html");
+            args_wmm << cwd.filePath("html/cmb.html");
+            args_wmm << cwd.filePath("html/pass.html");
         }
         else if (*i == "mdd")
         {
-            // ui->mdd_export->click();
-            args << cwd.filePath("html/mdd.html");
+            args_wmm << cwd.filePath("html/mdd.html");
         }
         else if (*i == "grad")
         {
-            args << cwd.filePath("html/grad.html");
-            args << cwd.filePath("html/grad_bld.html");
-            args << cwd.filePath("html/grad_jmf.html");
+            args_dbm << cwd.filePath("html/grad.html");
+            args_dbm << cwd.filePath("html/grad_bld.html");
+            args_dbm << cwd.filePath("html/grad_jmf.html");
         }
-
-        fname += "_" + QString::fromStdString(*i);
+        else if (*i == "marshall") {
+            args_dbm << cwd.filePath("html/marshall.html");
+            if (!args_dbm.contains(cwd.filePath("html/properties_curves.html"))) {
+                args_dbm << cwd.filePath("html/properties_curves.html");
+            }
+        } else if (*i == "tensile") {
+            args_dbm << cwd.filePath("html/tensile.html");
+        } else if (*i == "vol") {
+            args_dbm << cwd.filePath("html/determination_of_eff_spg.html");
+            args_dbm << cwd.filePath("html/vol_analysis.html");
+            args_dbm << cwd.filePath("html/vol_obc_analysis.html");
+            if (!args_dbm.contains(cwd.filePath("html/properties_curves.html"))) {
+                args_dbm << cwd.filePath("html/properties_curves.html");
+            }
+        } else if (*i == "wa") {
+            args_dbm << cwd.filePath("html/wa_20.html");
+            args_dbm << cwd.filePath("html/wa_10.html");
+            args_dbm << cwd.filePath("html/wa_dust.html");
+        } else if (*i == "gmm") {
+            args_dbm << cwd.filePath("html/gmm_4.00.html");
+            args_dbm << cwd.filePath("html/gmm_4.25.html");
+            args_dbm << cwd.filePath("html/gmm_4.50.html");
+        } else if (*i == "rheology") {
+            std::vector<QString> rh_exps = {"strip", "softening", "penetration", "ductility", "rh_vis", "flash", "rh_spc"};
+            for (QString exp: rh_exps) {
+                args_dbm << cwd.filePath(QString::fromStdString("html/%1.html").arg(exp));
+            }
+        }
     }
 
-    fname = "REPORT_" + QDateTime::currentDateTime().toString(Qt::ISODateWithMs) + fname + ".pdf";
-    fname.replace(QRegularExpression("[^\\w\\.]"), "_");
-    args << swd.filePath(fname);
+    QString wmm_fname = "WMM_REPORT_" + QDateTime::currentDateTime().toString(Qt::ISODateWithMs) + ".pdf";
+    wmm_fname.replace(QRegularExpression("[^\\w\\.]"), "_");
+    args_wmm << swd.filePath(wmm_fname);
+
+    QString dbm_fname = "DBM_REPORT_" + QDateTime::currentDateTime().toString(Qt::ISODateWithMs) + ".pdf";
+    dbm_fname.replace(QRegularExpression("[^\\w\\.]"), "_");
+    args_dbm << swd.filePath(dbm_fname);
 
     QList<QString>::iterator i;
-    for (i = args.begin(); i != args.end(); ++i)
-        command = command + " " + i->toStdString();
-    qDebug() << command;
+    for (i = args_wmm.begin(); i != args_wmm.end(); ++i)
+        command_wmm = command_wmm + " " + i->toStdString();
+    qDebug() << command_wmm;
+
+    for (auto i: args_dbm) {
+        command_dbm += " " + i.toStdString();
+    } qDebug() << command_dbm;
 
     if (OS != "apple")
     {
-        QProcess *converter = new QProcess();
-        converter->start(program, args);
+        QProcess *converter_wmm = new QProcess();
+        converter_wmm->start(program_wmm, args_wmm);
+
+        QProcess *converter_dbm = new QProcess();
+        converter_dbm->start(program_dbm, args_dbm);
     }
     else
     {
-        QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command.c_str()), QMessageBox::Ok);
+        QMessageBox::information(this, "Copy-Paste this command in your terminal to get your PDF!", QString(command_wmm.c_str()), QMessageBox::Ok);
         std::string output_txt_path = cwd.filePath("output/command.txt").toStdString();
         std::ofstream output_txt_file(output_txt_path, std::ios::out);
         if (output_txt_file.is_open())
         {
-            output_txt_file << command;
+            output_txt_file << command_wmm;
         }
         output_txt_file.close();
     }
@@ -3995,6 +4685,66 @@ void MainWindow::on_grad_export_clicked()
     std::vector<std::string> tracked_files_cpy = tracked_files;
     tracked_files.clear();
     tracked_files.push_back("grad");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_marshall_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("marshall");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_tensile_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("tensile");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_vol_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("vol");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_gmm_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("gmm");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_rheology_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("rheology");
+    ui->actionExport_to_PDF->trigger();
+    tracked_files = tracked_files_cpy;
+
+    qDebug() << tracked_files;
+}
+void MainWindow::on_wa_export_clicked()
+{
+    std::vector<std::string> tracked_files_cpy = tracked_files;
+    tracked_files.clear();
+    tracked_files.push_back("wa");
     ui->actionExport_to_PDF->trigger();
     tracked_files = tracked_files_cpy;
 
@@ -7453,8 +8203,6 @@ void MainWindow::generate_html_grad()
                         case 180:
                             topush = ui->grad_exp_6->text().toStdString();
                             break;
-                        default:
-                            qDebug() << "ilya something petrov";
                         }
                     }
 
@@ -7484,6 +8232,11 @@ void MainWindow::generate_html_grad()
     if (output_grad_bld_file.is_open())
     {
         qDebug() << "output html file opened";
+
+        std::vector<double> max, min, mid;
+        max = {100, 100, 95, 80, 54, 42, 21, 8};
+        min = {100, 90, 71, 56, 38, 28, 7, 2};
+        mid = {100, 95, 83, 68, 46, 35, 14, 5};
 
         QString template_path = cwd.filePath("templates/mdd.html");
         QFile template_file(":/templates/templates/grad_bld.html");
@@ -7560,9 +8313,6 @@ void MainWindow::generate_html_grad()
                     case 72:
                         topush = ui->grad_bsc_4->toPlainText().toStdString();
                         break;
-                    default:
-                        qDebug() << "FlashBack is like the suygetsu of apac";
-                        break;
                     }
                     if ((token >= 4) && (token <= 11))
                     {
@@ -7598,11 +8348,18 @@ void MainWindow::generate_html_grad()
                     else if ((token >= 53) && (token <= 60))
                     {
                         token -= 53;
-                        output_grad_bld_file << bld[QString("bld_%1").arg(1 + token % 10)].toDouble();
+                        output_grad_bld_file << bld[QString("bld_%1").arg(1 + (token % 10))].toDouble();
                     }
                     else if (token == 52)
                     {
-                        output_grad_bld_file << "100";
+                        topush = "100";
+                    } else if ((token >= 61)&&(token <= 68)) {
+                        token -= 61;
+                        output_grad_bld_file << mid[token];
+                    } else if ((token >= 69)&&(token <= 76)) {
+                        output_grad_bld_file << min[token - 69];
+                    } else if ((token >= 77)&&(token <= 84)) {
+                        output_grad_bld_file << max[token - 77];
                     }
 
                     output_grad_bld_file << topush;
@@ -7632,7 +8389,6 @@ void MainWindow::generate_html_grad()
     {
         qDebug() << "output html file opened";
 
-        QString template_path = cwd.filePath("templates/mdd.html");
         QFile template_file(":/templates/templates/dbm_job_mix_formula.html");
         if (!template_file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
@@ -7682,7 +8438,6 @@ void MainWindow::generate_html_grad()
                     }
 
                     std::string topush;
-                    double topushf;
 
                     if (token == 1)
                     {
@@ -7704,7 +8459,7 @@ void MainWindow::generate_html_grad()
                     else if ((token >= 13) && (token <= 20))
                     {
                         token -= 13;
-                        output_grad_jmf_file << bld[QString("bld_%1").arg(1 + token % 10)].toDouble();
+                        output_grad_jmf_file << bld[QString("bld_%1").arg(1 + (token % 10))].toDouble();
                     }
 
                     output_grad_jmf_file << topush;
@@ -9970,13 +10725,14 @@ void MainWindow::wheelEvent(QWheelEvent *event)
             ui->vol_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
         case 4:
-            scroll_pos = ui->rheology_scroll->value();
-            ui->rheology_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
-            break;
-        case 5:
             scroll_pos = ui->gmm_scroll->value();
             ui->gmm_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
+        case 5:
+            scroll_pos = ui->rheology_scroll->value();
+            ui->rheology_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
+            break;
+
         case 6:
             scroll_pos = ui->wa_scroll->value();
             ui->wa_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
