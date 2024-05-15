@@ -178,6 +178,15 @@ private slots:
 
     void generate_html_ind();
 
+    /**
+ * \brief Handles the "Save Project" action.
+ *
+ * This function is triggered when the "Save Project" action is activated. It iterates over all experiment types and simulates a click on the save button for each experiment.
+ *
+ * For each experiment type, it simulates a click on their save button, triggering the save operation for that experiment. If the button is not found, it logs an error message.
+ * Please note the internal workings of the save buttons are not uniform as they were made by different developers in different phases of understanding of programming.
+ *
+ */
     void on_actionSave_Project_triggered();
 
     void on_cd_save_clicked();

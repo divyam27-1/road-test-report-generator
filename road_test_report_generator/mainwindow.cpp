@@ -23,26 +23,30 @@
 #include <functional>
 #include <algorithm>
 
-/* TODO:
-- Generation of HTML for :-
-1) finish graphing (6 graphs) DONION RINGS
-2) make the rheology elements autoupdate on saving DONION RINGS
-3) add link between gmb on vol and gmb on marshall MISSION IMPOSSIBLE
-4) make the pdf packages DONION RINGS
-5) add the export solo buttons
-6) build for distribution
-*/
+/// @file
 
+/// \brief Current working directory. This is used to construct relative references throughout the app to facilitate "save" and "export" operations.
 QDir cwd = QDir::current();
+
+/// \brief Secondary working directory, initially set to the current working directory. When we click the Save As button the secondary working directory is updated to wherever we select our Save As location to be.
 QDir swd = cwd;
+
+/// \brief Result of moving up one directory from the current working directory. Variable `i`is a meaningless variable meant to facilitate the transition of cwd.cdUp() only. We do this because the original cwd points to the location of the .exe file, but when we use relative references in our app system we refer to subdirectories one level above this one.
 bool i = cwd.cdUp();
 
-//T Flip Flop, its used in some functions to fix some bugs
+/// \brief T Flip Flop variable, used in `on_grad_save_clicked()` to fix some bugs
 bool TFF = true;
 
+/// \brief This vector keeps track of which experiment types are saved already.
 std::vector<std::string> tracked_files;
+
+/// \brief Array of all experiment types.
 const std::string all_experiments[] = {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "vol", "gmm", "rheology", "wa"};
+
+/// \brief Vector of all experiment types as QStrings.
 const std::vector<QString> all_exp_qstr {"spc", "aiv", "fei", "ind", "mdd", "grad", "marshall", "tensile", "vol", "gmm", "rheology", "wa"};
+
+/// \brief Mapping from experiment types to their classifications.
 const std::map<QString, QString> exp_classify = {{"spc", "wmm"},
                                                  {"aiv", "wmm"},
                                                  {"fei", "wmm"},
@@ -56,9 +60,24 @@ const std::map<QString, QString> exp_classify = {{"spc", "wmm"},
                                                  {"gmm", "dbm"},
                                                  {"rheology", "dbm"}};
 
+/// \brief String to store the operating system name.
 std::string OS;
+
+/// \brief Flag to indicate whether a 'save as' operation has been done.
 bool saveas_done = false;
 
+
+
+/**
+ * \brief Removes duplicates from a vector and sorts it based on a reference vector.
+ *
+ * This function removes duplicate elements from the input vector `vec`. It then sorts `vec` based on the order of elements in the reference vector `ref`. If an element in `vec` is not found in `ref`, it keeps its relative order. In our case, this function is used to manage the variable "tracked_files".
+ * The `tracked_files` variable is the system's internal tracking system for which experiment types are saved, and the order of experiments with which the report must be generated, as specified by the `all_experiments` variable.
+ *
+ * \param vec The vector from which duplicates are to be removed and which is to be sorted. This parameter is passed by reference and will be modified by the function. In our case this is the `tracked_files` variable.
+ * \param ref The reference vector based on which `vec` is to be sorted. It has a default value of `all_exp_qstr`. In our case we reference the `all_experiments` variable.
+ * \return None
+ */
 void removeDuplicates(std::vector<std::string> &vec, const std::vector<QString> &ref = all_exp_qstr)
 {
     // Remove duplicates from vec
@@ -88,19 +107,56 @@ void removeDuplicates(std::vector<std::string> &vec, const std::vector<QString> 
     std::sort(vec.begin(), vec.end(), comparator);
 }
 
+
+/**
+ * \brief Constructs a MainWindow object.
+ *
+ * This constructor initializes the MainWindow with the given parent widget. It sets up the UI, creates necessary directories, moves certain frames, adds graphs to the UI, hides certain labels, and checks the operating system.
+ * 1) It makes the directories that store the neccessary parts of the app
+ *      a) json directory:      This stores the database of all experiments in JSON format. Every major experiment that has a tab in the UI will have a seperate JSON file thats formatted in its own way. To look at the formattings of the JSON files look at the documentation for the save JSON functions.
+ *      b) templates directory: Stores HTML templates which are filled with data from the JSON in order to generate the report in HTML format. This directory is redundant as the app now uses the more advanced qresources system. However its still kept as a vestigial from when we referenced an external directory to read a template for HTML construction.
+ *      c) output directory:    This is where output is stored DURING DEBUGGING. During debugging process, the file system of Qt is different from the file system of the release level build. If no save directory is specified using the Save As buttons, during debugging the report will be saved here. However during production, the report will be saved in the same directory as the EXE file is.
+ *      d) html directory:      Stores HTML reports. The reports are initially saved in the HTML format. When the export actions are called by clicking the Export to PDF buttons or by invoking the Export ALL action from the top bar, the wkhtmltopdf library is called. wkhtmltopdf is a foundational library which converts a custom HTML file into a PDF.
+ *
+ * 2) It moves all scrollable frames to their default (0,0) position. Scrolling using the default QScrollArea method was not working properly in our dev environment. So we improvised a scrolling area by using a movable child frame inside parent frame technique. The main function ensures the child frames are in their proper position before the starting of the program.
+ *
+ * 3) Adds graphs to the QCustomPlot plottable objects
+ *
+ * 4) Hides the labels of some graphs which were annoying and in the way during the display
+ *
+ * 5) Checks and interprets the Operating System of the user. Updates the `OS` variable locally.
+ *
+ * \param parent The parent widget. Defaults to nullptr.
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
+    // Set up the UI for this window
     ui->setupUi(this);
+
+    // Create necessary directories
     cwd.mkdir("json");
     cwd.mkdir("templates");
     cwd.mkdir("output");
     cwd.mkdir("html");
 
-    ui->spc_frame->move(0, 0);
-    ui->aiv_frame->move(0, 0);
-    ui->ind_frame->move(0, 0);
+    // Move certain frames
+    std::vector<QString> scrollable_exps = {"spc", "aiv", "ind", "grad", "marshall", "vol", "gmm", "rheology", "wa"};
+    for (QString exp: scrollable_exps) {
+        QString frame_name = QString::fromStdString("%1_frame").arg(exp);
+        QFrame *frame_obj = ui->stackedWidget->findChild<QFrame *>(frame_name);
 
+        if (frame_obj) {
+            frame_obj->move(0,0);
+        } else {
+            qDebug() << "FRAME ERROR: frame of exp" << exp << "with frame name" << frame_name << "can not be moved";
+        }
+    }
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->wmm_tab_list->setCurrentIndex(0);
+    ui->dbm_tab_list->setCurrentIndex(0);
+
+    // Add graphs to the UI
     for (int i = 0; i < 4; i++)
     {
         ui->ind_graph_1->addGraph();
@@ -113,9 +169,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->grad_graph_2->addGraph();
     ui->grad_graph_2->addGraph();
 
+    // Hide certain labels
     ui->grad_bld_graph_label->hide();
     ui->jmf_graph_label->hide();
 
+// Check the operating system
 #ifdef _WIN32
     OS = "win";
 #elif __linux__
@@ -124,9 +182,11 @@ MainWindow::MainWindow(QWidget *parent)
     OS = "apple";
 #endif
 
+    // Debugging information
     qDebug() << OS;
     qDebug() << cwd;
 
+    // Check if save operation is done
     save_check();
 }
 
@@ -137,15 +197,31 @@ MainWindow::~MainWindow()
 
 
 
-// Deals with saving to JSON
-void MainWindow::on_actionSave_Project_triggered()
+//The next block of functions handles Saving to JSON
+/**
+ * \brief Handles the "Save Project" action.
+ *
+ * This function is triggered when the "Save Project" action is activated. It iterates over all experiment types and simulates a click on the save button for each experiment.
+ *
+ * For each experiment type, it simulates a click on their save button, triggering the save operation for that experiment. If the button is not found, it logs an error message.
+ * Please note the internal workings of the save buttons are not uniform as they were made by different developers in different phases of understanding of programming.
+ *
+ */void MainWindow::on_actionSave_Project_triggered()
 {
-    ui->spc_save->click();
-    ui->fei_save->click();
-    ui->aiv_save->click();
-    ui->ind_save->click();
-    ui->grad_save->click();
+    for (QString exp: all_exp_qstr) {
+        QString save_button_name = QString::fromStdString("%1_save").arg(exp);
+        QPushButton *save_button_obj = ui->stackedWidget->findChild<QPushButton *>(save_button_name);
+
+        if (save_button_obj) {
+            save_button_obj->click();
+        } else {
+            qDebug() << "PUSH BUTTON ERROR: push button of exp" << exp << "with name" << save_button_name << "can not be clicked";
+        }
+    }
 }
+/**
+ * \brief Invokes the subfunctions to save the `specific_gravity` experiment data.
+ */
 void MainWindow::on_spc_save_clicked()
 {
     ui->spc_save_0mm->click();
@@ -153,16 +229,19 @@ void MainWindow::on_spc_save_clicked()
     ui->spc_save_20mm->click();
     ui->spc_save_40mm->click();
 }
+/// \brief Invokes the subfunctions to save the Flakiness and Elongation Indices experiment
 void MainWindow::on_fei_save_clicked()
 {
     ui->save_ss->click();
     ui->save_fei->click();
 }
+/// \brief Invokes the subfunctions to save the Aggregate Impact Values experiment
 void MainWindow::on_aiv_save_clicked()
 {
     ui->aiv_save_10mm->click();
     ui->aiv_save_20mm->click();
 }
+/// \brief Invokes the subfunctions to save the Individual Gradation experiment. Then invokes the function that updates the graph of the Individual Gradation experiment.
 void MainWindow::on_ind_save_clicked()
 {
     ui->idg_save_40mm->click();
@@ -172,6 +251,40 @@ void MainWindow::on_ind_save_clicked()
     ui->cd_save->click();
     updateGraph_idg();
 }
+/**
+ * \brief Handles the 'Save' button click event for the MDD experiment.
+ *
+ * This function is triggered when the 'Save' button is clicked in the MDD experiment window. It performs several operations to save the data related to the 'mdd' experiment into a JSON file.
+ *
+ * 1) It adds "mdd" to the `tracked_files` vector and removes any duplicates.
+ *
+ * 2) It reads the text from various UI elements, converts them to float, and stores them in a 2D array `mdd_ds`.
+ *
+ * 3) It calculates the wet density, weight of water, weight of dry sample, water content, and dry density for each set of data and stores them in a QJsonObject `mdd`.
+ *
+ * 4) It opens the `mdd.json` file in the `json` directory and writes the `mdd` QJsonObject into it in JSON format.
+ *
+ * 5) If the file cannot be opened, it logs a debug message.
+ *
+ * 6) Finally, it calls the `save_check()` function.
+ *
+ * The structure of the saved JSON file is as follows:
+ * - For each set of data (from 0 to 4), it contains:
+ *   - `wsm#`: Weight of soil mass
+ *   - `ws#`: Weight of soil
+ *   - `tray#`: Weight of tray
+ *   - `wt_tray#`: Weight of wet tray
+ *   - `wst#`: Weight of soil tray
+ *   - `wdst#`: Weight of dry soil tray
+ *   - `wds#`: Wet density of soil
+ *   - `ww#`: Weight of water
+ *   - `wdsm#`: Weight of dry soil mass
+ *   - `water_content#`: Water content
+ *   - `density#`: Dry density
+ * - It also contains `mass` and `vol` which represent the mass and volume respectively.
+ *
+ * \note The '#' in the keys represents the index of the set of data (from 0 to 4).
+ */
 void MainWindow::on_mdd_save_clicked()
 {
     tracked_files.push_back("mdd");
@@ -258,6 +371,44 @@ void MainWindow::on_mdd_save_clicked()
 
     save_check();
 }
+/**
+ * \brief Handles the 'Save' button click event in the MainWindow for the gradation experiment.
+ *
+ * This function is triggered when the 'Save' button is clicked in the MainWindow for the gradation experiment. It performs several operations to save the data related to the 'grad' experiment into a JSON file.
+ *
+ * 1) It adds "grad" to the `tracked_files` vector and removes any duplicates.
+ *
+ * 2) It calls the `updateGraph_grad()` function to update the gradation graph.
+ *
+ * 3) It creates a QJsonObject `grad_json` to store the gradation data.
+ *
+ * 4) It loops over different types of experiments (21mm, 16mm, 4mm), and for each experiment, it loops over different sieve values and samples of a sieve value. For each sample, it reads the value from the corresponding QLineEdit, calculates the average and the proportion of the average for the final mix, and stores them in `grad_json`.
+ *
+ * 5) It calculates the weighted average of the sample averages across different experiments to blend them and stores them in `grad_json`.
+ *
+ * 6) It saves the sieve sizes in `grad_json`.
+ *
+ * 7) It opens the `grad.json` file in the `json` directory and writes the `grad_json` QJsonObject into it in JSON format.
+ *
+ * 8) If the file cannot be opened, it shows a message box with an error message.
+ *
+ * 9) Finally, it calls the `save_check()` function and toggles the `TFF` flag.
+ *
+ * The structure of the saved JSON file is as follows:
+ * - For each type of experiment (25-16mm, 16-4.75mm, below_4.75mm), it contains:
+ *   - `proportion`: The proportion of this experiment in the dbm mixture
+ *   - For each sieve value (from 1 to 8), it contains:
+ *     - `grad_pij_k`: The sample data
+ *     - `avg_j`: The average of the sample data
+ *     - `prop_avg_j`: The proportion of the average for the final mix
+ *   - Here is the explanation of i, j and k:
+ *     - `i` here refers to size of the gradation dust. It is 1 for 25mm, 2 for 16mm, 3 for 4.75mm etc.
+ *     - `j` here refers to the seive size. It varies from 1 - 8 as the seive size decreases exponentially.
+ *     - `k` here refers to the individual sample. 5 samples contribute to the average value `avg_j`, so the `k` variable varies from 1 - 5
+ *
+ * - `blending`: The weighted average of the sample averages across different experiments. Contains `bld_j` keys varying from 1 - 8 with the blended values of each seive width.
+ * - `seive_sizes`: The sieve sizes. `is_seive_j` varying from 1 - 8.
+ */
 void MainWindow::on_grad_save_clicked()
 {
     tracked_files.push_back("grad");
@@ -410,6 +561,48 @@ void MainWindow::on_grad_save_clicked()
         TFF = true;
     }
 }
+/**
+ * \brief Handles the 'Save' button click event in the MainWindow for the tensile experiment.
+ *
+ * This function is triggered when the 'Save' button is clicked in the MainWindow for the tensile experiment. It performs several operations to save the data related to the 'tensile' experiment into a JSON file.
+ *
+ * 1) It adds "tensile" to the `tracked_files` vector and removes any duplicates.
+ *
+ * 2) It creates QJsonObjects `tensile_json`, `min_30`, and `hr_24` to store the tensile data.
+ *
+ * 3) It reads the values from various UI elements and stores them in `min_30` and `hr_24`.
+ *
+ * 4) It loops over different types of experiments and for each experiment, it reads the value from the corresponding QLineEdit and stores it in `min_30` or `hr_24`.
+ *
+ * 5) It calculates the volume, weight in air, load, corrected load, and averages for each experiment and stores them in `min_30` or `hr_24`.
+ *
+ * 6) It calculates the water sensitivity and stores it in `tensile_json`.
+ *
+ * 7) It adds `min_30`, `hr_24`, and the ring value to `tensile_json`.
+ *
+ * 8) It opens the `tensile.json` file in the `json` directory and writes the `tensile_json` QJsonObject into it in JSON format.
+ *
+ * 9) If the file cannot be opened, it logs a debug message.
+ *
+ * 10) Finally, it calls the `save_check()` function.
+ *
+ * The structure of the saved JSON file is as follows:
+ * - `30mins` and `24hrs`: These are QJsonObjects that contain the tensile data for the 30 minutes and 24 hours experiments respectively. For each experiment, they contain:
+ *   - `tensile_btmn`: The bottom value
+ *   - `tensile_wt_i_j`, `tensile_ssd_i_j`, `tensile_gmb_i_j`, `tensile_read_i_j`, `tensile_corr_i_j`, `tensile_flow_i_j`: The sample data
+ *   - `tensile_wt_i_j_vol`: The volume
+ *   - `tensile_ssd_wt_diff_i_j`: The weight in air
+ *   - `tensile_read_i_j_load`: The load
+ *   - `tensile_corrected_load_i_j`: The corrected load
+ *   - `avg_gmb`, `avg_corrected_load`, `avg_flow`: The averages
+ * Here is what `i` and `j` mean:
+ *   - `i` refers to the experiment Time Period, it is 1 for 30 Minute experiment and 2 for 24 Hour experiment
+ *   - `j` refers to the sample number. It varies from 1 to 3.
+ * - `ring`: The ring value
+ * - `water_sensitivity`: The water sensitivity
+ *
+ * \note Please refer to the excel sheet provided by Ehtesham for more reference behind the meaning of these variables.
+ */
 void MainWindow::on_tensile_save_clicked()
 {
     tracked_files.push_back("tensile");

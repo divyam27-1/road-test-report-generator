@@ -1,0 +1,283 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}\index{road\_test\_report\_generator/mainwindow.h@{road\_test\_report\_generator/mainwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QEvent>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QWheelEvent>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Ui\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}};\ \}}
+\DoxyCodeLine{00013\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_main_window}{\string~MainWindow}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_main_window_1_1basic__info}{basic\_info}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ QString\ name\_of\_work;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ QString\ name\_of\_client;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ QString\ name\_of\_consultant;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ QString\ name\_of\_contractor;}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_main_window_1_1exp__info}{exp\_info}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ QString\ date\_of\_sampling;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ QString\ date\_of\_testing;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ QString\ sample\_no;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ QString\ sample\_at;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ QString\ source\_of\_material;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ QString\ \mbox{\hyperlink{struct_main_window_1_1type__of__material}{type\_of\_material}};}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_main_window_1_1type__of__material}{type\_of\_material}}\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Weight\_of\_sample\_of\_water[5][4];}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ \ \ \ \ array[0][0-\/3]\ =\ material\_type\ =\ 10mm}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ \ \ \ \ \ array[1][0-\/3]\ =\ material\_type\ =\ 20mm}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ \ \ \ \ \ \ array[2][0-\/3]\ =\ material\_type\ =\ 30mm\ and\ so\ on...}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Weight\_of\_SSD\_Sample[5][4];}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Weight\_of\_Oven\_dry\_sample[5][4];}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_token(std::string\ line,\ \textcolor{keywordtype}{int}\ pos,\ \textcolor{keywordtype}{int}\ *output);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//fei}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ passing[10];}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ retained[10];}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ A[15];}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{float}\ B[15];}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ C[15];}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ D[15];}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ flakiness\_index;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ elongation\_index;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ combined\_f\_e\_index;\textcolor{comment}{//fei}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//AIV}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ weight\_of\_cylinder[3][4];}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ weight\_of\_cylinder\_sample[3][4];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{float}\ weight\_crushed\_material[3][4];}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ weight\_of\_sample[3][4];}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ aggregate\_impact\_value[3][4];}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ avg\_aggregate\_impact\_value\_10;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{float}\ avg\_aggregate\_impact\_value\_20;}
+\DoxyCodeLine{00066\ \textcolor{comment}{//fei}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//individual\ gradation}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ is\_sieve\_40[5][9];}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ weight\_of\_retained\_40[5][9];}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ ind\_cumulative[5][9];}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{float}\ ind\_cumulative\_percent[5][9];}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{float}\ ind\_cum\_pass[5][9];}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ total\_weight[3];}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ std::vector<std::string>\ tracked\_files;}
+\DoxyCodeLine{00077\ \ \ \ \ std::string\ OS;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a741bd3faf7631fbd0219896c2c7a5252}{save\_check}}();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_spc();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_grad();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ QJsonObject\ soft\_eval(QJsonObject\ soft\_in);}
+\DoxyCodeLine{00085\ \ \ \ \ QJsonObject\ strip\_eval(QJsonObject\ strip\_in);}
+\DoxyCodeLine{00086\ \ \ \ \ QJsonObject\ pen\_eval(QJsonObject\ pen\_in);}
+\DoxyCodeLine{00087\ \ \ \ \ QJsonObject\ ductility\_eval(QJsonObject\ ductility\_in);}
+\DoxyCodeLine{00088\ \ \ \ \ QJsonObject\ flash\_eval(QJsonObject\ flash\_in);}
+\DoxyCodeLine{00089\ \ \ \ \ QJsonObject\ viscosity\_eval(QJsonObject\ viscosity\_in);}
+\DoxyCodeLine{00090\ \ \ \ \ QJsonObject\ spc\_eval(QJsonObject\ spc\_in);}
+\DoxyCodeLine{00091\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_fei\_export\_clicked();}
+\DoxyCodeLine{00093\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_save\_10mm\_clicked();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_save\_20mm\_clicked();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a4ee5b6bb16d84412db015c888df42a7c}{on\_spc\_save\_clicked}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_data\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_save\_40mm\_clicked();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_ind\_data\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_data\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_save\_0mm\_clicked();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_save\_fei\_clicked();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_save\_ss\_clicked();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_fei();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_save\_20mm\_clicked();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_21\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_11\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_12\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_22\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_13\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_23\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_11\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_12\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_13\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_21\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_22\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_23\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_41\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_41\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_42\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_43\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_42\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_43\_textChanged(\textcolor{keyword}{const}\ QString\ \&arg1);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_20\_6\_clicked();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_10\_6\_clicked();}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_aff43f5c9cc81e4a5cd72972f8367ac8a}{on\_fei\_save\_clicked}}();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionExport\_to\_PDF\_triggered();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_save\_10mm\_clicked();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_aiv();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a4ecc054b847ca8cb6e3ddcdcb6b67b86}{on\_aiv\_save\_clicked}}();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_idg\_save\_40mm\_clicked();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a354e1cd42e3f29e1c2e760d979b1e418}{on\_ind\_save\_clicked}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_idg\_save\_20mm\_clicked();}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_idg\_save\_10mm\_clicked();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_idg\_save\_d\_clicked();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_ind();}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a2c0b4749e87a080a5bb6026dd23a102f}{on\_actionSave\_Project\_triggered}}();}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_cd\_save\_clicked();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_ind\_graph\_update\_clicked();}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ updateGraph\_idg();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ updateGraph\_mdd();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_mdd\_save\_update\_clicked();}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a1f80b73959e6e91e0c53b4565d44875a}{on\_mdd\_save\_clicked}}();}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_mdd();}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_saveas\_clicked();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_fei\_saveas\_clicked();}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_saveas\_clicked();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_ind\_saveas\_clicked();}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_mdd\_saveas\_clicked();}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a09f58e87586ddd92584ac8bb3811d2ba}{on\_grad\_save\_clicked}}();}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_grad\_data\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{void}\ updateGraph\_grad();}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionWMM\_triggered();}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionDBM\_triggered();}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_spc\_export\_clicked();}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_aiv\_export\_clicked();}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_ind\_export\_clicked();}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_mdd\_export\_clicked();}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_grad\_export\_clicked();}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_grad\_saveas\_clicked();}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_tensile\_save\_clicked();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_marshall\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_marshall\_saveas\_clicked();}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_tensile\_saveas\_clicked();}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_vol\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_marshall\_save\_clicked();}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_gmm\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_rheology\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_vol\_save\_clicked();}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_wa\_scroll\_valueChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_gmm\_save\_clicked();}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_rheology\_save\_clicked();}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_wa\_save\_clicked();}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_vol\_saveas\_clicked();}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_gmm\_saveas\_clicked();}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_rheology\_saveas\_clicked();}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_wa\_saveas\_clicked();}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_marshall\_export\_clicked();}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_tensile\_export\_clicked();}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_vol\_export\_clicked();}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_gmm\_export\_clicked();}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_rheology\_export\_clicked();}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_wa\_export\_clicked();}
+\DoxyCodeLine{00266\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{float}\ scroll\_sens;}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ Ui::MainWindow\ *ui;}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{void}\ wheelEvent(QWheelEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_tensile();}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_marshall();}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_vol();}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_gmm();}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_rheology();}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_html\_wa();}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{void}\ updateGraph\_dbm();}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_gmb\_graph(std::vector<QJsonObject>\ marshall\_levels);}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_stability\_graph(std::vector<QJsonObject>\ marshall\_levels);}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_flow\_graph(std::vector<QJsonObject>\ marshall\_levels);}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_va\_graph(std::vector<QJsonObject>\ marshall\_levels,\ QJsonObject\ vol);}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_vma\_graph(std::vector<QJsonObject>\ marshall\_levels,\ QJsonObject\ vol);}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_bitumen\_vfb\_graph(std::vector<QJsonObject>\ marshall\_levels,\ QJsonObject\ vol);}
+\DoxyCodeLine{00285\ \};}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_H}}
+
+\end{DoxyCode}
