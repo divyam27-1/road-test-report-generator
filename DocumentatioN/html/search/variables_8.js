@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tff_0',['TFF',['../d8/dd9/mainwindow_8cpp.html#a99f7b123b12f9be29d81773c3084f430',1,'mainwindow.cpp']]],
-  ['tracked_5ffiles_1',['tracked_files',['../d8/dd9/mainwindow_8cpp.html#a4658cc6df663e8eb196c053d0ae5eca9',1,'mainwindow.cpp']]]
+  ['vol_5fnon_5fscrolling_5felements_0',['vol_non_scrolling_elements',['../d6/dcd/group___scroll_funcs.html#gab89dc7b11bbc187dc1fe1c2596b46def',1,'mainwindow.cpp']]]
 ];

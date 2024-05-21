@@ -23,6 +23,16 @@
 #include <functional>
 #include <algorithm>
 
+/* TODO
+- Finish documentation for JSON structure of on_wa_save_clicked()
+- Finish documentation for JSON save as functions
+- Finish documentation for HTML generation functions
+- Finish documentation for JSON subfunctions
+- Finish documentation for Graph Generation functions
+- Finish documentation for Scroll Control functions
+- Finish documentation for Switching Windows functions
+- Finish documentation for the AIV AutoUpdating dogshit*/
+
 /// @file
 
 /// \brief Current working directory. This is used to construct relative references throughout the app to facilitate "save" and "export" operations.
@@ -197,8 +207,144 @@ MainWindow::~MainWindow()
 
 
 
-//The next block of functions handles Saving to JSON
 /**
+ * @ingroup MiscFuncs
+ * @brief Checks the save status of all experiments and generates the corresponding HTML files.
+ *
+ * This function iterates over all experiments and checks if they are present in the tracked_files.
+ * If an experiment is tracked, it sets the corresponding indicator to the saved icon.
+ * If not, it sets the indicator to the unsaved icon.
+ * After checking the save status, it generates the corresponding HTML file for each tracked file by calling the generate_html function for the appropriate experiments.
+ *
+ * This function must be called at the end of the 'save' function of any experiment, to first verify the save state of the experiment and to
+ * automatically generate the HTML files regarding the experiment
+ *
+ * @note This function does not take any parameters or return any values.
+ */
+void MainWindow::save_check()
+{
+    // Iterate over all experiments
+    for (auto exp : all_experiments)
+    {
+        // Find the experiment in the tracked files
+        if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end())
+        {
+            // Get the save indicator for the experiment
+            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
+            if (indicator)
+            {
+                // Set the indicator to the saved icon
+                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon.png"));
+                if (indicator->height() < 200)
+                {
+                    // Use a smaller icon for small indicators
+                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon_small.png"));
+                }
+            }
+        }
+        else
+        {
+            // Get the save indicator for the experiment
+            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
+            if (indicator)
+            {
+                // Set the indicator to the unsaved icon
+                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon.png"));
+                if (indicator->height() < 200)
+                {
+                    // Use a smaller icon for small indicators
+                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon_small.png"));
+                }
+            }
+        }
+    }
+
+    // Generate the corresponding HTML file for each tracked file
+    for (auto file : tracked_files)
+    {
+        if (file == "spc")
+        {
+            generate_html_spc();
+        }
+        else if (file == "fei")
+        {
+            generate_html_fei();
+        }
+        else if (file == "aiv")
+        {
+            generate_html_aiv();
+        }
+        else if (file == "ind")
+        {
+            generate_html_ind();
+        }
+        else if (file == "mdd")
+        {
+            generate_html_mdd();
+        }
+        else if (file == "grad")
+        {
+            generate_html_grad();
+        }
+        else if (file == "tensile")
+        {
+            generate_html_tensile();
+        }
+        else if (file == "vol")
+        {
+            generate_html_vol();
+        }
+        else if (file == "gmm")
+        {
+            generate_html_gmm();
+        }
+        else if (file == "rheology")
+        {
+            generate_html_rheology();
+        }
+        else if (file == "marshall")
+        {
+            generate_html_marshall();
+        }
+        else if (file == "wa")
+        {
+            generate_html_wa();
+        }
+    }
+}
+
+
+
+/** @defgroup SaveFunctions Save to JSON functions
+ *  @brief These functions handle 'Save' requests for different tabs
+ *
+ *  All the save functions and subfunctions have a similar general algorithm.
+ *  1) First, the experiment to be saved is added into `tracked_files`, which is the app system's internal tracking system of which files are already saved and which ones arent.
+ *  2) Then a transform is applied on the `tracked_files` variable called `removeDuplicates` which orders the file system according to the desired order in which they appear in the report.
+ *  3) Then the UI element data is extracted and loaded into an intermediate data structure. In earlier stages of development this was done manually however in the later stages it was done recursively or iteratively. In the even later stages we discovered a more streamlined method of saving files so saving was done with a mixture of direct saving to QJsonObject data structures instead of intermediate data structures, and other subfunctions.
+ *  4) The intermediate data structure is formatted and dumped into a QJsonObject. In later stages of developement we directly started dumping values into QJsonObject as it was more streamlined, easier to read and resulted in lower memory consumption and faster developement times.
+ *  5) The QJsonObjects are formatted into a saveable QFile document and then passed into the Qt File System to save into the hard drive. This is OS indpedpendant.
+ *  6) The `save_check` function is called at the end of every save operation. The `save_check` function is more detailed explained on its own page, however its basic working is as follows: It marks every item in the `tracked_files` tracker as saved and updates the visual display of the UI to relfect those changes. Once the changes have been identified, it calls upon the HTML Generator functions to generate the HTML Report for the saved documents.
+ *
+ *  This group contains the top level functions that save experiments to JSON and are triggered by clicking the Save button on the top of the screen.
+ *  Here is the list of functions currently in this group:
+ *  - `spc`: Specific Gravity. This function calls 4 minor sub functions that facilitate the save operation
+ *  - `fei`: Flakiness and Elongation Indices. This function calls the 2 subfunctions that facilitate the save operation
+ *  - `aiv`: Aggregate Impact Value. This function calls the subfunctions that facilitate the save operation
+ *  - `ind`: Individual Gradation. This function calls the subfunctions that facilitate the save operation. Then it updates and saves the graph of Individual Gradation
+ *  - `mdd`: Saves the values of MDD by loading them into a data structure then sorting the data structure into a JSON file. From this point onwards we started relying less on subfunctions and more on manual saving inside the top level function itself because of modularity and reusability of code, also to shorten developer times. The following save operators all use the same logic and thus will not be elaborated.
+ *  - `grad`: DBM Gradation
+ *  - `tensile`: Tensile Strength Ratio
+ *  - `marshall`: Marshall Test
+ *  - `vol`: Volumetric Analysis
+ *  - `gmm`: Maximum Gravity of Paving Mixture
+ *  - `rheology`: This is not a major experiment. In the spreadsheet shared by Ehtesham there were many minor single calculation worth experiments which could be condensed into a single bracket. So I have made a class `rheology` to store all the small scale experiments relating to the physical and chemical characteristics of bitumen.
+ *  - `wa`: Water Adsorption
+ */
+
+// Saving to JSON
+/**
+ * \ingroup SaveFunctions
  * \brief Handles the "Save Project" action.
  *
  * This function is triggered when the "Save Project" action is activated. It iterates over all experiment types and simulates a click on the save button for each experiment.
@@ -206,7 +352,8 @@ MainWindow::~MainWindow()
  * For each experiment type, it simulates a click on their save button, triggering the save operation for that experiment. If the button is not found, it logs an error message.
  * Please note the internal workings of the save buttons are not uniform as they were made by different developers in different phases of understanding of programming.
  *
- */void MainWindow::on_actionSave_Project_triggered()
+ */
+void MainWindow::on_actionSave_Project_triggered()
 {
     for (QString exp: all_exp_qstr) {
         QString save_button_name = QString::fromStdString("%1_save").arg(exp);
@@ -220,6 +367,7 @@ MainWindow::~MainWindow()
     }
 }
 /**
+ * \ingroup SaveFunctions
  * \brief Invokes the subfunctions to save the `specific_gravity` experiment data.
  */
 void MainWindow::on_spc_save_clicked()
@@ -229,18 +377,21 @@ void MainWindow::on_spc_save_clicked()
     ui->spc_save_20mm->click();
     ui->spc_save_40mm->click();
 }
+/// \ingroup SaveFunctions
 /// \brief Invokes the subfunctions to save the Flakiness and Elongation Indices experiment
 void MainWindow::on_fei_save_clicked()
 {
     ui->save_ss->click();
     ui->save_fei->click();
 }
+/// \ingroup SaveFunctions
 /// \brief Invokes the subfunctions to save the Aggregate Impact Values experiment
 void MainWindow::on_aiv_save_clicked()
 {
     ui->aiv_save_10mm->click();
     ui->aiv_save_20mm->click();
 }
+/// \ingroup SaveFunctions
 /// \brief Invokes the subfunctions to save the Individual Gradation experiment. Then invokes the function that updates the graph of the Individual Gradation experiment.
 void MainWindow::on_ind_save_clicked()
 {
@@ -252,6 +403,7 @@ void MainWindow::on_ind_save_clicked()
     updateGraph_idg();
 }
 /**
+ * \ingroup SaveFunctions
  * \brief Handles the 'Save' button click event for the MDD experiment.
  *
  * This function is triggered when the 'Save' button is clicked in the MDD experiment window. It performs several operations to save the data related to the 'mdd' experiment into a JSON file.
@@ -372,6 +524,7 @@ void MainWindow::on_mdd_save_clicked()
     save_check();
 }
 /**
+ * \ingroup SaveFunctions
  * \brief Handles the 'Save' button click event in the MainWindow for the gradation experiment.
  *
  * This function is triggered when the 'Save' button is clicked in the MainWindow for the gradation experiment. It performs several operations to save the data related to the 'grad' experiment into a JSON file.
@@ -562,6 +715,7 @@ void MainWindow::on_grad_save_clicked()
     }
 }
 /**
+ * \ingroup SaveFunctions
  * \brief Handles the 'Save' button click event in the MainWindow for the tensile experiment.
  *
  * This function is triggered when the 'Save' button is clicked in the MainWindow for the tensile experiment. It performs several operations to save the data related to the 'tensile' experiment into a JSON file.
@@ -839,6 +993,51 @@ void MainWindow::on_tensile_save_clicked()
     }
     save_check();
 }
+/**
+ * \ingroup SaveFunctions
+ * \brief Saves data related to Marshall experiments into a JSON file.
+ *
+ * This function saves experiment data related to Marshall tests into a JSON file. It retrieves data from various QLineEdit objects in the UI, performs calculations, and structures the data into a JSON format. The JSON file structure consists of five levels (level_1 to level_5), each containing experiment data for a specific set of tests.
+ *
+ * The JSON file structure:
+ * - 'level_1' to 'level_5': These are the top level JSON Objects. The Marshall Test is iterated 5 times with different Bitumen content %age, the 5 levels manifest that
+ * - Inside each level, there are many variables:
+ *   - `marshall_i_00` stores the level of Bitumen content %age of the test
+ *   - The user input values are saved in the format `marshall_i_jk`
+ *   - The calculated values are saved in the format `marshall_<exp_name>_i_j`
+ *   - `avg_flow`, `avg_gmb`, `avg_stability` list out the averages of the specified attribute across the 3 samples per level
+ *   - `i`, `j`, `k`, <exp_name> in the preceeding variable names mean the following thing:
+ *     - `i`: The index of level of Bitumen content %age. Varies from 1 to 5, it is the same as the top level 'level_i' (so only one i per top level object)
+ *     - `j`: The index of the sample per level. In each level, 3 sample experiments are done and the results are averaged out among them to get the final value of an attribute of a level. Varies from 1 to 3
+ *     - `k`: The index of the experiment itself (for user input attributes only)
+ *        k | Name of Attribute
+ *        - | -----------------
+ *        1 | Weight in Air
+ *        2 | SSD Weight in Water
+ *        3 | Bulk Density (it is also reffered to as GMB in parts of the code and documentation)
+ *        4 | Reading
+ *        5 | Volume Correction Factor
+ *        6 | Flow Rate
+ *
+ *     - <exp_name>: One of `vol`, `wt_water`, `load`, `corrected_load`. These names are pretty self explanatory.
+ *
+ * Data Retrieval and Processing:
+ * - QLineEdit objects containing experiment data are retrieved from the UI.
+ * - Data is processed and structured into appropriate JSON objects.
+ * - Calculations are performed, including averaging and stability calculations.
+ * - Error handling is implemented for missing QLineEdit objects.
+ *
+ * Saving to JSON:
+ * - The constructed JSON objects are written to a JSON file named "marshall.json" in the "json" directory.
+ * - The JSON file is formatted using QTextStream and QJsonDocument.
+ * - Error handling is implemented for file opening failures.
+ *
+ * External Functions:
+ * - updateGraph_dbm(): Updates the graph in the UI with the latest data.
+ * - save_check(): Performs checks and actions related to saving operations.
+ *
+ * \see updateGraph_dbm(), save_check()
+ */
 void MainWindow::on_marshall_save_clicked()
 {
 
@@ -1430,6 +1629,41 @@ int k = 2;
     updateGraph_dbm();
     save_check();
 }
+/**
+ * \ingroup SaveFunctions
+ * \brief Saves data related to Volumetric Analysis experiments into a JSON file.
+ *
+ * This function saves experiment data related to Volumetric Analysis tests into a JSON file. It retrieves data from various QLineEdit objects in the UI, performs calculations, and structures the data into a JSON format. The JSON file structure consists of two main sections: 'spg' and 'composition'.
+ *
+ * The JSON file structure:
+ * - 'spg': This section contains specific gravity data. It includes:
+ *   - `vol_apparent_#`, `vol_bulk_#`, `vol_total_#`, `vol_btmn_#`: The sample data
+ *   - `vol_eff_#`: The effective volume
+ *
+ * - 'composition': This section contains the composition data. It includes:
+ *   - `vol_p#_#`, `vol_pb_#`, `vol_gsb_#`, `vol_gmm_#`, `vol_gmb_#`: The sample data
+ *   - `vol_ps_#`, `vol_vma_#`, `vol_va_#`, `vol_vfb_#`: The calculated values
+ *
+ * In the above keys:
+ * - `#` represents the index of the experiment or the sample. It varies from 1 - 5. It is also stand to 'obc' for values in the Optimum Binder Concentration.
+ *
+ * Data Retrieval and Processing:
+ * - QLineEdit objects containing experiment data are retrieved from the UI.
+ * - Data is processed and structured into appropriate JSON objects.
+ * - Calculations are performed, including averaging and stability calculations.
+ * - Error handling is implemented for missing QLineEdit objects.
+ *
+ * Saving to JSON:
+ * - The constructed JSON objects are written to a JSON file named "vol.json" in the "json" directory.
+ * - The JSON file is formatted using QTextStream and QJsonDocument.
+ * - Error handling is implemented for file opening failures.
+ *
+ * External Functions:
+ * - updateGraph_dbm(): Updates the graph in the UI with the latest data.
+ * - save_check(): Performs checks and actions related to saving operations.
+ *
+ * \see updateGraph_dbm(), save_check()
+ */
 void MainWindow::on_vol_save_clicked()
 {
 
@@ -1576,6 +1810,38 @@ void MainWindow::on_vol_save_clicked()
     updateGraph_dbm();
     save_check();
 }
+/**
+ * \ingroup SaveFunctions
+ * \brief Saves data related to Gyratory Marshall Mix tests into a JSON file.
+ *
+ * This function saves experiment data related to Gyratory Marshall Mix (GMM) tests into a JSON file. It retrieves data from various QLineEdit objects in the UI, performs calculations, and structures the data into a JSON format. The JSON file structure consists of three levels representing different Bitumen content percentages (4.00%, 4.25%, and 4.50%).
+ *
+ * The JSON file structure:
+ * - For each Bitumen content percentage, there are 5 experiments. Each bitumen content percentage is stored in a top level JSON object corresponding to the percentage of Bitumen {'4.00', '4.25', '4.50'} etc.
+ * - Inside each experiment, 2 samples are taken
+ *   - Each experiment contains the following variables:
+ *     - `gmm_<j>_<k>` stores the experiment data, where `<j>` represents the sample number per Bitumen content percentage and `<k>` represents the experiment index.
+ *     - `avg` stores the average value of `gmm_5_1` and `gmm_5_2`
+ *   - The `<j>` index varies from 1 to 5, representing the five different experimentally obtained values
+ *   - The `<k>` index varies from 1 to 2, representing the two samples of each experimentally obtained value
+ *
+ * Data Retrieval and Processing:
+ * - QLineEdit objects containing experiment data are retrieved from the UI.
+ * - Data is processed and structured into appropriate JSON objects.
+ * - Calculations are performed to calculate the average value for each Bitumen content percentage.
+ * - Error handling is implemented for missing QLineEdit objects.
+ *
+ * Saving to JSON:
+ * - The constructed JSON objects are written to a JSON file named "gmm.json" in the "json" directory.
+ * - The JSON file is formatted using QTextStream and QJsonDocument.
+ * - Error handling is implemented for file opening failures.
+ *
+ * External Functions:
+ * - removeDuplicates(): Removes duplicate entries from a QStringList.
+ * - save_check(): Performs checks and actions related to saving operations.
+ *
+ * \see removeDuplicates(), save_check()
+ */
 void MainWindow::on_gmm_save_clicked()
 {
     tracked_files.push_back("gmm");
@@ -1649,6 +1915,18 @@ void MainWindow::on_gmm_save_clicked()
 
     save_check();
 }
+/**
+ * @ingroup SaveFunctions
+ * @brief This function is triggered when the 'Save' button in the Rheology tab is clicked.
+ *
+ * It saves the current state of the Rheology tab into a JSON file. The function iterates over
+ * different experiment names and for each experiment, it retrieves the corresponding values from
+ * the UI, checks their validity, and stores them into a JSON object. The JSON object is then saved
+ * into a file named "rheology.json" in the "json" directory.
+ *
+ * @note The function uses several helper functions (`strip_eval`, `soft_eval`, `pen_eval`, `ductility_eval`,
+ * `flash_eval`, `viscosity_eval`, `spc_eval`) to evaluate the JSON object for each experiment.
+ */
 void MainWindow::on_rheology_save_clicked()
 {
     tracked_files.push_back("rheology");
@@ -1805,6 +2083,26 @@ void MainWindow::on_rheology_save_clicked()
 
     save_check();
 }
+/**
+ * \ingroup SaveFunctions
+ * \brief Saves data related to Water Absorption into a JSON file.
+ *
+ * This function saves experiment data related to water absorption tests into a JSON file. It retrieves data from various QLineEdit objects in the UI, performs calculations, and structures the data into a JSON format. The JSON file structure consists of four sections representing different aspects of water absorption tests: 10-minute water absorption, 20-minute water absorption, dust absorption, and cleanliness.
+ *
+ * Data Retrieval and Processing:
+ * - Experiment data is retrieved from the UI based on specified naming conventions.
+ * - Calculations are performed to derive additional parameters based on the collected data.
+ * - The retrieved and calculated data is structured into JSON objects for each aspect of the water absorption tests.
+ *
+ * JSON Object Structure:
+ * - TODO
+ *
+ * External Functions:
+ * - removeDuplicates(): Removes duplicate entries from a QStringList.
+ * - save_check(): Performs checks and actions related to saving operations.
+ *
+ * \see removeDuplicates(), save_check()
+ */
 void MainWindow::on_wa_save_clicked()
 {
     tracked_files.push_back("wa");
@@ -1948,7 +2246,21 @@ void MainWindow::on_wa_save_clicked()
 
 
 
+/**
+ * @defgroup SaveAsFuncs Save As Functions
+ * @brief These functions mark a specific directory where the output report must be saved, then invoke the 'Save' operation.
+ *
+ * These functions prompt the user for where they wish the output of the report to be generated, then mark it in the `swd` directory. Then they invoke the respective 'Save' function for whichever experiment is called for the 'Save As'.
+ *
+ * Each function opens a directory selection dialog, sets the selected directory as the working directory,
+ * displays a message box informing the user about the export location, and then triggers the 'Save' button click event for the corresponding tab.
+ */
+
 // Deals with save as requests
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Specific Gravity experiment data.
+ */
 void MainWindow::on_spc_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -1959,6 +2271,10 @@ void MainWindow::on_spc_saveas_clicked()
     }
     ui->spc_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for FEI experiment data.
+ */
 void MainWindow::on_fei_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -1969,6 +2285,10 @@ void MainWindow::on_fei_saveas_clicked()
     }
     ui->fei_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for AIV experiment data.
+ */
 void MainWindow::on_aiv_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -1979,6 +2299,10 @@ void MainWindow::on_aiv_saveas_clicked()
     }
     ui->aiv_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for IND experiment data.
+ */
 void MainWindow::on_ind_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -1989,6 +2313,10 @@ void MainWindow::on_ind_saveas_clicked()
     }
     ui->ind_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for MDD experiment data.
+ */
 void MainWindow::on_mdd_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -1999,6 +2327,10 @@ void MainWindow::on_mdd_saveas_clicked()
     }
     ui->mdd_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Gradation experiment data.
+ */
 void MainWindow::on_grad_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -2009,6 +2341,10 @@ void MainWindow::on_grad_saveas_clicked()
     }
     ui->mdd_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Marshall experiment data.
+ */
 void MainWindow::on_marshall_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -2019,6 +2355,10 @@ void MainWindow::on_marshall_saveas_clicked()
     }
     ui->marshall_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Tensile experiment data.
+ */
 void MainWindow::on_tensile_saveas_clicked()
 {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
@@ -2029,6 +2369,10 @@ void MainWindow::on_tensile_saveas_clicked()
     }
     ui->tensile_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Volume experiment data.
+ */
 void MainWindow::on_vol_saveas_clicked() {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
     if (!saveas_done)
@@ -2038,6 +2382,10 @@ void MainWindow::on_vol_saveas_clicked() {
     }
     ui->vol_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for GMM experiment data.
+ */
 void MainWindow::on_gmm_saveas_clicked() {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
     if (!saveas_done)
@@ -2047,6 +2395,10 @@ void MainWindow::on_gmm_saveas_clicked() {
     }
     ui->gmm_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for Rheology experiment data.
+ */
 void MainWindow::on_rheology_saveas_clicked() {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
     if (!saveas_done)
@@ -2056,6 +2408,10 @@ void MainWindow::on_rheology_saveas_clicked() {
     }
     ui->rheology_save->click();
 }
+/**
+ * \ingroup SaveAsFuncs
+ * \brief Handles the save as request for WA experiment data.
+ */
 void MainWindow::on_wa_saveas_clicked() {
     swd = QDir(QFileDialog::getExistingDirectory(this, tr("Open Directory"), cwd.currentPath(), QFileDialog::ShowDirsOnly));
     if (!saveas_done)
@@ -2069,120 +2425,37 @@ void MainWindow::on_wa_saveas_clicked() {
 
 
 /**
- * @brief Checks the save status of all experiments and generates the corresponding HTML files.
- *
- * This function iterates over all experiments and checks if they are present in the tracked_files.
- * If an experiment is tracked, it sets the corresponding indicator to the saved icon.
- * If not, it sets the indicator to the unsaved icon.
- * After checking the save status, it generates the corresponding HTML file for each tracked file.
- *
- * This function must be called at the end of the 'save' function of any experiment, to first verify the save state of the experiment and to
- * automatically generate the HTML files regarding the experiment
- *
- * @note This function does not take any parameters or return any values.
+ * @defgroup SaveSubfuncs Save to JSON Subfunctions
+ * @brief Helper functions that assist the 'Save' operation.
  */
-void MainWindow::save_check()
-{
-    // Iterate over all experiments
-    for (auto exp : all_experiments)
-    {
-        // Find the experiment in the tracked files
-        if (std::find(tracked_files.begin(), tracked_files.end(), exp) != tracked_files.end())
-        {
-            // Get the save indicator for the experiment
-            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
-            if (indicator)
-            {
-                // Set the indicator to the saved icon
-                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon.png"));
-                if (indicator->height() < 200)
-                {
-                    // Use a smaller icon for small indicators
-                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_saved_icon_small.png"));
-                }
-            }
-        }
-        else
-        {
-            // Get the save indicator for the experiment
-            QLabel *indicator = ui->stackedWidget->findChild<QLabel *>(QString::fromStdString(exp) + "_saved");
-            if (indicator)
-            {
-                // Set the indicator to the unsaved icon
-                indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon.png"));
-                if (indicator->height() < 200)
-                {
-                    // Use a smaller icon for small indicators
-                    indicator->setPixmap(QPixmap(":/saved_icons/icons/tab_unsaved_icon_small.png"));
-                }
-            }
-        }
-    }
-
-    // Generate the corresponding HTML file for each tracked file
-    for (auto file : tracked_files)
-    {
-        if (file == "spc")
-        {
-            generate_html_spc();
-        }
-        else if (file == "fei")
-        {
-            generate_html_fei();
-        }
-        else if (file == "aiv")
-        {
-            generate_html_aiv();
-        }
-        else if (file == "ind")
-        {
-            generate_html_ind();
-        }
-        else if (file == "mdd")
-        {
-            generate_html_mdd();
-        }
-        else if (file == "grad")
-        {
-            generate_html_grad();
-        }
-        else if (file == "tensile")
-        {
-            generate_html_tensile();
-        }
-        else if (file == "vol")
-        {
-            generate_html_vol();
-        }
-        else if (file == "gmm")
-        {
-            generate_html_gmm();
-        }
-        else if (file == "rheology")
-        {
-            generate_html_rheology();
-        }
-        else if (file == "marshall")
-        {
-            generate_html_marshall();
-        }
-        else if (file == "wa")
-        {
-            generate_html_wa();
-        }
-    }
-}
-
-
+/**
+ * @defgroup WMMSubfuncs WMM Save to JSON helper functions
+ * @ingroup SaveSubfuncs
+ * @brief Helper functions that assist the 'Save' operation for WMM ie saving smaller modules of WMM or updating graphs
+ */
+/**
+ * @defgroup DBMSubfuncs DBM Save to JSON helper functions
+ * @ingroup SaveSubfuncs
+ * @brief Helper functions that assist the 'Save' operation for DBM ie saving smaller modules of DBM or updating graphs
+ */
 
 // Deals with saving to JSON (subfunctions)
+/// @ingroup WMMSubfuncs
+/// @{
+/// @brief On clicking the smaller button to update the graph on MDD tab, it first saves the MDD tab then updates the graph
 void MainWindow::on_mdd_save_update_clicked()
 {
     ui->mdd_save->click();
     MainWindow::updateGraph_mdd();
 }
+/// @brief A JSON object to store the specific gravity values.
 QJsonObject Specific_Gravity;
+/// @brief A QFile object representing the JSON file where the specific gravity values are stored.
 QFile spe_gravity(cwd.filePath("json/spc.json"));
+/**
+ * @ingroup WMMSubfuncs
+ * @brief Handles the 'Save' operation for the 40mm Specific Gravity tab.
+ */
 void MainWindow::on_spc_save_40mm_clicked()
 {
     tracked_files.push_back("spc");
@@ -2264,6 +2537,10 @@ void MainWindow::on_spc_save_40mm_clicked()
 
     save_check();
 }
+/**
+ * @ingroup WMMSubfuncs
+ * @brief Handles the 'Save' operation for the 20mm Specific Gravity tab.
+ */
 void MainWindow::on_spc_save_20mm_clicked()
 {
     tracked_files.push_back("spc");
@@ -2344,6 +2621,10 @@ void MainWindow::on_spc_save_20mm_clicked()
 
     save_check();
 }
+/**
+ * @ingroup WMMSubfuncs
+ * @brief Handles the 'Save' operation for the 10mm Specific Gravity tab.
+ */
 void MainWindow::on_spc_save_10mm_clicked()
 {
     tracked_files.push_back("spc");
@@ -2422,6 +2703,10 @@ void MainWindow::on_spc_save_10mm_clicked()
 
     save_check();
 }
+/**
+ * @ingroup WMMSubfuncs
+ * @brief Handles the 'Save' operation for the Stone Dust Specific Gravity tab.
+ */
 void MainWindow::on_spc_save_0mm_clicked()
 {
     tracked_files.push_back("spc");
@@ -2500,8 +2785,11 @@ void MainWindow::on_spc_save_0mm_clicked()
 
     save_check();
 }
+/// @brief A JSON object to store Flakiness and Elongation Indices
 QJsonObject Flakiness_Elongation_Indices;
+/// @brief A file object to handle the JSON file for Flakiness and Elongation Indices
 QFile Flakiness_Elongation(cwd.filePath("json/fei.json"));
+/// @brief This function is triggered when the 'save_ss' button is clicked. It saves the passing and retained values to the JSON object.
 void MainWindow::on_save_ss_clicked()
 {
     tracked_files.push_back("fei");
@@ -2557,6 +2845,7 @@ void MainWindow::on_save_ss_clicked()
 
     save_check();
 }
+/// @brief This function is triggered when the 'save_fei' button is clicked. It saves the A, B, C, D values to the JSON object.
 void MainWindow::on_save_fei_clicked()
 {
     tracked_files.push_back("fei");
@@ -2776,6 +3065,7 @@ void MainWindow::on_aiv_save_10mm_clicked()
 }
 QJsonObject idg_json;
 QFile idg(cwd.filePath("json/idg.json"));
+/// @brief Saves Individual Gradation 40mm values
 void MainWindow::on_idg_save_40mm_clicked()
 {
     tracked_files.push_back("ind");
@@ -3560,6 +3850,7 @@ void MainWindow::on_cd_save_clicked()
 
     save_check();
 }
+/// @}
 QJsonObject MainWindow::soft_eval(QJsonObject soft_in)
 {
     qDebug() << "beggining soft eval";
@@ -3677,7 +3968,25 @@ QJsonObject MainWindow::spc_eval(QJsonObject spc_in)
 
 
 
+/// @defgroup GraphFuncs Graphing Functions
+/// @brief These functions generate, display and save the graphs required for the experiments
+/// @{
+
 // Deals with Graphing
+/// @defgroup MathsFuncs Mathematical Functions
+/// @brief These functions do the data processing to generate graphs
+/// @{
+/**
+ * @brief This function fits a quadratic equation to the given data points.
+ *
+ * It first finds the maximum, minimum, and median points from the given data.
+ * Then, it solves the system of equations to find the coefficients of the quadratic equation.
+ * The coefficients are then returned in a vector.
+ *
+ * @param x A vector of doubles representing the x-coordinates of the data points.
+ * @param y A vector of doubles representing the y-coordinates of the data points.
+ * @return A vector of doubles representing the coefficients of the quadratic equation in the order a, b, c
+ */
 std::vector<double> quadfit(std::vector<double> &x, std::vector<double> &y)
 {
 
@@ -3717,6 +4026,16 @@ std::vector<double> quadfit(std::vector<double> &x, std::vector<double> &y)
 
     return result;
 }
+/**
+ * @brief This function evaluates the quadratic equation at the given x-values.
+ *
+ * It uses the coefficients of the quadratic equation and the x-values to compute the corresponding y-values.
+ * The computed y-values are then returned in a vector.
+ *
+ * @param x A vector of doubles representing the x-values at which the quadratic equation is to be evaluated.
+ * @param coeff A vector of doubles representing the coefficients of the quadratic equation in the order a, b, c.
+ * @return A vector of doubles representing the y-values corresponding to the given x-values.
+ */
 std::vector<double> quadval(std::vector<double> &x, std::vector<double> &coeff)
 {
 
@@ -3735,6 +4054,16 @@ std::vector<double> quadval(std::vector<double> &x, std::vector<double> &coeff)
 
     return y;
 }
+/**
+ * @brief This function performs Lagrange Interpolation on the given data points.
+ *
+ * Lagrange Interpolation is a mathematical method used in machine learning. Here it is used to predict where one point will be given some discrete (x,y) pairs
+ * It uses the Lagrange Interpolation formula to compute the y-value corresponding to the given x-value.
+ *
+ * @param points A vector of pairs of doubles representing the data points used for interpolation. Each pair consists of an x-value and a y-value.
+ * @param x A double representing the x-value at which the interpolation is to be performed.
+ * @return A double representing the interpolated y-value corresponding to the given x-value.
+ */
 double lagrangeInterpolation(const std::vector<std::pair<double, double>>& points, double x) {
     double result = 0; // Initialize result
 
@@ -3753,6 +4082,18 @@ double lagrangeInterpolation(const std::vector<std::pair<double, double>>& point
 
     return result;
 }
+/**
+ * @brief This function fits a curve to the given data points using Lagrange Interpolation.
+ *
+ * It computes the y-values at regular intervals within the given range using Lagrange Interpolation.
+ * The computed points are then returned in a vector.
+ *
+ * @param points A vector of pairs of doubles representing the data points used for curve fitting. Each pair consists of an x-value and a y-value.
+ * @param start A double representing the start of the range within which the curve is to be fitted.
+ * @param end A double representing the end of the range within which the curve is to be fitted.
+ * @param accuracy A double representing the number of points to be computed within the given range. Default value is 100.
+ * @return A vector of pairs of doubles representing the computed points on the fitted curve. Each pair consists of an x-value and a y-value.
+ */
 std::vector<std::pair<double, double>> curvefit(const std::vector<std::pair<double, double>> &points, double start, double end, double accuracy = 100) {
     double step = (end - start)/accuracy;
 
@@ -3763,7 +4104,15 @@ std::vector<std::pair<double, double>> curvefit(const std::vector<std::pair<doub
 
     return curve;
 }
+/// @}
 
+
+/// @defgroup GraphDisplay Graph Display Functions
+/// @brief These functions take the data from the Mathematical Functions and generate the graphs
+///
+/// These functions use the Qcustomplot library as a dependancy. Please read the Qcustomplot documentation [here](qcustomplot.com)
+/// Please read the source code of these functions for better understanding.
+/// @{
 void MainWindow::on_ind_graph_update_clicked()
 {
     MainWindow::updateGraph_idg();
@@ -4681,11 +5030,43 @@ void MainWindow::generate_bitumen_vfb_graph(std::vector<QJsonObject> marshall_le
 
     delete vfb_graph;
 }
+/// @}
+/// @}
 
 
 
+/**
+ * @defgroup ExportFuncs Export to PDF Functions
+ * @brief These functions export one or multiple experiments into a full report.
+ *
+ * Each function corresponds to a different experiment. The function first saves the current state of the tracked files,
+ * then clears the tracked files and adds the specific experiment to it. It then triggers the action to export to PDF.
+ * After the export action is completed, it restores the original state of the tracked files.
+ * @{
+ */
 
 // Deals with exports to PDF
+/**
+ * @brief This function exports the selected experiments to a PDF report.
+ *
+ * The function is triggered when the user selects the 'Export to PDF' action by clicking the 'EXPORT ALL' button. It uses the wkhtmltopdf tool to convert HTML reports to PDF.
+ * The function first determines the operating system and sets the path to the wkhtmltopdf executable accordingly.
+ * It then iterates over the tracked_files vector, which contains the names of the experiments that the user has chosen to export.
+ * For each experiment, it adds the paths of the corresponding HTML files to the arguments list for wkhtmltopdf.
+ * The function then generates a unique filename for the PDF report, adds it to the arguments list, and starts the wkhtmltopdf process.
+ *
+ * wkhtmltopdf works in the following way:
+ *    <program_name> <input_html_1> <input_html_2> ... <input_html_n> <output_pdf_path>
+ *
+ * As WMM and DBM are completely seperate reports, the wkhtmltopdf query for either of them are evaluated individually and in parralel.
+ *
+ * If the operating system is Apple, it instead displays a message box with the command to run in the terminal to generate the PDF report.
+ *
+ * @note This function depends on the wkhtmltopdf tool, which is an open source command line tool to render HTML into PDF.
+ * wkhtmltopdf uses the Qt WebKit rendering engine, which means it can handle complex web pages with JavaScript, CSS, and SVG.
+ * It is available for Windows, Linux, and macOS. The tool needs to be installed and correctly set up for this function to work.
+ * More information about wkhtmltopdf can be found on its website: https://wkhtmltopdf.org/
+ */
 void MainWindow::on_actionExport_to_PDF_triggered()
 {
     qDebug() << "EXPORT triggered";
@@ -4823,6 +5204,12 @@ void MainWindow::on_actionExport_to_PDF_triggered()
         output_txt_file.close();
     }
 }
+/**
+ * @brief This function exports the SPC experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "spc" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_spc_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4833,6 +5220,12 @@ void MainWindow::on_spc_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the FEI experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "fei" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_fei_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4843,6 +5236,12 @@ void MainWindow::on_fei_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the AIV experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "aiv" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_aiv_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4853,6 +5252,12 @@ void MainWindow::on_aiv_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the IND experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "ind" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_ind_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4863,6 +5268,12 @@ void MainWindow::on_ind_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the MDD experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "mdd" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_mdd_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4873,6 +5284,12 @@ void MainWindow::on_mdd_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the Grad experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "grad" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_grad_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4883,6 +5300,12 @@ void MainWindow::on_grad_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the Marshall experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "marshall" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_marshall_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4893,6 +5316,12 @@ void MainWindow::on_marshall_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the Tensile experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "tensile" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_tensile_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4903,6 +5332,12 @@ void MainWindow::on_tensile_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the Vol experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "vol" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_vol_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4913,6 +5348,12 @@ void MainWindow::on_vol_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the GMM experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "gmm" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_gmm_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4923,6 +5364,12 @@ void MainWindow::on_gmm_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the Rheology experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "rheology" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_rheology_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4933,6 +5380,12 @@ void MainWindow::on_rheology_export_clicked()
 
     qDebug() << tracked_files;
 }
+/**
+ * @brief This function exports the WA experiment to a PDF report.
+ *
+ * It first saves the current state of the tracked files, then clears the tracked files and adds "wa" to it.
+ * It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files.
+ */
 void MainWindow::on_wa_export_clicked()
 {
     std::vector<std::string> tracked_files_cpy = tracked_files;
@@ -4943,8 +5396,47 @@ void MainWindow::on_wa_export_clicked()
 
     qDebug() << tracked_files;
 }
+/** @} */ // end of group ExportFuncs
 
 
+
+/**
+ * @defgroup HTMLGenFuncs HTML Generation Functions
+ * @brief These functions generate HTML reports
+ *
+ * 2 elements are used to generate the HTML reports.
+ * - HTML Template
+ *   All the possible pages of the report are stored in the road_test_report_generator/templates folder as .html files which are read by the Qt system as .qrc files
+ *   These templates contain tokens in the form of `~1~` where 1 can be replaced by any number. These tokens are parsed by the generate_html_functions as placeholders
+ *   which are replaced by appropriate values.
+ *
+ *   For example, if a line needs to contain an average value of penetration it would look like
+ *   ``` html
+ *   <tr>
+ *      <th> Average Value: </th>
+ *      <td> ~42~ </th>
+ *   </tr>
+ *   ```
+ *   So when parsing, the generate_html_exp function will read the rest of the values as text, however it will read ~42~ as a token. It will look into the JSON objects for the respective experiment
+ *   and replace the token 42 with the appropriate value.
+ * - JSON Database
+ *   To generate HTML, the token from templates are cross referenced with values from JSON file. This is handled by switch statements or if-else repeated statements. In the earlier templates, like spc, fei, aiv, the switch case system is evaluated individually for all cases.
+ *   This is very time consuming for the developers, so soon we developed a new method where some mathematical function (like mod %) is applied on the token to get a key from the JSON file.
+ *
+ *   We have decided to use the QFile system for reading files like JSON and HTML template and use the standard c++ file system for output because thats what we found the best option for either. If you find that another file I/O method is best you are free to use it.
+ *
+ *   Here is how the general flow of html generation is made:\n
+ *   1) First JSON file is opened with QFile system and loaded into a QJsonObject \n
+ *   2) Then output file stream is opened with std::ofstream \n
+ *   3) Within the ofstream window, the template HTML file is opened using the q resource system, and loaded into a QTextStream \n
+ *   4) The template is read line by line as a cstring (character array) \n
+ *   5) Every line is parsed char by char, and if a char is not a token marker '~', then it is transferred directly to the output stream \n
+ *   6) If a char is a token marker '~', then the internal logic is applied, this functions by firstly a token extraction tool which finds the numerical value of a token from its string representation. \n
+ *   7) After the value of a token is attained then the aforementioned switch case logic is applied on the token to find out which value from the JSON is to be appended on the output file stream. \n
+ *
+ *   @note In experiments where multiple PDF pages need to be generated, ofstreams are opened one by one as multiple ofstreams can not be opened simultaeneously. So, ofstreams are handled either iteratively or manually for the different experiment pages.
+ *   @{
+ */
 
 // Deals with HTML generation
 void MainWindow::generate_html_spc()
@@ -10868,24 +11360,48 @@ void MainWindow::generate_html_wa() {
         template_file.close();
     }
 }
+/// @}
 
+
+
+//Scrolling
+/**
+ * @defgroup ScrollFuncs Scrolling Functions
+ * @brief These functions handle scrolling by mouse wheel and by scrollbar
+ *
+ * This app uses Frame in Frame technique to scroll. There is an outer frame `exp_frame_outer` and inside it there is an inner frame `exp_frame`. When the scrollbar value is changed,
+ * the inner frame x or y position is changed according to the scrollbar. The difference in the position of the inner and outer frames is linearly proportional to the value of the scrollbar.
+ *
+ * Wheel event scrolling uses the inbuilt QWheelEvent handling system. AngleDelta (the angle your mouse is rotated in), is converted into Dots, which are then divided by the sensitivity to set how many pixels the page must be scrolled by.
+ * Once the amount of pixels to move the page is found, it is passed as a value to the scrollbar, which handles the change in value according to the method described above.
+ *
+ * @{
 
 
 // Deals with Scrolling
+/**
+ * \brief Handles the wheel event for scrolling.
+ *
+ * This function processes the wheel event to scroll the content within the currently active tab.
+ * The sensitivity of the scroll is set to 20 by default. The scroll operation is applied to the scroll bars
+ * of the corresponding area based on the current tab selected in the UI.
+ *
+ * \param event Pointer to the QWheelEvent object that contains details about the wheel event.
+ */
 void MainWindow::wheelEvent(QWheelEvent *event)
 {
-    // the mouse wheel API gives wheel inputs in delta, for most non gaming mice one notch turn a delta of 120
-    // setting the sens in this method does not make any sense now, but in the future we will add a mouse sensitivity option in the View QMenuBar to change this
+    // Setting the scroll sensitivity
     this->scroll_sens = 20;
+
+    // Getting the delta movement from the wheel event
     QPoint delta = -1 * event->angleDelta();
     QPointF mouse_pos = event->position();
     int scroll_pos;
 
+    // Checking if the mouse position is within the specified area
     if (mouse_pos.x() > 40 && mouse_pos.y() > 95 && mouse_pos.x() < 1410 && mouse_pos.y() < 760)
     {
-
-        // By the scrollwheel, we are not directly moving any UI element, we are only calling the signal to change the scrollbar of any area.
-        // This area has to be the current tab, which is selected with the switch operator
+        // Scrolling for the tabs in the wmm_tab_list
         switch (ui->wmm_tab_list->currentIndex())
         {
         case 0:
@@ -10903,6 +11419,8 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         default:
             break;
         }
+
+        // Scrolling for the tabs in the dbm_tab_list
         switch (ui->dbm_tab_list->currentIndex())
         {
         case 0:
@@ -10925,7 +11443,6 @@ void MainWindow::wheelEvent(QWheelEvent *event)
             scroll_pos = ui->rheology_scroll->value();
             ui->rheology_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
             break;
-
         case 6:
             scroll_pos = ui->wa_scroll->value();
             ui->wa_scroll->setValue((int)(scroll_pos + delta.y() / scroll_sens));
@@ -10933,32 +11450,66 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         }
     }
 }
+/**
+ * \brief Handles the value change event for the SPC data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_spc_data_scroll_valueChanged(int value)
 {
     float target = (ui->spc_frame_outer->height() - ui->spc_frame->height()) * value / 100;
     ui->spc_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the IND data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_ind_data_scroll_valueChanged(int value)
 {
     float target = (ui->ind_frame_outer->height() - ui->ind_frame->height()) * value / 100;
     ui->ind_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the AIV data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_aiv_data_scroll_valueChanged(int value)
 {
     float target = (ui->aiv_frame_outer->height() - ui->aiv_frame->height()) * value / 100;
     ui->aiv_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the Gradation data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_grad_data_scroll_valueChanged(int value)
 {
     float target = (ui->grad_frame_outer->height() - ui->grad_frame->height()) * value / 100;
     ui->grad_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the Marshall data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_marshall_scroll_valueChanged(int value)
 {
     float target = (ui->marshall_frame_outer->height() - ui->marshall_frame->height()) * value / 100;
     ui->marshall_frame->move(0, target);
 }
+/// @brief The element indices of the non scrolling elements of Volumetric Analysis page
 QVector<int> vol_non_scrolling_elements = {391, 290, 184, 215, 217, 216, 271, 286, 272, 287};
+/**
+ * \brief Handles the value change event for the Volumetrics data scroll bar.
+ *
+ * Moves the Volumetrics frame based on the scroll bar value and adjusts the positions. Some elements of this UI must be kept stationary relative to the moving page.
+ * This function keeps the stationary elements stationary while scrolling the page horizontally.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_vol_scroll_valueChanged(int value)
 {
     float target = (ui->vol_frame_outer->width() - ui->vol_frame->width()) * value / 100;
@@ -10980,29 +11531,51 @@ void MainWindow::on_vol_scroll_valueChanged(int value)
         }
     }
 }
+/**
+ * \brief Handles the value change event for the GMM data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_gmm_scroll_valueChanged(int value)
 {
     float target = (ui->gmm_frame_outer->height() - ui->gmm_frame->height()) * value / 100;
     ui->gmm_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the Rheology data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_rheology_scroll_valueChanged(int value)
 {
     float target = (ui->rheology_frame_outer->height() - ui->rheology_frame->height()) * value / 100;
     ui->rheology_frame->move(0, target);
 }
+/**
+ * \brief Handles the value change event for the Water Absorption data scroll bar.
+ *
+ * \param value The new value of the scroll bar.
+ */
 void MainWindow::on_wa_scroll_valueChanged(int value)
 {
     float target = (ui->wa_frame_outer->height() - ui->wa_frame->height()) * value / 100;
     ui->wa_frame->move(0, target);
 }
+/// @}
 
 
 
+/// @defgroup MiscFuncs Miscellaneous Functions
+/// @brief Miscellaneous functions: switching indows or updating UI in real time
+/// The AIV text changed functions just update the UI in real time about the calculated values in JSON. This was too developer time intensive so I abandoned this side of the UI. DM me if you find a better way to do this, or if you want to understand. The 2 other functions (DBM and WMM action) just switch the tab to the DBM or WMM pages.
+/// @{
 // Deal with switchin windows
+/// @brief Switches the window to WMM
 void MainWindow::on_actionWMM_triggered()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+/// @brief Switches the window to DBM
 void MainWindow::on_actionDBM_triggered()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -11208,3 +11781,4 @@ void MainWindow::on_aiv_10_6_clicked()
     std::string target = std::to_string((t1 + t2 + t3) / 3);
     ui->aiv_10_6->setText(QString::fromStdString(target));
 }
+/// @}

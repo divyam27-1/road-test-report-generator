@@ -1,0 +1,192 @@
+\doxysection{Export to PDF Functions}
+\hypertarget{group___export_funcs}{}\label{group___export_funcs}\index{Export to PDF Functions@{Export to PDF Functions}}
+
+
+These functions export one or multiple experiments into a full report.  
+
+
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___export_funcs_gac86cc9549fdb8e5679074ae688e2f459}{Main\+Window\+::on\+\_\+fei\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the FEI experiment to a PDF report. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___export_funcs_gafc397bca1ee943f3c5eb7abbbe994cfe}{Main\+Window\+::on\+\_\+action\+Export\+\_\+to\+\_\+\+PDF\+\_\+triggered}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the selected experiments to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_gaeb033d65ed704f066a7afef5521ee8c7}{Main\+Window\+::on\+\_\+spc\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the SPC experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga1b4bbbb74c8a8dbeb72ff7b67f1e1407}{Main\+Window\+::on\+\_\+aiv\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the AIV experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga41e47b822c08d5a7ad9b68da2a0990ab}{Main\+Window\+::on\+\_\+ind\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the IND experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga7aeae626f09743a99c1d44c0b0b5204c}{Main\+Window\+::on\+\_\+mdd\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the MDD experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga965fee53e1d0698c9db39d0775fc59ad}{Main\+Window\+::on\+\_\+grad\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the Grad experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_gae39f26ea8ae1bd0656cf38910fcdf89f}{Main\+Window\+::on\+\_\+marshall\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the Marshall experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga1e23c17a2381b5caae384484e6e47ad2}{Main\+Window\+::on\+\_\+tensile\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the Tensile experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_gaf6056663e87453c9ca2a5266ac8ea460}{Main\+Window\+::on\+\_\+vol\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the Vol experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga38803d7b09240c4732fa8c7d531d1f51}{Main\+Window\+::on\+\_\+gmm\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the GMM experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga9802fbf1d720eb055e11320cf481250c}{Main\+Window\+::on\+\_\+rheology\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the Rheology experiment to a PDF report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___export_funcs_ga054aeaff4eb8a21015496279485eb939}{Main\+Window\+::on\+\_\+wa\+\_\+export\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em This function exports the WA experiment to a PDF report. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+These functions export one or multiple experiments into a full report. 
+
+Each function corresponds to a different experiment. The function first saves the current state of the tracked files, then clears the tracked files and adds the specific experiment to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. 
+
+\doxysubsection{Public Slots}
+\Hypertarget{group___export_funcs_gac86cc9549fdb8e5679074ae688e2f459}\label{group___export_funcs_gac86cc9549fdb8e5679074ae688e2f459} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_fei\_export\_clicked@{on\_fei\_export\_clicked}}
+\index{on\_fei\_export\_clicked@{on\_fei\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_fei\_export\_clicked}{on\_fei\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+fei\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+This function exports the FEI experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}fei"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. 
+
+\doxysubsection{Private Slots}
+\Hypertarget{group___export_funcs_gafc397bca1ee943f3c5eb7abbbe994cfe}\label{group___export_funcs_gafc397bca1ee943f3c5eb7abbbe994cfe} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_actionExport\_to\_PDF\_triggered@{on\_actionExport\_to\_PDF\_triggered}}
+\index{on\_actionExport\_to\_PDF\_triggered@{on\_actionExport\_to\_PDF\_triggered}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_actionExport\_to\_PDF\_triggered}{on\_actionExport\_to\_PDF\_triggered}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+action\+Export\+\_\+to\+\_\+\+PDF\+\_\+triggered (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the selected experiments to a PDF report. 
+
+The function is triggered when the user selects the \textquotesingle{}Export to PDF\textquotesingle{} action by clicking the \textquotesingle{}EXPORT ALL\textquotesingle{} button. It uses the wkhtmltopdf tool to convert HTML reports to PDF. The function first determines the operating system and sets the path to the wkhtmltopdf executable accordingly. It then iterates over the tracked\+\_\+files vector, which contains the names of the experiments that the user has chosen to export. For each experiment, it adds the paths of the corresponding HTML files to the arguments list for wkhtmltopdf. The function then generates a unique filename for the PDF report, adds it to the arguments list, and starts the wkhtmltopdf process.
+
+wkhtmltopdf works in the following way\+: $<$program\+\_\+name$>$ $<$input\+\_\+html\+\_\+1$>$ $<$input\+\_\+html\+\_\+2$>$ ... $<$input\+\_\+html\+\_\+n$>$ $<$output\+\_\+pdf\+\_\+path$>$
+
+As WMM and DBM are completely seperate reports, the wkhtmltopdf query for either of them are evaluated individually and in parralel.
+
+If the operating system is Apple, it instead displays a message box with the command to run in the terminal to generate the PDF report.
+
+\begin{DoxyNote}{Note}
+This function depends on the wkhtmltopdf tool, which is an open source command line tool to render HTML into PDF. wkhtmltopdf uses the Qt Web\+Kit rendering engine, which means it can handle complex web pages with Java\+Script, CSS, and SVG. It is available for Windows, Linux, and mac\+OS. The tool needs to be installed and correctly set up for this function to work. More information about wkhtmltopdf can be found on its website\+: \href{https://wkhtmltopdf.org/}{\texttt{ https\+://wkhtmltopdf.\+org/}} 
+\end{DoxyNote}
+\Hypertarget{group___export_funcs_ga1b4bbbb74c8a8dbeb72ff7b67f1e1407}\label{group___export_funcs_ga1b4bbbb74c8a8dbeb72ff7b67f1e1407} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_aiv\_export\_clicked@{on\_aiv\_export\_clicked}}
+\index{on\_aiv\_export\_clicked@{on\_aiv\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_aiv\_export\_clicked}{on\_aiv\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+aiv\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the AIV experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}aiv"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga38803d7b09240c4732fa8c7d531d1f51}\label{group___export_funcs_ga38803d7b09240c4732fa8c7d531d1f51} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_gmm\_export\_clicked@{on\_gmm\_export\_clicked}}
+\index{on\_gmm\_export\_clicked@{on\_gmm\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_gmm\_export\_clicked}{on\_gmm\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+gmm\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the GMM experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}gmm"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga965fee53e1d0698c9db39d0775fc59ad}\label{group___export_funcs_ga965fee53e1d0698c9db39d0775fc59ad} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_grad\_export\_clicked@{on\_grad\_export\_clicked}}
+\index{on\_grad\_export\_clicked@{on\_grad\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_grad\_export\_clicked}{on\_grad\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+grad\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the Grad experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}grad"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga41e47b822c08d5a7ad9b68da2a0990ab}\label{group___export_funcs_ga41e47b822c08d5a7ad9b68da2a0990ab} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_ind\_export\_clicked@{on\_ind\_export\_clicked}}
+\index{on\_ind\_export\_clicked@{on\_ind\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_ind\_export\_clicked}{on\_ind\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+ind\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the IND experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}ind"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_gae39f26ea8ae1bd0656cf38910fcdf89f}\label{group___export_funcs_gae39f26ea8ae1bd0656cf38910fcdf89f} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_marshall\_export\_clicked@{on\_marshall\_export\_clicked}}
+\index{on\_marshall\_export\_clicked@{on\_marshall\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_marshall\_export\_clicked}{on\_marshall\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+marshall\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the Marshall experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}marshall"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga7aeae626f09743a99c1d44c0b0b5204c}\label{group___export_funcs_ga7aeae626f09743a99c1d44c0b0b5204c} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_mdd\_export\_clicked@{on\_mdd\_export\_clicked}}
+\index{on\_mdd\_export\_clicked@{on\_mdd\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_mdd\_export\_clicked}{on\_mdd\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+mdd\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the MDD experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}mdd"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga9802fbf1d720eb055e11320cf481250c}\label{group___export_funcs_ga9802fbf1d720eb055e11320cf481250c} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_rheology\_export\_clicked@{on\_rheology\_export\_clicked}}
+\index{on\_rheology\_export\_clicked@{on\_rheology\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_rheology\_export\_clicked}{on\_rheology\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+rheology\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the Rheology experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}rheology"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_gaeb033d65ed704f066a7afef5521ee8c7}\label{group___export_funcs_gaeb033d65ed704f066a7afef5521ee8c7} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_spc\_export\_clicked@{on\_spc\_export\_clicked}}
+\index{on\_spc\_export\_clicked@{on\_spc\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_spc\_export\_clicked}{on\_spc\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+spc\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the SPC experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}spc"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga1e23c17a2381b5caae384484e6e47ad2}\label{group___export_funcs_ga1e23c17a2381b5caae384484e6e47ad2} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_tensile\_export\_clicked@{on\_tensile\_export\_clicked}}
+\index{on\_tensile\_export\_clicked@{on\_tensile\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_tensile\_export\_clicked}{on\_tensile\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+tensile\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the Tensile experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}tensile"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_gaf6056663e87453c9ca2a5266ac8ea460}\label{group___export_funcs_gaf6056663e87453c9ca2a5266ac8ea460} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_vol\_export\_clicked@{on\_vol\_export\_clicked}}
+\index{on\_vol\_export\_clicked@{on\_vol\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_vol\_export\_clicked}{on\_vol\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+vol\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the Vol experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}vol"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. \Hypertarget{group___export_funcs_ga054aeaff4eb8a21015496279485eb939}\label{group___export_funcs_ga054aeaff4eb8a21015496279485eb939} 
+\index{Export to PDF Functions@{Export to PDF Functions}!on\_wa\_export\_clicked@{on\_wa\_export\_clicked}}
+\index{on\_wa\_export\_clicked@{on\_wa\_export\_clicked}!Export to PDF Functions@{Export to PDF Functions}}
+\doxysubsubsection{\texorpdfstring{on\_wa\_export\_clicked}{on\_wa\_export\_clicked}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+wa\+\_\+export\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+This function exports the WA experiment to a PDF report. 
+
+It first saves the current state of the tracked files, then clears the tracked files and adds "{}wa"{} to it. It then triggers the action to export to PDF. After the export action is completed, it restores the original state of the tracked files. 

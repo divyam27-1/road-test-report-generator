@@ -81,13 +81,75 @@ public:
     void generate_html_spc();
     void generate_html_grad();
 
+    /**
+ * @defgroup RheologyEvaluationSubfuncs Rheology Evaluation Subfunctions
+ * @ingroup SaveSubfuncs
+ * @brief Helper functions that update UI to reflect on user input and assist in the 'Save' operation for Rheology.
+ */
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the softness of a material.
+ *
+ * @param soft_in The input JSON object containing the softness values.
+ * @return The updated JSON object with the calculated mean softness value.
+ */
     QJsonObject soft_eval(QJsonObject soft_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the strip of a material.
+ *
+ * @param strip_in The input JSON object.
+ * @return The same JSON object that was input.
+ */
     QJsonObject strip_eval(QJsonObject strip_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the penetration of a material.
+ *
+ * @param pen_in The input JSON object containing the penetration values.
+ * @return The updated JSON object with the calculated penetration values.
+ */
     QJsonObject pen_eval(QJsonObject pen_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the ductility of a material.
+ *
+ * @param ductility_in The input JSON object containing the ductility values.
+ * @return The updated JSON object with the calculated mean ductility value.
+ */
     QJsonObject ductility_eval(QJsonObject ductility_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the flash point of a material.
+ *
+ * @param flash_in The input JSON object containing the flash point values.
+ * @return The updated JSON object with the calculated mean flash point value.
+ */
     QJsonObject flash_eval(QJsonObject flash_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the viscosity of a material.
+ *
+ * @param viscosity_in The input JSON object containing the viscosity values.
+ * @return The updated JSON object with the calculated viscosity values.
+ */
     QJsonObject viscosity_eval(QJsonObject viscosity_in);
+
+    /**
+ * @ingroup RheologyEvaluationSubfuncs
+ * @brief Evaluates the specific gravity of a material.
+ *
+ * @param spc_in The input JSON object containing the specific gravity values.
+ * @return The updated JSON object with the calculated specific gravity values.
+ */
     QJsonObject spc_eval(QJsonObject spc_in);
+
 public slots:
     void on_fei_export_clicked();
 private slots:
@@ -178,15 +240,6 @@ private slots:
 
     void generate_html_ind();
 
-    /**
- * \brief Handles the "Save Project" action.
- *
- * This function is triggered when the "Save Project" action is activated. It iterates over all experiment types and simulates a click on the save button for each experiment.
- *
- * For each experiment type, it simulates a click on their save button, triggering the save operation for that experiment. If the button is not found, it logs an error message.
- * Please note the internal workings of the save buttons are not uniform as they were made by different developers in different phases of understanding of programming.
- *
- */
     void on_actionSave_Project_triggered();
 
     void on_cd_save_clicked();

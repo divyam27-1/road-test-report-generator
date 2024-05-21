@@ -1,0 +1,85 @@
+\doxysection{HTML Generation Functions}
+\hypertarget{group___h_t_m_l_gen_funcs}{}\label{group___h_t_m_l_gen_funcs}\index{HTML Generation Functions@{HTML Generation Functions}}
+
+
+These functions generate HTML reports.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_gaf75f23e18bcd9434f51025bbfd128e4c}\label{group___h_t_m_l_gen_funcs_gaf75f23e18bcd9434f51025bbfd128e4c} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+spc} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga4004c909b1ad549c1f57d7a45cfb7b0d}\label{group___h_t_m_l_gen_funcs_ga4004c909b1ad549c1f57d7a45cfb7b0d} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+grad} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga230f8b77b3a2912aa494011a65c4ecd2}\label{group___h_t_m_l_gen_funcs_ga230f8b77b3a2912aa494011a65c4ecd2} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+tensile} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga2824200358f895a6062e2ebb0e6680f4}\label{group___h_t_m_l_gen_funcs_ga2824200358f895a6062e2ebb0e6680f4} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+marshall} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga18067c707bfae5bab17153ddb5b45bc8}\label{group___h_t_m_l_gen_funcs_ga18067c707bfae5bab17153ddb5b45bc8} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+vol} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_gaf9b8272667a9b03cfd908e9a0cc1a7d4}\label{group___h_t_m_l_gen_funcs_gaf9b8272667a9b03cfd908e9a0cc1a7d4} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+gmm} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga26a69266d11871bd4f9976a0072fe503}\label{group___h_t_m_l_gen_funcs_ga26a69266d11871bd4f9976a0072fe503} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+rheology} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_gab1ec5b2a56c6e0d1bcfbfff661bb1e4e}\label{group___h_t_m_l_gen_funcs_gab1ec5b2a56c6e0d1bcfbfff661bb1e4e} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+wa} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_gafed7cf732ce8ea45482f1c1c428fde0c}\label{group___h_t_m_l_gen_funcs_gafed7cf732ce8ea45482f1c1c428fde0c} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+fei} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga7924460ee2db92f8c0b0b585c02d710f}\label{group___h_t_m_l_gen_funcs_ga7924460ee2db92f8c0b0b585c02d710f} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+aiv} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga23e134b2152f417ddee5f3cda4937906}\label{group___h_t_m_l_gen_funcs_ga23e134b2152f417ddee5f3cda4937906} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+ind} ()
+\item 
+\Hypertarget{group___h_t_m_l_gen_funcs_ga72730441f5ffce87f6a7f1a5394348da}\label{group___h_t_m_l_gen_funcs_ga72730441f5ffce87f6a7f1a5394348da} 
+void {\bfseries Main\+Window\+::generate\+\_\+html\+\_\+mdd} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+These functions generate HTML reports. 
+
+2 elements are used to generate the HTML reports.
+\begin{DoxyItemize}
+\item HTML Template All the possible pages of the report are stored in the road\+\_\+test\+\_\+report\+\_\+generator/templates folder as .html files which are read by the Qt system as .qrc files These templates contain tokens in the form of {\ttfamily \texorpdfstring{$\sim$}{\string~}1\texorpdfstring{$\sim$}{\string~}} where 1 can be replaced by any number. These tokens are parsed by the generate\+\_\+html\+\_\+functions as placeholders which are replaced by appropriate values.
+
+For example, if a line needs to contain an average value of penetration it would look like 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{html}
+\DoxyCodeLine{\ <tr>}
+\DoxyCodeLine{\ \ \ \ <th>\ Average\ Value:\ </th>}
+\DoxyCodeLine{\ \ \ \ <td>\ \string~42\string~\ </th>}
+\DoxyCodeLine{\ </tr>}
+
+\end{DoxyCode}
+ So when parsing, the generate\+\_\+html\+\_\+exp function will read the rest of the values as text, however it will read \texorpdfstring{$\sim$}{\string~}42\texorpdfstring{$\sim$}{\string~} as a token. It will look into the JSON objects for the respective experiment and replace the token 42 with the appropriate value.
+\item JSON Database To generate HTML, the token from templates are cross referenced with values from JSON file. This is handled by switch statements or if-\/else repeated statements. In the earlier templates, like spc, fei, aiv, the switch case system is evaluated individually for all cases. This is very time consuming for the developers, so soon we developed a new method where some mathematical function (like mod \%) is applied on the token to get a key from the JSON file.
+
+We have decided to use the QFile system for reading files like JSON and HTML template and use the standard c++ file system for output because thats what we found the best option for either. If you find that another file I/O method is best you are free to use it.
+
+Here is how the general flow of html generation is made\+:~\newline
+ 1) First JSON file is opened with QFile system and loaded into a QJson\+Object ~\newline
+ 2) Then output file stream is opened with std\+::ofstream ~\newline
+ 3) Within the ofstream window, the template HTML file is opened using the q resource system, and loaded into a QText\+Stream ~\newline
+ 4) The template is read line by line as a cstring (character array) ~\newline
+ 5) Every line is parsed char by char, and if a char is not a token marker \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{}, then it is transferred directly to the output stream ~\newline
+ 6) If a char is a token marker \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{}, then the internal logic is applied, this functions by firstly a token extraction tool which finds the numerical value of a token from its string representation. ~\newline
+ 7) After the value of a token is attained then the aforementioned switch case logic is applied on the token to find out which value from the JSON is to be appended on the output file stream. ~\newline
+ \begin{DoxyNote}{Note}
+In experiments where multiple PDF pages need to be generated, ofstreams are opened one by one as multiple ofstreams can not be opened simultaeneously. So, ofstreams are handled either iteratively or manually for the different experiment pages. 
+\end{DoxyNote}
+
+\end{DoxyItemize}

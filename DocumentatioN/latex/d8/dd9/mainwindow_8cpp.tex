@@ -28,30 +28,14 @@
 \item 
 void \mbox{\hyperlink{mainwindow_8cpp_ae80b5647a938df7b20eab36fff293d39}{remove\+Duplicates}} (std\+::vector$<$ std\+::string $>$ \&vec, const std\+::vector$<$ QString $>$ \&ref=\mbox{\hyperlink{mainwindow_8cpp_a8a5477800793b213aaa44ba632bbaf27}{all\+\_\+exp\+\_\+qstr}})
 \begin{DoxyCompactList}\small\item\em Removes duplicates from a vector and sorts it based on a reference vector. \end{DoxyCompactList}\item 
-\Hypertarget{mainwindow_8cpp_a2cea2c5177c316acf0ac97ce25fc3f41}\label{mainwindow_8cpp_a2cea2c5177c316acf0ac97ce25fc3f41} 
-QFile {\bfseries spe\+\_\+gravity} (cwd.\+file\+Path("{}json/spc.\+json"{}))
-\item 
-\Hypertarget{mainwindow_8cpp_ad455f71622d210613c110d641a974cd4}\label{mainwindow_8cpp_ad455f71622d210613c110d641a974cd4} 
-QFile {\bfseries Flakiness\+\_\+\+Elongation} (cwd.\+file\+Path("{}json/fei.\+json"{}))
-\item 
-\Hypertarget{mainwindow_8cpp_a949e09b4e4dd50099938d90e34abe49e}\label{mainwindow_8cpp_a949e09b4e4dd50099938d90e34abe49e} 
-QFile {\bfseries aiv\+\_\+} (cwd.\+file\+Path("{}json/aiv.\+json"{}))
-\item 
-\Hypertarget{mainwindow_8cpp_a54f0aabf7c069b288c6286b3ef5f9308}\label{mainwindow_8cpp_a54f0aabf7c069b288c6286b3ef5f9308} 
-QFile {\bfseries idg} (cwd.\+file\+Path("{}json/idg.\+json"{}))
-\item 
-\Hypertarget{mainwindow_8cpp_a649ef7a9ed7e747777d54ab12bb8660e}\label{mainwindow_8cpp_a649ef7a9ed7e747777d54ab12bb8660e} 
-std\+::vector$<$ double $>$ {\bfseries quadfit} (std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&y)
-\item 
-\Hypertarget{mainwindow_8cpp_a92ddb60e221c93a3d022b6dc434bec16}\label{mainwindow_8cpp_a92ddb60e221c93a3d022b6dc434bec16} 
-std\+::vector$<$ double $>$ {\bfseries quadval} (std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&coeff)
-\item 
-\Hypertarget{mainwindow_8cpp_a895e3a182c4191796ff27d4e6f7355ad}\label{mainwindow_8cpp_a895e3a182c4191796ff27d4e6f7355ad} 
-double {\bfseries lagrange\+Interpolation} (const std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \&points, double x)
-\item 
-\Hypertarget{mainwindow_8cpp_ade37edc1bc30068d005814b7c2915391}\label{mainwindow_8cpp_ade37edc1bc30068d005814b7c2915391} 
-std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ {\bfseries curvefit} (const std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \&points, double start, double end, double accuracy=100)
-\end{DoxyCompactItemize}
+std\+::vector$<$ double $>$ \mbox{\hyperlink{group___maths_funcs_ga649ef7a9ed7e747777d54ab12bb8660e}{quadfit}} (std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&y)
+\begin{DoxyCompactList}\small\item\em This function fits a quadratic equation to the given data points. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{group___maths_funcs_ga92ddb60e221c93a3d022b6dc434bec16}{quadval}} (std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&coeff)
+\begin{DoxyCompactList}\small\item\em This function evaluates the quadratic equation at the given x-\/values. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group___maths_funcs_ga895e3a182c4191796ff27d4e6f7355ad}{lagrange\+Interpolation}} (const std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \&points, double x)
+\begin{DoxyCompactList}\small\item\em This function performs Lagrange Interpolation on the given data points. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \mbox{\hyperlink{group___maths_funcs_gade37edc1bc30068d005814b7c2915391}{curvefit}} (const std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \&points, double start, double end, double accuracy=100)
+\begin{DoxyCompactList}\small\item\em This function fits a curve to the given data points using Lagrange Interpolation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -84,20 +68,33 @@ std\+::string {\bfseries OS}
 \Hypertarget{mainwindow_8cpp_ac62fe7cab0051c46da01d1469f23e2c1}\label{mainwindow_8cpp_ac62fe7cab0051c46da01d1469f23e2c1} 
 bool {\bfseries saveas\+\_\+done} = false
 \begin{DoxyCompactList}\small\item\em Flag to indicate whether a \textquotesingle{}save as\textquotesingle{} operation has been done. \end{DoxyCompactList}\item 
+QVector$<$ int $>$ {\bfseries vol\+\_\+non\+\_\+scrolling\+\_\+elements} = \{391, 290, 184, 215, 217, 216, 271, 286, 272, 287\}
+\begin{DoxyCompactList}\small\item\em The element indices of the non scrolling elements of Volumetric Analysis page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
 \Hypertarget{mainwindow_8cpp_a1df779d5a81d0888d2110f61009ffa79}\label{mainwindow_8cpp_a1df779d5a81d0888d2110f61009ffa79} 
 QJson\+Object {\bfseries Specific\+\_\+\+Gravity}
-\item 
+\begin{DoxyCompactList}\small\item\em A JSON object to store the specific gravity values. \end{DoxyCompactList}\item 
 \Hypertarget{mainwindow_8cpp_a7691133fd0124fba9ad53aee3c00518a}\label{mainwindow_8cpp_a7691133fd0124fba9ad53aee3c00518a} 
 QJson\+Object {\bfseries Flakiness\+\_\+\+Elongation\+\_\+\+Indices}
-\item 
+\begin{DoxyCompactList}\small\item\em A JSON object to store Flakiness and Elongation Indices. \end{DoxyCompactList}\item 
 \Hypertarget{mainwindow_8cpp_aa17b75d8fe5ef027c484bc5c4cae374c}\label{mainwindow_8cpp_aa17b75d8fe5ef027c484bc5c4cae374c} 
 QJson\+Object {\bfseries aiv\+\_\+json}
 \item 
 \Hypertarget{mainwindow_8cpp_a473791dfef834ed49fce0cdbdaccce10}\label{mainwindow_8cpp_a473791dfef834ed49fce0cdbdaccce10} 
 QJson\+Object {\bfseries idg\+\_\+json}
 \item 
-\Hypertarget{mainwindow_8cpp_ab89dc7b11bbc187dc1fe1c2596b46def}\label{mainwindow_8cpp_ab89dc7b11bbc187dc1fe1c2596b46def} 
-QVector$<$ int $>$ {\bfseries vol\+\_\+non\+\_\+scrolling\+\_\+elements} = \{391, 290, 184, 215, 217, 216, 271, 286, 272, 287\}
+\Hypertarget{mainwindow_8cpp_a2cea2c5177c316acf0ac97ce25fc3f41}\label{mainwindow_8cpp_a2cea2c5177c316acf0ac97ce25fc3f41} 
+QFile {\bfseries spe\+\_\+gravity} (cwd.\+file\+Path("{}json/spc.\+json"{}))
+\begin{DoxyCompactList}\small\item\em A QFile object representing the JSON file where the specific gravity values are stored. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_ad455f71622d210613c110d641a974cd4}\label{mainwindow_8cpp_ad455f71622d210613c110d641a974cd4} 
+QFile {\bfseries Flakiness\+\_\+\+Elongation} (cwd.\+file\+Path("{}json/fei.\+json"{}))
+\begin{DoxyCompactList}\small\item\em A file object to handle the JSON file for Flakiness and Elongation Indices. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_a949e09b4e4dd50099938d90e34abe49e}\label{mainwindow_8cpp_a949e09b4e4dd50099938d90e34abe49e} 
+QFile {\bfseries aiv\+\_\+} (cwd.\+file\+Path("{}json/aiv.\+json"{}))
+\item 
+\Hypertarget{mainwindow_8cpp_a54f0aabf7c069b288c6286b3ef5f9308}\label{mainwindow_8cpp_a54f0aabf7c069b288c6286b3ef5f9308} 
+QFile {\bfseries idg} (cwd.\+file\+Path("{}json/idg.\+json"{}))
 \end{DoxyCompactItemize}
 
 

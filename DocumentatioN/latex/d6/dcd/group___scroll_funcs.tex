@@ -1,0 +1,200 @@
+\doxysection{Scrolling Functions}
+\hypertarget{group___scroll_funcs}{}\label{group___scroll_funcs}\index{Scrolling Functions@{Scrolling Functions}}
+
+
+These functions handle scrolling by mouse wheel and by scrollbar.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___scroll_funcs_ga94c7ecea737958cac7276189bc1460f5}\label{group___scroll_funcs_ga94c7ecea737958cac7276189bc1460f5} 
+void {\bfseries Main\+Window\+::wheel\+Event} (QWheel\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___scroll_funcs_gab89dc7b11bbc187dc1fe1c2596b46def}\label{group___scroll_funcs_gab89dc7b11bbc187dc1fe1c2596b46def} 
+QVector$<$ int $>$ {\bfseries vol\+\_\+non\+\_\+scrolling\+\_\+elements} = \{391, 290, 184, 215, 217, 216, 271, 286, 272, 287\}
+\begin{DoxyCompactList}\small\item\em The element indices of the non scrolling elements of Volumetric Analysis page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___scroll_funcs_gaf6112ad935d10766501f3c2cacacc024}{Main\+Window\+::on\+\_\+spc\+\_\+data\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the SPC data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga4dc5c0adfa040d80a4f3f2135c2ef0d9}{Main\+Window\+::on\+\_\+ind\+\_\+data\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the IND data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga3e3d87ad8d58050469a09b7835812591}{Main\+Window\+::on\+\_\+aiv\+\_\+data\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the AIV data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga687f50befe87b4a0aa19d638c304c825}{Main\+Window\+::on\+\_\+grad\+\_\+data\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the Gradation data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga41000d4613b074b66d40b32595f700cf}{Main\+Window\+::on\+\_\+marshall\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the Marshall data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga7c59e655a528d6c0fd39da29a8a534e6}{Main\+Window\+::on\+\_\+vol\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the Volumetrics data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga64df280965b1da5461d363502951a1b4}{Main\+Window\+::on\+\_\+gmm\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the GMM data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga704188f95c3d65cd1e9a46980aeb6b03}{Main\+Window\+::on\+\_\+rheology\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the Rheology data scroll bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___scroll_funcs_ga348a56d3029288930420031765c22eb2}{Main\+Window\+::on\+\_\+wa\+\_\+scroll\+\_\+value\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Handles the value change event for the Water Absorption data scroll bar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+These functions handle scrolling by mouse wheel and by scrollbar. 
+
+This app uses Frame in Frame technique to scroll. There is an outer frame {\ttfamily exp\+\_\+frame\+\_\+outer} and inside it there is an inner frame {\ttfamily exp\+\_\+frame}. When the scrollbar value is changed, the inner frame x or y position is changed according to the scrollbar. The difference in the position of the inner and outer frames is linearly proportional to the value of the scrollbar.
+
+Wheel event scrolling uses the inbuilt QWheel\+Event handling system. Angle\+Delta (the angle your mouse is rotated in), is converted into Dots, which are then divided by the sensitivity to set how many pixels the page must be scrolled by. Once the amount of pixels to move the page is found, it is passed as a value to the scrollbar, which handles the change in value according to the method described above.
+
+Deals with Scrolling /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+
+Handles the wheel event for scrolling.
+
+This function processes the wheel event to scroll the content within the currently active tab. The sensitivity of the scroll is set to 20 by default. The scroll operation is applied to the scroll bars of the corresponding area based on the current tab selected in the UI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to the QWheel\+Event object that contains details about the wheel event. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Private Slots}
+\Hypertarget{group___scroll_funcs_ga3e3d87ad8d58050469a09b7835812591}\label{group___scroll_funcs_ga3e3d87ad8d58050469a09b7835812591} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_aiv\_data\_scroll\_valueChanged@{on\_aiv\_data\_scroll\_valueChanged}}
+\index{on\_aiv\_data\_scroll\_valueChanged@{on\_aiv\_data\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_aiv\_data\_scroll\_valueChanged}{on\_aiv\_data\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+aiv\+\_\+data\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the AIV data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga64df280965b1da5461d363502951a1b4}\label{group___scroll_funcs_ga64df280965b1da5461d363502951a1b4} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_gmm\_scroll\_valueChanged@{on\_gmm\_scroll\_valueChanged}}
+\index{on\_gmm\_scroll\_valueChanged@{on\_gmm\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_gmm\_scroll\_valueChanged}{on\_gmm\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+gmm\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the GMM data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga687f50befe87b4a0aa19d638c304c825}\label{group___scroll_funcs_ga687f50befe87b4a0aa19d638c304c825} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_grad\_data\_scroll\_valueChanged@{on\_grad\_data\_scroll\_valueChanged}}
+\index{on\_grad\_data\_scroll\_valueChanged@{on\_grad\_data\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_grad\_data\_scroll\_valueChanged}{on\_grad\_data\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+grad\+\_\+data\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the Gradation data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga4dc5c0adfa040d80a4f3f2135c2ef0d9}\label{group___scroll_funcs_ga4dc5c0adfa040d80a4f3f2135c2ef0d9} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_ind\_data\_scroll\_valueChanged@{on\_ind\_data\_scroll\_valueChanged}}
+\index{on\_ind\_data\_scroll\_valueChanged@{on\_ind\_data\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_ind\_data\_scroll\_valueChanged}{on\_ind\_data\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+ind\+\_\+data\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the IND data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga41000d4613b074b66d40b32595f700cf}\label{group___scroll_funcs_ga41000d4613b074b66d40b32595f700cf} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_marshall\_scroll\_valueChanged@{on\_marshall\_scroll\_valueChanged}}
+\index{on\_marshall\_scroll\_valueChanged@{on\_marshall\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_marshall\_scroll\_valueChanged}{on\_marshall\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+marshall\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the Marshall data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga704188f95c3d65cd1e9a46980aeb6b03}\label{group___scroll_funcs_ga704188f95c3d65cd1e9a46980aeb6b03} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_rheology\_scroll\_valueChanged@{on\_rheology\_scroll\_valueChanged}}
+\index{on\_rheology\_scroll\_valueChanged@{on\_rheology\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_rheology\_scroll\_valueChanged}{on\_rheology\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+rheology\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the Rheology data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_gaf6112ad935d10766501f3c2cacacc024}\label{group___scroll_funcs_gaf6112ad935d10766501f3c2cacacc024} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_spc\_data\_scroll\_valueChanged@{on\_spc\_data\_scroll\_valueChanged}}
+\index{on\_spc\_data\_scroll\_valueChanged@{on\_spc\_data\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_spc\_data\_scroll\_valueChanged}{on\_spc\_data\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+spc\+\_\+data\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the SPC data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga7c59e655a528d6c0fd39da29a8a534e6}\label{group___scroll_funcs_ga7c59e655a528d6c0fd39da29a8a534e6} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_vol\_scroll\_valueChanged@{on\_vol\_scroll\_valueChanged}}
+\index{on\_vol\_scroll\_valueChanged@{on\_vol\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_vol\_scroll\_valueChanged}{on\_vol\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+vol\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the Volumetrics data scroll bar. 
+
+Moves the Volumetrics frame based on the scroll bar value and adjusts the positions. Some elements of this UI must be kept stationary relative to the moving page. This function keeps the stationary elements stationary while scrolling the page horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group___scroll_funcs_ga348a56d3029288930420031765c22eb2}\label{group___scroll_funcs_ga348a56d3029288930420031765c22eb2} 
+\index{Scrolling Functions@{Scrolling Functions}!on\_wa\_scroll\_valueChanged@{on\_wa\_scroll\_valueChanged}}
+\index{on\_wa\_scroll\_valueChanged@{on\_wa\_scroll\_valueChanged}!Scrolling Functions@{Scrolling Functions}}
+\doxysubsubsection{\texorpdfstring{on\_wa\_scroll\_valueChanged}{on\_wa\_scroll\_valueChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::on\+\_\+wa\+\_\+scroll\+\_\+value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Handles the value change event for the Water Absorption data scroll bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value of the scroll bar. \\
+\hline
+\end{DoxyParams}

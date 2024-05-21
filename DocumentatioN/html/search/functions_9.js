@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['keyrange_0',['keyRange',['../d0/dfd/class_q_c_p_data_container.html#aba6e1a93c21ccc56a432b4a02c9d0ed2',1,'QCPDataContainer']]],
-  ['keytodatetime_1',['keyToDateTime',['../d0/da7/class_q_c_p_axis_ticker_date_time.html#a4c1761ad057f5564804a53f942629b53',1,'QCPAxisTickerDateTime']]]
+  ['save_5fcheck_0',['save_check',['../d4/d8a/group___misc_funcs.html#ga741bd3faf7631fbd0219896c2c7a5252',1,'MainWindow']]],
+  ['soft_5feval_1',['soft_eval',['../df/dfe/group___rheology_evaluation_subfuncs.html#gae6c3dc152d782b7480e451c2d1f2e98d',1,'MainWindow']]],
+  ['spc_5feval_2',['spc_eval',['../df/dfe/group___rheology_evaluation_subfuncs.html#gad732a7ef3339adc1d68535cc355b2ab5',1,'MainWindow']]],
+  ['spe_5fgravity_3',['spe_gravity',['../d8/dd9/mainwindow_8cpp.html#a2cea2c5177c316acf0ac97ce25fc3f41',1,'mainwindow.cpp']]],
+  ['strip_5feval_4',['strip_eval',['../df/dfe/group___rheology_evaluation_subfuncs.html#ga21ebebeff1dddda6df8a210d94f4c12f',1,'MainWindow']]]
 ];

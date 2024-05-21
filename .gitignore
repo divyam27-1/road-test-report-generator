@@ -3,6 +3,8 @@ reference
 html
 json
 testing
+output
+DocumentatioN_workspace.code-workspace
 .vscode
 
 !/DocumentatioN/html/

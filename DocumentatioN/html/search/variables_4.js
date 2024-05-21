@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['legend_0',['legend',['../dd/d9b/class_q_custom_plot.html#a4eadcd237dc6a09938b68b16877fa6af',1,'QCustomPlot']]]
+  ['i_0',['i',['../d8/dd9/mainwindow_8cpp.html#ac18f084b6321876f4e42cfcfd8ab8450',1,'mainwindow.cpp']]]
 ];
