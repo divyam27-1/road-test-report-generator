@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['removeduplicates_0',['removeDuplicates',['../d8/dd9/mainwindow_8cpp.html#ae80b5647a938df7b20eab36fff293d39',1,'mainwindow.cpp']]]
+  ['quadfit_0',['quadfit',['../d9/d69/group___maths_funcs.html#ga649ef7a9ed7e747777d54ab12bb8660e',1,'mainwindow.cpp']]],
+  ['quadval_1',['quadval',['../d9/d69/group___maths_funcs.html#ga92ddb60e221c93a3d022b6dc434bec16',1,'mainwindow.cpp']]]
 ];

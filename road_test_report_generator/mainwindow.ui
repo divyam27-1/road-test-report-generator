@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="wmm_page">
      <widget class="QTabWidget" name="wmm_tab_list">
@@ -11145,8 +11145,8 @@ color: rgb(0, 0, 0);</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>551</width>
-           <height>700</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="label">

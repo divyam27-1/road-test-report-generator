@@ -23,15 +23,6 @@
 #include <functional>
 #include <algorithm>
 
-/* TODO
-- Finish documentation for JSON structure of on_wa_save_clicked()
-- Finish documentation for JSON save as functions
-- Finish documentation for HTML generation functions
-- Finish documentation for JSON subfunctions
-- Finish documentation for Graph Generation functions
-- Finish documentation for Scroll Control functions
-- Finish documentation for Switching Windows functions
-- Finish documentation for the AIV AutoUpdating dogshit*/
 
 /// @file
 
@@ -5432,13 +5423,21 @@ void MainWindow::on_wa_export_clicked()
  *   4) The template is read line by line as a cstring (character array) \n
  *   5) Every line is parsed char by char, and if a char is not a token marker '~', then it is transferred directly to the output stream \n
  *   6) If a char is a token marker '~', then the internal logic is applied, this functions by firstly a token extraction tool which finds the numerical value of a token from its string representation. \n
- *   7) After the value of a token is attained then the aforementioned switch case logic is applied on the token to find out which value from the JSON is to be appended on the output file stream. \n
+ *   7) After the value of a token is attained then the aforementioned switch case logic is applied on the token to find out which value from the JSON is to be appended on the output file stream. The appending on output file stream is handled by 2 variables `topush` and `topushf`. `topush` intakes any value from the JSON or UI which is char or string in nature and appends it to output file stream, and topushf does the same for floating point values. \n
  *
  *   @note In experiments where multiple PDF pages need to be generated, ofstreams are opened one by one as multiple ofstreams can not be opened simultaeneously. So, ofstreams are handled either iteratively or manually for the different experiment pages.
  *   @{
  */
 
 // Deals with HTML generation
+
+/**
+ *  @brief Generates HTML report for Specific Gravity
+ *
+ *  The JSON object for specific gravity has 4 major objects named 40mm, 20mm, 10mm, stone_dust. This function iterates over them to generate all the 4 pages of the report.
+ *
+ *  Output: 4 HTML pages named spc_40mm.html, spc_20mm.html, spc_10mm.html, spc_stone_dust.html
+ */
 void MainWindow::generate_html_spc()
 {
     // ui->spc_save->click();
@@ -5674,6 +5673,11 @@ void MainWindow::generate_html_spc()
         }
     }
 }
+/**
+ * @brief Generates HTML report for Flakiness and Elongation Indices
+ *
+ * Output: 1 HTML page named fei.html
+*/
 void MainWindow::generate_html_fei()
 {
     // ui->fei_save->click();
@@ -6050,6 +6054,11 @@ void MainWindow::generate_html_fei()
         template_file.close();
     }
 }
+/**
+ * @brief Generates HTML report of Aggregate Impact Value Test
+ *
+ * Output: 2 HTML pages named aiv_20mm.html, aiv_10mm.html
+*/
 void MainWindow::generate_html_aiv()
 {
     // ui->aiv_save->click();
@@ -6258,6 +6267,20 @@ void MainWindow::generate_html_aiv()
         }
     }
 }
+/**
+ * @brief Generates HTML report for Individual Gradation
+ *
+ * Individual Gradation itself consists of multiple experiments, Gradation, Blending, Passing of % and Combined Gradation \n
+ * 1) **Gradation**: Is just the direct representation of input data and some other cumulative passing percentages \n
+ * 2) **Blending**: Is the combined, blended values of the 4 different bitumen width mixtures according to their proportion. Also generates a blending graph showing the passing percentage w.r.t. the seive sizes.\n
+ * 3) **Passing of %**: Shows the averaged passing ratio for every seive size per bitumen mixture width \n
+ * 4) **Combined Gradation**: Capturing seive properties of the blended bitumen experimentally. Generates a graph showing the experimental findings of passing percentage of combined mixture w.r.t. the seive sizes. \n
+ *
+ * This happens through 4 different loops, all of which have their own internal logic and open their own file stream one after the other.
+ *
+ * Output: 7 HTML pages named ind_40mm.html, ind_20mm.html, ind_10mm.html, ind_d.html, bld.html, cmb.html, pass.html \n
+ *         2 PNG file graphs named blending_graph.png, combined_graph.png
+*/
 void MainWindow::generate_html_ind()
 {
     // ui->ind_save->click();
@@ -8483,6 +8506,14 @@ void MainWindow::generate_html_ind()
         qDebug() << "output html not opened";
     }
 }
+/**
+ * @brief Generates HTML report for MDD experiment
+ *
+ * From this experiment on we have started using mathematical token logic as in the prior experiments it was taking simply too much time to write the switch case expressions for every single token, and would have prolonged the developement time. \n
+ *
+ * Output: 1 HTML report: mdd.html \n
+ *         1 PNG graph: mdd_graph.png
+*/
 void MainWindow::generate_html_mdd()
 {
     // ui->mdd_save->click();
@@ -8703,6 +8734,14 @@ void MainWindow::generate_html_mdd()
         qDebug() << "mdd output html file not opened";
     }
 }
+/**
+ * @brief Generates HTML reports for the DBM Gradation experiments
+ *
+ * 3 pages of reports are generated. Gradation, which has the user input values of passing % through different sized seives of different sized bitumen; Blending, which has the values of previous data averaged and added proportionally to their ratio in the mix; JMF table which compares the experimentally attained passing % values of the mix to the limits specified by JMF and MORT&H. @n
+ *
+ * Output: 3 HTML pages named grad.html, grad_bld.html, grad_jmf.html @n
+ *         2 PNG graphs named grad_graph.png, jmf_graph.png
+*/
 void MainWindow::generate_html_grad()
 {
     // ui->mdd_save->click();
@@ -9167,6 +9206,11 @@ void MainWindow::generate_html_grad()
         qDebug() << "grad bld output html file not opened";
     }
 }
+/**
+ * @brief Generates HTML report for Tensile Strength experiment in DBM
+ *
+ * Output: 1 HTML file named tensile.html
+*/
 void MainWindow::generate_html_tensile()
 {
     qDebug() << "beginning tensile save...";
@@ -9335,6 +9379,13 @@ void MainWindow::generate_html_tensile()
         qDebug() << "tensile output html file not opened";
     }
 }
+/**
+ * @brief Generates HTML report of Marshall Test experiment
+ *
+ * The Marshall Test and Volumetric Analysis are both closely linked with a page called curves.html, which contains 6 graphs of various properties calculated in the Marshall Test and Volumetric Analysis experiments. So the HTML page for that curves.html page is made within the updateGraph_dbm() function itself, rather than any of these functions. \n
+ *
+ * Output: 1 HTML report named marshall.html
+*/
 void MainWindow::generate_html_marshall()
 {
     qDebug() << "beginning marshall save...";
@@ -9685,6 +9736,15 @@ void MainWindow::generate_html_marshall()
         qDebug() << "tensile output html file not opened";
     }
 }
+/**
+ * @brief Generates HTML report of Volumetric Analysis experiments
+ *
+ * The Marshall Test and Volumetric Analysis are both closely linked with a page called curves.html, which contains 6 graphs of various properties calculated in the Marshall Test and Volumetric Analysis experiments. So the HTML page for that curves.html page is made within the updateGraph_dbm() function itself, rather than any of these functions. \n
+ *
+ * This generation function makes 3 pages: Volumetric Analysis is the main page generated by this function, it captures all the data attained from the experiment done across the multiple ranges of bitumen concentration; Volumetric OBC Analysis captures the data gotten from doing the experiment at Optimum Binder Concentration (4.51% bitumen); Determination of Effective Specific Gravity just notes down the apparent, specific and bulk gravity of the bitumen mixture at the particular concentration.
+ *
+ * Outputs: 3 HTML files determination_of_eff_spg.html, vol_analysis.html, vol_analysis_obc.html
+*/
 void MainWindow::generate_html_vol() {
     qDebug() << "beginning vol save...";
     QString json_path = cwd.filePath("json/vol.json");
@@ -10054,6 +10114,13 @@ void MainWindow::generate_html_vol() {
         template_file.close();
     }
 }
+/**
+ * @brief Generates HTML for experiment Maximum Specific gravity of Paving Mixture
+ *
+ * Outputs: 3 HTML pages named gmm_4.00.html, gmm_4.25.html, gmm_4.50.html
+ *
+ * @todo Currently the GMM output is only for the 4.00, 4.25 and 4.50 values, what if user wants a different set of values specified in Marshall Test? Make a logic to fix that
+*/
 void MainWindow::generate_html_gmm() {
     qDebug() << "beginning gmm save...";
 
@@ -10233,6 +10300,21 @@ void MainWindow::generate_html_gmm() {
     }
 
 }
+/**
+ * @brief Generates all the HTML reports for the Rheology based individual experiments
+ *
+ * Rheology is a "supergroup" which just groups a lot of minor experiments cataloging the Rheological properties of the bitumen sample, like Flash Point, Penetrativity, etc. @n
+ * The experiments cataloged are:
+ * - Ductility
+ * - Flash Point
+ * - Penetration Test
+ * - Softening Point
+ * - Specific Gravity
+ * - Striping Value
+ * - Viscosity
+ *
+ * Output: 7 HTML files, named ductility.html, flash.html, penetration.html, softening.html, rh_spc.html, strip.html, rh_vis.html
+*/
 void MainWindow::generate_html_rheology() {
 
     qDebug() << "beginning rheology save...";
@@ -11070,6 +11152,11 @@ void MainWindow::generate_html_rheology() {
         qDebug() << "viscosity output html file not opened";
     }
 }
+/**
+ * @brief Generates HTML output for Water Absorption experiments
+ *
+ * Output: 3 HTML files named wa_10.html, wa_20.html, wa_dust.html
+*/
 void MainWindow::generate_html_wa() {
     qDebug() << "beginning wa save...";
 
