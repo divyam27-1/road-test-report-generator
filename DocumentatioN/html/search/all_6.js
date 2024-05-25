@@ -13,6 +13,7 @@ var searchData=
   ['generate_5fhtml_5fvol_10',['generate_html_vol',['../d2/d9a/group___h_t_m_l_gen_funcs.html#ga18067c707bfae5bab17153ddb5b45bc8',1,'MainWindow']]],
   ['generate_5fhtml_5fwa_11',['generate_html_wa',['../d2/d9a/group___h_t_m_l_gen_funcs.html#gab1ec5b2a56c6e0d1bcfbfff661bb1e4e',1,'MainWindow']]],
   ['generation_20functions_12',['HTML Generation Functions',['../d2/d9a/group___h_t_m_l_gen_funcs.html',1,'']]],
-  ['graph_20display_20functions_13',['Graph Display Functions',['../d9/da0/group___graph_display.html',1,'']]],
-  ['graphing_20functions_14',['Graphing Functions',['../d8/d7d/group___graph_funcs.html',1,'']]]
+  ['generator_13',['Layer Build: Road Test Report Generator',['../index.html',1,'']]],
+  ['graph_20display_20functions_14',['Graph Display Functions',['../d9/da0/group___graph_display.html',1,'']]],
+  ['graphing_20functions_15',['Graphing Functions',['../d8/d7d/group___graph_funcs.html',1,'']]]
 ];

@@ -1,0 +1,70 @@
+\chapter{Layer Build\+: Road Test Report Generator}
+\hypertarget{index}{}\label{index}\index{Layer Build: Road Test Report Generator@{Layer Build: Road Test Report Generator}}
+This app aims to digitize the generation of reports relating to quality of bitumen for highway road laying. ~\newline
+ In this documentation I will mainly go over the how to use and the code structure of the source code. ~\newline
+ \doxysubsection*{How to use }
+
+This app covers 2 types of experiment\+: WMM and DBM. ~\newline
+Within these major experiments, there are multiple sub experiments listed on the side as a tab bar. You can switch between DBM and WMM from the top ribbon under the \textquotesingle{}Experiment\textquotesingle{} tab. You will fill the values in the UI as you like and after clicking \textquotesingle{}Save\textquotesingle{} the data is processed, values and properties are calculated from the observed data and the report is generated as an HTML page in the /html tab. However, we can also export these reports as a PDF by clicking on the \textquotesingle{}Export to PDF\textquotesingle{} buttons present on the UI. The \textquotesingle{}Export to PDF\textquotesingle{} buttons on the UI export only the single page report of that one experiment. To export all experiments which have been observed, you can go to File -\/\texorpdfstring{$>$}{>} EXPORT ALL to export them all. Any experiments modified and saved by the user will be marked with a Green ribbon on the top right. ~\newline
+~\newline
+The general data flowchart that the data goes through looks like this \+: ~\newline
+~\newline
+{\ttfamily User Input -\/-\/\texorpdfstring{$>$}{>} Calculations and Data Processing to Find Other Attributes -\/-\/\texorpdfstring{$>$}{>} Generation of Graphics -\/-\/\texorpdfstring{$>$}{>} Generation of HTML report -\/-\/\texorpdfstring{$>$}{>} Generation of PDF Report}
+
+\doxysubsection*{Dependencies }
+
+This app has 2 major dependencies\+: wkhtmltopdf and QCustom\+Plot ~\newline
+
+\begin{DoxyItemize}
+\item \href{https://wkhtmltopdf.org/}{\texttt{ wkhtmltopdf}} is a HTML to PDF conversion library, it efficiently converts the HTML webpage report into a PDF file
+\item \href{https://www.qcustomplot.com/}{\texttt{ QCustom\+Plot}} is a graphics library which is used to plot the data to create professional looking report worthy graphs ~\newline
+
+\end{DoxyItemize}
+
+\doxysubsection*{How to Contribute }
+
+First clone the repository into your local machine. ~\newline
+You must have Qt version 4+ installed. ~\newline
+After opening the project in Qt navigate to \doxylink{mainwindow_8cpp}{mainwindow.\+cpp} and go to Edit -\/\texorpdfstring{$>$}{>} Advanced -\/\texorpdfstring{$>$}{>} Toggle Fold All because there are 11,000+ lines of code and you should not go crazy looking at all that ~\newline
+To contribute we need to understand the structure of the code. As the scope of the app is not too big right now, we can have everything loaded in a single c++ file. However as the scope of the app increases we will need to fragment the source code so that we do not go crazy. Here is the structure of the main source code file \doxylink{mainwindow_8cpp}{mainwindow.\+cpp}\+: ~\newline
+ \doxysubsubsection*{Global Variable Initialization }
+
+First, all the global variables are initialized which are documented under Files -\/\texorpdfstring{$>$}{>} \doxylink{mainwindow_8cpp}{mainwindow.\+cpp}. These include variables which track all the experiments, track which experiments we have saved etc. They also define some functions which end up very useful in the flow of our app, please read the documentation of those functions for the same. \textbackslash{}navigate
+
+\doxysubsubsection*{Saving to JSON }
+
+This is the first cluster of functions. These functions are all slots activated by click of a button and they save the UI input values and calculated values into JSON file database. Read their documentation in Topics tab. ~\newline
+
+
+\doxysubsubsection*{Save As }
+
+This cluster of functions activate when the respective "{}\+Save As"{} button is clicked. It asks you where you want to save the output reports (PDF), so whenever you click on the \textquotesingle{}Export\textquotesingle{} buttons the output is saved there. To read more go to Topics.
+
+\doxysubsubsection*{Save to JSON Subfunctoins }
+
+The next cluster of functions are subfunctions which assist in very specific actions for the Save operations. These are not well documented as they are for specific usecases, where the primary logic is present in the main Save function of each experiment. You can read their overview in Topics.
+
+\doxysubsubsection*{Graphing Functions }
+
+The next cluster of functions make the required graphics. WMM report requires graphics of Individual Gradation and MDD, DBM requires graphics of Gradation, JMF Mix, Marshall Test and Volumetric Analysis. Generation of graphics also requires mathematical rendering and data science tools like Langrange Interpolation, Curve Fitting techniques, etc. These can be found documented in Topics.
+
+\doxysubsubsection*{Export to PDF Functions }
+
+The next cluster of functions convert the HTML reports into PDF (more on how the HTML report is generated later). There is a main function that evaluates the general processing on how to handle the event when "{}\+Convert HTML to PDF"{} is called using the {\ttfamily tracked\+\_\+files} array and the wkhtmltopdf tool. The other functions simply fit the event according to the specific experiment whose PDF report has to be generated. However the primary event handler can work on any general case with n number of experiments within {\ttfamily tracked\+\_\+files}. To see more go to Topics.
+
+\doxysubsubsection*{HTML Generating Functions }
+
+The next cluster of functions generate the HTML reports. They do this by reading a manually made template parallely with the database in JSON where the user input and calculated data is stored. Then the data is processed and fed into an output HTML file which is procedurally generated. This file is later passed to be converted into PDF. To read more go to Topics.
+
+\doxysubsubsection*{Scrolling Functions }
+
+The next cluster of functions handle scrolling. Usually to handle scrolling with Qt we use QScroll\+Area as it is easy. But for some reason, it was not working with all screen parameters for our app. So I had to manually "{}reinvent the wheel"{} and make my own scrolling functions using Frame-\/in-\/\+Frame scrolling. There is one outer frame which is still in place, and on moving of the scrollbar, the inside frame is moved with all the contents to make it look like the page is scrolling. To read more go to Topics.
+
+\doxysubsection*{What to add next? }
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Add an \textquotesingle{}Open\textquotesingle{} Operation where users can open recently saved data into the UI 
+
+Expand the app using similar code structure to include more experiments 
+
+Make the app work on mac, as Qt security features on mac disallow some file I/O operations from happening \end{DoxyRefDesc}
